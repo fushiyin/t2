@@ -1,0 +1,203 @@
+/* eslint-disable no-unused-vars */
+
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { useOnboarding } from "./OnBoardingProvider";
+
+// Animation duration in seconds (configurable)
+const ANIMATION_DURATION = 5;
+
+export default function Onboarding() {
+	const { hasSeenOnboarding, setHasSeenOnboarding } = useOnboarding();
+	const [animationStep, setAnimationStep] = useState(0);
+	const [showContent, setShowContent] = useState(false);
+	const [exitAnimation, setExitAnimation] = useState(false);
+
+	// Control the animation sequence
+	useEffect(() => {
+		console.log("Onboarding effect triggered");
+		if (hasSeenOnboarding) return;
+
+		// Step 1: Show first diagonal section
+		const timer1 = setTimeout(() => {
+			setAnimationStep(1);
+		}, 500);
+
+		// Step 2: Show second diagonal section
+		const timer2 = setTimeout(() => {
+			setAnimationStep(2);
+		}, 1000);
+
+		// Step 3: Show third diagonal section
+		const timer3 = setTimeout(() => {
+			setAnimationStep(3);
+		}, 1500);
+
+		// Step 4: Show content
+		const timer4 = setTimeout(() => {
+			setShowContent(true);
+		}, 2000);
+
+		// Step 5: Start exit animation
+		const timer5 = setTimeout(() => {
+			setExitAnimation(true);
+		}, ANIMATION_DURATION * 1000);
+
+		// Step 6: Complete onboarding
+		const timer6 = setTimeout(
+			() => {
+				setHasSeenOnboarding(true);
+			},
+			(ANIMATION_DURATION + 1) * 1000,
+		);
+
+		return () => {
+			clearTimeout(timer1);
+			clearTimeout(timer2);
+			clearTimeout(timer3);
+			clearTimeout(timer4);
+			clearTimeout(timer5);
+			clearTimeout(timer6);
+		};
+	}, [hasSeenOnboarding, setHasSeenOnboarding]);
+
+	if (hasSeenOnboarding) {
+		return null;
+	}
+
+	return (
+		<AnimatePresence>
+			{!hasSeenOnboarding && (
+				<motion.div
+					className="fixed inset-0 z-50 overflow-hidden bg-white"
+					initial={{ opacity: 1 }}
+					animate={{ opacity: exitAnimation ? 0 : 1 }}
+					exit={{ opacity: 0 }}
+					transition={{ duration: 1 }}
+				>
+					{/* First diagonal section - Dark Blue */}
+					<motion.div
+						className="absolute top-0 left-0 w-full h-full bg-deepest-navy"
+						initial={{ clipPath: "polygon(0 0, 0 0, 0 100%, 0% 100%)" }}
+						animate={{
+							clipPath:
+								animationStep >= 1
+									? "polygon(0 0, 100% 0, 70% 100%, 0% 100%)"
+									: "polygon(0 0, 0 0, 0 100%, 0% 100%)",
+						}}
+						transition={{ duration: 0.8, ease: "easeOut" }}
+					/>
+
+					{/* Second diagonal section - Medium Blue */}
+					<motion.div
+						className="absolute top-0 left-0 w-full h-full bg-near-black-blue"
+						initial={{ clipPath: "polygon(100% 0, 100% 0, 100% 100%, 100% 100%)" }}
+						animate={{
+							clipPath:
+								animationStep >= 2
+									? "polygon(100% 0, 100% 0, 100% 100%, 70% 100%)"
+									: "polygon(100% 0, 100% 0, 100% 100%, 100% 100%)",
+						}}
+						transition={{ duration: 0.8, ease: "easeOut" }}
+					/>
+
+					{/* Third diagonal section - Light Blue */}
+					<motion.div
+						className="absolute top-0 left-0 w-full h-full bg-draker-blue"
+						initial={{ clipPath: "polygon(100% 0, 100% 0, 100% 0, 100% 0)" }}
+						animate={{
+							clipPath:
+								animationStep >= 3
+									? "polygon(60% 0, 100% 0, 100% 50%, 80% 100%)"
+									: "polygon(100% 0, 100% 0, 100% 0, 100% 0)",
+						}}
+						transition={{ duration: 0.8, ease: "easeOut" }}
+					/>
+
+					{/* Content Container */}
+					<div className="relative z-10 h-full flex flex-col items-center justify-center px-4">
+						<div className="max-w-4xl w-full">
+							{/* Logo */}
+							<motion.div
+								className="mb-8 flex justify-center"
+								initial={{ opacity: 0, scale: 0.8 }}
+								animate={{
+									opacity: showContent ? 1 : 0,
+									scale: showContent ? 1 : 0.8,
+								}}
+								transition={{ duration: 0.8, delay: 0.2 }}
+							>
+								<div className="relative w-32 h-32 bg-white rounded-full flex items-center justify-center shadow-lg">
+									<span className="text-4xl font-bold text-deepest-navy">T2</span>
+								</div>
+							</motion.div>
+
+							{/* Title */}
+							<motion.h1
+								className="text-5xl md:text-7xl font-bold mb-6 text-white text-center"
+								initial={{ opacity: 0, y: 30 }}
+								animate={{ opacity: showContent ? 1 : 0, y: showContent ? 0 : 30 }}
+								transition={{ duration: 0.8, delay: 0.5 }}
+							>
+								T2Soft
+							</motion.h1>
+
+							{/* Tagline */}
+							<motion.h2
+								className="text-2xl md:text-3xl font-medium mb-8 text-white text-center"
+								initial={{ opacity: 0, y: 30 }}
+								animate={{ opacity: showContent ? 1 : 0, y: showContent ? 0 : 30 }}
+								transition={{ duration: 0.8, delay: 0.7 }}
+							>
+								Transforming Ideas Into Digital Reality
+							</motion.h2>
+
+							{/* Description */}
+							<motion.div
+								className="grid grid-cols-1 md:grid-cols-3 gap-6 text-white"
+								initial={{ opacity: 0, y: 30 }}
+								animate={{ opacity: showContent ? 1 : 0, y: showContent ? 0 : 30 }}
+								transition={{ duration: 0.8, delay: 0.9 }}
+							>
+								<div className="bg-white/10 backdrop-blur-sm p-6 rounded-lg">
+									<h3 className="text-xl font-bold mb-2">Innovation</h3>
+									<p>
+										We specialize in cutting-edge technology solutions, pushing
+										the boundaries of what's possible in digital transformation.
+									</p>
+								</div>
+
+								<div className="bg-white/10 backdrop-blur-sm p-6 rounded-lg">
+									<h3 className="text-xl font-bold mb-2">Expertise</h3>
+									<p>
+										Our team of skilled engineers and designers brings years of
+										experience across various technologies and industries.
+									</p>
+								</div>
+
+								<div className="bg-white/10 backdrop-blur-sm p-6 rounded-lg">
+									<h3 className="text-xl font-bold mb-2">Partnership</h3>
+									<p>
+										We work closely with our clients to understand their unique
+										challenges and deliver tailored solutions that drive
+										success.
+									</p>
+								</div>
+							</motion.div>
+
+							{/* Website URL */}
+							<motion.div
+								className="mt-12 text-center text-white"
+								initial={{ opacity: 0 }}
+								animate={{ opacity: showContent ? 1 : 0 }}
+								transition={{ duration: 0.8, delay: 1.1 }}
+							>
+								<p className="text-lg">www.t2soft.com</p>
+							</motion.div>
+						</div>
+					</div>
+				</motion.div>
+			)}
+		</AnimatePresence>
+	);
+}

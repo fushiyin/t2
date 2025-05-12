@@ -1,0 +1,91 @@
+{
+	"env": {
+		"browser": true,
+		"es2021": true
+	},
+	"extends": ["airbnb", "plugin:react/recommended", "plugin:react-hooks/recommended", "prettier"],
+	"parserOptions": {
+		"ecmaFeatures": {
+			"jsx": true
+		},
+		"ecmaVersion": "latest",
+		"sourceType": "module",
+		"parser": "@babel/eslint-parser"
+	},
+	"plugins": ["prettier", "react", "i18next"],
+	"rules": {
+		"no-plusplus": "off",
+		"no-console": "off",
+		"react/prop-types": "off",
+		"react/react-in-jsx-scope": "off",
+		"react/no-array-index-key": "off",
+		"no-param-reassign": "off",
+		"jsx-a11y/href-no-hash": "off",
+		"jsx-a11y/control-has-associated-label": "off",
+		"no-use-before-define": "off",
+		"no-alert": "off",
+		"react/no-danger": "off",
+		"react/jsx-filename-extension": [
+			"warn",
+			{
+				"extensions": [".js", ".jsx"]
+			}
+		],
+		"import/no-unresolved": "off",
+		"import/prefer-default-export": "off",
+		"prettier/prettier": [
+			"error",
+			{
+				"arrowParens": "always",
+				"bracketSameLine": false,
+				"objectWrap": "preserve",
+				"bracketSpacing": true,
+				"semi": true,
+				"endOfLine": "auto",
+				"printWidth": 100,
+				"tabWidth": 4,
+				"useTabs": true,
+				"quoteProps": "as-needed",
+				"trailingComma": "all",
+				"singleAttributePerLine": true,
+				"htmlWhitespaceSensitivity": "css",
+				"vueIndentScriptAndStyle": true,
+				"proseWrap": "preserve",
+				"insertPragma": false,
+				"requirePragma": false,
+				"embeddedLanguageFormatting": "auto",
+				"singleQuote": false,
+				"jsxSingleQuote": false,
+				"experimentalOperatorPosition": "end",
+				"experimentalTernaries": false
+			}
+		],
+		"quotes": ["error", "double"],
+		"max-len": [
+			"warn",
+			{
+				"code": 100,
+				"tabWidth": 4,
+				"comments": 80,
+				"ignoreComments": false,
+				"ignoreTrailingComments": true,
+				"ignoreUrls": true,
+				"ignoreStrings": true,
+				"ignoreTemplateLiterals": true,
+				"ignoreRegExpLiterals": true
+			}
+		]
+	},
+	"settings": {
+		"react": {
+			"version": "detect"
+		},
+		"import/resolver": {
+			"node": {
+				"paths": ["src"],
+				"extensions": [".js", ".jsx"],
+				"moduleDirectory": ["src", "node_modules"]
+			}
+		}
+	}
+}

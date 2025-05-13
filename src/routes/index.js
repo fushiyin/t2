@@ -6,7 +6,7 @@ const About = React.lazy(() => import("@/views/PC/About"));
 
 const HomeRoute = {
 	id: "homeRoute",
-	path: `/`,
+	path: "/",
 	component: Home,
 	pcComponent: Home,
 };

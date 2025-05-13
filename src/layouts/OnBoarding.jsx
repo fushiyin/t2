@@ -1,8 +1,7 @@
-/* eslint-disable no-unused-vars */
-
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useOnboarding } from "./OnBoardingProvider";
+import T2Logo from "@/assets/images/t2darklogo.png";
 
 // Animation duration in seconds (configurable)
 const ANIMATION_DURATION = 5;
@@ -127,20 +126,23 @@ export default function Onboarding() {
 								}}
 								transition={{ duration: 0.8, delay: 0.2 }}
 							>
-								<div className="relative w-32 h-32 bg-white rounded-full flex items-center justify-center shadow-lg">
-									<span className="text-4xl font-bold text-deepest-navy">T2</span>
+								<div className="relative w-80 h-80 rounded-full flex items-center justify-center shadow-lg">
+									<img
+										src={T2Logo}
+										alt="logo"
+									/>
 								</div>
 							</motion.div>
 
 							{/* Title */}
-							<motion.h1
+							{/* <motion.h1
 								className="text-5xl md:text-7xl font-bold mb-6 text-white text-center"
 								initial={{ opacity: 0, y: 30 }}
 								animate={{ opacity: showContent ? 1 : 0, y: showContent ? 0 : 30 }}
 								transition={{ duration: 0.8, delay: 0.5 }}
 							>
 								T2Soft
-							</motion.h1>
+							</motion.h1> */}
 
 							{/* Tagline */}
 							<motion.h2
@@ -163,7 +165,8 @@ export default function Onboarding() {
 									<h3 className="text-xl font-bold mb-2">Innovation</h3>
 									<p>
 										We specialize in cutting-edge technology solutions, pushing
-										the boundaries of what's possible in digital transformation.
+										the boundaries of what&apos;s possible in digital
+										transformation.
 									</p>
 								</div>
 

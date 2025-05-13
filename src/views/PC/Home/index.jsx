@@ -1,5 +1,5 @@
 import LoadingDemoButton from "./LoadingDemoButton";
-import ResetOnBoardingButton from "./ResetOnboardingButton";
+import ResetOnBoardingButton from "./ResetOnBoardingButton";
 
 function Home() {
 	return (

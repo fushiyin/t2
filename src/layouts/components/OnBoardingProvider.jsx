@@ -1,4 +1,5 @@
-import { createContext, useContext, useState, useEffect } from "react";
+/* eslint-disable react-refresh/only-export-components */
+import { createContext, useContext, useEffect, useState } from "react";
 
 const OnboardingContext = createContext({
 	hasSeenOnboarding: false,
@@ -33,7 +34,12 @@ export default function OnboardingProvider({ children }) {
 
 	return (
 		<OnboardingContext.Provider
-			value={{ hasSeenOnboarding, setHasSeenOnboarding, isLoading, setIsLoading }}
+			value={{
+				hasSeenOnboarding,
+				setHasSeenOnboarding,
+				isLoading,
+				setIsLoading,
+			}}
 		>
 			{children}
 		</OnboardingContext.Provider>

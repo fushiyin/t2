@@ -5,6 +5,10 @@
 	"editor.quickSuggestions": {
 		"strings": "on"
 	},
+	"editor.codeActionsOnSave": {
+		"source.organizeImports": "always",
+		"source.sortImports": "explicit",
+	},
 	"workbench.colorCustomizations": {
 		"activityBar.activeBackground": "#3399ff",
 		"activityBar.background": "#3399ff",
@@ -35,9 +39,9 @@
 		"./"
 	],
 	"[javascript]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
+		"editor.defaultFormatter": "dbaeumer.vscode-eslint"
 	},
 	"[javascriptreact]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
+		"editor.defaultFormatter": "dbaeumer.vscode-eslint"
 	}
 }

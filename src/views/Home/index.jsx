@@ -1,4 +1,6 @@
 import CompetitiveEdges from "./components/CompetitiveEdges";
+import LoadingDemoButton from "./components/LoadingDemoButton";
+import ResetOnBoardingButton from "./components/ResetOnBoardingButton";
 import Vision from "./components/Vision";
 
 function HomePage() {
@@ -9,6 +11,10 @@ function HomePage() {
 			</section>
 			<section className="h-screen snap-start flex items-center justify-center">
 				<CompetitiveEdges />
+			</section>
+			<section className="h-screen snap-start flex items-center justify-center">
+				<LoadingDemoButton />
+				<ResetOnBoardingButton />
 			</section>
 		</div>
 	);

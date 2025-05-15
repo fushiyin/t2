@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { useOnboarding } from "./OnBoardingProvider";
 import T2Logo from "@/assets/images/t2darklogo.png";
+import { AnimatePresence, motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { useOnboarding } from "./OnBoardingProvider";
 
 // Animation duration in seconds (configurable)
 const ANIMATION_DURATION = 5;
@@ -14,7 +14,6 @@ export default function Onboarding() {
 
 	// Control the animation sequence
 	useEffect(() => {
-		console.log("Onboarding effect triggered");
 		if (hasSeenOnboarding) return;
 
 		// Step 1: Show first diagonal section
@@ -90,7 +89,9 @@ export default function Onboarding() {
 					{/* Second diagonal section - Medium Blue */}
 					<motion.div
 						className="absolute top-0 left-0 w-full h-full bg-near-black-blue"
-						initial={{ clipPath: "polygon(100% 0, 100% 0, 100% 100%, 100% 100%)" }}
+						initial={{
+							clipPath: "polygon(100% 0, 100% 0, 100% 100%, 100% 100%)",
+						}}
 						animate={{
 							clipPath:
 								animationStep >= 2
@@ -136,7 +137,8 @@ export default function Onboarding() {
 
 							{/* Title */}
 							{/* <motion.h1
-								className="text-5xl md:text-7xl font-bold mb-6 text-white text-center"
+								className="text-5xl md:text-7xl font-bold mb-6 
+								text-white text-center"
 								initial={{ opacity: 0, y: 30 }}
 								animate={{ opacity: showContent ? 1 : 0, y: showContent ? 0 : 30 }}
 								transition={{ duration: 0.8, delay: 0.5 }}
@@ -148,7 +150,10 @@ export default function Onboarding() {
 							<motion.h2
 								className="text-2xl md:text-3xl font-medium mb-8 text-white text-center"
 								initial={{ opacity: 0, y: 30 }}
-								animate={{ opacity: showContent ? 1 : 0, y: showContent ? 0 : 30 }}
+								animate={{
+									opacity: showContent ? 1 : 0,
+									y: showContent ? 0 : 30,
+								}}
 								transition={{ duration: 0.8, delay: 0.7 }}
 							>
 								Transforming Ideas Into Digital Reality
@@ -158,7 +163,10 @@ export default function Onboarding() {
 							<motion.div
 								className="grid grid-cols-1 md:grid-cols-3 gap-6 text-white"
 								initial={{ opacity: 0, y: 30 }}
-								animate={{ opacity: showContent ? 1 : 0, y: showContent ? 0 : 30 }}
+								animate={{
+									opacity: showContent ? 1 : 0,
+									y: showContent ? 0 : 30,
+								}}
 								transition={{ duration: 0.8, delay: 0.9 }}
 							>
 								<div className="bg-white/10 backdrop-blur-sm p-6 rounded-lg">

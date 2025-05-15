@@ -1,8 +1,8 @@
-import { defineConfig } from "vite";
-import { dirname, resolve } from "path";
 import tailwindcss from "@tailwindcss/vite";
-import { fileURLToPath } from "url";
 import react from "@vitejs/plugin-react-swc";
+import { dirname, resolve } from "path";
+import { fileURLToPath } from "url";
+import { defineConfig } from "vite";
 
 // https://vite.dev/config/
 const __filename = fileURLToPath(import.meta.url);

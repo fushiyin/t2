@@ -1,25 +1,25 @@
-import { defineConfig } from "eslint/config";
+import js from "@eslint/js";
 import prettier from "eslint-plugin-prettier";
 import react from "eslint-plugin-react";
 import reactHooks from "eslint-plugin-react-hooks";
 import reactRefresh from "eslint-plugin-react-refresh";
+import { defineConfig } from "eslint/config";
 import globals from "globals";
-import js from "@eslint/js";
 
 export default defineConfig([
 	{
 		ignores: [
-            "dist/**",
-            "node_modules/**",
-            ".git/**",
-            ".prettierrc.cjs",
-            "package.json",
-            "package-lock.json",
-            "eslint.config.mjs",
-            "*.config.js",
-            "*.config.cjs",
-            "*.config.mjs"
-        ],
+			"dist/**",
+			"node_modules/**",
+			".git/**",
+			".prettierrc.cjs",
+			"package.json",
+			"package-lock.json",
+			"eslint.config.mjs",
+			"*.config.js",
+			"*.config.cjs",
+			"*.config.mjs",
+		],
 		files: ["**/*.{js,mjs,cjs,jsx}"],
 		languageOptions: {
 			ecmaVersion: "latest",
@@ -77,6 +77,7 @@ export default defineConfig([
 			],
 			"react/prop-types": "off",
 			"react/react-in-jsx-scope": "off",
+			"react-hooks/exhaustive-deps": "warn",
 			"react-refresh/only-export-components": ["warn", { allowConstantExport: true }],
 			"no-unused-vars": ["error", { varsIgnorePattern: "^[A-Z_]" }],
 			quotes: ["error", "double"],

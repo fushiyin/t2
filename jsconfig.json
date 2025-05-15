@@ -3,24 +3,12 @@
 		"jsx": "react-jsx",
 		"baseUrl": "./src",
 		"paths": {
-			"@/*": [
-				"./src/*"
-			],
-			"@/components/*": [
-				"./components/*"
-			],
-			"@/views/*": [
-				"./views/*"
-			],
-			"@/routes/*": [
-				"./routes/*"
-			],
-			"@/lib/*": [
-				"./lib/*"
-			],
-			"@/layouts/*": [
-				"./layouts/*"
-			]
+			"@/*": ["./*"],
+			"@/components/*": ["components/*"],
+			"@/views/*": ["views/*"],
+			"@/routes/*": ["routes/*"],
+			"@/lib/*": ["lib/*"],
+			"@/layouts/*": ["layouts/*"]
 		}
 	}
 }

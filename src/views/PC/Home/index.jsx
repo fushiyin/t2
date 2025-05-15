@@ -1,4 +1,3 @@
-import React from "react";
 import LoadingDemoButton from "./LoadingDemoButton";
 import ResetOnBoardingButton from "./ResetOnBoardingButton";
 

@@ -3,29 +3,25 @@ import { Suspense } from "react";
 import { registerRoutes } from "./index";
 import useResponsive from "@/hooks/useResponsive";
 import PageNotFound from "@/views/PageNotFound";
-import { MainLayout, MobileLayout } from "../layouts";
+import Layout from "@/layouts/layout";
+import { Loader } from "lucide-react";
 
-const emptyComponent = () => {
-	return null;
-};
+const Loading = () => (
+	<div className="p-4 text-center">
+		<Loader className="animate-spin" />
+	</div>
+);
 
-const childRoutes = (routes, isTabletOrMobile) => {
-	const isLayoutPC = isTabletOrMobile || window?.flutter_inappwebview;
-	return routes.map(({ path, component, pcComponent }, index) => {
-		const LayoutComponent = isLayoutPC ? MobileLayout : MainLayout;
-		const Component = isTabletOrMobile
-			? component || emptyComponent
-			: pcComponent || emptyComponent;
+const childRoutes = (routes) => {
+	return routes.map(({ path, component }, index) => {
 		return (
 			<Route
 				key={index}
 				path={path}
 				exact
 				element={
-					<Suspense fallback={<> </>}>
-						<LayoutComponent>
-							<Component />
-						</LayoutComponent>
+					<Suspense fallback={<Loading />}>
+						<Layout>{component}</Layout>
 					</Suspense>
 				}
 			/>

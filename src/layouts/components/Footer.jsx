@@ -1,0 +1,178 @@
+import React from "react";
+import { Phone, Mail, Globe, MapPin, Facebook, MessageCircle, Send } from "lucide-react";
+import { Link } from "react-router-dom";
+
+const Footer = () => {
+	const currentYear = new Date().getFullYear();
+
+	// Contact information items
+	const contactItems = [
+		{
+			icon: <Phone className="text-[#19286D] w-5 h-5 flex-shrink-0" />,
+			content: (
+				<div>
+					<p className="text-gray-600 text-sm">(VN)+84901709 319</p>
+					<p className="text-gray-600 text-sm">(KR)+82104029 6760</p>
+				</div>
+			),
+		},
+		{
+			icon: <Mail className="text-[#19286D] w-5 h-5 flex-shrink-0" />,
+			content: (
+				<div>
+					<p className="text-gray-600 text-sm">ygkim@t2soft.com</p>
+					<p className="text-gray-600 text-sm">ygkim@ttwosoft.com</p>
+				</div>
+			),
+		},
+		{
+			icon: <Globe className="text-[#19286D] w-5 h-5 flex-shrink-0" />,
+			content: (
+				<a
+					href="https://www.ttwosoft.com"
+					target="_blank"
+					rel="noopener noreferrer"
+					className="text-gray-600 text-sm hover:text-[#19286D]"
+				>
+					www.ttwosoft.com
+				</a>
+			),
+		},
+		{
+			icon: <MapPin className="text-[#19286D] w-5 h-5 flex-shrink-0 mt-0.5" />,
+			content: (
+				<p className="text-gray-600 text-sm">
+					Kangnam Landmark72, Pham Hung, Nam tu Liem, Ha Noi
+				</p>
+			),
+		},
+	];
+
+	const socialLinks = [
+		{
+			name: "Facebook",
+			url: "https://facebook.com",
+			icon: <Facebook size={16} />,
+			bgColor: "bg-[#1877F2]",
+			textColor: "text-white",
+		},
+		{
+			name: "KakaoTalk",
+			url: "https://kakaotalk.com",
+			icon: <MessageCircle size={16} />,
+			bgColor: "bg-[#FAE100]",
+			textColor: "text-black",
+		},
+		{
+			name: "Telegram",
+			url: "https://t.me",
+			icon: <Send size={16} />,
+			bgColor: "bg-[#26A5E4]",
+			textColor: "text-white",
+		},
+	];
+
+	const footerSections = [
+		{
+			title: "Company",
+			links: [
+				{ to: "/about-us", label: "About Us" },
+				{ to: "/careers", label: "Careers" },
+				{ to: "/contact", label: "Contact" },
+			],
+		},
+		{
+			title: "Resources",
+			links: [
+				{ to: "/blog", label: "Blog" },
+				{ to: "/documentation", label: "Documentation" },
+				{ to: "/contact", label: "Contact" },
+			],
+		},
+		{
+			title: "Legal",
+			links: [
+				{ to: "/privacy", label: "Privacy" },
+				{ to: "/terms", label: "Terms" },
+			],
+		},
+	];
+
+	return (
+		<footer className="bg-white border-t border-gray-100 pt-12 pb-4">
+			<div className="container mx-auto px-4">
+				<div className="flex flex-col md:flex-row">
+					<div className="md:w-2/5 space-y-6 mb-8 md:mb-0">
+						<div>
+							<Link
+								to="/"
+								className="text-[#19286D] font-bold text-2xl"
+							>
+								T2Soft
+							</Link>
+						</div>
+
+						<div className="space-y-3">
+							{contactItems.map((item, index) => (
+								<div
+									key={index}
+									className="flex items-start space-x-3"
+								>
+									{item.icon}
+									{item.content}
+								</div>
+							))}
+						</div>
+
+						<div className="flex space-x-3">
+							{socialLinks.map((social, index) => (
+								<a
+									key={index}
+									href={social.url}
+									target="_blank"
+									rel="noopener noreferrer"
+									className={`${social.bgColor} ${social.textColor} p-2 rounded-full w-8 h-8 flex items-center justify-center hover:opacity-90 transition-opacity`}
+									aria-label={social.name}
+								>
+									{social.icon}
+								</a>
+							))}
+						</div>
+					</div>
+
+					<div className="md:w-3/5 md:pl-16">
+						<div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+							{footerSections.map((section, index) => (
+								<div key={index}>
+									<h3 className="text-[#19286D] font-semibold text-lg mb-4">
+										{section.title}
+									</h3>
+									<ul className="space-y-2">
+										{section.links.map((link, linkIndex) => (
+											<li key={linkIndex}>
+												<Link
+													to={link.to}
+													className="text-gray-600 hover:text-[#19286D] transition-colors text-sm"
+												>
+													{link.label}
+												</Link>
+											</li>
+										))}
+									</ul>
+								</div>
+							))}
+						</div>
+					</div>
+				</div>
+
+				<div className="mt-12 pt-4 border-t border-gray-100 text-center">
+					<p className="text-gray-500 text-sm">
+						© {currentYear} T2Soft. All rights reserved.
+					</p>
+				</div>
+			</div>
+		</footer>
+	);
+};
+
+export default Footer;

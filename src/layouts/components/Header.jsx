@@ -1,9 +1,11 @@
-import { useState, useEffect } from "react";
-import { Menu, X, Moon, Sun, ChevronDown, ChevronRight, Globe, Phone } from "lucide-react";
 import t2darklogo from "@/assets/images/t2darklogo.png";
 import t2lightlogo from "@/assets/images/t2lightlogo.png";
+import { ChevronDown, Globe, Menu, Moon, Sun, X } from "lucide-react";
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 
 const Header = () => {
+	const location = useLocation();
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const [isDarkMode, setIsDarkMode] = useState(false);
 	const [language, setLanguage] = useState("EN");
@@ -164,9 +166,13 @@ const Header = () => {
 					<div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 border-t border-gray-200 dark:border-gray-700">
 						{NAV_LINKS.map((link) => (
 							<a
-								key={link.href}
-								href={link.href}
-								className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
+								key={link.path}
+								href={link.path}
+								className={`block px-3 py-2 text-base font-medium border-b border-b-[1px] ${
+									location.pathname === link.path
+										? "text-[#19286D] bg-[#DAE4ED]"
+										: "text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 border-b-[#f4f4f4]"
+								}`}
 							>
 								{link.name}
 							</a>

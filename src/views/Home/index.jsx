@@ -5,7 +5,7 @@ import Vision from "./components/Vision";
 
 function HomePage() {
 	return (
-		<div className="h-screen no-scrollbar overflow-y-scroll snap-y snap-mandatory bg-gray-100">
+		<div className="h-screen no-scrollbar overflow-y-scroll snap-y snap-mandatory">
 			<section className="h-screen snap-start flex items-center justify-center">
 				<Vision />
 			</section>

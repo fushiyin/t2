@@ -36,6 +36,36 @@ const Vision = () => {
 	const slidesContainerRef = useRef(null);
 	const autoplayTimerRef = useRef(null);
 
+	useEffect(() => {
+		autoplayTimerRef.current = setInterval(() => {
+			goToSlide(activeIndex + 1);
+		}, 5000);
+
+		return () => {
+			if (autoplayTimerRef.current) {
+				clearInterval(autoplayTimerRef.current);
+			}
+		};
+	}, [activeIndex]);
+
+	useEffect(() => {
+		const handleKeyDown = (e) => {
+			if (e.key === "ArrowLeft") {
+				prevSlide();
+				resetAutoplayTimer();
+			} else if (e.key === "ArrowRight") {
+				nextSlide();
+				resetAutoplayTimer();
+			}
+		};
+
+		window.addEventListener("keydown", handleKeyDown);
+
+		return () => {
+			window.removeEventListener("keydown", handleKeyDown);
+		};
+	}, [activeIndex]);
+
 	const goToSlide = (index) => {
 		if (isAnimating) return;
 
@@ -76,18 +106,6 @@ const Vision = () => {
 		}
 	};
 
-	useEffect(() => {
-		autoplayTimerRef.current = setInterval(() => {
-			goToSlide(activeIndex + 1);
-		}, 5000);
-
-		return () => {
-			if (autoplayTimerRef.current) {
-				clearInterval(autoplayTimerRef.current);
-			}
-		};
-	}, [activeIndex]);
-
 	const resetAutoplayTimer = () => {
 		if (autoplayTimerRef.current) {
 			clearInterval(autoplayTimerRef.current);
@@ -96,24 +114,6 @@ const Vision = () => {
 			}, 5000);
 		}
 	};
-
-	useEffect(() => {
-		const handleKeyDown = (e) => {
-			if (e.key === "ArrowLeft") {
-				prevSlide();
-				resetAutoplayTimer();
-			} else if (e.key === "ArrowRight") {
-				nextSlide();
-				resetAutoplayTimer();
-			}
-		};
-
-		window.addEventListener("keydown", handleKeyDown);
-
-		return () => {
-			window.removeEventListener("keydown", handleKeyDown);
-		};
-	}, [activeIndex]);
 
 	return (
 		<section

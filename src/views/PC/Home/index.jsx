@@ -1,4 +1,4 @@
-import LoadingDemoButton from "./Loa	dingDemoButton";
+import LoadingDemoButton from "./LoadingDemoButton";
 import ResetOnBoardingButton from "./ResetOnBoardingButton";
 
 function Home() {

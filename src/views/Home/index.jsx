@@ -1,6 +1,5 @@
-import Banner from "./components/Banner";
 import CompetitiveEdges from "./components/CompetitiveEdges";
-import Vision from "./components/VIsion";
+import Vision from "./components/Vision";
 
 function HomePage() {
 	return (

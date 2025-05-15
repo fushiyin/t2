@@ -1,7 +1,7 @@
+import "@/i18n";
+import AppRouter from "@/routes";
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import "./i18n";
-import Routers from "./routes/Routers";
 
 function App() {
 	const { i18n } = useTranslation();
@@ -62,7 +62,7 @@ function App() {
 		}
 	}, [i18n]);
 
-	return <Routers />;
+	return <AppRouter />;
 }
 
 export default App;

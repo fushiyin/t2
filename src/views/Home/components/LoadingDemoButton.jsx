@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { useOnboarding } from "@/layouts/OnBoardingProvider";
+import { useOnboarding } from "@/layouts/components/OnBoardingProvider";
 import { Loader } from "lucide-react";
 
 export default function LoadingDemoButton() {

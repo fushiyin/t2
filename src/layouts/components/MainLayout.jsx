@@ -1,13 +1,13 @@
-import { Suspense, useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
-// import { ToastContainer } from "react-toastify";
-import { ChevronUp } from "lucide-react";
-import classNames from "classnames";
-import Loading from "../CustomLoading";
 import { Button } from "@/components/ui/button";
-import OnboardingProvider from "../OnBoardingProvider";
-import Onboarding from "../OnBoarding";
-import { HeaderMobile, FooterMobile } from ".";
+import classNames from "classnames";
+import { ChevronUp } from "lucide-react";
+import { Suspense, useEffect, useState } from "react";
+import { Outlet, useLocation } from "react-router-dom";
+import Loading from "./CustomLoading";
+import Footer from "./Footer";
+import Header from "./Header";
+import Onboarding from "./OnBoarding";
+import OnboardingProvider from "./OnBoardingProvider";
 
 function ButtonScrollToTop() {
 	const location = useLocation();
@@ -54,17 +54,18 @@ function ButtonScrollToTop() {
 	);
 }
 
-export default function MobileLayout({ children }) {
+export default function MainLayout() {
 	return (
 		<Suspense fallback={<> </>}>
 			<OnboardingProvider>
 				<Loading />
 				<Onboarding />
-				<HeaderMobile />
-				<main>{children}</main>
+				<Header />
+				<main>
+					<Outlet />
+				</main>
 				<ButtonScrollToTop />
-				<FooterMobile />
-				{/* <ToastContainer limit="3" /> */}
+				<Footer />
 			</OnboardingProvider>
 		</Suspense>
 	);

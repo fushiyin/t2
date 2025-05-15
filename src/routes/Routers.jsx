@@ -1,9 +1,8 @@
-import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Suspense } from "react";
 import { registerRoutes } from "./index";
-import useResponsive from "@/hooks/useResponsive";
-import PageNotFound from "@/views/PageNotFound";
 import Layout from "@/layouts/layout";
+import PageNotFound from "@/views/PageNotFound";
 import { Loader } from "lucide-react";
 
 const Loading = () => (
@@ -12,36 +11,25 @@ const Loading = () => (
 	</div>
 );
 
-const childRoutes = (routes) => {
-	return routes.map(({ path, component }, index) => {
-		return (
-			<Route
-				key={index}
-				path={path}
-				exact
-				element={
-					<Suspense fallback={<Loading />}>
-						<Layout>{component}</Layout>
-					</Suspense>
-				}
-			/>
-		);
-	});
-};
+const childrenRoutes = registerRoutes.map(({ path, component: Component }) => ({
+	path,
+	element: (
+		<Suspense fallback={<Loading />}>
+			<Component />
+		</Suspense>
+	),
+}));
 
-function Routers() {
-	const { isTabletOrMobile } = useResponsive();
-	return (
-		<Router>
-			<Routes>
-				{childRoutes(registerRoutes, isTabletOrMobile)}
-				<Route
-					path="*"
-					element={<PageNotFound />} // For Page Not Found
-				/>
-			</Routes>
-		</Router>
-	);
+const router = createBrowserRouter([
+	{
+		path: "/",
+		element: <Layout />,
+		children: [...childrenRoutes, { path: "*", element: <PageNotFound /> }],
+	},
+]);
+
+function RouterComponent() {
+	return <RouterProvider router={router} />;
 }
 
-export default Routers;
+export default RouterComponent;

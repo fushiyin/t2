@@ -77,7 +77,12 @@ const Header = () => {
 							<a
 								key={link.path}
 								href={link.path}
-								className="text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 text-sm font-medium"
+								className={`px-3 py-2 text-sm font-medium transition-colors ${
+									window.location.pathname === link.path ||
+									!window.location.pathname
+										? "bg-[#DAE4ED] text-[#19286D]"
+										: "text-gray-700 dark:text-gray-200 hover:text-[#19286D] hover:bg-gray-100 dark:hover:bg-gray-800"
+								}`}
 							>
 								{link.name}
 							</a>

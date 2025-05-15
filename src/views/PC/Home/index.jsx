@@ -1,5 +1,4 @@
-import React from "react";
-import LoadingDemoButton from "./LoadingDemoButton";
+import LoadingDemoButton from "./Loa	dingDemoButton";
 import ResetOnBoardingButton from "./ResetOnBoardingButton";
 
 function Home() {

@@ -71,10 +71,9 @@ const SideNavigation = () => {
 			aria-label="Page sections"
 		>
 			{sections.map((section, idx) => (
-				<>
+				<div key={section.id}>
 					{idx !== 0 && <div className="w-px h-8 bg-blue-950" />}
 					<button
-						key={section.id}
 						onClick={() => scrollToSection(section.id)}
 						className={`w-7 h-7 text-sm font-bold rounded-full -tracking-wider flex items-center justify-center cursor-pointer transition-colors ${
 							activeSection === section.id
@@ -85,7 +84,7 @@ const SideNavigation = () => {
 					>
 						{section.label}
 					</button>
-				</>
+				</div>
 			))}
 		</nav>
 	);

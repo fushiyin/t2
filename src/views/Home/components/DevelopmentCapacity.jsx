@@ -3,7 +3,7 @@ import { CodeIcon, LayoutIcon, PaintbrushIcon } from "lucide-react";
 import { useState } from "react";
 
 export default function DevelopmentCapacity() {
-	const [selectedTech, setSelectedTech] = useState();
+	const [selectedTech, setSelectedTech] = useState("react");
 	// Tech stack with React/Next.js only examples
 	const techStack = {
 		react: {
@@ -97,7 +97,7 @@ export default function DevelopmentCapacity() {
 	};
 
 	return (
-		<div className="h-full w-full bg-gradient-to-br from-[#5087f7] to-[#101944]">
+		<div className="h-full w-full bg-gradient-to-br from-[#5087f7] to-[#101944] flex items-center justify-center">
 			<div className="container px-4 md:px-6 h-full flex flex-col justify-center">
 				<div className="flex flex-col items-center justify-center space-y-4 text-center mb-8">
 					<div className="space-y-2">

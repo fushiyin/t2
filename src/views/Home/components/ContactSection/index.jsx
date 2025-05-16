@@ -1,7 +1,7 @@
 const ContactSection = () => {
 	return (
 		<section
-			className="py-20 bg-blue-950"
+			className="w-full h-full flex items-center bg-light-blue-gray/60 "
 			id="contact-section"
 		>
 			<div className="flex gap-10 justify-between px-5 mx-auto max-w-[1440px] max-md:flex-col">

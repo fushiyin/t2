@@ -41,7 +41,7 @@ export default function ContactCTA() {
 	};
 
 	return (
-		<div className="w-full h-full bg-white">
+		<div className="w-full h-full bg-white flex items-center justify-center">
 			<div className="container px-4 md:px-6 h-full flex flex-col justify-center">
 				<div className="grid gap-10 lg:grid-cols-2 items-center">
 					<div className="space-y-4">

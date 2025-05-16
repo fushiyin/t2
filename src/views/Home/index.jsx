@@ -11,7 +11,6 @@ function HomePage() {
 	return (
 		// <div className="h-screen no-scrollbar overflow-y-scroll snap-y snap-mandatory"
 		<div
-			className="h-screen no-scrollbar overflow-y-scroll snap-y snap-mandatory"
 			style={{
 				maxWidth: 1440,
 				margin: "0 auto",

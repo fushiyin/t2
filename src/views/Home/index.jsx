@@ -5,14 +5,20 @@ import Vision from "./components/Vision";
 
 function HomePage() {
 	return (
-		<div className="h-screen no-scrollbar overflow-y-scroll snap-y snap-mandatory bg-gray-100">
-			<section className="h-screen snap-start flex items-center justify-center">
+		// <div className="h-screen no-scrollbar overflow-y-scroll snap-y snap-mandatory"
+		<div className="h-screen no-scrollbar overflow-y-scroll snap-y snap-mandatory"
+			style={{
+				maxWidth: 1440,
+				margin: "0 auto",
+			}}
+		>
+			<section className="h-screen snap-start flex items-center justify-center px-16">
 				<Vision />
 			</section>
-			<section className="h-screen snap-start flex items-center justify-center">
+			<section className="h-screen snap-start flex items-center justify-center px-16">
 				<CompetitiveEdges />
 			</section>
-			<section className="h-screen snap-start flex items-center justify-center">
+			<section className="h-screen snap-start flex items-center justify-center px-16">
 				<LoadingDemoButton />
 				<ResetOnBoardingButton />
 			</section>

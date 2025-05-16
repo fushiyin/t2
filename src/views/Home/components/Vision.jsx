@@ -1,190 +1,235 @@
-import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
-const SLIDES = [
+const slides = [
 	{
 		id: "vision",
 		title: "Vision",
-		description:
-			"To create a world where technology empowers every person and organization to achieve more.",
-		color: "bg-blue-600",
-		icon: "👁️",
+		testimonial:
+			'"We envision a world where technology empowers every individual to achieve their full creative potential without barriers or limitations."',
+		author: "Novacene",
+		image: "https://media.istockphoto.com/id/1329715338/vi/vec-to/c%C3%A1c-d%E1%BA%A5u-ch%E1%BA%A5m-v%C3%A0-%C4%91%C6%B0%E1%BB%9Dng-xuy%C3%AAn-qua-th%C3%B4ng-qua-c%C3%B4ng-ngh%E1%BB%87-m%E1%BA%A1ng-qu%E1%BB%B9-%C4%91%E1%BA%A1o-h%E1%BA%A1t-v%C3%A0-n%E1%BB%81n-c%E1%BA%A3m-gi%C3%A1c-t%E1%BB%91c-%C4%91%E1%BB%99.jpg?s=1024x1024&w=is&k=20&c=xmZvlsQGc7Y1XnhJ6_2Ff4bxkSYhmnHVPMYbC9lGbu4=",
 	},
 	{
 		id: "mission",
 		title: "Mission",
-		description:
-			"We strive to build cutting-edge solutions that solve real-world problems and improve the quality of life for our global community.",
-		color: "bg-green-600",
-		icon: "🚀",
+		testimonial:
+			'"Our mission is to build innovative platforms that connect creators with audiences globally, enabling seamless distribution of digital content across all mediums."',
+		author: "Novacene",
+		image: "https://media.istockphoto.com/id/1329715338/vi/vec-to/c%C3%A1c-d%E1%BA%A5u-ch%E1%BA%A5m-v%C3%A0-%C4%91%C6%B0%E1%BB%9Dng-xuy%C3%AAn-qua-th%C3%B4ng-qua-c%C3%B4ng-ngh%E1%BB%87-m%E1%BA%A1ng-qu%E1%BB%B9-%C4%91%E1%BA%A1o-h%E1%BA%A1t-v%C3%A0-n%E1%BB%81n-c%E1%BA%A3m-gi%C3%A1c-t%E1%BB%91c-%C4%91%E1%BB%99.jpg?s=1024x1024&w=is&k=20&c=xmZvlsQGc7Y1XnhJ6_2Ff4bxkSYhmnHVPMYbC9lGbu4=",
 	},
 	{
 		id: "values",
 		title: "Values",
-		description:
-			"Integrity, Innovation, Inclusion, and Impact drive everything we do. We believe in transparent communication, creative thinking, diverse perspectives, and meaningful outcomes.",
-		color: "bg-purple-600",
-		icon: "💎",
+		testimonial:
+			'"We believe in creativity, inclusivity, integrity, and continuous innovation. These core values drive everything we do as we support the next generation of digital creators."',
+		author: "Novacene",
+		image: "https://media.istockphoto.com/id/1329715338/vi/vec-to/c%C3%A1c-d%E1%BA%A5u-ch%E1%BA%A5m-v%C3%A0-%C4%91%C6%B0%E1%BB%9Dng-xuy%C3%AAn-qua-th%C3%B4ng-qua-c%C3%B4ng-ngh%E1%BB%87-m%E1%BA%A1ng-qu%E1%BB%B9-%C4%91%E1%BA%A1o-h%E1%BA%A1t-v%C3%A0-n%E1%BB%81n-c%E1%BA%A3m-gi%C3%A1c-t%E1%BB%91c-%C4%91%E1%BB%99.jpg?s=1024x1024&w=is&k=20&c=xmZvlsQGc7Y1XnhJ6_2Ff4bxkSYhmnHVPMYbC9lGbu4=",
 	},
 ];
 
 const Vision = () => {
 	const [activeIndex, setActiveIndex] = useState(0);
-	const [touchStart, setTouchStart] = useState(0);
-	const [touchEnd, setTouchEnd] = useState(0);
-	const [isAnimating, setIsAnimating] = useState(false);
-	const slidesContainerRef = useRef(null);
-	const autoplayTimerRef = useRef(null);
+	const [isTransitioning, setIsTransitioning] = useState(false);
+	const [direction, setDirection] = useState("next"); // 'next' or 'prev'
+	const autoPlayRef = useRef(null);
+	const sliderContainerRef = useRef(null);
 
-	useEffect(() => {
-		autoplayTimerRef.current = setInterval(() => {
-			goToSlide(activeIndex + 1);
-		}, 5000);
+	// Function to calculate all slide positions for the oval effect
+	const getSlidePositions = () => {
+		const positions = [];
+		const totalSlides = slides.length;
 
-		return () => {
-			if (autoplayTimerRef.current) {
-				clearInterval(autoplayTimerRef.current);
+		for (let i = 0; i < totalSlides; i++) {
+			// Calculate the position relative to active slide
+			let relativePosition = (i - activeIndex + totalSlides) % totalSlides;
+
+			// For a 3-slide setup, we want positions to be -1, 0, 1 (left, center, right)
+			if (relativePosition > totalSlides / 2) {
+				relativePosition = relativePosition - totalSlides;
 			}
-		};
-	}, [activeIndex]);
 
-	useEffect(() => {
-		const handleKeyDown = (e) => {
-			if (e.key === "ArrowLeft") {
-				prevSlide();
-				resetAutoplayTimer();
-			} else if (e.key === "ArrowRight") {
-				nextSlide();
-				resetAutoplayTimer();
-			}
-		};
-
-		window.addEventListener("keydown", handleKeyDown);
-
-		return () => {
-			window.removeEventListener("keydown", handleKeyDown);
-		};
-	}, [activeIndex]);
-
-	const goToSlide = (index) => {
-		if (isAnimating) return;
-
-		setIsAnimating(true);
-		let newIndex = index;
-
-		if (index < 0) {
-			newIndex = SLIDES.length - 1;
-		} else if (index >= SLIDES.length) {
-			newIndex = 0;
+			positions.push({
+				...slides[i],
+				index: i,
+				relativePosition,
+			});
 		}
 
-		setActiveIndex(newIndex);
+		return positions;
+	};
 
+	const slidePositions = getSlidePositions();
+
+	const goToSlide = (newDirection) => {
+		if (isTransitioning) return;
+
+		setIsTransitioning(true);
+		setDirection(newDirection);
+
+		if (newDirection === "next") {
+			setActiveIndex((prevIndex) => (prevIndex + 1) % slides.length);
+		} else {
+			setActiveIndex((prevIndex) => (prevIndex - 1 + slides.length) % slides.length);
+		}
+
+		// Reset animation flag after transition completes
 		setTimeout(() => {
-			setIsAnimating(false);
-		}, 500);
+			setIsTransitioning(false);
+		}, 800); // Slightly longer than the CSS transition for safety
 	};
 
-	const prevSlide = () => goToSlide(activeIndex - 1);
-	const nextSlide = () => goToSlide(activeIndex + 1);
+	const nextSlide = () => goToSlide("next");
+	const prevSlide = () => goToSlide("prev");
 
-	const handleTouchStart = (e) => {
-		setTouchStart(e.targetTouches[0].clientX);
+	// Auto-rotation effect
+	useEffect(() => {
+		const startTimer = () => {
+			autoPlayRef.current = setTimeout(() => {
+				nextSlide();
+			}, 10000); // 10 seconds
+		};
+
+		startTimer();
+
+		return () => {
+			if (autoPlayRef.current) {
+				clearTimeout(autoPlayRef.current);
+			}
+		};
+	}, [activeIndex, isTransitioning]);
+
+	// Reset auto rotation when user interacts
+	const handleManualNavigation = (navFn) => {
+		if (autoPlayRef.current) {
+			clearTimeout(autoPlayRef.current);
+		}
+		navFn();
 	};
 
-	const handleTouchMove = (e) => {
-		setTouchEnd(e.targetTouches[0].clientX);
-	};
+	// Calculate oval-path styles for each slide based on position
+	const getSlideStyle = (relativePosition) => {
+		// Convert position to percentage around the oval (0 = center, -1 = left side, 1 = right side)
+		const baseScale = 0.85;
+		const maxScale = 1;
+		const baseBlur = 2; // px
+		const baseZIndex = 10;
 
-	const handleTouchEnd = () => {
-		if (touchStart - touchEnd > 75) {
-			nextSlide();
+		// Center slide
+		if (relativePosition === 0) {
+			return {
+				transform: `translateX(-50%) scale(${maxScale})`,
+				filter: "blur(0px) brightness(1)",
+				zIndex: baseZIndex + 10,
+				left: "50%",
+				top: "50%",
+				opacity: 1,
+			};
 		}
 
-		if (touchEnd - touchStart > 75) {
-			prevSlide();
+		if (relativePosition === -1 || relativePosition === slides.length - 1) {
+			return {
+				transform: `translateX(-90%) scale(${baseScale})`,
+				filter: `blur(${baseBlur}px) brightness(0.8)`,
+				zIndex: baseZIndex,
+				left: "30%",
+				top: "50%",
+				opacity: 1,
+			};
 		}
-	};
 
-	const resetAutoplayTimer = () => {
-		if (autoplayTimerRef.current) {
-			clearInterval(autoplayTimerRef.current);
-			autoplayTimerRef.current = setInterval(() => {
-				goToSlide(activeIndex + 1);
-			}, 5000);
+		if (relativePosition === 1 || relativePosition === -(slides.length - 1)) {
+			return {
+				transform: `translateX(-10%) scale(${baseScale})`,
+				filter: `blur(${baseBlur}px) brightness(0.8)`,
+				zIndex: baseZIndex,
+				left: "70%",
+				top: "50%",
+				opacity: 1,
+			};
 		}
+
+		return {
+			transform: `translateX(-50%) scale(${baseScale * 0.7})`,
+			filter: `blur(${baseBlur * 2}px) brightness(0.6)`,
+			zIndex: baseZIndex - 10,
+			left: "50%",
+			top: "50%",
+			opacity: 0,
+		};
 	};
 
 	return (
-		<section
-			className="relative h-full w-full overflow-hidden"
-			onTouchStart={handleTouchStart}
-			onTouchMove={handleTouchMove}
-			onTouchEnd={handleTouchEnd}
+		<div
+			ref={sliderContainerRef}
+			className="relative w-full overflow-hidden flex flex-col justify-center"
 		>
-			<div
-				ref={slidesContainerRef}
-				className="h-full w-full flex transition-transform duration-500 ease-in-out"
-				style={{ transform: `translateX(-${activeIndex * 100}%)` }}
-			>
-				{SLIDES.map((slide, index) => (
-					<div
-						key={`slide_${index}`}
-						className={`h-full w-full flex-shrink-0 ${slide.color} text-white flex flex-col items-center justify-center px-6 sm:px-12 md:px-24`}
-					>
-						<div className="text-center max-w-4xl mx-auto">
-							<div className="text-5xl sm:text-7xl mb-6">{slide.icon}</div>
-							<h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6">
-								{slide.title}
-							</h2>
-							<p className="text-lg sm:text-xl md:text-2xl leading-relaxed">
-								{slide.description}
-							</p>
-						</div>
-					</div>
-				))}
+			<div className="relative w-full h-[500px] flex justify-center items-center">
+				<div
+					className={`relative w-full max-w-7xl mx-auto h-full ${isTransitioning ? "pointer-events-none" : ""}`}
+				>
+					{slidePositions.map((slide) => {
+						const slideStyle = getSlideStyle(slide.relativePosition);
+						return (
+							<div
+								key={slide.id}
+								className="absolute w-[800px] h-[500px] -translate-y-1/2 transition-all duration-700 ease-out"
+								style={{
+									...slideStyle,
+									transitionProperty: "transform, filter, left, top, opacity",
+								}}
+							>
+								<div className="w-full h-full overflow-hidden shadow-2xl">
+									<img
+										src={slide.image}
+										alt={slide.title}
+										className="w-full h-full object-cover"
+									/>
+								</div>
+							</div>
+						);
+					})}
+				</div>
 			</div>
 
-			<button
-				className="absolute left-4 top-1/2 -translate-y-1/2 bg-white bg-opacity-20 hover:bg-opacity-30 rounded-full p-2 text-white focus:outline-none transition-all"
-				onClick={() => {
-					prevSlide();
-					resetAutoplayTimer();
-				}}
-				aria-label="Previous slide"
-			>
-				<ChevronLeft size={24} />
-			</button>
+			<div className="text-center mt-8 transition-opacity duration-300">
+				<h3 className="text-[#19286D] dark:text-gray-300 font-medium text-2xl tracking-wide">
+					{slides[activeIndex].title}
+				</h3>
+			</div>
 
-			<button
-				className="absolute right-4 top-1/2 -translate-y-1/2 bg-white bg-opacity-20 hover:bg-opacity-30 rounded-full p-2 text-white focus:outline-none transition-all"
-				onClick={() => {
-					nextSlide();
-					resetAutoplayTimer();
-				}}
-				aria-label="Next slide"
-			>
-				<ChevronRight size={24} />
-			</button>
+			<div className="max-w-3xl mx-auto text-center mt-6 px-6 transition-opacity duration-300">
+				<p className="text-gray-700 dark:text-white text-xl md:text-2xl font-light leading-relaxed mb-4">
+					{slides[activeIndex].testimonial}
+				</p>
+			</div>
 
-			<div className="absolute bottom-8 left-0 right-0 flex justify-center space-x-3">
-				{SLIDES.map((_, index) => (
+			<div
+				className="absolute left-0 right-0 flex justify-center"
+				style={{ top: "-50px" }}
+			>
+				{slides.map((slide, index) => (
 					<button
-						key={index}
-						className={`w-3 h-3 rounded-full focus:outline-none transition-all ${
-							index === activeIndex
-								? "bg-white"
-								: "bg-white bg-opacity-40 hover:bg-opacity-60"
-						}`}
+						key={slide.id}
 						onClick={() => {
-							goToSlide(index);
-							resetAutoplayTimer();
+							if (index === activeIndex) return;
+							const newDirection = index > activeIndex ? "next" : "prev";
+							handleManualNavigation(() => {
+								setIsTransitioning(true);
+								setDirection(newDirection);
+								setActiveIndex(index);
+								setTimeout(() => setIsTransitioning(false), 800);
+							});
 						}}
+						className={`mx-2 h-3 rounded-full transition-all duration-300 ${
+							activeIndex === index
+								? "bg-[#0d1b3e] w-3"
+								: "bg-gray-500 bg-opacity-50 w-3"
+						}`}
 						aria-label={`Go to slide ${index + 1}`}
 					/>
 				))}
 			</div>
-		</section>
+		</div>
 	);
 };
 

@@ -1,9 +1,12 @@
 import t2darklogo from "@/assets/images/t2darklogo.png";
 import t2lightlogo from "@/assets/images/t2lightlogo.png";
+import classNames from "classnames";
 import { ChevronDown, Globe, Menu, Moon, Sun, X } from "lucide-react";
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 
 const Header = () => {
+	const location = useLocation();
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const [isDarkMode, setIsDarkMode] = useState(false);
 	const [language, setLanguage] = useState("EN");
@@ -77,7 +80,19 @@ const Header = () => {
 							<a
 								key={link.path}
 								href={link.path}
-								className="text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 text-sm font-medium"
+								className={classNames(
+									"px-3 py-2 text-sm font-medium transition-colors ",
+									{
+										"bg-[#DAE4ED] text-[#19286D]":
+											window.location?.pathname === link?.path ||
+											!window.location?.pathname,
+										"text-gray-700 dark:text-gray-200 hover:text-[#19286D] hover:bg-gray-100 dark:hover:bg-gray-800":
+											!(
+												window.location?.pathname === link?.path ||
+												!window.location?.pathname
+											),
+									},
+								)}
 							>
 								{link.name}
 							</a>
@@ -159,9 +174,13 @@ const Header = () => {
 					<div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 border-t border-gray-200 dark:border-gray-700">
 						{NAV_LINKS.map((link) => (
 							<a
-								key={link.href}
-								href={link.href}
-								className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
+								key={link.path}
+								href={link.path}
+								className={`block px-3 py-2 text-base font-medium border-b border-b-[1px] ${
+									location.pathname === link.path
+										? "text-[#19286D] bg-[#DAE4ED]"
+										: "text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 border-b-[#f4f4f4]"
+								}`}
 							>
 								{link.name}
 							</a>

@@ -34,6 +34,9 @@ function App() {
 			case "USA":
 				if (i18n.language !== "en") i18n.changeLanguage("en");
 				break;
+			// case "VNM":
+			//   if (i18n.language !== "vi") i18n.changeLanguage("vi");
+			//   break;
 			default: // for other setting value find in local if we never setting before
 				if (i18n.language !== "en" && !isKorean) {
 					i18n.changeLanguage("en");

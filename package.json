@@ -8,8 +8,7 @@
 		"build": "vite build",
 		"preview": "vite preview",
 		"lint": "eslint .",
-		"lint:fix": "eslint . --fix",
-		"format": "prettier . --write"
+		"lint:fix": "eslint . --fix"
 	},
 	"dependencies": {
 		"@radix-ui/react-slot": "^1.2.2",

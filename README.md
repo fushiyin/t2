@@ -33,18 +33,7 @@ npm run dev
 
 ## Expanding the ESLint configuration
 
-## Format: Prettier
-
-- Check:
-    > `bunx prettier . --check`
-
-- Format:
-    > `bunx prettier . --write`
-    > or `bun format`
-
-> You could change the name of the file to the "." dot in command to format specific file
-
-##Format Eslint
+## Format Eslint
 * Check
 > `npm run lint` or `bun run lint`
 
@@ -52,6 +41,13 @@ npm run dev
 > `npm run lint:fix`
 > or `bun run lint:fix`
 ## Type: Javascript
+
+## Coding convention
+
+> 
+```
+Write from useState -> useMemo -> useEffect and other hooks then come to function and return
+``` 
 
 ## Other library and version
 

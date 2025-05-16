@@ -1,5 +1,6 @@
 import t2darklogo from "@/assets/images/t2darklogo.png";
 import t2lightlogo from "@/assets/images/t2lightlogo.png";
+import classNames from "classnames";
 import { ChevronDown, Globe, Menu, Moon, Sun, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
@@ -79,12 +80,19 @@ const Header = () => {
 							<a
 								key={link.path}
 								href={link.path}
-								className={`px-3 py-2 text-sm font-medium transition-colors ${
-									window.location.pathname === link.path ||
-									!window.location.pathname
-										? "bg-[#DAE4ED] text-[#19286D]"
-										: "text-gray-700 dark:text-gray-200 hover:text-[#19286D] hover:bg-gray-100 dark:hover:bg-gray-800"
-								}`}
+								className={classNames(
+									"px-3 py-2 text-sm font-medium transition-colors ",
+									{
+										"bg-[#DAE4ED] text-[#19286D]":
+											window.location?.pathname === link?.path ||
+											!window.location?.pathname,
+										"text-gray-700 dark:text-gray-200 hover:text-[#19286D] hover:bg-gray-100 dark:hover:bg-gray-800":
+											!(
+												window.location?.pathname === link?.path ||
+												!window.location?.pathname
+											),
+									},
+								)}
 							>
 								{link.name}
 							</a>

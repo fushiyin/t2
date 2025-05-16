@@ -19,6 +19,7 @@ export default defineConfig([
 			"*.config.js",
 			"*.config.cjs",
 			"*.config.mjs",
+			"README.md"
 		],
 		files: ["**/*.{js,mjs,cjs,jsx}"],
 		languageOptions: {
@@ -51,29 +52,8 @@ export default defineConfig([
 			"prettier/prettier": [
 				"error",
 				{
-					arrowParens: "always",
-					bracketSameLine: false,
-					objectWrap: "preserve",
-					bracketSpacing: true,
-					semi: true,
-					endOfLine: "auto",
-					printWidth: 100,
-					tabWidth: 4,
-					useTabs: true,
-					quoteProps: "as-needed",
-					trailingComma: "all",
-					singleAttributePerLine: true,
-					htmlWhitespaceSensitivity: "css",
-					vueIndentScriptAndStyle: true,
-					proseWrap: "preserve",
-					insertPragma: false,
-					requirePragma: false,
-					embeddedLanguageFormatting: "auto",
-					singleQuote: false,
-					jsxSingleQuote: false,
-					experimentalOperatorPosition: "end",
-					experimentalTernaries: false,
-				},
+					"usePrettierrc": true
+				}
 			],
 			"react/prop-types": "off",
 			"react/react-in-jsx-scope": "off",

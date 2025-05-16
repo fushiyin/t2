@@ -1,6 +1,5 @@
 import CaseStudiesSection from "@/views/Home/components/CaseStudiesSection";
 import ContactSection from "@/views/Home/components/ContactSection";
-import VisionJourney from "@/views/Home/components/VisionJourney";
 import CompetitiveEdges from "./components/CompetitiveEdges";
 import ContactCTA from "./components/ContactCTA";
 import DevelopmentCapacity from "./components/DevelopmentCapacity";
@@ -42,9 +41,6 @@ function HomePage() {
 			</section>
 			<section className="h-screen snap-start flex items-center justify-center">
 				<ContactSection />
-			</section>
-			<section className="h-screen snap-start flex pt-10 justify-center">
-				<VisionJourney />
 			</section>
 		</div>
 	);

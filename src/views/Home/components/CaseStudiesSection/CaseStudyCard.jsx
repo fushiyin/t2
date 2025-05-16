@@ -1,4 +1,4 @@
-import ArrowIcon from "./ArrowIcon";
+import { ArrowRight } from "lucide-react";
 
 const CaseStudyCard = ({ image, category, title, description, technologies }) => {
 	return (
@@ -20,7 +20,7 @@ const CaseStudyCard = ({ image, category, title, description, technologies }) =>
 				</p>
 				<div className="flex gap-2 items-center text-sm font-semibold text-blue-950">
 					<button className="underline cursor-pointer">More</button>
-					<ArrowIcon />
+					<ArrowRight />
 				</div>
 			</div>
 		</article>

@@ -1,5 +1,5 @@
-import CaseStudiesSection from "@/layouts/components/CaseStudiesSection";
-import ContactSection from "@/layouts/components/ContactSection";
+import CaseStudiesSection from "@/views/Home/components/CaseStudiesSection";
+import ContactSection from "@/views/Home/components/ContactSection";
 import CompetitiveEdges from "./components/CompetitiveEdges";
 import LoadingDemoButton from "./components/LoadingDemoButton";
 import ResetOnBoardingButton from "./components/ResetOnBoardingButton";
@@ -8,7 +8,8 @@ import Vision from "./components/Vision";
 function HomePage() {
 	return (
 		// <div className="h-screen no-scrollbar overflow-y-scroll snap-y snap-mandatory"
-		<div className="h-screen no-scrollbar overflow-y-scroll snap-y snap-mandatory"
+		<div
+			className="h-screen no-scrollbar overflow-y-scroll snap-y snap-mandatory"
 			style={{
 				maxWidth: 1440,
 				margin: "0 auto",

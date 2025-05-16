@@ -9,6 +9,7 @@ const idRouter = Object.freeze({
 	contact: "/contact",
 	service: "/service",
 	career: "/career",
+	demo: "/demo",
 });
 
 const Home = React.lazy(() => import("@/views/Home"));

@@ -18,7 +18,6 @@ const Header = () => {
 		{ name: "Services", path: "/services" },
 		{ name: "Career", path: "/career" },
 		{ name: "Blog", path: "/blog" },
-		// { name: "Contact Us", path: "/contact" },
 	];
 	const LANGUAGE = [
 		{ code: "EN", label: "English" },

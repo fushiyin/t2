@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable prettier/prettier */
 import { useEffect, useRef, useState } from "react";
 
 const slides = [
@@ -161,7 +163,7 @@ const Vision = () => {
 	return (
 		<div
 			ref={sliderContainerRef}
-			className="relative w-full overflow-hidden flex flex-col justify-center"
+			className="relative w-full h-full overflow-hidden flex flex-col justify-center bg-light-blue"
 		>
 			<div className="relative w-full h-[500px] flex justify-center items-center">
 				<div

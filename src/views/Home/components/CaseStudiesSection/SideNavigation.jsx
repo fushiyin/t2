@@ -33,14 +33,6 @@ const smoothScrollTo = (targetY, duration = 800) => {
 const SideNavigation = () => {
 	const [activeSection, setActiveSection] = useState(null);
 
-	const scrollToSection = (sectionId) => {
-		const section = document.getElementById(sectionId);
-		if (section) {
-			const y = section.getBoundingClientRect().top + window.scrollY;
-			smoothScrollTo(y, 800);
-		}
-	};
-
 	useEffect(() => {
 		const handleScroll = () => {
 			const scrollY = window.scrollY;
@@ -64,6 +56,14 @@ const SideNavigation = () => {
 		handleScroll(); // call once on mount
 		return () => window.removeEventListener("scroll", handleScroll);
 	}, []);
+
+	const scrollToSection = (sectionId) => {
+		const section = document.getElementById(sectionId);
+		if (section) {
+			const y = section.getBoundingClientRect().top + window.scrollY;
+			smoothScrollTo(y, 800);
+		}
+	};
 
 	return (
 		<nav

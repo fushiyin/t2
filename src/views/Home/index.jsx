@@ -1,3 +1,5 @@
+import CaseStudiesSection from "@/layouts/components/CaseStudiesSection";
+import ContactSection from "@/layouts/components/ContactSection";
 import CompetitiveEdges from "./components/CompetitiveEdges";
 import LoadingDemoButton from "./components/LoadingDemoButton";
 import ResetOnBoardingButton from "./components/ResetOnBoardingButton";
@@ -15,6 +17,12 @@ function HomePage() {
 			<section className="h-screen snap-start flex items-center justify-center">
 				<LoadingDemoButton />
 				<ResetOnBoardingButton />
+			</section>
+			<section className="h-screen snap-start flex items-center justify-center">
+				<CaseStudiesSection />
+			</section>
+			<section className="h-screen snap-start flex items-center justify-center">
+				<ContactSection />
 			</section>
 		</div>
 	);

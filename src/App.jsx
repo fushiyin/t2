@@ -30,34 +30,16 @@ function App() {
 		switch (currentLanguage?.optionValue) {
 			case "KOR":
 				if (i18n.language !== "ko") i18n.changeLanguage("ko");
-				if (window.flutter_inappwebview) {
-					window.flutter_inappwebview.callHandler("handleMessage", "ko");
-				}
 				break;
 			case "USA":
 				if (i18n.language !== "en") i18n.changeLanguage("en");
-				if (window.flutter_inappwebview) {
-					window.flutter_inappwebview.callHandler("handleMessage", "en");
-				}
 				break;
-			// case "VNM":
-			//   if (i18n.language !== "vi") i18n.changeLanguage("vi");
-			//   if (window.flutter_inappwebview) {
-			//     window.flutter_inappwebview.callHandler("handleMessage", "vi");
-			//   }
-			//   break;
 			default: // for other setting value find in local if we never setting before
 				if (i18n.language !== "en" && !isKorean) {
 					i18n.changeLanguage("en");
-					if (window.flutter_inappwebview) {
-						window.flutter_inappwebview.callHandler("handleMessage", "en");
-					}
 				}
 				if (i18n.language !== "ko" && isKorean) {
 					i18n.changeLanguage("ko");
-					if (window.flutter_inappwebview) {
-						window.flutter_inappwebview.callHandler("handleMessage", "ko");
-					}
 				}
 		}
 	}, [i18n]);

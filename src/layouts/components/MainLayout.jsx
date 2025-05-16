@@ -60,12 +60,12 @@ export default function MainLayout() {
 			<OnboardingProvider>
 				<Loading />
 				<Onboarding />
-				<Header />
-				<main>
-					<Outlet />
+				<main className="flex flex-col min-h-screen">
+					<Header />
+					<Outlet class="flex-1" />
+					<Footer />
 				</main>
 				<ButtonScrollToTop />
-				<Footer />
 			</OnboardingProvider>
 		</Suspense>
 	);

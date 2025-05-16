@@ -1,6 +1,7 @@
 import T2Logo from "@/assets/images/t2darklogo.png";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { useOnboarding } from "./OnBoardingProvider";
 
 // Animation duration in seconds (configurable)
@@ -11,6 +12,7 @@ export default function Onboarding() {
 	const [animationStep, setAnimationStep] = useState(0);
 	const [showContent, setShowContent] = useState(false);
 	const [exitAnimation, setExitAnimation] = useState(false);
+	const { t } = useTranslation();
 
 	// Control the animation sequence
 	useEffect(() => {
@@ -67,13 +69,12 @@ export default function Onboarding() {
 		<AnimatePresence>
 			{!hasSeenOnboarding && (
 				<motion.div
-					className="fixed inset-0 z-50 overflow-hidden bg-white"
+					className="fixed inset-0 z-100 overflow-hidden bg-white"
 					initial={{ opacity: 1 }}
 					animate={{ opacity: exitAnimation ? 0 : 1 }}
 					exit={{ opacity: 0 }}
 					transition={{ duration: 1 }}
 				>
-					{/* First diagonal section - Dark Blue */}
 					<motion.div
 						className="absolute top-0 left-0 w-full h-full bg-deepest-navy"
 						initial={{ clipPath: "polygon(0 0, 0 0, 0 100%, 0% 100%)" }}
@@ -85,8 +86,6 @@ export default function Onboarding() {
 						}}
 						transition={{ duration: 0.8, ease: "easeOut" }}
 					/>
-
-					{/* Second diagonal section - Medium Blue */}
 					<motion.div
 						className="absolute top-0 left-0 w-full h-full bg-near-black-blue"
 						initial={{
@@ -100,8 +99,6 @@ export default function Onboarding() {
 						}}
 						transition={{ duration: 0.8, ease: "easeOut" }}
 					/>
-
-					{/* Third diagonal section - Light Blue */}
 					<motion.div
 						className="absolute top-0 left-0 w-full h-full bg-draker-blue"
 						initial={{ clipPath: "polygon(100% 0, 100% 0, 100% 0, 100% 0)" }}
@@ -113,8 +110,6 @@ export default function Onboarding() {
 						}}
 						transition={{ duration: 0.8, ease: "easeOut" }}
 					/>
-
-					{/* Content Container */}
 					<div className="relative z-10 h-full flex flex-col items-center justify-center px-4">
 						<div className="max-w-4xl w-full">
 							{/* Logo */}
@@ -134,19 +129,6 @@ export default function Onboarding() {
 									/>
 								</div>
 							</motion.div>
-
-							{/* Title */}
-							{/* <motion.h1
-								className="text-5xl md:text-7xl font-bold mb-6 
-								text-white text-center"
-								initial={{ opacity: 0, y: 30 }}
-								animate={{ opacity: showContent ? 1 : 0, y: showContent ? 0 : 30 }}
-								transition={{ duration: 0.8, delay: 0.5 }}
-							>
-								T2Soft
-							</motion.h1> */}
-
-							{/* Tagline */}
 							<motion.h2
 								className="text-2xl md:text-3xl font-medium mb-8 text-white text-center"
 								initial={{ opacity: 0, y: 30 }}
@@ -156,7 +138,7 @@ export default function Onboarding() {
 								}}
 								transition={{ duration: 0.8, delay: 0.7 }}
 							>
-								Transforming Ideas Into Digital Reality
+								{t("slogan")}
 							</motion.h2>
 
 							{/* Description */}

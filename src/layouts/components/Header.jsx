@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
-import { Menu, X, Moon, Sun, ChevronDown, ChevronRight, Globe, Phone } from "lucide-react";
 import t2darklogo from "@/assets/images/t2darklogo.png";
 import t2lightlogo from "@/assets/images/t2lightlogo.png";
+import { ChevronDown, Globe, Menu, Moon, Sun, X } from "lucide-react";
+import { useEffect, useState } from "react";
 
 const Header = () => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);

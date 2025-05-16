@@ -22,9 +22,6 @@ function HomePage() {
 				<CompetitiveEdges />
 			</section>
 			<section className="h-screen snap-start flex items-center justify-center px-16">
-				<CaseStudy />
-			</section>
-			<section className="h-screen snap-start flex items-center justify-center px-16">
 				<LoadingDemoButton />
 				<ResetOnBoardingButton />
 			</section>

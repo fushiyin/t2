@@ -1,11 +1,12 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardContent } from "@/components/ui/card";
 import { motion, useAnimationControls } from "framer-motion";
+import { Ellipsis } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 // Testimonial data
 const testimonials = [
-	// First column (scrolls right to left)
+	// First row (scrolls right to left)
 	[
 		{
 			name: "Michael P.",
@@ -30,7 +31,7 @@ const testimonials = [
 		},
 	],
 
-	// Second column (scrolls left to right)
+	// Second row (scrolls left to right)
 	[
 		{
 			name: "Morgan Gallant",
@@ -55,7 +56,7 @@ const testimonials = [
 		},
 	],
 
-	// Third column (scrolls right to left)
+	// Third row (scrolls right to left)
 	[
 		{
 			name: "John Lynch",
@@ -81,52 +82,42 @@ const testimonials = [
 	],
 ];
 
+// Create duplicated testimonials for seamless looping
+const duplicatedTestimonials = testimonials.map((row) => [...row, ...row, ...row, ...row]);
+
 export default function Testimonials() {
 	const containerRef = useRef(null);
-	const [columnHeights, setColumnHeights] = useState([0, 0, 0]);
+	const [rowWidths, setRowWidths] = useState([0, 0, 0]);
 
-	// Animation controls for each column
-	const column1Controls = useAnimationControls();
-	const column2Controls = useAnimationControls();
-	const column3Controls = useAnimationControls();
+	// Animation controls for each row
+	const row1Controls = useAnimationControls();
+	const row2Controls = useAnimationControls();
+	const row3Controls = useAnimationControls();
 
-	// Refs for each column to measure heights
-	const column1Ref = useRef(null);
-	const column2Ref = useRef(null);
-	const column3Ref = useRef(null);
+	// Refs for each row to measure widths
+	const row1Ref = useRef(null);
+	const row2Ref = useRef(null);
+	const row3Ref = useRef(null);
 
-	// Measure column heights after render
+	// Measure row widths after render
 	useEffect(() => {
-		if (column1Ref.current && column2Ref.current && column3Ref.current) {
-			setColumnHeights([
-				column1Ref.current.scrollHeight,
-				column2Ref.current.scrollHeight,
-				column3Ref.current.scrollHeight,
+		if (row1Ref.current && row2Ref.current && row3Ref.current) {
+			setRowWidths([
+				row1Ref.current.scrollWidth / 2,
+				row2Ref.current.scrollWidth / 2,
+				row3Ref.current.scrollWidth / 2,
 			]);
 		}
 	}, []);
 
-	// Start animations after heights are measured
+	// Start animations after widths are measured
 	useEffect(() => {
-		if (columnHeights[0] > 0 && columnHeights[1] > 0 && columnHeights[2] > 0) {
-			// First column animation (top to bottom)
-			column1Controls.start({
-				y: [-columnHeights[0] / 2, 0],
+		if (rowWidths[0] > 0 && rowWidths[1] > 0 && rowWidths[2] > 0) {
+			// First row animation (right to left)
+			row1Controls.start({
+				x: [-rowWidths[0], -rowWidths[0] * 2],
 				transition: {
-					y: {
-						repeat: Number.POSITIVE_INFINITY,
-						repeatType: "loop",
-						duration: 25,
-						ease: "linear",
-					},
-				},
-			});
-
-			// Second column animation (bottom to top)
-			column2Controls.start({
-				y: [0, -columnHeights[1] / 2],
-				transition: {
-					y: {
+					x: {
 						repeat: Number.POSITIVE_INFINITY,
 						repeatType: "loop",
 						duration: 30,
@@ -135,38 +126,44 @@ export default function Testimonials() {
 				},
 			});
 
-			// Third column animation (top to bottom)
-			column3Controls.start({
-				y: [-columnHeights[2] / 2, 0],
+			// Second row animation (left to right)
+			row2Controls.start({
+				x: [-rowWidths[1] * 2, -rowWidths[1]],
 				transition: {
-					y: {
+					x: {
 						repeat: Number.POSITIVE_INFINITY,
 						repeatType: "loop",
-						duration: 28,
+						duration: 35,
+						ease: "linear",
+					},
+				},
+			});
+
+			// Third row animation (right to left)
+			row3Controls.start({
+				x: [-rowWidths[2], -rowWidths[2] * 2],
+				transition: {
+					x: {
+						repeat: Number.POSITIVE_INFINITY,
+						repeatType: "loop",
+						duration: 32,
 						ease: "linear",
 					},
 				},
 			});
 		}
-	}, [columnHeights, column1Controls, column2Controls, column3Controls]);
-
-	// Create duplicated testimonials for seamless looping
-	const duplicatedTestimonials = [
-		[...testimonials[0], ...testimonials[0]],
-		[...testimonials[1], ...testimonials[1]],
-		[...testimonials[2], ...testimonials[2]],
-	];
+	}, [rowWidths, row1Controls, row2Controls, row3Controls]);
 
 	return (
 		<div
-			className="snap-section bg-white text-white w-full h-full relative flex items-center justify-center"
+			className="snap-section bg-white w-full h-full relative flex items-center justify-center"
 			ref={containerRef}
 		>
-			<div className="container px-4 md:px-6 relative h-full">
+			<div className="container px-4 md:px-6 relative h-full w-full flex items-center justify-center">
 				{/* Absolutely positioned title with box shadow */}
 				<div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 w-full flex justify-center">
 					<motion.div
-						className="bg-[#5087f7] px-8 py-4 rounded-lg shadow-[0_0_30px_rgba(0,100,255,0.3)] inline-block"
+						className="bg-[#222] px-8 py-4 rounded-lg shadow-[0_0_30px_rgba(0,100,255,0.3)] inline-block"
 						initial={{ opacity: 0, scale: 0.9 }}
 						animate={{ opacity: 1, scale: 1 }}
 						transition={{ duration: 0.8, delay: 0.2 }}
@@ -180,52 +177,58 @@ export default function Testimonials() {
 				{/* Semi-transparent overlay to make the title more visible */}
 				{/* <div className="absolute top-1/2 left-0 right-0 h-24 bg-gradient-to-b from-[#111]/80 via-[#111]/80 to-[#111]/80 transform -translate-y-1/2 z-10"></div> */}
 
-				{/* Testimonial columns with infinite scroll */}
-				<div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 overflow-hidden h-full">
-					{/* Column 1 - Top to Bottom */}
-					<div className="relative overflow-hidden h-full">
+				{/* Testimonial rows with horizontal infinite scroll */}
+				<div className="flex flex-col gap-12 mt-8 mb-8 w-full">
+					{/* Row 1 - Right to Left */}
+					<div className="relative overflow-hidden h-[300px]">
 						<motion.div
-							ref={column1Ref}
-							className="flex flex-col gap-6 absolute top-0 left-0 right-0"
-							animate={column1Controls}
+							ref={row1Ref}
+							className="flex gap-6 absolute"
+							animate={row1Controls}
 						>
 							{duplicatedTestimonials[0].map((testimonial, index) => (
-								<TestimonialCard
-									key={`col1-${index}`}
-									testimonial={testimonial}
-								/>
+								<div
+									key={`row1-${index}`}
+									className="w-80 flex-shrink-0"
+								>
+									<TestimonialCard testimonial={testimonial} />
+								</div>
 							))}
 						</motion.div>
 					</div>
 
-					{/* Column 2 - Bottom to Top */}
-					<div className="relative overflow-hidden h-full">
+					{/* Row 2 - Left to Right */}
+					<div className="relative overflow-hidden h-[300px]">
 						<motion.div
-							ref={column2Ref}
-							className="flex flex-col gap-6 absolute top-0 left-0 right-0"
-							animate={column2Controls}
+							ref={row2Ref}
+							className="flex gap-6 absolute"
+							animate={row2Controls}
 						>
 							{duplicatedTestimonials[1].map((testimonial, index) => (
-								<TestimonialCard
-									key={`col2-${index}`}
-									testimonial={testimonial}
-								/>
+								<div
+									key={`row2-${index}`}
+									className="w-80 flex-shrink-0"
+								>
+									<TestimonialCard testimonial={testimonial} />
+								</div>
 							))}
 						</motion.div>
 					</div>
 
-					{/* Column 3 - Top to Bottom */}
-					<div className="relative overflow-hidden h-full">
+					{/* Row 3 - Right to Left */}
+					<div className="relative overflow-hidden h-[300px]">
 						<motion.div
-							ref={column3Ref}
-							className="flex flex-col gap-6 absolute top-0 left-0 right-0"
-							animate={column3Controls}
+							ref={row3Ref}
+							className="flex gap-6 absolute"
+							animate={row3Controls}
 						>
 							{duplicatedTestimonials[2].map((testimonial, index) => (
-								<TestimonialCard
-									key={`col3-${index}`}
-									testimonial={testimonial}
-								/>
+								<div
+									key={`row3-${index}`}
+									className="w-80 flex-shrink-0"
+								>
+									<TestimonialCard testimonial={testimonial} />
+								</div>
 							))}
 						</motion.div>
 					</div>
@@ -238,15 +241,15 @@ export default function Testimonials() {
 // Testimonial card component
 function TestimonialCard({ testimonial }) {
 	return (
-		<Card className="bg-near-black-blue/90 border-near-black-blue hover:border-[#444] shadow-md hover:shadow-lg transition-all duration-300">
+		<Card className="bg-near-black-blue/90 border-near-black-blue hover:border-[#444] shadow-md hover:shadow-lg transition-all duration-300 h-full">
 			<CardContent className="p-6">
 				<div className="flex items-start space-x-4">
-					<Avatar className="border-2 border-t2-blue">
+					<Avatar className="border-2 border-light-blue">
 						<AvatarImage
 							src={testimonial.avatar || "/placeholder.svg"}
 							alt={testimonial.name}
 						/>
-						<AvatarFallback className="bg-t2-darkBlue text-white">
+						<AvatarFallback className="bg-dark-blue text-white">
 							{testimonial.name.charAt(0)}
 						</AvatarFallback>
 					</Avatar>
@@ -255,11 +258,15 @@ function TestimonialCard({ testimonial }) {
 						<div className="text-sm text-gray-400">{testimonial.username}</div>
 					</div>
 				</div>
-				<p className="mt-4 text-gray-300 leading-relaxed">{testimonial.content}</p>
+				<p className="mt-4 text-gray-300 leading-relaxed line-clamp-4">
+					{testimonial.content}
+				</p>
 				<div className="mt-4 flex items-center space-x-4 text-gray-400 text-sm">
 					<button className="hover:text-gray-200 transition-colors">Reply</button>
 					<button className="hover:text-gray-200 transition-colors">Share</button>
-					<button className="hover:text-gray-200 transition-colors">...</button>
+					<button className="hover:text-gray-200 transition-colors">
+						<Ellipsis size={18} />
+					</button>
 				</div>
 			</CardContent>
 		</Card>

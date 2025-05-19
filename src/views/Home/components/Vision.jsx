@@ -36,6 +36,23 @@ const Vision = () => {
 	const autoPlayRef = useRef(null);
 	const sliderContainerRef = useRef(null);
 
+	// Auto-rotation effect
+	useEffect(() => {
+		const startTimer = () => {
+			autoPlayRef.current = setTimeout(() => {
+				nextSlide();
+			}, 10000); // 10 seconds
+		};
+
+		startTimer();
+
+		return () => {
+			if (autoPlayRef.current) {
+				clearTimeout(autoPlayRef.current);
+			}
+		};
+	}, [activeIndex, isTransitioning]);
+	
 	// Function to calculate all slide positions for the oval effect
 	const getSlidePositions = () => {
 		const positions = [];
@@ -83,22 +100,6 @@ const Vision = () => {
 	const nextSlide = () => goToSlide("next");
 	const prevSlide = () => goToSlide("prev");
 
-	// Auto-rotation effect
-	useEffect(() => {
-		const startTimer = () => {
-			autoPlayRef.current = setTimeout(() => {
-				nextSlide();
-			}, 10000); // 10 seconds
-		};
-
-		startTimer();
-
-		return () => {
-			if (autoPlayRef.current) {
-				clearTimeout(autoPlayRef.current);
-			}
-		};
-	}, [activeIndex, isTransitioning]);
 
 	// Reset auto rotation when user interacts
 	const handleManualNavigation = (navFn) => {

@@ -52,7 +52,8 @@ export default defineConfig([
 			"prettier/prettier": [
 				"error",
 				{
-					"usePrettierrc": true
+					"usePrettierrc": true,
+					"endOfLine": "auto",
 				}
 			],
 			"react/prop-types": "off",

@@ -58,7 +58,10 @@ const Header = () => {
 	};
 
 	return (
-		<header className="w-full bg-white dark:bg-gray-900 shadow-md z-50">
+		<header
+			id="header"
+			className="sticky top-0 w-full bg-white dark:bg-gray-900 shadow-md z-50"
+		>
 			<div className="w-full px-4 sm:px-6 lg:px-8">
 				<div className="flex justify-between items-center h-16">
 					<div className="flex-shrink-0">

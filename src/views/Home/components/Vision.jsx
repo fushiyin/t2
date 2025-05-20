@@ -8,7 +8,7 @@ const slides = [
 		id: "vision",
 		title: "Vision",
 		testimonial:
-			"\"We envision a world where technology empowers every individual to achieve their full creative potential without barriers or limitations.\"",
+			"We envision a world where technology empowers every individual to achieve their full creative potential without barriers or limitations.",
 		author: "Novacene",
 		image: "https://media.istockphoto.com/id/1329715338/vi/vec-to/c%C3%A1c-d%E1%BA%A5u-ch%E1%BA%A5m-v%C3%A0-%C4%91%C6%B0%E1%BB%9Dng-xuy%C3%AAn-qua-th%C3%B4ng-qua-c%C3%B4ng-ngh%E1%BB%87-m%E1%BA%A1ng-qu%E1%BB%B9-%C4%91%E1%BA%A1o-h%E1%BA%A1t-v%C3%A0-n%E1%BB%81n-c%E1%BA%A3m-gi%C3%A1c-t%E1%BB%91c-%C4%91%E1%BB%99.jpg?s=1024x1024&w=is&k=20&c=xmZvlsQGc7Y1XnhJ6_2Ff4bxkSYhmnHVPMYbC9lGbu4=",
 	},
@@ -16,7 +16,7 @@ const slides = [
 		id: "mission",
 		title: "Mission",
 		testimonial:
-			"\"Our mission is to build innovative platforms that connect creators with audiences globally, enabling seamless distribution of digital content across all mediums.\"",
+			"Our mission is to build innovative platforms that connect creators with audiences globally, enabling seamless distribution of digital content across all mediums.",
 		author: "Novacene",
 		image: "https://media.istockphoto.com/id/1329715338/vi/vec-to/c%C3%A1c-d%E1%BA%A5u-ch%E1%BA%A5m-v%C3%A0-%C4%91%C6%B0%E1%BB%9Dng-xuy%C3%AAn-qua-th%C3%B4ng-qua-c%C3%B4ng-ngh%E1%BB%87-m%E1%BA%A1ng-qu%E1%BB%B9-%C4%91%E1%BA%A1o-h%E1%BA%A1t-v%C3%A0-n%E1%BB%81n-c%E1%BA%A3m-gi%C3%A1c-t%E1%BB%91c-%C4%91%E1%BB%99.jpg?s=1024x1024&w=is&k=20&c=xmZvlsQGc7Y1XnhJ6_2Ff4bxkSYhmnHVPMYbC9lGbu4=",
 	},
@@ -24,7 +24,7 @@ const slides = [
 		id: "values",
 		title: "Values",
 		testimonial:
-			"\"We believe in creativity, inclusivity, integrity, and continuous innovation. These core values drive everything we do as we support the next generation of digital creators.\"",
+			"We believe in creativity, inclusivity, integrity, and continuous innovation. These core values drive everything we do as we support the next generation of digital creators.",
 		author: "Novacene",
 		image: "https://media.istockphoto.com/id/1329715338/vi/vec-to/c%C3%A1c-d%E1%BA%A5u-ch%E1%BA%A5m-v%C3%A0-%C4%91%C6%B0%E1%BB%9Dng-xuy%C3%AAn-qua-th%C3%B4ng-qua-c%C3%B4ng-ngh%E1%BB%87-m%E1%BA%A1ng-qu%E1%BB%B9-%C4%91%E1%BA%A1o-h%E1%BA%A1t-v%C3%A0-n%E1%BB%81n-c%E1%BA%A3m-gi%C3%A1c-t%E1%BB%91c-%C4%91%E1%BB%99.jpg?s=1024x1024&w=is&k=20&c=xmZvlsQGc7Y1XnhJ6_2Ff4bxkSYhmnHVPMYbC9lGbu4=",
 	},
@@ -53,7 +53,7 @@ const Vision = () => {
 			}
 		};
 	}, [activeIndex, isTransitioning]);
-	
+
 	// Function to calculate all slide positions for the oval effect
 	const getSlidePositions = () => {
 		const positions = [];
@@ -100,7 +100,6 @@ const Vision = () => {
 
 	const nextSlide = () => goToSlide("next");
 	const prevSlide = () => goToSlide("prev");
-
 
 	// Reset auto rotation when user interacts
 	const handleManualNavigation = (navFn) => {

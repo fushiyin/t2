@@ -2,7 +2,7 @@ import { ArrowRight } from "lucide-react";
 
 const CaseStudyCard = ({ image, category, title, description, technologies }) => {
 	return (
-		<article className="bg-white rounded-lg shadow-sm w-[400px] max-md:w-[350px] max-sm:w-full">
+		<div className="bg-white rounded-lg shadow-sm w-[400px] max-md:w-[350px] max-sm:w-full">
 			<img
 				src={image}
 				alt="Case study"
@@ -23,7 +23,7 @@ const CaseStudyCard = ({ image, category, title, description, technologies }) =>
 					<ArrowRight />
 				</div>
 			</div>
-		</article>
+		</div>
 	);
 };
 

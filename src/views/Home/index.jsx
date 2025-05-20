@@ -1,6 +1,6 @@
+import CTA from "@/components/sections/ContactCTA";
 import { HEADER_STYLE } from "@/constant/header";
 import CaseStudiesSection from "@/views/Home/components/CaseStudiesSection";
-import ContactSection from "@/views/Home/components/ContactSection";
 import SideNavigation from "./components/CaseStudiesSection/SideNavigation";
 import CompetitiveEdges from "./components/CompetitiveEdges";
 import DevelopmentCapacity from "./components/DevelopmentCapacity";
@@ -10,61 +10,57 @@ import Vision from "./components/Vision";
 import WhyVietnam from "./components/WhyVietnam";
 
 function HomePage() {
+	const sectionHeightClass = `h-[calc(100vh-${HEADER_STYLE.HEIGHT})]`;
+	const sectionClass = `flex items-center justify-center relative overflow-hidden ${sectionHeightClass}`;
 	return (
 		<>
 			<section
 				id="hero-video"
-				className="snap-start flex items-center justify-center relative overflow-hidden h-[calc(100vh-64px)]"
+				className={sectionClass}
 			>
 				<Hero />
 			</section>
 			<section
 				id="why-vietnam"
-				className="snap-start flex items-center justify-center px-4 sm:px-6 md:px-16 min-h-screen"
+				className={sectionClass}
 			>
 				<WhyVietnam />
 			</section>
 			<section
 				id="vision"
-				className="snap-start flex items-center justify-center px-4 sm:px-6 md:px-16"
-				style={{ minHeight: `calc(100vh - ${HEADER_STYLE.HEIGHT})` }}
+				className={sectionClass}
 			>
 				<Vision />
 			</section>
 			<section
 				id="competitive-edges"
-				className="snap-start flex items-center justify-center px-4 sm:px-6 md:px-16"
-				style={{ minHeight: `calc(100vh - ${HEADER_STYLE.HEIGHT})` }}
+				className={sectionClass}
 			>
 				<CompetitiveEdges />
 			</section>
 			<section
 				id="development-capacity"
-				className="snap-start flex items-center justify-center px-4 sm:px-6 md:px-16"
-				style={{ minHeight: `calc(100vh - ${HEADER_STYLE.HEIGHT})` }}
+				className={sectionClass}
 			>
 				<DevelopmentCapacity />
 			</section>
 			<section
 				id="case-studies"
-				className="flex items-center justify-center px-4 sm:px-6 md:px-16"
-				style={{ minHeight: `calc(100vh - ${HEADER_STYLE.HEIGHT})` }}
+				className={sectionClass}
 			>
 				<CaseStudiesSection />
 			</section>
 			<section
 				id="testimonials"
-				className="flex items-center justify-center px-4 sm:px-6 md:px-16"
-				style={{ minHeight: `calc(100vh - ${HEADER_STYLE.HEIGHT})` }}
+				className={sectionClass}
 			>
 				<Testimonials />
 			</section>
 			<section
 				id="contact-section"
-				className="flex items-center justify-center px-4 sm:px-6 md:px-16"
-				style={{ minHeight: "30vh" }}
+				className="flex items-center justify-center"
 			>
-				<ContactSection />
+				<CTA />
 			</section>
 
 			<SideNavigation />

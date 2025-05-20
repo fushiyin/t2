@@ -1,7 +1,5 @@
-"use client";
-
-import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import InfinityHorizontalScroll from "./InfinityHorizontalScroll";
 
 // Sample partner logos - replace with actual logos
 const partnerLogos = [
@@ -54,18 +52,9 @@ export default function PartnerLogos() {
 	return (
 		<div className="w-full bg-white border-y border-t2-paleBlue py-4 overflow-hidden">
 			<div className="relative w-full overflow-hidden h-[80px] flex items-center">
-				<motion.div
-					className="flex"
-					animate={{
-						x: ["0%", "-100%"],
-					}}
-					transition={{
-						x: {
-							duration: 30,
-							ease: "linear",
-							repeat: Number.POSITIVE_INFINITY,
-						},
-					}}
+				<InfinityHorizontalScroll
+					scrollSpeed={50000}
+					height={300}
 				>
 					{duplicatedLogos.map((partner, index) => (
 						<div
@@ -79,7 +68,7 @@ export default function PartnerLogos() {
 							/>
 						</div>
 					))}
-				</motion.div>
+				</InfinityHorizontalScroll>
 			</div>
 		</div>
 	);

@@ -85,10 +85,10 @@ const Header = () => {
 								className={classNames(
 									"px-3 py-2 text-sm font-medium transition-colors ",
 									{
-										"bg-[#DAE4ED] text-[#19286D]":
+										"bg-light-blue-gray text-dark-blue":
 											window.location?.pathname === link?.path ||
 											!window.location?.pathname,
-										"text-gray-700 dark:text-gray-200 hover:text-[#19286D] hover:bg-gray-100 dark:hover:bg-gray-800":
+										"text-gray-700 dark:text-gray-200 hover:text-dark-blue hover:bg-gray-100 dark:hover:bg-gray-800":
 											!(
 												window.location?.pathname === link?.path ||
 												!window.location?.pathname
@@ -104,7 +104,7 @@ const Header = () => {
 					<div className="hidden md:flex items-center ml-auto">
 						<button
 							type="button"
-							className="mr-4 px-4 py-2 text-sm font-medium text-white bg-[#19286D] rounded-md hover:bg-[#101944] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#19286D]"
+							className="mr-4 px-4 py-2 text-sm font-medium text-white bg-dark-blue rounded-md hover:bg-[#101944] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-dark-blue"
 							onClick={goToContact}
 							aria-label="Contact Us"
 							title="Contact Us"
@@ -180,7 +180,7 @@ const Header = () => {
 								href={link.path}
 								className={`block px-3 py-2 text-base font-medium border-b border-b-[1px] ${
 									location.pathname === link.path
-										? "text-[#19286D] bg-[#DAE4ED]"
+										? "text-dark-blue bg-light-blue-gray"
 										: "text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 border-b-[#f4f4f4]"
 								}`}
 							>
@@ -206,7 +206,7 @@ const Header = () => {
 												onClick={() => changeLanguage(code)}
 												className={`px-2 py-1 text-sm font-medium rounded ${
 													language === code
-														? "bg-[#19286D] text-white"
+														? "bg-dark-blue text-white"
 														: "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200"
 												}`}
 											>

@@ -1,6 +1,6 @@
+import CTA from "@/components/sections/ContactCTA";
 import { HEADER_STYLE } from "@/constant/header";
 import CaseStudiesSection from "@/views/Home/components/CaseStudiesSection";
-import ContactSection from "@/views/Home/components/ContactSection";
 import SideNavigation from "./components/CaseStudiesSection/SideNavigation";
 import CompetitiveEdges from "./components/CompetitiveEdges";
 import DevelopmentCapacity from "./components/DevelopmentCapacity";
@@ -59,9 +59,8 @@ function HomePage() {
 			<section
 				id="contact-section"
 				className="flex items-center justify-center"
-				style={{ height: "30vh" }}
 			>
-				<ContactSection />
+				<CTA />
 			</section>
 			{/* <section className="snap-start flex items-center justify-center 
 			px-16 h-[calc(100vh-64px)]">

@@ -1,13 +1,9 @@
 import CaseStudyCard from "./CaseStudyCard";
-import SideNavigation from "./SideNavigation";
 
 const CaseStudiesSection = () => {
 	return (
-		<main
-			className="w-full bg-white"
-			id="case-studies"
-		>
-			<section className="px-5 py-4 mx-auto max-w-[1440px]">
+		<div className="w-full bg-white">
+			<div className="mx-auto max-w-[1440px]">
 				<header className="mb-20 text-center">
 					<h1 className="mb-6 text-5xl font-bold leading-6 text-blue-950 max-md:text-4xl max-sm:text-3xl">
 						Case Studies
@@ -19,7 +15,7 @@ const CaseStudiesSection = () => {
 					</p>
 				</header>
 
-				<div className="flex flex-wrap gap-12 justify-center mb-10">
+				<div className="grid gap-12 justify-center grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mb-10">
 					<CaseStudyCard
 						image="https://cdn.builder.io/api/v1/image/assets/TEMP/5f8fffbed5d74b02e2e01bf4813f50575b941330"
 						category="E-commerce"
@@ -63,9 +59,8 @@ const CaseStudiesSection = () => {
 						</svg>
 					</button>
 				</div>
-			</section>
-			<SideNavigation />
-		</main>
+			</div>
+		</div>
 	);
 };
 

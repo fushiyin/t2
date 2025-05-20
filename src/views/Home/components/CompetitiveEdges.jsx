@@ -1,4 +1,6 @@
-import { BarChart3, Code, Cpu, DollarSign } from "lucide-react";
+import classNames from "classnames";
+import { BarChart3, Check, Code, Cpu, DollarSign } from "lucide-react";
+import { useState } from "react";
 import Lottie from "react-lottie";
 import Communicate from "../../../assets/lotties/communicate.json";
 import Computer from "../../../assets/lotties/computer.json";
@@ -6,6 +8,7 @@ import Cost from "../../../assets/lotties/cost.json";
 import Dev from "../../../assets/lotties/dev.json";
 
 const CompetitiveEdges = () => {
+	const [activeEdge, setActiveEdge] = useState(null);
 	const defaultOptions = {
 		loop: true,
 		autoplay: true,
@@ -43,10 +46,10 @@ const CompetitiveEdges = () => {
 			hover: "hover:bg-linear-to-r from-[#00A9C0] to-[#7CD957] hover:text-white transition-colors duration-300 ease-in-out",
 			isActive: false,
 			desription: [
-				"Able to coordinate between Korean and Vietnam",
-				"Optimize response to Korean work style",
-				"Able to lead project with rich experience",
-				"Able to communicate and coordinate quickly and clearly when issues arise",
+				"Various language and frameworks proficiency",
+				"Quickly adapt to the latest trends and technological changes",
+				"Able to organize personnel with experience tailored to Korean project",
+				"Quality-oriented, hands-on development team",
 			],
 			lottie: Dev,
 			width: 200,
@@ -62,10 +65,10 @@ const CompetitiveEdges = () => {
 			hover: "hover:bg-linear-to-r from-[#00A9C0] to-[#7CD957] hover:text-white transition-colors duration-300 ease-in-out",
 			isActive: false,
 			desription: [
-				"Able to coordinate between Korean and Vietnam",
-				"Optimize response to Korean work style",
-				"Able to lead project with rich experience",
-				"Able to communicate and coordinate quickly and clearly when issues arise",
+				"Optimized communication between customers and developers with professional bridge personnel",
+				"High level of understanding and responsiveness to cultural differences",
+				"Efficient collaboration through customer-tailored communication",
+				"Real-time smooth communication through collaboration tools",
 			],
 			lottie: Communicate,
 			width: 120,
@@ -81,10 +84,10 @@ const CompetitiveEdges = () => {
 			hover: "hover:bg-linear-to-r from-[#00A9C0] to-[#7CD957] hover:text-white transition-colors duration-300 ease-in-out",
 			isActive: false,
 			desription: [
-				"Able to coordinate between Korean and Vietnam",
-				"Optimize response to Korean work style",
-				"Able to lead project with rich experience",
-				"Able to communicate and coordinate quickly and clearly when issues arise",
+				"Provide cost-effective solutions with high-quality services",
+				"Minimizing trial and error with abundant experience",
+				"Maximizing productivity with solid internal processes",
+				"Achieving cost savings through flexible personnel management",
 			],
 			lottie: Cost,
 			width: 180,
@@ -109,9 +112,19 @@ const CompetitiveEdges = () => {
 						<div
 							key={index}
 							className="flex flex-col"
+							onClick={() => setActiveEdge(edge)}
 						>
 							<div
-								className={`w-full aspect-square bg-[#0d1b3e] ${edge.hover} flex flex-col items-end justify-between rounded-lg shadow-lg p-4`}
+								className={classNames(
+									"w-full aspect-square flex flex-col items-end justify-between rounded-lg shadow-lg p-4 cursor-pointer",
+									{
+										"bg-gradient-to-r from-[#00A9C0] to-[#7CD957]":
+											activeEdge?.id === edge?.id ||
+											(!activeEdge && index === 0),
+										"bg-[#0d1b3e]": !(activeEdge?.id === edge?.id),
+									},
+									edge?.hover,
+								)}
 							>
 								<p className={`text-2xl w-full ${edge.textColor}`}>{edge.title}</p>
 								<div className="w-full h-full flex items-center justify-center">
@@ -133,14 +146,22 @@ const CompetitiveEdges = () => {
 				<div className="w-[90px] h-[8px] bg-linear-to-r from-[#00A9C0] to-[#7CD957] mb-4"></div>
 
 				<div className="text-gray-200 pl-4 md:pl-0">
-					{edges[0].desription.map((benefit, index) => (
-						<p
-							key={index}
-							className="leading-relaxed text-gray-700 dark:text-white text-[21px]"
-						>
-							{benefit}
-						</p>
-					))}
+					<div className="text-gray-200 pl-4 md:pl-0 space-y-3">
+						{(activeEdge?.desription ?? edges[0]?.desription)?.map((benefit, index) => (
+							<div
+								key={index}
+								className="flex items-center gap-2 transition-transform duration-300 hover:-translate-y-1"
+							>
+								<Check
+									className=" text-gray-700 mt-1"
+									size={20}
+								/>
+								<p className="leading-relaxed text-gray-700 dark:text-white text-[21px]">
+									{benefit}
+								</p>
+							</div>
+						))}
+					</div>
 				</div>
 			</div>
 		</section>

@@ -32,13 +32,13 @@ function HomePage() {
 				<LoadingDemoButton />
 				<ResetOnBoardingButton />
 			</section> */}
-			<section className="snap-start flex items-center justify-center px-16 h-[calc(100vh-64px)]">
-				<Testimonials />
-			</section>
-			<section className="snap-start flex items-center justify-center px-16 h-[calc(100vh-64px)]">
+			<section className="flex items-center justify-center px-16 h-[calc(100vh-64px)]">
 				<CaseStudiesSection />
 			</section>
-			<section className="snap-start flex items-center justify-center px-16 h-[calc(100vh-64px)]">
+			<section className="flex items-center justify-center h-[calc(100vh-64px)]">
+				<Testimonials />
+			</section>
+			<section className="flex items-center justify-center px-16 h-[calc(100vh-64px)]">
 				<ContactSection />
 			</section>
 		</div>

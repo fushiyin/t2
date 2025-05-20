@@ -1,4 +1,3 @@
-import { HEADER_STYLE } from "@/constant/header";
 import { useEffect, useState } from "react";
 
 const sections = [
@@ -43,7 +42,7 @@ const SideNavigation = () => {
 		const handleScroll = () => {
 			const main = document.querySelector("main");
 			const header = document.querySelector("header");
-			const headerHeight = (header?.offsetHeight || 0) + HEADER_STYLE.PADDING;
+			const headerHeight = header?.offsetHeight || 0;
 			const scrollY = (main?.scrollTop || 0) + headerHeight;
 
 			let current = null;
@@ -72,13 +71,11 @@ const SideNavigation = () => {
 
 	const scrollToSection = (sectionId) => {
 		const section = document.getElementById(sectionId);
-		const header = document.querySelector("header");
 		const main = document.querySelector("main");
-		const headerHeight = (header?.offsetHeight || 0) + HEADER_STYLE.PADDING;
 
 		if (section && main) {
 			const sectionTopInMain = section.offsetTop - main.offsetTop;
-			const y = sectionTopInMain - headerHeight;
+			const y = sectionTopInMain;
 			smoothScrollTo(y, 800);
 		}
 	};

@@ -1,4 +1,3 @@
-import { HEADER_STYLE } from "@/constant/header";
 import CaseStudiesSection from "@/views/Home/components/CaseStudiesSection";
 import ContactSection from "@/views/Home/components/ContactSection";
 import SideNavigation from "./components/CaseStudiesSection/SideNavigation";
@@ -26,42 +25,37 @@ function HomePage() {
 			</section>
 			<section
 				id="vision"
-				className="snap-start flex items-center justify-center px-16"
-				style={{ height: `calc(100vh - ${HEADER_STYLE.HEIGHT})` }}
+				className="snap-start flex items-center justify-center px-16  h-screen"
 			>
 				<Vision />
 			</section>
 			<section
 				id="competitive-edges"
-				className="snap-start flex items-center justify-center px-16"
-				style={{ height: `calc(100vh - ${HEADER_STYLE.HEIGHT})` }}
+				className="snap-start flex items-center justify-center px-16  h-screen "
 			>
 				<CompetitiveEdges />
 			</section>
 			<section
 				id="development-capacity"
-				className="snap-start flex items-center justify-center"
-				style={{ height: `calc(100vh - ${HEADER_STYLE.HEIGHT})` }}
+				className="snap-start flex items-center justify-center  h-screen"
 			>
 				<DevelopmentCapacity />
 			</section>
 			<section
 				id="case-studies"
-				className="flex items-center justify-center px-16"
-				style={{ height: `calc(100vh - ${HEADER_STYLE.HEIGHT})` }}
+				className="flex items-center justify-center px-16  h-screen"
 			>
 				<CaseStudiesSection />
 			</section>
 			<section
 				id="testimonials"
-				className="flex items-center justify-center"
-				style={{ height: `calc(100vh - ${HEADER_STYLE.HEIGHT})` }}
+				className="flex items-center justify-center  h-screen"
 			>
 				<Testimonials />
 			</section>
 			<section
 				id="contact-section"
-				className="flex items-center justify-center"
+				className="flex items-center justify-center  h-screen"
 				style={{ height: "30vh" }}
 			>
 				<ContactSection />

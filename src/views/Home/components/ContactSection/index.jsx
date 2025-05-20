@@ -24,7 +24,7 @@ const ContactSection = () => {
 				</ul>
 				<button
 					onClick={handleContactClick}
-					className="self-start bg-[#19286D] hover:bg-blue-700 cursor-pointer text-white font-semibold px-6 py-3 rounded-md transition-colors duration-300 shadow-md"
+					className="self-start bg-dark-blue not-first:hover:bg-blue-700 cursor-pointer text-white font-semibold px-6 py-3 rounded-md transition-colors duration-300 shadow-md"
 				>
 					Contact Us
 				</button>

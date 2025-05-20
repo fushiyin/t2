@@ -37,7 +37,7 @@ function ButtonScrollToTop() {
 			type="button"
 			onClick={scrollToTop}
 			className={classNames(
-				"size-[56px] fixed cursor-pointer rounded-3xl bg-[#19286D] bottom-[30px] right-[30px] shadow-[0px 2px 4px 0px #0000001F, 0px 4px 8px 0px #00000014]",
+				"size-[56px] fixed cursor-pointer rounded-3xl bg-dark-blue bottom-[30px] right-[30px] shadow-[0px 2px 4px 0px #0000001F, 0px 4px 8px 0px #00000014]",
 				{
 					visible: showScrollTop,
 					hidden: !showScrollTop,

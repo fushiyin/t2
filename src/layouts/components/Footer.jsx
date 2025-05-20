@@ -1,9 +1,73 @@
-import { CONTACT_ITEMS, SOCIAL_LINKS } from "@/constant/footer";
+import { FOOTER } from "@/constant/footer";
+import { Facebook, Globe, Mail, MapPin, MessageCircle, Phone, Send } from "lucide-react";
 import { Link } from "react-router-dom";
+
+const CONTACT_ITEMS = [
+	{
+		icon: <Phone className="text-[#dark-blue w-5 h-5 flex-shrink-0" />,
+		content: (
+			<div>
+				<p className="text-gray-600 text-sm">{FOOTER.PHONE_VN}</p>
+				<p className="text-gray-600 text-sm">{FOOTER.PHONE_KR}</p>
+			</div>
+		),
+	},
+	{
+		icon: <Mail className="text-dark-blue w-5 h-5 flex-shrink-0" />,
+		content: (
+			<div>
+				<p className="text-gray-600 text-sm">{FOOTER.EMAIL_1}</p>
+				<p className="text-gray-600 text-sm">{FOOTER.EMAIL_2}</p>
+			</div>
+		),
+	},
+	{
+		icon: <Globe className="text-dark-blue w-5 h-5 flex-shrink-0" />,
+		content: (
+			<a
+				href="https://www.ttwosoft.com"
+				target="_blank"
+				rel="noopener noreferrer"
+				className="text-gray-600 text-sm hover:text-dark-blue"
+			>
+				{FOOTER.WEB_SITE}
+			</a>
+		),
+	},
+	{
+		icon: <MapPin className="text-dark-blue w-5 h-5 flex-shrink-0 mt-0.5" />,
+		content: <p className="text-gray-600 text-sm">{FOOTER.ADDRESS}</p>,
+	},
+];
+
+const SOCIAL_LINKS = [
+	{
+		name: "Facebook",
+		url: "https://facebook.com",
+		icon: <Facebook size={16} />,
+		bgColor: "bg-dark-blue",
+		textColor: "text-white",
+	},
+	{
+		name: "KakaoTalk",
+		url: "https://kakaotalk.com",
+		icon: <MessageCircle size={16} />,
+		bgColor: "bg-dark-blue",
+		textColor: "text-white",
+	},
+	{
+		name: "Telegram",
+		url: "https://t.me",
+		icon: <Send size={16} />,
+		bgColor: "bg-dark-blue",
+		textColor: "text-white",
+	},
+];
 
 const Footer = () => {
 	const currentYear = new Date().getFullYear();
 	// Contact information items
+
 	const footerSections = [
 		{
 			title: "Company",
@@ -75,7 +139,7 @@ const Footer = () => {
 						<div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
 							{footerSections.map((section, index) => (
 								<div key={index}>
-									<h3 className="text-[#19286D] font-semibold text-lg mb-4">
+									<h3 className="text-dark-blue font-semibold text-lg mb-4">
 										{section.title}
 									</h3>
 									<ul className="space-y-2">
@@ -83,7 +147,7 @@ const Footer = () => {
 											<li key={linkIndex}>
 												<Link
 													to={link.to}
-													className="text-gray-600 hover:text-[#19286D] transition-colors text-sm"
+													className="text-gray-600 hover:text-dark-blue transition-colors text-sm"
 												>
 													{link.label}
 												</Link>
@@ -99,7 +163,7 @@ const Footer = () => {
 						<div>
 							<Link
 								to="/"
-								className="text-[#19286D] font-bold text-2xl"
+								className="text-dark-blue font-bold text-2xl"
 							>
 								T2Soft
 							</Link>

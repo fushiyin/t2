@@ -1,5 +1,3 @@
-export const HEADER_STYLE = {
+export const HEADER_STYLE = Object.freeze({
 	HEIGHT: "64px",
-	PADDING: 16,
-	PADDING_PX: "16px",
-};
+});

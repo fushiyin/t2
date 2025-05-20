@@ -13,8 +13,8 @@ const idRouter = Object.freeze({
 
 const Home = React.lazy(() => import("@/views/Home"));
 const About = React.lazy(() => import("@/views/About"));
-const Careers = React.lazy(() => import("@/views/Career"));
 const Contact = React.lazy(() => import("@/views/Contact"));
+const Careers = React.lazy(() => import("@/views/Career"));
 const Services = React.lazy(() => import("@/views/ServicesPage"));
 
 const router = createBrowserRouter([
@@ -26,6 +26,10 @@ const router = createBrowserRouter([
 			{
 				path: idRouter?.home,
 				element: <Home />,
+			},
+			{
+				path: idRouter?.contact,
+				element: <Contact />,
 			},
 			{ path: idRouter.about, element: <About /> },
 			{ path: idRouter.career, element: <Careers /> },

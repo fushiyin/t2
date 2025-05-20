@@ -1,4 +1,4 @@
-import { HEADER_STYLE } from "@/constant/header";
+import { smoothScrollTo } from "@/lib/utils";
 import { useEffect, useState } from "react";
 
 const sections = [
@@ -11,31 +11,6 @@ const sections = [
 	{ id: "testimonials", label: "07", name: "Testimonials" },
 ];
 
-const easeInOutCubic = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
-
-const smoothScrollTo = (targetY, duration = 800) => {
-	const main = document.querySelector("main");
-	if (!main) return;
-
-	const startY = main.scrollTop;
-	const distance = targetY - startY;
-	let startTime;
-
-	const step = (timestamp) => {
-		if (!startTime) startTime = timestamp;
-		const timeElapsed = timestamp - startTime;
-		const progress = Math.min(timeElapsed / duration, 1);
-		const easedProgress = easeInOutCubic(progress);
-		main.scrollTo(0, startY + distance * easedProgress);
-
-		if (timeElapsed < duration) {
-			requestAnimationFrame(step);
-		}
-	};
-
-	requestAnimationFrame(step);
-};
-
 const SideNavigation = () => {
 	const [activeSection, setActiveSection] = useState(null);
 
@@ -43,7 +18,7 @@ const SideNavigation = () => {
 		const handleScroll = () => {
 			const main = document.querySelector("main");
 			const header = document.querySelector("header");
-			const headerHeight = (header?.offsetHeight || 0) + HEADER_STYLE.PADDING;
+			const headerHeight = header?.offsetHeight || 0;
 			const scrollY = (main?.scrollTop || 0) + headerHeight;
 
 			let current = null;
@@ -65,7 +40,7 @@ const SideNavigation = () => {
 		const main = document.querySelector("main");
 		if (main) {
 			main.addEventListener("scroll", handleScroll);
-			handleScroll(); // call once on mount
+			handleScroll();
 			return () => main.removeEventListener("scroll", handleScroll);
 		}
 	}, []);
@@ -73,9 +48,11 @@ const SideNavigation = () => {
 	const scrollToSection = (sectionId) => {
 		const section = document.getElementById(sectionId);
 		const main = document.querySelector("main");
+
 		if (section && main) {
-			const sectionTop = section.offsetTop - main.offsetTop;
-			smoothScrollTo(sectionTop, 1000);
+			const sectionTopInMain = section.offsetTop - main.offsetTop;
+			const y = sectionTopInMain;
+			smoothScrollTo(y, 800);
 		}
 	};
 

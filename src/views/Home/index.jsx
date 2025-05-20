@@ -1,5 +1,7 @@
+import { HEADER_STYLE } from "@/constant/header";
 import CaseStudiesSection from "@/views/Home/components/CaseStudiesSection";
 import ContactSection from "@/views/Home/components/ContactSection";
+import SideNavigation from "./components/CaseStudiesSection/SideNavigation";
 import CompetitiveEdges from "./components/CompetitiveEdges";
 import DevelopmentCapacity from "./components/DevelopmentCapacity";
 import Hero from "./components/Hero";
@@ -9,21 +11,60 @@ import WhyVietnam from "./components/WhyVietnam";
 
 function HomePage() {
 	return (
-		<div>
-			<section className="snap-start flex items-center justify-center relative overflow-hidden h-[calc(100vh-64px)]">
+		<>
+			<section
+				id="hero-video"
+				className="snap-start flex items-center justify-center relative overflow-hidden h-[calc(100vh-64px)]"
+			>
 				<Hero />
 			</section>
-			<section className="snap-start flex items-center justify-center px-16 h-[calc(100vh-64px)]">
+			<section
+				id="why-vietnam"
+				className="snap-start flex items-center justify-center px-16 h-screen"
+			>
 				<WhyVietnam />
 			</section>
-			<section className="snap-start flex items-center justify-center h-[calc(100vh-64px)] px-16">
+			<section
+				id="vision"
+				className="snap-start flex items-center justify-center px-16"
+				style={{ height: `calc(100vh - ${HEADER_STYLE.HEIGHT})` }}
+			>
 				<Vision />
 			</section>
-			<section className="snap-start flex items-center justify-center px-16 h-[calc(100vh-64px)]">
+			<section
+				id="competitive-edges"
+				className="snap-start flex items-center justify-center px-16"
+				style={{ height: `calc(100vh - ${HEADER_STYLE.HEIGHT})` }}
+			>
 				<CompetitiveEdges />
 			</section>
-			<section className="snap-start flex items-center justify-center h-[calc(100vh-64px)]">
+			<section
+				id="development-capacity"
+				className="snap-start flex items-center justify-center"
+				style={{ height: `calc(100vh - ${HEADER_STYLE.HEIGHT})` }}
+			>
 				<DevelopmentCapacity />
+			</section>
+			<section
+				id="case-studies"
+				className="flex items-center justify-center px-16"
+				style={{ height: `calc(100vh - ${HEADER_STYLE.HEIGHT})` }}
+			>
+				<CaseStudiesSection />
+			</section>
+			<section
+				id="testimonials"
+				className="flex items-center justify-center"
+				style={{ height: `calc(100vh - ${HEADER_STYLE.HEIGHT})` }}
+			>
+				<Testimonials />
+			</section>
+			<section
+				id="contact-section"
+				className="flex items-center justify-center"
+				style={{ height: "30vh" }}
+			>
+				<ContactSection />
 			</section>
 			{/* <section className="snap-start flex items-center justify-center 
 			px-16 h-[calc(100vh-64px)]">
@@ -31,16 +72,8 @@ function HomePage() {
 				<LoadingDemoButton />
 				<ResetOnBoardingButton />
 			</section> */}
-			<section className="snap-start flex items-center justify-center px-16 h-[calc(100vh-64px)]">
-				<Testimonials />
-			</section>
-			<section className="snap-start flex items-center justify-center px-16 h-[calc(100vh-64px)]">
-				<CaseStudiesSection />
-			</section>
-			<section className="snap-start flex items-center justify-center px-16 h-[calc(100vh-64px)]">
-				<ContactSection />
-			</section>
-		</div>
+			<SideNavigation />
+		</>
 	);
 }
 

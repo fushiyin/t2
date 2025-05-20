@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import mission from "@/assets/img/mission.png";
 import values from "@/assets/img/values.png";
 import vision from "@/assets/img/vision.png";
@@ -33,7 +34,6 @@ const slides = [
 const Vision = () => {
 	const [activeIndex, setActiveIndex] = useState(0);
 	const [isTransitioning, setIsTransitioning] = useState(false);
-	const [direction, setDirection] = useState("next"); // 'next' or 'prev'
 	const autoPlayRef = useRef(null);
 	const sliderContainerRef = useRef(null);
 
@@ -84,7 +84,6 @@ const Vision = () => {
 		if (isTransitioning) return;
 
 		setIsTransitioning(true);
-		setDirection(newDirection);
 
 		if (newDirection === "next") {
 			setActiveIndex((prevIndex) => (prevIndex + 1) % slides.length);
@@ -99,7 +98,6 @@ const Vision = () => {
 	};
 
 	const nextSlide = () => goToSlide("next");
-	const prevSlide = () => goToSlide("prev");
 
 	// Reset auto rotation when user interacts
 	const handleManualNavigation = (navFn) => {
@@ -111,7 +109,8 @@ const Vision = () => {
 
 	// Calculate oval-path styles for each slide based on position
 	const getSlideStyle = (relativePosition) => {
-		// Convert position to percentage around the oval (0 = center, -1 = left side, 1 = right side)
+		// Convert position to percentage around the oval
+		// (0 = center, -1 = left side, 1 = right side)
 		const baseScale = 0.85;
 		const maxScale = 1;
 		const baseBlur = 2; // px
@@ -221,10 +220,8 @@ const Vision = () => {
 						key={slide.id}
 						onClick={() => {
 							if (index === activeIndex) return;
-							const newDirection = index > activeIndex ? "next" : "prev";
 							handleManualNavigation(() => {
 								setIsTransitioning(true);
-								setDirection(newDirection);
 								setActiveIndex(index);
 								setTimeout(() => setIsTransitioning(false), 800);
 							});

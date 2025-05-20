@@ -72,14 +72,10 @@ const SideNavigation = () => {
 
 	const scrollToSection = (sectionId) => {
 		const section = document.getElementById(sectionId);
-		const header = document.querySelector("header");
 		const main = document.querySelector("main");
-		const headerHeight = (header?.offsetHeight || 0) + HEADER_STYLE.PADDING;
-
 		if (section && main) {
-			const sectionTopInMain = section.offsetTop - main.offsetTop;
-			const y = sectionTopInMain - headerHeight;
-			smoothScrollTo(y, 800);
+			const sectionTop = section.offsetTop - main.offsetTop;
+			smoothScrollTo(sectionTop, 1000);
 		}
 	};
 

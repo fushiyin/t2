@@ -58,8 +58,8 @@ function HomePage() {
 			</section>
 			<section
 				id="contact-section"
-				className="flex items-center justify-center  h-screen"
-				style={{ height: "30vh" }}
+				className="flex items-center justify-center h-screen"
+				style={{ height: "40vh" }}
 			>
 				<ContactSection />
 			</section>

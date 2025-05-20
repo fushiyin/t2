@@ -1,3 +1,4 @@
+import { smoothScrollTo } from "@/lib/utils";
 import { useEffect, useState } from "react";
 
 const sections = [
@@ -9,31 +10,6 @@ const sections = [
 	{ id: "case-studies", label: "06", name: "Case Studies" },
 	{ id: "testimonials", label: "07", name: "Testimonials" },
 ];
-
-const easeInOutCubic = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
-
-const smoothScrollTo = (targetY, duration = 800) => {
-	const main = document.querySelector("main");
-	if (!main) return;
-
-	const startY = main.scrollTop;
-	const distance = targetY - startY;
-	let startTime;
-
-	const step = (timestamp) => {
-		if (!startTime) startTime = timestamp;
-		const timeElapsed = timestamp - startTime;
-		const progress = Math.min(timeElapsed / duration, 1);
-		const easedProgress = easeInOutCubic(progress);
-		main.scrollTo(0, startY + distance * easedProgress);
-
-		if (timeElapsed < duration) {
-			requestAnimationFrame(step);
-		}
-	};
-
-	requestAnimationFrame(step);
-};
 
 const SideNavigation = () => {
 	const [activeSection, setActiveSection] = useState(null);
@@ -64,7 +40,7 @@ const SideNavigation = () => {
 		const main = document.querySelector("main");
 		if (main) {
 			main.addEventListener("scroll", handleScroll);
-			handleScroll(); // call once on mount
+			handleScroll();
 			return () => main.removeEventListener("scroll", handleScroll);
 		}
 	}, []);

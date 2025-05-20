@@ -54,15 +54,15 @@ export default function ContactCTA() {
 						</p>
 						<ul className="space-y-2 text-muted-foreground">
 							<li className="flex items-center gap-2">
-								<span className="h-2 w-2 rounded-full bg-t2-blue"></span>
+								<span className="h-2 w-2 rounded-full bg-[#0d1333]"></span>
 								<span>Expert consultation tailored to your business needs</span>
 							</li>
 							<li className="flex items-center gap-2">
-								<span className="h-2 w-2 rounded-full bg-t2-blue"></span>
+								<span className="h-2 w-2 rounded-full bg-[#0d1333]"></span>
 								<span>Cutting-edge technology solutions</span>
 							</li>
 							<li className="flex items-center gap-2">
-								<span className="h-2 w-2 rounded-full bg-t2-blue"></span>
+								<span className="h-2 w-2 rounded-full bg-[#0d1333]"></span>
 								<span>Dedicated support throughout your project</span>
 							</li>
 						</ul>
@@ -174,7 +174,7 @@ export default function ContactCTA() {
 								</div>
 								<Button
 									type="submit"
-									className="w-full bg-t2-blue hover:bg-t2-darkBlue text-white"
+									className="w-full bg-[#19286D] hover:bg-blue-700 cursor-pointer text-white"
 									disabled={isSubmitting}
 								>
 									{isSubmitting ? "Sending..." : "Send Message"}

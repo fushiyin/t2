@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { smoothScrollTo } from "@/lib/utils";
 import classNames from "classnames";
 import { ChevronUp } from "lucide-react";
 import { Suspense, useEffect, useState } from "react";
@@ -27,10 +28,7 @@ function ButtonScrollToTop() {
 	}, [location]);
 
 	const scrollToTop = () => {
-		document.querySelector("main").scrollTo({
-			top: 0,
-			behavior: "smooth",
-		});
+		smoothScrollTo(0, 800);
 	};
 
 	return (
@@ -38,7 +36,7 @@ function ButtonScrollToTop() {
 			type="button"
 			onClick={scrollToTop}
 			className={classNames(
-				"size-[56px] fixed rounded-3xl bg-white bottom-[30px] right-[max(30px, calc(50vw - 628px - 30px - 56px))] shadow-[0px 2px 4px 0px #0000001F, 0px 4px 8px 0px #00000014]",
+				"size-[56px] fixed cursor-pointer rounded-3xl bg-[#19286D] bottom-[30px] right-[30px] shadow-[0px 2px 4px 0px #0000001F, 0px 4px 8px 0px #00000014]",
 				{
 					visible: showScrollTop,
 					hidden: !showScrollTop,
@@ -47,7 +45,7 @@ function ButtonScrollToTop() {
 		>
 			<ChevronUp
 				size={24}
-				color="red"
+				color="white"
 				strokeWidth={2}
 			/>
 		</Button>

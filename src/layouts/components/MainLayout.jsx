@@ -29,6 +29,7 @@ function ButtonScrollToTop() {
 
 	const scrollToTop = () => {
 		smoothScrollTo(0, 800);
+		smoothScrollTo(0, 800);
 	};
 
 	return (

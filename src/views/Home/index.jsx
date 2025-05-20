@@ -9,7 +9,6 @@ import WhyVietnam from "./components/WhyVietnam";
 
 function HomePage() {
 	return (
-		// <div className="h-screen no-scrollbar overflow-y-scroll snap-y snap-mandatory"
 		<div
 			className="h-screen no-scrollbar overflow-y-scroll snap-y snap-mandatory"
 			style={{

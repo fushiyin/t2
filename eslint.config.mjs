@@ -55,6 +55,7 @@ export default defineConfig([
 					"usePrettierrc": true
 				}
 			],
+			"extends": ["plugin:prettier/recommended"],
 			"react/prop-types": "off",
 			"react/react-in-jsx-scope": "off",
 			"react-hooks/exhaustive-deps": "warn",

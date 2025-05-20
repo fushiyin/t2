@@ -124,7 +124,7 @@ const CompetitiveEdges = () => {
 										height={edge.height}
 									/>
 								</div>
-								{edge.icon}
+								<div>{edge.icon}</div>
 							</div>
 						</div>
 					))}

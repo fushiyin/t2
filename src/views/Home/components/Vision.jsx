@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import mission from "@/assets/img/mission.png";
 import values from "@/assets/img/values.png";
 import vision from "@/assets/img/vision.png";
@@ -99,7 +100,6 @@ const Vision = () => {
 	};
 
 	const nextSlide = () => goToSlide("next");
-	const prevSlide = () => goToSlide("prev");
 
 	// Reset auto rotation when user interacts
 	const handleManualNavigation = (navFn) => {

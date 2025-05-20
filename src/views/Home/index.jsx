@@ -20,58 +20,53 @@ function HomePage() {
 			</section>
 			<section
 				id="why-vietnam"
-				className="snap-start flex items-center justify-center px-16 h-screen"
+				className="snap-start flex items-center justify-center px-4 sm:px-6 md:px-16 min-h-screen"
 			>
 				<WhyVietnam />
 			</section>
 			<section
 				id="vision"
-				className="snap-start flex items-center justify-center px-16"
-				style={{ height: `calc(100vh - ${HEADER_STYLE.HEIGHT})` }}
+				className="snap-start flex items-center justify-center px-4 sm:px-6 md:px-16"
+				style={{ minHeight: `calc(100vh - ${HEADER_STYLE.HEIGHT})` }}
 			>
 				<Vision />
 			</section>
 			<section
 				id="competitive-edges"
-				className="snap-start flex items-center justify-center px-16"
-				style={{ height: `calc(100vh - ${HEADER_STYLE.HEIGHT})` }}
+				className="snap-start flex items-center justify-center px-4 sm:px-6 md:px-16"
+				style={{ minHeight: `calc(100vh - ${HEADER_STYLE.HEIGHT})` }}
 			>
 				<CompetitiveEdges />
 			</section>
 			<section
 				id="development-capacity"
-				className="snap-start flex items-center justify-center"
-				style={{ height: `calc(100vh - ${HEADER_STYLE.HEIGHT})` }}
+				className="snap-start flex items-center justify-center px-4 sm:px-6 md:px-16"
+				style={{ minHeight: `calc(100vh - ${HEADER_STYLE.HEIGHT})` }}
 			>
 				<DevelopmentCapacity />
 			</section>
 			<section
 				id="case-studies"
-				className="flex items-center justify-center px-16"
-				style={{ height: `calc(100vh - ${HEADER_STYLE.HEIGHT})` }}
+				className="flex items-center justify-center px-4 sm:px-6 md:px-16"
+				style={{ minHeight: `calc(100vh - ${HEADER_STYLE.HEIGHT})` }}
 			>
 				<CaseStudiesSection />
 			</section>
 			<section
 				id="testimonials"
-				className="flex items-center justify-center"
-				style={{ height: `calc(100vh - ${HEADER_STYLE.HEIGHT})` }}
+				className="flex items-center justify-center px-4 sm:px-6 md:px-16"
+				style={{ minHeight: `calc(100vh - ${HEADER_STYLE.HEIGHT})` }}
 			>
 				<Testimonials />
 			</section>
 			<section
 				id="contact-section"
-				className="flex items-center justify-center"
-				style={{ height: "30vh" }}
+				className="flex items-center justify-center px-4 sm:px-6 md:px-16"
+				style={{ minHeight: "30vh" }}
 			>
 				<ContactSection />
 			</section>
-			{/* <section className="snap-start flex items-center justify-center 
-			px-16 h-[calc(100vh-64px)]">
-				<ContactCTA />
-				<LoadingDemoButton />
-				<ResetOnBoardingButton />
-			</section> */}
+
 			<SideNavigation />
 		</>
 	);

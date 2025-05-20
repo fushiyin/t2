@@ -1,6 +1,6 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable no-unused-vars */
-/* eslint-disable prettier/prettier */
+import mission from "@/assets/img/mission.png";
+import values from "@/assets/img/values.png";
+import vision from "@/assets/img/vision.png";
 import { useEffect, useRef, useState } from "react";
 
 const slides = [
@@ -8,25 +8,25 @@ const slides = [
 		id: "vision",
 		title: "Vision",
 		testimonial:
-			"We envision a world where technology empowers every individual to achieve their full creative potential without barriers or limitations.",
+			"Become the best global development partnet leading next-generation technologies.",
 		author: "Novacene",
-		image: "https://media.istockphoto.com/id/1329715338/vi/vec-to/c%C3%A1c-d%E1%BA%A5u-ch%E1%BA%A5m-v%C3%A0-%C4%91%C6%B0%E1%BB%9Dng-xuy%C3%AAn-qua-th%C3%B4ng-qua-c%C3%B4ng-ngh%E1%BB%87-m%E1%BA%A1ng-qu%E1%BB%B9-%C4%91%E1%BA%A1o-h%E1%BA%A1t-v%C3%A0-n%E1%BB%81n-c%E1%BA%A3m-gi%C3%A1c-t%E1%BB%91c-%C4%91%E1%BB%99.jpg?s=1024x1024&w=is&k=20&c=xmZvlsQGc7Y1XnhJ6_2Ff4bxkSYhmnHVPMYbC9lGbu4=",
+		image: vision,
 	},
 	{
 		id: "mission",
 		title: "Mission",
 		testimonial:
-			"Our mission is to build innovative platforms that connect creators with audiences globally, enabling seamless distribution of digital content across all mediums.",
+			"We provide reliable software development and solutions to customers around the world, and provide cost-effective and high-quality services with excellent development talents in Vietnam. We support our customer business growth through technological innovation and flexible collaboration.",
 		author: "Novacene",
-		image: "https://media.istockphoto.com/id/1329715338/vi/vec-to/c%C3%A1c-d%E1%BA%A5u-ch%E1%BA%A5m-v%C3%A0-%C4%91%C6%B0%E1%BB%9Dng-xuy%C3%AAn-qua-th%C3%B4ng-qua-c%C3%B4ng-ngh%E1%BB%87-m%E1%BA%A1ng-qu%E1%BB%B9-%C4%91%E1%BA%A1o-h%E1%BA%A1t-v%C3%A0-n%E1%BB%81n-c%E1%BA%A3m-gi%C3%A1c-t%E1%BB%91c-%C4%91%E1%BB%99.jpg?s=1024x1024&w=is&k=20&c=xmZvlsQGc7Y1XnhJ6_2Ff4bxkSYhmnHVPMYbC9lGbu4=",
+		image: mission,
 	},
 	{
 		id: "values",
 		title: "Values",
 		testimonial:
-			"We believe in creativity, inclusivity, integrity, and continuous innovation. These core values drive everything we do as we support the next generation of digital creators.",
+			"Grow together as a team with customer, we quickly absorb and apply the latest trends and technologies to stay ahead. We gain customer trust through honest communication and responsible behaviors.",
 		author: "Novacene",
-		image: "https://media.istockphoto.com/id/1329715338/vi/vec-to/c%C3%A1c-d%E1%BA%A5u-ch%E1%BA%A5m-v%C3%A0-%C4%91%C6%B0%E1%BB%9Dng-xuy%C3%AAn-qua-th%C3%B4ng-qua-c%C3%B4ng-ngh%E1%BB%87-m%E1%BA%A1ng-qu%E1%BB%B9-%C4%91%E1%BA%A1o-h%E1%BA%A1t-v%C3%A0-n%E1%BB%81n-c%E1%BA%A3m-gi%C3%A1c-t%E1%BB%91c-%C4%91%E1%BB%99.jpg?s=1024x1024&w=is&k=20&c=xmZvlsQGc7Y1XnhJ6_2Ff4bxkSYhmnHVPMYbC9lGbu4=",
+		image: values,
 	},
 ];
 
@@ -131,7 +131,7 @@ const Vision = () => {
 
 		if (relativePosition === -1 || relativePosition === slides.length - 1) {
 			return {
-				transform: `translateX(-90%) scale(${baseScale})`,
+				transform: `translateX(-70%) scale(${baseScale})`,
 				filter: `blur(${baseBlur}px) brightness(0.8)`,
 				zIndex: baseZIndex,
 				left: "30%",
@@ -142,7 +142,7 @@ const Vision = () => {
 
 		if (relativePosition === 1 || relativePosition === -(slides.length - 1)) {
 			return {
-				transform: `translateX(-10%) scale(${baseScale})`,
+				transform: `translateX(-30%) scale(${baseScale})`,
 				filter: `blur(${baseBlur}px) brightness(0.8)`,
 				zIndex: baseZIndex,
 				left: "70%",
@@ -164,8 +164,17 @@ const Vision = () => {
 	return (
 		<div
 			ref={sliderContainerRef}
-			className="relative w-full h-full overflow-hidden flex flex-col justify-center bg-light-blue"
+			className="relative w-full h-full overflow-hidden flex flex-col gap-12 justify-center"
 		>
+			<div className="flex flex-col items-center justify-center space-y-4 text-center">
+				<h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-t2-darkBlue">
+					VISION, MISSION & VALUES
+				</h2>
+				<p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+					Our vision, mission, and values guide us in delivering innovative solutions and
+					driving success for our clients.
+				</p>
+			</div>
 			<div className="relative w-full h-[500px] flex justify-center items-center">
 				<div
 					className={`relative w-full max-w-7xl mx-auto h-full ${isTransitioning ? "pointer-events-none" : ""}`}
@@ -181,12 +190,21 @@ const Vision = () => {
 									transitionProperty: "transform, filter, left, top, opacity",
 								}}
 							>
-								<div className="w-full h-full overflow-hidden shadow-2xl">
-									<img
-										src={slide.image}
-										alt={slide.title}
-										className="w-full h-full object-cover"
-									/>
+								<div
+									className="w-full h-full overflow-hidden bg-white rounded-xl shadow-2xl flex items-center justify-center"
+									style={{
+										backgroundImage: `url(${slide.image})`,
+										backgroundSize: "cover",
+										backgroundPosition: "center",
+									}}
+								>
+									<div className="max-w-3xl mx-auto text-center mt-6 px-6">
+										<div className="bg-white/30 backdrop-blur-md rounded-lg p-6">
+											<p className="text-white text-xl md:text-2xl font-light leading-relaxed mb-4">
+												{slide.testimonial}
+											</p>
+										</div>
+									</div>
 								</div>
 							</div>
 						);
@@ -194,21 +212,9 @@ const Vision = () => {
 				</div>
 			</div>
 
-			<div className="text-center mt-8 transition-opacity duration-300">
-				<h3 className="text-[#19286D] dark:text-gray-300 font-medium text-2xl tracking-wide">
-					{slides[activeIndex].title}
-				</h3>
-			</div>
-
-			<div className="max-w-3xl mx-auto text-center mt-6 px-6 transition-opacity duration-300">
-				<p className="text-gray-700 dark:text-white text-xl md:text-2xl font-light leading-relaxed mb-4">
-					{slides[activeIndex].testimonial}
-				</p>
-			</div>
-
 			<div
-				className="absolute left-0 right-0 flex justify-center"
-				style={{ top: "-50px" }}
+				className="absolute bottom-0 left-0 right-0 flex justify-center"
+				style={{ bottom: "60px" }}
 			>
 				{slides.map((slide, index) => (
 					<button

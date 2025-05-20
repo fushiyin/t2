@@ -1,3 +1,4 @@
+import { HEADER_STYLE } from "@/constant/header";
 import { useEffect, useState } from "react";
 
 const sections = [
@@ -13,7 +14,10 @@ const sections = [
 const easeInOutCubic = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
 
 const smoothScrollTo = (targetY, duration = 800) => {
-	const startY = window.scrollY;
+	const main = document.querySelector("main");
+	if (!main) return;
+
+	const startY = main.scrollTop;
 	const distance = targetY - startY;
 	let startTime;
 
@@ -22,28 +26,32 @@ const smoothScrollTo = (targetY, duration = 800) => {
 		const timeElapsed = timestamp - startTime;
 		const progress = Math.min(timeElapsed / duration, 1);
 		const easedProgress = easeInOutCubic(progress);
-		window.scrollTo(0, startY + distance * easedProgress);
+		main.scrollTo(0, startY + distance * easedProgress);
 
 		if (timeElapsed < duration) {
 			requestAnimationFrame(step);
 		}
 	};
+
 	requestAnimationFrame(step);
 };
 
 const SideNavigation = () => {
 	const [activeSection, setActiveSection] = useState(null);
 
-	console.log("activeSection", activeSection);
 	useEffect(() => {
 		const handleScroll = () => {
-			const scrollY = window.scrollY + (document.querySelector("header")?.offsetHeight || 0);
+			const main = document.querySelector("main");
+			const header = document.querySelector("header");
+			const headerHeight = (header?.offsetHeight || 0) + HEADER_STYLE.PADDING;
+			const scrollY = (main?.scrollTop || 0) + headerHeight;
+
 			let current = null;
 
 			for (let section of sections) {
 				const el = document.getElementById(section.id);
-				if (el) {
-					const offsetTop = el.offsetTop;
+				if (el && main) {
+					const offsetTop = el.offsetTop - main.offsetTop;
 					const offsetHeight = el.offsetHeight;
 
 					if (scrollY >= offsetTop - offsetHeight / 2) {
@@ -54,25 +62,25 @@ const SideNavigation = () => {
 			setActiveSection(current);
 		};
 
-		window.addEventListener("scroll", handleScroll);
-		handleScroll(); // call once on mount
-		return () => window.removeEventListener("scroll", handleScroll);
+		const main = document.querySelector("main");
+		if (main) {
+			main.addEventListener("scroll", handleScroll);
+			handleScroll(); // call once on mount
+			return () => main.removeEventListener("scroll", handleScroll);
+		}
 	}, []);
 
 	const scrollToSection = (sectionId) => {
 		const section = document.getElementById(sectionId);
 		const header = document.querySelector("header");
-		const headerHeight = header ? header.offsetHeight : 0;
-		if (section) {
-			const y = section.offsetTop - headerHeight;
+		const main = document.querySelector("main");
+		const headerHeight = (header?.offsetHeight || 0) + HEADER_STYLE.PADDING;
+
+		if (section && main) {
+			const sectionTopInMain = section.offsetTop - main.offsetTop;
+			const y = sectionTopInMain - headerHeight;
 			smoothScrollTo(y, 800);
 		}
-		console.log({
-			target: sectionId,
-			offsetTop: section?.offsetTop,
-			headerHeight,
-			computedY: section?.offsetTop - headerHeight,
-		});
 	};
 
 	return (

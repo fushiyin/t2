@@ -57,7 +57,7 @@ export default function PartnerLogos() {
 				<motion.div
 					className="flex"
 					animate={{
-						x: ["0%", "-50%"],
+						x: ["0%", "-100%"],
 					}}
 					transition={{
 						x: {

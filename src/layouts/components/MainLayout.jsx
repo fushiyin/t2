@@ -14,20 +14,20 @@ function ButtonScrollToTop() {
 	const [showScrollTop, setShowScrollTop] = useState(false);
 
 	useEffect(() => {
-		window.scrollTo({ top: 0, behavior: "smooth" });
-	}, [location]);
-
-	useEffect(() => {
 		const handleScroll = () => {
-			const { scrollY } = window;
-			setShowScrollTop(scrollY > 120);
+			const scrollTop = document.querySelector("main").scrollTop;
+			setShowScrollTop(scrollTop > 120);
 		};
-		window.addEventListener("scroll", handleScroll);
-		return () => window.removeEventListener("scroll", handleScroll);
+		document.querySelector("main").addEventListener("scroll", handleScroll);
+		return () => document.querySelector("main").removeEventListener("scroll", handleScroll);
 	}, []);
 
+	useEffect(() => {
+		document.querySelector("main").scrollTo({ top: 0, behavior: "smooth" });
+	}, [location]);
+
 	const scrollToTop = () => {
-		window.scrollTo({
+		document.querySelector("main").scrollTo({
 			top: 0,
 			behavior: "smooth",
 		});
@@ -60,12 +60,14 @@ export default function MainLayout() {
 			<OnboardingProvider>
 				<Loading />
 				<Onboarding />
-				<main className="flex flex-col min-h-screen">
+				<div className="flex flex-col h-screen">
 					<Header />
-					<Outlet class="flex-1" />
-					<Footer />
-				</main>
-				<ButtonScrollToTop />
+					<main className="flex-1 overflow-auto">
+						<Outlet />
+						<Footer />
+						<ButtonScrollToTop />
+					</main>
+				</div>
 			</OnboardingProvider>
 		</Suspense>
 	);

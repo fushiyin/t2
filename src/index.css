@@ -170,7 +170,7 @@
 }
 
 .float-up {
-animation: float-up 0.5s ease-out forwards;
+	animation: float-up 0.5s ease-out forwards;
 }
 
 .no-scrollbar {

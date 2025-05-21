@@ -35,7 +35,7 @@ export default function AboutPage() {
 					<h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
 						About Us
 					</h2>
-					<div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center mt-10">
+					<div className="grid gap-6 lg:grid-cols-2 sm:mt-16 lg:gap-12 items-center mt-10">
 						<div className="space-y-4">
 							<p className="text-muted-foreground md:text-xl/relaxed">
 								T2Soft is a leading technology company based in Vietnam,

@@ -56,9 +56,15 @@ const SideNavigation = () => {
 		}
 	};
 
+	const shouldHideNav = activeSection === "hero-video" || activeSection === "testimonials";
+
 	return (
 		<nav
-			className="flex fixed left-0 flex-col items-center h-[300px] top-[271px] w-[60px] max-md:hidden z-50"
+			className={`
+		fixed left-0 flex flex-col items-center h-[300px] top-[271px] w-[60px] max-md:hidden z-50
+		transition-opacity duration-500 ease-in-out
+		${shouldHideNav ? "opacity-0 pointer-events-none" : "opacity-100"}
+	`}
 			aria-label="Page sections"
 		>
 			{sections.map((section, idx) => (

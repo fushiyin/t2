@@ -1,9 +1,10 @@
-import vision from "@/assets/img/vision.png";
+import t2screen from "@/assets/img/t2screen.png";
 import AnimatedSection from "@/components/AnimatedSection";
 import CTA from "@/components/sections/ContactCTA";
 import { motion } from "framer-motion";
 import { CheckCircleIcon } from "lucide-react";
 import DeviceMockup from "./components/DeviceMockup";
+import TechStack from "./components/TechStack";
 import UniqueValue from "./components/UniqueValue";
 
 export default function AboutPage() {
@@ -91,17 +92,17 @@ export default function AboutPage() {
 						</div>
 						<div className="relative w-[500px] h-[300px] mx-auto">
 							<div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
-								<DeviceMockup imageSrc={vision} />
+								<DeviceMockup imageSrc={t2screen} />
 							</div>
 							<div className="absolute left-4 top-20 z-20">
 								<DeviceMockup
-									imageSrc={vision}
+									imageSrc={t2screen}
 									type="mobile"
 								/>
 							</div>
 							<div className="absolute left-90 top-15 z-20 rotate-90">
 								<DeviceMockup
-									imageSrc={vision}
+									imageSrc={t2screen}
 									type="tablet"
 								/>
 							</div>
@@ -110,6 +111,7 @@ export default function AboutPage() {
 				</div>
 			</AnimatedSection>
 			<UniqueValue />
+			<TechStack />
 			<CTA />
 		</div>
 	);

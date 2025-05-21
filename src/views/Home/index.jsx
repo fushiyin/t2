@@ -62,7 +62,12 @@ function HomePage() {
 			>
 				<CTA />
 			</section>
-
+			{/* <section className="snap-start flex items-center justify-center 
+			px-16 h-[calc(100vh-64px)]">
+				<ContactCTA />
+				<LoadingDemoButton />
+				<ResetOnBoardingButton />
+			</section> */}
 			<SideNavigation />
 		</>
 	);

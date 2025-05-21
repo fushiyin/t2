@@ -79,7 +79,7 @@ export default function UniqueValue() {
 				<div className="flex flex-col items-center justify-center space-y-4 text-center">
 					<div className="space-y-2">
 						<h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-t2-darkBlue">
-							T2Soft&apos;s Unique Advantages
+							We make sure to provide best services
 						</h2>
 						<p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
 							What sets us apart from other technology providers and makes us your

@@ -163,9 +163,12 @@ export default function Blog() {
 									className="h-48 w-full object-cover"
 								/>
 								<div className="p-4">
+									<p className="text-sm text-muted-foreground mt-1">
+										{blog.date} - {blog.readTime}
+									</p>
 									<h2 className="text-lg font-semibold">{blog.title}</h2>
 									<p className="text-sm text-muted-foreground mt-1">
-										May 2025 • 5 min read
+										{blog.description}
 									</p>
 									<span className=" flex items-center gap-1 text-primary mt-2 cursor-pointer hover:">
 										Read more <ArrowRightIcon className="h-4 w-4" />

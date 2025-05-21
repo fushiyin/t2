@@ -4,7 +4,7 @@ const HoverCard = ({
 	icon,
 	title,
 	description,
-	defaultBgColor = "bg-blue-500",
+	defaultBgColor = "bg-[#252d40]",
 	hoverBgColor = "bg-white",
 	defaultTextColor = "text-white",
 	hoverTextColor = "text-gray-800",
@@ -51,7 +51,7 @@ const HoverCard = ({
 						},
 					}}
 					transition={{ duration: 0.3, ease: "easeOut" }}
-					className={`absolute inset-0 p-6 shadow-lg rounded-lg ${hoverBgColor} shadow-xl border border-gray-200`}
+					className={`absolute inset-0 p-6 shadow-lg rounded-lg ${hoverBgColor} shadow-xl border border-gray-200 flex items-center`}
 				>
 					<motion.p
 						className={`text-base font-bold ${hoverTextColor}`}

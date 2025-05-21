@@ -30,8 +30,8 @@ export default function WhyVietnam() {
 	};
 
 	return (
-		<div className="snap-section bg-white">
-			<div className="container px-4 md:px-6 h-full flex flex-col justify-center">
+		<div className="snap-section">
+			<div className="container px-4 md:px-6 h-full flex flex-col justify-center gap-5">
 				<div className="flex flex-col items-center justify-center space-y-4 text-center">
 					<div className="space-y-2">
 						<h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-t2-darkBlue">

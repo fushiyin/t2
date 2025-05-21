@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { smoothScrollTo } from "@/lib/utils";
 import classNames from "classnames";
 import { ChevronUp } from "lucide-react";
 import { Suspense, useEffect, useState } from "react";
@@ -14,23 +15,21 @@ function ButtonScrollToTop() {
 	const [showScrollTop, setShowScrollTop] = useState(false);
 
 	useEffect(() => {
-		window.scrollTo({ top: 0, behavior: "smooth" });
-	}, [location]);
-
-	useEffect(() => {
 		const handleScroll = () => {
-			const { scrollY } = window;
-			setShowScrollTop(scrollY > 120);
+			const scrollTop = document.querySelector("main").scrollTop;
+			setShowScrollTop(scrollTop > 120);
 		};
-		window.addEventListener("scroll", handleScroll);
-		return () => window.removeEventListener("scroll", handleScroll);
+		document.querySelector("main").addEventListener("scroll", handleScroll);
+		return () => document.querySelector("main").removeEventListener("scroll", handleScroll);
 	}, []);
 
+	useEffect(() => {
+		document.querySelector("main").scrollTo({ top: 0, behavior: "smooth" });
+	}, [location]);
+
 	const scrollToTop = () => {
-		window.scrollTo({
-			top: 0,
-			behavior: "smooth",
-		});
+		smoothScrollTo(0, 800);
+		smoothScrollTo(0, 800);
 	};
 
 	return (
@@ -38,7 +37,7 @@ function ButtonScrollToTop() {
 			type="button"
 			onClick={scrollToTop}
 			className={classNames(
-				"size-[56px] fixed rounded-3xl bg-white bottom-[30px] right-[max(30px, calc(50vw - 628px - 30px - 56px))] shadow-[0px 2px 4px 0px #0000001F, 0px 4px 8px 0px #00000014]",
+				"size-[56px] fixed cursor-pointer rounded-3xl bg-foreground bottom-[30px] right-[30px] shadow-[0px 2px 4px 0px #0000001F, 0px 4px 8px 0px #00000014]",
 				{
 					visible: showScrollTop,
 					hidden: !showScrollTop,
@@ -47,7 +46,7 @@ function ButtonScrollToTop() {
 		>
 			<ChevronUp
 				size={24}
-				color="red"
+				color="white"
 				strokeWidth={2}
 			/>
 		</Button>
@@ -60,12 +59,14 @@ export default function MainLayout() {
 			<OnboardingProvider>
 				<Loading />
 				<Onboarding />
-				<main className="flex flex-col min-h-screen">
+				<div className="flex flex-col h-screen">
 					<Header />
-					<Outlet class="flex-1" />
-					<Footer />
-				</main>
-				<ButtonScrollToTop />
+					<main className="flex-1 overflow-auto">
+						<Outlet />
+						<Footer />
+						<ButtonScrollToTop />
+					</main>
+				</div>
 			</OnboardingProvider>
 		</Suspense>
 	);

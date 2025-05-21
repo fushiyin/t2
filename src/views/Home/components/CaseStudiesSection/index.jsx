@@ -1,25 +1,21 @@
 import CaseStudyCard from "./CaseStudyCard";
-import SideNavigation from "./SideNavigation";
 
 const CaseStudiesSection = () => {
 	return (
-		<main
-			className="w-full bg-white"
-			id="case-studies"
-		>
-			<section className="px-5 py-4 mx-auto max-w-[1440px]">
+		<div className="w-full bg-white">
+			<div className="mx-auto max-w-[1440px]">
 				<header className="mb-20 text-center">
-					<h1 className="mb-6 text-5xl font-bold leading-6 text-blue-950 max-md:text-4xl max-sm:text-3xl">
+					<h1 className="mb-6 text-5xl font-bold leading-6 text-foreground max-md:text-4xl max-sm:text-3xl">
 						Case Studies
 					</h1>
-					<p className="text-xl font-light leading-6 text-blue-950 max-md:text-base max-sm:text-sm">
+					<p className="text-xl font-light leading-6 text-foreground/80 max-md:text-base max-sm:text-sm">
 						{" "}
 						Explore our successful projects and see how we&apos;ve helped businesses
 						achieve their goals.
 					</p>
 				</header>
 
-				<div className="flex flex-wrap gap-12 justify-center mb-10">
+				<div className="grid gap-12 justify-center grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mb-10">
 					<CaseStudyCard
 						image="https://cdn.builder.io/api/v1/image/assets/TEMP/5f8fffbed5d74b02e2e01bf4813f50575b941330"
 						category="E-commerce"
@@ -46,7 +42,7 @@ const CaseStudiesSection = () => {
 				</div>
 
 				<div className="flex justify-center">
-					<button className="flex gap-2.5 items-center px-3.5 py-2 text-sm font-bold rounded-md shadow-sm opacity-90 bg-blue-950 text-slate-200">
+					<button className="flex gap-2.5 items-center px-3.5 py-2 text-sm font-bold rounded-md shadow-sm opacity-90 bg-foreground text-white cursor-pointer hover:opacity-100 transition-opacity duration-200">
 						<span>View All</span>
 						<svg
 							width="18"
@@ -58,14 +54,13 @@ const CaseStudiesSection = () => {
 						>
 							<path
 								d="M16.3219 10.5891L11.1983 16.4224C11.0555 16.5849 10.8682 16.6666 10.6808 16.6666C10.4934 16.6666 10.3061 16.5849 10.1633 16.4224C9.87714 16.0966 9.87714 15.5699 10.1633 15.2441L14.0375 10.8332H2.62941C2.22464 10.8332 1.89746 10.4607 1.89746 9.99991C1.89746 9.53908 2.22464 9.16658 2.62941 9.16658H14.0375L10.1633 4.75577C9.87714 4.42993 9.87714 3.90322 10.1633 3.57738C10.4495 3.25155 10.9121 3.25155 11.1983 3.57738L16.3219 9.41072C16.6081 9.73655 16.6081 10.2633 16.3219 10.5891Z"
-								fill="#DAE4ED"
+								fill="white"
 							/>
 						</svg>
 					</button>
 				</div>
-			</section>
-			<SideNavigation />
-		</main>
+			</div>
+		</div>
 	);
 };
 

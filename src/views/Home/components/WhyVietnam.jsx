@@ -30,10 +30,7 @@ export default function WhyVietnam() {
 	};
 
 	return (
-		<div
-			id="why-vietnam"
-			className="snap-section bg-white"
-		>
+		<div className="snap-section bg-white">
 			<div className="container px-4 md:px-6 h-full flex flex-col justify-center">
 				<div className="flex flex-col items-center justify-center space-y-4 text-center">
 					<div className="space-y-2">

@@ -56,27 +56,37 @@ const SideNavigation = () => {
 		}
 	};
 
+	const shouldHideNav = activeSection === "hero-video" || activeSection === "testimonials";
+
 	return (
 		<nav
-			className="flex fixed left-0 flex-col items-center h-[300px] top-[271px] w-[60px] max-md:hidden z-50"
+			className={`
+		fixed left-0 flex flex-col items-center h-[300px] top-[271px] w-[60px] max-md:hidden z-50
+		transition-opacity duration-500 ease-in-out
+		${shouldHideNav ? "opacity-0 pointer-events-none" : "opacity-100"}
+	`}
 			aria-label="Page sections"
 		>
 			{sections.map((section, idx) => (
 				<div key={section.id}>
-					{idx !== 0 && <div className="w-px h-8 bg-blue-950" />}
+					{idx !== 0 && (
+						<div className="flex justify-center w-full">
+							<div className="w-px h-8 bg-light-blue" />
+						</div>
+					)}
 					<div className="relative group flex items-center justify-center">
 						<button
 							onClick={() => scrollToSection(section.id)}
-							className={`w-7 h-7 text-sm font-bold rounded-full -tracking-wider flex items-center justify-center cursor-pointer transition-colors ${
+							className={`w-7 h-7 text-sm font-bold rounded-full text -tracking-wider flex items-center justify-center cursor-pointer transition-colors border-1 border-light-blue hover:text-white ${
 								activeSection === section.id
-									? "bg-blue-950 text-slate-200"
-									: "bg-slate-200 text-blue-950 hover:bg-slate-300"
+									? "bg-light-blue text-slate-200 text-light"
+									: "bg-white text-light-blue  hover:bg-light-blue"
 							}`}
 							aria-label={`Go to ${section.id}`}
 						>
 							{section.label}
 						</button>
-						<span className="absolute left-9 capitalize bg-blue-950 text-white text-xs px-2 py-1 rounded-md whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+						<span className="absolute left-9 capitalize  bg-light-blue text-white text-xs px-2 py-1 rounded-md whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
 							{section.id.replace(/-/g, " ")}
 						</span>
 					</div>

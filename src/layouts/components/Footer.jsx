@@ -95,8 +95,8 @@ const Footer = () => {
 	];
 
 	return (
-		<footer className="d-flex justify-center bg-white border-t border-gray-100 pt-12 pb-4 ">
-			<div className="container mx-auto px-4 max-w-[1440px]">
+		<footer className="d-flex justify-center bg-white">
+			<div className="container mx-auto max-w-[1440px] pt-12 border-t border-gray-100">
 				<div className="flex flex-col md:flex-row-reverse">
 					{/* T2Soft */}
 
@@ -174,7 +174,7 @@ const Footer = () => {
 					</div>
 				</div>
 
-				<div className="mt-12 pt-4 border-t border-gray-100 text-center">
+				<div className="w-full mt-12 pt-4 border-t border-gray-100 text-center">
 					<p className="text-foreground/60 text-sm">
 						© {currentYear} T2Soft. All rights reserved.
 					</p>

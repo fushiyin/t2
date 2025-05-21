@@ -4,39 +4,39 @@ import { Link } from "react-router-dom";
 
 const CONTACT_ITEMS = [
 	{
-		icon: <Phone className="text-[#dark-blue w-5 h-5 flex-shrink-0" />,
+		icon: <Phone className="text-foreground w-5 h-5 flex-shrink-0" />,
 		content: (
 			<div>
-				<p className="text-gray-600 text-sm">{FOOTER.PHONE_VN}</p>
-				<p className="text-gray-600 text-sm">{FOOTER.PHONE_KR}</p>
+				<p className="text-foreground/80 text-sm">{FOOTER.PHONE_VN}</p>
+				<p className="text-foreground/80 text-sm">{FOOTER.PHONE_KR}</p>
 			</div>
 		),
 	},
 	{
-		icon: <Mail className="text-dark-blue w-5 h-5 flex-shrink-0" />,
+		icon: <Mail className="text-foreground w-5 h-5 flex-shrink-0" />,
 		content: (
 			<div>
-				<p className="text-gray-600 text-sm">{FOOTER.EMAIL_1}</p>
-				<p className="text-gray-600 text-sm">{FOOTER.EMAIL_2}</p>
+				<p className="text-foreground/80 text-sm">{FOOTER.EMAIL_1}</p>
+				<p className="text-foreground/80 text-sm">{FOOTER.EMAIL_2}</p>
 			</div>
 		),
 	},
 	{
-		icon: <Globe className="text-dark-blue w-5 h-5 flex-shrink-0" />,
+		icon: <Globe className="text-foreground w-5 h-5 flex-shrink-0" />,
 		content: (
 			<a
 				href="https://www.ttwosoft.com"
 				target="_blank"
 				rel="noopener noreferrer"
-				className="text-gray-600 text-sm hover:text-dark-blue"
+				className="text-foreground/80 text-sm hover:text-dark-blue"
 			>
 				{FOOTER.WEB_SITE}
 			</a>
 		),
 	},
 	{
-		icon: <MapPin className="text-dark-blue w-5 h-5 flex-shrink-0 mt-0.5" />,
-		content: <p className="text-gray-600 text-sm">{FOOTER.ADDRESS}</p>,
+		icon: <MapPin className="text-foreground w-5 h-5 flex-shrink-0 mt-0.5" />,
+		content: <p className="text-foreground/80 text-sm">{FOOTER.ADDRESS}</p>,
 	},
 ];
 
@@ -45,21 +45,21 @@ const SOCIAL_LINKS = [
 		name: "Facebook",
 		url: "https://facebook.com",
 		icon: <Facebook size={16} />,
-		bgColor: "bg-dark-blue",
+		bgColor: "bg-foreground",
 		textColor: "text-white",
 	},
 	{
 		name: "KakaoTalk",
 		url: "https://kakaotalk.com",
 		icon: <MessageCircle size={16} />,
-		bgColor: "bg-dark-blue",
+		bgColor: "bg-foreground",
 		textColor: "text-white",
 	},
 	{
 		name: "Telegram",
 		url: "https://t.me",
 		icon: <Send size={16} />,
-		bgColor: "bg-dark-blue",
+		bgColor: "bg-foreground",
 		textColor: "text-white",
 	},
 ];
@@ -139,7 +139,7 @@ const Footer = () => {
 						<div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
 							{footerSections.map((section, index) => (
 								<div key={index}>
-									<h3 className="text-dark-blue font-semibold text-lg mb-4">
+									<h3 className="text-foreground font-semibold text-lg mb-4">
 										{section.title}
 									</h3>
 									<ul className="space-y-2">
@@ -147,7 +147,7 @@ const Footer = () => {
 											<li key={linkIndex}>
 												<Link
 													to={link.to}
-													className="text-gray-600 hover:text-dark-blue transition-colors text-sm"
+													className="text-foreground/80 hover:text-dark-blue transition-colors text-sm"
 												>
 													{link.label}
 												</Link>
@@ -163,11 +163,11 @@ const Footer = () => {
 						<div>
 							<Link
 								to="/"
-								className="text-dark-blue font-bold text-2xl"
+								className="text-foreground font-bold text-2xl"
 							>
 								T2Soft
 							</Link>
-							<p className="text-gray-600 text-sm mt-2">
+							<p className="text-foreground/80 text-sm mt-2">
 								Your global software service and solution partner
 							</p>
 						</div>
@@ -175,7 +175,7 @@ const Footer = () => {
 				</div>
 
 				<div className="mt-12 pt-4 border-t border-gray-100 text-center">
-					<p className="text-gray-500 text-sm">
+					<p className="text-foreground/60 text-sm">
 						© {currentYear} T2Soft. All rights reserved.
 					</p>
 				</div>

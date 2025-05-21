@@ -22,7 +22,7 @@ function HomePage() {
 			</section>
 			<section
 				id="why-vietnam"
-				className={sectionClass}
+				className={`bg-[#f4f8ff] ${sectionClass}`}
 			>
 				<WhyVietnam />
 			</section>

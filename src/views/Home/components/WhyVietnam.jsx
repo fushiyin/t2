@@ -1,4 +1,4 @@
-import { Card, CardContent } from "@/components/ui/card";
+import HoverCard from "@/components/card";
 import { motion } from "framer-motion";
 import {
 	ClockIcon,
@@ -30,8 +30,8 @@ export default function WhyVietnam() {
 	};
 
 	return (
-		<div className="snap-section bg-white">
-			<div className="container px-4 md:px-6 h-full flex flex-col justify-center">
+		<div className="snap-section">
+			<div className="container px-4 md:px-6 h-full flex flex-col justify-center gap-5">
 				<div className="flex flex-col items-center justify-center space-y-4 text-center">
 					<div className="space-y-2">
 						<h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-t2-darkBlue">
@@ -54,92 +54,47 @@ export default function WhyVietnam() {
 				>
 					{/* Card 1 */}
 					<motion.div variants={cardVariants}>
-						<Card className="border-t2-paleBlue h-full">
-							<CardContent className="p-6 flex flex-col items-center text-center space-y-4">
-								<div className="rounded-full p-3 bg-t2-lightBlue/20">
-									<GlobeIcon className="h-6 w-6 text-t2-blue" />
-								</div>
-								<h3 className="text-xl font-bold text-t2-darkBlue">
-									Strategic Location
-								</h3>
-								<p className="text-muted-foreground">
-									Located in the heart of Southeast Asia with convenient time zone
-									for global collaboration
-								</p>
-							</CardContent>
-						</Card>
+						<HoverCard
+							icon={<GlobeIcon className="h-6 w-6 text-white" />}
+							title="Advanced talent and technical skills"
+							description="A wealth of young IT talent who are sensitive to the latest technology and have excellent foreign language communication skills"
+						/>
 					</motion.div>
 
 					{/* Card 2 */}
 					<motion.div variants={cardVariants}>
-						<Card className="border-t2-paleBlue h-full">
-							<CardContent className="p-6 flex flex-col items-center text-center space-y-4">
-								<div className="rounded-full p-3 bg-t2-lightBlue/20">
-									<TrendingUpIcon className="h-6 w-6 text-t2-blue" />
-								</div>
-								<h3 className="text-xl font-bold text-t2-darkBlue">
-									Growing Tech Ecosystem
-								</h3>
-								<p className="text-muted-foreground">
-									Rapidly expanding technology sector with government support and
-									investment
-								</p>
-							</CardContent>
-						</Card>
+						<HoverCard
+							icon={<TrendingUpIcon className="h-6 w-6 text-white" />}
+							title="Cost-effectiveness"
+							description="The same level of development manpower can be secured at a cost 25-55% lower than that of advanced countries, which is advantageous for budget optimization."
+						/>
 					</motion.div>
 
 					{/* Card 3 */}
 					<motion.div variants={cardVariants}>
-						<Card className="border-t2-paleBlue h-full">
-							<CardContent className="p-6 flex flex-col items-center text-center space-y-4">
-								<div className="rounded-full p-3 bg-t2-lightBlue/20">
-									<GraduationCapIcon className="h-6 w-6 text-t2-blue" />
-								</div>
-								<h3 className="text-xl font-bold text-t2-darkBlue">
-									Skilled Workforce
-								</h3>
-								<p className="text-muted-foreground">
-									Young, educated population with strong STEM education and
-									technical skills
-								</p>
-							</CardContent>
-						</Card>
+						<HoverCard
+							icon={<GraduationCapIcon className="h-6 w-6 text-white" />}
+							title="Geographic/Cultural Compatibility"
+							description="Time difference within 2 hours, historical and cultural similarities enable real-time communication and smooth collaboration"
+						/>
 					</motion.div>
 
 					{/* Card 4 */}
 					<motion.div variants={cardVariants}>
-						<Card className="border-t2-paleBlue h-full">
-							<CardContent className="p-6 flex flex-col items-center text-center space-y-4">
-								<div className="rounded-full p-3 bg-t2-lightBlue/20">
-									<ClockIcon className="h-6 w-6 text-t2-blue" />
-								</div>
-								<h3 className="text-xl font-bold text-t2-darkBlue">
-									Cost Efficiency
-								</h3>
-								<p className="text-muted-foreground">
-									Competitive labor costs with high-quality output and operational
-									efficiency
-								</p>
-							</CardContent>
-						</Card>
+						<HoverCard
+							icon={<ClockIcon className="h-6 w-6 text-white" />}
+							title="Stable political and economic environment"
+							description="With political and economic stability and growth potential, Vietnam is emerging as a global IT outsourcing destination"
+						/>
 					</motion.div>
 
 					{/* Card 5 */}
 					<motion.div variants={cardVariants}>
-						<Card className="border-t2-paleBlue h-full">
-							<CardContent className="p-6 flex flex-col items-center text-center space-y-4">
-								<div className="rounded-full p-3 bg-t2-lightBlue/20">
-									<HeartHandshakeIcon className="h-6 w-6 text-t2-blue" />
-								</div>
-								<h3 className="text-xl font-bold text-t2-darkBlue">
-									Cultural Work Ethic
-								</h3>
-								<p className="text-muted-foreground">
-									Strong commitment to quality, dedication, and continuous
-									improvement
-								</p>
-							</CardContent>
-						</Card>
+						<HoverCard
+							icon={<HeartHandshakeIcon className="h-6 w-6 text-white" />}
+							title="Experience in global collaboration"
+							description="Experience in collaboration with global companies from various countries including Korea, Japan, etc"
+						/>
 					</motion.div>
 				</motion.div>
 			</div>

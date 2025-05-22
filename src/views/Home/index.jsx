@@ -4,7 +4,6 @@ import CaseStudiesSection from "@/views/Home/components/CaseStudiesSection";
 import SideNavigation from "./components/CaseStudiesSection/SideNavigation";
 import CompetitiveEdges from "./components/CompetitiveEdges";
 import Development from "./components/Development";
-import DevelopmentCapacity from "./components/DevelopmentCapacity";
 import Hero from "./components/Hero";
 import OurProcess from "./components/OurProcess";
 import Testimonials from "./components/Testimonials";
@@ -40,11 +39,17 @@ function HomePage() {
 			>
 				<CompetitiveEdges />
 			</section>
-			<section
+			{/* <section
 				id="development-capacity"
 				className={sectionClass}
 			>
 				<DevelopmentCapacity />
+			</section> */}
+			<section
+				id="development"
+				className={sectionClass}
+			>
+				<Development />
 			</section>
 			<section
 				id="case-studies"
@@ -64,12 +69,12 @@ function HomePage() {
 			>
 				<OurProcess />
 			</section>
-			<section
+			{/* <section
 				id="development"
 				className={sectionClass}
 			>
 				<Development />
-			</section>
+			</section> */}
 			<section
 				id="contact-section"
 				className="flex items-center justify-center"

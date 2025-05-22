@@ -1,5 +1,8 @@
 /* eslint-disable no-unused-vars */
 
+import ReactLogo from "@/assets/img/react_logo.png";
+import TypeScriptLogo from "@/assets/img/typescript_logo.webp";
+import VueJsLogo from "@/assets/img/vuejs_logo.png";
 import { AnimatePresence, motion } from "framer-motion";
 import {
 	CloudIcon,
@@ -30,12 +33,12 @@ export default function Development() {
 			icon: <CodeIcon className="h-5 w-5" />,
 			description: "Creating responsive, intuitive, and visually appealing user interfaces",
 			technologies: [
-				{ name: "React.js", level: 90 },
-				{ name: "Vue.js", level: 85 },
-				{ name: "Angular", level: 80 },
-				{ name: "Next.js", level: 95 },
-				{ name: "TypeScript", level: 90 },
-				{ name: "Tailwind CSS", level: 95 },
+				{ name: "React.js", imageUrl: ReactLogo },
+				{ name: "Vue.js", imageUrl: VueJsLogo },
+				{ name: "Angular", imageUrl: ReactLogo },
+				{ name: "Next.js", imageUrl: ReactLogo },
+				{ name: "TypeScript", imageUrl: TypeScriptLogo },
+				{ name: "Tailwind CSS", imageUrl: ReactLogo },
 			],
 			children: ["ui", "mobile"],
 		},
@@ -194,10 +197,7 @@ export default function Development() {
 	};
 
 	return (
-		<div
-			id="development"
-			className="snap-section bg-gradient-to-br from-light-blue to-purple-900 w-full h-full flex flex-col justify-center items-center"
-		>
+		<div className=" bg-gradient-to-br from-closet-dark-blue to-normal-dark-blue w-full h-full flex flex-col justify-center items-center">
 			<div className="container px-4 md:px-6 flex flex-col justify-center max-w-[1440px]">
 				<div className="flex flex-col items-center justify-center space-y-4 text-center mb-8">
 					<div className="space-y-2">

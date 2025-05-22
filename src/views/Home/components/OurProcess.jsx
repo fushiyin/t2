@@ -1,14 +1,6 @@
-"use client";
-
+import team_design from "@/assets/images/design_time.jpeg";
+import team_research from "@/assets/images/team_research.jpg";
 import { AnimatePresence, motion } from "framer-motion";
-import {
-	CodeIcon,
-	PencilRulerIcon,
-	RefreshCwIcon,
-	RocketIcon,
-	SearchIcon,
-	TestTubeIcon,
-} from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 // Process steps data
@@ -16,7 +8,7 @@ const processSteps = [
 	{
 		id: 1,
 		title: "Discovery & Analysis",
-		icon: <SearchIcon className="h-8 w-8" />,
+		image: team_research,
 		description:
 			"Understanding your business objectives, requirements, and challenges through in-depth consultations.",
 		details: [
@@ -25,12 +17,12 @@ const processSteps = [
 			"Technical feasibility assessment",
 			"Project scope definition",
 		],
-		color: "#5087f7", // t2-blue
+		color: "#03071f",
 	},
 	{
 		id: 2,
 		title: "Design & Planning",
-		icon: <PencilRulerIcon className="h-8 w-8" />,
+		image: team_design,
 		description:
 			"Creating detailed designs and technical specifications, establishing the foundation for development.",
 		details: [
@@ -39,12 +31,12 @@ const processSteps = [
 			"Database schema design",
 			"Project roadmap and sprint planning",
 		],
-		color: "#8bcff1", // t2-lightBlue
+		color: "#03071f",
 	},
 	{
 		id: 3,
 		title: "Development",
-		icon: <CodeIcon className="h-8 w-8" />,
+		image: team_design,
 		description:
 			"Our skilled developers write clean, efficient code following industry best practices.",
 		details: [
@@ -53,12 +45,12 @@ const processSteps = [
 			"Continuous integration",
 			"Daily stand-ups and progress tracking",
 		],
-		color: "#120b8f", // t2-darkBlue
+		color: "#03071f",
 	},
 	{
 		id: 4,
 		title: "Testing & QA",
-		icon: <TestTubeIcon className="h-8 w-8" />,
+		image: team_design,
 		description:
 			"Rigorous testing ensures your software is bug-free, secure, and performs optimally.",
 		details: [
@@ -67,12 +59,12 @@ const processSteps = [
 			"Security testing",
 			"User acceptance testing",
 		],
-		color: "#b1dfe6", // t2-paleBlue
+		color: "#03071f",
 	},
 	{
 		id: 5,
 		title: "Deployment",
-		icon: <RocketIcon className="h-8 w-8" />,
+		image: team_design,
 		description:
 			"Smooth deployment of your solution to production environments, ensuring minimal disruption.",
 		details: [
@@ -81,12 +73,12 @@ const processSteps = [
 			"Data migration (if needed)",
 			"Post-deployment verification",
 		],
-		color: "#5087f7", // t2-blue
+		color: "#03071f",
 	},
 	{
 		id: 6,
 		title: "Maintenance & Support",
-		icon: <RefreshCwIcon className="h-8 w-8" />,
+		image: team_design,
 		description:
 			"Ongoing support and maintenance to ensure your solution continues to perform optimally.",
 		details: [
@@ -95,7 +87,7 @@ const processSteps = [
 			"Performance monitoring",
 			"Technical support and consultation",
 		],
-		color: "#8bcff1", // t2-lightBlue
+		color: "#03071f",
 	},
 ];
 
@@ -144,14 +136,13 @@ export default function OurProcess() {
 
 	return (
 		<div
-			id="process"
-			className="snap-section bg-t2-grayBlue/10"
 			ref={sectionRef}
+			className="w-full h-full flex items-center justify-center py-16"
 		>
-			<div className="container px-4 md:px-6 h-full flex flex-col justify-center">
-				<div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
+			<div className="container h-full flex flex-col justify-center max-w-[1440px]">
+				<div className="flex flex-col items-center justify-center space-y-4 text-center mb-16">
 					<div className="space-y-2">
-						<h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-t2-darkBlue">
+						<h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-dark-gray">
 							Our Process
 						</h2>
 						<p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
@@ -161,10 +152,10 @@ export default function OurProcess() {
 				</div>
 
 				{/* Progress Bar */}
-				<div className="relative mb-16">
-					<div className="h-2 bg-gray-200 rounded-full">
+				<div className="relative mb-20">
+					<div className="h-2 w-full bg-gray-200 rounded-full absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
 						<motion.div
-							className="h-full rounded-full"
+							className="h-2 rounded-full"
 							style={{
 								backgroundColor: processSteps[activeStep - 1].color,
 								width: `${((activeStep - 1) / (processSteps.length - 1)) * 100}%`,
@@ -192,7 +183,9 @@ export default function OurProcess() {
 							>
 								<motion.div
 									className={`w-6 h-6 rounded-full flex items-center justify-center border-2 ${
-										step.id <= activeStep ? "border-t2-blue" : "border-gray-300"
+										step.id <= activeStep
+											? "border-dark-gray"
+											: "border-gray-300"
 									}`}
 									style={{
 										backgroundColor:
@@ -204,7 +197,7 @@ export default function OurProcess() {
 											step.id <= activeStep ? step.color : "white",
 										borderColor:
 											step.id <= activeStep
-												? "rgba(80, 135, 247, 0.5)"
+												? "rgba(203, 213, 225, 1)"
 												: "rgba(203, 213, 225, 1)",
 									}}
 									transition={{ duration: 0.3 }}
@@ -238,9 +231,7 @@ export default function OurProcess() {
 								</motion.div>
 								<div
 									className={`absolute -bottom-8 left-1/2 transform -translate-x-1/2 whitespace-nowrap text-xs font-medium ${
-										step.id === activeStep
-											? "text-t2-darkBlue"
-											: "text-gray-500"
+										step.id === activeStep ? "text-dark-gray" : "text-gray-500"
 									}`}
 								>
 									{step.title.split(" ")[0]}
@@ -251,9 +242,9 @@ export default function OurProcess() {
 				</div>
 
 				{/* Active Step Content */}
-				<div className="flex flex-col md:flex-row gap-8 items-center">
+				<div className="flex flex-col flex-1 md:flex-row gap-12 items-center justify-center">
 					{/* Step Visualization */}
-					<div className="w-full md:w-1/3 flex justify-center">
+					<div className="w-full md:w-1/2 flex justify-center ">
 						<AnimatePresence mode="wait">
 							<motion.div
 								key={activeStep}
@@ -263,7 +254,13 @@ export default function OurProcess() {
 								transition={{ duration: 0.5 }}
 								className="relative"
 							>
-								<div
+								<img
+									src={processSteps[activeStep - 1].image}
+									alt={
+										processSteps[activeStep - 1].image + `_${[activeStep - 1]}`
+									}
+								/>
+								{/* <div
 									className="w-64 h-64 rounded-full flex items-center justify-center"
 									style={{
 										backgroundColor: `${processSteps[activeStep - 1].color}20`,
@@ -280,13 +277,11 @@ export default function OurProcess() {
 											style={{
 												backgroundColor: processSteps[activeStep - 1].color,
 											}}
-										>
-											{processSteps[activeStep - 1].icon}
-										</div>
+										></div>
 									</div>
-								</div>
+								</div> */}
 								<div className="absolute -top-4 -right-4 bg-white rounded-full w-12 h-12 flex items-center justify-center shadow-lg">
-									<span className="text-xl font-bold text-t2-darkBlue">
+									<span className="text-xl font-bold text-dark-gray">
 										{activeStep}
 									</span>
 								</div>
@@ -295,7 +290,7 @@ export default function OurProcess() {
 					</div>
 
 					{/* Step Details */}
-					<div className="w-full md:w-2/3">
+					<div className="w-full md:w-1/2 ">
 						<AnimatePresence mode="wait">
 							<motion.div
 								key={activeStep}
@@ -352,7 +347,7 @@ export default function OurProcess() {
 											setIsPaused(true);
 											setTimeout(() => setIsPaused(false), 10000);
 										}}
-										className="text-t2-blue hover:text-t2-darkBlue flex items-center gap-1 transition-colors"
+										className="text-t2-blue hover:text-dark-gray flex items-center gap-1 transition-colors"
 									>
 										<svg
 											xmlns="http://www.w3.org/2000/svg"
@@ -372,7 +367,7 @@ export default function OurProcess() {
 										onClick={() => {
 											setIsPaused(!isPaused);
 										}}
-										className="text-t2-blue hover:text-t2-darkBlue flex items-center gap-1 transition-colors"
+										className="text-t2-blue hover:text-dark-gray flex items-center gap-1 transition-colors"
 									>
 										{isPaused ? (
 											<>
@@ -416,7 +411,7 @@ export default function OurProcess() {
 											setIsPaused(true);
 											setTimeout(() => setIsPaused(false), 10000);
 										}}
-										className="text-t2-blue hover:text-t2-darkBlue flex items-center gap-1 transition-colors"
+										className="text-t2-blue hover:text-dark-gray flex items-center gap-1 transition-colors"
 									>
 										Next
 										<svg

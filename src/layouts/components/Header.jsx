@@ -63,7 +63,7 @@ const Header = () => {
 			className="sticky top-0 w-full bg-white dark:bg-gray-900 shadow-md z-50"
 		>
 			<div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-0">
-				<div className="flex justify-between items-center h-16 md:px-4">
+				<div className="flex justify-between items-center h-16">
 					<div className="flex-shrink-0">
 						<a
 							href="/"
@@ -85,10 +85,10 @@ const Header = () => {
 								className={classNames(
 									"px-3 py-2 text-sm font-medium transition-colors ",
 									{
-										"bg-light-blue-gray text-dark-blue":
+										"text-[var(--color-dark-blue)] font-extrabold underline underline-offset-8 dark:text-[var(--color-light-blue)]":
 											window.location?.pathname === link?.path ||
 											!window.location?.pathname,
-										"text-gray-700 dark:text-gray-200 hover:text-dark-blue hover:bg-gray-100 dark:hover:bg-gray-800":
+										"text-gray-700 dark:text-gray-200 hover:text-[var(--color-dark-blue)] hover:bg-gray-100 dark:hover:bg-gray-800":
 											!(
 												window.location?.pathname === link?.path ||
 												!window.location?.pathname
@@ -104,7 +104,7 @@ const Header = () => {
 					<div className="hidden md:flex items-center ml-auto">
 						<button
 							type="button"
-							className="mr-4 px-4 py-2 text-sm font-medium text-white bg-dark-blue rounded-md hover:bg-[#101944] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-dark-blue"
+							className="mr-4 px-4 py-2 text-sm font-medium text-white bg-dark-blue rounded-md hover:bg-[var(--color-draker-blue)] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-dark-blue"
 							onClick={goToContact}
 							aria-label="Contact Us"
 							title="Contact Us"

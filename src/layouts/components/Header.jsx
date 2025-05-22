@@ -62,8 +62,8 @@ const Header = () => {
 			id="header"
 			className="sticky top-0 w-full bg-white dark:bg-gray-900 shadow-md z-50"
 		>
-			<div className="w-full px-4 sm:px-6 lg:px-8">
-				<div className="flex justify-between items-center h-16">
+			<div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-0">
+				<div className="flex justify-between items-center h-16 md:px-4">
 					<div className="flex-shrink-0">
 						<a
 							href="/"

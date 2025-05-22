@@ -1,20 +1,9 @@
+import { SECTIONS, SECTIONS_KEY } from "@/constant/sideNavigation";
 import { smoothScrollTo } from "@/lib/utils";
 import { useEffect, useState } from "react";
 
-const sections = [
-	{ id: "hero-video", label: "01", name: "Hero Video" },
-	{ id: "why-vietnam", label: "02", name: "Why Vietnam" },
-	{ id: "vision", label: "03", name: "Vision" },
-	{ id: "competitive-edges", label: "04", name: "Competitive Edges" },
-	// { id: "development-capacity", label: "05", name: "Development Capacity" },
-	{ id: "case-studies", label: "05", name: "Case Studies" },
-	{ id: "testimonials", label: "06", name: "Testimonials" },
-	{ id: "our_process", label: "07", name: "Our Process" },
-];
-
 const SideNavigation = () => {
 	const [activeSection, setActiveSection] = useState(null);
-
 	useEffect(() => {
 		const handleScroll = () => {
 			const main = document.querySelector("main");
@@ -22,7 +11,7 @@ const SideNavigation = () => {
 			const headerHeight = header?.offsetHeight || 0;
 			const scrollY = (main?.scrollTop || 0) + headerHeight;
 
-			for (let section of sections) {
+			for (let section of SECTIONS) {
 				const el = document.getElementById(section.id);
 				if (el && main) {
 					const offsetTop = el.offsetTop - main.offsetTop;
@@ -35,7 +24,7 @@ const SideNavigation = () => {
 				}
 			}
 
-			setActiveSection(sections[sections.length - 1].id);
+			setActiveSection(SECTIONS[SECTIONS.length - 1].id);
 		};
 
 		const main = document.querySelector("main");
@@ -57,7 +46,8 @@ const SideNavigation = () => {
 		}
 	};
 
-	const shouldHideNav = activeSection === "hero-video" || activeSection === "testimonials";
+	const shouldHideNav =
+		activeSection === SECTIONS_KEY.HERO.id || activeSection === SECTIONS_KEY.TESTIMONIALS.id;
 
 	return (
 		<nav
@@ -68,7 +58,7 @@ const SideNavigation = () => {
 	`}
 			aria-label="Page sections"
 		>
-			{sections.map((section, idx) => (
+			{SECTIONS.map((section, idx) => (
 				<div key={section.id}>
 					{idx !== 0 && (
 						<div className="flex justify-center w-full">

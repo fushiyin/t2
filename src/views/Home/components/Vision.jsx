@@ -175,7 +175,7 @@ const Vision = () => {
 					clients.
 				</p>
 			</div>
-			<div className="relative w-full h-[500px] flex justify-center items-center">
+			<div className="max-w-[1440px] mx-auto relative w-full h-[500px] flex justify-center items-center">
 				<div
 					className={`relative w-full max-w-7xl mx-auto h-full ${isTransitioning ? "pointer-events-none" : ""}`}
 				>
@@ -229,7 +229,7 @@ const Vision = () => {
 						}}
 						className={`mx-2 h-3 rounded-full transition-all duration-300 ${
 							activeIndex === index
-								? "bg-[#0d1b3e] w-3"
+								? "bg-[var(--color-deepest-navy)] w-3"
 								: "bg-gray-500 bg-opacity-50 w-3"
 						}`}
 						aria-label={`Go to slide ${index + 1}`}

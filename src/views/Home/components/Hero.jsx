@@ -72,7 +72,7 @@ export default function Hero() {
 				</div>
 			</div>
 			{/* Content */}
-			<div className="container relative z-10 h-full flex items-center">
+			<div className="container relative z-10 flex items-center">
 				<motion.div
 					className="flex flex-col items-center space-y-6 text-center w-full"
 					variants={containerVariants}

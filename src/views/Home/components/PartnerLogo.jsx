@@ -13,7 +13,7 @@ const partnerLogos = [
 	},
 	{
 		name: "Partner 3",
-		logo: "https://laboong.vn/",
+		logo: "https://laboong.vn/wp-content/uploads/2024/05/Logo-LaBoong-06-1024x321.png",
 	},
 	{
 		name: "Partner 4",
@@ -51,20 +51,21 @@ export default function PartnerLogos() {
 
 	return (
 		<div className="w-full bg-white border-y border-t2-paleBlue py-4 overflow-hidden">
-			<div className="relative w-full overflow-hidden h-[80px] flex items-center">
+			<div className="relative w-full overflow-hidden flex items-center">
 				<InfinityHorizontalScroll
-					scrollSpeed={50000}
+					scrollSpeed={40000}
 					height={300}
 				>
 					{duplicatedLogos.map((partner, index) => (
 						<div
+							className="h-12 w-[100px] "
 							key={`${partner.name}-${index}`}
-							className="flex-shrink-0 mx-8 flex items-center justify-center"
 						>
 							<img
-								src={partner.logo || "/placeholder.svg"}
+								loading="lazy"
+								src={partner.logo}
 								alt={partner.name}
-								className="h-12 w-auto opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+								className="opacity-70 hover:grayscale-0 hover:opacity-100 object-contain h-full w-full transition-all duration-300"
 							/>
 						</div>
 					))}

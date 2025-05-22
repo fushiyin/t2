@@ -146,12 +146,12 @@ function TestimonialCard({ testimonial }) {
 		<Card className="bg-dark-gray shadow-md h-[280px] w-[400px] border border-white/[0.08] rounded-xl">
 			<CardContent className="p-6">
 				<div className="flex items-start space-x-4">
-					<Avatar className="border-2 border-light-blue">
+					<Avatar className="border-2 border-heading-black">
 						<AvatarImage
 							src={testimonial.avatar || "/placeholder.svg"}
 							alt={testimonial.name}
 						/>
-						<AvatarFallback className="bg-dark-blue text-white">
+						<AvatarFallback className="bg-dark-gray text-white">
 							{testimonial.name.charAt(0)}
 						</AvatarFallback>
 					</Avatar>

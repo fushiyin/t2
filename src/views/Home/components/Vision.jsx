@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react-hooks/exhaustive-deps */
 import mission from "@/assets/img/mission.png";
 import values from "@/assets/img/values.png";
@@ -167,14 +168,14 @@ const Vision = () => {
 		>
 			<div className="flex flex-col items-center justify-center space-y-4 text-center">
 				<h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-t2-darkBlue">
-					VISION, MISSION & VALUES
+					Vision, Mission & Values
 				</h2>
 				<p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-					Our vision, mission, and values guide us in delivering innovative solutions and
-					driving success for our clients.
+					Which guide us in delivering innovative solutions and driving success for our
+					clients.
 				</p>
 			</div>
-			<div className="relative w-full h-[500px] flex justify-center items-center">
+			<div className="max-w-[1440px] mx-auto relative w-full h-[500px] flex justify-center items-center">
 				<div
 					className={`relative w-full max-w-7xl mx-auto h-full ${isTransitioning ? "pointer-events-none" : ""}`}
 				>
@@ -228,7 +229,7 @@ const Vision = () => {
 						}}
 						className={`mx-2 h-3 rounded-full transition-all duration-300 ${
 							activeIndex === index
-								? "bg-[#0d1b3e] w-3"
+								? "bg-[var(--color-deepest-navy)] w-3"
 								: "bg-gray-500 bg-opacity-50 w-3"
 						}`}
 						aria-label={`Go to slide ${index + 1}`}

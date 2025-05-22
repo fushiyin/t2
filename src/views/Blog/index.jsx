@@ -1,72 +1,156 @@
-export default function Blog() {
+import CTA from "@/components/sections/ContactCTA";
+import SmartPagination from "@/components/SmartPagination/SmartPagination";
+import axios from "axios";
+import { motion } from "framer-motion";
+import { ArrowRightIcon, Loader2 } from "lucide-react";
+import { useEffect, useState } from "react";
+
+const containerVariants = {
+	hidden: {},
+	show: {
+		transition: {
+			staggerChildren: 0.2,
+		},
+	},
+};
+
+const cardVariants = {
+	hidden: { opacity: 0, y: 40 },
+	show: {
+		opacity: 1,
+		y: 0,
+		transition: { duration: 0.6, ease: "easeOut" },
+	},
+};
+
+const Blog = () => {
+	const [allBlogs, setAllBlogs] = useState([]);
+	const [currentPage, setCurrentPage] = useState(1);
+	const [loading, setLoading] = useState(false);
+	const [searchValue, setSearchValue] = useState("");
+
+	useEffect(() => {
+		fetchBlogs();
+	}, [currentPage]);
+
+	const fetchBlogs = async () => {
+		setLoading(true);
+		try {
+			const res = await axios.get("https://66a9b8e2613eced4eba6017a.mockapi.io/api/blog");
+			setAllBlogs(res.data);
+		} catch (e) {
+			console.error(e);
+			setAllBlogs([]);
+		} finally {
+			setLoading(false);
+		}
+	};
+
+	const filteredBlogs = allBlogs.filter((blog) =>
+		blog.title.toLowerCase().includes(searchValue.toLowerCase()),
+	);
+
+	const pageSize = 6;
+	const totalPages = Math.ceil(filteredBlogs.length / pageSize);
+	const paginatedBlogs = filteredBlogs.slice(
+		(currentPage - 1) * pageSize,
+		currentPage * pageSize,
+	);
+
+	const handlePageChange = (page) => {
+		if (page >= 1 && page <= totalPages) {
+			setCurrentPage(page);
+		}
+	};
+
 	return (
-		<div className="container py-12 flex flex-col items-center justify-center">
-			<h1 className="text-3xl font-bold mb-6">Blog</h1>
-
-			<div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-[1440px] ">
-				{[1, 2, 3, 4, 5, 6].map((i) => (
-					<div
-						key={i}
-						className="bg-card rounded-lg overflow-hidden shadow-sm"
-					>
-						<div className="h-48 bg-muted-foreground/20 relative">
-							<div className="absolute inset-0 flex items-center justify-center text-muted-foreground">
-								Blog Image {i}
-							</div>
-						</div>
-						<div className="p-6">
-							<div className="flex items-center text-sm text-muted-foreground mb-2">
-								<span>May 8, 2025</span>
-								<span className="mx-2">•</span>
-								<span>5 min read</span>
-							</div>
-							<h2 className="text-xl font-semibold mb-2">
-								Lorem ipsum dolor sit amet consectetur
-							</h2>
-							<p className="text-muted-foreground mb-4">
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-								eiusmod tempor incididunt ut labore et dolore magna aliqua.
-							</p>
-							<a
-								href="#"
-								className="text-primary hover:underline"
-							>
-								Read more →
-							</a>
-						</div>
+		<div className="flex flex-col items-center justify-center mx-auto overflow-y-hidden">
+			<div className="max-w-[1440px] mx-auto py-6">
+				{/* Header và Search Input */}
+				<div className="mb-10 text-center flex flex-col items-center justify-center gap-6">
+					<h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-t2-darkBlue">
+						Blog
+					</h2>
+					<div className="flex justify-center w-2/3">
+						<input
+							type="text"
+							value={searchValue}
+							onChange={(e) => setSearchValue(e.target.value)}
+							placeholder="Search blog titles..."
+							className="border px-4 py-2 rounded-md w-full max-w-md shadow-sm"
+						/>
 					</div>
-				))}
+				</div>
+
+				{/* Blog List */}
+				{loading ? (
+					<div className="flex justify-center py-20">
+						<Loader2 className="w-10 h-10 animate-spin text-primary" />
+					</div>
+				) : paginatedBlogs.length === 0 ? (
+					<div className="flex justify-center py-20">
+						<p className="text-lg text-muted-foreground">
+							No blogs found. Please check back later.
+						</p>
+					</div>
+				) : (
+					<>
+						<motion.div
+							className="grid gap-8 md:grid-cols-2 lg:grid-cols-3"
+							variants={containerVariants}
+							initial="hidden"
+							whileInView="show"
+							viewport={{ once: true, amount: 0.2 }}
+						>
+							{paginatedBlogs.map((blog) => (
+								<motion.div
+									key={blog.id}
+									className="bg-card rounded-lg overflow-hidden shadow-md cursor-pointer"
+									whileHover={{ scale: 1.05 }}
+									transition={{ duration: 0.3 }}
+									variants={cardVariants}
+								>
+									<motion.img
+										src={blog.image}
+										alt={blog.title}
+										className="h-48 w-full object-cover"
+										initial={{ scale: 1.05 }}
+										whileHover={{ scale: 1.1 }}
+										transition={{ duration: 0.3 }}
+									/>
+									<div className="p-4 space-y-2">
+										<motion.p className="text-sm text-muted-foreground">
+											{blog.date} - {blog.readTime}
+										</motion.p>
+										<motion.h2 className="text-lg font-semibold">
+											{blog.title}
+										</motion.h2>
+										<motion.p className="text-sm text-muted-foreground">
+											{blog.description}
+										</motion.p>
+										<motion.span className="flex items-center gap-1 text-primary mt-2 cursor-pointer">
+											Read more <ArrowRightIcon className="h-4 w-4" />
+										</motion.span>
+									</div>
+								</motion.div>
+							))}
+						</motion.div>
+
+						{/* Pagination */}
+						<div className="mt-10 flex justify-center">
+							<SmartPagination
+								currentPage={currentPage}
+								totalPages={totalPages}
+								onPageChange={handlePageChange}
+							/>
+						</div>
+					</>
+				)}
 			</div>
 
-			<div className="mt-12 flex justify-center">
-				<nav className="flex items-center gap-1">
-					<a
-						href="#"
-						className="w-10 h-10 flex items-center justify-center rounded-md border border-input bg-background"
-					>
-						1
-					</a>
-					<a
-						href="#"
-						className="w-10 h-10 flex items-center justify-center rounded-md border border-input bg-background text-muted-foreground"
-					>
-						2
-					</a>
-					<a
-						href="#"
-						className="w-10 h-10 flex items-center justify-center rounded-md border border-input bg-background text-muted-foreground"
-					>
-						3
-					</a>
-					<span className="w-10 h-10 flex items-center justify-center">...</span>
-					<a
-						href="#"
-						className="w-10 h-10 flex items-center justify-center rounded-md border border-input bg-background text-muted-foreground"
-					>
-						8
-					</a>
-				</nav>
-			</div>
+			<CTA />
 		</div>
 	);
-}
+};
+
+export default Blog;

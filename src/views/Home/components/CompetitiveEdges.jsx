@@ -21,10 +21,10 @@ const CompetitiveEdges = () => {
 			id: 0,
 			title: "Korean PM Coordinator",
 			icon: <Cpu className="w-12 h-12 text-white" />,
-			bgColor: "bg-[#0d1b3e]",
+			bgColor: "bg-[var(--color-draker-blue)]",
 			textColor: "text-white",
-			borderColor: "border-[#0d1b3e]",
-			hover: "hover:bg-linear-to-r from-[#00A9C0] to-[#7CD957] hover:text-white transition-colors duration-300 ease-in-out",
+			borderColor: "border-[var(--color-draker-blue)]",
+			hover: "hover:bg-linear-to-r from-[var(--light-mint)] to-[var(--light-green)] hover:text-white transition-colors duration-300 ease-in-out",
 			isActive: true,
 			desription: [
 				"Able to coordinate between Korean and Vietnam",
@@ -43,7 +43,7 @@ const CompetitiveEdges = () => {
 			bgColor: "bg-white",
 			textColor: "text-white",
 			borderColor: "border-white",
-			hover: "hover:bg-linear-to-r from-[#00A9C0] to-[#7CD957] hover:text-white transition-colors duration-300 ease-in-out",
+			hover: "hover:bg-linear-to-r from-[var(--light-mint)] to-[var(--light-green)] hover:text-white transition-colors duration-300 ease-in-out",
 			isActive: false,
 			desription: [
 				"Various language and frameworks proficiency",
@@ -59,10 +59,10 @@ const CompetitiveEdges = () => {
 			id: 2,
 			title: "Entry-to-communication",
 			icon: <BarChart3 className="w-12 h-12 text-white" />,
-			bgColor: "bg-[#0d1b3e]",
+			bgColor: "bg-[var(--color-draker-blue)]",
 			textColor: "text-white",
-			borderColor: "border-[#0d1b3e]",
-			hover: "hover:bg-linear-to-r from-[#00A9C0] to-[#7CD957] hover:text-white transition-colors duration-300 ease-in-out",
+			borderColor: "border-[var(--color-draker-blue)]",
+			hover: "hover:bg-linear-to-r from-[var(--light-mint)] to-[var(--light-green)] hover:text-white transition-colors duration-300 ease-in-out",
 			isActive: false,
 			desription: [
 				"Optimized communication between customers and developers with professional bridge personnel",
@@ -81,7 +81,7 @@ const CompetitiveEdges = () => {
 			bgColor: "bg-white",
 			textColor: "text-white",
 			borderColor: "border-white",
-			hover: "hover:bg-linear-to-r from-[#00A9C0] to-[#7CD957] hover:text-white transition-colors duration-300 ease-in-out",
+			hover: "hover:bg-linear-to-r from-[var(--light-mint)] to-[var(--light-green)] hover:text-white transition-colors duration-300 ease-in-out",
 			isActive: false,
 			desription: [
 				"Provide cost-effective solutions with high-quality services",
@@ -96,18 +96,18 @@ const CompetitiveEdges = () => {
 	];
 
 	return (
-		<section className="w-fulltext-white">
+		<section className="w-full max-w-[1440px]">
 			<div className="mx-auto">
-				<div className="text-center mb-12">
-					<h2 className="text-3xl md:text-4xl font-bold mb-2 text-[#001159] dark:text-white">
-						OUR COMPETITIVE EDGES
+				<div className="flex flex-col items-center justify-center space-y-4 text-center">
+					<h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-t2-darkBlue">
+						Our competitive edges
 					</h2>
-					<p className="font-medium text-2xl text-gray-700 dark:text-gray-200 ">
+					<p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
 						Our guiding principles that drive everything we do at T2Soft.
 					</p>
 				</div>
 
-				<div className="grid grid-cols-1 md:grid-cols-4 gap-16 mb-10">
+				<div className="grid grid-cols-1 md:grid-cols-4 gap-16 justify-evenly mb-10 mt-12">
 					{edges.map((edge, index) => (
 						<div
 							key={index}
@@ -118,10 +118,12 @@ const CompetitiveEdges = () => {
 								className={classNames(
 									"w-full aspect-square flex flex-col items-end justify-between rounded-lg shadow-lg p-4 cursor-pointer",
 									{
-										"bg-gradient-to-r from-[#00A9C0] to-[#7CD957]":
+										"bg-gradient-to-r from-[var(--light-mint)] to-[var(--light-green)]":
 											activeEdge?.id === edge?.id ||
 											(!activeEdge && index === 0),
-										"bg-[#0d1b3e]": !(activeEdge?.id === edge?.id),
+										"bg-[var(--color-draker-blue)]": !(
+											activeEdge?.id === edge?.id
+										),
 									},
 									edge?.hover,
 								)}
@@ -143,7 +145,7 @@ const CompetitiveEdges = () => {
 					))}
 				</div>
 
-				<div className="w-[90px] h-[8px] bg-linear-to-r from-[#00A9C0] to-[#7CD957] mb-4"></div>
+				<div className="w-[90px] h-[8px] bg-linear-to-r from-[var(--light-mint)] to-[var(--light-green)] mb-4"></div>
 
 				<div className="text-gray-200 pl-4 md:pl-0">
 					<div className="text-gray-200 pl-4 md:pl-0 space-y-3">

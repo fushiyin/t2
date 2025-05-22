@@ -1,9 +1,13 @@
+import image from "@/assets/img/background.png";
+import t2screen from "@/assets/img/t2screen.png";
 import AnimatedSection from "@/components/AnimatedSection";
 import CTA from "@/components/sections/ContactCTA";
+import FAQ from "@/components/sections/FAQ";
+import { FAQs } from "@/constant/common";
 import { motion } from "framer-motion";
 import { CheckCircleIcon } from "lucide-react";
+import DeviceMockup from "./components/DeviceMockup";
 import UniqueValue from "./components/UniqueValue";
-import VisionMission from "./components/VisionMission";
 
 export default function AboutPage() {
 	const listVariants = {
@@ -27,87 +31,106 @@ export default function AboutPage() {
 	};
 
 	return (
-		<div className="w-full  flex flex-col items-center">
-			<div className="container py-12">
-				<h1 className="text-4xl font-bold mb-4">About Us</h1>
-				<p className="text-muted-foreground text-lg max-w-3xl">
-					Learn more about T2Soft, our mission, values, and what makes us a leading
-					technology partner.
-				</p>
-			</div>
+		<div className="w-full flex flex-col gap-6 md:gap-10 items-center">
 			<AnimatedSection className="w-full bg-muted/50 flex flex-col items-center">
-				<div className="container max-w-[1440px] px-4 md:px-6 py-12 flex flex-col">
-					<div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
+				<div className="max-w-[1440px] container px-0 py-8 md:py-12 md:px-4 flex flex-col justify-center min-h-[50vh]">
+					<h2 className="text-2xl md:text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center">
+						About Us
+					</h2>
+					<div className="grid gap-6 lg:grid-cols-2 sm:mt-8 md:mt-16 lg:gap-12 items-center mt-6 md:mt-10">
 						<div className="space-y-4">
-							<div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm">
-								02
-							</div>
-							<h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-								About Us
-							</h2>
-							<p className="text-muted-foreground md:text-xl/relaxed">
+							<p className="text-muted-foreground text-base md:text-xl/relaxed">
 								T2Soft is a leading technology company based in Vietnam,
 								specializing in innovative software solutions for global clients.
 								Founded in 2010, we&apos;ve grown from a small team of passionate
 								developers to a comprehensive technology partner.
 							</p>
-							<motion.ul
-								className="grid gap-2"
-								variants={listVariants}
-								initial="hidden"
-								whileInView="visible"
+							<motion.div
+								className="flex"
+								initial={{ opacity: 0, scale: 0.9 }}
+								whileInView={{ opacity: 1, scale: 1 }}
+								transition={{ duration: 0.7 }}
 								viewport={{ once: true, margin: "-100px" }}
 							>
-								<motion.li
-									className="flex items-center gap-2"
-									variants={itemVariants}
+								<motion.ul
+									className="grid gap-2"
+									variants={listVariants}
+									initial="hidden"
+									whileInView="visible"
+									viewport={{ once: true, margin: "-100px" }}
 								>
-									<CheckCircleIcon className="h-5 w-5 text-primary" />
-									<span>Over 12 years of experience in software development</span>
-								</motion.li>
-								<motion.li
-									className="flex items-center gap-2"
-									variants={itemVariants}
-								>
-									<CheckCircleIcon className="h-5 w-5 text-primary" />
-									<span>Team of 100+ skilled engineers and designers</span>
-								</motion.li>
-								<motion.li
-									className="flex items-center gap-2"
-									variants={itemVariants}
-								>
-									<CheckCircleIcon className="h-5 w-5 text-primary" />
-									<span>Successfully delivered 200+ projects worldwide</span>
-								</motion.li>
-								<motion.li
-									className="flex items-center gap-2"
-									variants={itemVariants}
-								>
-									<CheckCircleIcon className="h-5 w-5 text-primary" />
-									<span>Offices in Hanoi, Ho Chi Minh City, and Da Nang</span>
-								</motion.li>
-							</motion.ul>
+									<motion.li
+										className="flex items-center gap-2"
+										variants={itemVariants}
+									>
+										<CheckCircleIcon className="h-4 w-4 md:h-5 md:w-5 text-primary" />
+										<span className="text-sm md:text-base">
+											Over 12 years of experience in software development
+										</span>
+									</motion.li>
+									<motion.li
+										className="flex items-center gap-2"
+										variants={itemVariants}
+									>
+										<CheckCircleIcon className="h-4 w-4 md:h-5 md:w-5 text-primary" />
+										<span className="text-sm md:text-base">
+											Team of 100+ skilled engineers and designers
+										</span>
+									</motion.li>
+									<motion.li
+										className="flex items-center gap-2"
+										variants={itemVariants}
+									>
+										<CheckCircleIcon className="h-4 w-4 md:h-5 md:w-5 text-primary" />
+										<span className="text-sm md:text-base">
+											Successfully delivered 200+ projects worldwide
+										</span>
+									</motion.li>
+									<motion.li
+										className="flex items-center gap-2"
+										variants={itemVariants}
+									>
+										<CheckCircleIcon className="h-4 w-4 md:h-5 md:w-5 text-primary" />
+										<span className="text-sm md:text-base">
+											Offices in Hanoi, Ho Chi Minh City, and Da Nang
+										</span>
+									</motion.li>
+								</motion.ul>
+							</motion.div>
 						</div>
-						<motion.div
-							className="flex justify-center lg:justify-end"
-							initial={{ opacity: 0, scale: 0.9 }}
-							whileInView={{ opacity: 1, scale: 1 }}
-							transition={{ duration: 0.7 }}
-							viewport={{ once: true, margin: "-100px" }}
-						>
-							<div className="relative h-[400px] w-full max-w-[500px] overflow-hidden rounded-lg">
-								<img
-									src="/placeholder.svg?height=800&width=1000"
-									alt="T2Soft office in Vietnam"
-									className="object-cover"
+						<div className="relative w-full max-w-[500px] h-[200px] md:h-[300px] mx-auto mt-8 md:mt-0">
+							<div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 scale-75 md:scale-100">
+								<DeviceMockup imageSrc={t2screen} />
+							</div>
+							<div className="absolute left-4 top-20 z-20 scale-75 md:scale-100">
+								<DeviceMockup
+									imageSrc={t2screen}
+									type="mobile"
 								/>
 							</div>
-						</motion.div>
+							<div className="absolute lg:left-90 left-50 top-15 z-20 rotate-90 scale-60 md:scale-100">
+								<DeviceMockup
+									imageSrc={t2screen}
+									type="tablet"
+								/>
+							</div>
+						</div>
 					</div>
 				</div>
 			</AnimatedSection>
-			<VisionMission />
 			<UniqueValue />
+			<div className="flex flex-col items-center lg:px-0 md:px-4">
+				<h2 className="text-2xl md:text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center">
+					Most frequently asked questions
+				</h2>
+				<div className="max-w-[1440px] grid gap-6 lg:grid-cols-2 sm:mt-8 md:mt-16 lg:gap-12 items-center mt-6 md:mt-10 lg:px-0 md:px-4">
+					<img
+						src={image}
+						alt="image"
+					/>
+					<FAQ faqs={FAQs} />
+				</div>
+			</div>
 			<CTA />
 		</div>
 	);

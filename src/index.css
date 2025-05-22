@@ -13,6 +13,7 @@
 	--color-deepest-navy: #03071f;
 	--color-dark-gray: #232222;
 	--color-heading-black: #2d2d2d;
+	--color-section-gray: #f4f8ff;
 
 	--radius: 0.625rem;
 	--background: oklch(1 0 0);
@@ -63,6 +64,7 @@
 	--color-deepest-navy: #03071f;
 	--color-dark-gray: #232222;
 	--color-heading-black: #2d2d2d;
+	--color-section-gray: #f4f8ff;
 
 	--radius-sm: calc(var(--radius) - 4px);
 	--radius-md: calc(var(--radius) - 2px);
@@ -111,6 +113,7 @@
 	--color-deepest-navy: #03071f;
 	--color-dark-gray: #232222;
 	--color-heading-black: #2d2d2d;
+	--color-section-gray: #f4f8ff;
 
 	--background: oklch(0.129 0.042 264.695);
 	--foreground: oklch(0.984 0.003 247.858);

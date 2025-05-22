@@ -30,8 +30,8 @@ export default function WhyVietnam() {
 	};
 
 	return (
-		<div className="snap-section">
-			<div className="container px-4 md:px-6 h-full flex flex-col justify-center gap-5">
+		<div className="snap-section h-full w-full bg-section-gray flex flex-col justify-center items-center">
+			<div className="container px-4 py-20 md:px-6 h-full flex flex-col justify-center gap-10">
 				<div className="flex flex-col items-center justify-center space-y-4 text-center">
 					<div className="space-y-2">
 						<h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-t2-darkBlue">
@@ -46,56 +46,54 @@ export default function WhyVietnam() {
 				</div>
 
 				<motion.div
-					className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 mt-12"
+					className="flex flex-col gap-6 mt-12 w-full flex-1"
 					variants={containerVariants}
 					initial="hidden"
 					whileInView="visible"
 					viewport={{ once: true }}
 				>
 					{/* Card 1 */}
-					<motion.div variants={cardVariants}>
-						<HoverCard
-							icon={<GlobeIcon className="h-6 w-6 text-white" />}
-							title="Advanced talent and technical skills"
-							description="A wealth of young IT talent who are sensitive to the latest technology and have excellent foreign language communication skills"
-						/>
-					</motion.div>
-
-					{/* Card 2 */}
-					<motion.div variants={cardVariants}>
-						<HoverCard
-							icon={<TrendingUpIcon className="h-6 w-6 text-white" />}
-							title="Cost-effectiveness"
-							description="The same level of development manpower can be secured at a cost 25-55% lower than that of advanced countries, which is advantageous for budget optimization."
-						/>
-					</motion.div>
-
-					{/* Card 3 */}
-					<motion.div variants={cardVariants}>
-						<HoverCard
-							icon={<GraduationCapIcon className="h-6 w-6 text-white" />}
-							title="Geographic/Cultural Compatibility"
-							description="Time difference within 2 hours, historical and cultural similarities enable real-time communication and smooth collaboration"
-						/>
-					</motion.div>
+					<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+						<motion.div variants={cardVariants}>
+							<HoverCard
+								icon={<GlobeIcon className="h-6 w-6 text-white" />}
+								title="Advanced talent and technical skills"
+								description="A wealth of young IT talent who are sensitive to the latest technology and have excellent foreign language communication skills"
+							/>
+						</motion.div>
+						<motion.div variants={cardVariants}>
+							<HoverCard
+								icon={<TrendingUpIcon className="h-6 w-6 text-white" />}
+								title="Cost-effectiveness"
+								description="The same level of development manpower can be secured at a cost 25-55% lower than that of advanced countries, which is advantageous for budget optimization."
+							/>
+						</motion.div>
+						<motion.div variants={cardVariants}>
+							<HoverCard
+								icon={<GraduationCapIcon className="h-6 w-6 text-white" />}
+								title="Geographic/Cultural Compatibility"
+								description="Time difference within 2 hours, historical and cultural similarities enable real-time communication and smooth collaboration"
+							/>
+						</motion.div>
+					</div>
 
 					{/* Card 4 */}
-					<motion.div variants={cardVariants}>
-						<HoverCard
-							icon={<ClockIcon className="h-6 w-6 text-white" />}
-							title="Stable political and economic environment"
-							description="With political and economic stability and growth potential, Vietnam is emerging as a global IT outsourcing destination"
-						/>
-					</motion.div>
-
-					{/* Card 5 */}
-					<motion.div variants={cardVariants}>
-						<HoverCard
-							icon={<HeartHandshakeIcon className="h-6 w-6 text-white" />}
-							title="Experience in global collaboration"
-							description="Experience in collaboration with global companies from various countries including Korea, Japan, etc"
-						/>
-					</motion.div>
+					<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6 justify-center mx-auto w-full md:w-2/3">
+						<motion.div variants={cardVariants}>
+							<HoverCard
+								icon={<ClockIcon className="h-6 w-6 text-white" />}
+								title="Stable political and economic environment"
+								description="With political and economic stability and growth potential, Vietnam is emerging as a global IT outsourcing destination"
+							/>
+						</motion.div>
+						<motion.div variants={cardVariants}>
+							<HoverCard
+								icon={<HeartHandshakeIcon className="h-6 w-6 text-white" />}
+								title="Experience in global collaboration"
+								description="Experience in collaboration with global companies from various countries including Korea, Japan, etc"
+							/>
+						</motion.div>
+					</div>
 				</motion.div>
 			</div>
 		</div>

@@ -6,9 +6,10 @@ const sections = [
 	{ id: "why-vietnam", label: "02", name: "Why Vietnam" },
 	{ id: "vision", label: "03", name: "Vision" },
 	{ id: "competitive-edges", label: "04", name: "Competitive Edges" },
-	{ id: "development-capacity", label: "05", name: "Development Capacity" },
-	{ id: "case-studies", label: "06", name: "Case Studies" },
-	{ id: "testimonials", label: "07", name: "Testimonials" },
+	// { id: "development-capacity", label: "05", name: "Development Capacity" },
+	{ id: "case-studies", label: "05", name: "Case Studies" },
+	{ id: "testimonials", label: "06", name: "Testimonials" },
+	{ id: "our_process", label: "07", name: "Our Process" },
 ];
 
 const SideNavigation = () => {
@@ -21,20 +22,20 @@ const SideNavigation = () => {
 			const headerHeight = header?.offsetHeight || 0;
 			const scrollY = (main?.scrollTop || 0) + headerHeight;
 
-			let current = null;
-
 			for (let section of sections) {
 				const el = document.getElementById(section.id);
 				if (el && main) {
 					const offsetTop = el.offsetTop - main.offsetTop;
 					const offsetHeight = el.offsetHeight;
 
-					if (scrollY >= offsetTop - offsetHeight / 2) {
-						current = section.id;
+					if (scrollY < offsetTop + offsetHeight / 2) {
+						setActiveSection(section.id);
+						return;
 					}
 				}
 			}
-			setActiveSection(current);
+
+			setActiveSection(sections[sections.length - 1].id);
 		};
 
 		const main = document.querySelector("main");

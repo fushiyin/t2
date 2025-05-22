@@ -3,13 +3,13 @@ import CaseStudyCard from "./CaseStudyCard";
 
 const CaseStudiesSection = () => {
 	return (
-		<div className="w-full bg-white">
+		<div className="w-full bg-white mt-2">
 			<div className="mx-auto max-w-[1440px]">
-				<header className="mb-20 text-center">
-					<h1 className="mb-6 text-5xl font-bold leading-6 text-foreground max-md:text-4xl max-sm:text-3xl">
+				<header className="mb-20 text-center flex flex-col items-center justify-center">
+					<h2 className="mb-6 text-3xl font-bold tracking-tighter sm:text-5xl text-t2-darkBlue">
 						Case Studies
-					</h1>
-					<p className="text-xl font-light leading-6 text-foreground/80 max-md:text-base max-sm:text-sm">
+					</h2>
+					<p className="max-w-[900px] mg- text-xl font-light leading-6 text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
 						{" "}
 						Explore our successful projects and see how we&apos;ve helped businesses
 						achieve their goals.

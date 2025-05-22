@@ -1,6 +1,9 @@
+import image from "@/assets/img/background.png";
 import t2screen from "@/assets/img/t2screen.png";
 import AnimatedSection from "@/components/AnimatedSection";
 import CTA from "@/components/sections/ContactCTA";
+import FAQ from "@/components/sections/FAQ";
+import { FAQs } from "@/constant/common";
 import { motion } from "framer-motion";
 import { CheckCircleIcon } from "lucide-react";
 import DeviceMockup from "./components/DeviceMockup";
@@ -116,6 +119,18 @@ export default function AboutPage() {
 				</div>
 			</AnimatedSection>
 			<UniqueValue />
+			<div className="flex flex-col items-center lg:px-0 px-4">
+				<h2 className="text-2xl md:text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center">
+					Most common asked questions
+				</h2>
+				<div className="max-w-[1440px] grid gap-6 lg:grid-cols-2 sm:mt-8 md:mt-16 lg:gap-12 items-center mt-6 md:mt-10">
+					<img
+						src={image}
+						alt="image"
+					/>
+					<FAQ faqs={FAQs} />
+				</div>
+			</div>
 			<CTA />
 		</div>
 	);

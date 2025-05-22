@@ -4,7 +4,6 @@ import CTA from "@/components/sections/ContactCTA";
 import { motion } from "framer-motion";
 import { CheckCircleIcon } from "lucide-react";
 import DeviceMockup from "./components/DeviceMockup";
-import TechStack from "./components/TechStack";
 import UniqueValue from "./components/UniqueValue";
 
 export default function AboutPage() {
@@ -29,15 +28,15 @@ export default function AboutPage() {
 	};
 
 	return (
-		<div className="w-full flex flex-col gap-10 items-center">
+		<div className="w-full flex flex-col gap-6 md:gap-10 items-center">
 			<AnimatedSection className="w-full bg-muted/50 flex flex-col items-center">
-				<div className="container md:px-6 py-12 flex flex-col justify-center h-[50vh]">
-					<h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+				<div className="container px-4 md:px-6 py-8 md:py-12 flex flex-col justify-center min-h-[50vh]">
+					<h2 className="text-2xl md:text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center">
 						About Us
 					</h2>
-					<div className="grid gap-6 lg:grid-cols-2 sm:mt-16 lg:gap-12 items-center mt-10">
+					<div className="grid gap-6 lg:grid-cols-2 sm:mt-8 md:mt-16 lg:gap-12 items-center mt-6 md:mt-10">
 						<div className="space-y-4">
-							<p className="text-muted-foreground md:text-xl/relaxed">
+							<p className="text-muted-foreground text-base md:text-xl/relaxed">
 								T2Soft is a leading technology company based in Vietnam,
 								specializing in innovative software solutions for global clients.
 								Founded in 2010, we&apos;ve grown from a small team of passionate
@@ -61,8 +60,8 @@ export default function AboutPage() {
 										className="flex items-center gap-2"
 										variants={itemVariants}
 									>
-										<CheckCircleIcon className="h-5 w-5 text-primary" />
-										<span>
+										<CheckCircleIcon className="h-4 w-4 md:h-5 md:w-5 text-primary" />
+										<span className="text-sm md:text-base">
 											Over 12 years of experience in software development
 										</span>
 									</motion.li>
@@ -70,37 +69,43 @@ export default function AboutPage() {
 										className="flex items-center gap-2"
 										variants={itemVariants}
 									>
-										<CheckCircleIcon className="h-5 w-5 text-primary" />
-										<span>Team of 100+ skilled engineers and designers</span>
+										<CheckCircleIcon className="h-4 w-4 md:h-5 md:w-5 text-primary" />
+										<span className="text-sm md:text-base">
+											Team of 100+ skilled engineers and designers
+										</span>
 									</motion.li>
 									<motion.li
 										className="flex items-center gap-2"
 										variants={itemVariants}
 									>
-										<CheckCircleIcon className="h-5 w-5 text-primary" />
-										<span>Successfully delivered 200+ projects worldwide</span>
+										<CheckCircleIcon className="h-4 w-4 md:h-5 md:w-5 text-primary" />
+										<span className="text-sm md:text-base">
+											Successfully delivered 200+ projects worldwide
+										</span>
 									</motion.li>
 									<motion.li
 										className="flex items-center gap-2"
 										variants={itemVariants}
 									>
-										<CheckCircleIcon className="h-5 w-5 text-primary" />
-										<span>Offices in Hanoi, Ho Chi Minh City, and Da Nang</span>
+										<CheckCircleIcon className="h-4 w-4 md:h-5 md:w-5 text-primary" />
+										<span className="text-sm md:text-base">
+											Offices in Hanoi, Ho Chi Minh City, and Da Nang
+										</span>
 									</motion.li>
 								</motion.ul>
 							</motion.div>
 						</div>
-						<div className="relative w-[500px] h-[300px] mx-auto">
-							<div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
+						<div className="relative w-full max-w-[500px] h-[200px] md:h-[300px] mx-auto mt-8 md:mt-0">
+							<div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 scale-75 md:scale-100">
 								<DeviceMockup imageSrc={t2screen} />
 							</div>
-							<div className="absolute left-4 top-20 z-20">
+							<div className="absolute left-4 top-20 z-20 scale-75 md:scale-100">
 								<DeviceMockup
 									imageSrc={t2screen}
 									type="mobile"
 								/>
 							</div>
-							<div className="absolute left-90 top-15 z-20 rotate-90">
+							<div className="absolute lg:left-90 left-50 top-15 z-20 rotate-90 scale-60 md:scale-100">
 								<DeviceMockup
 									imageSrc={t2screen}
 									type="tablet"
@@ -111,7 +116,6 @@ export default function AboutPage() {
 				</div>
 			</AnimatedSection>
 			<UniqueValue />
-			<TechStack />
 			<CTA />
 		</div>
 	);

@@ -73,7 +73,7 @@ export default function UniqueValue() {
 	return (
 		<div
 			id="unique-value"
-			className="max-w-[1440px] py-12 flex flex-col"
+			className="max-w-[1440px] py-12 flex flex-col px-4 lg:px-0"
 		>
 			<div className="container h-full flex flex-col justify-center">
 				<div className="flex flex-col items-center justify-center space-y-4 text-center">

@@ -1,19 +1,9 @@
+import { SECTIONS, SECTIONS_KEY } from "@/constant/sideNavigation";
 import { smoothScrollTo } from "@/lib/utils";
 import { useEffect, useState } from "react";
 
-const sections = [
-	{ id: "hero-video", label: "01", name: "Hero Video" },
-	{ id: "why-vietnam", label: "02", name: "Why Vietnam" },
-	{ id: "vision", label: "03", name: "Vision" },
-	{ id: "competitive-edges", label: "04", name: "Competitive Edges" },
-	{ id: "development-capacity", label: "05", name: "Development Capacity" },
-	{ id: "case-studies", label: "06", name: "Case Studies" },
-	{ id: "testimonials", label: "07", name: "Testimonials" },
-];
-
 const SideNavigation = () => {
 	const [activeSection, setActiveSection] = useState(null);
-
 	useEffect(() => {
 		const handleScroll = () => {
 			const main = document.querySelector("main");
@@ -21,20 +11,20 @@ const SideNavigation = () => {
 			const headerHeight = header?.offsetHeight || 0;
 			const scrollY = (main?.scrollTop || 0) + headerHeight;
 
-			let current = null;
-
-			for (let section of sections) {
+			for (let section of SECTIONS) {
 				const el = document.getElementById(section.id);
 				if (el && main) {
 					const offsetTop = el.offsetTop - main.offsetTop;
 					const offsetHeight = el.offsetHeight;
 
-					if (scrollY >= offsetTop - offsetHeight / 2) {
-						current = section.id;
+					if (scrollY < offsetTop + offsetHeight / 2) {
+						setActiveSection(section.id);
+						return;
 					}
 				}
 			}
-			setActiveSection(current);
+
+			setActiveSection(SECTIONS[SECTIONS.length - 1].id);
 		};
 
 		const main = document.querySelector("main");
@@ -56,7 +46,8 @@ const SideNavigation = () => {
 		}
 	};
 
-	const shouldHideNav = activeSection === "hero-video" || activeSection === "testimonials";
+	const shouldHideNav =
+		activeSection === SECTIONS_KEY.HERO.id || activeSection === SECTIONS_KEY.TESTIMONIALS.id;
 
 	return (
 		<nav
@@ -67,26 +58,26 @@ const SideNavigation = () => {
 	`}
 			aria-label="Page sections"
 		>
-			{sections.map((section, idx) => (
+			{SECTIONS.map((section, idx) => (
 				<div key={section.id}>
 					{idx !== 0 && (
 						<div className="flex justify-center w-full">
-							<div className="w-px h-8 bg-light-blue" />
+							<div className="w-px h-8 bg-foreground/50" />
 						</div>
 					)}
 					<div className="relative group flex items-center justify-center">
 						<button
 							onClick={() => scrollToSection(section.id)}
-							className={`w-7 h-7 text-sm font-bold rounded-full text -tracking-wider flex items-center justify-center cursor-pointer transition-colors border-1 border-light-blue hover:text-white ${
+							className={`w-7 h-7 text-sm font-bold rounded-full text -tracking-wider flex items-center justify-center cursor-pointer transition-colors border-1 border-foreground hover:text-white ${
 								activeSection === section.id
-									? "bg-light-blue text-slate-200 text-light"
-									: "bg-white text-light-blue  hover:bg-light-blue"
+									? "bg-foreground text-slate-200 text-light"
+									: "bg-white text-light  hover:bg-foreground"
 							}`}
 							aria-label={`Go to ${section.id}`}
 						>
 							{section.label}
 						</button>
-						<span className="absolute left-9 capitalize  bg-light-blue text-white text-xs px-2 py-1 rounded-md whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+						<span className="absolute left-9 capitalize  bg-foreground text-white text-xs px-2 py-1 rounded-md whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
 							{section.id.replace(/-/g, " ")}
 						</span>
 					</div>

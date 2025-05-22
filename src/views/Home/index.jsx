@@ -1,11 +1,12 @@
 import CTA from "@/components/sections/ContactCTA";
 import { HEADER_STYLE } from "@/constant/header";
+import { SECTIONS_KEY } from "@/constant/sideNavigation";
 import CaseStudiesSection from "@/views/Home/components/CaseStudiesSection";
-import SideNavigation from "./components/CaseStudiesSection/SideNavigation";
 import CompetitiveEdges from "./components/CompetitiveEdges";
 import Development from "./components/Development";
 import Hero from "./components/Hero";
 import OurProcess from "./components/OurProcess";
+import SideNavigation from "./components/SideNavigation";
 import Testimonials from "./components/Testimonials";
 import Vision from "./components/Vision";
 import WhyVietnam from "./components/WhyVietnam";
@@ -16,25 +17,25 @@ function HomePage() {
 	return (
 		<>
 			<section
-				id="hero-video"
+				id={SECTIONS_KEY.HERO.id}
 				className={sectionClass}
 			>
 				<Hero />
 			</section>
 			<section
-				id="why-vietnam"
-				className={ sectionClass}
+				id={SECTIONS_KEY.WHY_VIETNAM.id}
+				className={sectionClass}
 			>
 				<WhyVietnam />
 			</section>
 			<section
-				id="vision"
+				id={SECTIONS_KEY.VISION.id}
 				className={sectionClass}
 			>
 				<Vision />
 			</section>
 			<section
-				id="competitive-edges"
+				id={SECTIONS_KEY.COMPETITIVE_EDGES.id}
 				className={sectionClass}
 			>
 				<CompetitiveEdges />
@@ -46,25 +47,25 @@ function HomePage() {
 				<DevelopmentCapacity />
 			</section> */}
 			<section
-				id="development"
+				id={SECTIONS_KEY.DEVELOPMENT_CAPACITY.id}
 				className={sectionClass}
 			>
 				<Development />
 			</section>
 			<section
-				id="case-studies"
+				id={SECTIONS_KEY.CASE_STUDIES.id}
 				className={sectionClass}
 			>
 				<CaseStudiesSection />
 			</section>
 			<section
-				id="testimonials"
+				id={SECTIONS_KEY.TESTIMONIALS.id}
 				className={sectionClass}
 			>
 				<Testimonials />
 			</section>
 			<section
-				id="our_process"
+				id={SECTIONS_KEY.OUR_PROCESS.id}
 				className={sectionClass}
 			>
 				<OurProcess />

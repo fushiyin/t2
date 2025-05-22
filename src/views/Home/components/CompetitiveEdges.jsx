@@ -98,16 +98,16 @@ const CompetitiveEdges = () => {
 	return (
 		<section className="w-fulltext-white">
 			<div className="mx-auto">
-				<div className="text-center mb-12">
-					<h2 className="text-3xl md:text-4xl font-bold mb-2 text-[#001159] dark:text-white">
-						OUR COMPETITIVE EDGES
+				<div className="flex flex-col items-center justify-center space-y-4 text-center">
+					<h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-t2-darkBlue">
+						Our competitive edges
 					</h2>
-					<p className="font-medium text-2xl text-gray-700 dark:text-gray-200 ">
+					<p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
 						Our guiding principles that drive everything we do at T2Soft.
 					</p>
 				</div>
 
-				<div className="grid grid-cols-1 md:grid-cols-4 gap-16 mb-10">
+				<div className="grid grid-cols-1 md:grid-cols-4 gap-16 mb-10 mt-12">
 					{edges.map((edge, index) => (
 						<div
 							key={index}

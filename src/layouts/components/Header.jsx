@@ -1,7 +1,7 @@
 import t2darklogo from "@/assets/images/t2darklogo.png";
 import t2lightlogo from "@/assets/images/t2lightlogo.png";
 import classNames from "classnames";
-import { ChevronDown, Globe, Menu, Moon, Sun, X } from "lucide-react";
+import { ChevronDown, Globe, Menu, Moon, Search, Sun, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 
@@ -11,6 +11,7 @@ const Header = () => {
 	const [isDarkMode, setIsDarkMode] = useState(false);
 	const [language, setLanguage] = useState("EN");
 	const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = useState(false);
+	const [isMobileSearchOpen, setIsMobileSearchOpen] = useState(false);
 
 	const NAV_LINKS = [
 		{ name: "Home", path: "/" },
@@ -18,11 +19,12 @@ const Header = () => {
 		{ name: "Services", path: "/services" },
 		{ name: "Career", path: "/career" },
 		{ name: "Blog", path: "/blog" },
+		{ name: "Contact", path: "/contact" },
 	];
 	const LANGUAGE = [
 		{ code: "EN", label: "English" },
-		{ code: "FR", label: "Français" },
-		{ code: "ES", label: "Español" },
+		{ code: "KO", label: "Korean" },
+		{ code: "VI", label: "Vietnamese" },
 	];
 
 	useEffect(() => {
@@ -35,10 +37,6 @@ const Header = () => {
 
 	const toggleMenu = () => {
 		setIsMenuOpen(!isMenuOpen);
-	};
-
-	const goToContact = () => {
-		window.location.href = "/contact";
 	};
 
 	const toggleDarkMode = () => {
@@ -62,7 +60,7 @@ const Header = () => {
 			id="header"
 			className="sticky top-0 w-full bg-white dark:bg-gray-900 shadow-md z-50"
 		>
-			<div className="w-full px-4 sm:px-6 lg:px-8">
+			<div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-0">
 				<div className="flex justify-between items-center h-16">
 					<div className="flex-shrink-0">
 						<a
@@ -85,10 +83,10 @@ const Header = () => {
 								className={classNames(
 									"px-3 py-2 text-sm font-medium transition-colors ",
 									{
-										"bg-light-blue-gray text-dark-blue":
+										"text-[var(--color-dark-blue)] font-extrabold underline underline-offset-8 dark:text-[var(--color-light-blue)]":
 											window.location?.pathname === link?.path ||
 											!window.location?.pathname,
-										"text-gray-700 dark:text-gray-200 hover:text-dark-blue hover:bg-gray-100 dark:hover:bg-gray-800":
+										"text-gray-700 dark:text-gray-200 hover:text-[var(--color-dark-blue)] hover:bg-gray-100 dark:hover:bg-gray-800":
 											!(
 												window.location?.pathname === link?.path ||
 												!window.location?.pathname
@@ -102,16 +100,14 @@ const Header = () => {
 					</nav>
 
 					<div className="hidden md:flex items-center ml-auto">
-						<button
-							type="button"
-							className="mr-4 px-4 py-2 text-sm font-medium text-white bg-dark-blue rounded-md hover:bg-[#101944] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-dark-blue"
-							onClick={goToContact}
-							aria-label="Contact Us"
-							title="Contact Us"
-						>
-							Contact Us
-						</button>
-
+						<div className="relative mr-4 hidden md:block">
+							<input
+								type="text"
+								placeholder="Search..."
+								className="pl-10 pr-4 py-2 rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-500"
+							/>
+							<Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
+						</div>
 						<div className="relative">
 							<button
 								type="button"
@@ -174,6 +170,15 @@ const Header = () => {
 			{isMenuOpen && (
 				<div className="md:hidden fixed inset-x-0 top-16 bg-white dark:bg-gray-900 shadow-lg z-40 max-h-[calc(100vh-4rem)] overflow-y-auto">
 					<div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 border-t border-gray-200 dark:border-gray-700">
+						<div className="relative mb-4">
+							<input
+								type="text"
+								placeholder="Search..."
+								className="pl-10 pr-4 py-2 w-full rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-500"
+							/>
+							<Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
+						</div>
+
 						{NAV_LINKS.map((link) => (
 							<a
 								key={link.path}
@@ -206,8 +211,8 @@ const Header = () => {
 												onClick={() => changeLanguage(code)}
 												className={`px-2 py-1 text-sm font-medium rounded ${
 													language === code
-														? "bg-dark-blue text-white"
-														: "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200"
+														? "bg-[var(--color-deepest-navy)] dark:bg-[var(--color-light-blue)] text-white"
+														: "bg-gray-100 dark:bg-white dark:text-[var(--color-deepest-navy)] text-gray-700"
 												}`}
 											>
 												{label}
@@ -241,6 +246,28 @@ const Header = () => {
 									</div>
 								</div>
 							</div>
+						</div>
+					</div>
+				</div>
+			)}
+
+			{isMobileSearchOpen && (
+				<div className="fixed inset-0 z-50 bg-black bg-opacity-30 flex items-start justify-center pt-24 md:pt-32">
+					<div className="bg-white dark:bg-gray-900 rounded-lg shadow-lg w-[90vw] max-w-md p-4 relative">
+						<button
+							className="absolute top-2 right-2 p-1 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700"
+							onClick={() => setIsMobileSearchOpen(false)}
+							aria-label="Close search"
+						>
+							<X className="h-5 w-5" />
+						</button>
+						<div className="relative">
+							<input
+								type="text"
+								placeholder="Search..."
+								className="pl-10 pr-4 py-2 w-full rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-500"
+							/>
+							<Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
 						</div>
 					</div>
 				</div>

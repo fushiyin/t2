@@ -13,6 +13,13 @@
 	--color-deepest-navy: #03071f;
 	--color-dark-gray: #232222;
 	--color-heading-black: #2d2d2d;
+	--color-section-gray: #f4f8ff;
+	--color-pale-blue: #b1dfe6;
+	--color-closet-dark-blue: #000428;
+	--color-normal-dark-blue: #004e92; */
+	--light-mint: #00a9c0;
+	--light-green: #7cd957;
+	--pure-black: #000000;
 
 	--radius: 0.625rem;
 	--background: oklch(1 0 0);
@@ -63,6 +70,10 @@
 	--color-deepest-navy: #03071f;
 	--color-dark-gray: #232222;
 	--color-heading-black: #2d2d2d;
+	--color-section-gray: #f4f8ff;
+	--color-pale-blue: #b1dfe6;
+	--color-closet-dark-blue: #000428;
+	--color-normal-dark-blue: #004e92;
 
 	--radius-sm: calc(var(--radius) - 4px);
 	--radius-md: calc(var(--radius) - 2px);
@@ -111,6 +122,10 @@
 	--color-deepest-navy: #03071f;
 	--color-dark-gray: #232222;
 	--color-heading-black: #2d2d2d;
+	--color-section-gray: #f4f8ff;
+	--color-pale-blue: #b1dfe6;
+	--color-closet-dark-blue: #000428;
+	--color-normal-dark-blue: #004e92;
 
 	--background: oklch(0.129 0.042 264.695);
 	--foreground: oklch(0.984 0.003 247.858);

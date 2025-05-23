@@ -4,10 +4,11 @@ import CaseStudiesSection from "@/views/Home/components/CaseStudiesSection";
 import SideNavigation from "./components/CaseStudiesSection/SideNavigation";
 import CompetitiveEdges from "./components/CompetitiveEdges";
 import DevelopmentCapacity from "./components/DevelopmentCapacity";
+import GlobeComponent from "./components/Globe/GlobeComponent";
 import Hero from "./components/Hero";
+import OurVision from "./components/Journey";
 import Testimonials from "./components/Testimonials";
 import Vision from "./components/Vision";
-import WhyVietnam from "./components/WhyVietnam";
 
 function HomePage() {
 	const sectionHeightClass = `h-[calc(100vh-${HEADER_STYLE.HEIGHT})]`;
@@ -24,13 +25,19 @@ function HomePage() {
 				id="why-vietnam"
 				className={`bg-[#f4f8ff] ${sectionClass}`}
 			>
-				<WhyVietnam />
+				<GlobeComponent />
 			</section>
 			<section
 				id="vision"
 				className={sectionClass}
 			>
 				<Vision />
+			</section>
+			<section
+				id="vision2"
+				className={sectionClass}
+			>
+				<OurVision />
 			</section>
 			<section
 				id="competitive-edges"

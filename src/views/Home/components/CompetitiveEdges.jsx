@@ -121,9 +121,7 @@ const CompetitiveEdges = () => {
 										"bg-gradient-to-r from-[var(--light-mint)] to-[var(--light-green)]":
 											activeEdge?.id === edge?.id ||
 											(!activeEdge && index === 0),
-										"bg-[var(--color-draker-blue)]": !(
-											activeEdge?.id === edge?.id
-										),
+										"bg-dark-blue": !(activeEdge?.id === edge?.id),
 									},
 									edge?.hover,
 								)}

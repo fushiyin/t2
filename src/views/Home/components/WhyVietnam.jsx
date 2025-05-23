@@ -55,16 +55,14 @@ export default function WhyVietnam() {
 					<div className="w-full bg-white/80 rounded-2xl shadow-lg flex flex-col md:flex-row overflow-hidden">
 						{[
 							{
-								icon: (
-									<GlobeIcon className="h-12 w-12 bg-t2-darkBlue rounded-full" />
-								),
+								icon: <GlobeIcon className="h-8 w-8 bg-t2-darkBlue rounded-full" />,
 								title: "Advanced talent and technical skills",
 								description:
 									"A wealth of young IT talent who are sensitive to the latest technology and have excellent foreign language communication skills",
 							},
 							{
 								icon: (
-									<TrendingUpIcon className="h-12 w-12 bg-t2-darkBlue rounded-full" />
+									<TrendingUpIcon className="h-8 w-8 bg-t2-darkBlue rounded-full" />
 								),
 								title: "Cost-effectiveness",
 								description:
@@ -72,23 +70,21 @@ export default function WhyVietnam() {
 							},
 							{
 								icon: (
-									<GraduationCapIcon className="h-12 w-12 bg-t2-darkBlue rounded-full" />
+									<GraduationCapIcon className="h-8 w-8 bg-t2-darkBlue rounded-full" />
 								),
 								title: "Geographic/Cultural Compatibility",
 								description:
 									"Time difference within 2 hours, historical and cultural similarities enable real-time communication and smooth collaboration",
 							},
 							{
-								icon: (
-									<ClockIcon className="h-12 w-12 bg-t2-darkBlue rounded-full" />
-								),
+								icon: <ClockIcon className="h-8 w-8 bg-t2-darkBlue rounded-full" />,
 								title: "Stable political and economic environment",
 								description:
 									"With political and economic stability and growth potential, Vietnam is emerging as a global IT outsourcing destination",
 							},
 							{
 								icon: (
-									<HeartHandshakeIcon className="h-12 w-12 bg-t2-darkBlue rounded-full" />
+									<HeartHandshakeIcon className="h-8 w-8 bg-t2-darkBlue rounded-full" />
 								),
 								title: "Experience in global collaboration",
 								description:

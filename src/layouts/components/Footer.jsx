@@ -105,9 +105,9 @@ const Footer = () => {
 							<h3 className="text-foreground justify-start font-semibold text-lg mb-4">
 								Contact
 							</h3>
-							{CONTACT_ITEMS.map((item, index) => (
+							{CONTACT_ITEMS.map((item) => (
 								<div
-									key={index}
+									key={`${item.content}-${item.icon}`}
 									className="flex items-center space-x-3"
 								>
 									{" "}
@@ -122,8 +122,8 @@ const Footer = () => {
 
 					<div className="md:w-3/8 ">
 						<div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
-							{footerSections.map((section, index) => (
-								<div key={index}>
+							{footerSections.map((section) => (
+								<div key={`${section.title}-${section.content}`}>
 									<h3 className="text-foreground font-semibold text-lg mb-4">
 										{section.title}
 									</h3>
@@ -157,9 +157,9 @@ const Footer = () => {
 						{/* Social links */}
 
 						<div className="flex space-x-3">
-							{SOCIAL_LINKS.map((social, index) => (
+							{SOCIAL_LINKS.map((social) => (
 								<a
-									key={index}
+									key={`${social.name}-${social.url}`}
 									href={social.url}
 									target="_blank"
 									rel="noopener noreferrer"

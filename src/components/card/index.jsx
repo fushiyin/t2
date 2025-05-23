@@ -11,7 +11,7 @@ const HoverCard = ({
 	className = "",
 }) => {
 	return (
-		<div className={`relative w-full h-full max-w-sm mx-auto ${className}`}>
+		<div className={`relative w-full h-full max-w-lg mx-auto ${className}`}>
 			<motion.div
 				className="relative overflow-hidden rounded-lg h-full"
 				whileHover="hover"
@@ -24,7 +24,7 @@ const HoverCard = ({
 						hover: { opacity: 0 },
 					}}
 					transition={{ duration: 0.3, ease: "easeInOut" }}
-					className={`p-10 flex flex-col items-center text-center h-full ${defaultBgColor}`}
+					className={`p-16 flex flex-col items-center text-center h-full ${defaultBgColor}`}
 				>
 					<div className="mb-4">{icon}</div>
 					<motion.h2

@@ -7,6 +7,7 @@ import { Outlet, useLocation } from "react-router-dom";
 import Loading from "./CustomLoading";
 import Footer from "./Footer";
 import Header from "./Header";
+import LenisProvider from "./LenisProvider";
 import Onboarding from "./OnBoarding";
 import OnboardingProvider from "./OnBoardingProvider";
 
@@ -56,18 +57,20 @@ function ButtonScrollToTop() {
 export default function MainLayout() {
 	return (
 		<Suspense fallback={<> </>}>
-			<OnboardingProvider>
-				<Loading />
-				<Onboarding />
-				<div className="flex flex-col h-screen">
-					<Header />
-					<main className="flex-1 overflow-auto">
-						<Outlet />
-						<Footer />
-						<ButtonScrollToTop />
-					</main>
-				</div>
-			</OnboardingProvider>
+			<LenisProvider>
+				<OnboardingProvider>
+					<Loading />
+					<Onboarding />
+					<div className="flex flex-col h-screen">
+						<Header />
+						<main className="flex-1 overflow-auto">
+							<Outlet />
+							<Footer />
+							<ButtonScrollToTop />
+						</main>
+					</div>
+				</OnboardingProvider>
+			</LenisProvider>
 		</Suspense>
 	);
 }

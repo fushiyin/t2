@@ -50,7 +50,7 @@ export default function PartnerLogos() {
 	}, []);
 
 	return (
-		<div className="w-full bg-white border-y border-t2-paleBlue py-4 overflow-hidden">
+		<div className="w-full bg-white border-y border-pale-blue py-4 overflow-hidden">
 			<div className="relative w-full overflow-hidden flex items-center">
 				<InfinityHorizontalScroll
 					scrollSpeed={40000}

@@ -219,7 +219,7 @@ export default function Development() {
 
 				<div className="flex flex-col lg:flex-row gap-8 h-full">
 					{/* Tree visualization */}
-					<div className="w-full lg:w-1/2 flex items-center justify-center overflow-auto py-8">
+					<div className="w-full flex items-center justify-center overflow-auto py-8">
 						<div className="flex flex-col space-y-8">
 							{rootNodes.map(([id, _], index) =>
 								renderNode(id, 0, index, rootNodes.length),
@@ -228,7 +228,7 @@ export default function Development() {
 					</div>
 
 					{/* Technology details */}
-					<div className="w-full lg:w-1/2 flex items-center justify-center">
+					<div className="w-full flex items-center justify-center">
 						<AnimatePresence mode="wait">
 							{selectedNode ? (
 								<motion.div

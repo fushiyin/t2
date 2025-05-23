@@ -4,6 +4,7 @@ import { SECTIONS_KEY } from "@/constant/sideNavigation";
 import CaseStudiesSection from "@/views/Home/components/CaseStudiesSection";
 import CompetitiveEdges from "./components/CompetitiveEdges";
 import Development from "./components/Development";
+import DevelopmentCapacity from "./components/DevelopmentCapacity/index";
 import Hero from "./components/Hero";
 import OurProcess from "./components/OurProcess";
 import SideNavigation from "./components/SideNavigation";
@@ -40,12 +41,12 @@ function HomePage() {
 			>
 				<CompetitiveEdges />
 			</section>
-			{/* <section
+			<section
 				id="development-capacity"
 				className={sectionClass}
 			>
 				<DevelopmentCapacity />
-			</section> */}
+			</section>
 			<section
 				id={SECTIONS_KEY.DEVELOPMENT_CAPACITY.id}
 				className={sectionClass}

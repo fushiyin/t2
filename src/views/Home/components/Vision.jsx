@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 /* eslint-disable react-hooks/exhaustive-deps */
 import mission from "@/assets/img/mission.png";
 import values from "@/assets/img/values.png";

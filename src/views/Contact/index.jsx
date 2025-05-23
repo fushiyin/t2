@@ -74,7 +74,7 @@ export default function Contact() {
 									</ul>
 								</div>
 
-								<div className="bg-white rounded-lg border border-t2-paleBlue p-6 shadow-sm">
+								<div className="bg-white rounded-lg border border-pale-blue p-6 shadow-sm">
 									{isSubmitted ? (
 										<motion.div
 											className="flex flex-col items-center justify-center h-full py-8 text-center"

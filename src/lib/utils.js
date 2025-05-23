@@ -6,27 +6,27 @@ export function cn(...inputs) {
 }
 
 
-export function smoothScrollTo(targetY, duration = 500) {
-	const startY = document.querySelector("main")?.scrollTop || 0;
-	const distance = targetY - startY;
-	let startTime = null;
+// utils.ts or similar
+export const smoothScrollTo = (targetY, duration = 500) => {
+	const startY = window.scrollY || window.pageYOffset;
+	const startTime = performance.now();
 
-	function animation(currentTime) {
-		if (!startTime) startTime = currentTime;
-		const timeElapsed = currentTime - startTime;
-		const progress = Math.min(timeElapsed / duration, 1);
-		const easeInOutQuad = progress < 0.5
-			? 2 * progress * progress
-			: -1 + (4 - 2 * progress) * progress;
+	const animateScroll = (currentTime) => {
+		const elapsed = currentTime - startTime;
+		const progress = Math.min(elapsed / duration, 1);
+		const ease = 1 - Math.pow(1 - progress, 3); // easeOutCubic
+		const newY = startY + (targetY - startY) * ease;
 
-		const newY = startY + distance * easeInOutQuad;
-		const main = document.querySelector("main");
-		if (main) main.scrollTop = newY;
+		window.scrollTo(0, newY);
 
-		if (timeElapsed < duration) {
-			requestAnimationFrame(animation);
+		if (progress < 1) {
+			requestAnimationFrame(animateScroll);
 		}
-	}
+	};
 
-	requestAnimationFrame(animation);
-}
+	requestAnimationFrame(animateScroll);
+};
+
+export const scrollToTop = () => {
+	smoothScrollTo(0, 500);
+};

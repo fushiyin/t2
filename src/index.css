@@ -13,9 +13,9 @@
 	--color-deepest-navy: #03071f;
 	--color-dark-gray: #232222;
 	--color-heading-black: #2d2d2d;
-	--light-mint: #00a9c0;
-	--light-green: #7cd957;
-	--pure-black: #000000;
+	--color-light-mint: #00a9c0;
+	--color-light-green: #7cd957;
+	--color-pure-black: #000000;
 
 	--radius: 0.625rem;
 	--background: oklch(1 0 0);

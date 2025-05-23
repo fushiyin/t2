@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 const CONTACT_ITEMS = [
 	{
+		id: "phone",
 		icon: <Phone className="text-foreground w-5 h-5 flex-shrink-0" />,
 		content: (
 			<div>
@@ -13,6 +14,7 @@ const CONTACT_ITEMS = [
 		),
 	},
 	{
+		id: "email",
 		icon: <Mail className="text-foreground w-5 h-5 flex-shrink-0" />,
 		content: (
 			<div>
@@ -22,6 +24,7 @@ const CONTACT_ITEMS = [
 		),
 	},
 	{
+		id: "website",
 		icon: <Globe className="text-foreground w-5 h-5 flex-shrink-0" />,
 		content: (
 			<a
@@ -35,6 +38,7 @@ const CONTACT_ITEMS = [
 		),
 	},
 	{
+		id: "social",
 		icon: <MapPin className="text-foreground w-5 h-5 flex-shrink-0 mt-0.5" />,
 		content: <p className="text-foreground/80 text-sm">{FOOTER.ADDRESS}</p>,
 	},
@@ -42,6 +46,7 @@ const CONTACT_ITEMS = [
 
 const SOCIAL_LINKS = [
 	{
+		id: "facebook",
 		name: "Facebook",
 		url: "https://facebook.com",
 		icon: <Facebook size={16} />,
@@ -49,6 +54,7 @@ const SOCIAL_LINKS = [
 		textColor: "text-white",
 	},
 	{
+		id: "kakaotalk",
 		name: "KakaoTalk",
 		url: "https://kakaotalk.com",
 		icon: <MessageCircle size={16} />,
@@ -56,6 +62,7 @@ const SOCIAL_LINKS = [
 		textColor: "text-white",
 	},
 	{
+		id: "telegram",
 		name: "Telegram",
 		url: "https://t.me",
 		icon: <Send size={16} />,
@@ -70,6 +77,7 @@ const Footer = () => {
 
 	const footerSections = [
 		{
+			id: "company",
 			title: "Company",
 			links: [
 				{ to: "/about-us", label: "About Us" },
@@ -78,6 +86,7 @@ const Footer = () => {
 			],
 		},
 		{
+			id: "resources",
 			title: "Resources",
 			links: [
 				{ to: "/blog", label: "Blog" },
@@ -86,6 +95,7 @@ const Footer = () => {
 			],
 		},
 		{
+			id: "legal",
 			title: "Legal",
 			links: [
 				{ to: "/privacy", label: "Privacy" },
@@ -107,7 +117,7 @@ const Footer = () => {
 							</h3>
 							{CONTACT_ITEMS.map((item) => (
 								<div
-									key={`${item.content}-${item.icon}`}
+									key={item.id}
 									className="flex items-center space-x-3"
 								>
 									{" "}
@@ -123,7 +133,7 @@ const Footer = () => {
 					<div className="md:w-3/8 ">
 						<div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
 							{footerSections.map((section) => (
-								<div key={`${section.title}-${section.content}`}>
+								<div key={section.id}>
 									<h3 className="text-foreground font-semibold text-lg mb-4">
 										{section.title}
 									</h3>
@@ -159,7 +169,7 @@ const Footer = () => {
 						<div className="flex space-x-3">
 							{SOCIAL_LINKS.map((social) => (
 								<a
-									key={`${social.name}-${social.url}`}
+									key={social.id}
 									href={social.url}
 									target="_blank"
 									rel="noopener noreferrer"

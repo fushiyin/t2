@@ -3,6 +3,7 @@ import { ArrowRightIcon } from "lucide-react";
 import CaseStudyCard from "./CaseStudyCard";
 const data = [
 	{
+		id: 1,
 		title: "Smart Office – A Company",
 		description:
 			"This solution supports web, mobile (iOS/Android), kiosk, and wallpad platforms, enabling flexible office space use anytime, anywhere. It enhances operational efficiency and user convenience by digitalizing key functions like custom seating and meeting room booking",
@@ -11,6 +12,7 @@ const data = [
 		technologies: "Vue.js, Vuex, Vue Router, Vuetify, ApexCharts, HTML/CSS, JavaScript, Axios",
 	},
 	{
+		id: 2,
 		title: "Financial Web Portal - F Project",
 		description:
 			"The client aimed to provide users with fast, easy access to financial information. We developed a unified web and mobile platform with efficient search functions and intuitive UI/UX for an optimal user experience.",
@@ -19,6 +21,7 @@ const data = [
 		technologies: "Vue.js, Vuex, Vue Router, Vuetify, ApexCharts, HTML/CSS, JavaScript, Axios",
 	},
 	{
+		id: 3,
 		title: "Smart Office – A Company",
 		description:
 			"The client aimed to provide users with fast, easy access to financial information. We developed a unified web and mobile platform with efficient search functions and intuitive UI/UX for an optimal user experience.",
@@ -46,7 +49,7 @@ const CaseStudiesSection = () => {
 				<div className="grid gap-12 justify-center grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mb-10">
 					{data.map((item) => (
 						<motion.div
-							key={`${item.title}-${item.category}`}
+							key={item.id}
 							initial="offscreen"
 							whileInView="onscreen"
 							viewport={{ once: true, amount: 0.2 }}

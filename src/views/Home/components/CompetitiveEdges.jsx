@@ -24,7 +24,7 @@ const CompetitiveEdges = () => {
 			bgColor: "bg-[var(--color-draker-blue)]",
 			textColor: "text-white",
 			borderColor: "border-[var(--color-draker-blue)]",
-			hover: "hover:bg-linear-to-r from-[var(--light-mint)] to-[var(--light-green)] hover:text-white transition-colors duration-300 ease-in-out",
+			hover: "hover:bg-linear-to-r from-[var(--color-light-mint)] to-[var(--color-light-green)] hover:text-white transition-colors duration-300 ease-in-out",
 			isActive: true,
 			desription: [
 				"Able to coordinate between Korean and Vietnam",
@@ -33,8 +33,8 @@ const CompetitiveEdges = () => {
 				"Able to communicate and coordinate quickly and clearly when issues arise",
 			],
 			lottie: Computer,
-			width: 150,
-			height: 100,
+			width: 200,
+			height: 150,
 		},
 		{
 			id: 1,
@@ -43,7 +43,7 @@ const CompetitiveEdges = () => {
 			bgColor: "bg-white",
 			textColor: "text-white",
 			borderColor: "border-white",
-			hover: "hover:bg-linear-to-r from-[var(--light-mint)] to-[var(--light-green)] hover:text-white transition-colors duration-300 ease-in-out",
+			hover: "hover:bg-linear-to-r from-[var(--color-light-mint)] to-[var(--color-light-green)] hover:text-white transition-colors duration-300 ease-in-out",
 			isActive: false,
 			desription: [
 				"Various language and frameworks proficiency",
@@ -52,8 +52,8 @@ const CompetitiveEdges = () => {
 				"Quality-oriented, hands-on development team",
 			],
 			lottie: Dev,
-			width: 200,
-			height: 100,
+			width: 300,
+			height: 200,
 		},
 		{
 			id: 2,
@@ -62,7 +62,7 @@ const CompetitiveEdges = () => {
 			bgColor: "bg-[var(--color-draker-blue)]",
 			textColor: "text-white",
 			borderColor: "border-[var(--color-draker-blue)]",
-			hover: "hover:bg-linear-to-r from-[var(--light-mint)] to-[var(--light-green)] hover:text-white transition-colors duration-300 ease-in-out",
+			hover: "hover:bg-linear-to-r from-[var(--color-light-mint)] to-[var(--color-light-green)] hover:text-white transition-colors duration-300 ease-in-out",
 			isActive: false,
 			desription: [
 				"Optimized communication between customers and developers with professional bridge personnel",
@@ -71,8 +71,8 @@ const CompetitiveEdges = () => {
 				"Real-time smooth communication through collaboration tools",
 			],
 			lottie: Communicate,
-			width: 120,
-			height: 120,
+			width: 170,
+			height: 170,
 		},
 		{
 			id: 3,
@@ -81,7 +81,7 @@ const CompetitiveEdges = () => {
 			bgColor: "bg-white",
 			textColor: "text-white",
 			borderColor: "border-white",
-			hover: "hover:bg-linear-to-r from-[var(--light-mint)] to-[var(--light-green)] hover:text-white transition-colors duration-300 ease-in-out",
+			hover: "hover:bg-linear-to-r from-[var(--color-light-mint)] to-[var(--color-light-green)] hover:text-white transition-colors duration-300 ease-in-out",
 			isActive: false,
 			desription: [
 				"Provide cost-effective solutions with high-quality services",
@@ -90,8 +90,8 @@ const CompetitiveEdges = () => {
 				"Achieving cost savings through flexible personnel management",
 			],
 			lottie: Cost,
-			width: 180,
-			height: 90,
+			width: 230,
+			height: 140,
 		},
 	];
 
@@ -107,7 +107,7 @@ const CompetitiveEdges = () => {
 					</p>
 				</div>
 
-				<div className="grid grid-cols-1 md:grid-cols-4 gap-16 justify-evenly mb-10 mt-12">
+				<div className="grid grid-cols-1 md:grid-cols-4 gap-7 justify-evenly mb-10 mt-12">
 					{edges.map((edge, index) => (
 						<div
 							key={index}
@@ -118,17 +118,15 @@ const CompetitiveEdges = () => {
 								className={classNames(
 									"w-full aspect-square flex flex-col items-end justify-between rounded-lg shadow-lg p-4 cursor-pointer",
 									{
-										"bg-gradient-to-r from-[var(--light-mint)] to-[var(--light-green)]":
+										"bg-gradient-to-r from-[var(--color-light-mint)] to-[var(--color-light-green)]":
 											activeEdge?.id === edge?.id ||
 											(!activeEdge && index === 0),
-										"bg-[var(--color-draker-blue)]": !(
-											activeEdge?.id === edge?.id
-										),
+										"bg-dark-blue": !(activeEdge?.id === edge?.id),
 									},
 									edge?.hover,
 								)}
 							>
-								<p className={`text-2xl w-full ${edge.textColor}`}>{edge.title}</p>
+								<p className={`text-3xl w-full ${edge.textColor}`}>{edge.title}</p>
 								<div className="w-full h-full flex items-center justify-center">
 									<Lottie
 										options={{
@@ -145,7 +143,7 @@ const CompetitiveEdges = () => {
 					))}
 				</div>
 
-				<div className="w-[90px] h-[8px] bg-linear-to-r from-[var(--light-mint)] to-[var(--light-green)] mb-4"></div>
+				<div className="w-[90px] h-[8px] bg-linear-to-r from-[var(--color-light-mint)] to-[var(--color-light-green)] mb-4"></div>
 
 				<div className="text-gray-200 pl-4 md:pl-0">
 					<div className="text-gray-200 pl-4 md:pl-0 space-y-3">

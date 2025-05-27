@@ -1,0 +1,26 @@
+/* GlobeComponent.css */
+.earth-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 300px;
+}
+
+.earth {
+	width: 150px;
+	height: 150px;
+	background: url("https://upload.wikimedia.org/wikipedia/commons/8/83/Equirectangular_projection_SW.jpg");
+	background-size: cover;
+	border-radius: 50%;
+	animation: spin 10s linear infinite;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes spin {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}

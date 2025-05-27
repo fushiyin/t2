@@ -1,8 +1,5 @@
 /* eslint-disable no-unused-vars */
 
-import ReactLogo from "@/assets/img/react_logo.png";
-import TypeScriptLogo from "@/assets/img/typescript_logo.webp";
-import VueJsLogo from "@/assets/img/vuejs_logo.png";
 import { AnimatePresence, motion } from "framer-motion";
 import {
 	CloudIcon,
@@ -32,14 +29,7 @@ export default function Development() {
 			name: "Frontend",
 			icon: <CodeIcon className="h-5 w-5" />,
 			description: "Creating responsive, intuitive, and visually appealing user interfaces",
-			technologies: [
-				{ name: "React.js", imageUrl: ReactLogo },
-				{ name: "Vue.js", imageUrl: VueJsLogo },
-				{ name: "Angular", imageUrl: ReactLogo },
-				{ name: "Next.js", imageUrl: ReactLogo },
-				{ name: "TypeScript", imageUrl: TypeScriptLogo },
-				{ name: "Tailwind CSS", imageUrl: ReactLogo },
-			],
+			technologies: [],
 			children: ["ui", "mobile"],
 		},
 		ui: {

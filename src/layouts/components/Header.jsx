@@ -83,7 +83,7 @@ const Header = () => {
 								className={classNames(
 									"px-3 py-2 text-sm font-medium transition-colors ",
 									{
-										"text-[var(--color-dark-blue)] font-extrabold underline underline-offset-8 dark:text-[var(--color-light-blue)]":
+										"text-[var(--color-dark-blue)] font-extrabold underline underline-offset-8 dark:text-light-blue":
 											window.location?.pathname === link?.path ||
 											!window.location?.pathname,
 										"text-gray-700 dark:text-gray-200 hover:text-[var(--color-dark-blue)] hover:bg-gray-100 dark:hover:bg-gray-800":
@@ -211,7 +211,7 @@ const Header = () => {
 												onClick={() => changeLanguage(code)}
 												className={`px-2 py-1 text-sm font-medium rounded ${
 													language === code
-														? "bg-[var(--color-deepest-navy)] dark:bg-[var(--color-light-blue)] text-white"
+														? "bg-[var(--color-deepest-navy)] dark:bg-light-blue text-white"
 														: "bg-gray-100 dark:bg-white dark:text-[var(--color-deepest-navy)] text-gray-700"
 												}`}
 											>

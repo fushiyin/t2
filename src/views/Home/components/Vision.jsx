@@ -198,8 +198,8 @@ const Vision = () => {
 									}}
 								>
 									<div className="max-w-3xl mx-auto text-center mt-6 px-6">
-										<div className="bg-white/30 backdrop-blur-md rounded-lg p-6">
-											<p className="text-white text-xl md:text-2xl font-light leading-relaxed mb-4">
+										<div className="bg-white/10 backdrop-blur-md rounded-lg p-6">
+											<p className="text-white font-normal text-xl md:text-2xl font-light leading-relaxed mb-4">
 												{slide.testimonial}
 											</p>
 										</div>

@@ -56,7 +56,7 @@ function AdvantageItem({ icon: Icon, title, description, index }) {
 				whileHover={{ scale: 1.1, rotate: index % 2 === 0 ? 5 : -5 }}
 				transition={{ type: "spring", stiffness: 300 }}
 			>
-				<div className=" rounded-full p-3 bg-[var(--color-dark-blue)]">
+				<div className=" rounded-full p-3 bg-dark-blue">
 					<Icon
 						className="h-6 w-6 text-t2-blue"
 						color="#ffffff"

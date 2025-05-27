@@ -7,7 +7,6 @@ const LenisProvider = ({ children }) => {
 	useEffect(() => {
 		// Initialize Lenis for smooth scrolling
 		const lenis = new Lenis({
-			wrapper: document.querySelector("main"),
 			duration: 1.2,
 			easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Ease out expo
 			orientation: "vertical",

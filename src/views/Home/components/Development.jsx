@@ -1,8 +1,5 @@
 /* eslint-disable no-unused-vars */
 
-import ReactLogo from "@/assets/img/react_logo.png";
-import TypeScriptLogo from "@/assets/img/typescript_logo.webp";
-import VueJsLogo from "@/assets/img/vuejs_logo.png";
 import { AnimatePresence, motion } from "framer-motion";
 import {
 	CloudIcon,
@@ -32,14 +29,7 @@ export default function Development() {
 			name: "Frontend",
 			icon: <CodeIcon className="h-5 w-5" />,
 			description: "Creating responsive, intuitive, and visually appealing user interfaces",
-			technologies: [
-				{ name: "React.js", imageUrl: ReactLogo },
-				{ name: "Vue.js", imageUrl: VueJsLogo },
-				{ name: "Angular", imageUrl: ReactLogo },
-				{ name: "Next.js", imageUrl: ReactLogo },
-				{ name: "TypeScript", imageUrl: TypeScriptLogo },
-				{ name: "Tailwind CSS", imageUrl: ReactLogo },
-			],
+			technologies: [],
 			children: ["ui", "mobile"],
 		},
 		ui: {
@@ -219,7 +209,7 @@ export default function Development() {
 
 				<div className="flex flex-col lg:flex-row gap-8 h-full">
 					{/* Tree visualization */}
-					<div className="w-full lg:w-1/2 flex items-center justify-center overflow-auto py-8">
+					<div className="w-full flex items-center justify-center overflow-auto py-8">
 						<div className="flex flex-col space-y-8">
 							{rootNodes.map(([id, _], index) =>
 								renderNode(id, 0, index, rootNodes.length),
@@ -228,7 +218,7 @@ export default function Development() {
 					</div>
 
 					{/* Technology details */}
-					<div className="w-full lg:w-1/2 flex items-center justify-center">
+					<div className="w-full flex items-center justify-center">
 						<AnimatePresence mode="wait">
 							{selectedNode ? (
 								<motion.div

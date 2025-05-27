@@ -242,7 +242,7 @@ export default function OurProcess() {
 				</div>
 
 				{/* Active Step Content */}
-				<div className="flex flex-col flex-1 md:flex-row gap-12 items-center justify-center">
+				<div className="flex flex-col flex-1 md:flex-row gap-12 items-center justify-center py-32">
 					{/* Step Visualization */}
 					<div className="w-full md:w-1/2 flex justify-center ">
 						<AnimatePresence mode="wait">
@@ -259,27 +259,8 @@ export default function OurProcess() {
 									alt={
 										processSteps[activeStep - 1].image + `_${[activeStep - 1]}`
 									}
+									className="rounded-lg shadow-lg max-h-[420px]"
 								/>
-								{/* <div
-									className="w-64 h-64 rounded-full flex items-center justify-center"
-									style={{
-										backgroundColor: `${processSteps[activeStep - 1].color}20`,
-									}}
-								>
-									<div
-										className="w-48 h-48 rounded-full flex items-center justify-center"
-										style={{
-											backgroundColor: `${processSteps[activeStep - 1].color}40`,
-										}}
-									>
-										<div
-											className="w-32 h-32 rounded-full flex items-center justify-center text-white"
-											style={{
-												backgroundColor: processSteps[activeStep - 1].color,
-											}}
-										></div>
-									</div>
-								</div> */}
 								<div className="absolute -top-4 -right-4 bg-white rounded-full w-12 h-12 flex items-center justify-center shadow-lg">
 									<span className="text-xl font-bold text-dark-gray">
 										{activeStep}
@@ -290,7 +271,7 @@ export default function OurProcess() {
 					</div>
 
 					{/* Step Details */}
-					<div className="w-full md:w-1/2 ">
+					<div className="w-full md:w-1/2 h-full">
 						<AnimatePresence mode="wait">
 							<motion.div
 								key={activeStep}
@@ -298,23 +279,25 @@ export default function OurProcess() {
 								animate={{ opacity: 1, x: 0 }}
 								exit={{ opacity: 0, x: -50 }}
 								transition={{ duration: 0.5 }}
-								className="bg-white p-8 rounded-lg shadow-md"
+								className="bg-white p-8 rounded-lg shadow-lg h-full flex flex-col justify-between"
 							>
-								<h3
-									className="text-2xl font-bold mb-4"
-									style={{ color: processSteps[activeStep - 1].color }}
-								>
-									{processSteps[activeStep - 1].title}
-								</h3>
-								<p className="text-gray-600 mb-6">
-									{processSteps[activeStep - 1].description}
-								</p>
+								<div className="step-text">
+									<h3
+										className="text-2xl font-bold mb-4"
+										style={{ color: processSteps[activeStep - 1].color }}
+									>
+										{processSteps[activeStep - 1].title}
+									</h3>
+									<p className="text-gray-600 mb-6">
+										{processSteps[activeStep - 1].description}
+									</p>
+								</div>
 
-								<div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+								<div className="flex flex-col flex-wrap gap-4">
 									{processSteps[activeStep - 1].details.map((detail, index) => (
 										<motion.div
 											key={index}
-											className="flex items-start gap-2"
+											className="flex items-start gap-2 w-fit"
 											initial={{ opacity: 0, y: 10 }}
 											animate={{ opacity: 1, y: 0 }}
 											transition={{ duration: 0.3, delay: index * 0.1 }}

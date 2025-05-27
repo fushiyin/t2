@@ -3,7 +3,7 @@ import { HEADER_STYLE } from "@/constant/header";
 import { SECTIONS_KEY } from "@/constant/sideNavigation";
 import CaseStudiesSection from "@/views/Home/components/CaseStudiesSection";
 import CompetitiveEdges from "./components/CompetitiveEdges";
-import Development from "./components/Development";
+import DevelopmentCapacity from "./components/DevelopmentCapacity/index";
 import Hero from "./components/Hero";
 import VisionJourney from "./components/Journey";
 import OurProcess from "./components/OurProcess";
@@ -48,18 +48,18 @@ function HomePage() {
 			>
 				<CompetitiveEdges />
 			</section>
-			{/* <section
+			<section
 				id="development-capacity"
 				className={sectionClass}
 			>
 				<DevelopmentCapacity />
-			</section> */}
-			<section
+			</section>
+			{/* <section
 				id={SECTIONS_KEY.DEVELOPMENT_CAPACITY.id}
 				className={sectionClass}
 			>
 				<Development />
-			</section>
+			</section> */}
 			<section
 				id={SECTIONS_KEY.CASE_STUDIES.id}
 				className={sectionClass}

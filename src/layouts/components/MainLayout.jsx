@@ -1,64 +1,28 @@
-import { Button } from "@/components/ui/button";
-import { scrollToTop } from "@/lib/utils";
-import classNames from "classnames";
-import { ChevronUp } from "lucide-react";
-import { Suspense, useEffect, useState } from "react";
-import { Outlet, useLocation } from "react-router-dom";
-import Loading from "./CustomLoading";
-import Footer from "./Footer";
-import Header from "./Header";
-import Onboarding from "./OnBoarding";
-import OnboardingProvider from "./OnBoardingProvider";
-
-function ButtonScrollToTop() {
-	const location = useLocation();
-	const [showScrollTop, setShowScrollTop] = useState(false);
-
-	useEffect(() => {
-		const handleScroll = () => {
-			setShowScrollTop(window.pageYOffset > 120);
-		};
-
-		window.addEventListener("scroll", handleScroll);
-		return () => window.removeEventListener("scroll", handleScroll);
-	}, []);
-
-	useEffect(() => {
-		scrollToTop();
-	}, [location]);
-
-	return (
-		<Button
-			type="button"
-			onClick={scrollToTop}
-			className={classNames(
-				"size-[56px] fixed bottom-[30px] right-[30px] cursor-pointer rounded-3xl bg-foreground shadow-[0px_2px_4px_0px_#0000001F,_0px_4px_8px_0px_#00000014] transition-opacity duration-300",
-				{
-					"opacity-100": showScrollTop,
-					"opacity-0 pointer-events-none": !showScrollTop,
-				},
-			)}
-		>
-			<ChevronUp
-				size={24}
-				color="white"
-				strokeWidth={2}
-			/>
-		</Button>
-	);
-}
+import { Suspense } from "react";
+import { Outlet } from "react-router-dom";
+import {
+	ButtonScrollToTop,
+	CustomLoading,
+	Footer,
+	Header,
+	LenisProvider,
+	Onboarding,
+	OnboardingProvider,
+} from "..";
 
 export default function MainLayout() {
 	return (
 		<Suspense fallback={<> </>}>
-			<OnboardingProvider>
-				<Loading />
-				<Onboarding />
-				<Header />
-				<Outlet />
-				<Footer />
-				<ButtonScrollToTop />
-			</OnboardingProvider>
+			<LenisProvider>
+				<OnboardingProvider>
+					<CustomLoading />
+					<Onboarding />
+					<Header />
+					<Outlet />
+					<Footer />
+					<ButtonScrollToTop />
+				</OnboardingProvider>
+			</LenisProvider>
 		</Suspense>
 	);
 }

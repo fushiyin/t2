@@ -1,94 +1,96 @@
 @keyframes spin-slow {
-	from {
-		transform: rotate(0deg);
-	}
-	to {
-		transform: rotate(360deg);
-	}
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes orbit-left {
-	0% {
-		transform: rotate(0deg) translateX(-400px) rotate(0deg);
-	}
-	100% {
-		transform: rotate(-360deg) translateX(-400px) rotate(360deg);
-	}
+  0% {
+    transform: translate3d(-400px, 0, -200px) rotateY(45deg) scale(0.8);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translate3d(-200px, -100px, 0) rotateY(0deg) scale(0.9);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translate3d(0, 0, 0) rotateY(0deg) scale(1);
+    opacity: 1;
+  }
 }
 
 @keyframes orbit-right {
-	0% {
-		transform: rotate(0deg) translateX(400px) rotate(0deg);
-	}
-	100% {
-		transform: rotate(360deg) translateX(400px) rotate(-360deg);
-	}
+  0% {
+    transform: translate3d(0, 0, 0) rotateY(0deg) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translate3d(200px, -100px, 0) rotateY(0deg) scale(0.9);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translate3d(400px, 0, -200px) rotateY(-45deg) scale(0.8);
+    opacity: 0.5;
+  }
 }
 
-/* Orbital System Styles */
-.orbital-system {
-	width: 1000px;
-	height: 1000px;
-	position: relative;
-}
-
-.center-circle {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	box-shadow: 0 0 50px rgba(80, 135, 247, 0.3);
+.perspective-1000 {
+  perspective: 1000px;
+  transform-style: preserve-3d;
 }
 
 .orbit-container {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
 }
 
 .orbit-element {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform-origin: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-style: preserve-3d;
+  transition: all 0.5s ease-in-out;
 }
 
 .orbit-left {
-	animation: orbit-left 20s linear infinite;
+  animation: orbit-left 1s ease-in-out forwards;
 }
 
 .orbit-right {
-	animation: orbit-right 20s linear infinite;
+  animation: orbit-right 1s ease-in-out forwards;
 }
 
-.orbit-content {
-	display: flex;
-	align-items: center;
-	gap: 1rem;
-	transform: translate(-50%, -50%);
+.animate-spin-slow {
+  animation: spin-slow 20s linear infinite;
 }
 
 /* Content transitions */
 .content {
-	transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  z-index: 10;
+  transform-style: preserve-3d;
 }
 
 /* Hover effects */
-.w-\[100px\].h-\[100px\] {
-	transition: transform 0.3s ease;
+.w-\[150px\].h-\[150px\] {
+  transition: transform 0.3s ease;
+  transform-style: preserve-3d;
 }
 
-.w-\[100px\].h-\[100px\]:hover {
-	transform: scale(1.1);
+.w-\[150px\].h-\[150px\]:hover {
+  transform: scale(1.1) translateZ(20px);
 }
 
-/* Ensure proper stacking */
-.content {
-	z-index: 10;
-}
-
-.orbital-system {
-	z-index: 1;
+/* Center circle shadow */
+.w-\[800px\].h-\[800px\] {
+  box-shadow: 0 0 50px rgba(80, 135, 247, 0.3);
+  transform-style: preserve-3d;
 }

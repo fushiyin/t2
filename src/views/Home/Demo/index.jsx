@@ -82,8 +82,8 @@ const VisionJourney = () => {
 					<div className="w-[800px] h-[800px] rounded-full animate-spin-slow bg-gradient-to-b from-[#5087f7] to-transparent" />
 				</div>
 			</div>
-			<div className="absolute top-1/2 left-[-50px] transform flex items-center justify-center gap-4">
-				<div className="w-[100px] h-[100px] rounded-full animate-spin-slow bg-gradient-to-b from-[#5087f7] to-[#19286d]" />
+			<div className="absolute top-1/2 left-[-75px] transform flex items-center justify-center gap-4">
+				<div className="w-[150px] h-[150px] rounded-full animate-spin-slow bg-gradient-to-b from-[#5087f7] to-[#19286d]" />
 				<div className="text-t2-darkBlue font-semibold transition-all duration-500">
 					{slides[getPrevSlide(activeIndex)].title}
 				</div>
@@ -92,7 +92,7 @@ const VisionJourney = () => {
 				<div className="text-t2-darkBlue font-semibold transition-all duration-500">
 					{slides[getNextSlide(activeIndex)].title}
 				</div>
-				<div className="w-[100px] h-[100px] rounded-full animate-spin-slow bg-gradient-to-b from-[#5087f7] to-[#19286d]" />
+				<div className="w-[150px] h-[150px] rounded-full animate-spin-slow bg-gradient-to-b from-[#5087f7] to-[#19286d]" />
 			</div>
 		</div>
 	);

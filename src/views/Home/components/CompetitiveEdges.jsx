@@ -24,7 +24,7 @@ const CompetitiveEdges = () => {
 			bgColor: "bg-[var(--color-draker-blue)]",
 			textColor: "text-white",
 			borderColor: "border-[var(--color-draker-blue)]",
-			hover: "hover:bg-linear-to-r from-[var(--light-mint)] to-[var(--light-green)] hover:text-white transition-colors duration-300 ease-in-out",
+			hover: "hover:bg-linear-to-r from-[var(--color-light-mint)] to-[var(--color-light-green)] hover:text-white transition-colors duration-300 ease-in-out",
 			isActive: true,
 			desription: [
 				"Able to coordinate between Korean and Vietnam",
@@ -43,7 +43,7 @@ const CompetitiveEdges = () => {
 			bgColor: "bg-white",
 			textColor: "text-white",
 			borderColor: "border-white",
-			hover: "hover:bg-linear-to-r from-[var(--light-mint)] to-[var(--light-green)] hover:text-white transition-colors duration-300 ease-in-out",
+			hover: "hover:bg-linear-to-r from-[var(--color-light-mint)] to-[var(--color-light-green)] hover:text-white transition-colors duration-300 ease-in-out",
 			isActive: false,
 			desription: [
 				"Various language and frameworks proficiency",
@@ -62,7 +62,7 @@ const CompetitiveEdges = () => {
 			bgColor: "bg-[var(--color-draker-blue)]",
 			textColor: "text-white",
 			borderColor: "border-[var(--color-draker-blue)]",
-			hover: "hover:bg-linear-to-r from-[var(--light-mint)] to-[var(--light-green)] hover:text-white transition-colors duration-300 ease-in-out",
+			hover: "hover:bg-linear-to-r from-[var(--color-light-mint)] to-[var(--color-light-green)] hover:text-white transition-colors duration-300 ease-in-out",
 			isActive: false,
 			desription: [
 				"Optimized communication between customers and developers with professional bridge personnel",
@@ -81,7 +81,7 @@ const CompetitiveEdges = () => {
 			bgColor: "bg-white",
 			textColor: "text-white",
 			borderColor: "border-white",
-			hover: "hover:bg-linear-to-r from-[var(--light-mint)] to-[var(--light-green)] hover:text-white transition-colors duration-300 ease-in-out",
+			hover: "hover:bg-linear-to-r from-[var(--color-light-mint)] to-[var(--color-light-green)] hover:text-white transition-colors duration-300 ease-in-out",
 			isActive: false,
 			desription: [
 				"Provide cost-effective solutions with high-quality services",
@@ -107,7 +107,7 @@ const CompetitiveEdges = () => {
 					</p>
 				</div>
 
-				<div className="grid grid-cols-1 md:grid-cols-4 gap-16 justify-evenly mb-10 mt-12">
+				<div className="grid grid-cols-1 md:grid-cols-4 gap-7 justify-evenly mb-10 mt-12">
 					{edges.map((edge, index) => (
 						<div
 							key={index}
@@ -118,7 +118,7 @@ const CompetitiveEdges = () => {
 								className={classNames(
 									"w-full aspect-square flex flex-col items-end justify-between rounded-lg shadow-lg p-4 cursor-pointer",
 									{
-										"bg-gradient-to-r from-[var(--light-mint)] to-[var(--light-green)]":
+										"bg-gradient-to-r from-[var(--color-light-mint)] to-[var(--color-light-green)]":
 											activeEdge?.id === edge?.id ||
 											(!activeEdge && index === 0),
 										"bg-dark-blue": !(activeEdge?.id === edge?.id),

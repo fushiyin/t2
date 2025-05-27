@@ -5,10 +5,13 @@ import CaseStudiesSection from "@/views/Home/components/CaseStudiesSection";
 import CompetitiveEdges from "./components/CompetitiveEdges";
 import Development from "./components/Development";
 import Hero from "./components/Hero";
+import VisionJourney from "./components/Journey";
 import OurProcess from "./components/OurProcess";
 import SideNavigation from "./components/SideNavigation";
 import Testimonials from "./components/Testimonials";
 import Vision from "./components/Vision";
+import WhyVietnam from "./components/WhyVietnam";
+import VisionJourney2 from "./Demo";
 
 function HomePage() {
 	const sectionHeightClass = `h-[calc(100vh-${HEADER_STYLE.HEIGHT})]`;
@@ -22,10 +25,22 @@ function HomePage() {
 				<Hero />
 			</section>
 			<section
+				id={SECTIONS_KEY.WHY_VIETNAM.id}
+				className={sectionClass}
+			>
+				<WhyVietnam />
+			</section>
+			<section
 				id={SECTIONS_KEY.VISION.id}
 				className={sectionClass}
 			>
 				<Vision />
+			</section>
+			<section className={sectionClass}>
+				<VisionJourney />
+			</section>
+			<section className={sectionClass}>
+				<VisionJourney2 />
 			</section>
 			<section
 				id={SECTIONS_KEY.COMPETITIVE_EDGES.id}

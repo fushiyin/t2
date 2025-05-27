@@ -21,7 +21,7 @@ const Careers = React.lazy(() => import("@/views/Career"));
 const Services = React.lazy(() => import("@/views/ServicesPage"));
 const Blog = React.lazy(() => import("@/views/Blog"));
 const Demo = React.lazy(() => import("@/views/Home/components/Globe/GlobeComponent"));
-const Vision = React.lazy(() => import("@/views/Home/components/Journey"));
+const Vision = React.lazy(() => import("@/views/Home/Demo"));
 
 const router = createBrowserRouter([
 	{

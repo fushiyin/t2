@@ -33,8 +33,8 @@ const CompetitiveEdges = () => {
 				"Able to communicate and coordinate quickly and clearly when issues arise",
 			],
 			lottie: Computer,
-			width: 150,
-			height: 100,
+			width: 200,
+			height: 150,
 		},
 		{
 			id: 1,
@@ -52,8 +52,8 @@ const CompetitiveEdges = () => {
 				"Quality-oriented, hands-on development team",
 			],
 			lottie: Dev,
-			width: 200,
-			height: 100,
+			width: 300,
+			height: 200,
 		},
 		{
 			id: 2,
@@ -71,8 +71,8 @@ const CompetitiveEdges = () => {
 				"Real-time smooth communication through collaboration tools",
 			],
 			lottie: Communicate,
-			width: 120,
-			height: 120,
+			width: 170,
+			height: 170,
 		},
 		{
 			id: 3,
@@ -90,8 +90,8 @@ const CompetitiveEdges = () => {
 				"Achieving cost savings through flexible personnel management",
 			],
 			lottie: Cost,
-			width: 180,
-			height: 90,
+			width: 230,
+			height: 140,
 		},
 	];
 
@@ -126,7 +126,7 @@ const CompetitiveEdges = () => {
 									edge?.hover,
 								)}
 							>
-								<p className={`text-2xl w-full ${edge.textColor}`}>{edge.title}</p>
+								<p className={`text-3xl w-full ${edge.textColor}`}>{edge.title}</p>
 								<div className="w-full h-full flex items-center justify-center">
 									<Lottie
 										options={{
@@ -143,7 +143,7 @@ const CompetitiveEdges = () => {
 					))}
 				</div>
 
-				<div className="w-[90px] h-[8px] bg-linear-to-r from-[var(--light-mint)] to-[var(--light-green)] mb-4"></div>
+				<div className="w-[90px] h-[8px] bg-linear-to-r from-[var(--color-light-mint)] to-[var(--color-light-green)] mb-4"></div>
 
 				<div className="text-gray-200 pl-4 md:pl-0">
 					<div className="text-gray-200 pl-4 md:pl-0 space-y-3">

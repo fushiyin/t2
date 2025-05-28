@@ -20,7 +20,7 @@ function HomePage() {
 		<>
 			<section
 				id={SECTIONS_KEY.HERO.id}
-				className={sectionClass + ` min-h-[calc(100vh-${HEADER_STYLE.HEIGHT})]`}
+				className={sectionClass + ` h-[calc(100vh-${HEADER_STYLE.HEIGHT})]`}
 			>
 				<Hero contentClass={contentClass} />
 			</section>

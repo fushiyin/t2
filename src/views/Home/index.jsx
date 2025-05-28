@@ -14,21 +14,21 @@ import WhyVietnam from "./components/WhyVietnam";
 import VisionJourney2 from "./Demo";
 
 function HomePage() {
-	const sectionHeightClass = `h-[calc(100vh-${HEADER_STYLE.HEIGHT})]`;
-	const sectionClass = `flex items-center justify-center relative overflow-hidden ${sectionHeightClass}`;
+	const sectionClass = "flex items-center justify-center relative overflow-hidden";
+	const contentClass = "container h-full px-4 py-20 md:px-6";
 	return (
 		<>
 			<section
 				id={SECTIONS_KEY.HERO.id}
-				className={sectionClass}
+				className={sectionClass + ` min-h-[calc(100vh-${HEADER_STYLE.HEIGHT})]`}
 			>
-				<Hero />
+				<Hero contentClass={contentClass} />
 			</section>
 			<section
 				id={SECTIONS_KEY.WHY_VIETNAM.id}
 				className={sectionClass}
 			>
-				<WhyVietnam />
+				<WhyVietnam contentClass={contentClass} />
 			</section>
 			<section
 				id={SECTIONS_KEY.VISION.id}
@@ -49,10 +49,10 @@ function HomePage() {
 				<CompetitiveEdges />
 			</section>
 			<section
-				id="development-capacity"
+				id={SECTIONS_KEY.DEVELOPMENT_CAPACITY.id}
 				className={sectionClass}
 			>
-				<DevelopmentCapacity />
+				<DevelopmentCapacity contentClass={contentClass} />
 			</section>
 			{/* <section
 				id={SECTIONS_KEY.DEVELOPMENT_CAPACITY.id}
@@ -70,7 +70,7 @@ function HomePage() {
 				id={SECTIONS_KEY.TESTIMONIALS.id}
 				className={sectionClass}
 			>
-				<Testimonials />
+				<Testimonials contentClass={contentClass} />
 			</section>
 			<section
 				id={SECTIONS_KEY.OUR_PROCESS.id}

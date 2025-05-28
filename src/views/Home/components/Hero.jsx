@@ -3,9 +3,8 @@ import { motion } from "framer-motion";
 import { t } from "i18next";
 import { ArrowRightIcon } from "lucide-react";
 import { Link } from "react-router-dom";
-import PartnerLogos from "./PartnerLogo";
 
-export default function Hero() {
+export default function Hero({ contentClass }) {
 	const containerVariants = {
 		hidden: { opacity: 0 },
 		visible: {
@@ -67,9 +66,9 @@ export default function Hero() {
 					animate={{ opacity: 1 }}
 					transition={{ duration: 1 }}
 				></motion.div>
-				<div className="absolute bottom-0 left-0 right-0">
+				{/* <div className="absolute bottom-0 left-0 right-0">
 					<PartnerLogos />
-				</div>
+				</div> */}
 			</div>
 			{/* Content */}
 			<div className="container relative z-10 flex items-center">

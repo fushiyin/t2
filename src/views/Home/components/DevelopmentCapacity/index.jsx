@@ -5,12 +5,12 @@ import TailwindCSSLogo from "@/assets/logos/tailwind.png";
 import TypeScriptLogo from "@/assets/logos/typescript.png";
 import VueLogo from "@/assets/logos/vue.png";
 import { Button } from "@/components/ui/button";
+import classNames from "classnames";
 import { AnimatePresence, motion } from "framer-motion";
 import {
 	BrainCircuitIcon,
 	ChevronLeftIcon,
 	ChevronRightIcon,
-	CloudIcon,
 	CodeIcon,
 	DatabaseIcon,
 	ServerIcon,
@@ -230,58 +230,6 @@ const techStacks = [
 		],
 	},
 	{
-		id: "cloud",
-		name: "Cloud & DevOps",
-		icon: <CloudIcon className="h-8 w-8" />,
-		description: "Cloud infrastructure and deployment automation",
-		color: "#FBD38D",
-		gradient: "from-yellow-400 to-orange-400",
-		technologies: [
-			{
-				name: "AWS",
-				logo: "/placeholder.svg?height=80&width=80",
-				description: "Amazon Web Services",
-				experience: "6+ years",
-				projects: "110+ projects",
-			},
-			{
-				name: "Google Cloud",
-				logo: "/placeholder.svg?height=80&width=80",
-				description: "Google Cloud Platform",
-				experience: "4+ years",
-				projects: "70+ projects",
-			},
-			{
-				name: "Azure",
-				logo: "/placeholder.svg?height=80&width=80",
-				description: "Microsoft Azure",
-				experience: "5+ years",
-				projects: "85+ projects",
-			},
-			{
-				name: "Docker",
-				logo: "/placeholder.svg?height=80&width=80",
-				description: "Containerization platform",
-				experience: "5+ years",
-				projects: "95+ projects",
-			},
-			{
-				name: "Kubernetes",
-				logo: "/placeholder.svg?height=80&width=80",
-				description: "Container orchestration",
-				experience: "4+ years",
-				projects: "60+ projects",
-			},
-			{
-				name: "Terraform",
-				logo: "/placeholder.svg?height=80&width=80",
-				description: "Infrastructure as code",
-				experience: "3+ years",
-				projects: "45+ projects",
-			},
-		],
-	},
-	{
 		id: "ai",
 		name: "AI & Machine Learning",
 		icon: <BrainCircuitIcon className="h-8 w-8" />,
@@ -335,14 +283,14 @@ const techStacks = [
 	},
 ];
 
-export default function DevelopmentEnhanced() {
-	const [hoveredTech, setHoveredTech] = useState(null);
+export default function DevelopmentEnhanced({ contentClass }) {
 	const [currentStackIndex, setCurrentStackIndex] = useState(0);
+	const autoTimer = 6000; // 6 seconds
 
 	useEffect(() => {
 		const interval = setInterval(() => {
 			setCurrentStackIndex((prev) => (prev + 1) % techStacks.length);
-		}, 5000);
+		}, autoTimer);
 		return () => clearInterval(interval);
 	}, []);
 
@@ -357,267 +305,138 @@ export default function DevelopmentEnhanced() {
 	};
 
 	return (
-		<div className="w-full bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white py-20 relative overflow-hidden">
+		<div className="w-full bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white relative overflow-hidden">
 			{/* Background Pattern */}
-			<div className="max-w-[1440px] mx-auto relative">
-				<div className="absolute inset-0 opacity-10">
-					<div
-						className="absolute inset-0"
-						style={{
-							backgroundImage:
-								"url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fillRule='evenodd'%3E%3Cg fill='%23ffffff' fillOpacity='0.1'%3E%3Ccircle cx='30' cy='30' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")",
-						}}
-					/>
-				</div>
-
-				<div className="container px-4 md:px-6 relative z-10">
-					{/* Header */}
-					<div className="text-center mb-16">
-						<motion.div
-							initial={{ opacity: 0, y: 20 }}
-							whileInView={{ opacity: 1, y: 0 }}
-							transition={{ duration: 0.6 }}
-							viewport={{ once: true }}
-						>
-							<h2 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
-								Development Capacity
-							</h2>
-							<p className="text-xl text-gray-300 max-w-3xl mx-auto">
-								Our comprehensive technology expertise spans across modern
-								frameworks, languages, and platforms. We leverage cutting-edge tools
-								to build scalable, robust, and innovative solutions.
-							</p>
-						</motion.div>
-					</div>
-
-					{/* Technology Stack Grid */}
-					{/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-						{techStacks.map((stack, index) => (
-							<motion.div
-								key={stack.id}
-								initial={{ opacity: 0, y: 30 }}
-								whileInView={{ opacity: 1, y: 0 }}
-								transition={{ duration: 0.6, delay: index * 0.1 }}
-								viewport={{ once: true }}
-								className={`relative p-6 rounded-2xl bg-gradient-to-br ${stack.gradient} bg-opacity-10 border border-white/10 backdrop-blur-sm cursor-pointer group hover:scale-105 transition-all duration-300`}
-							>
-								<div className="flex items-center mb-4">
-									<div
-										className={`p-3 rounded-xl bg-gradient-to-br ${stack.gradient} mr-4`}
-									>
-										{stack.icon}
-									</div>
-									<div>
-										<h3 className="text-xl font-bold text-white">
-											{stack.name}
-										</h3>
-										<p className="text-gray-300 text-sm">
-											{stack.technologies.length} Technologies
-										</p>
-									</div>
-								</div>
-								<p className="text-gray-400 mb-4">{stack.description}</p>
-
-								<div className="flex flex-wrap gap-2">
-									{stack.technologies.slice(0, 4).map((tech) => (
-										<div
-											key={tech.name}
-											className="w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center"
-										>
-											<img
-												src={tech.logo || "/placeholder.svg"}
-												alt={tech.name}
-												width={20}
-												height={20}
-												className="object-contain"
-											/>
-										</div>
-									))}
-									{stack.technologies.length > 4 && (
-										<div className="w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center text-xs text-gray-400">
-											+{stack.technologies.length - 4}
-										</div>
-									)}
-								</div>
-								<div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl" />
-							</motion.div>
-						))}
-					</div> */}
-
-					{/* Detailed Technology View */}
-					<AnimatePresence>
-						{currentStack && (
-							<motion.div
-								initial={{ opacity: 0, height: 0 }}
-								animate={{ opacity: 1, height: "auto" }}
-								exit={{ opacity: 0, height: 0 }}
-								transition={{ duration: 0.5 }}
-								className="bg-gray-800/50 backdrop-blur-sm rounded-3xl p-8 border border-white/10"
-							>
-								{(() => {
-									const stack = currentStack;
-									return (
-										<div>
-											<div className="flex items-center mb-8 justify-between">
-												<div className=" flex items-center gap-4">
-													<div
-														className={`p-4 rounded-2xl bg-gradient-to-br ${stack.gradient} mr-6`}
-													>
-														{stack.icon}
-													</div>
-													<div>
-														<h3 className="text-3xl font-bold text-white mb-2">
-															{stack.name}
-														</h3>
-														<p className="text-gray-300 text-lg">
-															{stack.description}
-														</p>
-													</div>
-												</div>
-
-												<div className="flex gap-2">
-													<Button
-														variant="outline"
-														size="lg"
-														onClick={prevStack}
-														className="border-section-gray/40 text-white bg-transparent"
-													>
-														<ChevronLeftIcon className="h-4 w-4" />
-													</Button>
-													<Button
-														variant="outline"
-														size="lg"
-														onClick={nextStack}
-														className="border-section-gray/40 text-white bg-transparent"
-													>
-														<ChevronRightIcon className="h-4 w-4" />
-													</Button>
-												</div>
-											</div>
-
-											<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-												{stack.technologies.map((tech, techIndex) => (
-													<motion.div
-														key={tech.name}
-														initial={{ opacity: 0, y: 20 }}
-														animate={{ opacity: 1, y: 0 }}
-														transition={{
-															duration: 0.4,
-															delay: techIndex * 0.05,
-														}}
-														className="bg-gray-700/30 rounded-xl p-6 border border-white/5 hover:border-white/20 transition-all duration-300 group"
-														onMouseEnter={() =>
-															setHoveredTech(tech.name)
-														}
-														onMouseLeave={() => setHoveredTech(null)}
-													>
-														<div className="flex items-center mb-4">
-															<div className="w-12 h-12 bg-white rounded-xl p-2 mr-4 flex items-center justify-center">
-																<img
-																	src={
-																		tech.logo ||
-																		"/placeholder.svg"
-																	}
-																	alt={tech.name}
-																	width={32}
-																	height={32}
-																	className="object-contain"
-																/>
-															</div>
-															<div>
-																<h4 className="text-lg font-bold text-white">
-																	{tech.name}
-																</h4>
-																<p className="text-gray-400 text-sm">
-																	{tech.description}
-																</p>
-															</div>
-														</div>
-
-														<div className="space-y-2">
-															<div className="flex justify-between items-center">
-																<span className="text-gray-400 text-sm">
-																	Experience
-																</span>
-																<span className="text-white font-medium">
-																	{tech.experience}
-																</span>
-															</div>
-															{/* <div className="flex justify-between items-center">
-																<span className="text-gray-400 text-sm">
-																	Projects
-																</span>
-																<span className="text-white font-medium">
-																	{tech.projects}
-																</span>
-															</div> */}
-														</div>
-
-														{/* Hover Effect */}
-														<motion.div
-															className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"
-															animate={{
-																opacity:
-																	hoveredTech === tech.name
-																		? 1
-																		: 0,
-															}}
-														/>
-													</motion.div>
-												))}
-											</div>
-										</div>
-									);
-								})()}
-							</motion.div>
-						)}
-					</AnimatePresence>
-
-					{/* Stats Section */}
-					{/* <motion.div
-						initial={{ opacity: 0, y: 30 }}
-						whileInView={{ opacity: 1, y: 0 }}
-						transition={{ duration: 0.6 }}
-						viewport={{ once: true }}
-						className="mt-20 text-center"
-					>
-						<div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-							<div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
-								<div className="text-3xl font-bold text-white mb-2">500+</div>
-								<div className="text-gray-400">Projects Delivered</div>
-							</div>
-							<div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
-								<div className="text-3xl font-bold text-white mb-2">50+</div>
-								<div className="text-gray-400">Technologies</div>
-							</div>
-							<div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
-								<div className="text-3xl font-bold text-white mb-2">100+</div>
-								<div className="text-gray-400">Developers</div>
-							</div>
-							<div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
-								<div className="text-3xl font-bold text-white mb-2">12+</div>
-								<div className="text-gray-400">Years Experience</div>
-							</div>
-						</div>
-					</motion.div> */}
-
-					{/* Call to Action */}
+			<div
+				className={classNames(
+					"max-w-[1440px] relative z-10 flex flex-col justify-center items-center gap-15 mx-auto",
+					{
+						[contentClass]: contentClass,
+					},
+				)}
+			>
+				{/* Header */}
+				<div className="text-center">
 					<motion.div
-						initial={{ opacity: 0, y: 30 }}
+						initial={{ opacity: 0, y: 20 }}
 						whileInView={{ opacity: 1, y: 0 }}
 						transition={{ duration: 0.6 }}
 						viewport={{ once: true }}
-						className="text-center mt-16"
 					>
-						<p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-							Ready to leverage our technical expertise for your next project?
-							Let&apos;s discuss how we can bring your vision to life.
+						<h2 className="text-3xl font-bold tracking-tighter sm:text-5xl pb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
+							Technology Stack
+						</h2>
+						<p className="max-w-[900px] mx-auto text-gray-300 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+							Our comprehensive technology expertise spans across modern frameworks,
+							languages, and platforms. We leverage cutting-edge tools to build
+							scalable, robust, and innovative solutions.
 						</p>
-						<button className="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-xl hover:from-blue-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 shadow-lg">
-							Start Your Project
-						</button>
 					</motion.div>
 				</div>
+
+				{/* Detailed Technology View */}
+				<AnimatePresence>
+					{currentStack && (
+						<motion.div
+							initial={{ opacity: 0, height: 0 }}
+							animate={{ opacity: 1, height: "auto" }}
+							exit={{ opacity: 0, height: 0 }}
+							transition={{ duration: 0.5 }}
+							className="bg-gray-800/50 backdrop-blur-sm rounded-3xl p-8 border border-white/10"
+						>
+							<>
+								<div className="flex items-center mb-6 justify-between">
+									<div className=" flex items-center gap-4">
+										<div
+											className={`p-4 rounded-2xl bg-gradient-to-br ${currentStack?.gradient} mr-6`}
+										>
+											{currentStack?.icon}
+										</div>
+										<div>
+											<h3 className="text-3xl font-bold text-white mb-2">
+												{currentStack?.name}
+											</h3>
+											<p className="text-gray-300 text-lg">
+												{currentStack?.description}
+											</p>
+										</div>
+									</div>
+
+									<div className="flex gap-2">
+										<Button
+											variant="outline"
+											size="lg"
+											onClick={prevStack}
+											className="border-section-gray/40 text-white bg-transparent"
+										>
+											<ChevronLeftIcon className="h-4 w-4" />
+										</Button>
+										<Button
+											variant="outline"
+											size="lg"
+											onClick={nextStack}
+											className="border-section-gray/40 text-white bg-transparent"
+										>
+											<ChevronRightIcon className="h-4 w-4" />
+										</Button>
+									</div>
+								</div>
+
+								<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+									{currentStack?.technologies?.map((tech, techIndex) => (
+										<motion.div
+											key={tech.name}
+											initial={{ opacity: 0, y: 20 }}
+											animate={{ opacity: 1, y: 0 }}
+											transition={{
+												duration: 0.4,
+												delay: techIndex * 0.05,
+											}}
+											className="bg-gray-700/30 rounded-xl p-6 border border-white/5 hover:border-white/20 transition-all duration-300 group"
+										>
+											<div className="flex items-center">
+												<div className="w-12 h-12 bg-white rounded-xl p-2 mr-4 flex items-center justify-center">
+													<img
+														src={tech.logo || "/placeholder.svg"}
+														alt={tech.name}
+														width={32}
+														height={32}
+														className="object-contain"
+													/>
+												</div>
+												<div>
+													<h4 className="text-lg font-bold text-white">
+														{tech.name}
+													</h4>
+													<p className="text-gray-400 text-sm">
+														{tech.description}
+													</p>
+												</div>
+											</div>
+										</motion.div>
+									))}
+								</div>
+							</>
+						</motion.div>
+					)}
+				</AnimatePresence>
+
+				{/* Call to Action */}
+				<motion.div
+					initial={{ opacity: 0, y: 30 }}
+					whileInView={{ opacity: 1, y: 0 }}
+					transition={{ duration: 0.6 }}
+					viewport={{ once: true }}
+					className="text-center"
+				>
+					<p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+						Ready to leverage our technical expertise for your next project? Let&apos;s
+						discuss how we can bring your vision to life.
+					</p>
+					<button className="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-xl hover:from-blue-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 shadow-lg">
+						Start Your Project
+					</button>
+				</motion.div>
 			</div>
 		</div>
 	);

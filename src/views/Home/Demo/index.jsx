@@ -1,8 +1,9 @@
 import vision from "@/assets/img/earth.png";
 import classNames from "classnames";
 import { useEffect, useRef, useState } from "react";
+import "./styles.css";
 
-const TypeWriter = ({ text, speed = 20 }) => {
+const TypeWriter = ({ text, speed = 5 }) => {
 	const [displayText, setDisplayText] = useState("");
 	const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -35,7 +36,7 @@ const VisionJourney = () => {
 		{
 			id: "vision",
 			title: "Vision",
-			backgroundColor: "#5087f7",
+			backgroundColor: "#000428",
 			image: vision,
 			testimonial:
 				"We provide reliable software development and solutions to customers around the world, and provide cost-effective and high-quality services with excellent development talents in Vietnam. We support our customer business growth through technological innovation and flexible collaboration.",
@@ -43,7 +44,7 @@ const VisionJourney = () => {
 		{
 			id: "mission",
 			title: "Mission",
-			backgroundColor: "#a9b7fc",
+			backgroundColor: "#5087f7",
 			image: vision,
 			testimonial:
 				"We provide reliable software development and solutions to customers around the world, and provide cost-effective and high-quality services with excellent development talents in Vietnam. We support our customer business growth through technological innovation and flexible collaboration.",
@@ -148,7 +149,7 @@ const VisionJourney = () => {
 	return (
 		<div
 			ref={containerRef}
-			className="h-[800px] w-full overflow-hidden relative snap-start snap-always bg-gradient-to-t  from-[#0f0c29] via-[#302b63] to-[#24243e]"
+			className="h-[800px] w-full mb-10 overflow-hidden relative snap-start snap-always bg-gradient-to-t from-[#ffffff] via-[#ffffff] to-[#5087f7]"
 			style={{ scrollSnapAlign: "start" }}
 		>
 			<div className="content flex flex-col items-center justify-space-between space-y-4 text-center">
@@ -167,7 +168,7 @@ const VisionJourney = () => {
 				<div className="w-[90px] h-[8px] mt-5 bg-gradient-to-r from-[var(--color-light-mint)] to-[var(--color-light-green)] mb-4" />
 			</div>
 			<div
-				className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full flex items-center justify-center"
+				className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full flex items-center justify-center  transform-3d  [animation:rotate_15s_linear_infinite]"
 				style={{ perspective: "1000px", transformStyle: "preserve-3d" }}
 			>
 				{slides.map((slide, index) => {
@@ -181,15 +182,15 @@ const VisionJourney = () => {
 							onClick={() => setActiveIndex(index)}
 						>
 							<div
-								className={
-									"w-full h-full rounded-full [transform:rotate(20deg)] [animation:rotate_15s_linear_infinite] [box-shadow:inset_0px_-20px_50px_10px_#7debf2,0px_0px_30px_6px_#7debf2] animate-spin-slow rotate"
-								}
+								className="w-full h-full rounded-full [transform:rotate(20deg)] [animation:rotate_15s_linear_infinite] animate-spin-slow rotate"
 								style={{
 									backgroundImage: `url(${slide?.image})`,
 									backgroundSize: "contain",
 									backgroundColor: slide.backgroundColor,
+									boxShadow: `inset 0px -20px 50px 10px ${slide.backgroundColor}, 0px 0px 30px 6px ${slide.backgroundColor}`,
 								}}
 							/>
+
 							{!isCenter && (
 								<div
 									className={classNames(

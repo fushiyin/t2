@@ -1,5 +1,6 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardContent } from "@/components/ui/card";
+import classNames from "classnames";
 import { Ellipsis } from "lucide-react";
 import InfinityHorizontalScroll from "./InfinityHorizontalScroll";
 
@@ -84,10 +85,15 @@ const testimonials = [
 // Create duplicated testimonials for seamless looping
 const duplicatedTestimonials = testimonials.map((row) => [...row, ...row, ...row, ...row]);
 
-export default function Testimonials() {
+export default function Testimonials({ contentClass }) {
 	return (
-		<div className="relative bg-dark-gray py-120 w-full h-full flex items-center justify-center">
-			<div className="container px-4 md:px-6 relative h-full w-full flex items-center justify-center max-w-[1440px]">
+		<div className="relative bg-dark-gray w-full h-full flex items-center justify-center">
+			<div
+				className={classNames(
+					"relative h-full w-full flex items-center justify-center max-w-[1440px]",
+					{ [contentClass]: contentClass },
+				)}
+			>
 				{/* Absolutely positioned title with box shadow */}
 				<div className="absolute inset-0 z-10 m-auto aspect-[1051/375] w-full max-w-[1051px] rounded-[300px]  blur-[97px] bg-dark-gray"></div>
 				<div className="absolute inset-0 z-20 m-auto aspect-[639/229] w-full max-w-[639px] rounded-[300px] blur-[52px] bg-dark-gray"></div>

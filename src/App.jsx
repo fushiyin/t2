@@ -1,5 +1,6 @@
 import "@/i18n";
 import AppRouter from "@/routes";
+import "lenis/dist/lenis.css";
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 

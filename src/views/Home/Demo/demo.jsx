@@ -58,20 +58,28 @@ const Motconvit = () => {
 	}, [activeIndex, isScrolling, slides.length]);
 
 	const getCirclePosition = (index) => {
-		const total = slides.length;
-		const angle = (index * 2 * Math.PI) / total - (activeIndex * 2 * Math.PI) / total;
-		const radius = 300;
+		// const total = slides.length;
+		// const angle = (index * 2 * Math.PI) / total - (activeIndex * 2 * Math.PI) / total;
+		// const radius = 300;
 
-		const x = Math.cos(angle) * radius;
-		const y = Math.sin(angle) * radius;
+		// const x = Math.cos(angle) * radius;
+		// const y = Math.sin(angle) * radius;
 
 		return {
-			left: `calc(35% + ${x}px)`,
-			top: `calc(40% + ${y}px)`,
-			transform: `scale(${index === activeIndex ? 2 : 0.8})`,
-			zIndex: index === activeIndex ? 10 : 1,
+			// left: `calc(35% + ${x}px)`,
+			// top: `calc(40% + ${y}px)`,
+			// transform: `scale(${index === activeIndex ? 2 : 0.8})`,
+			// zIndex: index === activeIndex ? 10 : 1,
+			position: "absolute",
+			left: `${index === activeIndex ? 1000 : 50}px)`,
+			top: `${index === activeIndex ? 1000 : 50}px)`,
+			background: `${index === activeIndex ? "red" : "blue"}`,
 		};
 	};
+
+	useEffect(() => {
+		console.log("activeIndex", activeIndex);
+	}, [activeIndex]);
 
 	return (
 		<div
@@ -115,11 +123,10 @@ const Motconvit = () => {
 					<button
 						key={index}
 						onClick={() => setActiveIndex(index)}
-						className={`w-3 h-3 rounded-full transition-all duration-300 ${
-							activeIndex === index
+						className={`w-3 h-3 rounded-full transition-all duration-300 ${activeIndex === index
 								? "bg-light-blue-gray scale-125"
 								: "bg-light-blue-gray/30"
-						}`}
+							}`}
 						aria-label={`Go to ${slides[index].title}`}
 					/>
 				))}

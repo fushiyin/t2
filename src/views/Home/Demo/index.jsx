@@ -1,4 +1,29 @@
+import vision from "@/assets/img/earth.png";
+import classNames from "classnames";
 import { useEffect, useRef, useState } from "react";
+
+const TypeWriter = ({ text, speed = 20 }) => {
+	const [displayText, setDisplayText] = useState("");
+	const [currentIndex, setCurrentIndex] = useState(0);
+
+	useEffect(() => {
+		setDisplayText("");
+		setCurrentIndex(0);
+	}, [text]);
+
+	useEffect(() => {
+		if (currentIndex < text.length) {
+			const timeout = setTimeout(() => {
+				setDisplayText((prev) => prev + text[currentIndex]);
+				setCurrentIndex((prev) => prev + 1);
+			}, speed);
+
+			return () => clearTimeout(timeout);
+		}
+	}, [currentIndex, text, speed]);
+
+	return <span>{displayText}</span>;
+};
 
 const VisionJourney = () => {
 	const [activeIndex, setActiveIndex] = useState(0);
@@ -10,18 +35,24 @@ const VisionJourney = () => {
 		{
 			id: "vision",
 			title: "Vision",
+			backgroundColor: "#5087f7",
+			image: vision,
 			testimonial:
 				"We provide reliable software development and solutions to customers around the world, and provide cost-effective and high-quality services with excellent development talents in Vietnam. We support our customer business growth through technological innovation and flexible collaboration.",
 		},
 		{
 			id: "mission",
 			title: "Mission",
+			backgroundColor: "#a9b7fc",
+			image: vision,
 			testimonial:
 				"We provide reliable software development and solutions to customers around the world, and provide cost-effective and high-quality services with excellent development talents in Vietnam. We support our customer business growth through technological innovation and flexible collaboration.",
 		},
 		{
 			id: "values",
 			title: "Values",
+			image: vision,
+			backgroundColor: "#004e92",
 			testimonial:
 				"Grow together as a team with customer, we quickly absorb and apply the latest trends and technologies to stay ahead. We gain customer trust through honest communication and responsible behaviors.",
 		},
@@ -37,9 +68,9 @@ const VisionJourney = () => {
 
 				setActiveIndex((prevIndex) => {
 					if (direction === "down") {
-						return (prevIndex + 1) % slides.length;
+						return getNextSlide(prevIndex);
 					} else {
-						return (prevIndex - 1 + slides.length) % slides.length;
+						return getPrevSlide(prevIndex);
 					}
 				});
 
@@ -59,10 +90,65 @@ const VisionJourney = () => {
 	const getNextSlide = (index) => (index + 1) % slides.length;
 	const getPrevSlide = (index) => (index - 1 + slides.length) % slides.length;
 
+	const getPlanetStyles = (index) => {
+		const isCenter = index === activeIndex;
+		const isLeft = index === getPrevSlide(activeIndex);
+		const isRight = index === getNextSlide(activeIndex);
+
+		const baseStyles = {
+			position: "absolute",
+			transformOrigin: "center",
+			transition: "all 1000ms ease-in-out",
+			cursor: "pointer",
+			top: "50%",
+			left: "calc(50% - 450px)",
+			transform: "translate(-50%, -50%)",
+		};
+
+		if (isCenter) {
+			return {
+				...baseStyles,
+				width: "900px",
+				height: "900px",
+				opacity: 1,
+				zIndex: 10,
+				transform: `
+					translate(-50%, -50%),
+					scale(1)
+				`,
+			};
+		} else if (isLeft) {
+			return {
+				...baseStyles,
+				width: "200px",
+				height: "200px",
+				opacity: 0.7,
+				zIndex: 5,
+				left: "-100px",
+				transform: `
+					scale(0.8)
+				`,
+			};
+		} else if (isRight) {
+			return {
+				...baseStyles,
+				width: "200px",
+				height: "200px",
+				opacity: 0.7,
+				zIndex: 5,
+				left: "calc(100% - 100px)",
+				transform: `
+					scale(0.8)
+				`,
+			};
+		}
+		return { ...baseStyles, display: "none" };
+	};
+
 	return (
 		<div
 			ref={containerRef}
-			className="h-[800px] w-full overflow-hidden relative snap-start snap-always"
+			className="h-[800px] w-full overflow-hidden relative snap-start snap-always bg-gradient-to-t  from-[#0f0c29] via-[#302b63] to-[#24243e]"
 			style={{ scrollSnapAlign: "start" }}
 		>
 			<div className="content flex flex-col items-center justify-space-between space-y-4 text-center">
@@ -73,26 +159,49 @@ const VisionJourney = () => {
 					{slides[activeIndex].title.toUpperCase()}
 				</div>
 				<p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed transition-all duration-500">
-					{slides[activeIndex].testimonial}
+					<TypeWriter
+						text={slides[activeIndex].testimonial}
+						speed={25}
+					/>
 				</p>
 				<div className="w-[90px] h-[8px] mt-5 bg-gradient-to-r from-[var(--color-light-mint)] to-[var(--color-light-green)] mb-4" />
 			</div>
-			<div className="absolute top-1/2 h-full left-1/2 transform -translate-x-1/2">
-				<div className="absolute top-3/5 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex items-center justify-center">
-					<div className="w-[800px] h-[800px] rounded-full animate-spin-slow bg-gradient-to-b from-[#5087f7] to-transparent" />
-				</div>
-			</div>
-			<div className="absolute top-1/2 left-[-75px] transform flex items-center justify-center gap-4">
-				<div className="w-[150px] h-[150px] rounded-full animate-spin-slow bg-gradient-to-b from-[#5087f7] to-[#19286d]" />
-				<div className="text-t2-darkBlue font-semibold transition-all duration-500">
-					{slides[getPrevSlide(activeIndex)].title}
-				</div>
-			</div>
-			<div className="absolute top-1/2 right-[-50px] transform flex items-center justify-center gap-4">
-				<div className="text-t2-darkBlue font-semibold transition-all duration-500">
-					{slides[getNextSlide(activeIndex)].title}
-				</div>
-				<div className="w-[150px] h-[150px] rounded-full animate-spin-slow bg-gradient-to-b from-[#5087f7] to-[#19286d]" />
+			<div
+				className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full flex items-center justify-center"
+				style={{ perspective: "1000px", transformStyle: "preserve-3d" }}
+			>
+				{slides.map((slide, index) => {
+					const planetStyles = getPlanetStyles(index);
+					const isCenter = index === activeIndex;
+					return (
+						<div
+							className="flex gap-5"
+							key={slide.id}
+							style={planetStyles}
+							onClick={() => setActiveIndex(index)}
+						>
+							<div
+								className={
+									"w-full h-full rounded-full [transform:rotate(20deg)] [animation:rotate_15s_linear_infinite] [box-shadow:inset_0px_-20px_50px_10px_#7debf2,0px_0px_30px_6px_#7debf2] animate-spin-slow rotate"
+								}
+								style={{
+									backgroundImage: `url(${slide?.image})`,
+									backgroundSize: "contain",
+									backgroundColor: slide.backgroundColor,
+								}}
+							/>
+							{!isCenter && (
+								<div
+									className={classNames(
+										"absolute left-1/2 top-1/3 mt-4 transform -translate-x-1/2 text-t2-darkBlue font-semibold z-20 text-center w-max px-2",
+									)}
+								>
+									{slide.title}
+								</div>
+							)}
+						</div>
+					);
+				})}
 			</div>
 		</div>
 	);

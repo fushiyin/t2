@@ -3,13 +3,19 @@ import t2lightlogo from "@/assets/images/t2lightlogo.png";
 import classNames from "classnames";
 import { ChevronDown, Globe, Menu, Moon, Search, Sun, X } from "lucide-react";
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { useLocation } from "react-router-dom";
 
 const Header = () => {
 	const location = useLocation();
+	const { i18n } = useTranslation();
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const [isDarkMode, setIsDarkMode] = useState(false);
-	const [language, setLanguage] = useState("EN");
+	const [language, setLanguage] = useState({
+		code: "en",
+		label: "English",
+		imageUrl: "https://www.countryflags.com/wp-content/uploads/united-kingdom-flag-png-xl.png",
+	});
 	const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = useState(false);
 	const [isMobileSearchOpen, setIsMobileSearchOpen] = useState(false);
 
@@ -22,9 +28,23 @@ const Header = () => {
 		{ name: "Contact", path: "/contact" },
 	];
 	const LANGUAGE = [
-		{ code: "EN", label: "English" },
-		{ code: "KO", label: "Korean" },
-		{ code: "VI", label: "Vietnamese" },
+		{
+			code: "en",
+			label: "English",
+			imageUrl:
+				"https://www.countryflags.com/wp-content/uploads/united-kingdom-flag-png-xl.png",
+		},
+		{
+			code: "ko",
+			label: "Korean",
+			imageUrl:
+				"https://www.countryflags.com/wp-content/uploads/south-korea-flag-png-large.png",
+		},
+		{
+			code: "vi",
+			label: "Vietnamese",
+			imageUrl: "https://www.countryflags.com/wp-content/uploads/vietnam-flag-png-large.png",
+		},
 	];
 
 	useEffect(() => {
@@ -52,6 +72,7 @@ const Header = () => {
 
 	const changeLanguage = (lang) => {
 		setLanguage(lang);
+		i18n.changeLanguage(lang?.code || "en");
 		setIsLanguageDropdownOpen(false);
 	};
 
@@ -114,31 +135,42 @@ const Header = () => {
 								className="flex items-center text-sm text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400"
 								onClick={toggleLanguageDropdown}
 							>
-								<Globe className="h-5 w-5 mr-1" />
-								<span>{language}</span>
+								{/* <Globe className="h-5 w-5 mr-1" /> */}
+								<img
+									src={language.imageUrl}
+									alt={language.label}
+									className="inline-block h-5 w-7"
+								/>
 								<ChevronDown className="h-4 w-4 ml-1" />
 							</button>
 
 							{isLanguageDropdownOpen && (
-								<div className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white dark:bg-gray-800 ring-1 ring-black ring-opacity-5 focus:outline-none">
-									<button
-										onClick={() => changeLanguage("EN")}
-										className="block w-full text-left px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
-									>
-										English
-									</button>
-									<button
-										onClick={() => changeLanguage("FR")}
-										className="block w-full text-left px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
-									>
-										Français
-									</button>
-									<button
-										onClick={() => changeLanguage("ES")}
-										className="block w-full text-left px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
-									>
-										Español
-									</button>
+								<div className="origin-top-right absolute right-0 w-48 rounded-md shadow-lg bg-white dark:bg-gray-800 ring-1 ring-gray-700/50 ring-opacity-5 focus:outline-none">
+									{LANGUAGE.map((lang_item, index) => {
+										return (
+											<button
+												key={`lang_item_${lang_item?.code}_${index}`}
+												onClick={() => changeLanguage(lang_item)}
+												className={classNames(
+													"flex justify-start w-full px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700",
+													{
+														"bg-pale-blue dark:bg-light-blue text-white":
+															language?.code === lang_item.code,
+														"rounded-t-md": index === 0,
+														"rounded-b-md":
+															index === LANGUAGE.length - 1,
+													},
+												)}
+											>
+												<img
+													src={lang_item.imageUrl}
+													alt={lang_item.label}
+													className="inline-block h-5 w-7 mr-2"
+												/>
+												{lang_item.label}
+											</button>
+										);
+									})}
 								</div>
 							)}
 						</div>
@@ -183,7 +215,7 @@ const Header = () => {
 							<a
 								key={link.path}
 								href={link.path}
-								className={`block px-3 py-2 text-base font-medium border-b border-b-[1px] ${
+								className={`block px-3 py-2 text-base font-medium border-b ${
 									location.pathname === link.path
 										? "text-dark-blue bg-light-blue-gray"
 										: "text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 border-b-[#f4f4f4]"
@@ -205,17 +237,17 @@ const Header = () => {
 										<span>Language: {language}</span>
 									</div>
 									<div className="grid grid-cols-3 gap-2 mt-1">
-										{LANGUAGE.map(({ code, label }) => (
+										{LANGUAGE.map((lang_item, index) => (
 											<button
-												key={code}
-												onClick={() => changeLanguage(code)}
+												key={`lang_item_${lang_item?.code}_${index}`}
+												onClick={() => changeLanguage(lang_item)}
 												className={`px-2 py-1 text-sm font-medium rounded ${
-													language === code
+													language?.code === lang_item
 														? "bg-[var(--color-deepest-navy)] dark:bg-light-blue text-white"
 														: "bg-gray-100 dark:bg-white dark:text-[var(--color-deepest-navy)] text-gray-700"
 												}`}
 											>
-												{label}
+												{lang_item?.label}
 											</button>
 										))}
 									</div>

@@ -99,7 +99,7 @@ export default function Testimonials({ contentClass }) {
 				<div className="absolute inset-0 z-20 m-auto aspect-[639/229] w-full max-w-[639px] rounded-[300px] blur-[52px] bg-dark-gray"></div>
 				<div className="absolute inset-0 flex items-center justify-center">
 					<h2 className="z-30 text-3xl md:text-5xl font-bold text-white text-center px-[30px] py-[25px] rounded-[10px] bg-heading-black">
-						Testimonials
+						Feedback from customers
 					</h2>
 				</div>
 
@@ -152,7 +152,7 @@ function TestimonialCard({ testimonial }) {
 		<Card className="bg-dark-gray shadow-md h-[280px] w-[400px] border border-white/[0.08] rounded-xl">
 			<CardContent className="p-6">
 				<div className="flex items-start space-x-4">
-					<Avatar className="border-2 border-heading-black">
+					<Avatar className="border-2 border-white/[0.3]">
 						<AvatarImage
 							src={testimonial.avatar || "/placeholder.svg"}
 							alt={testimonial.name}

@@ -4,7 +4,7 @@ import { t } from "i18next";
 import { ArrowRightIcon } from "lucide-react";
 import { Link } from "react-router-dom";
 
-export default function Hero({ contentClass }) {
+export default function Hero() {
 	const containerVariants = {
 		hidden: { opacity: 0 },
 		visible: {
@@ -99,7 +99,7 @@ export default function Hero({ contentClass }) {
 						<Button
 							asChild
 							size="lg"
-							className="rounded-md bg-light-blue text-white hover:bg-dark-blue"
+							className="rounded-md bg-dark-blue text-white hover:bg-light-blue"
 						>
 							<Link
 								href="/contact"

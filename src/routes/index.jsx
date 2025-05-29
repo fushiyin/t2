@@ -2,17 +2,7 @@ import { MainLayout } from "@/layouts";
 import PageNotFound from "@/views/PageNotFound";
 import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-
-const idRouter = Object.freeze({
-	home: "/",
-	about: "/about",
-	contact: "/contact",
-	service: "/services",
-	career: "/career",
-	blog: "/blog",
-	demo: "/demo",
-	vision: "/vision",
-});
+import { idRouter } from "./idRouter";
 
 const Home = React.lazy(() => import("@/views/Home"));
 const About = React.lazy(() => import("@/views/About"));

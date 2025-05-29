@@ -4,7 +4,7 @@ export const SECTIONS_KEY = Object.freeze({
 	VISION: { id: "vision", label: "03", name: "Vision" },
 	COMPETITIVE_EDGES: { id: "competitive-edges", label: "04", name: "Competitive Edges" },
 	DEVELOPMENT_CAPACITY: { id: "development-capacity", label: "05", name: "Development Capacity" },
-	CASE_STUDIES: { id: "case-studies", label: "06", name: "Case Studies" },
+	FOCUSED_INDUSTRIES: { id: "focused_industries", label: "06", name: "Focused Industries" },
 	TESTIMONIALS: { id: "testimonials", label: "07", name: "Testimonials" },
 	OUR_PROCESS: { id: "our_process", label: "08", name: "Our Process" },
 });

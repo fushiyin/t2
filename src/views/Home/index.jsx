@@ -1,9 +1,9 @@
 import CTA from "@/components/sections/ContactCTA";
 import { HEADER_STYLE } from "@/constant/header";
 import { SECTIONS_KEY } from "@/constant/sideNavigation";
-import CaseStudiesSection from "@/views/Home/components/CaseStudiesSection";
 import CompetitiveEdges from "./components/CompetitiveEdges";
 import DevelopmentCapacity from "./components/DevelopmentCapacity/index";
+import FocusedIndustries from "./components/FocusedIndustries";
 import Hero from "./components/Hero";
 import OurProcess from "./components/OurProcess";
 import SideNavigation from "./components/SideNavigation";
@@ -20,7 +20,7 @@ function HomePage() {
 				id={SECTIONS_KEY.HERO.id}
 				className={sectionClass + ` h-[calc(100vh-${HEADER_STYLE.HEIGHT})]`}
 			>
-				<Hero contentClass={contentClass} />
+				<Hero />
 			</section>
 			<section
 				id={SECTIONS_KEY.WHY_VIETNAM.id}
@@ -43,17 +43,11 @@ function HomePage() {
 			>
 				<DevelopmentCapacity contentClass={contentClass} />
 			</section>
-			{/* <section
-				id={SECTIONS_KEY.DEVELOPMENT_CAPACITY.id}
-				className={sectionClass}
-			>
-				<Development />
-			</section> */}
 			<section
-				id={SECTIONS_KEY.CASE_STUDIES.id}
+				id={SECTIONS_KEY.FOCUSED_INDUSTRIES.id}
 				className={sectionClass}
 			>
-				<CaseStudiesSection />
+				<FocusedIndustries contentClass={contentClass} />
 			</section>
 			<section
 				id={SECTIONS_KEY.TESTIMONIALS.id}

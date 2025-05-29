@@ -5,11 +5,9 @@ import CompetitiveEdges from "./components/CompetitiveEdges";
 import DevelopmentCapacity from "./components/DevelopmentCapacity/index";
 import FocusedIndustries from "./components/FocusedIndustries";
 import Hero from "./components/Hero";
-import VisionJourney from "./components/Journey";
 import OurProcess from "./components/OurProcess";
 import SideNavigation from "./components/SideNavigation";
 import Testimonials from "./components/Testimonials";
-import Vision from "./components/Vision";
 import WhyVietnam from "./components/WhyVietnam";
 import VisionJourney2 from "./Demo";
 
@@ -29,15 +27,6 @@ function HomePage() {
 				className={sectionClass}
 			>
 				<WhyVietnam contentClass={contentClass} />
-			</section>
-			<section
-				id={SECTIONS_KEY.VISION.id}
-				className={sectionClass}
-			>
-				<Vision />
-			</section>
-			<section className={sectionClass}>
-				<VisionJourney />
 			</section>
 			<section className={sectionClass}>
 				<VisionJourney2 />

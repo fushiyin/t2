@@ -170,14 +170,14 @@ const CompetitiveEdges = () => {
 					</div>
 				</div>
 
-				<div className="flex flex-col gap-4 sm:hidden px-4">
+				<div className="flex flex-col gap-4 md:hidden px-4">
 					{edges.map((edge) => (
 						<div
 							key={edge.id}
 							className="rounded-xl overflow-hidden shadow-lg flex flex-col"
 							onClick={() => setActiveEdge(activeEdge?.id === edge.id ? null : edge)}
 						>
-							<div className="p-4 flex items-center gap-4 bg-dark-blue">
+							<div className="p-4 flex items-center gap-4 bg-dark-blue cursor-pointer">
 								<div className="w-16 h-16 flex-shrink-0 bg-gradient-to-r from-[var(--color-light-mint)] to-[var(--color-light-green)] rounded-lg flex items-center justify-center">
 									<Lottie
 										options={{

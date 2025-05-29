@@ -10,5 +10,9 @@
 		"services": "Services",
 		"testimonials": "Testimonials",
 		"faq": "FAQ"
+	},
+	"focus_industries": {
+		"title": "Focused Industries",
+		"description": "T2 Soft leverages extensive project experience and technical expertise across various industries to deliver customized IT solutions. We work hand-in-hand with our clients to maximize business value, driving both efficiency and innovation."
 	}
 }

@@ -1,13 +1,7 @@
 import HoverCard from "@/components/card";
 import classNames from "classnames";
 import { motion } from "framer-motion";
-import {
-	ClockIcon,
-	GlobeIcon,
-	GraduationCapIcon,
-	HeartHandshakeIcon,
-	TrendingUpIcon,
-} from "lucide-react";
+import { Award, HandCoins, Handshake, HeartHandshakeIcon, Scale } from "lucide-react";
 
 export default function WhyVietnam({ contentClass }) {
 	// Animation variants
@@ -61,29 +55,25 @@ export default function WhyVietnam({ contentClass }) {
 					<div className="flex flex-wrap justify-center items-center md:justify-center sm:justify-start gap-4">
 						{[
 							{
-								icon: <GlobeIcon className="h-8 w-8 bg-t2-darkBlue rounded-full" />,
+								icon: <Award className="h-8 w-8 bg-t2-darkBlue rounded-full" />,
 								title: "Advanced talent and technical skills",
 								description:
 									"A wealth of young IT talent who are sensitive to the latest technology and have excellent foreign language communication skills",
 							},
 							{
-								icon: (
-									<TrendingUpIcon className="h-8 w-8 bg-t2-darkBlue rounded-full" />
-								),
+								icon: <HandCoins className="h-8 w-8 bg-t2-darkBlue rounded-full" />,
 								title: "Cost-effectiveness",
 								description:
 									"The same level of development manpower can be secured at a cost 25-55% lower than that of advanced countries, which is advantageous for budget optimization.",
 							},
 							{
-								icon: (
-									<GraduationCapIcon className="h-8 w-8 bg-t2-darkBlue rounded-full" />
-								),
+								icon: <Handshake className="h-8 w-8 bg-t2-darkBlue rounded-full" />,
 								title: "Geographic/Cultural Compatibility",
 								description:
 									"Time difference within 2 hours, historical and cultural similarities enable real-time communication and smooth collaboration",
 							},
 							{
-								icon: <ClockIcon className="h-8 w-8 bg-t2-darkBlue rounded-full" />,
+								icon: <Scale className="h-8 w-8 bg-t2-darkBlue rounded-full" />,
 								title: "Stable political and economic environment",
 								description:
 									"With political and economic stability and growth potential, Vietnam is emerging as a global IT outsourcing destination",

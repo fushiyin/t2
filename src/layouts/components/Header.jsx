@@ -33,11 +33,11 @@ const Header = () => {
 			imageUrl:
 				"https://www.countryflags.com/wp-content/uploads/south-korea-flag-png-large.png",
 		},
-		{
-			code: "vi",
-			label: "Vietnamese",
-			imageUrl: "https://www.countryflags.com/wp-content/uploads/vietnam-flag-png-large.png",
-		},
+		// {
+		// 	code: "vi",
+		// 	label: "Vietnamese",
+		// 	imageUrl: "https://www.countryflags.com/wp-content/uploads/vietnam-flag-png-large.png",
+		// },
 	];
 
 	useEffect(() => {
@@ -170,7 +170,7 @@ const Header = () => {
 
 						<button
 							onClick={toggleDarkMode}
-							className="ml-4 p-2 rounded-full text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
+							className="hidden ml-4 p-2 rounded-full text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
 							aria-label="Toggle dark mode"
 						>
 							{isDarkMode ? (
@@ -227,7 +227,7 @@ const Header = () => {
 								<div className="px-3 py-2">
 									<div className="flex items-center text-gray-700 dark:text-gray-200 mb-2">
 										<Globe className="h-5 w-5 mr-2" />
-										<span>Language: {language}</span>
+										<span>Language: {language?.label}</span>
 									</div>
 									<div className="grid grid-cols-3 gap-2 mt-1">
 										{LANGUAGE.map((lang_item, index) => (
@@ -246,7 +246,7 @@ const Header = () => {
 									</div>
 								</div>
 
-								<div className="px-3 py-2">
+								<div className="px-3 py-2 hidden">
 									<div className="flex justify-between items-center">
 										<div className="flex items-center text-gray-700 dark:text-gray-200">
 											{isDarkMode ? (

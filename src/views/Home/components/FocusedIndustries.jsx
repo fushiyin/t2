@@ -24,7 +24,7 @@ const industries = [
 	{
 		id: "manufacturing",
 		name: "Manufacturing",
-		icon: <FactoryIcon className="h-12 w-12" />,
+		icon: <FactoryIcon className="h-8 w-8" />,
 		color: "#5087f7",
 		gradient: "from-blue-500 to-blue-600",
 		description: "Smart manufacturing solutions for Industry 4.0 transformation",
@@ -76,7 +76,7 @@ const industries = [
 	{
 		id: "banking",
 		name: "Bank & Finance",
-		icon: <CreditCardIcon className="h-12 w-12" />,
+		icon: <CreditCardIcon className="h-8 w-8" />,
 		color: "#8bcff1",
 		gradient: "from-cyan-400 to-cyan-500",
 		description: "Secure and innovative financial technology solutions",
@@ -120,7 +120,7 @@ const industries = [
 	{
 		id: "ecommerce",
 		name: "eCommerce",
-		icon: <ShoppingCartIcon className="h-12 w-12" />,
+		icon: <ShoppingCartIcon className="h-8 w-8" />,
 		color: "#b1dfe6",
 		gradient: "from-teal-400 to-teal-500",
 		description: "Comprehensive e-commerce platforms and digital marketing solutions",
@@ -164,7 +164,7 @@ const industries = [
 	{
 		id: "ai",
 		name: "AI Solutions",
-		icon: <BrainCircuitIcon className="h-12 w-12" />,
+		icon: <BrainCircuitIcon className="h-8 w-8" />,
 		color: "#120b8f",
 		gradient: "from-indigo-600 to-purple-600",
 		description: "Artificial Intelligence solutions for smart automation",
@@ -200,7 +200,7 @@ const industries = [
 	{
 		id: "logistics",
 		name: "Logistics",
-		icon: <TruckIcon className="h-12 w-12" />,
+		icon: <TruckIcon className="h-8 w-8" />,
 		color: "#5087f7",
 		gradient: "from-blue-500 to-indigo-600",
 		description: "Smart logistics and supply chain optimization solutions",
@@ -239,31 +239,22 @@ export default function FocusedIndustries({ contentClass }) {
 	const [activeIndustry, setActiveIndustry] = useState(0);
 	const [hoveredSolution, setHoveredSolution] = useState(null);
 
-	const containerVariants = {
-		hidden: { opacity: 0 },
-		visible: {
-			opacity: 1,
-			transition: {
-				staggerChildren: 0.1,
-			},
-		},
-	};
-
-	const tabVariants = {
-		hidden: { opacity: 0, x: -20 },
+	const contentVariants = {
+		hidden: { opacity: 0, x: 20 },
 		visible: {
 			opacity: 1,
 			x: 0,
-			transition: { duration: 0.5 },
+			transition: { duration: 0.5, ease: "easeOut" },
 		},
+		exit: { opacity: 0, x: -20, transition: { duration: 0.3 } },
 	};
 
-	const contentVariants = {
+	const solutionVariants = {
 		hidden: { opacity: 0, y: 20 },
 		visible: {
 			opacity: 1,
 			y: 0,
-			transition: { duration: 0.6 },
+			transition: { duration: 0.4 },
 		},
 	};
 
@@ -275,187 +266,165 @@ export default function FocusedIndustries({ contentClass }) {
 				})}
 			>
 				{/* Header */}
-				<div className="flex flex-col items-center justify-center text-center gap-6">
-					<h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-						Focused Industries
+				<div className="flex flex-col gap-4 items-center justify-center text-center">
+					<h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-t2-darkBlue">
+						Industries We Transform
 					</h2>
 					<p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-						T2 Soft leverages extensive project experience and technical expertise
-						across various industries to deliver customized IT solutions. We work
-						hand-in-hand with our clients to maximize business value, driving both
-						efficiency and innovation.
+						Discover our specialized expertise across five key industries, where we
+						deliver innovative solutions that drive digital transformation and business
+						growth.
 					</p>
 				</div>
 
-				{/* Interactive Industry Explorer */}
-				<div className="flex gap-8 w-full">
-					{/* Industry Tabs */}
-					<motion.div
-						className="flex flex-col w-1/4 space-y-4"
-						variants={containerVariants}
-						initial="hidden"
-						whileInView="visible"
-						viewport={{ once: true }}
-					>
-						{industries.map((industry, index) => (
-							<motion.div
-								key={industry.id}
-								variants={tabVariants}
-							>
-								<Card
-									className={`py-4 cursor-pointer transition-all duration-300 overflow-hidden ${
-										activeIndustry === index
-											? "ring-2 ring-t2-blue shadow-lg scale-105"
-											: "hover:shadow-md hover:scale-102"
-									}`}
+				{/* Grouped Tab Interface */}
+				<div className="bg-white rounded-3xl shadow-xl border border-gray-200 overflow-hidden">
+					{/* Tab Navigation */}
+					<div className=" bg-gray-50">
+						<div className="flex overflow-x-auto">
+							{industries.map((industry, index) => (
+								<button
+									key={industry.id}
 									onClick={() => setActiveIndustry(index)}
+									className={`flex-1 min-w-0 px-6 py-4 text-center transition-all duration-300 relative ${
+										activeIndustry === index
+											? "bg-white text-t2-darkBlue shadow-sm"
+											: "text-gray-600 hover:text-t2-darkBlue hover:bg-white/50 border-b border-gray-200"
+									}`}
 								>
-									<CardContent className="px-4">
-										<div className="flex items-center space-x-4">
-											<div
-												className={`p-3 rounded-xl transition-all duration-300 ${
-													activeIndustry === index
-														? `bg-gradient-to-r ${industry.gradient} text-white`
-														: "bg-gray-100 text-gray-600"
-												}`}
-											>
-												{industry.icon}
-											</div>
-											<div className="flex-1">
-												<h3
-													className={`font-bold text-lg transition-colors ${
-														activeIndustry === index
-															? "text-t2-darkBlue"
-															: "text-gray-700"
-													}`}
-												>
-													{industry.name}
-												</h3>
-												<p
-													className={`text-sm transition-colors ${
-														activeIndustry === index
-															? "text-t2-blue"
-															: "text-gray-500"
-													}`}
-												>
-													{industry.tagline}
-												</p>
-											</div>
+									<div className="flex flex-col items-center space-y-2">
+										<div
+											className={`p-3 rounded-xl transition-all duration-300 ${
+												activeIndustry === index
+													? `bg-gradient-to-r ${industry.gradient} text-white shadow-lg`
+													: "bg-gray-200 text-gray-500"
+											}`}
+										>
+											{industry.icon}
 										</div>
-									</CardContent>
-								</Card>
-							</motion.div>
-						))}
-					</motion.div>
+										<div>
+											<h3 className="font-bold text-sm">{industry.name}</h3>
+										</div>
+									</div>
+									{activeIndustry === index && (
+										<motion.div
+											layoutId="activeTab"
+											className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-t2-blue to-t2-lightBlue"
+											transition={{ duration: 0.3 }}
+										/>
+									)}
+								</button>
+							))}
+						</div>
+					</div>
 
-					{/* Industry Content */}
-					<div className="flex-1">
+					{/* Tab Content */}
+					<div className="p-8">
 						<AnimatePresence mode="wait">
 							<motion.div
 								key={activeIndustry}
 								variants={contentVariants}
 								initial="hidden"
 								animate="visible"
-								exit="hidden"
-								className="h-full"
+								exit="exit"
+								className="space-y-8"
 							>
-								<div className="relative shadow-lg overflow-hidden rounded-3xl bg-gradient-to-r from-white to-gray-50 h-full p-8 border border-gray-200">
-									{/* Industry Header */}
+								{/* Industry Header */}
+								<div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-gray-50 to-white p-6 border border-gray-100">
 									<div className="absolute top-0 right-0 w-64 h-64 opacity-10">
 										<div
 											className={`w-full h-full bg-gradient-to-br ${industries[activeIndustry].gradient} rounded-full blur-3xl`}
 										/>
 									</div>
 									<div className="relative z-10">
-										<div className="flex items-start justify-between mb-6">
-											<div className="flex items-center w-full">
-												<div
-													className={`p-6 mr-6 rounded-2xl bg-gradient-to-r ${industries[activeIndustry].gradient} text-white shadow-lg`}
-												>
-													{industries[activeIndustry].icon}
-												</div>
-												<div className="w-full flex flex-col gap-2">
-													<div className="w-full flex justify-between items-center">
-														<h3 className="text-3xl font-bold">
-															{industries[activeIndustry].name}
-														</h3>
-														<div className="flex items-center space-x-2">
-															<span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gradient-to-r from-purple-100 to-pink-100 text-purple-800">
-																<StarIcon className="h-4 w-4 mr-1" />
-																{industries[activeIndustry].tagline}
-															</span>
-														</div>
-													</div>
-													<p className="text-lg text-gray-600">
-														{industries[activeIndustry].description}
-													</p>
+										<div className="flex flex-col w-full">
+											<div className="flex justify-between items-center">
+												<h3 className="text-2xl font-bold text-t2-darkBlue mb-2">
+													{industries[activeIndustry].name}
+												</h3>
+												<div className="flex items-center">
+													<span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gradient-to-r from-purple-100 to-pink-100 text-purple-800">
+														<StarIcon className="h-4 w-4 mr-1" />
+														{industries[activeIndustry].tagline}
+													</span>
 												</div>
 											</div>
+											<p className="text-gray-600">
+												{industries[activeIndustry].description}
+											</p>
 										</div>
 									</div>
-
-									{/* Solutions Grid */}
-									<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-										{industries[activeIndustry].solutions.map(
-											(solution, index) => (
-												<motion.div
-													key={solution.name}
-													initial={{ opacity: 0, y: 20 }}
-													animate={{ opacity: 1, y: 0 }}
-													transition={{
-														duration: 0.4,
-														delay: index * 0.1,
-													}}
-													onMouseEnter={() =>
-														setHoveredSolution(solution.name)
-													}
-													onMouseLeave={() => setHoveredSolution(null)}
-												>
-													<Card
-														className={`h-full transition-all duration-300 overflow-hidden py-0 ${
-															hoveredSolution === solution.name
-																? "shadow-xl scale-105"
-																: "shadow-md hover:shadow-lg"
-														}`}
-													>
-														<CardContent className="py-6">
-															<div className="flex items-start gap-4">
-																<div
-																	className={`p-3 rounded-xl transition-all duration-300 ${
-																		hoveredSolution ===
-																		solution.name
-																			? `bg-gradient-to-r ${industries[activeIndustry].gradient} text-white`
-																			: "bg-gray-100 text-gray-600"
-																	}`}
-																>
-																	{solution.icon}
-																</div>
-																<div className="flex-1">
-																	<div className="flex items-center justify-between mb-2">
-																		<h4 className="text-lg font-bold text-t2-darkBlue">
-																			{solution.name}
-																		</h4>
-																		<span
-																			className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${solution.statusColor}`}
-																		>
-																			{solution.statusIcon}
-																			<span className="ml-1">
-																				{solution.status}
-																			</span>
-																		</span>
-																	</div>
-																	<p className="text-gray-600 text-sm leading-relaxed">
-																		{solution.description}
-																	</p>
-																</div>
-															</div>
-														</CardContent>
-													</Card>
-												</motion.div>
-											),
-										)}
-									</div>
 								</div>
+
+								{/* Solutions Grid */}
+								<motion.div
+									className="flex flex-wrap gap-6 justify-center"
+									variants={{
+										visible: {
+											transition: {
+												staggerChildren: 0.1,
+											},
+										},
+									}}
+									initial="hidden"
+									animate="visible"
+								>
+									{industries[activeIndustry].solutions.map(
+										// eslint-disable-next-line no-unused-vars
+										(solution, _index) => (
+											<motion.div
+												key={solution.name}
+												variants={solutionVariants}
+												onMouseEnter={() =>
+													setHoveredSolution(solution.name)
+												}
+												onMouseLeave={() => setHoveredSolution(null)}
+												className="2xl:w-7/15 lg:w-5/12 w-9/10"
+											>
+												<Card
+													className={`h-full transition-all duration-300 overflow-hidden py-0 ${
+														hoveredSolution === solution.name
+															? "shadow-xl scale-105 border-t2-blue/50"
+															: "shadow-md hover:shadow-lg"
+													}`}
+												>
+													<CardContent className="p-6">
+														<div className="flex items-start space-x-4">
+															<div
+																className={`p-3 rounded-xl transition-all duration-300 ${
+																	hoveredSolution ===
+																	solution.name
+																		? `bg-gradient-to-r ${industries[activeIndustry].gradient} text-white`
+																		: "bg-gray-100 text-gray-600"
+																}`}
+															>
+																{solution.icon}
+															</div>
+															<div className="flex-1">
+																<div className="flex items-center justify-between mb-2">
+																	<h4 className="text-lg font-bold text-t2-darkBlue">
+																		{solution.name}
+																	</h4>
+																	<span
+																		className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${solution.statusColor}`}
+																	>
+																		{solution.statusIcon}
+																		<span className="ml-1">
+																			{solution.status}
+																		</span>
+																	</span>
+																</div>
+																<p className="text-gray-600 text-sm leading-relaxed">
+																	{solution.description}
+																</p>
+															</div>
+														</div>
+													</CardContent>
+												</Card>
+											</motion.div>
+										),
+									)}
+								</motion.div>
 							</motion.div>
 						</AnimatePresence>
 					</div>

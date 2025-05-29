@@ -28,7 +28,10 @@ function HomePage() {
 			>
 				<WhyVietnam contentClass={contentClass} />
 			</section>
-			<section className={sectionClass}>
+			<section
+				id={SECTIONS_KEY.VISION.id}
+				className={sectionClass}
+			>
 				<VisionJourney2 />
 			</section>
 			<section

@@ -89,35 +89,6 @@ const VisionJourney = () => {
 		},
 	];
 
-	useEffect(() => {
-		const handleScroll = () => {
-			if (!containerRef.current) return;
-			const scrollTop = window.scrollY || document.documentElement.scrollTop;
-			if (scrollTimeout.current) return;
-			scrollTimeout.current = setTimeout(() => {
-				const direction = scrollTop > lastScrollTop.current ? "down" : "up";
-
-				setActiveIndex((prevIndex) => {
-					if (direction === "down") {
-						return getNextSlide(prevIndex);
-					} else {
-						return getPrevSlide(prevIndex);
-					}
-				});
-
-				lastScrollTop.current = scrollTop <= 0 ? 0 : scrollTop;
-				scrollTimeout.current = null;
-			}, 1500);
-		};
-
-		window.addEventListener("scroll", handleScroll, { passive: true });
-
-		return () => {
-			window.removeEventListener("scroll", handleScroll);
-			if (scrollTimeout.current) clearTimeout(scrollTimeout.current);
-		};
-	}, [slides.length]);
-
 	const getNextSlide = (index) => (index + 1) % slides.length;
 	const getPrevSlide = (index) => (index - 1 + slides.length) % slides.length;
 

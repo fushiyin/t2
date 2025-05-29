@@ -1,5 +1,7 @@
-import vision from "@/assets/img/earth.png";
-import classNames from "classnames";
+import planet1 from "@/assets/img/planet1.png";
+import planet2 from "@/assets/img/planet2.jpg";
+import planet3 from "@/assets/img/planet3.jpg";
+import wallpaper from "@/assets/img/wallpaper.jpg";
 import { useEffect, useRef, useState } from "react";
 import "./styles.css";
 
@@ -59,15 +61,13 @@ const Stars = () => {
 const VisionJourney = () => {
 	const [activeIndex, setActiveIndex] = useState(0);
 	const containerRef = useRef(null);
-	const lastScrollTop = useRef(0);
-	const scrollTimeout = useRef(null);
 
 	const slides = [
 		{
 			id: "vision",
 			title: "Vision",
-			backgroundColor: "#216905",
-			image: vision,
+			backgroundColor: "#090f33",
+			image: planet1,
 			testimonial:
 				"We provide reliable software development and solutions to customers around the world, and provide cost-effective and high-quality services with excellent development talents in Vietnam. We support our customer business growth through technological innovation and flexible collaboration.",
 		},
@@ -75,14 +75,14 @@ const VisionJourney = () => {
 			id: "mission",
 			title: "Mission",
 			backgroundColor: "#090f33",
-			image: vision,
+			image: planet2,
 			testimonial:
 				"We provide reliable software development and solutions to customers around the world, and provide cost-effective and high-quality services with excellent development talents in Vietnam. We support our customer business growth through technological innovation and flexible collaboration.",
 		},
 		{
 			id: "values",
 			title: "Values",
-			image: vision,
+			image: planet3,
 			backgroundColor: "#b95a00",
 			testimonial:
 				"Grow together as a team with customer, we quickly absorb and apply the latest trends and technologies to stay ahead. We gain customer trust through honest communication and responsible behaviors.",
@@ -97,21 +97,37 @@ const VisionJourney = () => {
 		const isLeft = index === getPrevSlide(activeIndex);
 		const isRight = index === getNextSlide(activeIndex);
 
+		let width, height;
+
+		const deviceWidth = window.innerWidth;
+
+		switch (true) {
+			case deviceWidth < 576:
+				width = 300;
+				height = 300;
+				break;
+			case deviceWidth >= 768 && deviceWidth < 992:
+				width = 400;
+				height = 400;
+				break;
+			default:
+				width = 900;
+				height = 900;
+		}
 		const baseStyles = {
 			position: "absolute",
 			transformOrigin: "center",
 			transition: "all 1000ms ease-in-out",
 			cursor: "pointer",
 			top: "50%",
-			left: "calc(50% - 450px)",
+			left: `calc(50% - ${width / 2}px)`,
 			transform: "translate(-50%, -50%)",
 		};
-
 		if (isCenter) {
 			return {
 				...baseStyles,
-				width: "900px",
-				height: "900px",
+				width: width,
+				height: height,
 				opacity: 1,
 				zIndex: 10,
 				transform: `
@@ -122,11 +138,10 @@ const VisionJourney = () => {
 		} else if (isLeft) {
 			return {
 				...baseStyles,
-				width: "200px",
-				height: "200px",
-				opacity: 0.7,
+				width: width / 3,
+				height: height / 3,
 				zIndex: 5,
-				left: "-100px",
+				left: -width / 6,
 				transform: `
 					scale(0.8)
 				`,
@@ -134,14 +149,11 @@ const VisionJourney = () => {
 		} else if (isRight) {
 			return {
 				...baseStyles,
-				width: "200px",
-				height: "200px",
-				opacity: 0.7,
+				width: width / 3,
+				height: height / 3,
 				zIndex: 5,
-				left: "calc(100% - 100px)",
-				transform: `
-					scale(0.8)
-				`,
+				left: `calc(100% - ${width / 6}px)`,
+				transform: "scale(0.8)",
 			};
 		}
 		return { ...baseStyles, display: "none" };
@@ -150,8 +162,12 @@ const VisionJourney = () => {
 	return (
 		<div
 			ref={containerRef}
-			className="h-[800px] w-full mb-10 overflow-hidden relative snap-start snap-always bg-dark-blue"
-			style={{ scrollSnapAlign: "start" }}
+			className="h-[800px] w-full mb-10 overflow-hidden relative snap-start snap-always bg-[#30323d]"
+			style={{
+				scrollSnapAlign: "start",
+				backgroundImage: `url(${wallpaper})`,
+				backgroundSize: "contain",
+			}}
 		>
 			<Stars />
 			<div className="content flex flex-col items-center justify-space-between text-center">
@@ -184,24 +200,16 @@ const VisionJourney = () => {
 							onClick={() => setActiveIndex(index)}
 						>
 							<div
-								className="w-full h-full rounded-full [transform:rotate(20deg)] [animation:rotate_15s_linear_infinite] animate-spin-slow rotate"
+								className="w-full h-full absolute rounded-full [animation:rotate_15s_linear_infinite] animate-spin-slow rotate"
 								style={{
 									backgroundImage: `url(${slide?.image})`,
-									backgroundSize: "contain",
+									backgroundSize: "cover",
 									backgroundColor: slide.backgroundColor,
-									boxShadow: `inset 0px -20px 50px 10px ${slide.backgroundColor}, 0px 0px 30px 6px ${slide.backgroundColor}`,
+									boxShadow: isCenter
+										? `inset 0px -20px 50px 10px ${slide.backgroundColor}, 0px 0px 30px 6px ${slide.backgroundColor}`
+										: null,
 								}}
 							/>
-
-							{!isCenter && (
-								<div
-									className={classNames(
-										"absolute left-1/2 top-1/3 mt-4 transform -translate-x-1/2 text-t2-darkBlue font-semibold z-20 text-center w-max px-2",
-									)}
-								>
-									{slide.title}
-								</div>
-							)}
 						</div>
 					);
 				})}

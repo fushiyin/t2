@@ -72,7 +72,7 @@ const Header = () => {
 	return (
 		<header
 			id="header"
-			className="sticky top-0 w-full bg-white dark:bg-gray-900 shadow-md z-50"
+			className="sticky top-0 w-full bg-white dark:bg-dark-blue shadow-md z-50"
 		>
 			<div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-0">
 				<div className="flex justify-between items-center h-16">
@@ -89,7 +89,7 @@ const Header = () => {
 						</a>
 					</div>
 
-					<nav className="hidden md:flex items-center space-x-8 ml-10">
+					<nav className="hidden items-center space-x-8 ml-10 md:flex md:space-x-2 xl:space-x-6 lg:space-x-4">
 						{NAV_LINKS.map((link) => (
 							<a
 								key={link.path}
@@ -100,7 +100,7 @@ const Header = () => {
 										"text-[var(--color-dark-blue)] font-extrabold underline underline-offset-8 dark:text-light-blue":
 											window.location?.pathname === link?.path ||
 											!window.location?.pathname,
-										"text-gray-700 dark:text-gray-200 hover:text-[var(--color-dark-blue)] hover:bg-gray-100 dark:hover:bg-gray-800":
+										"text-gray-700 dark:text-gray-200 hover:text-[var(--color-dark-blue)] hover:bg-gray-100 dark:hover:bg-light-blue":
 											!(
 												window.location?.pathname === link?.path ||
 												!window.location?.pathname
@@ -114,18 +114,18 @@ const Header = () => {
 					</nav>
 
 					<div className="hidden md:flex items-center ml-auto">
-						<div className="relative mr-4 hidden md:block">
+						<div className="relative mr-4 block md:hidden xl:block lg:block">
 							<input
 								type="text"
 								placeholder="Search..."
-								className="pl-10 pr-4 py-2 rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-500"
+								className="pl-10 pr-4 py-2 rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:text-dark-blue dark:bg-white text-gray-900 focus:outline-none focus:ring-1 focus:ring-gray-500"
 							/>
-							<Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
+							<Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400 dark:text-dark-blue" />
 						</div>
 						<div className="relative">
 							<button
 								type="button"
-								className="flex items-center text-sm text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400"
+								className="flex items-center text-sm text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 cursor-pointer"
 								onClick={toggleLanguageDropdown}
 							>
 								{/* <Globe className="h-5 w-5 mr-1" /> */}
@@ -145,9 +145,9 @@ const Header = () => {
 												key={`lang_item_${lang_item?.code}_${index}`}
 												onClick={() => changeLanguage(lang_item)}
 												className={classNames(
-													"flex justify-start w-full px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700",
+													"flex justify-start cursor-pointer w-full px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-light-blue hover:text-white dark:hover:bg-dark-blue",
 													{
-														"bg-pale-blue dark:bg-light-blue text-white":
+														"bg-dark-blue dark:bg-light-blue text-white":
 															language?.code === lang_item.code,
 														"rounded-t-md": index === 0,
 														"rounded-b-md":

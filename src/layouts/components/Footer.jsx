@@ -1,4 +1,6 @@
 import { FOOTER } from "@/constant/footer";
+import classNames from "classnames";
+import { motion } from "framer-motion";
 import { Facebook, Globe, Mail, MapPin, MessageCircle, Phone, Send } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -38,7 +40,7 @@ const CONTACT_ITEMS = [
 		),
 	},
 	{
-		id: "social",
+		id: "address",
 		icon: <MapPin className="text-foreground w-5 h-5 flex-shrink-0 mt-0.5" />,
 		content: <p className="text-foreground/80 text-sm">{FOOTER.ADDRESS}</p>,
 	},
@@ -71,6 +73,11 @@ const SOCIAL_LINKS = [
 	},
 ];
 
+const fadeIn = {
+	hidden: { opacity: 0, y: 30 },
+	visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+};
+
 const Footer = () => {
 	const currentYear = new Date().getFullYear();
 	// Contact information items
@@ -95,8 +102,8 @@ const Footer = () => {
 			],
 		},
 		{
-			id: "legal",
-			title: "Legal",
+			id: "studies",
+			title: "Case Studies",
 			links: [
 				{ to: "/privacy", label: "Privacy" },
 				{ to: "/terms", label: "Terms" },
@@ -104,36 +111,53 @@ const Footer = () => {
 		},
 	];
 
+	const addressItem = CONTACT_ITEMS.find((item) => item.id === "address");
+
 	return (
-		<footer className="d-flex justify-center bg-white">
-			<div className="container mx-auto max-w-[1440px] pt-12 border-t border-gray-100">
-				<div className="flex flex-col md:flex-row-reverse">
-					{/* T2Soft */}
-					{/* Contact info */}
-					<div className="md:w-3/8 mb-8 md:mb-0 flex flex-col items-end space-y-6">
-						<div className="space-y-3">
-							<h3 className="text-foreground justify-start font-semibold text-lg mb-4">
-								Contact
-							</h3>
-							{CONTACT_ITEMS.map((item) => (
-								<div
-									key={item.id}
-									className="flex items-center space-x-3"
+		<motion.footer
+			variants={fadeIn}
+			initial="hidden"
+			whileInView="visible"
+			viewport={{ once: true, amount: 0.2 }}
+			className="bg-white border-t border-gray-100"
+		>
+			<div className="container mx-auto max-w-[1440px] pt-12">
+				<div className="flex flex-col xl:flex-row gap-8">
+					{/* Logo + Social */}
+					<div className="flex flex-col items-center xl:items-start space-y-4 w-full xl:w-2/5 lg:w-full">
+						<Link
+							to="/"
+							className="text-foreground font-bold text-2xl"
+						>
+							T2Soft
+						</Link>
+						<p className="text-foreground/80 text-sm text-center xl:text-left">
+							Your global software service and solution partner
+						</p>
+						<div className="flex space-x-3">
+							{SOCIAL_LINKS.map((social) => (
+								<a
+									key={social.id}
+									href={social.url}
+									target="_blank"
+									rel="noopener noreferrer"
+									className={`${social.bgColor} ${social.textColor} p-2 rounded-full w-8 h-8 flex items-center justify-center hover:opacity-90 transition-opacity`}
+									aria-label={social.name}
 								>
-									{" "}
-									{item.icon}
-									{item.content}
-								</div>
+									{social.icon}
+								</a>
 							))}
 						</div>
 					</div>
 
-					{/* Menu Links */}
-
-					<div className="md:w-3/8 ">
-						<div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+					<div className="flex flex-1 sm:flex-row flex-col justify-between gap-8">
+						{/* Menu Links */}
+						<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 md:flex md:w-3/4 gap-8 w-full xl:w-2/3 text-center xl:text-left">
 							{footerSections.map((section) => (
-								<div key={section.id}>
+								<div
+									key={section.id}
+									className="md:w-1/3"
+								>
 									<h3 className="text-foreground font-semibold text-lg mb-4">
 										{section.title}
 									</h3>
@@ -152,44 +176,43 @@ const Footer = () => {
 								</div>
 							))}
 						</div>
-					</div>
-
-					<div className="md:w-2/8 mb-8 md:mb-0 flex flex-col space-y-6">
-						<Link
-							to="/"
-							className="text-foreground font-bold text-2xl"
-						>
-							T2Soft
-						</Link>
-						<p className="text-foreground/80 text-sm mt-2">
-							Your global software service and solution partner
-						</p>
-						{/* Social links */}
-
-						<div className="flex space-x-3">
-							{SOCIAL_LINKS.map((social) => (
-								<a
-									key={social.id}
-									href={social.url}
-									target="_blank"
-									rel="noopener noreferrer"
-									className={`${social.bgColor} ${social.textColor} p-2 rounded-full w-8 h-8 flex items-center justify-center hover:opacity-90 transition-opacity`}
-									aria-label={social.name}
-								>
-									{social.icon}
-								</a>
-							))}
+						{/* Contact */}
+						<div className="flex flex-col items-center xl:items-start space-y-4 w-full md:w-1/4 xl:w-1/3">
+							<h3 className="text-foreground font-semibold text-lg mb-4">Contact</h3>
+							{CONTACT_ITEMS.map((item) => {
+								return (
+									<div
+										key={item.id}
+										className={classNames("flex items-center space-x-3", {
+											"md:hidden xl:flex":
+												item.id === "address" || item.id === "website",
+										})}
+									>
+										{item.icon}
+										<span className="text-sm text-foreground/80">
+											{item.content}
+										</span>
+									</div>
+								);
+							})}
 						</div>
 					</div>
 				</div>
 
-				<div className="w-full mt-6 p-4 border-t flex justify-center border-gray-100 text-center">
+				{addressItem && (
+					<div className="hidden md:flex xl:hidden md:w-full justify-center items-center space-x-3">
+						{addressItem.icon}
+						<span className="text-sm text-foreground/80">{addressItem.content}</span>
+					</div>
+				)}
+
+				<div className="w-full mt-6 p-4 border-t border-gray-100 text-center">
 					<p className="text-foreground/60 text-sm">
 						© {currentYear} T2Soft. All rights reserved.
 					</p>
 				</div>
 			</div>
-		</footer>
+		</motion.footer>
 	);
 };
 

@@ -2,6 +2,7 @@ import { FOOTER } from "@/constant/footer";
 import classNames from "classnames";
 import { motion } from "framer-motion";
 import { Facebook, Globe, Mail, MapPin, MessageCircle, Phone, Send } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
 const CONTACT_ITEMS = [
@@ -80,6 +81,7 @@ const fadeIn = {
 
 const Footer = () => {
 	const currentYear = new Date().getFullYear();
+	const { t } = useTranslation();
 	// Contact information items
 
 	const footerSections = [
@@ -124,16 +126,14 @@ const Footer = () => {
 			<div className="container mx-auto max-w-[1440px] pt-12">
 				<div className="flex flex-col xl:flex-row gap-8">
 					{/* Logo + Social */}
-					<div className="flex flex-col items-center xl:items-start space-y-4 w-full xl:w-2/5 lg:w-full">
+					<div className="px-4 flex flex-col sm:items-start xl:items-start space-y-4 w-full xl:w-2/5 lg:w-full lg:items-center md:items-center">
 						<Link
 							to="/"
 							className="text-foreground font-bold text-2xl"
 						>
 							T2Soft
 						</Link>
-						<p className="text-foreground/80 text-sm text-center xl:text-left">
-							Your global software service and solution partner
-						</p>
+						<p className="text-foreground/80 text-sm xl:text-left">{t("slogan")}</p>
 						<div className="flex space-x-3">
 							{SOCIAL_LINKS.map((social) => (
 								<a
@@ -150,13 +150,13 @@ const Footer = () => {
 						</div>
 					</div>
 
-					<div className="flex flex-1 sm:flex-row flex-col justify-between gap-8">
+					<div className="flex px-4 flex-1 sm:flex-row flex-col justify-between gap-8">
 						{/* Menu Links */}
 						<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 md:flex md:w-3/4 gap-8 w-full xl:w-2/3 text-center xl:text-left">
 							{footerSections.map((section) => (
 								<div
 									key={section.id}
-									className="md:w-1/3"
+									className="md:w-1/3 text-start md:text-center lg:text-center xl:text-center"
 								>
 									<h3 className="text-foreground font-semibold text-lg mb-4">
 										{section.title}
@@ -177,7 +177,7 @@ const Footer = () => {
 							))}
 						</div>
 						{/* Contact */}
-						<div className="flex flex-col items-center xl:items-start space-y-4 w-full md:w-1/4 xl:w-1/3">
+						<div className="flex flex-col items-start space-y-4 w-full md:w-1/4 xl:w-1/3">
 							<h3 className="text-foreground font-semibold text-lg mb-4">Contact</h3>
 							{CONTACT_ITEMS.map((item) => {
 								return (

@@ -26,6 +26,36 @@ const TypeWriter = ({ text, speed = 5 }) => {
 	return <span>{displayText}</span>;
 };
 
+const Stars = () => {
+	const stars = Array.from({ length: 100 }).map((_, index) => ({
+		id: index,
+		top: `${Math.random() * 100}%`,
+		left: `${Math.random() * 100}%`,
+		size: `${Math.random() * 2 + 1}px`,
+		opacity: Math.random() * 0.5 + 0.5,
+		animationDelay: `${Math.random() * 5}s`,
+	}));
+
+	return (
+		<div className="absolute inset-0 overflow-hidden">
+			{stars.map((star) => (
+				<div
+					key={star.id}
+					className="absolute rounded-full bg-white animate-twinkle"
+					style={{
+						top: star.top,
+						left: star.left,
+						width: star.size,
+						height: star.size,
+						opacity: star.opacity,
+						animationDelay: star.animationDelay,
+					}}
+				/>
+			))}
+		</div>
+	);
+};
+
 const VisionJourney = () => {
 	const [activeIndex, setActiveIndex] = useState(0);
 	const containerRef = useRef(null);
@@ -36,7 +66,7 @@ const VisionJourney = () => {
 		{
 			id: "vision",
 			title: "Vision",
-			backgroundColor: "#000428",
+			backgroundColor: "#216905",
 			image: vision,
 			testimonial:
 				"We provide reliable software development and solutions to customers around the world, and provide cost-effective and high-quality services with excellent development talents in Vietnam. We support our customer business growth through technological innovation and flexible collaboration.",
@@ -44,7 +74,7 @@ const VisionJourney = () => {
 		{
 			id: "mission",
 			title: "Mission",
-			backgroundColor: "#5087f7",
+			backgroundColor: "#090f33",
 			image: vision,
 			testimonial:
 				"We provide reliable software development and solutions to customers around the world, and provide cost-effective and high-quality services with excellent development talents in Vietnam. We support our customer business growth through technological innovation and flexible collaboration.",
@@ -53,7 +83,7 @@ const VisionJourney = () => {
 			id: "values",
 			title: "Values",
 			image: vision,
-			backgroundColor: "#004e92",
+			backgroundColor: "#b95a00",
 			testimonial:
 				"Grow together as a team with customer, we quickly absorb and apply the latest trends and technologies to stay ahead. We gain customer trust through honest communication and responsible behaviors.",
 		},
@@ -149,17 +179,18 @@ const VisionJourney = () => {
 	return (
 		<div
 			ref={containerRef}
-			className="h-[800px] w-full mb-10 overflow-hidden relative snap-start snap-always bg-gradient-to-t from-[#ffffff] via-[#ffffff] to-[#5087f7]"
+			className="h-[800px] w-full mb-10 overflow-hidden relative snap-start snap-always bg-dark-blue"
 			style={{ scrollSnapAlign: "start" }}
 		>
-			<div className="content flex flex-col items-center justify-space-between space-y-4 text-center">
-				<h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-t2-darkBlue mt-5">
+			<Stars />
+			<div className="content flex flex-col items-center justify-space-between text-center">
+				<h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-white mt-5">
 					OUR
 				</h2>
-				<div className="text-[72px] font-bold text-t2-darkBlue transition-all duration-500">
+				<div className="text-[72px] font-bold text-white transition-all duration-500">
 					{slides[activeIndex].title.toUpperCase()}
 				</div>
-				<p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed transition-all duration-500">
+				<p className="max-w-[900px] text-white md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed transition-all duration-500 px-5">
 					<TypeWriter
 						text={slides[activeIndex].testimonial}
 						speed={25}
@@ -168,7 +199,7 @@ const VisionJourney = () => {
 				<div className="w-[90px] h-[8px] mt-5 bg-gradient-to-r from-[var(--color-light-mint)] to-[var(--color-light-green)] mb-4" />
 			</div>
 			<div
-				className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full flex items-center justify-center  transform-3d  [animation:rotate_15s_linear_infinite]"
+				className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full flex items-center justify-center  transform-3d  [animation:rotate_20s_linear_infinite]"
 				style={{ perspective: "1000px", transformStyle: "preserve-3d" }}
 			>
 				{slides.map((slide, index) => {

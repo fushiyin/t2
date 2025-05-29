@@ -1,5 +1,6 @@
 import t2darklogo from "@/assets/images/t2darklogo.png";
 import t2lightlogo from "@/assets/images/t2lightlogo.png";
+import { NAV_LINKS } from "@/constant/header";
 import classNames from "classnames";
 import { ChevronDown, Globe, Menu, Moon, Search, Sun, X } from "lucide-react";
 import { useEffect, useState } from "react";
@@ -8,7 +9,7 @@ import { useLocation } from "react-router-dom";
 
 const Header = () => {
 	const location = useLocation();
-	const { i18n } = useTranslation();
+	const { t, i18n } = useTranslation();
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const [isDarkMode, setIsDarkMode] = useState(false);
 	const [language, setLanguage] = useState({
@@ -19,14 +20,6 @@ const Header = () => {
 	const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = useState(false);
 	const [isMobileSearchOpen, setIsMobileSearchOpen] = useState(false);
 
-	const NAV_LINKS = [
-		{ name: "Home", path: "/" },
-		{ name: "About Us", path: "/about" },
-		{ name: "Services", path: "/services" },
-		{ name: "Career", path: "/career" },
-		{ name: "Blog", path: "/blog" },
-		{ name: "Contact", path: "/contact" },
-	];
 	const LANGUAGE = [
 		{
 			code: "en",
@@ -115,7 +108,7 @@ const Header = () => {
 									},
 								)}
 							>
-								{link.name}
+								{t(link?.i18nKey) || link?.name}
 							</a>
 						))}
 					</nav>
@@ -221,7 +214,7 @@ const Header = () => {
 										: "text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 border-b-[#f4f4f4]"
 								}`}
 							>
-								{link.name}
+								{t(link?.i18nKey) || link?.name}
 							</a>
 						))}
 

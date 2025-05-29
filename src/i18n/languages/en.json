@@ -1,5 +1,14 @@
 {
-	"loading": "LoadingEN...",
 	"slogan": "Your global software service and solution partner",
-	"description": "T2 Soft is a Vietnamese SI and IT outsourcing company that provides software development and maintenance, and IT consulting services for Korean corporate clients. We aim to quickly provide high-quality IT solutions optimized for customer needs, successfully support digital transformation, and grow together with our customers."
+	"description": "T2 Soft is a Vietnamese SI and IT outsourcing company that provides software development and maintenance, and IT consulting services for Korean corporate clients. We aim to quickly provide high-quality IT solutions optimized for customer needs, successfully support digital transformation, and grow together with our customers.",
+	"menu": {
+		"home": "Home",
+		"about": "About Us",
+		"contact": "Contact Us",
+		"blog": "Blog",
+		"careers": "Careers",
+		"services": "Services",
+		"testimonials": "Testimonials",
+		"faq": "FAQ"
+	}
 }

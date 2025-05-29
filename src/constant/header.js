@@ -5,10 +5,10 @@ export const HEADER_STYLE = Object.freeze({
 });
 
 export const NAV_LINKS = [
-	{ name: "Home", path: idRouter?.home },
-	{ name: "About Us", path: idRouter?.about },
-	{ name: "Services", path: idRouter?.service },
-	{ name: "Career", path: idRouter?.career },
-	{ name: "Blog", path: idRouter?.blog },
-	{ name: "Contact", path: idRouter?.contact },
+	{ name: "Home", path: idRouter?.home, i18nKey: "menu.home" },
+	{ name: "About Us", path: idRouter?.about, i18nKey: "menu.about" },
+	{ name: "Services", path: idRouter?.service, i18nKey: "menu.services" },
+	{ name: "Career", path: idRouter?.career, i18nKey: "menu.careers" },
+	{ name: "Blog", path: idRouter?.blog, i18nKey: "menu.blog" },
+	{ name: "Contact", path: idRouter?.contact, i18nKey: "menu.contact" },
 ];

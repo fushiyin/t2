@@ -9,6 +9,7 @@ import {
 	Onboarding,
 	OnboardingProvider,
 } from "..";
+import CallPhoneButton from "./CallPhoneButton";
 
 export default function MainLayout() {
 	return (
@@ -21,6 +22,7 @@ export default function MainLayout() {
 					<Outlet />
 					<Footer />
 					<ButtonScrollToTop />
+					<CallPhoneButton phoneNumber="0123456789" />
 				</OnboardingProvider>
 			</LenisProvider>
 		</Suspense>

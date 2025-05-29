@@ -1,4 +1,5 @@
 import { FOOTER } from "@/constant/footer";
+import classNames from "classnames";
 import { motion } from "framer-motion";
 import { Facebook, Globe, Mail, MapPin, MessageCircle, Phone, Send } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -179,17 +180,13 @@ const Footer = () => {
 						<div className="flex flex-col items-center xl:items-start space-y-4 w-full md:w-1/4 xl:w-1/3">
 							<h3 className="text-foreground font-semibold text-lg mb-4">Contact</h3>
 							{CONTACT_ITEMS.map((item) => {
-								const isHiddenOnlyOnMd =
-									item.id === "address" || item.id === "website";
-
-								const visibilityClass = isHiddenOnlyOnMd
-									? "md:hidden xl:flex "
-									: "";
-
 								return (
 									<div
 										key={item.id}
-										className={`flex items-center space-x-3 ${visibilityClass}`}
+										className={classNames("flex items-center space-x-3", {
+											"md:hidden xl:flex":
+												item.id === "address" || item.id === "website",
+										})}
 									>
 										{item.icon}
 										<span className="text-sm text-foreground/80">

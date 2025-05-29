@@ -80,7 +80,7 @@ const VisionJourney = () => {
 		>
 			<div className="absolute left-0 top-0 h-full w-1/2">
 				<div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex items-center justify-center">
-					<div className="w-[600px] h-[600px] border-2 border-[var(--primary)]/20 rounded-full animate-spin-slow" />
+					<div className="w-[600px] h-[600px] border-2 border-[var(--primary)]/20 rounded-full transform-3d animate-spin-slow" />
 				</div>
 
 				<div className="absolute inset-0 flex items-center justify-center">
@@ -97,7 +97,7 @@ const VisionJourney = () => {
 
 								<div className="w-48 h-48 rounded-full bg-[var(--primary)] flex items-center justify-center shadow-lg transform hover:scale-105 transition-transform relative overflow-hidden">
 									<div className="absolute inset-0 bg-gradient-to-br from-white/10 to-black/30" />
-									<div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,var(--color-light-blue)_30%,transparent_100%)]" />
+									<div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgb(80,135,247),transparent_100%)]" />
 
 									<div className="relative z-10 text-center">
 										<h3 className="text-white font-bold text-2xl mb-2">
@@ -141,19 +141,16 @@ const VisionJourney = () => {
 			</div>
 
 			<style jsx>{`
-				.perspective-1000 {
-					perspective: 1000px;
-				}
 				@keyframes spin-slow {
-					from {
-						transform: rotate(0deg);
+					0% {
+						background-position: 10px 0;
 					}
-					to {
-						transform: rotate(360deg);
+					100% {
+						background-position: 560px 0px;
 					}
 				}
 				.animate-spin-slow {
-					animation: spin-slow 60s linear infinite;
+					animation: spin-slow 10s linear infinite;
 				}
 			`}</style>
 		</div>

@@ -77,7 +77,7 @@ const SideNavigation = () => {
 							{section.label}
 						</button>
 						<span className="absolute left-9 capitalize bg-foreground text-white text-xs px-2 py-1 rounded-md whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-							{section.id.replace(/-/g, " ")}
+							{section?.name || section?.id?.replace(/-/g, " ")}
 						</span>
 					</div>
 				</div>

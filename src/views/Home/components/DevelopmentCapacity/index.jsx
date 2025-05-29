@@ -323,7 +323,7 @@ export default function DevelopmentEnhanced({ contentClass }) {
 						transition={{ duration: 0.6 }}
 						viewport={{ once: true }}
 					>
-						<h2 className="text-3xl font-bold tracking-tighter sm:text-5xl pb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
+						<h2 className="text-3xl font-bold tracking-tighter sm:text-5xl pb-6 bg-gradient-to-r from-light-blue via-light-blue-gray to-pale-blue bg-clip-text text-transparent">
 							Technology Stack
 						</h2>
 						<p className="max-w-[900px] mx-auto text-gray-300 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
@@ -433,7 +433,7 @@ export default function DevelopmentEnhanced({ contentClass }) {
 						Ready to leverage our technical expertise for your next project? Let&apos;s
 						discuss how we can bring your vision to life.
 					</p>
-					<button className="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-xl hover:from-blue-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 shadow-lg">
+					<button className="px-8 py-4 bg-gradient-to-r from-pale-blue to-light-blue text-heading-black hover:text-white font-semibold rounded-xl hover:from-light-blue hover:to-normal-dark-blue transition-all duration-300 transform hover:scale-105 shadow-lg">
 						Start Your Project
 					</button>
 				</motion.div>

@@ -4,6 +4,60 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
+
+}
+
+@theme inline {
+	/*our custom color */
+	--color-light-blue: #5087f7;
+	--color-light-blue-gray: #dae4ed;
+	--color-dark-blue: #19286d;
+	--color-draker-blue: #101944;
+	--color-near-black-blue: #090f33;
+	--color-deepest-navy: #03071f;
+	--color-dark-gray: #232222;
+	--color-heading-black: #2d2d2d;
+	--color-section-gray: #f4f8ff;
+	--color-pale-blue: #b1dfe6;
+	--color-closet-dark-blue: #000428;
+	--color-normal-dark-blue: #004e92;
+	--color-pure-black: #000000;
+
+	--radius-sm: calc(var(--radius) - 4px);
+	--radius-md: calc(var(--radius) - 2px);
+	--radius-lg: var(--radius);
+	--radius-xl: calc(var(--radius) + 4px);
+	--color-background: var(--background);
+	--color-foreground: var(--foreground);
+	--color-card: var(--card);
+	--color-card-foreground: var(--card-foreground);
+	--color-popover: var(--popover);
+	--color-popover-foreground: var(--popover-foreground);
+	--color-primary: var(--primary);
+	--color-primary-foreground: var(--primary-foreground);
+	--color-secondary: var(--secondary);
+	--color-secondary-foreground: var(--secondary-foreground);
+	--color-muted: var(--muted);
+	--color-muted-foreground: var(--muted-foreground);
+	--color-accent: var(--accent);
+	--color-accent-foreground: var(--accent-foreground);
+	--color-destructive: var(--destructive);
+	--color-border: var(--border);
+	--color-input: var(--input);
+	--color-ring: var(--ring);
+	--color-chart-1: var(--chart-1);
+	--color-chart-2: var(--chart-2);
+	--color-chart-3: var(--chart-3);
+	--color-chart-4: var(--chart-4);
+	--color-chart-5: var(--chart-5);
+	--color-sidebar: var(--sidebar);
+	--color-sidebar-foreground: var(--sidebar-foreground);
+	--color-sidebar-primary: var(--sidebar-primary);
+	--color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+	--color-sidebar-accent: var(--sidebar-accent);
+	--color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+	--color-sidebar-border: var(--sidebar-border);
+	--color-sidebar-ring: var(--sidebar-ring);
 }
 
 .dark {
@@ -20,6 +74,7 @@
 	--color-pale-blue: #b1dfe6;
 	--color-closet-dark-blue: #000428;
 	--color-normal-dark-blue: #004e92;
+	--color-pure-black: #000000;
 
 	--background: oklch(0.129 0.042 264.695);
 	--foreground: oklch(0.984 0.003 247.858);

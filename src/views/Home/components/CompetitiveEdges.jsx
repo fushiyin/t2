@@ -184,15 +184,14 @@ const CompetitiveEdges = () => {
 											...defaultOptions,
 											animationData: edge.lottie,
 										}}
-										width={40}
-										height={40}
+										width={60}
+										height={60}
 									/>
 								</div>
 								<div className="flex-1">
-									<h3 className="text-xl font-semibold text-white">
+									<h3 className="text-lg font-semibold text-white">
 										{edge.title}
 									</h3>
-									<p className="text-sm text-gray-400 mt-1">Tap to see details</p>
 								</div>
 								<div
 									className={`transform transition-transform duration-300 ${

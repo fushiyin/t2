@@ -20,11 +20,11 @@ export default function CallPhoneButton({ phoneNumber, show = true }) {
 			asChild
 			type="button"
 			className={classNames(
-				"size-[56px] z-1000 fixed right-[30px] cursor-pointer rounded-3xl bg-green-500 shadow-[0px_2px_4px_0px_#0000001F,_0px_4px_8px_0px_#00000014] transition-all duration-300  block md:hidden",
+				"size-[44px] z-1000 fixed right-[30px] cursor-pointer rounded-3xl bg-green-500 shadow-[0px_2px_4px_0px_#0000001F,_0px_4px_8px_0px_#00000014] transition-all duration-300  block md:hidden",
 				{
 					"opacity-100": show,
 					"opacity-0 pointer-events-none": !show,
-					"bottom-[90px]": isScrollTopVisible,
+					"bottom-[70px]": isScrollTopVisible,
 					"bottom-[20px]": !isScrollTopVisible,
 				},
 			)}
@@ -34,7 +34,7 @@ export default function CallPhoneButton({ phoneNumber, show = true }) {
 				href={`tel:${phoneNumber}`}
 			>
 				<Phone
-					size={24}
+					size={20}
 					color="white"
 					strokeWidth={2}
 				/>

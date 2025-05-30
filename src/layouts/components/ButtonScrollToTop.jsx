@@ -27,7 +27,7 @@ export default function ButtonScrollToTop() {
 			type="button"
 			onClick={scrollToTop}
 			className={classNames(
-				"size-[56px] z-1000 fixed bottom-[20px] right-[30px] cursor-pointer rounded-3xl bg-foreground shadow-[0px_2px_4px_0px_#0000001F,_0px_4px_8px_0px_#00000014] transition-opacity duration-300",
+				"size-[44px] z-1000 fixed bottom-[20px] right-[30px] cursor-pointer rounded-3xl bg-foreground shadow-[0px_2px_4px_0px_#0000001F,_0px_4px_8px_0px_#00000014] transition-opacity duration-300",
 				{
 					"opacity-100": showScrollTop,
 					"opacity-0 pointer-events-none": !showScrollTop,
@@ -35,7 +35,7 @@ export default function ButtonScrollToTop() {
 			)}
 		>
 			<ChevronUp
-				size={24}
+				size={20}
 				color="white"
 				strokeWidth={2}
 			/>

@@ -17,7 +17,6 @@ import {
 	SmartphoneIcon,
 } from "lucide-react";
 import { useEffect, useState } from "react";
-AngularLogo;
 
 // Technology stacks with more comprehensive data
 const techStacks = [
@@ -342,27 +341,27 @@ export default function DevelopmentEnhanced({ contentClass }) {
 							animate={{ opacity: 1, height: "auto" }}
 							exit={{ opacity: 0, height: 0 }}
 							transition={{ duration: 0.5 }}
-							className="bg-gray-800/50 backdrop-blur-sm rounded-3xl p-8 border border-white/10"
+							className="w-[90%] bg-gray-800/50 backdrop-blur-sm rounded-3xl p-8 border border-white/10"
 						>
 							<>
 								<div className="flex items-center mb-6 justify-between">
-									<div className=" flex items-center gap-4">
+									<div className="flex items-center gap-4">
 										<div
-											className={`p-4 rounded-2xl bg-gradient-to-br ${currentStack?.gradient} mr-6`}
+											className={`p-4 rounded-2xl bg-gradient-to-br ${currentStack?.gradient} md:mr-6 scale-0.5 md:scale-1`}
 										>
 											{currentStack?.icon}
 										</div>
 										<div>
-											<h3 className="text-3xl font-bold text-white mb-2">
+											<h3 className="md:text-3xl text-xl font-bold text-white mb-2">
 												{currentStack?.name}
 											</h3>
-											<p className="text-gray-300 text-lg">
+											<p className="text-gray-300 md:text-lg hidden md:block">
 												{currentStack?.description}
 											</p>
 										</div>
 									</div>
 
-									<div className="flex gap-2">
+									<div className="md:flex hidden gap-2">
 										<Button
 											variant="outline"
 											size="lg"
@@ -408,7 +407,7 @@ export default function DevelopmentEnhanced({ contentClass }) {
 													<h4 className="text-lg font-bold text-white">
 														{tech.name}
 													</h4>
-													<p className="text-gray-400 text-sm">
+													<p className="text-gray-400 text-sm hidden md:inline">
 														{tech.description}
 													</p>
 												</div>

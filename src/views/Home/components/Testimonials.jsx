@@ -95,9 +95,9 @@ export default function Testimonials({ contentClass }) {
 				)}
 			>
 				{/* Absolutely positioned title with box shadow */}
-				<div className="absolute inset-0 z-10 m-auto aspect-[1051/375] w-full max-w-[1051px] rounded-[300px]  blur-[97px] bg-dark-gray"></div>
-				<div className="absolute inset-0 z-20 m-auto aspect-[639/229] w-full max-w-[639px] rounded-[300px] blur-[52px] bg-dark-gray"></div>
-				<div className="absolute inset-0 flex items-center justify-center">
+				<div className="absolute inset-10 md:inset-0 z-10 m-auto aspect-[1051/375] w-full max-w-[1051px] rounded-[300px]  blur-[97px] bg-dark-gray"></div>
+				<div className="absolute inset-10 md:inset-0 z-20 m-auto aspect-[639/229] w-full max-w-[639px] rounded-[300px] blur-[52px] bg-dark-gray"></div>
+				<div className="absolute inset-10 md:inset-0 flex items-center justify-center">
 					<h2 className="z-30 text-3xl md:text-5xl font-bold text-white text-center px-[30px] py-[25px] rounded-[10px] bg-heading-black">
 						Feedback from customers
 					</h2>

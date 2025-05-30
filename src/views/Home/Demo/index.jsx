@@ -97,14 +97,17 @@ const VisionJourney = () => {
 		const isLeft = index === getPrevSlide(activeIndex);
 		const isRight = index === getNextSlide(activeIndex);
 
-		let width, height;
+		let width,
+			height,
+			top = 50;
 
 		const deviceWidth = window.innerWidth;
 
 		switch (true) {
 			case deviceWidth < 576:
-				width = 300;
-				height = 300;
+				width = 200;
+				height = 200;
+				top = 75;
 				break;
 			case deviceWidth >= 768 && deviceWidth < 992:
 				width = 400;
@@ -119,7 +122,7 @@ const VisionJourney = () => {
 			transformOrigin: "center",
 			transition: "all 1000ms ease-in-out",
 			cursor: "pointer",
-			top: "50%",
+			top: `${top}%`,
 			left: `calc(50% - ${width / 2}px)`,
 			transform: "translate(-50%, -50%)",
 		};
@@ -162,7 +165,7 @@ const VisionJourney = () => {
 	return (
 		<div
 			ref={containerRef}
-			className="h-[800px] w-full mb-10 overflow-hidden relative snap-start snap-always bg-[#30323d]"
+			className="h-[600px] md:h-[800px] w-full mb-10 overflow-hidden relative snap-start snap-always bg-[#30323d]"
 			style={{
 				scrollSnapAlign: "start",
 				backgroundImage: `url(${wallpaper})`,
@@ -192,6 +195,7 @@ const VisionJourney = () => {
 				{slides.map((slide, index) => {
 					const planetStyles = getPlanetStyles(index);
 					const isCenter = index === activeIndex;
+					const isLeft = index === getPrevSlide(activeIndex);
 					return (
 						<div
 							className="flex gap-5"
@@ -210,6 +214,21 @@ const VisionJourney = () => {
 										: null,
 								}}
 							/>
+
+							{!isCenter && (
+								<div
+									className="absolute text-white font-semibold z-20 text-center w-max px-2 text-base md:text-2xl"
+									style={{
+										top: "50%",
+										transform: "translateY(-50%)",
+										...(isLeft
+											? { left: "calc(100% + 20px)" }
+											: { right: "calc(100% + 20px)" }),
+									}}
+								>
+									{slide.title.toUpperCase()}
+								</div>
+							)}
 						</div>
 					);
 				})}

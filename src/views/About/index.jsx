@@ -33,7 +33,7 @@ export default function AboutPage() {
 	return (
 		<div className="w-full flex flex-col gap-6 md:gap-10 items-center">
 			<AnimatedSection className="w-full bg-muted/50 flex flex-col items-center">
-				<div className="max-w-[1440px] container px-0 py-8 md:py-12 md:px-4 flex flex-col justify-center min-h-[50vh]">
+				<div className="max-w-[1440px] container px-[20px] py-8 md:py-12 md:px-4 flex flex-col justify-center min-h-[50vh]">
 					<h2 className="text-2xl md:text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center">
 						About Us
 					</h2>
@@ -108,7 +108,7 @@ export default function AboutPage() {
 									type="mobile"
 								/>
 							</div>
-							<div className="absolute lg:left-90 left-50 top-15 z-20 rotate-90 scale-60 md:scale-100">
+							<div className="absolute lg:left-90 left-40 top-15 z-20 rotate-90 scale-60 md:scale-100">
 								<DeviceMockup
 									imageSrc={t2screen}
 									type="tablet"
@@ -119,11 +119,11 @@ export default function AboutPage() {
 				</div>
 			</AnimatedSection>
 			<UniqueValue />
-			<div className="flex flex-col items-center lg:px-0 md:px-4">
+			<div className="flex flex-col items-center px-[20px] md:px-4 lg:px-0">
 				<h2 className="text-2xl md:text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center">
 					Most frequently asked questions
 				</h2>
-				<div className="max-w-[1440px] grid gap-6 lg:grid-cols-2 sm:mt-8 md:mt-16 lg:gap-12 items-center mt-6 md:mt-10 lg:px-0 md:px-4">
+				<div className="max-w-[1440px] grid gap-6 lg:grid-cols-2 sm:mt-8 md:mt-16 lg:gap-12 items-start mt-6 md:mt-10 lg:px-0 md:px-4">
 					<img
 						src={image}
 						alt="image"

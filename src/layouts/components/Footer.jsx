@@ -1,7 +1,7 @@
-import { FOOTER } from "@/constant/footer";
+import { FOOTER, FOOTER_SECTIONS } from "@/constant/footer";
 import classNames from "classnames";
 import { motion } from "framer-motion";
-import { Globe, Mail, MapPin, MessageCircle, Phone, Send, Twitter } from "lucide-react";
+import { Globe, Linkedin, Mail, MapPin, MessageCircle, Phone, Send } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
@@ -49,10 +49,10 @@ const CONTACT_ITEMS = [
 
 const SOCIAL_LINKS = [
 	{
-		id: "twitter",
-		name: "Twitter",
-		url: "https://facebook.com",
-		icon: <Twitter size={16} />,
+		id: "linkedIn",
+		name: "LinkedIn",
+		url: "https://www.linkedin.com/",
+		icon: <Linkedin size={16} />,
 		bgColor: "bg-foreground",
 		textColor: "text-white",
 	},
@@ -82,36 +82,6 @@ const fadeIn = {
 const Footer = () => {
 	const currentYear = new Date().getFullYear();
 	const { t } = useTranslation();
-	// Contact information items
-
-	const footerSections = [
-		{
-			id: "company",
-			title: t("footer.company"),
-			links: [
-				{ to: "/about-us", label: t("menu.about") },
-				{ to: "/careers", label: t("menu.careers") },
-				{ to: "/contact", label: t("menu.contact") },
-			],
-		},
-		{
-			id: "resources",
-			title: t("footer.resources"),
-			links: [
-				{ to: "/blog", label: t("menu.blog") },
-				{ to: "/documentation", label: t("footer.documentation") },
-			],
-		},
-		{
-			id: "studies",
-			title: t("footer.studies"),
-			links: [
-				{ to: "/privacy", label: t("footer.privacy") },
-				{ to: "/terms", label: t("footer.terms") },
-			],
-		},
-	];
-
 	const addressItem = CONTACT_ITEMS.find((item) => item.id === "address");
 
 	return (
@@ -152,13 +122,13 @@ const Footer = () => {
 					<div className="flex px-4 flex-1 sm:flex-row flex-col justify-between gap-8">
 						{/* Menu Links */}
 						<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 md:flex sm:flex sm:w-3/4 md:w-3/4 gap-8 w-full xl:w-2/3 text-center xl:text-left">
-							{footerSections.map((section) => (
+							{FOOTER_SECTIONS.map((section) => (
 								<div
 									key={section.id}
 									className="md:w-1/3 sm:w-1/3 text-start md:text-center lg:text-center xl:text-center"
 								>
 									<h3 className="text-foreground font-semibold text-lg mb-4">
-										{section.title}
+										{t(section.titleKey)}
 									</h3>
 									<ul className="space-y-2">
 										{section.links.map((link, linkIndex) => (
@@ -167,7 +137,7 @@ const Footer = () => {
 													to={link.to}
 													className="text-foreground/80 hover:text-dark-blue transition-colors text-sm"
 												>
-													{link.label}
+													{t(link.i18nKey)}
 												</Link>
 											</li>
 										))}

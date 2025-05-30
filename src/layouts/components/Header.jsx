@@ -210,7 +210,7 @@ const Header = () => {
 				>
 					<DrawerHeader className="flex items-center justify-between border-b border-gray-200 dark:border-gray-700">
 						<DrawerTitle className="flex w-full text-center justify-center relative text-lg font-semibold">
-							Menu
+							{t("menu_drawer")}
 							<DrawerClose asChild>
 								<X className="absolute h-6 w-6 right-0" />
 							</DrawerClose>

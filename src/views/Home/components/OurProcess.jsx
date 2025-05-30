@@ -258,7 +258,7 @@ export default function OurProcess() {
 				{/* Active Step Content */}
 				<div className="flex flex-col flex-1 md:flex-row gap-12 items-center justify-center py-20 xl:px-0 lg:px-4">
 					{/* Step Visualization */}
-					<div className="w-[80%] md:w-2/7 flex justify-center ">
+					<div className="w-[80%] md:w-3/7 flex justify-center ">
 						<AnimatePresence mode="wait">
 							<motion.div
 								key={activeStep}
@@ -268,7 +268,7 @@ export default function OurProcess() {
 								transition={{ duration: 0.5 }}
 								className="relative"
 							>
-								<div
+								{/* <div
 									className="lg:w-64 lg:h-64 md:w-50 md:h-50 h-64 w-64 rounded-full flex items-center justify-center"
 									style={{
 										backgroundColor: `${processSteps[activeStep - 1].color}20`,
@@ -294,7 +294,14 @@ export default function OurProcess() {
 									<span className="text-xl font-bold text-dark-gray">
 										{activeStep}
 									</span>
-								</div>
+								</div> */}
+								<img
+									src={processSteps[activeStep - 1].image}
+									alt={
+										processSteps[activeStep - 1].image + `_${[activeStep - 1]}`
+									}
+									className="rounded-lg shadow-lg max-h-[420px]"
+								/>
 							</motion.div>
 						</AnimatePresence>
 					</div>
@@ -375,7 +382,7 @@ export default function OurProcess() {
 										</svg>
 										Previous
 									</button>
-									<button
+									{/* <button
 										onClick={() => {
 											setIsPaused(!isPaused);
 										}}
@@ -414,7 +421,7 @@ export default function OurProcess() {
 												Pause
 											</>
 										)}
-									</button>
+									</button> */}
 									<button
 										onClick={() => {
 											setActiveStep((prev) =>

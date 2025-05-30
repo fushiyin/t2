@@ -1,5 +1,10 @@
-import team_design from "@/assets/images/design_time.jpeg";
+import team_deploy from "@/assets/images/team_deploy.jpg";
+import team_design from "@/assets/images/team_design.jpg";
+import team_development from "@/assets/images/team_development.png";
+import team_maintain from "@/assets/images/team_maintain.png";
 import team_research from "@/assets/images/team_research.jpg";
+import team_test from "@/assets/images/team_test.jpg";
+import classNames from "classnames";
 import { AnimatePresence, motion } from "framer-motion";
 import {
 	CodeIcon,
@@ -12,12 +17,14 @@ import {
 import { useEffect, useRef, useState } from "react";
 
 // Process steps data
+const iconClass =
+	"h-3 w-3 text-white absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-3/5 z-10";
 const processSteps = [
 	{
 		id: 1,
 		title: "Discovery & Analysis",
 		image: team_research,
-		icon: <SearchIcon className="h-8 w-8" />,
+		icon: <SearchIcon className={iconClass} />,
 		description:
 			"Understanding your business objectives, requirements, and challenges through in-depth consultations.",
 		details: [
@@ -26,12 +33,12 @@ const processSteps = [
 			"Technical feasibility assessment",
 			"Project scope definition",
 		],
-		color: "#03071f",
+		color: "#2d2d2d",
 	},
 	{
 		id: 2,
 		title: "Design & Planning",
-		icon: <PencilRulerIcon className="h-8 w-8" />,
+		icon: <PencilRulerIcon className={iconClass} />,
 		image: team_design,
 		description:
 			"Creating detailed designs and technical specifications, establishing the foundation for development.",
@@ -41,13 +48,13 @@ const processSteps = [
 			"Database schema design",
 			"Project roadmap and sprint planning",
 		],
-		color: "#03071f",
+		color: "#2d2d2d",
 	},
 	{
 		id: 3,
 		title: "Development",
-		icon: <CodeIcon className="h-8 w-8" />,
-		image: team_design,
+		icon: <CodeIcon className={iconClass} />,
+		image: team_development,
 		description:
 			"Our skilled developers write clean, efficient code following industry best practices.",
 		details: [
@@ -56,13 +63,13 @@ const processSteps = [
 			"Continuous integration",
 			"Daily stand-ups and progress tracking",
 		],
-		color: "#03071f",
+		color: "#2d2d2d",
 	},
 	{
 		id: 4,
 		title: "Testing & QA",
-		image: team_design,
-		icon: <TestTubeIcon className="h-8 w-8" />,
+		image: team_test,
+		icon: <TestTubeIcon className={iconClass} />,
 		description:
 			"Rigorous testing ensures your software is bug-free, secure, and performs optimally.",
 		details: [
@@ -71,13 +78,13 @@ const processSteps = [
 			"Security testing",
 			"User acceptance testing",
 		],
-		color: "#03071f",
+		color: "#2d2d2d",
 	},
 	{
 		id: 5,
 		title: "Deployment",
-		image: team_design,
-		icon: <RocketIcon className="h-8 w-8" />,
+		image: team_deploy,
+		icon: <RocketIcon className={iconClass} />,
 		description:
 			"Smooth deployment of your solution to production environments, ensuring minimal disruption.",
 		details: [
@@ -86,13 +93,13 @@ const processSteps = [
 			"Data migration (if needed)",
 			"Post-deployment verification",
 		],
-		color: "#03071f",
+		color: "#2d2d2d",
 	},
 	{
 		id: 6,
 		title: "Maintenance & Support",
-		icon: <RefreshCwIcon className="h-8 w-8" />,
-		image: team_design,
+		icon: <RefreshCwIcon className={iconClass} />,
+		image: team_maintain,
 		description:
 			"Ongoing support and maintenance to ensure your solution continues to perform optimally.",
 		details: [
@@ -101,7 +108,7 @@ const processSteps = [
 			"Performance monitoring",
 			"Technical support and consultation",
 		],
-		color: "#03071f",
+		color: "#2d2d2d",
 	},
 ];
 
@@ -153,8 +160,8 @@ export default function OurProcess() {
 			ref={sectionRef}
 			className="w-full h-full flex items-center justify-center py-16"
 		>
-			<div className="container h-full flex flex-col justify-center max-w-[1440px]">
-				<div className="flex flex-col items-center justify-center space-y-4 text-center mb-16">
+			<div className="container h-full flex flex-col justify-center items-center max-w-[1440px]">
+				<div className="flex flex-col items-center justify-center space-y-4 text-center mb-16 md:mb-20">
 					<div className="space-y-2">
 						<h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-dark-gray">
 							Our Process
@@ -166,7 +173,7 @@ export default function OurProcess() {
 				</div>
 
 				{/* Progress Bar */}
-				<div className="relative mb-20">
+				<div className="relative md:mb-20 w-full">
 					<div className="h-2 w-[80%] bg-gray-200 rounded-full absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
 						<motion.div
 							className="h-2 rounded-full"
@@ -244,11 +251,33 @@ export default function OurProcess() {
 									)}
 								</motion.div>
 								<div
-									className={`absolute -bottom-8 left-1/2 transform -translate-x-1/2 whitespace-nowrap text-xs font-medium ${
-										step.id === activeStep ? "text-dark-gray" : "text-gray-500"
-									}`}
+									className={classNames(
+										"absolute -top-5 left-1/2 transform -translate-x-1/2 whitespace-nowrap text-xs font-medium",
+										{
+											"text-dark-gray": step.id === activeStep,
+											"text-gray-500": step.id !== activeStep,
+											hidden: step.id > activeStep,
+										},
+									)}
 								>
-									{step.title.split(" ")[0]}
+									<svg
+										xmlns="http://www.w3.org/2000/svg"
+										width="24"
+										height="24"
+										viewBox="0 0 24 24"
+										fill="none"
+										stroke="currentColor"
+										strokeWidth="2"
+										strokeLinecap="round"
+										strokeLinejoin="round"
+										className="lucide lucide-map-pin-check-inside-icon lucide-map-pin-check-inside absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-1 h-8 w-8 text-black"
+									>
+										<path
+											d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"
+											fill="black"
+										/>
+									</svg>
+									{step?.icon}
 								</div>
 							</button>
 						))}
@@ -256,9 +285,9 @@ export default function OurProcess() {
 				</div>
 
 				{/* Active Step Content */}
-				<div className="flex flex-col flex-1 md:flex-row gap-12 items-center justify-center py-20 xl:px-0 lg:px-4">
+				<div className="flex flex-col flex-1 md:flex-row md:gap-12 gap-6 items-center justify-center md:py-10 py-10 xl:px-0 lg:px-4 w-[90%]">
 					{/* Step Visualization */}
-					<div className="w-[80%] md:w-3/7 flex justify-center ">
+					<div className="w-[90%] md:w-4/7 flex justify-center ">
 						<AnimatePresence mode="wait">
 							<motion.div
 								key={activeStep}
@@ -268,33 +297,6 @@ export default function OurProcess() {
 								transition={{ duration: 0.5 }}
 								className="relative"
 							>
-								{/* <div
-									className="lg:w-64 lg:h-64 md:w-50 md:h-50 h-64 w-64 rounded-full flex items-center justify-center"
-									style={{
-										backgroundColor: `${processSteps[activeStep - 1].color}20`,
-									}}
-								>
-									<div
-										className="lg:w-48 lg:h-48 md:w-36 md:h-36 w-48 h-48 rounded-full flex items-center justify-center"
-										style={{
-											backgroundColor: `${processSteps[activeStep - 1].color}40`,
-										}}
-									>
-										<div
-											className="lg:w-32 lg:h-32 md:w-20 md:h-20 w-32 h-32 rounded-full flex items-center justify-center text-white"
-											style={{
-												backgroundColor: processSteps[activeStep - 1].color,
-											}}
-										>
-											{processSteps[activeStep - 1].icon}
-										</div>
-									</div>
-								</div>
-								<div className="absolute -top-4 -right-4 bg-white rounded-full lg:w-12 lg:h-12 md:w-8 md:h-8 w-12 h-12 flex items-center justify-center shadow-lg">
-									<span className="text-xl font-bold text-dark-gray">
-										{activeStep}
-									</span>
-								</div> */}
 								<img
 									src={processSteps[activeStep - 1].image}
 									alt={
@@ -307,7 +309,7 @@ export default function OurProcess() {
 					</div>
 
 					{/* Step Details */}
-					<div className="w-[80%] md:w-1/2 h-full">
+					<div className="w-[90%] md:w-1/2 h-full">
 						<AnimatePresence mode="wait">
 							<motion.div
 								key={activeStep}

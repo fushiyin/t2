@@ -31,7 +31,7 @@ export default function Services() {
 	};
 
 	return (
-		<AnimatedSection className="w-full bg-background py-16 flex flex-col items-center">
+		<AnimatedSection className="w-full py-16 flex flex-col items-center">
 			<div className="max-w-[1440px]">
 				<div className="flex flex-col items-center justify-center space-y-4 text-center">
 					<div className="space-y-2">
@@ -51,7 +51,7 @@ export default function Services() {
 					viewport={{ once: true, margin: "-100px" }}
 				>
 					<motion.div variants={cardVariants}>
-						<Card className="bg-background border-primary/20 h-full">
+						<Card className="border-primary/20 h-full">
 							<CardContent className="p-6 flex flex-col items-center text-center space-y-4 h-full">
 								<motion.div
 									className="rounded-full p-3 bg-primary/10"

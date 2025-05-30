@@ -14,5 +14,7 @@
 	"focus_industries": {
 		"title": "Focused Industries",
 		"description": "T2 Soft leverages extensive project experience and technical expertise across various industries to deliver customized IT solutions. We work hand-in-hand with our clients to maximize business value, driving both efficiency and innovation."
-	}
+	},
+	"description_mobile": "T2 Soft is a Vietnamese SI and IT outsourcing company that provides software development and maintenance, and IT consulting services for Korean corporate clients.",
+	"language": "Language"
 }

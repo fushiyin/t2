@@ -1,10 +1,13 @@
 import { Button } from "@/components/ui/button";
+import useResponsive from "@/hooks/useResponsive";
 import { motion } from "framer-motion";
 import { t } from "i18next";
 import { ArrowRightIcon } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export default function Hero() {
+	const { isMobile } = useResponsive();
+
 	const containerVariants = {
 		hidden: { opacity: 0 },
 		visible: {
@@ -89,7 +92,7 @@ export default function Hero() {
 							className="mx-auto max-w-[1100px] text-gray-200 md:text-xl"
 							variants={itemVariants}
 						>
-							{t("description")}
+							{isMobile ? t("description_mobile") : t("description")}
 						</motion.p>
 					</div>
 					<motion.div

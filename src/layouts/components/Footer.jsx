@@ -1,7 +1,7 @@
 import { FOOTER } from "@/constant/footer";
 import classNames from "classnames";
 import { motion } from "framer-motion";
-import { Facebook, Globe, Mail, MapPin, MessageCircle, Phone, Send } from "lucide-react";
+import { Globe, Mail, MapPin, MessageCircle, Phone, Send, Twitter } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
@@ -49,10 +49,10 @@ const CONTACT_ITEMS = [
 
 const SOCIAL_LINKS = [
 	{
-		id: "facebook",
-		name: "Facebook",
+		id: "twitter",
+		name: "Twitter",
 		url: "https://facebook.com",
-		icon: <Facebook size={16} />,
+		icon: <Twitter size={16} />,
 		bgColor: "bg-foreground",
 		textColor: "text-white",
 	},
@@ -87,28 +87,27 @@ const Footer = () => {
 	const footerSections = [
 		{
 			id: "company",
-			title: "Company",
+			title: t("footer.company"),
 			links: [
-				{ to: "/about-us", label: "About Us" },
-				{ to: "/careers", label: "Careers" },
-				{ to: "/contact", label: "Contact" },
+				{ to: "/about-us", label: t("menu.about") },
+				{ to: "/careers", label: t("menu.careers") },
+				{ to: "/contact", label: t("menu.contact") },
 			],
 		},
 		{
 			id: "resources",
-			title: "Resources",
+			title: t("footer.resources"),
 			links: [
-				{ to: "/blog", label: "Blog" },
-				{ to: "/documentation", label: "Documentation" },
-				{ to: "/contact", label: "Contact" },
+				{ to: "/blog", label: t("menu.blog") },
+				{ to: "/documentation", label: t("footer.documentation") },
 			],
 		},
 		{
 			id: "studies",
-			title: "Case Studies",
+			title: t("footer.studies"),
 			links: [
-				{ to: "/privacy", label: "Privacy" },
-				{ to: "/terms", label: "Terms" },
+				{ to: "/privacy", label: t("footer.privacy") },
+				{ to: "/terms", label: t("footer.terms") },
 			],
 		},
 	];
@@ -126,7 +125,7 @@ const Footer = () => {
 			<div className="container mx-auto max-w-[1440px] pt-12">
 				<div className="flex flex-col xl:flex-row gap-8">
 					{/* Logo + Social */}
-					<div className="px-4 flex flex-col sm:items-start xl:items-start space-y-4 w-full xl:w-2/5 lg:w-full lg:items-center md:items-center">
+					<div className="px-4 flex flex-col sm:items-center xl:items-start space-y-4 w-full xl:w-2/5 lg:w-full lg:items-center md:items-center">
 						<Link
 							to="/"
 							className="text-foreground font-bold text-2xl"
@@ -152,11 +151,11 @@ const Footer = () => {
 
 					<div className="flex px-4 flex-1 sm:flex-row flex-col justify-between gap-8">
 						{/* Menu Links */}
-						<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 md:flex md:w-3/4 gap-8 w-full xl:w-2/3 text-center xl:text-left">
+						<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 md:flex sm:flex sm:w-3/4 md:w-3/4 gap-8 w-full xl:w-2/3 text-center xl:text-left">
 							{footerSections.map((section) => (
 								<div
 									key={section.id}
-									className="md:w-1/3 text-start md:text-center lg:text-center xl:text-center"
+									className="md:w-1/3 sm:w-1/3 text-start md:text-center lg:text-center xl:text-center"
 								>
 									<h3 className="text-foreground font-semibold text-lg mb-4">
 										{section.title}
@@ -177,14 +176,16 @@ const Footer = () => {
 							))}
 						</div>
 						{/* Contact */}
-						<div className="flex flex-col items-start space-y-4 w-full md:w-1/4 xl:w-1/3">
-							<h3 className="text-foreground font-semibold text-lg mb-4">Contact</h3>
+						<div className="flex flex-col items-start space-y-4 w-full md:w-1/4 sm:w-1/4 xl:w-1/3">
+							<h3 className="text-foreground font-semibold text-lg mb-4">
+								{t("menu.contact")}
+							</h3>
 							{CONTACT_ITEMS.map((item) => {
 								return (
 									<div
 										key={item.id}
 										className={classNames("flex items-center space-x-3", {
-											"md:hidden xl:flex":
+											"md:hidden sm:hidden xl:flex":
 												item.id === "address" || item.id === "website",
 										})}
 									>
@@ -200,7 +201,7 @@ const Footer = () => {
 				</div>
 
 				{addressItem && (
-					<div className="hidden md:flex xl:hidden md:w-full justify-center items-center space-x-3">
+					<div className="hidden sm:flex md:flex xl:hidden md:w-full justify-center items-center space-x-3">
 						{addressItem.icon}
 						<span className="text-sm text-foreground/80">{addressItem.content}</span>
 					</div>

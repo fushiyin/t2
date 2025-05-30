@@ -206,11 +206,11 @@ const Header = () => {
 			>
 				<DrawerContent
 					header={true}
-					className="h-full overflow-y-auto"
+					className="h-full overflow-y-auto z-9999"
 				>
 					<DrawerHeader className="flex items-center justify-between border-b border-gray-200 dark:border-gray-700">
 						<DrawerTitle className="flex w-full text-center justify-center relative text-lg font-semibold">
-							Menu
+							{t("menu_drawer")}
 							<DrawerClose asChild>
 								<X className="absolute h-6 w-6 right-0" />
 							</DrawerClose>
@@ -268,7 +268,7 @@ const Header = () => {
 													key={`lang_item_${lang_item?.code}_${index}`}
 													onClick={() => changeLanguage(lang_item)}
 													className={classNames(
-														"flex justify-start cursor-pointer w-full px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-light-blue hover:text-white dark:hover:bg-dark-blue",
+														"flex justify-start items-center cursor-pointer w-full h-[48px] px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-light-blue hover:text-white dark:hover:bg-dark-blue",
 														{
 															"bg-light-blue-gray dark:bg-light-blue text-gray-700":
 																language?.code === lang_item.code,

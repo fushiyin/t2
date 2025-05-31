@@ -5,7 +5,7 @@ const CustomCursor = () => {
 		const cursor = document.getElementById("custom-cursor");
 
 		const handleMouseMove = (e) => {
-			const x = e.clientX - 10; // căn giữa (10 = nửa width)
+			const x = e.clientX - 10;
 			const y = e.clientY - 10;
 			cursor.style.transform = `translate3d(${x}px, ${y}px, 0)`;
 		};

@@ -1,3 +1,4 @@
+import useResponsive from "@/hooks/useResponsive";
 import CustomCursor from "@/views/Home/components/CustomeCursor/Cursor";
 import { Suspense } from "react";
 import { Outlet } from "react-router-dom";
@@ -13,9 +14,11 @@ import {
 import CallPhoneButton from "./CallPhoneButton";
 
 export default function MainLayout() {
+	const { isMobile } = useResponsive(); 
+
 	return (
 		<Suspense fallback={<> </>}>
-			<CustomCursor />
+			{!isMobile && <CustomCursor />}
 			<LenisProvider>
 				<OnboardingProvider>
 					<CustomLoading />

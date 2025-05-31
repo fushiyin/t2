@@ -4,6 +4,7 @@ import team_development from "@/assets/images/team_development.png";
 import team_maintain from "@/assets/images/team_maintain.png";
 import team_research from "@/assets/images/team_research.jpg";
 import team_test from "@/assets/images/team_test.jpg";
+import classNames from "classnames";
 import { AnimatePresence, motion } from "framer-motion";
 import {
 	CodeIcon,
@@ -173,7 +174,7 @@ export default function OurProcess() {
 
 				{/* Progress Bar */}
 				<div className="relative md:mb-20 w-full">
-					<div className="h-2 w-[80%] bg-gray-200 rounded-full absolute left-1/2 top-[calc(50%-1rem)] -translate-x-1/2 -translate-y-1/2">
+					<div className="h-2 w-[80%] bg-gray-200 rounded-full absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
 						<motion.div
 							className="h-2 rounded-full"
 							style={{
@@ -189,7 +190,7 @@ export default function OurProcess() {
 					</div>
 
 					{/* Step Indicators */}
-					<div className="w-[80%] absolute flex justify-between left-1/2 top-[calc(50%-1rem)] -translate-x-1/2">
+					<div className="w-[80%] absolute flex justify-between left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
 						{processSteps.map((step) => (
 							<button
 								key={step.id}
@@ -197,7 +198,8 @@ export default function OurProcess() {
 								onClick={() => {
 									setActiveStep(step.id);
 									setIsPaused(true); // Pause auto-advance when user interacts
-									setTimeout(() => setIsPaused(false), 10000); // Resume after 10 seconds
+									// Resume auto-advance after 10 seconds of inactivity
+									setTimeout(() => setIsPaused(false), 10000);
 								}}
 							>
 								<motion.div
@@ -221,7 +223,6 @@ export default function OurProcess() {
 									}}
 									transition={{ duration: 0.3 }}
 								>
-									{/* Icon check mark when the step is completed */}
 									{step.id < activeStep && (
 										<svg
 											xmlns="http://www.w3.org/2000/svg"
@@ -238,8 +239,6 @@ export default function OurProcess() {
 											/>
 										</svg>
 									)}
-
-									{/* Pulsing dot for active step */}
 									{step.id === activeStep && (
 										<motion.div
 											className="w-2 h-2 bg-white rounded-full"
@@ -251,11 +250,15 @@ export default function OurProcess() {
 										/>
 									)}
 								</motion.div>
-								{/* Step Title/Label */}
 								<div
-									className={`absolute -top-5 left-1/2 transform -translate-x-1/2 whitespace-nowrap text-xs font-medium ${
-										step.id === activeStep ? "text-dark-gray" : "text-gray-500"
-									}`}
+									className={classNames(
+										"absolute -top-5 left-1/2 transform -translate-x-1/2 whitespace-nowrap text-xs font-medium",
+										{
+											"text-dark-gray": step.id === activeStep,
+											"text-gray-500": step.id !== activeStep,
+											hidden: step.id > activeStep,
+										},
+									)}
 								>
 									<svg
 										xmlns="http://www.w3.org/2000/svg"

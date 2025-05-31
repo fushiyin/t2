@@ -5,8 +5,8 @@ export const SECTIONS_KEY = Object.freeze({
 	COMPETITIVE_EDGES: { id: "competitive-edges", label: "04", name: "Competitive Edges" },
 	DEVELOPMENT_CAPACITY: { id: "development-capacity", label: "05", name: "Development Capacity" },
 	FOCUSED_INDUSTRIES: { id: "focused-industries", label: "06", name: "Focused Industries" },
-	TESTIMONIALS: { id: "testimonials", label: "07", name: "Testimonials" },
-	OUR_PROCESS: { id: "our-process", label: "08", name: "Our Process" },
+	OUR_PROCESS: { id: "our-process", label: "07", name: "Our Process" },
+	TESTIMONIALS: { id: "testimonials", label: "08", name: "Feedback" },
 });
 
 export const SECTIONS = Object.freeze(Object.values(SECTIONS_KEY));

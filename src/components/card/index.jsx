@@ -1,7 +1,7 @@
 const HoverCard = ({ icon, title, description, className = "" }) => {
 	return (
 		<div
-			className={`flex flex-col items-start text-left w-full h-full gap-[24px] ${className}`}
+			className={`flex flex-col items-start text-left w-full h-full gap-[12px] ${className}`}
 		>
 			{/* <div className="mb-6">{icon}</div> */}
 			<div className="bg-gray-100 p-3 rounded-full inline-flex items-center justify-center">

@@ -4,6 +4,7 @@ import team_development from "@/assets/images/team_development.png";
 import team_maintain from "@/assets/images/team_maintain.png";
 import team_research from "@/assets/images/team_research.jpg";
 import team_test from "@/assets/images/team_test.jpg";
+import useResponsive from "@/hooks/useResponsive";
 import classNames from "classnames";
 import { AnimatePresence, motion } from "framer-motion";
 import {
@@ -117,6 +118,7 @@ export default function OurProcess() {
 	const [isPaused, setIsPaused] = useState(false);
 	const [isVisible, setIsVisible] = useState(false);
 	const sectionRef = useRef(null);
+	const { isMobile } = useResponsive(); 
 
 	// Auto-advance through steps
 	useEffect(() => {
@@ -158,7 +160,7 @@ export default function OurProcess() {
 	return (
 		<div
 			ref={sectionRef}
-			className="w-full h-full flex items-center justify-center py-16"
+			className="w-full h-full flex items-center justify-center"
 		>
 			<div className="container h-full flex flex-col justify-center items-center max-w-[1440px]">
 				<div className="flex flex-col items-center justify-center space-y-4 text-center mb-16 md:mb-20">
@@ -287,27 +289,29 @@ export default function OurProcess() {
 				{/* Active Step Content */}
 				<div className="flex flex-col flex-1 md:flex-row md:gap-12 gap-6 items-center justify-center md:py-10 py-10 xl:px-0 lg:px-4 w-[90%]">
 					{/* Step Visualization */}
-					<div className="w-[90%] md:w-4/7 flex justify-center ">
-						<AnimatePresence mode="wait">
-							<motion.div
-								key={activeStep}
-								initial={{ opacity: 0, scale: 0.8, y: 20 }}
-								animate={{ opacity: 1, scale: 1, y: 0 }}
-								exit={{ opacity: 0, scale: 0.8, y: -20 }}
-								transition={{ duration: 0.5 }}
-								className="relative"
-							>
-								<img
-									src={processSteps[activeStep - 1].image}
-									alt={
-										processSteps[activeStep - 1].image + `_${[activeStep - 1]}`
-									}
-									className="rounded-lg shadow-lg max-h-[420px]"
-								/>
-							</motion.div>
-						</AnimatePresence>
-					</div>
-
+					{!isMobile && (
+						<div className="w-[90%] md:w-4/7 flex justify-center ">
+							<AnimatePresence mode="wait">
+								<motion.div
+									key={activeStep}
+									initial={{ opacity: 0, scale: 0.8, y: 20 }}
+									animate={{ opacity: 1, scale: 1, y: 0 }}
+									exit={{ opacity: 0, scale: 0.8, y: -20 }}
+									transition={{ duration: 0.5 }}
+									className="relative"
+								>
+									<img
+										src={processSteps[activeStep - 1].image}
+										alt={
+											processSteps[activeStep - 1].image +
+											`_${[activeStep - 1]}`
+										}
+										className="rounded-lg shadow-lg max-h-[420px]"
+									/>
+								</motion.div>
+							</AnimatePresence>
+						</div>
+					)}
 					{/* Step Details */}
 					<div className="w-[90%] md:w-1/2 h-full">
 						<AnimatePresence mode="wait">

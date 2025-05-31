@@ -91,7 +91,7 @@ export default function WhyVietnam({ contentClass }) {
 								key={`why-vietnam-card-${idx}`}
 								variants={cardVariants}
 								className={classNames(
-									"w-9/10 sm:w-1/3 md:w-1/4 2xl:w-1/6 bg-white/80 rounded-2xl shadow-lg p-6 flex flex-col items-stretch relative min-w-[270px] min-h-[340px]",
+									"w-9/10 sm:w-1/3 md:w-1/4 2xl:w-1/6 bg-white/80 rounded-2xl shadow-lg p-6 flex flex-col items-stretch relative min-w-[270px] min-h-[300px]",
 								)}
 							>
 								<HoverCard {...card} />

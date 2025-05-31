@@ -66,14 +66,14 @@ const industries = [
 				statusIcon: <RocketIcon className={solutionStatusIconClass} />,
 				statusColor: "bg-orange-100 text-orange-800",
 			},
-			{
-				name: "Smart Factory IoT",
-				description: "IoT-enabled intelligent manufacturing facilities",
-				icon: <BrainCircuitIcon className={solutionIconClass} />,
-				status: "Emerging",
-				statusIcon: <StarIcon className={solutionStatusIconClass} />,
-				statusColor: "bg-pink-100 text-pink-800",
-			},
+			// {
+			// 	name: "Smart Factory IoT",
+			// 	description: "IoT-enabled intelligent manufacturing facilities",
+			// 	icon: <BrainCircuitIcon className={solutionIconClass} />,
+			// 	status: "Emerging",
+			// 	statusIcon: <StarIcon className={solutionStatusIconClass} />,
+			// 	statusColor: "bg-pink-100 text-pink-800",
+			// },
 		],
 	},
 	{
@@ -270,7 +270,7 @@ export default function FocusedIndustries({ contentClass }) {
 			>
 				{/* Header */}
 				<div className="flex flex-col gap-4 items-center justify-center text-center">
-					<h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-dark-blue">
+					<h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
 						Industries We Transform
 					</h2>
 					<p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
@@ -284,7 +284,7 @@ export default function FocusedIndustries({ contentClass }) {
 				<div className="bg-white rounded-3xl shadow-xl border border-gray-200 overflow-hidden">
 					{/* Tab Navigation */}
 					<div className=" bg-gray-50">
-						<div className="flex overflow-x-auto">
+						<div className="flex">
 							{industries.map((industry, index) => (
 								<button
 									key={industry.id}

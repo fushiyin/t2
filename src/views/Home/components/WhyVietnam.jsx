@@ -64,7 +64,7 @@ export default function WhyVietnam({ contentClass }) {
 								icon: <HandCoins className="h-8 w-8 bg-t2-darkBlue rounded-full" />,
 								title: "Cost-effectiveness",
 								description:
-									"The same level of development manpower can be secured at a cost 25-55% lower than that of advanced countries, which is advantageous for budget optimization.",
+									"Development costs are 25–55% lower than in advanced countries, enabling better budget efficiency.									",
 							},
 							{
 								icon: <Handshake className="h-8 w-8 bg-t2-darkBlue rounded-full" />,

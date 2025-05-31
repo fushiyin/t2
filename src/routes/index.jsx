@@ -35,15 +35,17 @@ const router = createBrowserRouter([
 ]);
 function AppRouter() {
 	return (
-		<React.Suspense fallback={<div>Loading...</div>}>
-			<RouterProvider
-				router={router}
-				future={{
-					v7_startTransition: true,
-					v7_relativeSplatPath: true,
-				}}
-			/>
-		</React.Suspense>
+		<>
+			<React.Suspense fallback={<div>Loading...</div>}>
+				<RouterProvider
+					router={router}
+					future={{
+						v7_startTransition: true,
+						v7_relativeSplatPath: true,
+					}}
+				/>
+			</React.Suspense>
+		</>
 	);
 }
 

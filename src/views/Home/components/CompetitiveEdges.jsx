@@ -108,7 +108,9 @@ const CompetitiveEdges = () => {
 				</div>
 
 				<div className="hidden md:flex flex-col">
-					<div className="grid grid-cols-1 md:grid-cols-4 gap-7 justify-evenly mb-10 mt-12">
+				{/* <div className="grid grid-cols-1 md:grid-cols-4 gap-7 justify-evenly mb-10 mt-12"> */}
+				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-10 mt-12">
+
 						{edges.map((edge, index) => (
 							<div
 								key={index}
@@ -117,7 +119,7 @@ const CompetitiveEdges = () => {
 							>
 								<div
 									className={classNames(
-										"w-full aspect-square flex flex-col items-end justify-between rounded-lg shadow-lg p-4 cursor-pointer",
+										"w-full aspect-square flex flex-col items-end justify-between rounded-lg shadow-lg p-4 cursor-pointer h-90",
 										{
 											"bg-gradient-to-r from-[var(--color-light-mint)] to-[var(--color-light-green)]":
 												activeEdge?.id === edge?.id ||

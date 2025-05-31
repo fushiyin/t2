@@ -136,11 +136,6 @@ export default function ServicesPage() {
 										className="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110"
 									/>
 									<div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-									<div className="absolute bottom-4 left-4">
-										<div className="w-12 h-12 rounded-xl bg-primary/20 backdrop-blur-sm flex items-center justify-center border border-primary/20">
-											<service.icon className="w-6 h-6 text-primary" />
-										</div>
-									</div>
 								</div>
 
 								<div className="p-6 border-t border-border/50">

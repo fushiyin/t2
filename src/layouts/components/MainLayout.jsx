@@ -1,3 +1,4 @@
+import CustomCursor from "@/views/Home/components/CustomeCursor/Cursor";
 import { Suspense } from "react";
 import { Outlet } from "react-router-dom";
 import {
@@ -14,6 +15,7 @@ import CallPhoneButton from "./CallPhoneButton";
 export default function MainLayout() {
 	return (
 		<Suspense fallback={<> </>}>
+			<CustomCursor />
 			<LenisProvider>
 				<OnboardingProvider>
 					<CustomLoading />

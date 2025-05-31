@@ -338,7 +338,7 @@ export default function DevelopmentEnhanced({ contentClass }) {
 												duration: 0.4,
 												delay: techIndex * 0.05,
 											}}
-											className="bg-transparent border-none rounded-none md:bg-gray-700/30 md:rounded-xl md:p-6 md:border md:border-white/5 md:hover:border-white/20 transition-all duration-300 group flex items-center justify-center"
+											className="bg-transparent border-none rounded-none md:bg-gray-700/30 md:rounded-xl md:p-6 md:border md:border-white/5 md:hover:border-white/20 transition-all duration-300 group flex"
 										>
 											<div className="flex items-center justify-center gap-4">
 												<div className="md:w-12 md:h-12 sm:w-20 sm:h-20 w-16 h-16 bg-white rounded-xl p-2 flex items-center justify-center">

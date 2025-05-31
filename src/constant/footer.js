@@ -6,7 +6,7 @@ export const FOOTER = Object.freeze({
 	EMAIL_1: "ygkim@t2soft.com",
 	EMAIL_2: "ygkim@ttwosoft.com",
 	WEB_SITE: "https://www.ttwosoft.com",
-	ADDRESS: "Kangnam Landmark72, Pham Hung, Nam tu Liem, Ha Noi",
+	ADDRESS: "Keangnam Landmark72, Pham Hung, Nam tu Liem, Ha Noi",
 });
 
 export const FOOTER_SECTIONS = [

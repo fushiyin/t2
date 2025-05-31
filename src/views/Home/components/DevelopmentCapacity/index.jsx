@@ -8,7 +8,6 @@ import { Button } from "@/components/ui/button";
 import classNames from "classnames";
 import { AnimatePresence, motion } from "framer-motion";
 import {
-	BrainCircuitIcon,
 	ChevronLeftIcon,
 	ChevronRightIcon,
 	CodeIcon,
@@ -228,58 +227,6 @@ const techStacks = [
 			},
 		],
 	},
-	{
-		id: "ai",
-		name: "AI & Machine Learning",
-		icon: <BrainCircuitIcon className="h-8 w-8" />,
-		description: "Artificial intelligence and machine learning solutions",
-		color: "#9F7AEA",
-		gradient: "from-indigo-400 to-purple-400",
-		technologies: [
-			{
-				name: "TensorFlow",
-				logo: "/placeholder.svg?height=80&width=80",
-				description: "Open source ML platform",
-				experience: "3+ years",
-				projects: "30+ projects",
-			},
-			{
-				name: "PyTorch",
-				logo: "/placeholder.svg?height=80&width=80",
-				description: "Machine learning framework",
-				experience: "3+ years",
-				projects: "25+ projects",
-			},
-			{
-				name: "OpenAI",
-				logo: "/placeholder.svg?height=80&width=80",
-				description: "AI research and deployment",
-				experience: "2+ years",
-				projects: "20+ projects",
-			},
-			{
-				name: "Scikit-learn",
-				logo: "/placeholder.svg?height=80&width=80",
-				description: "Machine learning library",
-				experience: "4+ years",
-				projects: "40+ projects",
-			},
-			{
-				name: "Pandas",
-				logo: "/placeholder.svg?height=80&width=80",
-				description: "Data analysis library",
-				experience: "5+ years",
-				projects: "60+ projects",
-			},
-			{
-				name: "Jupyter",
-				logo: "/placeholder.svg?height=80&width=80",
-				description: "Interactive computing",
-				experience: "4+ years",
-				projects: "50+ projects",
-			},
-		],
-	},
 ];
 
 export default function DevelopmentEnhanced({ contentClass }) {
@@ -381,7 +328,7 @@ export default function DevelopmentEnhanced({ contentClass }) {
 									</div>
 								</div>
 
-								<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+								<div className="grid grid-cols-2 gap-6 bg-gray-700/30 rounded-xl p-6 border border-white/5 hover:border-white/20 400:grid-cols-3 md:grid-cols-2 lg:grid-cols-3 md:bg-transparent md:rounded-none md:border-none">
 									{currentStack?.technologies?.map((tech, techIndex) => (
 										<motion.div
 											key={tech.name}
@@ -391,23 +338,21 @@ export default function DevelopmentEnhanced({ contentClass }) {
 												duration: 0.4,
 												delay: techIndex * 0.05,
 											}}
-											className="bg-gray-700/30 rounded-xl p-6 border border-white/5 hover:border-white/20 transition-all duration-300 group"
+											className="bg-transparent border-none rounded-none md:bg-gray-700/30 md:rounded-xl md:p-6 md:border md:border-white/5 md:hover:border-white/20 transition-all duration-300 group flex items-center justify-center"
 										>
-											<div className="flex items-center">
-												<div className="w-12 h-12 bg-white rounded-xl p-2 mr-4 flex items-center justify-center">
+											<div className="flex items-center justify-center gap-4">
+												<div className="md:w-12 md:h-12 sm:w-20 sm:h-20 w-16 h-16 bg-white rounded-xl p-2 flex items-center justify-center">
 													<img
+														className="object-contain w-full h-full"
 														src={tech.logo || "/placeholder.svg"}
 														alt={tech.name}
-														width={32}
-														height={32}
-														className="object-contain"
 													/>
 												</div>
-												<div>
+												<div className="hidden md:inline">
 													<h4 className="text-lg font-bold text-white">
 														{tech.name}
 													</h4>
-													<p className="text-gray-400 text-sm hidden md:inline">
+													<p className="text-gray-400 text-sm">
 														{tech.description}
 													</p>
 												</div>

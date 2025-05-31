@@ -38,6 +38,9 @@
 	--sidebar-ring: oklch(0.704 0.04 256.788);
 }
 @theme inline {
+	--breakpoint-500: 500px;
+	--breakpoint-400: 400px;
+
 	/*our custom color */
 	--color-light-blue: #5087f7;
 	--color-light-blue-gray: #dae4ed;

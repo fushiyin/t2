@@ -165,7 +165,7 @@ const VisionJourney = () => {
 	return (
 		<div
 			ref={containerRef}
-			className="h-[600px] md:h-[800px] w-full overflow-hidden relative snap-start snap-always bg-[#30323d]"
+			className="h-[600px] md:h-[870px] w-full overflow-hidden relative snap-start snap-always bg-[#30323d]"
 			style={{
 				scrollSnapAlign: "start",
 				backgroundImage: `url(${wallpaper})`,

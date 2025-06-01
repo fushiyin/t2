@@ -11,7 +11,6 @@ import SideNavigation from "./components/SideNavigation";
 import Testimonials from "./components/Testimonials";
 import WhyVietnam from "./components/WhyVietnam";
 
-
 function HomePage() {
 	const sectionClass = "flex items-center justify-center relative overflow-hidden";
 	const contentClass = "container h-full px-4 py-16 md:px-6";

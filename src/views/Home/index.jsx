@@ -1,6 +1,7 @@
 import CTA from "@/components/sections/ContactCTA";
 import { HEADER_STYLE } from "@/constant/header";
 import { SECTIONS_KEY } from "@/constant/sideNavigation";
+import VisionJourney2 from "./Demo";
 import CompetitiveEdges from "./components/CompetitiveEdges";
 import DevelopmentCapacity from "./components/DevelopmentCapacity/index";
 import FocusedIndustries from "./components/FocusedIndustries";
@@ -9,11 +10,10 @@ import OurProcess from "./components/OurProcess";
 import SideNavigation from "./components/SideNavigation";
 import Testimonials from "./components/Testimonials";
 import WhyVietnam from "./components/WhyVietnam";
-import VisionJourney2 from "./Demo";
 
 function HomePage() {
 	const sectionClass = "flex items-center justify-center relative overflow-hidden";
-	const contentClass = "container h-full px-4 py-20 md:px-6";
+	const contentClass = "container h-full px-4 py-16 md:px-6";
 	return (
 		<>
 			<section
@@ -53,16 +53,16 @@ function HomePage() {
 				<FocusedIndustries contentClass={contentClass} />
 			</section>
 			<section
-				id={SECTIONS_KEY.TESTIMONIALS.id}
-				className={sectionClass}
-			>
-				<Testimonials contentClass={contentClass} />
-			</section>
-			<section
 				id={SECTIONS_KEY.OUR_PROCESS.id}
 				className={sectionClass}
 			>
 				<OurProcess />
+			</section>
+			<section
+				id={SECTIONS_KEY.TESTIMONIALS.id}
+				className={sectionClass}
+			>
+				<Testimonials contentClass={contentClass} />
 			</section>
 			{/* <section
 				id="development"

@@ -186,7 +186,7 @@ export default function Careers() {
 								transition={{ type: "spring", stiffness: 200, damping: 15 }}
 								layout
 							>
-								Send Your CV
+								Apply CV
 							</motion.a>
 						</div>
 					</div>

@@ -64,7 +64,7 @@ export default function WhyVietnam({ contentClass }) {
 								icon: <HandCoins className="h-8 w-8 bg-t2-darkBlue rounded-full" />,
 								title: "Cost-effectiveness",
 								description:
-									"The same level of development manpower can be secured at a cost 25-55% lower than that of advanced countries, which is advantageous for budget optimization.",
+									"Development costs are 25–55% lower than in advanced countries, enabling better budget efficiency.									",
 							},
 							{
 								icon: <Handshake className="h-8 w-8 bg-t2-darkBlue rounded-full" />,
@@ -91,7 +91,7 @@ export default function WhyVietnam({ contentClass }) {
 								key={`why-vietnam-card-${idx}`}
 								variants={cardVariants}
 								className={classNames(
-									"w-9/10 sm:w-1/3 md:w-1/4 2xl:w-1/6 bg-white/80 rounded-2xl shadow-lg p-6 flex flex-col items-stretch relative min-w-[270px] min-h-[340px]",
+									"w-9/10 sm:w-1/3 md:w-1/4 2xl:w-1/6 bg-white/80 rounded-2xl shadow-lg p-6 flex flex-col items-stretch relative min-w-[270px] min-h-[300px]",
 								)}
 							>
 								<HoverCard {...card} />

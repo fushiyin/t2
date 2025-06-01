@@ -87,10 +87,10 @@ const duplicatedTestimonials = testimonials.map((row) => [...row, ...row, ...row
 
 export default function Testimonials({ contentClass }) {
 	return (
-		<div className="relative bg-dark-gray w-full h-full flex items-center justify-center">
+		<div className="relative bg-dark-gray w-full flex items-center justify-center h-[760px] md:h-full">
 			<div
 				className={classNames(
-					"relative h-full w-full flex items-center justify-center max-w-[1440px]",
+					"relative w-full flex items-center justify-center max-w-[1440px] h-full",
 					{ [contentClass]: contentClass },
 				)}
 			>
@@ -98,14 +98,13 @@ export default function Testimonials({ contentClass }) {
 				<div className="absolute inset-10 md:inset-0 z-10 m-auto aspect-[1051/375] w-full max-w-[1051px] rounded-[300px]  blur-[97px] bg-dark-gray"></div>
 				<div className="absolute inset-10 md:inset-0 z-20 m-auto aspect-[639/229] w-full max-w-[639px] rounded-[300px] blur-[52px] bg-dark-gray"></div>
 				<div className="absolute inset-10 md:inset-0 flex items-center justify-center">
-					<h2 className="z-30 text-3xl md:text-5xl font-bold text-white text-center px-[30px] py-[25px] rounded-[10px] bg-heading-black">
+					<h2 className="z-30 w-full max-w-[600px] text-xl sm:text-2xl md:text-4xl lg:text-5xl font-bold text-white text-center px-6 py-4 sm:px-8 sm:py-5 md:px-[30px] md:py-[25px] rounded-[10px] bg-heading-black">
 						Feedback from customers
 					</h2>
 				</div>
 
 				{/* Testimonial rows with horizontal infinite scroll */}
-				<div className="flex flex-col gap-4 mt-8 mb-8 w-full relative">
-					{/* Row 1 - Right to Left */}
+				<div className="flex flex-col gap-4 mt-8 mb-8 w-full relative h-full md:h-auto">
 					<InfinityHorizontalScroll
 						scrollSpeed={50000}
 						height={300}

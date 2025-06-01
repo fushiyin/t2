@@ -417,7 +417,7 @@ export default function FocusedIndustries({ contentClass }) {
 																		</span>
 																	</span>
 																</div>
-																<p className="text-gray-600 text-xs sm:text-sm leading-relaxed">
+																<p className="hidden sm:block text-gray-600 text-xs sm:text-sm leading-relaxed">
 																	{solution.description}
 																</p>
 															</div>

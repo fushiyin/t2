@@ -291,7 +291,7 @@ export default function FocusedIndustries({ contentClass }) {
 									onClick={() => setActiveIndustry(index)}
 									className={`flex-1 min-w-0 p-3 py-3 sm:px-6 sm:py-4 text-center transition-all duration-300 relative ${
 										activeIndustry === index
-											? "bg-white text-dark-blue shadow-sm"
+											? "bg-white text-dark-blue"
 											: "text-gray-600 hover:text-dark-blue hover:bg-white/50 border-b border-gray-200"
 									}`}
 								>

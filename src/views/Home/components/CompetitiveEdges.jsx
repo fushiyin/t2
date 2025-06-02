@@ -109,7 +109,7 @@ const CompetitiveEdges = ({ contentClass }) => {
 			>
 				{/* Heading */}
 				<div className="flex flex-col items-center justify-center space-y-4 text-center px-5 mb-5">
-					<h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+					<h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-dark-gray">
 						Our competitive edges
 					</h2>
 					<p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">

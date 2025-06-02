@@ -147,7 +147,7 @@ const Footer = () => {
 						</div>
 						{/* Contact */}
 						<div className="flex flex-col items-start space-y-4 w-full md:w-1/4 sm:w-1/4 xl:w-1/3">
-							<h3 className="text-foreground font-semibold text-lg mb-4">
+							<h3 className="text-foreground lg:w-full lg:text-start md:text-center font-semibold text-lg mb-4">
 								{t("menu.contact")}
 							</h3>
 							{CONTACT_ITEMS.map((item) => {

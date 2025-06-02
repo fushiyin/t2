@@ -1,29 +1,536 @@
 {
-	"menu": {
-		"home": "홈",
-		"about": "소개",
-		"contact": "연락처",
-		"blog": "블로그",
-		"careers": "채용",
-		"services": "서비스",
-		"testimonials": "고객 후기",
-		"faq": "자주 묻는 질문"
+	"about_us": {
+		"title": "About us"
 	},
-	"slogan": "글로벌 소프트웨어 서비스 및 솔루션 파트너",
+	"competitive_edges": {
+		"description": "T2SOFT만의 차별화된 경쟁력",
+		"edges": {
+			"coordinator": {
+				"description": [
+					"한국.베트남양방향코디네이터가능",
+					"한국식업무방식에최적화된대응",
+					"풍부한경험으로프로젝트리딩가능",
+					"이슈발생시빠르고명확한소통및조율가능"
+				],
+				"title": "한국인PM/Coordinator"
+			},
+			"developer": {
+				"title": "숙련된우수한개발인재",
+				"description": [
+					"다양한언어&프레임워크숙련도",
+					"최신트렌드와기술변화에빠르게적응",
+					"한국프로젝트맞춤경험인력구성가능",
+					"품질중심의실무형개발팀"
+				]
+			},
+			"communication": {
+				"title": "글로벌커뮤니케이션능력",
+				"description": [
+					"전문브리지인력으로고객과개발간소통최적화",
+					"문화간차이에대한높은이해도와대응력",
+					"고객맞춤커뮤니케이션으로효율적인협업실현",
+					"협업툴에익숙한팀워크로실시간원활한소통"
+				]
+			},
+			"cost": {
+				"title": "비용대비높은효율성",
+				"description": [
+					"비용대비높은효율성",
+					"풍부한경험으로시행착오를최소화",
+					"탄탄한내부프로세스로생산성극대화",
+					"유연한인력운용으로비용절감실현"
+				]
+			}
+		},
+		"title": "T2SOFT만의 차별화된 경쟁력"
+	},
 	"description": "T2soft는 한국 기업 고객을 위한 소프트웨어 개발 및 유지보수, IT 컨설팅 서비스를 제공하는 베트남 SI 및 IT 아웃소싱 회사입니다. 고객의 요구에 최적화된 고품질 IT 솔루션을 신속하게 제공하고, 디지털 전환을 성공적으로 지원하며, 고객과 함께 성장하는 것을 목표로 합니다.",
 	"focus_industries": {
-		"title": "abc",
-		"description": "T2soft는 한국 기업 고객을 위한 소프트웨어 개발 및 유지보수, IT 컨설팅 서비스를 제공하는 베트남 SI 및 IT 아웃소싱 회사입니다. 고객의 요구에 최적화된 고품질 IT 솔루션을 신속하게 제공하고, 디지털 전환을 성공적으로 지원하며, 고객과 함께 성장하는 것을 목표로 합니다."
+		"description": "T2soft는 한국 기업 고객을 위한 소프트웨어 개발 및 유지보수, IT 컨설팅 서비스를 제공하는 베트남 SI 및 IT 아웃소싱 회사입니다. 고객의 요구에 최적화된 고품질 IT 솔루션을 신속하게 제공하고, 디지털 전환을 성공적으로 지원하며, 고객과 함께 성장하는 것을 목표로 합니다.",
+		"title": "abc"
 	},
 	"description_mobile": "T2soft는 한국 기업 고객을 위한 소프트웨어 개발 및 유지보수, IT 컨설팅 서비스를 제공하는 베트남 SI 및 IT 아웃소싱 회사입니다.",
 	"language": "언어",
 	"menu_drawer": "메뉴",
 	"footer": {
 		"company": "회사",
-		"resources": "리소스",
 		"documentation": "문서",
+		"privacy": "개인정보처리방침",
+		"resources": "리소스",
 		"studies": "사례 연구",
-		"terms": "서비스 약관",
-		"privacy": "개인정보처리방침"
+		"terms": "서비스 약관"
+	},
+	"menu": {
+		"about": "소개",
+		"blog": "블로그",
+		"careers": "채용",
+		"contact": "연락처",
+		"faq": "자주 묻는 질문",
+		"home": "홈",
+		"services": "서비스",
+		"testimonials": "고객 후기"
+	},
+	"servicesPage": {
+		"ai": "AI 및 머신러닝",
+		"ai_desc": "AI와 ML의 힘을 활용하여 인사이트와 자동화를 제공하는 지능형 솔루션",
+		"cloud": "클라우드 서비스",
+		"cloud_desc": "인프라와 운영을 최적화하는 클라우드 아키텍처, 마이그레이션 및 관리 서비스",
+		"custom_software": "맞춤형 소프트웨어 개발",
+		"custom_software_desc": "비즈니스 과제와 요구사항을 해결하기 위해 처음부터 설계 및 구축된 맞춤형 소프트웨어 솔루션",
+		"mobile_app": "모바일 앱 개발",
+		"mobile_app_desc": "모든 기기에서 뛰어난 사용자 경험을 제공하는 네이티브 및 크로스플랫폼 모바일 앱",
+		"qa": "QA 및 테스트",
+		"qa_desc": "최고 수준의 소프트웨어 품질을 보장하는 종합 품질 보증 및 테스트 서비스",
+		"slogan": "글로벌 소프트웨어 서비스 및 솔루션 파트너",
+		"web_dev": "웹 개발",
+		"web_dev_desc": "최신 기술과 프레임워크로 구축된 반응형, 고성능 웹 애플리케이션 및 사이트"
+	},
+	"why_vietnam": {
+		"title": "Why Vietnam?",
+		"description": "베트남은풍부한IT인재,합리적인비용과 빠른기술습득력,안정적인개발.운영서비스로글로벌소프트웨어아웃소싱시장에서한국기업들과완벽한협업가능합니다.",
+		"talent": {
+			"title": "고급 인재와 기술력",
+			"description": "최신 기술에 민감하고 외국어소통 능력이 뛰어난 젊은IT 인재 풍부"
+		},
+		"cost": {
+			"title": "비용 효율성",
+			"description": "동일 수준의 개발 인력을 선진국 대비 25~55% 낮은 비용으로 확보 가능, 예산 최적화에 유리"
+		},
+		"geo_n_culture": {
+			"title": "지리적/문화적 궁합",
+			"description": "2시간 이내 시차, 역사.문화적 유사성으로 실시간 커뮤니케 이션과 원활한 협업이 가능"
+		},
+		"politic_n_eco": {
+			"title": "안정된 정치·경제 환경",
+			"description": "정치·경제적 안정성과 성장 잠재력을 바탕으로 베트남은 글로벌 IT 아웃소싱 점으로 부상중"
+		},
+		"experience": {
+			"title": "글로벌 협업 경험",
+			"description": "한국, 일본, 등 다양한 국가의 글로벌 기업들과 협업 경험 보유"
+		}
+	},
+	"our": "Our",
+	"vision": {
+		"title": "Vision",
+		"description": "T2와 함께하는 미래 기술의 중심 차세대 기술을 선도하는 최고의 글로벌 개발 파트너가 됩니다."
+	},
+	"mission": {
+		"title": "Mission",
+		"description": "전 세계 고객에게 신뢰할 수 있는 소프트웨어 개발 및 솔루션을 제공 하며 베트남의 우수한 개발 인재와 함께 비용 효율적이고 품질 높은 서비스를 제공합니다. 기술 혁신과 유연한 협업을 통해 고객의 비즈니스 성장을 지원합니다."
+	},
+	"values": {
+		"title": "Values",
+		"description": "우리는 고객과 한 팀이 되어 함께 성장하며, 최신 기술과 트렌드를 빠르게 적용해 앞서 나아갑니다. 또한, 정직한 소통과 책임감 있는 행동으로 신뢰와 투명성을 바탕으로 한 장기적인 관계를 만들어갑니다."
+	},
+	"tech_stack": {
+		"title": "기술 스택",
+		"description": "최신 프레임워크, 언어, 플랫폼을 아우르는 포괄적인 기술 전문성을 보유하고 있습니다. 확장 가능하고 견고하며 혁신적인 솔루션을 구축하기 위해 최첨단 도구를 활용합니다.",
+		"frontend": {
+			"title": "프론트엔드 개발",
+			"description": "현대적이고 반응형이며 인터랙티브한 사용자 인터페이스 구축",
+			"technologies": {
+				"react": {
+					"description": "컴포넌트 기반 UI 라이브러리",
+					"experience": "5년 이상",
+					"projects": "150개 이상 프로젝트"
+				},
+				"nextjs": {
+					"description": "풀스택 React 프레임워크",
+					"experience": "4년 이상",
+					"projects": "100개 이상 프로젝트"
+				},
+				"typescript": {
+					"description": "타입이 지정된 JavaScript 확장",
+					"experience": "4년 이상",
+					"projects": "120개 이상 프로젝트"
+				},
+				"tailwind": {
+					"description": "유틸리티 우선 CSS 프레임워크",
+					"experience": "3년 이상",
+					"projects": "80개 이상 프로젝트"
+				},
+				"vue": {
+					"description": "점진적 JavaScript 프레임워크",
+					"experience": "3년 이상",
+					"projects": "60개 이상 프로젝트"
+				},
+				"angular": {
+					"description": "모바일 및 데스크톱 앱 구축 플랫폼",
+					"experience": "4년 이상",
+					"projects": "70개 이상 프로젝트"
+				}
+			}
+		},
+		"backend": {
+			"title": "백엔드 개발",
+			"description": "확장 가능한 서버 측 애플리케이션 및 강력한 API",
+			"technologies": {
+				"nodejs": {
+					"description": "JavaScript 런타임 환경",
+					"experience": "5년 이상",
+					"projects": "130개 이상 프로젝트"
+				},
+				"python": {
+					"description": "다목적 프로그래밍 언어",
+					"experience": "6년 이상",
+					"projects": "90개 이상 프로젝트"
+				},
+				"java": {
+					"description": "엔터프라이즈급 프로그래밍 언어",
+					"experience": "7년 이상",
+					"projects": "110개 이상 프로젝트"
+				},
+				"express": {
+					"description": "빠른 Node.js 웹 프레임워크",
+					"experience": "5년 이상",
+					"projects": "120개 이상 프로젝트"
+				},
+				"django": {
+					"description": "고수준 Python 웹 프레임워크",
+					"experience": "4년 이상",
+					"projects": "65개 이상 프로젝트"
+				},
+				"spring": {
+					"description": "Java 기반 프레임워크",
+					"experience": "5년 이상",
+					"projects": "85개 이상 프로젝트"
+				}
+			}
+		},
+		"mobile": {
+			"title": "모바일 개발",
+			"description": "네이티브 및 크로스 플랫폼 모바일 애플리케이션",
+			"technologies": {
+				"react_native": {
+					"description": "크로스 플랫폼 모바일 프레임워크",
+					"experience": "4년 이상",
+					"projects": "75개 이상 프로젝트"
+				},
+				"flutter": {
+					"description": "Google의 UI 툴킷",
+					"experience": "3년 이상",
+					"projects": "50개 이상 프로젝트"
+				},
+				"ios": {
+					"description": "네이티브 iOS 개발",
+					"experience": "5년 이상",
+					"projects": "60개 이상 프로젝트"
+				},
+				"android": {
+					"description": "네이티브 Android 개발",
+					"experience": "5년 이상",
+					"projects": "70개 이상 프로젝트"
+				},
+				"xamarin": {
+					"description": "Microsoft의 모바일 플랫폼",
+					"experience": "3년 이상",
+					"projects": "40개 이상 프로젝트"
+				},
+				"ionic": {
+					"description": "하이브리드 모바일 앱 프레임워크",
+					"experience": "3년 이상",
+					"projects": "45개 이상 프로젝트"
+				}
+			}
+		},
+		"database": {
+			"title": "데이터베이스 및 스토리지",
+			"description": "데이터 관리 및 스토리지 솔루션",
+			"technologies": {
+				"postgresql": {
+					"description": "고급 오픈 소스 데이터베이스",
+					"experience": "6년 이상",
+					"projects": "100개 이상 프로젝트"
+				},
+				"mongodb": {
+					"description": "NoSQL 문서 데이터베이스",
+					"experience": "5년 이상",
+					"projects": "90개 이상 프로젝트"
+				},
+				"mysql": {
+					"description": "인기 있는 관계형 데이터베이스",
+					"experience": "7년 이상",
+					"projects": "120개 이상 프로젝트"
+				},
+				"redis": {
+					"description": "인메모리 데이터 구조 저장소",
+					"experience": "4년 이상",
+					"projects": "80개 이상 프로젝트"
+				},
+				"elasticsearch": {
+					"description": "검색 및 분석 엔진",
+					"experience": "3년 이상",
+					"projects": "35개 이상 프로젝트"
+				},
+				"firebase": {
+					"description": "Google의 모바일 플랫폼",
+					"experience": "4년 이상",
+					"projects": "70개 이상 프로젝트"
+				}
+			}
+		},
+		"cta": {
+			"description": "다음 프로젝트에 우리의 기술 전문성을 활용할 준비가 되셨나요? 당신의 비전을 실현하는 방법을 논의해 보겠습니다.",
+			"button": "프로젝트 시작하기"
+		}
+	},
+	"industries": {
+		"title": "주요 사업 분야",
+		"description": "디지털 혁신과 비즈니스 성장을 이끄는 혁신적인 솔루션을 제공하는 5개의 핵심 산업 분야에서의 전문성을 확인하세요.",
+		"status": {
+			"expertise": "전문성",
+			"advanced": "고도화",
+			"specialized": "전문화",
+			"innovation": "혁신",
+			"emerging": "신규"
+		},
+		"manufactoring": {
+			"title": "제조업",
+			"description": "스마트 제조 솔루션으로 산업 4.0 혁신을 실현",
+			"tagline": "생산 혁신",
+			"sub_industries": {
+				"erp": {
+					"title": "ERP 시스템",
+					"description": "원활한 운영을 위한 기업 자원 관리 시스템"
+				},
+				"mes": {
+					"title": "MES 솔루션",
+					"description": "생산 최적화를 위한 제조 실행 시스템"
+				},
+				"supply_chain": {
+					"title": "공급망 관리",
+					"description": "종합적인 공급망 최적화 및 추적 시스템"
+				},
+				"quality_manage": {
+					"title": "품질 관리",
+					"description": "자동화된 품질 관리 및 보증 시스템"
+				}
+			}
+		},
+		"bank_n_fin": {
+			"title": "은행 및 금융",
+			"description": "안전하고 혁신적인 금융 기술 솔루션",
+			"tagline": "금융의 미래를 보장",
+			"sub_industries": {
+				"payment_gateways": {
+					"title": "결제 시스템",
+					"description": "안전한 결제 처리 및 게이트웨이 솔루션"
+				},
+				"mobile_banking": {
+					"title": "모바일 뱅킹",
+					"description": "다양한 기능을 갖춘 모바일 뱅킹 애플리케이션"
+				},
+				"fintech": {
+					"title": "핀테크 플랫폼",
+					"description": "종합적인 금융 기술 솔루션"
+				},
+				"pos": {
+					"title": "POS 시스템",
+					"description": "고급 판매 시점 및 결제 단말기"
+				}
+			}
+		},
+		"ecommerce": {
+			"title": "이커머스",
+			"description": "종합적인 이커머스 플랫폼 및 디지털 마케팅 솔루션",
+			"tagline": "디지털 커머스의 힘",
+			"sub_industries": {
+				"crm": {
+					"title": "CRM 시스템",
+					"description": "고급 고객 관계 관리 시스템"
+				},
+				"marketing": {
+					"title": "마케팅 자동화",
+					"description": "AI 기반 마케팅 캠페인 및 분석"
+				},
+				"platforms": {
+					"title": "이커머스 플랫폼",
+					"description": "결제 통합이 포함된 풀스택 이커머스 솔루션"
+				},
+				"analytics": {
+					"title": "빅데이터 분석",
+					"description": "비즈니스 인텔리전스를 위한 고급 분석"
+				}
+			}
+		},
+		"ai": {
+			"title": "AI 솔루션",
+			"description": "스마트 자동화를 위한 인공지능 솔루션",
+			"tagline": "지능형 시스템 구축",
+			"sub_industries": {
+				"healthcare": {
+					"title": "스마트 헬스케어",
+					"description": "AI 기반 의료 관리 및 진단 시스템"
+				},
+				"office": {
+					"title": "스마트 오피스",
+					"description": "지능형 사무실 자동화 및 관리"
+				},
+				"ibeems": {
+					"title": "AI & iBEEMS",
+					"description": "지능형 건물 에너지 및 환경 관리"
+				}
+			}
+		},
+		"logistics": {
+			"title": "물류",
+			"description": "스마트 물류 및 공급망 최적화 솔루션",
+			"tagline": "공급망 최적화",
+			"sub_industries": {
+				"warehouse": {
+					"title": "창고 관리",
+					"description": "재고 관리 및 최적화를 위한 고급 WMS"
+				},
+				"analytics": {
+					"title": "물류 분석",
+					"description": "데이터 기반 물류 최적화 및 인사이트"
+				},
+				"fleet": {
+					"title": "차량 관리",
+					"description": "실시간 차량 추적 및 최적화"
+				}
+			}
+		}
+	},
+	"process": {
+		"title": "개발 프로세스",
+		"description": "고품질 소프트웨어 솔루션을 제공하기 위한 체계적인 접근 방식",
+		"navigation": {
+			"previous": "이전",
+			"next": "다음"
+		},
+		"steps": {
+			"discovery": {
+				"title": "요구사항 분석",
+				"description": "심층적인 상담을 통해 비즈니스 목표, 요구사항 및 과제를 이해합니다.",
+				"details": [
+					"요구사항 수집 및 분석",
+					"시장 및 경쟁사 조사",
+					"기술적 실현 가능성 평가",
+					"프로젝트 범위 정의"
+				]
+			},
+			"design": {
+				"title": "설계 및 기획",
+				"description": "상세한 디자인과 기술 명세를 작성하여 개발의 기반을 마련합니다.",
+				"details": [
+					"UI/UX 디자인 및 프로토타이핑",
+					"시스템 아키텍처 설계",
+					"데이터베이스 스키마 설계",
+					"프로젝트 로드맵 및 스프린트 계획"
+				]
+			},
+			"development": {
+				"title": "개발",
+				"description": "숙련된 개발자들이 업계 모범 사례를 따라 깔끔하고 효율적인 코드를 작성합니다.",
+				"details": [
+					"애자일 개발 방법론",
+					"정기적인 코드 리뷰",
+					"지속적 통합",
+					"일일 스탠드업 및 진행 상황 추적"
+				]
+			},
+			"testing": {
+				"title": "테스트 및 품질 보증",
+				"description": "철저한 테스트를 통해 소프트웨어가 버그 없이 안전하고 최적의 성능을 발휘하도록 보장합니다.",
+				"details": [
+					"기능 테스트",
+					"성능 및 부하 테스트",
+					"보안 테스트",
+					"사용자 수용 테스트"
+				]
+			},
+			"deployment": {
+				"title": "배포",
+				"description": "최소한의 중단으로 솔루션을 프로덕션 환경에 원활하게 배포합니다.",
+				"details": [
+					"배포 계획 및 실행",
+					"환경 구성",
+					"데이터 마이그레이션 (필요시)",
+					"배포 후 검증"
+				]
+			},
+			"maintenance": {
+				"title": "유지보수 및 지원",
+				"description": "솔루션이 지속적으로 최적의 성능을 발휘하도록 지속적인 지원과 유지보수를 제공합니다.",
+				"details": [
+					"정기적인 업데이트 및 개선",
+					"버그 수정 및 이슈 해결",
+					"성능 모니터링",
+					"기술 지원 및 컨설팅"
+				]
+			}
+		}
+	},
+	"testimonials": {
+		"title": "고객 후기",
+		"actions": {
+			"reply": "답글",
+			"share": "공유"
+		}
+	},
+	"contact_cta": {
+		"title": "아이디어를 실현할 준비가 되셨나요?",
+		"description": "T2Soft가 귀사의 기술 목표 달성을 어떻게 도울 수 있는지 논의해 보겠습니다. 저희 팀이 귀사의 비전을 실현할 준비가 되어 있습니다.",
+		"contact_button": "문의하기",
+		"services_button": "서비스 살펴보기"
+	},
+	"unique_value": {
+		"title": "최고의 서비스를 제공합니다",
+		"description": "다른 기술 제공업체와 차별화되는 우리만의 특별한 가치를 확인하세요.",
+		"advantages": {
+			"quality": {
+				"title": "품질 보증",
+				"description": "엄격한 품질 관리 프로세스를 통해 모든 코드가 최고의 기준을 충족하도록 보장합니다. 단위 테스트, 통합 테스트, 자동화된 QA 프로세스를 포함한 포괄적인 테스트 방법론을 구현하여 견고하고 버그 없는 솔루션을 제공합니다."
+			},
+			"technical": {
+				"title": "기술 전문성",
+				"description": "우리 팀은 다양한 기술과 도메인에 걸쳐 전문가들로 구성되어 있습니다. 클라우드 아키텍처부터 AI 구현, 모바일 개발부터 엔터프라이즈 솔루션까지, 모든 프로젝트에 깊은 기술 지식과 실무 경험을 제공합니다."
+			},
+			"cultural": {
+				"title": "문화적 조화",
+				"description": "동양의 헌신과 서양의 비즈니스 관행을 연결합니다. 우리 팀은 글로벌 비즈니스 문화를 이해하면서도 베트남의 근면성, 정확성, 탁월성에 대한 헌신을 가져와 전 세계 고객과 조화로운 업무 관계를 구축합니다."
+			},
+			"scalable": {
+				"title": "확장 가능한 솔루션",
+				"description": "성장을 고려한 설계를 제공합니다. 우리의 아키텍처와 개발 접근 방식은 확장성을 우선시하여 솔루션이 비즈니스와 함께 원활하게 성장할 수 있도록 합니다. 스타트업부터 대기업까지, 변화하는 요구사항에 적응하는 기술을 구축합니다."
+			}
+		}
+	},
+	"faq": {
+		"title": "자주 묻는 질문",
+		"questions": {
+			"services": {
+				"question": "어떤 프로그래밍 서비스를 제공하나요?",
+				"answer": "웹 및 모바일 앱 개발, 백엔드 시스템, API 통합, 유지보수 지원을 포함한 종합적인 소프트웨어 개발 서비스를 제공합니다."
+			},
+			"technologies": {
+				"question": "어떤 기술에 전문성이 있나요?",
+				"answer": "JavaScript(React, Node.js), Python, Java, PHP, .NET 및 AWS, Azure와 같은 클라우드 플랫폼을 포함한 다양한 기술에 전문성을 보유하고 있습니다."
+			},
+			"quality": {
+				"question": "코드 품질은 어떻게 보장하나요?",
+				"answer": "코드 리뷰, 단위 테스트, 지속적 통합, 버전 관리 등 모범 사례를 따르며 높은 코드 품질을 유지합니다."
+			},
+			"communication": {
+				"question": "개발자와 직접 소통할 수 있나요?",
+				"answer": "네, Slack, Zoom, 이메일 등의 도구를 통해 개발자와 직접 소통할 수 있는 채널을 제공하여 원활한 협업을 보장합니다."
+			},
+			"pricing": {
+				"question": "가격 정책은 어떻게 되나요?",
+				"answer": "프로젝트 요구사항에 따라 시간당 요금, 전담 팀 구성, 고정 가격 계약 등 유연한 가격 정책을 제공합니다."
+			}
+		}
+	},
+	"about": {
+		"title": "회사 소개",
+		"description": "T2 Soft는 고품질 솔루션 제공에 중점을 둔 선도적인 소프트웨어 개발 회사입니다. 기술적 전문성과 혁신적인 사고를 결합하여 기업의 디지털 혁신을 지원합니다.",
+		"experience": "10년 이상의 업계 경험",
+		"team": "50명 이상의 숙련된 전문가 팀",
+		"projects": "200개 이상의 성공적인 프로젝트 완료",
+		"offices": "베트남과 한국에 글로벌 사무소 운영",
+		"faq": {
+			"imageAlt": "자주 묻는 질문 일러스트레이션"
+		}
 	}
 }

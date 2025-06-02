@@ -1,12 +1,37 @@
 import classNames from "classnames";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
-export default function FAQ({ faqs = [] }) {
+export default function FAQ() {
 	const [openIndex, setOpenIndex] = useState(null);
+	const { t } = useTranslation();
 
 	const handleToggle = (idx) => {
 		setOpenIndex(openIndex === idx ? null : idx);
 	};
+
+	const faqs = [
+		{
+			question: t("faq.questions.services.question"),
+			answer: t("faq.questions.services.answer"),
+		},
+		{
+			question: t("faq.questions.technologies.question"),
+			answer: t("faq.questions.technologies.answer"),
+		},
+		{
+			question: t("faq.questions.quality.question"),
+			answer: t("faq.questions.quality.answer"),
+		},
+		{
+			question: t("faq.questions.communication.question"),
+			answer: t("faq.questions.communication.answer"),
+		},
+		{
+			question: t("faq.questions.pricing.question"),
+			answer: t("faq.questions.pricing.answer"),
+		},
+	];
 
 	return (
 		<section className="w-full max-w-2xl mx-auto">

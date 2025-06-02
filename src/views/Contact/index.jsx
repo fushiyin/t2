@@ -45,7 +45,7 @@ export default function Contact() {
 						<div className="container xl:px-4 sm:px-0 md:px-0 h-full flex flex-col justify-center">
 							<div className="grid gap-10 lg:grid-cols-2 items-center">
 								<div className="space-y-4 p-3 md:p-3 lg:p-6 xl:p-6">
-									<h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-t2-darkBlue">
+									<h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-dark-gray">
 										Ready to Transform Your Ideas?
 									</h2>
 									<p className="max-w-[600px] text-muted-foreground md:text-xl/relaxed">
@@ -95,7 +95,7 @@ export default function Contact() {
 													/>
 												</svg>
 											</div>
-											<h3 className="text-xl font-bold mb-2 text-t2-darkBlue">
+											<h3 className="text-xl font-bold mb-2 text-dark-gray">
 												Message Sent!
 											</h3>
 											<p className="text-muted-foreground">
@@ -111,7 +111,7 @@ export default function Contact() {
 											<div>
 												<label
 													htmlFor="name"
-													className="block text-sm font-medium mb-1 text-t2-darkBlue"
+													className="block text-sm font-medium mb-1 text-dark-gray"
 												>
 													Full Name
 												</label>
@@ -128,7 +128,7 @@ export default function Contact() {
 											<div>
 												<label
 													htmlFor="email"
-													className="block text-sm font-medium mb-1 text-t2-darkBlue"
+													className="block text-sm font-medium mb-1 text-dark-gray"
 												>
 													Email
 												</label>
@@ -146,7 +146,7 @@ export default function Contact() {
 											<div>
 												<label
 													htmlFor="company"
-													className="block text-sm font-medium mb-1 text-t2-darkBlue"
+													className="block text-sm font-medium mb-1 text-dark-gray"
 												>
 													Company
 												</label>
@@ -162,7 +162,7 @@ export default function Contact() {
 											<div>
 												<label
 													htmlFor="message"
-													className="block text-sm font-medium mb-1 text-t2-darkBlue"
+													className="block text-sm font-medium mb-1 text-dark-gray"
 												>
 													How can we help?
 												</label>

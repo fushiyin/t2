@@ -30,7 +30,7 @@ export default function VisionMission() {
 			<div className="container px-4 md:px-6 h-full flex flex-col justify-center">
 				<div className="flex flex-col items-center justify-center space-y-4 text-center">
 					<div className="space-y-2">
-						<h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-t2-darkBlue">
+						<h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-dark-gray">
 							Vision, Mission & Values
 						</h2>
 						<p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
@@ -55,7 +55,7 @@ export default function VisionMission() {
 								>
 									<EyeIcon className="h-6 w-6 text-t2-blue" />
 								</motion.div>
-								<CardTitle className="text-xl text-center text-t2-darkBlue">
+								<CardTitle className="text-xl text-center text-dark-gray">
 									Vision
 								</CardTitle>
 							</CardHeader>
@@ -78,7 +78,7 @@ export default function VisionMission() {
 								>
 									<CompassIcon className="h-6 w-6 text-t2-blue" />
 								</motion.div>
-								<CardTitle className="text-xl text-center text-t2-darkBlue">
+								<CardTitle className="text-xl text-center text-dark-gray">
 									Mission
 								</CardTitle>
 							</CardHeader>
@@ -101,14 +101,14 @@ export default function VisionMission() {
 								>
 									<HeartIcon className="h-6 w-6 text-t2-blue" />
 								</motion.div>
-								<CardTitle className="text-xl text-center text-t2-darkBlue">
+								<CardTitle className="text-xl text-center text-dark-gray">
 									Values
 								</CardTitle>
 							</CardHeader>
 							<CardContent className="text-center pt-4">
 								<ul className="space-y-2 text-left">
 									<li className="flex items-start gap-2">
-										<span className="font-bold min-w-[80px] text-t2-darkBlue">
+										<span className="font-bold min-w-[80px] text-dark-gray">
 											Excellence:
 										</span>
 										<span className="text-muted-foreground">
@@ -116,7 +116,7 @@ export default function VisionMission() {
 										</span>
 									</li>
 									<li className="flex items-start gap-2">
-										<span className="font-bold min-w-[80px] text-t2-darkBlue">
+										<span className="font-bold min-w-[80px] text-dark-gray">
 											Innovation:
 										</span>
 										<span className="text-muted-foreground">
@@ -124,7 +124,7 @@ export default function VisionMission() {
 										</span>
 									</li>
 									<li className="flex items-start gap-2">
-										<span className="font-bold min-w-[80px] text-t2-darkBlue">
+										<span className="font-bold min-w-[80px] text-dark-gray">
 											Integrity:
 										</span>
 										<span className="text-muted-foreground">
@@ -132,7 +132,7 @@ export default function VisionMission() {
 										</span>
 									</li>
 									<li className="flex items-start gap-2">
-										<span className="font-bold min-w-[80px] text-t2-darkBlue">
+										<span className="font-bold min-w-[80px] text-dark-gray">
 											Teamwork:
 										</span>
 										<span className="text-muted-foreground">

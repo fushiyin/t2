@@ -36,7 +36,7 @@ const CaseStudiesSection = () => {
 		<div className="w-full bg-white mt-2">
 			<div className="mx-auto max-w-[1440px]">
 				<header className="mb-20 text-center flex flex-col items-center justify-center">
-					<h2 className="mb-6 text-3xl font-bold tracking-tighter sm:text-5xl text-t2-darkBlue">
+					<h2 className="mb-6 text-3xl font-bold tracking-tighter sm:text-5xl text-dark-gray">
 						Case Studies
 					</h2>
 					<p className="max-w-[900px] mg- text-xl font-light leading-6 text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">

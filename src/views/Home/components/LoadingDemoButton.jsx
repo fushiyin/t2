@@ -18,7 +18,7 @@ export default function LoadingDemoButton() {
 		<Button
 			onClick={handleClick}
 			disabled={isLoading}
-			className="bg-black hover:bg-t2-darkBlue text-white"
+			className="bg-black text-white"
 		>
 			{isLoading ? "Loading..." : "Demo Loading"}
 			<Loader

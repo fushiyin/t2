@@ -1,11 +1,11 @@
+import Communicate from "@/assets/lotties/communicate.json";
+import Computer from "@/assets/lotties/computer.json";
+import Cost from "@/assets/lotties/cost.json";
+import Dev from "@/assets/lotties/dev.json";
 import classNames from "classnames";
 import { BarChart3, Check, ChevronDown, Code, Cpu, DollarSign } from "lucide-react";
 import { useEffect, useState } from "react";
 import Lottie from "react-lottie";
-import Communicate from "../../../assets/lotties/communicate.json";
-import Computer from "../../../assets/lotties/computer.json";
-import Cost from "../../../assets/lotties/cost.json";
-import Dev from "../../../assets/lotties/dev.json";
 
 const edges = [
 	{
@@ -76,7 +76,7 @@ const defaultOptions = {
 
 const AUTO_SWITCH_INTERVAL = 5000;
 
-const CompetitiveEdges = () => {
+const CompetitiveEdges = ({ contentClass }) => {
 	const [activeEdge, setActiveEdge] = useState(null);
 	const [isHovered, setIsHovered] = useState(false);
 	const [hoveredIndex, setHoveredIndex] = useState(null);
@@ -85,7 +85,7 @@ const CompetitiveEdges = () => {
 		if (!activeEdge && edges.length > 0) {
 			setActiveEdge(edges[0]);
 		}
-	}, []);
+	}, [activeEdge]);
 
 	useEffect(() => {
 		if (isHovered) return;
@@ -101,21 +101,25 @@ const CompetitiveEdges = () => {
 	}, [isHovered]);
 
 	return (
-		<div className="w-full bg-white">
-			<div className="mx-auto mb-16 mt-16 max-w-[1440px]">
+		<div className="w-full bg-white flex flex-col items-center justify-center">
+			<div
+				className={classNames({
+					[contentClass]: contentClass,
+				})}
+			>
 				{/* Heading */}
 				<div className="flex flex-col items-center justify-center space-y-4 text-center px-5 mb-5">
-					<h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-t2-darkBlue">
+					<h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
 						Our competitive edges
 					</h2>
-					<p className="md:max-w-[900px] text-muted-foreground md:text-xl/relaxed">
+					<p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
 						Our guiding principles that drive everything we do.
 					</p>
 				</div>
 
 				{/* Desktop grid */}
-				<div className="hidden md:flex flex-col">
-					<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-10 mt-12 ">
+				<div className="hidden md:flex flex-col 2xl:px-0 lg:px-5 px-10">
+					<div className="grid grid-cols-1 sm:grid-cols-2 2xl:grid-cols-4 gap-8 2xl:gap-4 sm:gap-6 py-12">
 						{edges.map((edge) => {
 							const isActive = activeEdge?.id === edge.id;
 							const isHovering = hoveredIndex === edge.id;

@@ -272,7 +272,7 @@ export default function DevelopmentEnhanced({ contentClass }) {
 						<h2 className="text-3xl font-bold tracking-tighter sm:text-5xl pb-6 bg-gradient-to-r from-light-blue via-light-blue-gray to-pale-blue bg-clip-text text-transparent">
 							Technology Stack
 						</h2>
-						<p className="max-w-[900px] mx-auto text-gray-300 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+						<p className="max-w-[900px] mx-auto text-gray-300 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed px-8 400:px-6">
 							Our comprehensive technology expertise spans across modern frameworks,
 							languages, and platforms. We leverage cutting-edge tools to build
 							scalable, robust, and innovative solutions.
@@ -330,7 +330,7 @@ export default function DevelopmentEnhanced({ contentClass }) {
 										variant="outline"
 										size="sm"
 										onClick={nextStack}
-										className="sm:hidden border-section-gray/40 text-white bg-transparent"
+										className="ml-4 sm:hidden border-section-gray/40 text-white bg-transparent"
 									>
 										<ChevronRightIcon className="h-4 w-4" />
 									</Button>
@@ -348,7 +348,7 @@ export default function DevelopmentEnhanced({ contentClass }) {
 											}}
 											className="bg-transparent border-none rounded-none md:bg-gray-700/30 md:rounded-xl md:p-6 md:border md:border-white/5 md:hover:border-white/20 transition-all duration-300 group flex items-center justify-center"
 										>
-											<div className="flex items-center justify-center gap-4">
+											<div className="flex items-center justify-center md:justify-start gap-4 w-full">
 												<div className="md:w-14 md:h-14 sm:w-20 sm:h-20 400:w-16 400:h-16 h-12 w-12 bg-white rounded-xl p-2 flex items-center justify-center">
 													<img
 														className="object-contain w-full h-full"
@@ -381,7 +381,7 @@ export default function DevelopmentEnhanced({ contentClass }) {
 					viewport={{ once: true }}
 					className="text-center"
 				>
-					<p className="text-base sm:text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+					<p className="text-base sm:text-xl text-gray-300 mb-8 max-w-2xl mx-auto px-8 400:px-6">
 						Ready to leverage our technical expertise for your next project? Let&apos;s
 						discuss how we can bring your vision to life.
 					</p>

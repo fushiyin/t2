@@ -58,7 +58,7 @@ function AdvantageItem({ icon: Icon, title, description, index }) {
 			>
 				<div className=" rounded-full p-3 bg-dark-blue">
 					<Icon
-						className="h-6 w-6 text-t2-blue"
+						className="h-6 w-6 "
 						color="#ffffff"
 					/>
 				</div>

@@ -25,7 +25,7 @@ export default function VisionMission() {
 	return (
 		<div
 			id="vision-mission"
-			className="bg-t2-grayBlue/10 max-w-[1440px] px-4 md:px-6 py-12 flex flex-col"
+			className="max-w-[1440px] px-4 md:px-6 py-12 flex flex-col"
 		>
 			<div className="container px-4 md:px-6 h-full flex flex-col justify-center">
 				<div className="flex flex-col items-center justify-center space-y-4 text-center">
@@ -46,14 +46,14 @@ export default function VisionMission() {
 					viewport={{ once: true }}
 				>
 					<motion.div variants={cardVariants}>
-						<Card className="bg-white border-t2-blue/20 h-full">
+						<Card className="bg-white h-full">
 							<CardHeader className="pb-0 pt-6 flex flex-col items-center">
 								<motion.div
-									className="rounded-full p-3 bg-t2-lightBlue/20 mb-4"
+									className="rounded-full p-3 mb-4"
 									whileHover={{ scale: 1.1, rotate: 5 }}
 									transition={{ type: "spring", stiffness: 300 }}
 								>
-									<EyeIcon className="h-6 w-6 text-t2-blue" />
+									<EyeIcon className="h-6 w-6 " />
 								</motion.div>
 								<CardTitle className="text-xl text-center text-dark-gray">
 									Vision
@@ -69,14 +69,14 @@ export default function VisionMission() {
 						</Card>
 					</motion.div>
 					<motion.div variants={cardVariants}>
-						<Card className="bg-white border-t2-blue/20 h-full">
+						<Card className="bg-white  h-full">
 							<CardHeader className="pb-0 pt-6 flex flex-col items-center">
 								<motion.div
-									className="rounded-full p-3 bg-t2-lightBlue/20 mb-4"
+									className="rounded-full p-3  mb-4"
 									whileHover={{ scale: 1.1, rotate: -5 }}
 									transition={{ type: "spring", stiffness: 300 }}
 								>
-									<CompassIcon className="h-6 w-6 text-t2-blue" />
+									<CompassIcon className="h-6 w-6 " />
 								</motion.div>
 								<CardTitle className="text-xl text-center text-dark-gray">
 									Mission
@@ -92,14 +92,14 @@ export default function VisionMission() {
 						</Card>
 					</motion.div>
 					<motion.div variants={cardVariants}>
-						<Card className="bg-white border-t2-blue/20 h-full">
+						<Card className="bg-white  h-full">
 							<CardHeader className="pb-0 pt-6 flex flex-col items-center">
 								<motion.div
-									className="rounded-full p-3 bg-t2-lightBlue/20 mb-4"
+									className="rounded-full p-3  mb-4"
 									whileHover={{ scale: 1.1, rotate: 5 }}
 									transition={{ type: "spring", stiffness: 300 }}
 								>
-									<HeartIcon className="h-6 w-6 text-t2-blue" />
+									<HeartIcon className="h-6 w-6 " />
 								</motion.div>
 								<CardTitle className="text-xl text-center text-dark-gray">
 									Values

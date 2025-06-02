@@ -1,29 +1,28 @@
 /* eslint-disable react/no-unknown-property */
 import { useEffect, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 const VisionJourney = () => {
 	const [activeIndex, setActiveIndex] = useState(0);
 	const [isScrolling, setIsScrolling] = useState(false);
 	const containerRef = useRef(null);
+	const { t } = useTranslation();
 
 	const slides = [
 		{
 			id: "vision",
-			title: "Vision",
-			testimonial:
-				"Become the best global development partner leading next-generation technologies.",
+			title: t("vision.title"),
+			testimonial: t("vision.description"),
 		},
 		{
 			id: "mission",
-			title: "Mission",
-			testimonial:
-				"We provide reliable software development and solutions to customers around the world, and provide cost-effective and high-quality services with excellent development talents in Vietnam. We support our customer business growth through technological innovation and flexible collaboration.",
+			title: t("mission.title"),
+			testimonial: t("mission.description"),
 		},
 		{
 			id: "values",
-			title: "Values",
-			testimonial:
-				"Grow together as a team with customer, we quickly absorb and apply the latest trends and technologies to stay ahead. We gain customer trust through honest communication and responsible behaviors.",
+			title: t("values.title"),
+			testimonial: t("values.description"),
 		},
 	];
 

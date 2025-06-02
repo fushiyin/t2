@@ -3,6 +3,7 @@ import planet2 from "@/assets/img/planet2.jpg";
 import planet3 from "@/assets/img/planet3.jpg";
 import wallpaper from "@/assets/img/wallpaper.jpg";
 import { useEffect, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 import "./styles.css";
 
 const TypeWriter = ({ text, speed = 5 }) => {
@@ -61,31 +62,29 @@ const Stars = () => {
 const VisionJourney = () => {
 	const [activeIndex, setActiveIndex] = useState(0);
 	const containerRef = useRef(null);
+	const { t } = useTranslation();
 
 	const slides = [
 		{
 			id: "vision",
-			title: "Vision",
+			title: t("vision.title"),
 			backgroundColor: "#090f33",
 			image: planet1,
-			testimonial:
-				"We provide reliable software development and solutions to customers around the world, and provide cost-effective and high-quality services with excellent development talents in Vietnam. We support our customer business growth through technological innovation and flexible collaboration.",
+			testimonial: t("vision.description"),
 		},
 		{
 			id: "mission",
-			title: "Mission",
+			title: t("mission.title"),
 			backgroundColor: "#090f33",
 			image: planet2,
-			testimonial:
-				"We provide reliable software development and solutions to customers around the world, and provide cost-effective and high-quality services with excellent development talents in Vietnam. We support our customer business growth through technological innovation and flexible collaboration.",
+			testimonial: t("mission.description"),
 		},
 		{
 			id: "values",
-			title: "Values",
+			title: t("values.title"),
 			image: planet3,
 			backgroundColor: "#b95a00",
-			testimonial:
-				"Grow together as a team with customer, we quickly absorb and apply the latest trends and technologies to stay ahead. We gain customer trust through honest communication and responsible behaviors.",
+			testimonial: t("values.description"),
 		},
 	];
 
@@ -175,7 +174,7 @@ const VisionJourney = () => {
 			<Stars />
 			<div className="content flex flex-col items-center justify-space-between text-center">
 				<h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-white mt-5">
-					OUR
+					{t("our")}
 				</h2>
 				<div className="text-[72px] font-bold text-white transition-all duration-500">
 					{slides[activeIndex].title.toUpperCase()}

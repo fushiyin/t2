@@ -1,86 +1,12 @@
 import classNames from "classnames";
 import { BarChart3, Check, ChevronDown, Code, Cpu, DollarSign } from "lucide-react";
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import Lottie from "react-lottie";
 import Communicate from "../../../assets/lotties/communicate.json";
 import Computer from "../../../assets/lotties/computer.json";
 import Cost from "../../../assets/lotties/cost.json";
 import Dev from "../../../assets/lotties/dev.json";
-
-const edges = [
-	{
-		id: 0,
-		title: "Korean PM Coordinator",
-		icon: <Cpu className="w-12 h-12 text-white" />,
-		bgColor: "bg-[var(--color-draker-blue)]",
-		textColor: "text-dark",
-		borderColor: "border-[var(--color-draker-blue)]",
-		hover: "hover:bg-gradient-to-r from-[var(--color-light-mint)] to-[var(--color-light-green)] hover:text-white transition-colors duration-300 ease-in-out",
-		description: [
-			"Able to coordinate between Korean and Vietnam",
-			"Optimize response to Korean work style",
-			"Able to lead project with rich experience",
-			"Able to communicate and coordinate quickly and clearly when issues arise",
-		],
-		lottie: Computer,
-		width: 200,
-		height: 150,
-	},
-	{
-		id: 1,
-		title: "Skilled developers",
-		icon: <Code className="w-12 h-12 text-white" />,
-		bgColor: "bg-white",
-		textColor: "text-dark",
-		borderColor: "border-white",
-		hover: "hover:bg-gradient-to-r from-[var(--color-light-mint)] to-[var(--color-light-green)] hover:text-white transition-colors duration-300 ease-in-out",
-		description: [
-			"Various language and frameworks proficiency",
-			"Quickly adapt to the latest trends and technological changes",
-			"Able to organize personnel with experience tailored to Korean project",
-			"Quality-oriented, hands-on development team",
-		],
-		lottie: Dev,
-		width: 300,
-		height: 200,
-	},
-	{
-		id: 2,
-		title: "Entry-to-communication",
-		icon: <BarChart3 className="w-12 h-12 text-white" />,
-		bgColor: "bg-[var(--color-draker-blue)]",
-		textColor: "text-dark",
-		borderColor: "border-[var(--color-draker-blue)]",
-		hover: "hover:bg-gradient-to-r from-[var(--color-light-mint)] to-[var(--color-light-green)] hover:text-white transition-colors duration-300 ease-in-out",
-		description: [
-			"Optimized communication between customers and developers with professional bridge personnel",
-			"High level of understanding and responsiveness to cultural differences",
-			"Efficient collaboration through customer-tailored communication",
-			"Real-time smooth communication through collaboration tools",
-		],
-		lottie: Communicate,
-		width: 170,
-		height: 170,
-	},
-	{
-		id: 3,
-		title: "Cost efficiency",
-		icon: <DollarSign className="w-12 h-12 text-white" />,
-		bgColor: "bg-white",
-		textColor: "text-dark",
-		borderColor: "border-white",
-		hover: "hover:bg-gradient-to-r from-[var(--color-light-mint)] to-[var(--color-light-green)] hover:text-white transition-colors duration-300 ease-in-out",
-		description: [
-			"Provide cost-effective solutions with high-quality services",
-			"Minimizing trial and error with abundant experience",
-			"Maximizing productivity with solid internal processes",
-			"Achieving cost savings through flexible personnel management",
-		],
-		lottie: Cost,
-		width: 230,
-		height: 140,
-	},
-];
 
 const defaultOptions = {
 	loop: true,
@@ -92,6 +18,68 @@ const defaultOptions = {
 
 const CompetitiveEdges = () => {
 	const [activeEdge, setActiveEdge] = useState(null);
+	const { t } = useTranslation();
+
+	const edges = [
+		{
+			id: 0,
+			title: t("competitive_edges.edges.coordinator.title"),
+			icon: <Cpu className="w-12 h-12 text-white" />,
+			bgColor: "bg-[var(--color-draker-blue)]",
+			textColor: "text-dark",
+			borderColor: "border-[var(--color-draker-blue)]",
+			hover: "hover:bg-gradient-to-r from-[var(--color-light-mint)] to-[var(--color-light-green)] hover:text-white transition-colors duration-300 ease-in-out",
+			description: t("competitive_edges.edges.coordinator.description", {
+				returnObjects: true,
+			}),
+			lottie: Computer,
+			width: 200,
+			height: 150,
+		},
+		{
+			id: 1,
+			title: t("competitive_edges.edges.developer.title"),
+			icon: <Code className="w-12 h-12 text-white" />,
+			bgColor: "bg-white",
+			textColor: "text-dark",
+			borderColor: "border-white",
+			hover: "hover:bg-gradient-to-r from-[var(--color-light-mint)] to-[var(--color-light-green)] hover:text-white transition-colors duration-300 ease-in-out",
+			description: t("competitive_edges.edges.developer.description", {
+				returnObjects: true,
+			}),
+			lottie: Dev,
+			width: 300,
+			height: 200,
+		},
+		{
+			id: 2,
+			title: t("competitive_edges.edges.communication.title"),
+			icon: <BarChart3 className="w-12 h-12 text-white" />,
+			bgColor: "bg-[var(--color-draker-blue)]",
+			textColor: "text-dark",
+			borderColor: "border-[var(--color-draker-blue)]",
+			hover: "hover:bg-gradient-to-r from-[var(--color-light-mint)] to-[var(--color-light-green)] hover:text-white transition-colors duration-300 ease-in-out",
+			description: t("competitive_edges.edges.communication.description", {
+				returnObjects: true,
+			}),
+			lottie: Communicate,
+			width: 170,
+			height: 170,
+		},
+		{
+			id: 3,
+			title: t("competitive_edges.edges.cost.title"),
+			icon: <DollarSign className="w-12 h-12 text-white" />,
+			bgColor: "bg-white",
+			textColor: "text-dark",
+			borderColor: "border-white",
+			hover: "hover:bg-gradient-to-r from-[var(--color-light-mint)] to-[var(--color-light-green)] hover:text-white transition-colors duration-300 ease-in-out",
+			description: t("competitive_edges.edges.cost.description", { returnObjects: true }),
+			lottie: Cost,
+			width: 230,
+			height: 140,
+		},
+	];
 
 	useEffect(() => {
 		if (!activeEdge && edges.length > 0) {
@@ -105,10 +93,10 @@ const CompetitiveEdges = () => {
 				{/* Heading */}
 				<div className="flex flex-col items-center justify-center space-y-4 text-center px-5 mb-5">
 					<h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-t2-darkBlue">
-						Our competitive edges
+						{t("competitive_edges.title")}
 					</h2>
 					<p className="md:max-w-[900px] text-muted-foreground md:text-xl/relaxed">
-						Our guiding principles that drive everything we do.
+						{t("competitive_edges.description")}
 					</p>
 				</div>
 
@@ -124,10 +112,6 @@ const CompetitiveEdges = () => {
 								<div
 									className={classNames(
 										"w-full aspect-square flex flex-col items-end justify-between rounded-lg shadow-lg p-4 cursor-pointer h-90 bg-gradient-to-r from-[var(--color-light-mint)] to-[var(--color-light-green)]",
-										// activeEdge?.id === edge.id
-										// 	? "bg-gradient-to-r from-[var(--color-light-mint)] to-[var(--color-light-green)]"
-										// 	: "bg-gray-200",
-										// edge.hover,
 									)}
 								>
 									<p className={`text-center text-xl w-full ${edge.textColor}`}>
@@ -183,7 +167,7 @@ const CompetitiveEdges = () => {
 											...defaultOptions,
 											animationData: edge.lottie,
 										}}
-										width={80} // increased size
+										width={80}
 										height={80}
 									/>
 								</div>

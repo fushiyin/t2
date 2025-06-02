@@ -1,29 +1,128 @@
 {
-	"slogan": "Your global software service and solution partner",
+	"about_us": {
+		"title": "About us"
+	},
+	"competitive_edges": {
+		"description": "Our guding principles that drive everything we do.",
+		"edges": {
+			"coordinator": {
+				"description": [
+					"Able to communicate and coordinate quickly and clearly when issues arise",
+					"Able to coordinate between Korean and Vietnam",
+					"Able to lead project with rich experience",
+					"Optimize response to Korean work style"
+				],
+				"title": "Korean PM Coordinator"
+			},
+			"developer": {
+				"title": "Skilled developers",
+				"description": [
+					"Various language and frameworks proficiency",
+					"Quickly adapt to the latest trends and technological changes",
+					"Able to organize personnel with experience tailored to Korean project",
+					"Quality-oriented, hands-on development team"
+				]
+			},
+			"communication": {
+				"title": "Entry-to-communication",
+				"description": [
+					"Optimized communication between customers and developers with professional bridge personnel",
+					"High level of understanding and responsiveness to cultural differences",
+					"Efficient collaboration through customer-tailored communication",
+					"Real-time smooth communication through collaboration tools"
+				]
+			},
+			"cost": {
+				"title": "Cost efficiency",
+				"description": [
+					"Provide cost-effective solutions with high-quality services",
+					"Minimizing trial and error with abundant experience",
+					"Maximizing productivity with solid internal processes",
+					"Achieving cost savings through flexible personnel management"
+				]
+			}
+		},
+		"title": "Our competitive edges"
+	},
 	"description": "T2 Soft is a Vietnamese SI and IT outsourcing company that provides software development and maintenance, and IT consulting services for Korean corporate clients. We aim to quickly provide high-quality IT solutions optimized for customer needs, successfully support digital transformation, and grow together with our customers.",
-	"menu": {
-		"home": "Home",
-		"about": "About Us",
-		"contact": "Contact Us",
-		"blog": "Blog",
-		"careers": "Careers",
-		"services": "Services",
-		"testimonials": "Testimonials",
-		"faq": "FAQ"
-	},
-	"focus_industries": {
-		"title": "Focused Industries",
-		"description": "T2 Soft leverages extensive project experience and technical expertise across various industries to deliver customized IT solutions. We work hand-in-hand with our clients to maximize business value, driving both efficiency and innovation."
-	},
 	"description_mobile": "T2 Soft is a Vietnamese SI and IT outsourcing company that provides software development and maintenance, and IT consulting services for Korean corporate clients.",
-	"language": "Language",
-	"menu_drawer": "Menu",
+	"focus_industries": {
+		"description": "T2 Soft leverages extensive project experience and technical expertise across various industries to deliver customized IT solutions. We work hand-in-hand with our clients to maximize business value, driving both efficiency and innovation.",
+		"title": "Focused Industries"
+	},
 	"footer": {
 		"company": "Company",
-		"resources": "Resources",
 		"documentation": "Documentation",
+		"privacy": "Privacy Policy",
+		"resources": "Resources",
 		"studies": "Case Studies",
-		"terms": "Terms of Service",
-		"privacy": "Privacy Policy"
+		"terms": "Terms of Service"
+	},
+	"language": "Language",
+	"menu": {
+		"about": "About Us",
+		"blog": "Blog",
+		"careers": "Careers",
+		"contact": "Contact Us",
+		"faq": "FAQ",
+		"home": "Home",
+		"services": "Services",
+		"testimonials": "Testimonials"
+	},
+	"menu_drawer": "Menu",
+	"service": {
+		"ai": "AI & Machine Learning",
+		"ai_desc": "Intelligent solutions that leverage the power of AI and ML to drive insights and automation.",
+		"cloud": "Cloud Services",
+		"cloud_desc": "Cloud architecture, migration, and management services to optimize your infrastructure and operations.",
+		"custom_software": "Custom Software Development",
+		"custom_software_desc": "Bespoke software solutions designed and built from the ground up to address your specific business challenges and requirements",
+		"mobile_app": "Mobile App Development",
+		"mobile_app_desc": "Native and cross-platform mobile applications that deliver exceptional user experiences across all devices.",
+		"qa": "QA & Testing",
+		"qa_desc": "Comprehensive quality assurance and testing services to ensure your software meets the highest standards.",
+		"slogan": "Your global software service and solution partner",
+		"web_dev": "Web Development",
+		"web_dev_desc": "Responsive, high-performance web applications and sites built with the latest technologies and frameworks."
+	},
+	"why_vietnam": {
+		"title": "Why Vietnam?",
+		"description": "Vietnam provides an ideal outsourcing environment for global companies, offering skilled IT talent, competitive costs, fast technology adoption, and reliable development services.",
+		"talent": {
+			"title": "Skilled talent & technology strength",
+			"description": "A rich pool of young IT talent in foreign languages & quick to adopt new technologies"
+		},
+		"cost": {
+			"title": "High cost efficiency",
+			"description": "Access top-tier development talent at 25–55% lower cost than local teams – ideal for budget optimization"
+		},
+		"geo_n_culture": {
+			"title": "Strong geographical & cultural alignment",
+			"description": "Professional, respectful & hardworking culture— well-aligned with global collaboration styles"
+		},
+		"politic_n_eco": {
+			"title": "Political & economic stable environment",
+			"description": "Vietnam offers a secure & predictable environment for longterm outsourcing partnerships."
+		},
+		"experience": {
+			"title": "Global experience",
+			"description": "Proven experience collaborating with global enterprises from KR, JP and beyond"
+		}
+	},
+	"our": "Our",
+	"vision": {
+		"title": "Vision",
+		"description": "T2, Shaping the Future of Technology We strive to be your premier global development partner, leading the advancement of next-generation technologies."
+	},
+	"mission": {
+		"title": "Mission",
+		"description": "We provide reliable software development and solutions to clients worldwide, offering highquality and cost-effective services with Vietnam’s top tech talent. Through technological innovation and flexible collaboration, we help our clients grow their businesses.."
+	},
+	"values": {
+		"title": "Values",
+		"description": "We collaborate closely with our clients as one unified team, embrace next-generation technologies to stay ahead, and foster long-term partnerships built on trust, transparency, and accountability."
+	},
+	"tech_stack": {
+		"description": "Our comprehensive technology expertise spans across modern frameworks, languages, and platforms. We leverage cutting-edge tools to build scalable, robust, and innovative solutions."
 	}
 }

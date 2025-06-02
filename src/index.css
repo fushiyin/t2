@@ -36,6 +36,8 @@
 	--sidebar-accent-foreground: oklch(0.208 0.042 265.755);
 	--sidebar-border: oklch(0.929 0.013 255.508);
 	--sidebar-ring: oklch(0.704 0.04 256.788);
+	--header-active: #e6f4ff;
+	--header-hover: #0000000f;
 }
 @theme inline {
 	--breakpoint-500: 500px;
@@ -58,6 +60,8 @@
 	--color-light-mint: #00a9c0;
 	--color-light-green: #7cd957;
 	--color-pure-black: #000000;
+	--color-header-active: #e6f4ff;
+	--color-header-hover: #0000000f;
 
 	--radius-sm: calc(var(--radius) - 4px);
 	--radius-md: calc(var(--radius) - 2px);

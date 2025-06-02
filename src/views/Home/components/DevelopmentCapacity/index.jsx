@@ -292,23 +292,23 @@ export default function DevelopmentEnhanced({ contentClass }) {
 						>
 							<>
 								<div className="flex items-center mb-6 justify-between">
-									<div className="flex items-center gap-4">
+									<div className="flex items-center gap-2 md:gap-4">
 										<div
-											className={`p-4 rounded-2xl bg-gradient-to-br ${currentStack?.gradient} md:mr-6 scale-0.5 md:scale-1`}
+											className={`p-4 rounded-2xl bg-gradient-to-br ${currentStack?.gradient} 400:mr-3 md:mr-6 scale-[0.7] 400:scale-[1]`}
 										>
 											{currentStack?.icon}
 										</div>
 										<div>
-											<h3 className="md:text-3xl text-xl font-bold text-white mb-2">
+											<h3 className="md:text-3xl sm:text-xl 400:text-lg text-base font-bold text-white mb-2">
 												{currentStack?.name}
 											</h3>
-											<p className="text-gray-300 md:text-lg hidden md:block">
+											<p className="text-gray-300 md:text-lg hidden sm:inline-block">
 												{currentStack?.description}
 											</p>
 										</div>
 									</div>
 
-									<div className="md:flex hidden gap-2">
+									<div className="sm:flex hidden gap-2">
 										<Button
 											variant="outline"
 											size="lg"
@@ -326,9 +326,17 @@ export default function DevelopmentEnhanced({ contentClass }) {
 											<ChevronRightIcon className="h-4 w-4" />
 										</Button>
 									</div>
+									<Button
+										variant="outline"
+										size="sm"
+										onClick={nextStack}
+										className="sm:hidden border-section-gray/40 text-white bg-transparent"
+									>
+										<ChevronRightIcon className="h-4 w-4" />
+									</Button>
 								</div>
 
-								<div className="grid grid-cols-2 gap-6 bg-gray-700/30 rounded-xl p-6 border border-white/5 hover:border-white/20 400:grid-cols-3 md:grid-cols-2 lg:grid-cols-3 md:bg-transparent md:rounded-none md:border-none">
+								<div className="grid grid-cols-3 gap-6 bg-gray-700/30 rounded-xl p-6 border border-white/5 hover:border-white/20 400:grid-cols-3 md:grid-cols-2 lg:grid-cols-3 md:bg-transparent md:rounded-none md:border-none">
 									{currentStack?.technologies?.map((tech, techIndex) => (
 										<motion.div
 											key={tech.name}
@@ -338,10 +346,10 @@ export default function DevelopmentEnhanced({ contentClass }) {
 												duration: 0.4,
 												delay: techIndex * 0.05,
 											}}
-											className="bg-transparent border-none rounded-none md:bg-gray-700/30 md:rounded-xl md:p-6 md:border md:border-white/5 md:hover:border-white/20 transition-all duration-300 group flex"
+											className="bg-transparent border-none rounded-none md:bg-gray-700/30 md:rounded-xl md:p-6 md:border md:border-white/5 md:hover:border-white/20 transition-all duration-300 group flex items-center justify-center"
 										>
 											<div className="flex items-center justify-center gap-4">
-												<div className="md:w-12 md:h-12 sm:w-20 sm:h-20 w-16 h-16 bg-white rounded-xl p-2 flex items-center justify-center">
+												<div className="md:w-14 md:h-14 sm:w-20 sm:h-20 400:w-16 400:h-16 h-12 w-12 bg-white rounded-xl p-2 flex items-center justify-center">
 													<img
 														className="object-contain w-full h-full"
 														src={tech.logo || "/placeholder.svg"}
@@ -373,11 +381,11 @@ export default function DevelopmentEnhanced({ contentClass }) {
 					viewport={{ once: true }}
 					className="text-center"
 				>
-					<p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+					<p className="text-base sm:text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
 						Ready to leverage our technical expertise for your next project? Let&apos;s
 						discuss how we can bring your vision to life.
 					</p>
-					<button className="px-8 py-4 bg-gradient-to-r from-pale-blue to-light-blue text-heading-black hover:text-white font-semibold rounded-xl hover:from-light-blue hover:to-normal-dark-blue transition-all duration-300 transform hover:scale-105 shadow-lg">
+					<button className="text-sm sm:text-xl px-5 py-3 sm:px-8 sm:py-4 bg-gradient-to-r from-pale-blue to-light-blue text-heading-black hover:text-white font-semibold rounded-xl hover:from-light-blue hover:to-normal-dark-blue transition-all duration-300 transform hover:scale-105 shadow-lg">
 						Start Your Project
 					</button>
 				</motion.div>

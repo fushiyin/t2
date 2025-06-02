@@ -1,16 +1,14 @@
-## Deploy/Demo link: [https://t2soft.vercel.app/](https://t2soft.vercel.app/)
+## Production Deploy: [https://t2soft.vercel.app/](https://t2soft.vercel.app/)
+## Link:
+>[Resource Document](https://docs.google.com/document/d/1ELNCf6oX2eLq-QhPtzOlhIDsbEqGyNBUNTLnZ3XQaK8/edit?usp=sharing)
+
+>[T2Soft Multi-languages](https://docs.google.com/spreadsheets/d/19T6TbQka8h3BuozqvWjpKjZogIMdj57V5AjKmsG7F9E/edit?usp=sharing)
 
 ## Install:
 
->
-
 ```
 bun install
-```
-
-> If you use npm
-
-```
+// If you use npm
 npm install
 npm ci
 ```
@@ -18,17 +16,18 @@ npm ci
 ## Run project:
 
 - Development:
-    >
 
 ```
 bun dev
 bun run dev
-```
-
-> If you use npm
-
-```
+ // If you use npm
 npm run dev
+```
+
+- Build
+
+```
+bun run build
 ```
 
 ## Expanding the ESLint configuration

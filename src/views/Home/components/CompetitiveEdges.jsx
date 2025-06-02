@@ -1,9 +1,10 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import Communicate from "@/assets/lotties/communicate.json";
 import Computer from "@/assets/lotties/computer.json";
 import Cost from "@/assets/lotties/cost.json";
 import Dev from "@/assets/lotties/dev.json";
 import classNames from "classnames";
-import { BarChart3, Check, ChevronDown, Code, Cpu, DollarSign } from "lucide-react";
+import { BarChart3, Check, Code, Cpu, DollarSign } from "lucide-react";
 import { useEffect, useState } from "react";
 import Lottie from "react-lottie";
 
@@ -85,7 +86,7 @@ const CompetitiveEdges = ({ contentClass }) => {
 		if (!activeEdge && edges.length > 0) {
 			setActiveEdge(edges[0]);
 		}
-	}, [activeEdge]);
+	}, []);
 
 	useEffect(() => {
 		if (isHovered) return;

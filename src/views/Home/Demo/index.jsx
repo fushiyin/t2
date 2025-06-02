@@ -177,7 +177,7 @@ const VisionJourney = () => {
 				<h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-white mt-5">
 					OUR
 				</h2>
-				<div className="text-[72px] font-bold text-white transition-all duration-500">
+				<div className="text-2xl sm:text-6xl font-bold text-white transition-all duration-500">
 					{slides[activeIndex].title.toUpperCase()}
 				</div>
 				<p className="max-w-[900px] text-white md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed transition-all duration-500 px-5">

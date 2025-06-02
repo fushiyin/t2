@@ -218,14 +218,6 @@ const Header = () => {
 					</DrawerHeader>
 
 					<div className="px-4 py-4 space-y-4">
-						{/* <div className="relative">
-							<input
-								type="text"
-								placeholder="Search..."
-								className="pl-10 pr-4 py-2 w-full rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-500"
-							/>
-							<Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
-						</div> */}
 						<div className="space-y-1">
 							{NAV_LINKS.map((link) => (
 								<a
@@ -292,7 +284,8 @@ const Header = () => {
 							</div>
 
 							{/* <div>
-								<div className="flex items-center text-gray-700 font-medium dark:text-gray-200 mb-2">
+								<div className="flex items-center text-gray-700 font-medium
+								 dark:text-gray-200 mb-2">
 									<Globe className="h-5 w-5 mr-2" />
 									<span>Language: {language?.label}</span>
 								</div>
@@ -303,8 +296,10 @@ const Header = () => {
 											onClick={() => changeLanguage(lang_item)}
 											className={`px-4 py-2 text-sm font-medium rounded ${
 												language?.code === lang_item.code
-													? "bg-[var(--color-deepest-navy)] dark:bg-light-blue text-white"
-													: "bg-gray-100 dark:bg-white dark:text-[var(--color-deepest-navy)] text-gray-700 "
+													? "bg-[var(--color-deepest-navy)] 
+													dark:bg-light-blue text-white"
+													: "bg-gray-100 dark:bg-white dark:text-[var
+													(--color-deepest-navy)] text-gray-700 "
 											}`}
 										>
 											{lang_item?.label}
@@ -325,7 +320,8 @@ const Header = () => {
 								</div>
 								<button
 									onClick={toggleDarkMode}
-									className="relative inline-flex h-6 w-11 items-center rounded-full bg-gray-200 dark:bg-gray-700"
+									className="relative inline-flex h-6 w-11
+									 items-center rounded-full bg-gray-200 dark:bg-gray-700"
 								>
 									<span
 										className={`${

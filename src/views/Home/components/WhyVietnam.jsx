@@ -5,31 +5,31 @@ import { Award, HandCoins, Handshake, HeartHandshakeIcon, Scale } from "lucide-r
 
 const whyVn = [
 	{
-		icon: <Award className="h-8 w-8 bg-t2-darkBlue rounded-full" />,
+		icon: <Award className="h-8 w-8 rounded-full" />,
 		title: "Advanced talent and technical skills",
 		description:
 			"A wealth of young IT talent who are sensitive to the latest technology and have excellent foreign language communication skills",
 	},
 	{
-		icon: <HandCoins className="h-8 w-8 bg-t2-darkBlue rounded-full" />,
+		icon: <HandCoins className="h-8 w-8 rounded-full" />,
 		title: "Cost-effectiveness",
 		description:
 			"Development costs are 25–55% lower than in advanced countries, enabling better budget efficiency.									",
 	},
 	{
-		icon: <Handshake className="h-8 w-8 bg-t2-darkBlue rounded-full" />,
+		icon: <Handshake className="h-8 w-8 rounded-full" />,
 		title: "Geographic/Cultural Compatibility",
 		description:
 			"Time difference within 2 hours, historical and cultural similarities enable real-time communication and smooth collaboration",
 	},
 	{
-		icon: <Scale className="h-8 w-8 bg-t2-darkBlue rounded-full" />,
+		icon: <Scale className="h-8 w-8 rounded-full" />,
 		title: "Stable political and economic environment",
 		description:
 			"With political and economic stability and growth potential, Vietnam is emerging as a global IT outsourcing destination",
 	},
 	{
-		icon: <HeartHandshakeIcon className="h-8 w-8 bg-t2-darkBlue rounded-full" />,
+		icon: <HeartHandshakeIcon className="h-8 w-8 rounded-full" />,
 		title: "Experience in global collaboration",
 		description:
 			"Experience in collaboration with global companies from various countries including Korea, Japan, etc",
@@ -81,14 +81,13 @@ export default function WhyVietnam({ contentClass }) {
 					whileInView="visible"
 					viewport={{ once: true }}
 				>
-					<div className="flex flex-wrap justify-center items-center md:justify-center sm:justify-start gap-4">
+					<div className="flex flex-wrap justify-center items-center md:justify-center gap-4">
 						{whyVn?.map((card, idx) => (
 							<motion.div
 								key={`why-vietnam-card-${idx}`}
 								variants={cardVariants}
 								className={classNames(
-									// "w-9/10 sm:w-1/3 md:w-1/4 2xl:w-1/6 bg-white/80 rounded-2xl shadow-lg p-6 flex flex-col items-stretch relative min-w-[270px] min-h-[300px]",
-									"w-9/10 sm:w-1/3 md:w-1/4 2xl:w-1/6 bg-white/80 rounded-2xl shadow-lg p-6 flex flex-col items-stretch relative min-w-[270px] min-h-[300px] border-t",
+									"w-9/10 sm:w-1/3 md:w-1/4 2xl:w-1/6 bg-white/80 rounded-2xl shadow-lg p-6 flex flex-col items-stretch relative sm:min-w-[270px] sm:min-h-[300px] border-t",
 								)}
 							>
 								<HoverCard {...card} />

@@ -93,9 +93,7 @@ export default function Careers() {
 							<Card className="hover:shadow-lg transition-shadow  border-[var(--color-dark-gray)]">
 								<CardContent className="p-6 flex flex-col items-center text-center space-y-4">
 									<div className="rounded-full p-3 bg-dark-blue">{item.icon}</div>
-									<h3 className="text-2xl text-t2-darkBlue font-bold">
-										{item.title}
-									</h3>
+									<h3 className="text-2xl font-bold">{item.title}</h3>
 									<p className="text-muted-foreground">{item.desc}</p>
 								</CardContent>
 							</Card>
@@ -104,7 +102,7 @@ export default function Careers() {
 				</motion.div>
 
 				<motion.h2
-					className="text-3xl text-t2-darkBlue font-bold mb-6"
+					className="text-3xl font-bold mb-6"
 					initial="hidden"
 					whileInView="visible"
 					viewport={{ once: true }}
@@ -133,10 +131,10 @@ export default function Careers() {
 										<div className="flex-1">
 											<h3 className="text-xl font-bold">{position.title}</h3>
 											<div className="flex flex-wrap gap-2 mt-2">
-												<span className="inline-flex text-t2-darkBlue items-center rounded-full bg-muted px-2.5 py-0.5 text-xs font-medium">
+												<span className="inline-flex items-center rounded-full bg-muted px-2.5 py-0.5 text-xs font-medium">
 													{position.location}
 												</span>
-												<span className="inline-flex text-t2-darkBlue items-center rounded-full bg-muted px-2.5 py-0.5 text-xs font-medium">
+												<span className="inline-flex items-center rounded-full bg-muted px-2.5 py-0.5 text-xs font-medium">
 													{position.type}
 												</span>
 											</div>
@@ -167,7 +165,7 @@ export default function Careers() {
 			>
 				<div className="max-w-[1440px] flex flex-col md:flex-row mx-auto space-y-6 md:space-y-0 md:space-x-6 sm:w-full">
 					<motion.div className="flex-1 space-y-4">
-						<h2 className="text-3xl text-t2-darkBlue font-bold">
+						<h2 className="text-3xl font-bold">
 							Haven’t found the right position yet?
 						</h2>
 						<p className="text-muted-foreground text-lg">

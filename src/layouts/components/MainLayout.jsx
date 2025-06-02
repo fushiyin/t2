@@ -14,7 +14,7 @@ import {
 import CallPhoneButton from "./CallPhoneButton";
 
 export default function MainLayout() {
-	const { isMobile } = useResponsive(); 
+	const { isMobile } = useResponsive();
 
 	return (
 		<Suspense fallback={<> </>}>

@@ -3,6 +3,39 @@ import classNames from "classnames";
 import { motion } from "framer-motion";
 import { Award, HandCoins, Handshake, HeartHandshakeIcon, Scale } from "lucide-react";
 
+const whyVn = [
+	{
+		icon: <Award className="h-8 w-8 bg-t2-darkBlue rounded-full" />,
+		title: "Advanced talent and technical skills",
+		description:
+			"A wealth of young IT talent who are sensitive to the latest technology and have excellent foreign language communication skills",
+	},
+	{
+		icon: <HandCoins className="h-8 w-8 bg-t2-darkBlue rounded-full" />,
+		title: "Cost-effectiveness",
+		description:
+			"Development costs are 25–55% lower than in advanced countries, enabling better budget efficiency.									",
+	},
+	{
+		icon: <Handshake className="h-8 w-8 bg-t2-darkBlue rounded-full" />,
+		title: "Geographic/Cultural Compatibility",
+		description:
+			"Time difference within 2 hours, historical and cultural similarities enable real-time communication and smooth collaboration",
+	},
+	{
+		icon: <Scale className="h-8 w-8 bg-t2-darkBlue rounded-full" />,
+		title: "Stable political and economic environment",
+		description:
+			"With political and economic stability and growth potential, Vietnam is emerging as a global IT outsourcing destination",
+	},
+	{
+		icon: <HeartHandshakeIcon className="h-8 w-8 bg-t2-darkBlue rounded-full" />,
+		title: "Experience in global collaboration",
+		description:
+			"Experience in collaboration with global companies from various countries including Korea, Japan, etc",
+	},
+];
+
 export default function WhyVietnam({ contentClass }) {
 	// Animation variants
 	const containerVariants = {
@@ -25,11 +58,7 @@ export default function WhyVietnam({ contentClass }) {
 	};
 
 	return (
-		<div
-			className={classNames(
-				"w-full bg-gradient-to-b from-[#f5faff] via-[#f7fafd] to-[#eaf3ff] flex flex-col justify-center items-center",
-			)}
-		>
+		<div className={classNames("w-full bg-white flex flex-col justify-center items-center")}>
 			<div
 				className={classNames("flex flex-col justify-center gap-15", {
 					[contentClass]: contentClass,
@@ -53,43 +82,13 @@ export default function WhyVietnam({ contentClass }) {
 					viewport={{ once: true }}
 				>
 					<div className="flex flex-wrap justify-center items-center md:justify-center sm:justify-start gap-4">
-						{[
-							{
-								icon: <Award className="h-8 w-8 rounded-full" />,
-								title: "Advanced talent and technical skills",
-								description:
-									"A wealth of young IT talent who are sensitive to the latest technology and have excellent foreign language communication skills",
-							},
-							{
-								icon: <HandCoins className="h-8 w-8 rounded-full" />,
-								title: "Cost-effectiveness",
-								description:
-									"Development costs are 25–55% lower than in advanced countries, enabling better budget efficiency.									",
-							},
-							{
-								icon: <Handshake className="h-8 w-8 rounded-full" />,
-								title: "Geographic/Cultural Compatibility",
-								description:
-									"Time difference within 2 hours, historical and cultural similarities enable real-time communication and smooth collaboration",
-							},
-							{
-								icon: <Scale className="h-8 w-8 rounded-full" />,
-								title: "Stable political and economic environment",
-								description:
-									"With political and economic stability and growth potential, Vietnam is emerging as a global IT outsourcing destination",
-							},
-							{
-								icon: <HeartHandshakeIcon className="h-8 w-8 rounded-full" />,
-								title: "Experience in global collaboration",
-								description:
-									"Experience in collaboration with global companies from various countries including Korea, Japan, etc",
-							},
-						].map((card, idx) => (
+						{whyVn?.map((card, idx) => (
 							<motion.div
 								key={`why-vietnam-card-${idx}`}
 								variants={cardVariants}
 								className={classNames(
-									"w-9/10 sm:w-1/3 md:w-1/4 2xl:w-1/6 bg-white/80 rounded-2xl shadow-lg p-6 flex flex-col items-stretch relative min-w-[270px] min-h-[300px]",
+									// "w-9/10 sm:w-1/3 md:w-1/4 2xl:w-1/6 bg-white/80 rounded-2xl shadow-lg p-6 flex flex-col items-stretch relative min-w-[270px] min-h-[300px]",
+									"w-9/10 sm:w-1/3 md:w-1/4 2xl:w-1/6 bg-white/80 rounded-2xl shadow-lg p-6 flex flex-col items-stretch relative min-w-[270px] min-h-[300px] border-t",
 								)}
 							>
 								<HoverCard {...card} />

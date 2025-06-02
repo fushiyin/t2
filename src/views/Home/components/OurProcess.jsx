@@ -114,11 +114,11 @@ const processSteps = [
 ];
 
 export default function OurProcess() {
+	const sectionRef = useRef(null);
+	const { isMobile } = useResponsive();
 	const [activeStep, setActiveStep] = useState(1);
 	const [isPaused, setIsPaused] = useState(false);
 	const [isVisible, setIsVisible] = useState(false);
-	const sectionRef = useRef(null);
-	const { isMobile } = useResponsive(); 
 
 	// Auto-advance through steps
 	useEffect(() => {

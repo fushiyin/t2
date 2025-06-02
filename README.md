@@ -1,4 +1,8 @@
 ## Production Deploy: [https://t2soft.vercel.app/](https://t2soft.vercel.app/)
+## Link:
+>[Resource Document](https://docs.google.com/document/d/1ELNCf6oX2eLq-QhPtzOlhIDsbEqGyNBUNTLnZ3XQaK8/edit?usp=sharing)
+
+>[T2Soft Multi-languages](https://docs.google.com/spreadsheets/d/19T6TbQka8h3BuozqvWjpKjZogIMdj57V5AjKmsG7F9E/edit?usp=sharing)
 
 ## Install:
 

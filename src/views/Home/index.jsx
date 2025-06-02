@@ -56,7 +56,7 @@ function HomePage() {
 				id={SECTIONS_KEY.OUR_PROCESS.id}
 				className={sectionClass}
 			>
-				<OurProcess />
+				<OurProcess contentClass={contentClass} />
 			</section>
 			<section
 				id={SECTIONS_KEY.TESTIMONIALS.id}

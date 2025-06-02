@@ -22,7 +22,7 @@ import { useTranslation } from "react-i18next";
 const iconClass =
 	"h-3 w-3 text-white absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-3/5 z-10";
 
-export default function OurProcess() {
+export default function OurProcess({ contentClass }) {
 	const { t } = useTranslation();
 	const sectionRef = useRef(null);
 	const { isMobile } = useResponsive();
@@ -127,9 +127,13 @@ export default function OurProcess() {
 	return (
 		<div
 			ref={sectionRef}
-			className="w-full h-full flex items-center justify-center"
+			className="w-full h-full flex items-center justify-center bg-muted/50"
 		>
-			<div className="container h-full flex flex-col justify-center items-center max-w-[1440px]">
+			<div
+				className={classNames("flex flex-col justify-center items-center", {
+					[contentClass]: contentClass,
+				})}
+			>
 				<div className="flex flex-col items-center justify-center space-y-4 text-center mb-16 md:mb-20">
 					<div className="space-y-2">
 						<h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-dark-gray">

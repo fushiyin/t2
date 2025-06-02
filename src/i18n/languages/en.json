@@ -116,7 +116,7 @@
 	},
 	"mission": {
 		"title": "Mission",
-		"description": "We provide reliable software development and solutions to clients worldwide, offering highquality and cost-effective services with Vietnam’s top tech talent. Through technological innovation and flexible collaboration, we help our clients grow their businesses.."
+		"description": "We provide reliable software development and solutions to clients worldwide, offering highquality and cost-effective services with Vietnam's top tech talent. Through technological innovation and flexible collaboration, we help our clients grow their businesses.."
 	},
 	"values": {
 		"title": "Values",
@@ -124,5 +124,193 @@
 	},
 	"tech_stack": {
 		"description": "Our comprehensive technology expertise spans across modern frameworks, languages, and platforms. We leverage cutting-edge tools to build scalable, robust, and innovative solutions."
+	},
+	"industries": {
+		"title": "Industries We Transform",
+		"description": "Discover our specialized expertise across five key industries, where we deliver innovative solutions that drive digital transformation and business growth.",
+		"status": {
+			"expertise": "Expertise",
+			"advanced": "Advanced",
+			"specialized": "Specialized",
+			"innovation": "Innovation",
+			"emerging": "Emerging"
+		},
+		"manufactoring": {
+			"title": "Manufacturing",
+			"description": "Smart manufacturing solutions for Industry 4.0 transformation",
+			"tagline": "Revolutionizing Production",
+			"sub_industries": {
+				"erp": {
+					"title": "ERP Systems",
+					"description": "Enterprise Resource Planning for streamlined operations"
+				},
+				"mes": {
+					"title": "MES Solutions",
+					"description": "Manufacturing Execution Systems for production optimization"
+				},
+				"supply_chain": {
+					"title": "Supply Chain Management",
+					"description": "End-to-end supply chain optimization and tracking"
+				},
+				"quality_manage": {
+					"title": "Quality Management",
+					"description": "Automated quality control and assurance systems"
+				}
+			}
+		},
+		"bank_n_fin": {
+			"title": "Bank & Finance",
+			"description": "Secure and innovative financial technology solutions",
+			"tagline": "Securing Financial Future",
+			"sub_industries": {
+				"payment_gateways": {
+					"title": "Payment Gateways",
+					"description": "Secure payment processing and gateway solutions"
+				},
+				"mobile_banking": {
+					"title": "Mobile Banking",
+					"description": "Feature-rich mobile banking applications"
+				},
+				"fintech": {
+					"title": "Fintech Platforms",
+					"description": "Comprehensive financial technology solutions"
+				},
+				"pos": {
+					"title": "POS Systems",
+					"description": "Advanced point of sale and payment terminals"
+				}
+			}
+		},
+		"ecommerce": {
+			"title": "eCommerce",
+			"description": "Comprehensive e-commerce platforms and digital marketing solutions",
+			"tagline": "Powering Digital Commerce",
+			"sub_industries": {
+				"crm": {
+					"title": "CRM Systems",
+					"description": "Advanced customer relationship management"
+				},
+				"marketing": {
+					"title": "Marketing Automation",
+					"description": "AI-powered marketing campaigns and analytics"
+				},
+				"platforms": {
+					"title": "E-commerce Platforms",
+					"description": "Full-stack e-commerce solutions with payment integration"
+				},
+				"analytics": {
+					"title": "Big Data Analytics",
+					"description": "Advanced analytics for business intelligence"
+				}
+			}
+		},
+		"ai": {
+			"title": "AI Solutions",
+			"description": "Artificial Intelligence solutions for smart automation",
+			"tagline": "Building Intelligent Systems",
+			"sub_industries": {
+				"healthcare": {
+					"title": "Smart Healthcare",
+					"description": "AI-powered healthcare management and diagnostics"
+				},
+				"office": {
+					"title": "Smart Office",
+					"description": "Intelligent office automation and management"
+				},
+				"ibeems": {
+					"title": "AI & iBEEMS",
+					"description": "Intelligent Building Energy & Environment Management"
+				}
+			}
+		},
+		"logistics": {
+			"title": "Logistics",
+			"description": "Smart logistics and supply chain optimization solutions",
+			"tagline": "Optimizing Supply Chains",
+			"sub_industries": {
+				"warehouse": {
+					"title": "Warehouse Management",
+					"description": "Advanced WMS for inventory control and optimization"
+				},
+				"analytics": {
+					"title": "Logistics Analytics",
+					"description": "Data-driven logistics optimization and insights"
+				},
+				"fleet": {
+					"title": "Fleet Management",
+					"description": "Real-time fleet tracking and optimization"
+				}
+			}
+		}
+	},
+	"process": {
+		"title": "Our Process",
+		"description": "A structured approach to delivering high-quality software solutions.",
+		"navigation": {
+			"previous": "Previous",
+			"next": "Next"
+		},
+		"steps": {
+			"discovery": {
+				"title": "Discovery & Analysis",
+				"description": "Understanding your business objectives, requirements, and challenges through in-depth consultations.",
+				"details": [
+					"Requirements gathering and analysis",
+					"Market and competitor research",
+					"Technical feasibility assessment",
+					"Project scope definition"
+				]
+			},
+			"design": {
+				"title": "Design & Planning",
+				"description": "Creating detailed designs and technical specifications, establishing the foundation for development.",
+				"details": [
+					"UI/UX design and prototyping",
+					"System architecture design",
+					"Database schema design",
+					"Project roadmap and sprint planning"
+				]
+			},
+			"development": {
+				"title": "Development",
+				"description": "Our skilled developers write clean, efficient code following industry best practices.",
+				"details": [
+					"Agile development methodology",
+					"Regular code reviews",
+					"Continuous integration",
+					"Daily stand-ups and progress tracking"
+				]
+			},
+			"testing": {
+				"title": "Testing & QA",
+				"description": "Rigorous testing ensures your software is bug-free, secure, and performs optimally.",
+				"details": [
+					"Functional testing",
+					"Performance and load testing",
+					"Security testing",
+					"User acceptance testing"
+				]
+			},
+			"deployment": {
+				"title": "Deployment",
+				"description": "Smooth deployment of your solution to production environments, ensuring minimal disruption.",
+				"details": [
+					"Deployment planning and execution",
+					"Environment configuration",
+					"Data migration (if needed)",
+					"Post-deployment verification"
+				]
+			},
+			"maintenance": {
+				"title": "Maintenance & Support",
+				"description": "Ongoing support and maintenance to ensure your solution continues to perform optimally.",
+				"details": [
+					"Regular updates and improvements",
+					"Bug fixes and issue resolution",
+					"Performance monitoring",
+					"Technical support and consultation"
+				]
+			}
+		}
 	}
 }

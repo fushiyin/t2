@@ -16,109 +16,19 @@ import {
 	TestTubeIcon,
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 // Process steps data
 const iconClass =
 	"h-3 w-3 text-white absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-3/5 z-10";
-const processSteps = [
-	{
-		id: 1,
-		title: "Discovery & Analysis",
-		image: team_research,
-		icon: <SearchIcon className={iconClass} />,
-		description:
-			"Understanding your business objectives, requirements, and challenges through in-depth consultations.",
-		details: [
-			"Requirements gathering and analysis",
-			"Market and competitor research",
-			"Technical feasibility assessment",
-			"Project scope definition",
-		],
-		color: "#2d2d2d",
-	},
-	{
-		id: 2,
-		title: "Design & Planning",
-		icon: <PencilRulerIcon className={iconClass} />,
-		image: team_design,
-		description:
-			"Creating detailed designs and technical specifications, establishing the foundation for development.",
-		details: [
-			"UI/UX design and prototyping",
-			"System architecture design",
-			"Database schema design",
-			"Project roadmap and sprint planning",
-		],
-		color: "#2d2d2d",
-	},
-	{
-		id: 3,
-		title: "Development",
-		icon: <CodeIcon className={iconClass} />,
-		image: team_development,
-		description:
-			"Our skilled developers write clean, efficient code following industry best practices.",
-		details: [
-			"Agile development methodology",
-			"Regular code reviews",
-			"Continuous integration",
-			"Daily stand-ups and progress tracking",
-		],
-		color: "#2d2d2d",
-	},
-	{
-		id: 4,
-		title: "Testing & QA",
-		image: team_test,
-		icon: <TestTubeIcon className={iconClass} />,
-		description:
-			"Rigorous testing ensures your software is bug-free, secure, and performs optimally.",
-		details: [
-			"Functional testing",
-			"Performance and load testing",
-			"Security testing",
-			"User acceptance testing",
-		],
-		color: "#2d2d2d",
-	},
-	{
-		id: 5,
-		title: "Deployment",
-		image: team_deploy,
-		icon: <RocketIcon className={iconClass} />,
-		description:
-			"Smooth deployment of your solution to production environments, ensuring minimal disruption.",
-		details: [
-			"Deployment planning and execution",
-			"Environment configuration",
-			"Data migration (if needed)",
-			"Post-deployment verification",
-		],
-		color: "#2d2d2d",
-	},
-	{
-		id: 6,
-		title: "Maintenance & Support",
-		icon: <RefreshCwIcon className={iconClass} />,
-		image: team_maintain,
-		description:
-			"Ongoing support and maintenance to ensure your solution continues to perform optimally.",
-		details: [
-			"Regular updates and improvements",
-			"Bug fixes and issue resolution",
-			"Performance monitoring",
-			"Technical support and consultation",
-		],
-		color: "#2d2d2d",
-	},
-];
 
 export default function OurProcess() {
+	const { t } = useTranslation();
+	const sectionRef = useRef(null);
+	const { isMobile } = useResponsive();
 	const [activeStep, setActiveStep] = useState(1);
 	const [isPaused, setIsPaused] = useState(false);
 	const [isVisible, setIsVisible] = useState(false);
-	const sectionRef = useRef(null);
-	const { isMobile } = useResponsive(); 
 
 	// Auto-advance through steps
 	useEffect(() => {
@@ -157,6 +67,63 @@ export default function OurProcess() {
 		};
 	}, []);
 
+	const processSteps = [
+		{
+			id: 1,
+			title: t("process.steps.discovery.title"),
+			image: team_research,
+			icon: <SearchIcon className={iconClass} />,
+			description: t("process.steps.discovery.description"),
+			details: t("process.steps.discovery.details", { returnObjects: true }),
+			color: "#2d2d2d",
+		},
+		{
+			id: 2,
+			title: t("process.steps.design.title"),
+			icon: <PencilRulerIcon className={iconClass} />,
+			image: team_design,
+			description: t("process.steps.design.description"),
+			details: t("process.steps.design.details", { returnObjects: true }),
+			color: "#2d2d2d",
+		},
+		{
+			id: 3,
+			title: t("process.steps.development.title"),
+			icon: <CodeIcon className={iconClass} />,
+			image: team_development,
+			description: t("process.steps.development.description"),
+			details: t("process.steps.development.details", { returnObjects: true }),
+			color: "#2d2d2d",
+		},
+		{
+			id: 4,
+			title: t("process.steps.testing.title"),
+			image: team_test,
+			icon: <TestTubeIcon className={iconClass} />,
+			description: t("process.steps.testing.description"),
+			details: t("process.steps.testing.details", { returnObjects: true }),
+			color: "#2d2d2d",
+		},
+		{
+			id: 5,
+			title: t("process.steps.deployment.title"),
+			image: team_deploy,
+			icon: <RocketIcon className={iconClass} />,
+			description: t("process.steps.deployment.description"),
+			details: t("process.steps.deployment.details", { returnObjects: true }),
+			color: "#2d2d2d",
+		},
+		{
+			id: 6,
+			title: t("process.steps.maintenance.title"),
+			icon: <RefreshCwIcon className={iconClass} />,
+			image: team_maintain,
+			description: t("process.steps.maintenance.description"),
+			details: t("process.steps.maintenance.details", { returnObjects: true }),
+			color: "#2d2d2d",
+		},
+	];
+
 	return (
 		<div
 			ref={sectionRef}
@@ -166,10 +133,10 @@ export default function OurProcess() {
 				<div className="flex flex-col items-center justify-center space-y-4 text-center mb-16 md:mb-20">
 					<div className="space-y-2">
 						<h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-dark-gray">
-							Our Process
+							{t("process.title")}
 						</h2>
 						<p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-							A structured approach to delivering high-quality software solutions.
+							{t("process.description")}
 						</p>
 					</div>
 				</div>
@@ -386,48 +353,8 @@ export default function OurProcess() {
 												clipRule="evenodd"
 											/>
 										</svg>
-										Previous
+										{t("process.navigation.previous")}
 									</button>
-									{/* <button
-										onClick={() => {
-											setIsPaused(!isPaused);
-										}}
-										className="text-t2-blue hover:text-dark-gray flex items-center gap-1 transition-colors"
-									>
-										{isPaused ? (
-											<>
-												<svg
-													xmlns="http://www.w3.org/2000/svg"
-													className="h-5 w-5"
-													viewBox="0 0 20 20"
-													fill="currentColor"
-												>
-													<path
-														fillRule="evenodd"
-														d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"
-														clipRule="evenodd"
-													/>
-												</svg>
-												Resume
-											</>
-										) : (
-											<>
-												<svg
-													xmlns="http://www.w3.org/2000/svg"
-													className="h-5 w-5"
-													viewBox="0 0 20 20"
-													fill="currentColor"
-												>
-													<path
-														fillRule="evenodd"
-														d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zM7 8a1 1 0 012 0v4a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v4a1 1 0 102 0V8a1 1 0 00-1-1z"
-														clipRule="evenodd"
-													/>
-												</svg>
-												Pause
-											</>
-										)}
-									</button> */}
 									<button
 										onClick={() => {
 											setActiveStep((prev) =>
@@ -438,7 +365,7 @@ export default function OurProcess() {
 										}}
 										className="text-t2-blue hover:text-dark-gray flex items-center gap-1 transition-colors"
 									>
-										Next
+										{t("process.navigation.next")}
 										<svg
 											xmlns="http://www.w3.org/2000/svg"
 											className="h-5 w-5"

@@ -16,68 +16,56 @@ const defaultOptions = {
 	},
 };
 
+const AUTO_SWITCH_INTERVAL = 5000;
+
 const CompetitiveEdges = () => {
 	const [activeEdge, setActiveEdge] = useState(null);
+	const [isHovered, setIsHovered] = useState(false);
+	const [hoveredIndex, setHoveredIndex] = useState(null);
 	const { t } = useTranslation();
 
 	const edges = [
 		{
 			id: 0,
 			title: t("competitive_edges.edges.coordinator.title"),
-			icon: <Cpu className="w-12 h-12 text-white" />,
-			bgColor: "bg-[var(--color-draker-blue)]",
-			textColor: "text-dark",
-			borderColor: "border-[var(--color-draker-blue)]",
-			hover: "hover:bg-gradient-to-r from-[var(--color-light-mint)] to-[var(--color-light-green)] hover:text-white transition-colors duration-300 ease-in-out",
+			icon: <Cpu className="w-12 h-12 text-black" />,
 			description: t("competitive_edges.edges.coordinator.description", {
 				returnObjects: true,
 			}),
 			lottie: Computer,
-			width: 200,
-			height: 150,
+			width: 300,
+			height: 250,
 		},
 		{
 			id: 1,
 			title: t("competitive_edges.edges.developer.title"),
-			icon: <Code className="w-12 h-12 text-white" />,
-			bgColor: "bg-white",
-			textColor: "text-dark",
-			borderColor: "border-white",
-			hover: "hover:bg-gradient-to-r from-[var(--color-light-mint)] to-[var(--color-light-green)] hover:text-white transition-colors duration-300 ease-in-out",
+			icon: <Code className="w-12 h-12 text-black" />,
 			description: t("competitive_edges.edges.developer.description", {
 				returnObjects: true,
 			}),
 			lottie: Dev,
 			width: 300,
-			height: 200,
+			height: 250,
 		},
 		{
 			id: 2,
 			title: t("competitive_edges.edges.communication.title"),
-			icon: <BarChart3 className="w-12 h-12 text-white" />,
-			bgColor: "bg-[var(--color-draker-blue)]",
-			textColor: "text-dark",
-			borderColor: "border-[var(--color-draker-blue)]",
-			hover: "hover:bg-gradient-to-r from-[var(--color-light-mint)] to-[var(--color-light-green)] hover:text-white transition-colors duration-300 ease-in-out",
+			icon: <BarChart3 className="w-12 h-12 text-black" />,
 			description: t("competitive_edges.edges.communication.description", {
 				returnObjects: true,
 			}),
 			lottie: Communicate,
-			width: 170,
-			height: 170,
+			width: 300,
+			height: 200,
 		},
 		{
 			id: 3,
 			title: t("competitive_edges.edges.cost.title"),
-			icon: <DollarSign className="w-12 h-12 text-white" />,
-			bgColor: "bg-white",
-			textColor: "text-dark",
-			borderColor: "border-white",
-			hover: "hover:bg-gradient-to-r from-[var(--color-light-mint)] to-[var(--color-light-green)] hover:text-white transition-colors duration-300 ease-in-out",
+			icon: <DollarSign className="w-12 h-12 text-black" />,
 			description: t("competitive_edges.edges.cost.description", { returnObjects: true }),
 			lottie: Cost,
-			width: 230,
-			height: 140,
+			width: 250,
+			height: 250,
 		},
 	];
 
@@ -87,9 +75,22 @@ const CompetitiveEdges = () => {
 		}
 	}, []);
 
+	useEffect(() => {
+		if (isHovered) return;
+		const interval = setInterval(() => {
+			setActiveEdge((prev) => {
+				const currentIndex = edges.findIndex((e) => e.id === prev?.id);
+				const nextIndex = (currentIndex + 1) % edges.length;
+				return edges[nextIndex];
+			});
+		}, AUTO_SWITCH_INTERVAL);
+
+		return () => clearInterval(interval);
+	}, [isHovered]);
+
 	return (
-		<section className="w-full max-w-[1440px] mb-16">
-			<div className="mx-auto">
+		<div className="w-full bg-white">
+			<div className="mx-auto mb-16 mt-16 max-w-[1440px]">
 				{/* Heading */}
 				<div className="flex flex-col items-center justify-center space-y-4 text-center px-5 mb-5">
 					<h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-t2-darkBlue">
@@ -102,35 +103,51 @@ const CompetitiveEdges = () => {
 
 				{/* Desktop grid */}
 				<div className="hidden md:flex flex-col">
-					<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-10 mt-12">
-						{edges.map((edge) => (
-							<div
-								key={edge.id}
-								className="flex flex-col"
-								onClick={() => setActiveEdge(edge)}
-							>
+					<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-10 mt-12 ">
+						{edges.map((edge) => {
+							const isActive = activeEdge?.id === edge.id;
+							const isHovering = hoveredIndex === edge.id;
+
+							return (
 								<div
-									className={classNames(
-										"w-full aspect-square flex flex-col items-end justify-between rounded-lg shadow-lg p-4 cursor-pointer h-90 bg-gradient-to-r from-[var(--color-light-mint)] to-[var(--color-light-green)]",
-									)}
+									key={edge.id}
+									className="flex flex-col"
+									onMouseEnter={() => {
+										setIsHovered(true);
+										setHoveredIndex(edge.id);
+										setActiveEdge(edge);
+									}}
+									onMouseLeave={() => {
+										setIsHovered(false);
+										setHoveredIndex(null);
+									}}
 								>
-									<p className={`text-center text-xl w-full ${edge.textColor}`}>
-										{edge.title.toUpperCase()}
-									</p>
-									<div className="w-full h-full flex items-center justify-center">
-										<Lottie
-											options={{
-												...defaultOptions,
-												animationData: edge.lottie,
-											}}
-											width={edge.width}
-											height={edge.height}
-										/>
+									<div
+										className={classNames(
+											"w-full aspect-square flex flex-col items-end justify-between rounded-lg shadow-lg p-4 cursor-pointer h-90 transition-all duration-300 border-t border-zinc-300 dark:border-zinc-700",
+											isActive || isHovering
+												? "bg-gradient-to-r from-[var(--color-light-mint)] to-[var(--color-light-green)] text-white scale-[1.03]"
+												: "bg-white text-dark",
+										)}
+									>
+										<p className="text-center text-xl w-full">
+											{edge.title.toUpperCase()}
+										</p>
+										<div className="w-full h-full flex items-center justify-center">
+											<Lottie
+												options={{
+													...defaultOptions,
+													animationData: edge.lottie,
+												}}
+												width={edge.width}
+												height={edge.height}
+											/>
+										</div>
+										<div>{edge.icon}</div>
 									</div>
-									<div>{edge.icon}</div>
 								</div>
-							</div>
-						))}
+							);
+						})}
 					</div>
 
 					<div className="w-[90px] h-[8px] bg-gradient-to-r from-[var(--color-light-mint)] to-[var(--color-light-green)] mb-4"></div>
@@ -167,8 +184,8 @@ const CompetitiveEdges = () => {
 											...defaultOptions,
 											animationData: edge.lottie,
 										}}
-										width={80}
-										height={80}
+										width={90}
+										height={75}
 									/>
 								</div>
 								<div className="flex-1">
@@ -213,7 +230,7 @@ const CompetitiveEdges = () => {
 					))}
 				</div>
 			</div>
-		</section>
+		</div>
 	);
 };
 

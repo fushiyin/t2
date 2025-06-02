@@ -54,11 +54,7 @@ export default function WhyVietnam({ contentClass }) {
 	};
 
 	return (
-		<div
-			className={classNames(
-				"w-full bg-gradient-to-b from-[#f5faff] via-[#f7fafd] to-[#eaf3ff] flex flex-col justify-center items-center",
-			)}
-		>
+		<div className={classNames("w-full bg-white flex flex-col justify-center items-center")}>
 			<div
 				className={classNames("flex flex-col justify-center gap-15", {
 					[contentClass]: contentClass,
@@ -81,12 +77,15 @@ export default function WhyVietnam({ contentClass }) {
 					viewport={{ once: true }}
 				>
 					<div className="flex flex-wrap justify-center items-center md:justify-center sm:justify-start gap-4">
-						{whyVietnam.map((card, idx) => (
+						{whyVietnam?.map((card, idx) => (
 							<motion.div
 								key={`why-vietnam-card-${idx}`}
 								variants={cardVariants}
+								whileHover={{ scale: 1.03 }}
+								transition={{ type: "spring", stiffness: 200, damping: 15 }}
 								className={classNames(
-									"w-9/10 sm:w-1/3 md:w-1/4 2xl:w-1/6 bg-white/80 rounded-2xl shadow-lg p-6 flex flex-col items-stretch relative min-w-[270px] min-h-[300px]",
+									// "w-9/10 sm:w-1/3 md:w-1/4 2xl:w-1/6 bg-white/80 rounded-2xl shadow-lg p-6 flex flex-col items-stretch relative min-w-[270px] min-h-[300px]",
+									"w-9/10 sm:w-1/3 md:w-1/4 2xl:w-1/6 bg-white/80 rounded-2xl shadow-lg p-6 flex flex-col items-stretch relative min-w-[270px] min-h-[300px] border-t",
 								)}
 							>
 								<HoverCard {...card} />

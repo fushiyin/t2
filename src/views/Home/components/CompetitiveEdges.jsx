@@ -184,14 +184,14 @@ const CompetitiveEdges = ({ contentClass }) => {
 					</div>
 				</div>
 
+				{/* Mobile */}
 				<div className="flex flex-col gap-4 md:hidden px-4">
 					{edges.map((edge) => (
 						<div
 							key={edge.id}
 							className="rounded-xl overflow-hidden shadow-sm border border-gray-200 bg-white"
-							onClick={() => setActiveEdge(activeEdge?.id === edge.id ? null : edge)}
 						>
-							<div className="p-3 flex items-center gap-4 cursor-pointer transition-colors hover:bg-gray-100 bg-gray-100">
+							<div className="p-3 flex items-center gap-4 bg-gray-100">
 								<div className="w-20 h-20 flex-shrink-0 bg-gray-100 rounded-lg flex items-center justify-center relative">
 									<div className="absolute inset-0 bg-gradient-to-r from-[var(--color-light-mint)] to-[var(--color-light-green)] opacity-80 rounded-lg"></div>
 									<div className="relative z-10 w-16 h-16">
@@ -210,22 +210,10 @@ const CompetitiveEdges = ({ contentClass }) => {
 										{edge.title?.toUpperCase()}
 									</h3>
 								</div>
-								<div
-									className={`transform transition-transform duration-300 ${
-										activeEdge?.id === edge.id ? "rotate-180" : ""
-									}`}
-								>
-									<ChevronDown className="w-5 h-5 text-gray-500" />
-								</div>
 							</div>
 
-							<div
-								className={`transition-all duration-300 ease-in-out overflow-hidden ${
-									activeEdge?.id === edge.id
-										? "max-h-[500px] opacity-100"
-										: "max-h-0 opacity-0"
-								}`}
-							>
+							{/* Always expanded */}
+							<div className="transition-all duration-300 ease-in-out overflow-hidden max-h-[500px] opacity-100">
 								<div className="px-5 pt-4 pb-5 space-y-3 bg-white">
 									{edge.description.map((benefit, index) => (
 										<div

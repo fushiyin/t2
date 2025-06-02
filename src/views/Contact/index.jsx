@@ -48,7 +48,7 @@ export default function Contact() {
 						<div className="container px-4 md:px-6 h-full flex flex-col justify-center">
 							<div className="grid gap-10 lg:grid-cols-2 items-center">
 								<div className="space-y-4">
-									<h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-t2-darkBlue">
+									<h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
 										Ready to Transform Your Ideas?
 									</h2>
 									<p className="max-w-[600px] text-muted-foreground md:text-xl/relaxed">
@@ -98,7 +98,7 @@ export default function Contact() {
 													/>
 												</svg>
 											</div>
-											<h3 className="text-xl font-bold mb-2 text-t2-darkBlue">
+											<h3 className="text-xl font-bold mb-2">
 												Message Sent!
 											</h3>
 											<p className="text-muted-foreground">
@@ -114,7 +114,7 @@ export default function Contact() {
 											<div>
 												<label
 													htmlFor="name"
-													className="block text-sm font-medium mb-1 text-t2-darkBlue"
+													className="block text-sm font-medium mb-1"
 												>
 													Full Name
 												</label>
@@ -125,13 +125,13 @@ export default function Contact() {
 													onChange={handleChange}
 													placeholder="Your name"
 													required
-													className="border-t2-grayBlue focus-visible:ring-t2-blue"
+													className=""
 												/>
 											</div>
 											<div>
 												<label
 													htmlFor="email"
-													className="block text-sm font-medium mb-1 text-t2-darkBlue"
+													className="block text-sm font-medium mb-1"
 												>
 													Email
 												</label>
@@ -143,13 +143,13 @@ export default function Contact() {
 													onChange={handleChange}
 													placeholder="your@email.com"
 													required
-													className="border-t2-grayBlue focus-visible:ring-t2-blue"
+													className=""
 												/>
 											</div>
 											<div>
 												<label
 													htmlFor="company"
-													className="block text-sm font-medium mb-1 text-t2-darkBlue"
+													className="block text-sm font-medium mb-1"
 												>
 													Company
 												</label>
@@ -159,13 +159,13 @@ export default function Contact() {
 													value={formState.company}
 													onChange={handleChange}
 													placeholder="Your company name"
-													className="border-t2-grayBlue focus-visible:ring-t2-blue"
+													className=""
 												/>
 											</div>
 											<div>
 												<label
 													htmlFor="message"
-													className="block text-sm font-medium mb-1 text-t2-darkBlue"
+													className="block text-sm font-medium mb-1"
 												>
 													How can we help?
 												</label>
@@ -175,7 +175,7 @@ export default function Contact() {
 													value={formState.message}
 													onChange={handleChange}
 													placeholder="Tell us about your project or inquiry..."
-													className="min-h-[120px] border-t2-grayBlue focus-visible:ring-t2-blue"
+													className="min-h-[120px] "
 													required
 												/>
 											</div>

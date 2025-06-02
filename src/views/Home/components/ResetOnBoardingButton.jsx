@@ -15,7 +15,7 @@ export default function ResetOnBoardingButton() {
 		<Button
 			onClick={handleClick}
 			disabled={!hasSeenOnboarding}
-			className="bg-black hover:bg-t2-darkBlue text-white"
+			className="bg-black text-white"
 		>
 			{hasSeenOnboarding ? "Reset Onboarding Animation" : "F5 to view Onboarding"}
 			<Loader

@@ -83,13 +83,13 @@ export default function Hero() {
 				>
 					<div className="space-y-4">
 						<motion.h1
-							className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none text-white"
+							className="px-4 text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none text-white"
 							variants={itemVariants}
 						>
 							{t("slogan")}
 						</motion.h1>
 						<motion.p
-							className="mx-auto max-w-[1100px] text-gray-200 md:text-xl"
+							className="mx-auto max-w-[1100px] px-3 text-gray-200 md:text-xl"
 							variants={itemVariants}
 						>
 							{isMobile ? t("description_mobile") : t("description")}

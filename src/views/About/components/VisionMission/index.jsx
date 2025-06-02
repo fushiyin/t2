@@ -25,12 +25,12 @@ export default function VisionMission() {
 	return (
 		<div
 			id="vision-mission"
-			className="bg-t2-grayBlue/10 max-w-[1440px] px-4 md:px-6 py-12 flex flex-col"
+			className="max-w-[1440px] px-4 md:px-6 py-12 flex flex-col"
 		>
 			<div className="container px-4 md:px-6 h-full flex flex-col justify-center">
 				<div className="flex flex-col items-center justify-center space-y-4 text-center">
 					<div className="space-y-2">
-						<h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-t2-darkBlue">
+						<h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
 							Vision, Mission & Values
 						</h2>
 						<p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
@@ -46,18 +46,16 @@ export default function VisionMission() {
 					viewport={{ once: true }}
 				>
 					<motion.div variants={cardVariants}>
-						<Card className="bg-white border-t2-blue/20 h-full">
+						<Card className="bg-white h-full">
 							<CardHeader className="pb-0 pt-6 flex flex-col items-center">
 								<motion.div
-									className="rounded-full p-3 bg-t2-lightBlue/20 mb-4"
+									className="rounded-full p-3 mb-4"
 									whileHover={{ scale: 1.1, rotate: 5 }}
 									transition={{ type: "spring", stiffness: 300 }}
 								>
-									<EyeIcon className="h-6 w-6 text-t2-blue" />
+									<EyeIcon className="h-6 w-6 " />
 								</motion.div>
-								<CardTitle className="text-xl text-center text-t2-darkBlue">
-									Vision
-								</CardTitle>
+								<CardTitle className="text-xl text-center">Vision</CardTitle>
 							</CardHeader>
 							<CardContent className="text-center pt-4">
 								<p className="text-muted-foreground">
@@ -69,18 +67,16 @@ export default function VisionMission() {
 						</Card>
 					</motion.div>
 					<motion.div variants={cardVariants}>
-						<Card className="bg-white border-t2-blue/20 h-full">
+						<Card className="bg-white  h-full">
 							<CardHeader className="pb-0 pt-6 flex flex-col items-center">
 								<motion.div
-									className="rounded-full p-3 bg-t2-lightBlue/20 mb-4"
+									className="rounded-full p-3  mb-4"
 									whileHover={{ scale: 1.1, rotate: -5 }}
 									transition={{ type: "spring", stiffness: 300 }}
 								>
-									<CompassIcon className="h-6 w-6 text-t2-blue" />
+									<CompassIcon className="h-6 w-6 " />
 								</motion.div>
-								<CardTitle className="text-xl text-center text-t2-darkBlue">
-									Mission
-								</CardTitle>
+								<CardTitle className="text-xl text-center">Mission</CardTitle>
 							</CardHeader>
 							<CardContent className="text-center pt-4">
 								<p className="text-muted-foreground">
@@ -92,49 +88,39 @@ export default function VisionMission() {
 						</Card>
 					</motion.div>
 					<motion.div variants={cardVariants}>
-						<Card className="bg-white border-t2-blue/20 h-full">
+						<Card className="bg-white  h-full">
 							<CardHeader className="pb-0 pt-6 flex flex-col items-center">
 								<motion.div
-									className="rounded-full p-3 bg-t2-lightBlue/20 mb-4"
+									className="rounded-full p-3  mb-4"
 									whileHover={{ scale: 1.1, rotate: 5 }}
 									transition={{ type: "spring", stiffness: 300 }}
 								>
-									<HeartIcon className="h-6 w-6 text-t2-blue" />
+									<HeartIcon className="h-6 w-6 " />
 								</motion.div>
-								<CardTitle className="text-xl text-center text-t2-darkBlue">
-									Values
-								</CardTitle>
+								<CardTitle className="text-xl text-center">Values</CardTitle>
 							</CardHeader>
 							<CardContent className="text-center pt-4">
 								<ul className="space-y-2 text-left">
 									<li className="flex items-start gap-2">
-										<span className="font-bold min-w-[80px] text-t2-darkBlue">
-											Excellence:
-										</span>
+										<span className="font-bold min-w-[80px]">Excellence:</span>
 										<span className="text-muted-foreground">
 											Pursuing the highest standards in everything we do
 										</span>
 									</li>
 									<li className="flex items-start gap-2">
-										<span className="font-bold min-w-[80px] text-t2-darkBlue">
-											Innovation:
-										</span>
+										<span className="font-bold min-w-[80px]">Innovation:</span>
 										<span className="text-muted-foreground">
 											Embracing creativity and forward thinking
 										</span>
 									</li>
 									<li className="flex items-start gap-2">
-										<span className="font-bold min-w-[80px] text-t2-darkBlue">
-											Integrity:
-										</span>
+										<span className="font-bold min-w-[80px]">Integrity:</span>
 										<span className="text-muted-foreground">
 											Acting with honesty and transparency
 										</span>
 									</li>
 									<li className="flex items-start gap-2">
-										<span className="font-bold min-w-[80px] text-t2-darkBlue">
-											Teamwork:
-										</span>
+										<span className="font-bold min-w-[80px]">Teamwork:</span>
 										<span className="text-muted-foreground">
 											Collaborating to achieve shared goals
 										</span>

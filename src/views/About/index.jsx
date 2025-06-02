@@ -8,8 +8,10 @@ import { motion } from "framer-motion";
 import { CheckCircleIcon } from "lucide-react";
 import DeviceMockup from "./components/DeviceMockup";
 import UniqueValue from "./components/UniqueValue";
+import { useTranslation } from "react-i18next";
 
 export default function AboutPage() {
+	const { t } = useTranslation();
 	const listVariants = {
 		hidden: { opacity: 0 },
 		visible: {
@@ -35,15 +37,12 @@ export default function AboutPage() {
 			<AnimatedSection className="w-full bg-muted/50 flex flex-col items-center">
 				<div className="max-w-[1440px] container px-[20px] py-8 md:py-12 md:px-4 flex flex-col justify-center min-h-[50vh]">
 					<h2 className="text-2xl md:text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center">
-						About Us
+						{t("about.title")}
 					</h2>
 					<div className="grid gap-6 lg:grid-cols-2 sm:mt-8 md:mt-16 lg:gap-12 items-center mt-6 md:mt-10">
 						<div className="space-y-4">
 							<p className="text-muted-foreground text-base md:text-xl/relaxed">
-								T2Soft is a leading technology company based in Vietnam,
-								specializing in innovative software solutions for global clients.
-								Founded in 2010, we&apos;ve grown from a small team of passionate
-								developers to a comprehensive technology partner.
+								{t("about.description")}
 							</p>
 							<motion.div
 								className="flex"
@@ -65,7 +64,7 @@ export default function AboutPage() {
 									>
 										<CheckCircleIcon className="h-4 w-4 md:h-5 md:w-5 text-primary" />
 										<span className="text-sm md:text-base">
-											Over 12 years of experience in software development
+											{t("about.experience")}
 										</span>
 									</motion.li>
 									<motion.li
@@ -74,7 +73,7 @@ export default function AboutPage() {
 									>
 										<CheckCircleIcon className="h-4 w-4 md:h-5 md:w-5 text-primary" />
 										<span className="text-sm md:text-base">
-											Team of 100+ skilled engineers and designers
+											{t("about.team")}
 										</span>
 									</motion.li>
 									<motion.li
@@ -83,7 +82,7 @@ export default function AboutPage() {
 									>
 										<CheckCircleIcon className="h-4 w-4 md:h-5 md:w-5 text-primary" />
 										<span className="text-sm md:text-base">
-											Successfully delivered 200+ projects worldwide
+											{t("about.projects")}
 										</span>
 									</motion.li>
 									<motion.li
@@ -92,7 +91,7 @@ export default function AboutPage() {
 									>
 										<CheckCircleIcon className="h-4 w-4 md:h-5 md:w-5 text-primary" />
 										<span className="text-sm md:text-base">
-											Offices in Hanoi, Ho Chi Minh City, and Da Nang
+											{t("about.offices")}
 										</span>
 									</motion.li>
 								</motion.ul>
@@ -121,12 +120,12 @@ export default function AboutPage() {
 			<UniqueValue />
 			<div className="flex flex-col items-center px-[20px] md:px-4 lg:px-0">
 				<h2 className="text-2xl md:text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center">
-					Most frequently asked questions
+					{t("faq.title")}
 				</h2>
 				<div className="max-w-[1440px] grid gap-6 lg:grid-cols-2 sm:mt-8 md:mt-16 lg:gap-12 items-start mt-6 md:mt-10 lg:px-0 md:px-4">
 					<img
 						src={image}
-						alt="image"
+						alt={t("about.faq.imageAlt")}
 					/>
 					<FAQ faqs={FAQs} />
 				</div>

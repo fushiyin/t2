@@ -123,7 +123,156 @@
 		"description": "We collaborate closely with our clients as one unified team, embrace next-generation technologies to stay ahead, and foster long-term partnerships built on trust, transparency, and accountability."
 	},
 	"tech_stack": {
-		"description": "Our comprehensive technology expertise spans across modern frameworks, languages, and platforms. We leverage cutting-edge tools to build scalable, robust, and innovative solutions."
+		"title": "Technology Stack",
+		"description": "Our comprehensive technology expertise spans across modern frameworks, languages, and platforms. We leverage cutting-edge tools to build scalable, robust, and innovative solutions.",
+		"frontend": {
+			"title": "Frontend Development",
+			"description": "Building modern, responsive, and interactive user interfaces",
+			"technologies": {
+				"react": {
+					"description": "Component-based UI library",
+					"experience": "5+ years",
+					"projects": "150+ projects"
+				},
+				"nextjs": {
+					"description": "Full-stack React framework",
+					"experience": "4+ years",
+					"projects": "100+ projects"
+				},
+				"typescript": {
+					"description": "Typed JavaScript superset",
+					"experience": "4+ years",
+					"projects": "120+ projects"
+				},
+				"tailwind": {
+					"description": "Utility-first CSS framework",
+					"experience": "3+ years",
+					"projects": "80+ projects"
+				},
+				"vue": {
+					"description": "Progressive JavaScript framework",
+					"experience": "3+ years",
+					"projects": "60+ projects"
+				},
+				"angular": {
+					"description": "Platform for building mobile and desktop apps",
+					"experience": "4+ years",
+					"projects": "70+ projects"
+				}
+			}
+		},
+		"backend": {
+			"title": "Backend Development",
+			"description": "Scalable server-side applications and robust APIs",
+			"technologies": {
+				"nodejs": {
+					"description": "JavaScript runtime environment",
+					"experience": "5+ years",
+					"projects": "130+ projects"
+				},
+				"python": {
+					"description": "Versatile programming language",
+					"experience": "6+ years",
+					"projects": "90+ projects"
+				},
+				"java": {
+					"description": "Enterprise-grade programming language",
+					"experience": "7+ years",
+					"projects": "110+ projects"
+				},
+				"express": {
+					"description": "Fast Node.js web framework",
+					"experience": "5+ years",
+					"projects": "120+ projects"
+				},
+				"django": {
+					"description": "High-level Python web framework",
+					"experience": "4+ years",
+					"projects": "65+ projects"
+				},
+				"spring": {
+					"description": "Java-based framework",
+					"experience": "5+ years",
+					"projects": "85+ projects"
+				}
+			}
+		},
+		"mobile": {
+			"title": "Mobile Development",
+			"description": "Native and cross-platform mobile applications",
+			"technologies": {
+				"react_native": {
+					"description": "Cross-platform mobile framework",
+					"experience": "4+ years",
+					"projects": "75+ projects"
+				},
+				"flutter": {
+					"description": "Google's UI toolkit",
+					"experience": "3+ years",
+					"projects": "50+ projects"
+				},
+				"ios": {
+					"description": "Native iOS development",
+					"experience": "5+ years",
+					"projects": "60+ projects"
+				},
+				"android": {
+					"description": "Native Android development",
+					"experience": "5+ years",
+					"projects": "70+ projects"
+				},
+				"xamarin": {
+					"description": "Microsoft's mobile platform",
+					"experience": "3+ years",
+					"projects": "40+ projects"
+				},
+				"ionic": {
+					"description": "Hybrid mobile app framework",
+					"experience": "3+ years",
+					"projects": "45+ projects"
+				}
+			}
+		},
+		"database": {
+			"title": "Database & Storage",
+			"description": "Data management and storage solutions",
+			"technologies": {
+				"postgresql": {
+					"description": "Advanced open source database",
+					"experience": "6+ years",
+					"projects": "100+ projects"
+				},
+				"mongodb": {
+					"description": "NoSQL document database",
+					"experience": "5+ years",
+					"projects": "90+ projects"
+				},
+				"mysql": {
+					"description": "Popular relational database",
+					"experience": "7+ years",
+					"projects": "120+ projects"
+				},
+				"redis": {
+					"description": "In-memory data structure store",
+					"experience": "4+ years",
+					"projects": "80+ projects"
+				},
+				"elasticsearch": {
+					"description": "Search and analytics engine",
+					"experience": "3+ years",
+					"projects": "35+ projects"
+				},
+				"firebase": {
+					"description": "Google's mobile platform",
+					"experience": "4+ years",
+					"projects": "70+ projects"
+				}
+			}
+		},
+		"cta": {
+			"description": "Ready to leverage our technical expertise for your next project? Let's discuss how we can bring your vision to life.",
+			"button": "Start Your Project"
+		}
 	},
 	"industries": {
 		"title": "Industries We Transform",
@@ -311,6 +460,77 @@
 					"Technical support and consultation"
 				]
 			}
+		}
+	},
+	"testimonials": {
+		"title": "Feedback from customers",
+		"actions": {
+			"reply": "Reply",
+			"share": "Share"
+		}
+	},
+	"contact_cta": {
+		"title": "Ready to Transform Your Ideas?",
+		"description": "Let's discuss how T2Soft can help you achieve your technology goals. Our team is ready to bring your vision to life.",
+		"contact_button": "Contact Us",
+		"services_button": "Explore Our Services"
+	},
+	"unique_value": {
+		"title": "We make sure to provide best services",
+		"description": "What sets us apart from other technology providers and makes us your ideal partner.",
+		"advantages": {
+			"quality": {
+				"title": "Quality Assurance",
+				"description": "Our rigorous quality control processes ensure that every line of code meets the highest standards. We implement comprehensive testing methodologies including unit testing, integration testing, and automated QA processes to deliver robust, bug-free solutions."
+			},
+			"technical": {
+				"title": "Technical Expertise",
+				"description": "Our team comprises specialists across various technologies and domains. From cloud architecture to AI implementation, mobile development to enterprise solutions, we bring deep technical knowledge and practical experience to every project."
+			},
+			"cultural": {
+				"title": "Cultural Alignment",
+				"description": "We bridge Eastern dedication with Western business practices. Our team understands global business cultures while bringing Vietnamese values of diligence, precision, and commitment to excellence, creating a harmonious working relationship with clients worldwide."
+			},
+			"scalable": {
+				"title": "Scalable Solutions",
+				"description": "We design with growth in mind. Our architecture and development approaches prioritize scalability, allowing your solutions to grow seamlessly with your business. From startups to enterprises, we build technology that adapts to your evolving needs."
+			}
+		}
+	},
+	"faq": {
+		"title": "Frequently Asked Questions",
+		"questions": {
+			"services": {
+				"question": "What programming services do you offer?",
+				"answer": "We provide end-to-end software development services including web and mobile app development, backend systems, API integrations, and maintenance support."
+			},
+			"technologies": {
+				"question": "Which technologies do you specialize in?",
+				"answer": "Our team specializes in a wide range of technologies including JavaScript (React, Node.js), Python, Java, PHP, .NET, and cloud platforms like AWS and Azure."
+			},
+			"quality": {
+				"question": "How do you ensure code quality?",
+				"answer": "We follow best practices such as code reviews, unit testing, continuous integration, and use of version control to maintain high code quality."
+			},
+			"communication": {
+				"question": "Can I communicate directly with the developers?",
+				"answer": "Yes, we provide direct communication channels with our developers via tools like Slack, Zoom, or email to ensure smooth collaboration."
+			},
+			"pricing": {
+				"question": "What is your pricing model?",
+				"answer": "We offer flexible pricing models including hourly rates, dedicated team setups, and fixed-price contracts depending on your project needs."
+			}
+		}
+	},
+	"about": {
+		"title": "About Us",
+		"description": "T2 Soft is a leading software development company with a strong focus on delivering high-quality solutions. We combine technical expertise with innovative thinking to help businesses transform their digital presence.",
+		"experience": "10+ years of industry experience",
+		"team": "Skilled team of 50+ professionals",
+		"projects": "200+ successful projects delivered",
+		"offices": "Global presence with offices in Vietnam and Korea",
+		"faq": {
+			"imageAlt": "Faqs"
 		}
 	}
 }

@@ -8,27 +8,27 @@ export default function WhyVietnam({ contentClass }) {
 	const { t } = useTranslation();
 	const whyVietnam = [
 		{
-			icon: <Award className="h-8 w-8 bg-t2-darkBlue rounded-full" />,
+			icon: <Award className="h-8 w-8 rounded-full" />,
 			title: t("why_vietnam.talent.title"),
 			description: t("why_vietnam.talent.description"),
 		},
 		{
-			icon: <HandCoins className="h-8 w-8 bg-t2-darkBlue rounded-full" />,
+			icon: <HandCoins className="h-8 w-8 rounded-full" />,
 			title: t("why_vietnam.cost.title"),
 			description: t("why_vietnam.cost.description"),
 		},
 		{
-			icon: <Handshake className="h-8 w-8 bg-t2-darkBlue rounded-full" />,
+			icon: <Handshake className="h-8 w-8 rounded-full" />,
 			title: t("why_vietnam.geo_n_culture.title"),
 			description: t("why_vietnam.geo_n_culture.description"),
 		},
 		{
-			icon: <Scale className="h-8 w-8 bg-t2-darkBlue rounded-full" />,
+			icon: <Scale className="h-8 w-8 rounded-full" />,
 			title: t("why_vietnam.politic_n_eco.title"),
 			description: t("why_vietnam.politic_n_eco.description"),
 		},
 		{
-			icon: <HeartHandshakeIcon className="h-8 w-8 bg-t2-darkBlue rounded-full" />,
+			icon: <HeartHandshakeIcon className="h-8 w-8 rounded-full" />,
 			title: t("why_vietnam.experience.title"),
 			description: t("why_vietnam.experience.description"),
 		},
@@ -84,8 +84,7 @@ export default function WhyVietnam({ contentClass }) {
 								whileHover={{ scale: 1.03 }}
 								transition={{ type: "spring", stiffness: 200, damping: 15 }}
 								className={classNames(
-									// "w-9/10 sm:w-1/3 md:w-1/4 2xl:w-1/6 bg-white/80 rounded-2xl shadow-lg p-6 flex flex-col items-stretch relative min-w-[270px] min-h-[300px]",
-									"w-9/10 sm:w-1/3 md:w-1/4 2xl:w-1/6 bg-white/80 rounded-2xl shadow-lg p-6 flex flex-col items-stretch relative min-w-[270px] min-h-[300px] border-t",
+									"w-9/10 sm:w-1/3 md:w-1/4 2xl:w-1/6 bg-white/80 rounded-2xl shadow-lg p-6 flex flex-col items-stretch relative sm:min-w-[270px] sm:min-h-[300px] border-t",
 								)}
 							>
 								<HoverCard {...card} />

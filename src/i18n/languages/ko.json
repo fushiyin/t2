@@ -123,7 +123,156 @@
 		"description": "우리는 고객과 한 팀이 되어 함께 성장하며, 최신 기술과 트렌드를 빠르게 적용해 앞서 나아갑니다. 또한, 정직한 소통과 책임감 있는 행동으로 신뢰와 투명성을 바탕으로 한 장기적인 관계를 만들어갑니다."
 	},
 	"tech_stack": {
-		"description": "T2 Soft는 다양한 산업 분야에서 축적한 풍부한 프로젝트 경험과 기술 전문성을 바탕으로, 고객 맞춤형 IT 솔루션을 제공합니다. 고객의 비즈니스 가치를 핵심 사업 분야 극대화하고, 효율성과 혁신을 동시에 실현할 수 있도록 T2 Soft가 함께합니다."
+		"title": "기술 스택",
+		"description": "최신 프레임워크, 언어, 플랫폼을 아우르는 포괄적인 기술 전문성을 보유하고 있습니다. 확장 가능하고 견고하며 혁신적인 솔루션을 구축하기 위해 최첨단 도구를 활용합니다.",
+		"frontend": {
+			"title": "프론트엔드 개발",
+			"description": "현대적이고 반응형이며 인터랙티브한 사용자 인터페이스 구축",
+			"technologies": {
+				"react": {
+					"description": "컴포넌트 기반 UI 라이브러리",
+					"experience": "5년 이상",
+					"projects": "150개 이상 프로젝트"
+				},
+				"nextjs": {
+					"description": "풀스택 React 프레임워크",
+					"experience": "4년 이상",
+					"projects": "100개 이상 프로젝트"
+				},
+				"typescript": {
+					"description": "타입이 지정된 JavaScript 확장",
+					"experience": "4년 이상",
+					"projects": "120개 이상 프로젝트"
+				},
+				"tailwind": {
+					"description": "유틸리티 우선 CSS 프레임워크",
+					"experience": "3년 이상",
+					"projects": "80개 이상 프로젝트"
+				},
+				"vue": {
+					"description": "점진적 JavaScript 프레임워크",
+					"experience": "3년 이상",
+					"projects": "60개 이상 프로젝트"
+				},
+				"angular": {
+					"description": "모바일 및 데스크톱 앱 구축 플랫폼",
+					"experience": "4년 이상",
+					"projects": "70개 이상 프로젝트"
+				}
+			}
+		},
+		"backend": {
+			"title": "백엔드 개발",
+			"description": "확장 가능한 서버 측 애플리케이션 및 강력한 API",
+			"technologies": {
+				"nodejs": {
+					"description": "JavaScript 런타임 환경",
+					"experience": "5년 이상",
+					"projects": "130개 이상 프로젝트"
+				},
+				"python": {
+					"description": "다목적 프로그래밍 언어",
+					"experience": "6년 이상",
+					"projects": "90개 이상 프로젝트"
+				},
+				"java": {
+					"description": "엔터프라이즈급 프로그래밍 언어",
+					"experience": "7년 이상",
+					"projects": "110개 이상 프로젝트"
+				},
+				"express": {
+					"description": "빠른 Node.js 웹 프레임워크",
+					"experience": "5년 이상",
+					"projects": "120개 이상 프로젝트"
+				},
+				"django": {
+					"description": "고수준 Python 웹 프레임워크",
+					"experience": "4년 이상",
+					"projects": "65개 이상 프로젝트"
+				},
+				"spring": {
+					"description": "Java 기반 프레임워크",
+					"experience": "5년 이상",
+					"projects": "85개 이상 프로젝트"
+				}
+			}
+		},
+		"mobile": {
+			"title": "모바일 개발",
+			"description": "네이티브 및 크로스 플랫폼 모바일 애플리케이션",
+			"technologies": {
+				"react_native": {
+					"description": "크로스 플랫폼 모바일 프레임워크",
+					"experience": "4년 이상",
+					"projects": "75개 이상 프로젝트"
+				},
+				"flutter": {
+					"description": "Google의 UI 툴킷",
+					"experience": "3년 이상",
+					"projects": "50개 이상 프로젝트"
+				},
+				"ios": {
+					"description": "네이티브 iOS 개발",
+					"experience": "5년 이상",
+					"projects": "60개 이상 프로젝트"
+				},
+				"android": {
+					"description": "네이티브 Android 개발",
+					"experience": "5년 이상",
+					"projects": "70개 이상 프로젝트"
+				},
+				"xamarin": {
+					"description": "Microsoft의 모바일 플랫폼",
+					"experience": "3년 이상",
+					"projects": "40개 이상 프로젝트"
+				},
+				"ionic": {
+					"description": "하이브리드 모바일 앱 프레임워크",
+					"experience": "3년 이상",
+					"projects": "45개 이상 프로젝트"
+				}
+			}
+		},
+		"database": {
+			"title": "데이터베이스 및 스토리지",
+			"description": "데이터 관리 및 스토리지 솔루션",
+			"technologies": {
+				"postgresql": {
+					"description": "고급 오픈 소스 데이터베이스",
+					"experience": "6년 이상",
+					"projects": "100개 이상 프로젝트"
+				},
+				"mongodb": {
+					"description": "NoSQL 문서 데이터베이스",
+					"experience": "5년 이상",
+					"projects": "90개 이상 프로젝트"
+				},
+				"mysql": {
+					"description": "인기 있는 관계형 데이터베이스",
+					"experience": "7년 이상",
+					"projects": "120개 이상 프로젝트"
+				},
+				"redis": {
+					"description": "인메모리 데이터 구조 저장소",
+					"experience": "4년 이상",
+					"projects": "80개 이상 프로젝트"
+				},
+				"elasticsearch": {
+					"description": "검색 및 분석 엔진",
+					"experience": "3년 이상",
+					"projects": "35개 이상 프로젝트"
+				},
+				"firebase": {
+					"description": "Google의 모바일 플랫폼",
+					"experience": "4년 이상",
+					"projects": "70개 이상 프로젝트"
+				}
+			}
+		},
+		"cta": {
+			"description": "다음 프로젝트에 우리의 기술 전문성을 활용할 준비가 되셨나요? 당신의 비전을 실현하는 방법을 논의해 보겠습니다.",
+			"button": "프로젝트 시작하기"
+		}
 	},
 	"industries": {
 		"title": "주요 사업 분야",
@@ -311,6 +460,77 @@
 					"기술 지원 및 컨설팅"
 				]
 			}
+		}
+	},
+	"testimonials": {
+		"title": "고객 후기",
+		"actions": {
+			"reply": "답글",
+			"share": "공유"
+		}
+	},
+	"contact_cta": {
+		"title": "아이디어를 실현할 준비가 되셨나요?",
+		"description": "T2Soft가 귀사의 기술 목표 달성을 어떻게 도울 수 있는지 논의해 보겠습니다. 저희 팀이 귀사의 비전을 실현할 준비가 되어 있습니다.",
+		"contact_button": "문의하기",
+		"services_button": "서비스 살펴보기"
+	},
+	"unique_value": {
+		"title": "최고의 서비스를 제공합니다",
+		"description": "다른 기술 제공업체와 차별화되는 우리만의 특별한 가치를 확인하세요.",
+		"advantages": {
+			"quality": {
+				"title": "품질 보증",
+				"description": "엄격한 품질 관리 프로세스를 통해 모든 코드가 최고의 기준을 충족하도록 보장합니다. 단위 테스트, 통합 테스트, 자동화된 QA 프로세스를 포함한 포괄적인 테스트 방법론을 구현하여 견고하고 버그 없는 솔루션을 제공합니다."
+			},
+			"technical": {
+				"title": "기술 전문성",
+				"description": "우리 팀은 다양한 기술과 도메인에 걸쳐 전문가들로 구성되어 있습니다. 클라우드 아키텍처부터 AI 구현, 모바일 개발부터 엔터프라이즈 솔루션까지, 모든 프로젝트에 깊은 기술 지식과 실무 경험을 제공합니다."
+			},
+			"cultural": {
+				"title": "문화적 조화",
+				"description": "동양의 헌신과 서양의 비즈니스 관행을 연결합니다. 우리 팀은 글로벌 비즈니스 문화를 이해하면서도 베트남의 근면성, 정확성, 탁월성에 대한 헌신을 가져와 전 세계 고객과 조화로운 업무 관계를 구축합니다."
+			},
+			"scalable": {
+				"title": "확장 가능한 솔루션",
+				"description": "성장을 고려한 설계를 제공합니다. 우리의 아키텍처와 개발 접근 방식은 확장성을 우선시하여 솔루션이 비즈니스와 함께 원활하게 성장할 수 있도록 합니다. 스타트업부터 대기업까지, 변화하는 요구사항에 적응하는 기술을 구축합니다."
+			}
+		}
+	},
+	"faq": {
+		"title": "자주 묻는 질문",
+		"questions": {
+			"services": {
+				"question": "어떤 프로그래밍 서비스를 제공하나요?",
+				"answer": "웹 및 모바일 앱 개발, 백엔드 시스템, API 통합, 유지보수 지원을 포함한 종합적인 소프트웨어 개발 서비스를 제공합니다."
+			},
+			"technologies": {
+				"question": "어떤 기술에 전문성이 있나요?",
+				"answer": "JavaScript(React, Node.js), Python, Java, PHP, .NET 및 AWS, Azure와 같은 클라우드 플랫폼을 포함한 다양한 기술에 전문성을 보유하고 있습니다."
+			},
+			"quality": {
+				"question": "코드 품질은 어떻게 보장하나요?",
+				"answer": "코드 리뷰, 단위 테스트, 지속적 통합, 버전 관리 등 모범 사례를 따르며 높은 코드 품질을 유지합니다."
+			},
+			"communication": {
+				"question": "개발자와 직접 소통할 수 있나요?",
+				"answer": "네, Slack, Zoom, 이메일 등의 도구를 통해 개발자와 직접 소통할 수 있는 채널을 제공하여 원활한 협업을 보장합니다."
+			},
+			"pricing": {
+				"question": "가격 정책은 어떻게 되나요?",
+				"answer": "프로젝트 요구사항에 따라 시간당 요금, 전담 팀 구성, 고정 가격 계약 등 유연한 가격 정책을 제공합니다."
+			}
+		}
+	},
+	"about": {
+		"title": "회사 소개",
+		"description": "T2 Soft는 고품질 솔루션 제공에 중점을 둔 선도적인 소프트웨어 개발 회사입니다. 기술적 전문성과 혁신적인 사고를 결합하여 기업의 디지털 혁신을 지원합니다.",
+		"experience": "10년 이상의 업계 경험",
+		"team": "50명 이상의 숙련된 전문가 팀",
+		"projects": "200개 이상의 성공적인 프로젝트 완료",
+		"offices": "베트남과 한국에 글로벌 사무소 운영",
+		"faq": {
+			"imageAlt": "자주 묻는 질문 일러스트레이션"
 		}
 	}
 }

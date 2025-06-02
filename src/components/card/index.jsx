@@ -8,7 +8,9 @@ const HoverCard = ({ icon, title, description, className = "" }) => {
 				{icon}
 			</div>
 			<div>
-				<h2 className="text-xl font-semibold mb-2 text-gray-900 min-h-[56px]">{title}</h2>
+				<h2 className="text-xl font-semibold mb-2 text-gray-900 sm:min-h-[56px]">
+					{title}
+				</h2>
 				<p className="text-base text-gray-600 min-h-[96px]">{description}</p>
 			</div>
 		</div>

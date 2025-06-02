@@ -68,9 +68,7 @@ const Blog = () => {
 			<div className="max-w-[1440px] mx-auto py-6">
 				{/* Header và Search Input */}
 				<div className="mb-10 text-center flex flex-col items-center justify-center gap-6">
-					<h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-t2-darkBlue">
-						Blog
-					</h2>
+					<h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Blog</h2>
 					<div className="flex justify-center w-2/3">
 						<input
 							type="text"

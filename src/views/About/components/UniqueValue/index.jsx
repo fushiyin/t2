@@ -48,23 +48,22 @@ const advantages = [
 function AdvantageItem({ icon: Icon, title, description, index }) {
 	return (
 		<motion.div
-			className="flex flex-col items-start space-y-4 border-1 border-[var(--color-dark-gray)] p-5 rounded-xl"
+			className="bg-white/80 rounded-2xl shadow-lg p-6 flex flex-col gap-3 items-stretch relative sm:min-h-[300px] border-t"
 			variants={itemVariants}
+			whileHover={{ scale: 1.03 }}
+			transition={{ type: "spring", stiffness: 200, damping: 15 }}
 		>
 			<motion.div
 				className="flex justify-center w-full"
 				whileHover={{ scale: 1.1, rotate: index % 2 === 0 ? 5 : -5 }}
 				transition={{ type: "spring", stiffness: 300 }}
 			>
-				<div className=" rounded-full p-3 bg-dark-blue">
-					<Icon
-						className="h-6 w-6 text-t2-blue"
-						color="#ffffff"
-					/>
+				<div className="bg-gray-100 p-3 rounded-full inline-flex items-center justify-center">
+					<Icon className="h-8 w-8 rounded-full" />
 				</div>
 			</motion.div>
-			<h3 className="text-2xl font-bold text-t2-darkBlue text-center w-full">{title}</h3>
-			<p className="text-muted-foreground">{description}</p>
+			<h2 className="text-xl font-semibold text-gray-900 mb-2">{title}</h2>
+			<p className="text-base text-gray-600 min-h-[96px]">{description}</p>
 		</motion.div>
 	);
 }
@@ -78,7 +77,7 @@ export default function UniqueValue() {
 			<div className="container h-full flex flex-col justify-center">
 				<div className="flex flex-col items-center justify-center space-y-4 text-center">
 					<div className="space-y-2">
-						<h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-t2-darkBlue">
+						<h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
 							We make sure to provide best services
 						</h2>
 						<p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">

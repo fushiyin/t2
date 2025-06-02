@@ -24,31 +24,28 @@ export default function Contact() {
 		e.preventDefault();
 		setIsSubmitting(true);
 
-		// Simulate API call
 		await new Promise((resolve) => setTimeout(resolve, 1000));
 
-		// Handle form submission here
 		console.log("Form submitted:", formState);
 
 		setIsSubmitting(false);
 		setIsSubmitted(true);
 		setFormState({ name: "", email: "", company: "", message: "" });
 
-		// Reset success message after 5 seconds
 		setTimeout(() => {
 			setIsSubmitted(false);
 		}, 5000);
 	};
 
 	return (
-		<div className="w-full h-[600px] bg-white pt-[64px]">
+		<div className="w-full h-full bg-white py-[64px]">
 			<div className="mx-auto max-w-[1440px]">
 				<div className="flex flex-col md:flex-row-reverse">
 					<div className="w-full h-full bg-white flex items-center justify-center">
-						<div className="container px-4 md:px-6 h-full flex flex-col justify-center">
+						<div className="container xl:px-4 sm:px-0 md:px-0 h-full flex flex-col justify-center">
 							<div className="grid gap-10 lg:grid-cols-2 items-center">
-								<div className="space-y-4">
-									<h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+								<div className="space-y-4 p-3 md:p-3 lg:p-6 xl:p-6">
+									<h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-dark-gray">
 										Ready to Transform Your Ideas?
 									</h2>
 									<p className="max-w-[600px] text-muted-foreground md:text-xl/relaxed">
@@ -74,7 +71,7 @@ export default function Contact() {
 									</ul>
 								</div>
 
-								<div className="bg-white rounded-lg border border-pale-blue p-6 shadow-sm">
+								<div className="bg-white/80 rounded-lg border-t shadow-lg">
 									{isSubmitted ? (
 										<motion.div
 											className="flex flex-col items-center justify-center h-full py-8 text-center"
@@ -98,7 +95,7 @@ export default function Contact() {
 													/>
 												</svg>
 											</div>
-											<h3 className="text-xl font-bold mb-2">
+											<h3 className="text-xl font-bold mb-2 text-dark-gray">
 												Message Sent!
 											</h3>
 											<p className="text-muted-foreground">
@@ -109,12 +106,12 @@ export default function Contact() {
 									) : (
 										<form
 											onSubmit={handleSubmit}
-											className="space-y-4"
+											className="space-y-4 p-3 md:p-3 lg:p-6 xl:p-6"
 										>
 											<div>
 												<label
 													htmlFor="name"
-													className="block text-sm font-medium mb-1"
+													className="block text-sm font-medium mb-1 text-dark-gray"
 												>
 													Full Name
 												</label>
@@ -125,13 +122,13 @@ export default function Contact() {
 													onChange={handleChange}
 													placeholder="Your name"
 													required
-													className=""
+													className="focus:outline-none focus:ring-0 focus-visible:shadow-none focus-visible:outline-none focus-visible:ring-0 border-t2-grayBlue focus-visible:border-light-blue"
 												/>
 											</div>
 											<div>
 												<label
 													htmlFor="email"
-													className="block text-sm font-medium mb-1"
+													className="block text-sm font-medium mb-1 text-dark-gray"
 												>
 													Email
 												</label>
@@ -143,13 +140,13 @@ export default function Contact() {
 													onChange={handleChange}
 													placeholder="your@email.com"
 													required
-													className=""
+													className="focus:outline-none focus:ring-0 focus-visible:shadow-none focus-visible:outline-none focus-visible:ring-0 border-t2-grayBlue focus-visible:border-light-blue"
 												/>
 											</div>
 											<div>
 												<label
 													htmlFor="company"
-													className="block text-sm font-medium mb-1"
+													className="block text-sm font-medium mb-1 text-dark-gray"
 												>
 													Company
 												</label>
@@ -159,13 +156,13 @@ export default function Contact() {
 													value={formState.company}
 													onChange={handleChange}
 													placeholder="Your company name"
-													className=""
+													className="focus:outline-none focus:ring-0 focus-visible:shadow-none focus-visible:outline-none focus-visible:ring-0 border-t2-grayBlue focus-visible:border-light-blue"
 												/>
 											</div>
 											<div>
 												<label
 													htmlFor="message"
-													className="block text-sm font-medium mb-1"
+													className="block text-sm font-medium mb-1 text-dark-gray"
 												>
 													How can we help?
 												</label>
@@ -175,13 +172,13 @@ export default function Contact() {
 													value={formState.message}
 													onChange={handleChange}
 													placeholder="Tell us about your project or inquiry..."
-													className="min-h-[120px] "
+													className="min-h-[120px] border-t2-grayBlue focus:outline-none focus:ring-0 focus-visible:shadow-none focus-visible:outline-none focus-visible:ring-0 focus-visible:border-light-blue"
 													required
 												/>
 											</div>
 											<Button
 												type="submit"
-												className="w-full bg-dark-blue hover:bg-blue-700 cursor-pointer text-white"
+												className="w-full bg-dark-blue hover:bg-light-blue cursor-pointer text-white transition-colors duration-300"
 												disabled={isSubmitting}
 											>
 												{isSubmitting ? "Sending..." : "Send Message"}

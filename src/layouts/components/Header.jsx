@@ -29,16 +29,16 @@ const Header = () => {
 
 	const LANGUAGE = [
 		{
-			code: "en",
-			label: "English",
-			imageUrl:
-				"https://www.countryflags.com/wp-content/uploads/united-kingdom-flag-png-xl.png",
-		},
-		{
 			code: "ko",
 			label: "Korean",
 			imageUrl:
 				"https://www.countryflags.com/wp-content/uploads/south-korea-flag-png-large.png",
+		},
+		{
+			code: "en",
+			label: "English",
+			imageUrl:
+				"https://www.countryflags.com/wp-content/uploads/united-kingdom-flag-png-xl.png",
 		},
 		// {
 		// 	code: "vi",
@@ -152,9 +152,9 @@ const Header = () => {
 												key={`lang_item_${lang_item?.code}_${index}`}
 												onClick={() => changeLanguage(lang_item)}
 												className={classNames(
-													"flex justify-start cursor-pointer w-full px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-light-blue hover:text-white dark:hover:bg-dark-blue",
+													"flex justify-start cursor-pointer w-full px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-header-hover hover:text-dark-blue dark:hover:bg-dark-blue",
 													{
-														"bg-dark-blue dark:bg-light-blue text-white":
+														"bg-header-active dark:light-blue-gray text-gray-700":
 															language?.code === lang_item.code,
 														"rounded-t-md": index === 0,
 														"rounded-b-md":

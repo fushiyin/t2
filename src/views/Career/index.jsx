@@ -25,7 +25,7 @@ const career_items = [
 	{
 		icon: (
 			<Users
-				className="text-white"
+				className="text-dark-gray"
 				size={24}
 			/>
 		),
@@ -35,7 +35,7 @@ const career_items = [
 	{
 		icon: (
 			<BookOpen
-				className="text-white"
+				className="text-dark-gray"
 				size={24}
 			/>
 		),
@@ -45,7 +45,7 @@ const career_items = [
 	{
 		icon: (
 			<Layers
-				className="text-white"
+				className="text-dark-gray"
 				size={24}
 			/>
 		),
@@ -56,7 +56,7 @@ const career_items = [
 export default function Careers() {
 	return (
 		<div className="flex flex-col items-center justify-center mx-auto">
-			<div className="container py-12 max-w-[1440px] md:pl-6 md:pr-6 px-4 lg:px-0">
+			<div className="container py-12 max-w-[1440px] md:pl-6 md:pr-6 px-4 lg:px-6 xl:px-6">
 				<motion.h1
 					className="w-full text-4xl text-center font-bold mb-4"
 					initial="hidden"
@@ -90,10 +90,12 @@ export default function Careers() {
 							whileHover={{ scale: 1.03 }}
 							transition={{ type: "spring", stiffness: 200, damping: 15 }}
 						>
-							<Card className="hover:shadow-lg transition-shadow  border-[var(--color-dark-gray)]">
+							<Card className="hover:shadow-lg transition-shadow  bg-white/80 border-t shadow-lg">
 								<CardContent className="p-6 flex flex-col items-center text-center space-y-4">
-									<div className="rounded-full p-3 bg-dark-blue">{item.icon}</div>
-									<h3 className="text-2xl font-bold">{item.title}</h3>
+									<div className="rounded-full p-3 bg-gray-100">{item.icon}</div>
+									<h3 className="text-2xl text-dark-gray font-bold">
+										{item.title}
+									</h3>
 									<p className="text-muted-foreground">{item.desc}</p>
 								</CardContent>
 							</Card>
@@ -102,7 +104,7 @@ export default function Careers() {
 				</motion.div>
 
 				<motion.h2
-					className="text-3xl font-bold mb-6"
+					className="text-3xl text-dark-gray font-bold mb-6"
 					initial="hidden"
 					whileInView="visible"
 					viewport={{ once: true }}
@@ -125,17 +127,20 @@ export default function Careers() {
 							whileHover={{ scale: 1.02 }}
 							transition={{ type: "spring", stiffness: 180, damping: 16 }}
 						>
-							<Card className="hover:shadow-md transition-shadow border-[var(--color-dark-gray)/50]">
+							<Card className="hover:shadow-md transition-shadow bg-white/80 border-t shadow-lg">
 								<CardContent className="p-6">
 									<div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
 										<div className="flex-1">
 											<h3 className="text-xl font-bold">{position.title}</h3>
 											<div className="flex flex-wrap gap-2 mt-2">
-												<span className="inline-flex items-center rounded-full bg-muted px-2.5 py-0.5 text-xs font-medium">
+												<span className="inline-flex text-dark-gray items-center rounded-full bg-muted px-2.5 py-0.5 text-xs font-medium">
 													{position.location}
 												</span>
-												<span className="inline-flex items-center rounded-full bg-muted px-2.5 py-0.5 text-xs font-medium">
+												<span className="inline-flex text-dark-gray items-center rounded-full bg-muted px-2.5 py-0.5 text-xs font-medium">
 													{position.type}
+												</span>
+												<span className="inline-flex text-dark-gray items-center rounded-full bg-muted px-2.5 py-0.5 text-xs font-medium">
+													{position.site}
 												</span>
 											</div>
 											<p className="text-muted-foreground mt-2">
@@ -165,7 +170,7 @@ export default function Careers() {
 			>
 				<div className="max-w-[1440px] flex flex-col md:flex-row mx-auto space-y-6 md:space-y-0 md:space-x-6 sm:w-full">
 					<motion.div className="flex-1 space-y-4">
-						<h2 className="text-3xl font-bold">
+						<h2 className="text-3xl text-dark-gray font-bold">
 							Haven’t found the right position yet?
 						</h2>
 						<p className="text-muted-foreground text-lg">

@@ -65,10 +65,12 @@ const Blog = () => {
 
 	return (
 		<div className="flex flex-col items-center justify-center mx-auto overflow-y-hidden">
-			<div className="max-w-[1440px] mx-auto py-6">
+			<div className="max-w-[1440px] mx-auto px-4 py-12 md:pl-6 md:pr-6 lg:px-6 xl:px-0 sm:w-full">
 				{/* Header và Search Input */}
 				<div className="mb-10 text-center flex flex-col items-center justify-center gap-6">
-					<h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Blog</h2>
+					<h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-dark-gray">
+						Blog
+					</h2>
 					<div className="flex justify-center w-2/3">
 						<input
 							type="text"

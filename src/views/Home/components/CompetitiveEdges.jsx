@@ -5,66 +5,8 @@ import Dev from "@/assets/lotties/dev.json";
 import classNames from "classnames";
 import { BarChart3, Check, ChevronDown, Code, Cpu, DollarSign } from "lucide-react";
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import Lottie from "react-lottie";
-
-const edges = [
-	{
-		id: 0,
-		title: "Korean PM Coordinator",
-		icon: <Cpu className="w-12 h-12 text-black" />,
-		description: [
-			"Able to coordinate between Korean and Vietnam",
-			"Optimize response to Korean work style",
-			"Able to lead project with rich experience",
-			"Able to communicate and coordinate quickly and clearly when issues arise",
-		],
-		lottie: Computer,
-		width: 300,
-		height: 250,
-	},
-	{
-		id: 1,
-		title: "Developer skills",
-		icon: <Code className="w-12 h-12 text-black" />,
-		description: [
-			"Various language and frameworks proficiency",
-			"Quickly adapt to the latest trends and technological changes",
-			"Able to organize personnel with experience tailored to Korean project",
-			"Quality-oriented, hands-on development team",
-		],
-		lottie: Dev,
-		width: 300,
-		height: 250,
-	},
-	{
-		id: 2,
-		title: "Communication",
-		icon: <BarChart3 className="w-12 h-12 text-black" />,
-		description: [
-			"Optimized communication between customers and developers with professional bridge personnel",
-			"High level of understanding and responsiveness to cultural differences",
-			"Efficient collaboration through customer-tailored communication",
-			"Real-time smooth communication through collaboration tools",
-		],
-		lottie: Communicate,
-		width: 300,
-		height: 200,
-	},
-	{
-		id: 3,
-		title: "Cost efficiency",
-		icon: <DollarSign className="w-12 h-12 text-black" />,
-		description: [
-			"Provide cost-effective solutions with high-quality services",
-			"Minimizing trial and error with abundant experience",
-			"Maximizing productivity with solid internal processes",
-			"Achieving cost savings through flexible personnel management",
-		],
-		lottie: Cost,
-		width: 250,
-		height: 250,
-	},
-];
 
 const defaultOptions = {
 	loop: true,
@@ -80,6 +22,52 @@ const CompetitiveEdges = ({ contentClass }) => {
 	const [activeEdge, setActiveEdge] = useState(null);
 	const [isHovered, setIsHovered] = useState(false);
 	const [hoveredIndex, setHoveredIndex] = useState(null);
+	const { t } = useTranslation();
+
+	const edges = [
+		{
+			id: 0,
+			title: t("competitive_edges.edges.coordinator.title"),
+			icon: <Cpu className="w-12 h-12 text-black" />,
+			description: t("competitive_edges.edges.coordinator.description", {
+				returnObjects: true,
+			}),
+			lottie: Computer,
+			width: 300,
+			height: 250,
+		},
+		{
+			id: 1,
+			title: t("competitive_edges.edges.developer.title"),
+			icon: <Code className="w-12 h-12 text-black" />,
+			description: t("competitive_edges.edges.developer.description", {
+				returnObjects: true,
+			}),
+			lottie: Dev,
+			width: 300,
+			height: 250,
+		},
+		{
+			id: 2,
+			title: t("competitive_edges.edges.communication.title"),
+			icon: <BarChart3 className="w-12 h-12 text-black" />,
+			description: t("competitive_edges.edges.communication.description", {
+				returnObjects: true,
+			}),
+			lottie: Communicate,
+			width: 300,
+			height: 200,
+		},
+		{
+			id: 3,
+			title: t("competitive_edges.edges.cost.title"),
+			icon: <DollarSign className="w-12 h-12 text-black" />,
+			description: t("competitive_edges.edges.cost.description", { returnObjects: true }),
+			lottie: Cost,
+			width: 250,
+			height: 250,
+		},
+	];
 
 	useEffect(() => {
 		if (!activeEdge && edges.length > 0) {
@@ -110,10 +98,10 @@ const CompetitiveEdges = ({ contentClass }) => {
 				{/* Heading */}
 				<div className="flex flex-col items-center justify-center space-y-4 text-center px-5 mb-5">
 					<h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-dark-gray">
-						Our competitive edges
+						{t("competitive_edges.title")}
 					</h2>
-					<p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-						Our guiding principles that drive everything we do.
+					<p className="md:max-w-[900px] text-muted-foreground md:text-xl/relaxed">
+						{t("competitive_edges.description")}
 					</p>
 				</div>
 

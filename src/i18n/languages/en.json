@@ -1,29 +1,536 @@
 {
-	"slogan": "Your global software service and solution partner",
+	"about_us": {
+		"title": "About us"
+	},
+	"competitive_edges": {
+		"description": "Our guding principles that drive everything we do.",
+		"edges": {
+			"coordinator": {
+				"description": [
+					"Able to communicate and coordinate quickly and clearly when issues arise",
+					"Able to coordinate between Korean and Vietnam",
+					"Able to lead project with rich experience",
+					"Optimize response to Korean work style"
+				],
+				"title": "Korean PM Coordinator"
+			},
+			"developer": {
+				"title": "Skilled developers",
+				"description": [
+					"Various language and frameworks proficiency",
+					"Quickly adapt to the latest trends and technological changes",
+					"Able to organize personnel with experience tailored to Korean project",
+					"Quality-oriented, hands-on development team"
+				]
+			},
+			"communication": {
+				"title": "Entry-to-communication",
+				"description": [
+					"Optimized communication between customers and developers with professional bridge personnel",
+					"High level of understanding and responsiveness to cultural differences",
+					"Efficient collaboration through customer-tailored communication",
+					"Real-time smooth communication through collaboration tools"
+				]
+			},
+			"cost": {
+				"title": "Cost efficiency",
+				"description": [
+					"Provide cost-effective solutions with high-quality services",
+					"Minimizing trial and error with abundant experience",
+					"Maximizing productivity with solid internal processes",
+					"Achieving cost savings through flexible personnel management"
+				]
+			}
+		},
+		"title": "Our competitive edges"
+	},
 	"description": "T2 Soft is a Vietnamese SI and IT outsourcing company that provides software development and maintenance, and IT consulting services for Korean corporate clients. We aim to quickly provide high-quality IT solutions optimized for customer needs, successfully support digital transformation, and grow together with our customers.",
-	"menu": {
-		"home": "Home",
-		"about": "About Us",
-		"contact": "Contact Us",
-		"blog": "Blog",
-		"careers": "Careers",
-		"services": "Services",
-		"testimonials": "Testimonials",
-		"faq": "FAQ"
-	},
-	"focus_industries": {
-		"title": "Focused Industries",
-		"description": "T2 Soft leverages extensive project experience and technical expertise across various industries to deliver customized IT solutions. We work hand-in-hand with our clients to maximize business value, driving both efficiency and innovation."
-	},
 	"description_mobile": "T2 Soft is a Vietnamese SI and IT outsourcing company that provides software development and maintenance, and IT consulting services for Korean corporate clients.",
-	"language": "Language",
-	"menu_drawer": "Menu",
+	"focus_industries": {
+		"description": "T2 Soft leverages extensive project experience and technical expertise across various industries to deliver customized IT solutions. We work hand-in-hand with our clients to maximize business value, driving both efficiency and innovation.",
+		"title": "Focused Industries"
+	},
 	"footer": {
 		"company": "Company",
-		"resources": "Resources",
 		"documentation": "Documentation",
+		"privacy": "Privacy Policy",
+		"resources": "Resources",
 		"studies": "Case Studies",
-		"terms": "Terms of Service",
-		"privacy": "Privacy Policy"
+		"terms": "Terms of Service"
+	},
+	"language": "Language",
+	"menu": {
+		"about": "About Us",
+		"blog": "Blog",
+		"careers": "Careers",
+		"contact": "Contact Us",
+		"faq": "FAQ",
+		"home": "Home",
+		"services": "Services",
+		"testimonials": "Testimonials"
+	},
+	"menu_drawer": "Menu",
+	"service": {
+		"ai": "AI & Machine Learning",
+		"ai_desc": "Intelligent solutions that leverage the power of AI and ML to drive insights and automation.",
+		"cloud": "Cloud Services",
+		"cloud_desc": "Cloud architecture, migration, and management services to optimize your infrastructure and operations.",
+		"custom_software": "Custom Software Development",
+		"custom_software_desc": "Bespoke software solutions designed and built from the ground up to address your specific business challenges and requirements",
+		"mobile_app": "Mobile App Development",
+		"mobile_app_desc": "Native and cross-platform mobile applications that deliver exceptional user experiences across all devices.",
+		"qa": "QA & Testing",
+		"qa_desc": "Comprehensive quality assurance and testing services to ensure your software meets the highest standards.",
+		"slogan": "Your global software service and solution partner",
+		"web_dev": "Web Development",
+		"web_dev_desc": "Responsive, high-performance web applications and sites built with the latest technologies and frameworks."
+	},
+	"why_vietnam": {
+		"title": "Why Vietnam?",
+		"description": "Vietnam provides an ideal outsourcing environment for global companies, offering skilled IT talent, competitive costs, fast technology adoption, and reliable development services.",
+		"talent": {
+			"title": "Skilled talent & technology strength",
+			"description": "A rich pool of young IT talent in foreign languages & quick to adopt new technologies"
+		},
+		"cost": {
+			"title": "High cost efficiency",
+			"description": "Access top-tier development talent at 25–55% lower cost than local teams – ideal for budget optimization"
+		},
+		"geo_n_culture": {
+			"title": "Strong geographical & cultural alignment",
+			"description": "Professional, respectful & hardworking culture— well-aligned with global collaboration styles"
+		},
+		"politic_n_eco": {
+			"title": "Political & economic stable environment",
+			"description": "Vietnam offers a secure & predictable environment for longterm outsourcing partnerships."
+		},
+		"experience": {
+			"title": "Global experience",
+			"description": "Proven experience collaborating with global enterprises from KR, JP and beyond"
+		}
+	},
+	"our": "Our",
+	"vision": {
+		"title": "Vision",
+		"description": "T2, Shaping the Future of Technology We strive to be your premier global development partner, leading the advancement of next-generation technologies."
+	},
+	"mission": {
+		"title": "Mission",
+		"description": "We provide reliable software development and solutions to clients worldwide, offering highquality and cost-effective services with Vietnam's top tech talent. Through technological innovation and flexible collaboration, we help our clients grow their businesses.."
+	},
+	"values": {
+		"title": "Values",
+		"description": "We collaborate closely with our clients as one unified team, embrace next-generation technologies to stay ahead, and foster long-term partnerships built on trust, transparency, and accountability."
+	},
+	"tech_stack": {
+		"title": "Technology Stack",
+		"description": "Our comprehensive technology expertise spans across modern frameworks, languages, and platforms. We leverage cutting-edge tools to build scalable, robust, and innovative solutions.",
+		"frontend": {
+			"title": "Frontend Development",
+			"description": "Building modern, responsive, and interactive user interfaces",
+			"technologies": {
+				"react": {
+					"description": "Component-based UI library",
+					"experience": "5+ years",
+					"projects": "150+ projects"
+				},
+				"nextjs": {
+					"description": "Full-stack React framework",
+					"experience": "4+ years",
+					"projects": "100+ projects"
+				},
+				"typescript": {
+					"description": "Typed JavaScript superset",
+					"experience": "4+ years",
+					"projects": "120+ projects"
+				},
+				"tailwind": {
+					"description": "Utility-first CSS framework",
+					"experience": "3+ years",
+					"projects": "80+ projects"
+				},
+				"vue": {
+					"description": "Progressive JavaScript framework",
+					"experience": "3+ years",
+					"projects": "60+ projects"
+				},
+				"angular": {
+					"description": "Platform for building mobile and desktop apps",
+					"experience": "4+ years",
+					"projects": "70+ projects"
+				}
+			}
+		},
+		"backend": {
+			"title": "Backend Development",
+			"description": "Scalable server-side applications and robust APIs",
+			"technologies": {
+				"nodejs": {
+					"description": "JavaScript runtime environment",
+					"experience": "5+ years",
+					"projects": "130+ projects"
+				},
+				"python": {
+					"description": "Versatile programming language",
+					"experience": "6+ years",
+					"projects": "90+ projects"
+				},
+				"java": {
+					"description": "Enterprise-grade programming language",
+					"experience": "7+ years",
+					"projects": "110+ projects"
+				},
+				"express": {
+					"description": "Fast Node.js web framework",
+					"experience": "5+ years",
+					"projects": "120+ projects"
+				},
+				"django": {
+					"description": "High-level Python web framework",
+					"experience": "4+ years",
+					"projects": "65+ projects"
+				},
+				"spring": {
+					"description": "Java-based framework",
+					"experience": "5+ years",
+					"projects": "85+ projects"
+				}
+			}
+		},
+		"mobile": {
+			"title": "Mobile Development",
+			"description": "Native and cross-platform mobile applications",
+			"technologies": {
+				"react_native": {
+					"description": "Cross-platform mobile framework",
+					"experience": "4+ years",
+					"projects": "75+ projects"
+				},
+				"flutter": {
+					"description": "Google's UI toolkit",
+					"experience": "3+ years",
+					"projects": "50+ projects"
+				},
+				"ios": {
+					"description": "Native iOS development",
+					"experience": "5+ years",
+					"projects": "60+ projects"
+				},
+				"android": {
+					"description": "Native Android development",
+					"experience": "5+ years",
+					"projects": "70+ projects"
+				},
+				"xamarin": {
+					"description": "Microsoft's mobile platform",
+					"experience": "3+ years",
+					"projects": "40+ projects"
+				},
+				"ionic": {
+					"description": "Hybrid mobile app framework",
+					"experience": "3+ years",
+					"projects": "45+ projects"
+				}
+			}
+		},
+		"database": {
+			"title": "Database & Storage",
+			"description": "Data management and storage solutions",
+			"technologies": {
+				"postgresql": {
+					"description": "Advanced open source database",
+					"experience": "6+ years",
+					"projects": "100+ projects"
+				},
+				"mongodb": {
+					"description": "NoSQL document database",
+					"experience": "5+ years",
+					"projects": "90+ projects"
+				},
+				"mysql": {
+					"description": "Popular relational database",
+					"experience": "7+ years",
+					"projects": "120+ projects"
+				},
+				"redis": {
+					"description": "In-memory data structure store",
+					"experience": "4+ years",
+					"projects": "80+ projects"
+				},
+				"elasticsearch": {
+					"description": "Search and analytics engine",
+					"experience": "3+ years",
+					"projects": "35+ projects"
+				},
+				"firebase": {
+					"description": "Google's mobile platform",
+					"experience": "4+ years",
+					"projects": "70+ projects"
+				}
+			}
+		},
+		"cta": {
+			"description": "Ready to leverage our technical expertise for your next project? Let's discuss how we can bring your vision to life.",
+			"button": "Start Your Project"
+		}
+	},
+	"industries": {
+		"title": "Industries We Transform",
+		"description": "Discover our specialized expertise across five key industries, where we deliver innovative solutions that drive digital transformation and business growth.",
+		"status": {
+			"expertise": "Expertise",
+			"advanced": "Advanced",
+			"specialized": "Specialized",
+			"innovation": "Innovation",
+			"emerging": "Emerging"
+		},
+		"manufactoring": {
+			"title": "Manufacturing",
+			"description": "Smart manufacturing solutions for Industry 4.0 transformation",
+			"tagline": "Revolutionizing Production",
+			"sub_industries": {
+				"erp": {
+					"title": "ERP Systems",
+					"description": "Enterprise Resource Planning for streamlined operations"
+				},
+				"mes": {
+					"title": "MES Solutions",
+					"description": "Manufacturing Execution Systems for production optimization"
+				},
+				"supply_chain": {
+					"title": "Supply Chain Management",
+					"description": "End-to-end supply chain optimization and tracking"
+				},
+				"quality_manage": {
+					"title": "Quality Management",
+					"description": "Automated quality control and assurance systems"
+				}
+			}
+		},
+		"bank_n_fin": {
+			"title": "Bank & Finance",
+			"description": "Secure and innovative financial technology solutions",
+			"tagline": "Securing Financial Future",
+			"sub_industries": {
+				"payment_gateways": {
+					"title": "Payment Gateways",
+					"description": "Secure payment processing and gateway solutions"
+				},
+				"mobile_banking": {
+					"title": "Mobile Banking",
+					"description": "Feature-rich mobile banking applications"
+				},
+				"fintech": {
+					"title": "Fintech Platforms",
+					"description": "Comprehensive financial technology solutions"
+				},
+				"pos": {
+					"title": "POS Systems",
+					"description": "Advanced point of sale and payment terminals"
+				}
+			}
+		},
+		"ecommerce": {
+			"title": "eCommerce",
+			"description": "Comprehensive e-commerce platforms and digital marketing solutions",
+			"tagline": "Powering Digital Commerce",
+			"sub_industries": {
+				"crm": {
+					"title": "CRM Systems",
+					"description": "Advanced customer relationship management"
+				},
+				"marketing": {
+					"title": "Marketing Automation",
+					"description": "AI-powered marketing campaigns and analytics"
+				},
+				"platforms": {
+					"title": "E-commerce Platforms",
+					"description": "Full-stack e-commerce solutions with payment integration"
+				},
+				"analytics": {
+					"title": "Big Data Analytics",
+					"description": "Advanced analytics for business intelligence"
+				}
+			}
+		},
+		"ai": {
+			"title": "AI Solutions",
+			"description": "Artificial Intelligence solutions for smart automation",
+			"tagline": "Building Intelligent Systems",
+			"sub_industries": {
+				"healthcare": {
+					"title": "Smart Healthcare",
+					"description": "AI-powered healthcare management and diagnostics"
+				},
+				"office": {
+					"title": "Smart Office",
+					"description": "Intelligent office automation and management"
+				},
+				"ibeems": {
+					"title": "AI & iBEEMS",
+					"description": "Intelligent Building Energy & Environment Management"
+				}
+			}
+		},
+		"logistics": {
+			"title": "Logistics",
+			"description": "Smart logistics and supply chain optimization solutions",
+			"tagline": "Optimizing Supply Chains",
+			"sub_industries": {
+				"warehouse": {
+					"title": "Warehouse Management",
+					"description": "Advanced WMS for inventory control and optimization"
+				},
+				"analytics": {
+					"title": "Logistics Analytics",
+					"description": "Data-driven logistics optimization and insights"
+				},
+				"fleet": {
+					"title": "Fleet Management",
+					"description": "Real-time fleet tracking and optimization"
+				}
+			}
+		}
+	},
+	"process": {
+		"title": "Our Process",
+		"description": "A structured approach to delivering high-quality software solutions.",
+		"navigation": {
+			"previous": "Previous",
+			"next": "Next"
+		},
+		"steps": {
+			"discovery": {
+				"title": "Discovery & Analysis",
+				"description": "Understanding your business objectives, requirements, and challenges through in-depth consultations.",
+				"details": [
+					"Requirements gathering and analysis",
+					"Market and competitor research",
+					"Technical feasibility assessment",
+					"Project scope definition"
+				]
+			},
+			"design": {
+				"title": "Design & Planning",
+				"description": "Creating detailed designs and technical specifications, establishing the foundation for development.",
+				"details": [
+					"UI/UX design and prototyping",
+					"System architecture design",
+					"Database schema design",
+					"Project roadmap and sprint planning"
+				]
+			},
+			"development": {
+				"title": "Development",
+				"description": "Our skilled developers write clean, efficient code following industry best practices.",
+				"details": [
+					"Agile development methodology",
+					"Regular code reviews",
+					"Continuous integration",
+					"Daily stand-ups and progress tracking"
+				]
+			},
+			"testing": {
+				"title": "Testing & QA",
+				"description": "Rigorous testing ensures your software is bug-free, secure, and performs optimally.",
+				"details": [
+					"Functional testing",
+					"Performance and load testing",
+					"Security testing",
+					"User acceptance testing"
+				]
+			},
+			"deployment": {
+				"title": "Deployment",
+				"description": "Smooth deployment of your solution to production environments, ensuring minimal disruption.",
+				"details": [
+					"Deployment planning and execution",
+					"Environment configuration",
+					"Data migration (if needed)",
+					"Post-deployment verification"
+				]
+			},
+			"maintenance": {
+				"title": "Maintenance & Support",
+				"description": "Ongoing support and maintenance to ensure your solution continues to perform optimally.",
+				"details": [
+					"Regular updates and improvements",
+					"Bug fixes and issue resolution",
+					"Performance monitoring",
+					"Technical support and consultation"
+				]
+			}
+		}
+	},
+	"testimonials": {
+		"title": "Feedback from customers",
+		"actions": {
+			"reply": "Reply",
+			"share": "Share"
+		}
+	},
+	"contact_cta": {
+		"title": "Ready to Transform Your Ideas?",
+		"description": "Let's discuss how T2Soft can help you achieve your technology goals. Our team is ready to bring your vision to life.",
+		"contact_button": "Contact Us",
+		"services_button": "Explore Our Services"
+	},
+	"unique_value": {
+		"title": "We make sure to provide best services",
+		"description": "What sets us apart from other technology providers and makes us your ideal partner.",
+		"advantages": {
+			"quality": {
+				"title": "Quality Assurance",
+				"description": "Our rigorous quality control processes ensure that every line of code meets the highest standards. We implement comprehensive testing methodologies including unit testing, integration testing, and automated QA processes to deliver robust, bug-free solutions."
+			},
+			"technical": {
+				"title": "Technical Expertise",
+				"description": "Our team comprises specialists across various technologies and domains. From cloud architecture to AI implementation, mobile development to enterprise solutions, we bring deep technical knowledge and practical experience to every project."
+			},
+			"cultural": {
+				"title": "Cultural Alignment",
+				"description": "We bridge Eastern dedication with Western business practices. Our team understands global business cultures while bringing Vietnamese values of diligence, precision, and commitment to excellence, creating a harmonious working relationship with clients worldwide."
+			},
+			"scalable": {
+				"title": "Scalable Solutions",
+				"description": "We design with growth in mind. Our architecture and development approaches prioritize scalability, allowing your solutions to grow seamlessly with your business. From startups to enterprises, we build technology that adapts to your evolving needs."
+			}
+		}
+	},
+	"faq": {
+		"title": "Frequently Asked Questions",
+		"questions": {
+			"services": {
+				"question": "What programming services do you offer?",
+				"answer": "We provide end-to-end software development services including web and mobile app development, backend systems, API integrations, and maintenance support."
+			},
+			"technologies": {
+				"question": "Which technologies do you specialize in?",
+				"answer": "Our team specializes in a wide range of technologies including JavaScript (React, Node.js), Python, Java, PHP, .NET, and cloud platforms like AWS and Azure."
+			},
+			"quality": {
+				"question": "How do you ensure code quality?",
+				"answer": "We follow best practices such as code reviews, unit testing, continuous integration, and use of version control to maintain high code quality."
+			},
+			"communication": {
+				"question": "Can I communicate directly with the developers?",
+				"answer": "Yes, we provide direct communication channels with our developers via tools like Slack, Zoom, or email to ensure smooth collaboration."
+			},
+			"pricing": {
+				"question": "What is your pricing model?",
+				"answer": "We offer flexible pricing models including hourly rates, dedicated team setups, and fixed-price contracts depending on your project needs."
+			}
+		}
+	},
+	"about": {
+		"title": "About Us",
+		"description": "T2 Soft is a leading software development company with a strong focus on delivering high-quality solutions. We combine technical expertise with innovative thinking to help businesses transform their digital presence.",
+		"experience": "10+ years of industry experience",
+		"team": "Skilled team of 50+ professionals",
+		"projects": "200+ successful projects delivered",
+		"offices": "Global presence with offices in Vietnam and Korea",
+		"faq": {
+			"imageAlt": "Faqs"
+		}
 	}
 }

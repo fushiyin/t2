@@ -97,13 +97,9 @@ export default function ServicesPage() {
 							transition={{ duration: 0.5 }}
 							className="text-center"
 						>
-							<span className="inline-block px-4 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
+							<h2 className="text-2xl md:text-3xl my-5 font-bold tracking-tighter sm:text-4xl md:text-5xl text-center">
 								Our Services
-							</span>
-							<h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-								Transform Your Business with{" "}
-								<span className="text-primary">Innovative Solutions</span>
-							</h1>
+							</h2>
 							<p className="text-xl text-muted-foreground mb-8">
 								Discover our comprehensive range of technology services designed to
 								drive your business forward.
@@ -120,14 +116,15 @@ export default function ServicesPage() {
 			<section className="w-full py-20">
 				<div className="container max-w-6xl mx-auto px-4">
 					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-						{services.map((service, index) => (
+						{services.map((service) => (
 							<motion.div
 								key={service.id}
 								initial={{ opacity: 0, y: 20 }}
 								whileInView={{ opacity: 1, y: 0 }}
-								transition={{ duration: 0.5, delay: index * 0.1 }}
 								viewport={{ once: true }}
-								className="group relative bg-card rounded-2xl overflow-hidden border border-border hover:border-primary/50 transition-colors duration-300 shadow-sm hover:shadow-md"
+								whileHover={{ scale: 1.03 }}
+								transition={{ type: "spring", stiffness: 200, damping: 15 }}
+								className="bg-white/80 rounded-2xl shadow-lg flex flex-col gap-3 items-stretch relative sm:min-h-[300px] border-t group relative bg-card rounded-2xl overflow-hidden hover:border-primary/50 transition-colors duration-300 shadow-sm hover:shadow-md"
 							>
 								<div className="relative h-48 overflow-hidden border-b border-border">
 									<img

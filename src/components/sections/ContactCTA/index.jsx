@@ -1,18 +1,20 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRightIcon } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 export default function CTA() {
+	const { t } = useTranslation();
+
 	return (
 		<div className="w-full h-full flex items-center justify-center bg-muted/50 py-16">
 			<div className="flex flex-col items-center justify-center space-y-4 text-center">
 				<div className="space-y-2">
 					<h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-						Ready to Transform Your Ideas?
+						{t("contact_cta.title")}
 					</h2>
 					<p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-						Let&apos;s discuss how T2Soft can help you achieve your technology goals.
-						Our team is ready to bring your vision to life.
+						{t("contact_cta.description")}
 					</p>
 				</div>
 				<div className="flex flex-col gap-2 min-[400px]:flex-row">
@@ -24,7 +26,7 @@ export default function CTA() {
 							to="/contact"
 							className="flex items-center gap-2"
 						>
-							Contact Us <ArrowRightIcon className="h-4 w-4" />
+							{t("contact_cta.contact_button")} <ArrowRightIcon className="h-4 w-4" />
 						</Link>
 					</Button>
 					<Button
@@ -32,7 +34,7 @@ export default function CTA() {
 						variant="outline"
 						size="lg"
 					>
-						<Link to="/services">Explore Our Services</Link>
+						<Link to="/services">{t("contact_cta.services_button")}</Link>
 					</Button>
 				</div>
 			</div>

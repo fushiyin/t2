@@ -19,228 +19,239 @@ import {
 	ZapIcon,
 } from "lucide-react";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 const tabIconClass = "h-4 w-4 400:h-5 400:w-5 500:w-6 500:h-6 sm:h-8 sm:w-8";
 const solutionIconClass = "h-4 w-4 400:h-4 400:w-4 500:h-5 500:w-5 sm:h-6 sm:w-6";
 const solutionStatusIconClass = "h-3 w-3 500:h-3 500:w-3 sm:h-4 sm:w-4";
-const industries = [
-	{
-		id: "manufacturing",
-		name: "Manufacturing",
-		icon: <FactoryIcon className={tabIconClass} />,
-		color: "#5087f7",
-		gradient: "from-blue-500 to-blue-600",
-		description: "Smart manufacturing solutions for Industry 4.0 transformation",
-		tagline: "Revolutionizing Production",
-		image: "/placeholder.svg?height=400&width=600",
-		solutions: [
-			{
-				name: "ERP Systems",
-				description: "Enterprise Resource Planning for streamlined operations",
-				icon: <BuildingIcon className={solutionIconClass} />,
-				status: "Expertise",
-				statusIcon: <ZapIcon className={solutionStatusIconClass} />,
-				statusColor: "bg-green-100 text-green-800",
-			},
-			{
-				name: "MES Solutions",
-				description: "Manufacturing Execution Systems for production optimization",
-				icon: <FactoryIcon className={solutionIconClass} />,
-				status: "Advanced",
-				statusIcon: <TrendingUpIcon className={solutionStatusIconClass} />,
-				statusColor: "bg-blue-100 text-blue-800",
-			},
-			{
-				name: "Supply Chain Management",
-				description: "End-to-end supply chain optimization and tracking",
-				icon: <TruckIcon className={solutionIconClass} />,
-				status: "Specialized",
-				statusIcon: <ShieldIcon className={solutionStatusIconClass} />,
-				statusColor: "bg-purple-100 text-purple-800",
-			},
-			{
-				name: "Quality Management",
-				description: "Automated quality control and assurance systems",
-				icon: <BarChart3Icon className={solutionIconClass} />,
-				status: "Innovation",
-				statusIcon: <RocketIcon className={solutionStatusIconClass} />,
-				statusColor: "bg-orange-100 text-orange-800",
-			},
-			// {
-			// 	name: "Smart Factory IoT",
-			// 	description: "IoT-enabled intelligent manufacturing facilities",
-			// 	icon: <BrainCircuitIcon className={solutionIconClass} />,
-			// 	status: "Emerging",
-			// 	statusIcon: <StarIcon className={solutionStatusIconClass} />,
-			// 	statusColor: "bg-pink-100 text-pink-800",
-			// },
-		],
-	},
-	{
-		id: "banking",
-		name: "Bank & Finance",
-		icon: <CreditCardIcon className={tabIconClass} />,
-		color: "#8bcff1",
-		gradient: "from-cyan-400 to-cyan-500",
-		description: "Secure and innovative financial technology solutions",
-		tagline: "Securing Financial Future",
-		image: "/placeholder.svg?height=400&width=600",
-		solutions: [
-			{
-				name: "Payment Gateways",
-				description: "Secure payment processing and gateway solutions",
-				icon: <CreditCardIcon className={solutionIconClass} />,
-				status: "Expertise",
-				statusIcon: <ZapIcon className={solutionStatusIconClass} />,
-				statusColor: "bg-green-100 text-green-800",
-			},
-			{
-				name: "Mobile Banking",
-				description: "Feature-rich mobile banking applications",
-				icon: <SmartphoneIcon className={solutionIconClass} />,
-				status: "Advanced",
-				statusIcon: <TrendingUpIcon className={solutionStatusIconClass} />,
-				statusColor: "bg-blue-100 text-blue-800",
-			},
-			{
-				name: "Fintech Platforms",
-				description: "Comprehensive financial technology solutions",
-				icon: <BarChart3Icon className={solutionIconClass} />,
-				status: "Specialized",
-				statusIcon: <ShieldIcon className={solutionStatusIconClass} />,
-				statusColor: "bg-purple-100 text-purple-800",
-			},
-			{
-				name: "POS Systems",
-				description: "Advanced point of sale and payment terminals",
-				icon: <ShoppingCartIcon className={solutionIconClass} />,
-				status: "Innovation",
-				statusIcon: <RocketIcon className={solutionStatusIconClass} />,
-				statusColor: "bg-orange-100 text-orange-800",
-			},
-		],
-	},
-	{
-		id: "ecommerce",
-		name: "eCommerce",
-		icon: <ShoppingCartIcon className={tabIconClass} />,
-		color: "#b1dfe6",
-		gradient: "from-teal-400 to-teal-500",
-		description: "Comprehensive e-commerce platforms and digital marketing solutions",
-		tagline: "Powering Digital Commerce",
-		image: "/placeholder.svg?height=400&width=600",
-		solutions: [
-			{
-				name: "CRM Systems",
-				description: "Advanced customer relationship management",
-				icon: <BuildingIcon className={solutionIconClass} />,
-				status: "Expertise",
-				statusIcon: <ZapIcon className={solutionStatusIconClass} />,
-				statusColor: "bg-green-100 text-green-800",
-			},
-			{
-				name: "Marketing Automation",
-				description: "AI-powered marketing campaigns and analytics",
-				icon: <BarChart3Icon className={solutionIconClass} />,
-				status: "Advanced",
-				statusIcon: <TrendingUpIcon className={solutionStatusIconClass} />,
-				statusColor: "bg-blue-100 text-blue-800",
-			},
-			{
-				name: "E-commerce Platforms",
-				description: "Full-stack e-commerce solutions with payment integration",
-				icon: <ShoppingCartIcon className={solutionIconClass} />,
-				status: "Specialized",
-				statusIcon: <ShieldIcon className={solutionStatusIconClass} />,
-				statusColor: "bg-purple-100 text-purple-800",
-			},
-			{
-				name: "Big Data Analytics",
-				description: "Advanced analytics for business intelligence",
-				icon: <BarChart3Icon className={solutionIconClass} />,
-				status: "Innovation",
-				statusIcon: <RocketIcon className={solutionStatusIconClass} />,
-				statusColor: "bg-orange-100 text-orange-800",
-			},
-		],
-	},
-	{
-		id: "ai",
-		name: "AI Solutions",
-		icon: <BrainCircuitIcon className={tabIconClass} />,
-		color: "#120b8f",
-		gradient: "from-indigo-600 to-purple-600",
-		description: "Artificial Intelligence solutions for smart automation",
-		tagline: "Building Intelligent Systems",
-		image: "/placeholder.svg?height=400&width=600",
-		solutions: [
-			{
-				name: "Smart Healthcare",
-				description: "AI-powered healthcare management and diagnostics",
-				icon: <HeartPulseIcon className={solutionIconClass} />,
-				status: "Innovation",
-				statusIcon: <RocketIcon className={solutionStatusIconClass} />,
-				statusColor: "bg-orange-100 text-orange-800",
-			},
-			{
-				name: "Smart Office",
-				description: "Intelligent office automation and management",
-				icon: <BuildingIcon className={solutionIconClass} />,
-				status: "Emerging",
-				statusIcon: <StarIcon className={solutionStatusIconClass} />,
-				statusColor: "bg-pink-100 text-pink-800",
-			},
-			{
-				name: "AI & iBEEMS",
-				description: "Intelligent Building Energy & Environment Management",
-				icon: <BrainCircuitIcon className={solutionIconClass} />,
-				status: "Advanced",
-				statusIcon: <TrendingUpIcon className={solutionStatusIconClass} />,
-				statusColor: "bg-blue-100 text-blue-800",
-			},
-		],
-	},
-	{
-		id: "logistics",
-		name: "Logistics",
-		icon: <TruckIcon className={tabIconClass} />,
-		color: "#5087f7",
-		gradient: "from-blue-500 to-indigo-600",
-		description: "Smart logistics and supply chain optimization solutions",
-		tagline: "Optimizing Supply Chains",
-		image: "/placeholder.svg?height=400&width=600",
-		solutions: [
-			{
-				name: "Warehouse Management",
-				description: "Advanced WMS for inventory control and optimization",
-				icon: <PackageIcon className={solutionIconClass} />,
-				status: "Expertise",
-				statusIcon: <ZapIcon className={solutionStatusIconClass} />,
-				statusColor: "bg-green-100 text-green-800",
-			},
-			{
-				name: "Logistics Analytics",
-				description: "Data-driven logistics optimization and insights",
-				icon: <BarChart3Icon className={solutionIconClass} />,
-				status: "Advanced",
-				statusIcon: <TrendingUpIcon className={solutionStatusIconClass} />,
-				statusColor: "bg-blue-100 text-blue-800",
-			},
-			{
-				name: "Fleet Management",
-				description: "Real-time fleet tracking and optimization",
-				icon: <TruckIcon className={solutionIconClass} />,
-				status: "Specialized",
-				statusIcon: <ShieldIcon className={solutionStatusIconClass} />,
-				statusColor: "bg-purple-100 text-purple-800",
-			},
-		],
-	},
-];
 
 export default function FocusedIndustries({ contentClass }) {
+	const { t } = useTranslation();
 	const [activeIndustry, setActiveIndustry] = useState(0);
 	const [hoveredSolution, setHoveredSolution] = useState(null);
+
+	const industries = [
+		{
+			id: "manufacturing",
+			name: t("industries.manufactoring.title"),
+			icon: <FactoryIcon className={tabIconClass} />,
+			color: "#5087f7",
+			gradient: "from-blue-500 to-blue-600",
+			description: "Smart manufacturing solutions for Industry 4.0 transformation",
+			tagline: "Revolutionizing Production",
+			image: "/placeholder.svg?height=400&width=600",
+			solutions: [
+				{
+					name: t("industries.manufactoring.sub_industries.erp.title"),
+					description: t("industries.manufactoring.sub_industries.erp.description"),
+					icon: <BuildingIcon className={solutionIconClass} />,
+					status: "Expertise",
+					statusIcon: <ZapIcon className={solutionStatusIconClass} />,
+					statusColor: "bg-green-100 text-green-800",
+				},
+				{
+					name: t("industries.manufactoring.sub_industries.mes.title"),
+					description: t("industries.manufactoring.sub_industries.mes.description"),
+					icon: <FactoryIcon className={solutionIconClass} />,
+					status: "Advanced",
+					statusIcon: <TrendingUpIcon className={solutionStatusIconClass} />,
+					statusColor: "bg-blue-100 text-blue-800",
+				},
+				{
+					name: t("industries.manufactoring.sub_industries.supply_chain.title"),
+					description: t(
+						"industries.manufactoring.sub_industries.supply_chain.description",
+					),
+					icon: <TruckIcon className={solutionIconClass} />,
+					status: "Specialized",
+					statusIcon: <ShieldIcon className={solutionStatusIconClass} />,
+					statusColor: "bg-purple-100 text-purple-800",
+				},
+				{
+					name: t("industries.manufactoring.sub_industries.quality_manage.title"),
+					description: t(
+						"industries.manufactoring.sub_industries.quality_manage.description",
+					),
+					icon: <BarChart3Icon className={solutionIconClass} />,
+					status: "Innovation",
+					statusIcon: <RocketIcon className={solutionStatusIconClass} />,
+					statusColor: "bg-orange-100 text-orange-800",
+				},
+				// {
+				// 	name: "Smart Factory IoT",
+				// 	description: "IoT-enabled intelligent manufacturing facilities",
+				// 	icon: <BrainCircuitIcon className={solutionIconClass} />,
+				// 	status: "Emerging",
+				// 	statusIcon: <StarIcon className={solutionStatusIconClass} />,
+				// 	statusColor: "bg-pink-100 text-pink-800",
+				// },
+			],
+		},
+		{
+			id: "banking",
+			name: t("industries.bank_n_fin.title"),
+			icon: <CreditCardIcon className={tabIconClass} />,
+			color: "#8bcff1",
+			gradient: "from-cyan-400 to-cyan-500",
+			description: t("industries.bank_n_fin.description"),
+			tagline: t("industries.bank_n_fin.tagline"),
+			image: "/placeholder.svg?height=400&width=600",
+			solutions: [
+				{
+					name: t("industries.bank_n_fin.sub_industries.payment_gateways.title"),
+					description: t(
+						"industries.bank_n_fin.sub_industries.payment_gateways.description",
+					),
+					icon: <CreditCardIcon className={solutionIconClass} />,
+					status: t("industries.status.expertise"),
+					statusIcon: <ZapIcon className={solutionStatusIconClass} />,
+					statusColor: "bg-green-100 text-green-800",
+				},
+				{
+					name: t("industries.bank_n_fin.sub_industries.mobile_banking.title"),
+					description: t(
+						"industries.bank_n_fin.sub_industries.mobile_banking.description",
+					),
+					icon: <SmartphoneIcon className={solutionIconClass} />,
+					status: t("industries.status.advanced"),
+					statusIcon: <TrendingUpIcon className={solutionStatusIconClass} />,
+					statusColor: "bg-blue-100 text-blue-800",
+				},
+				{
+					name: t("industries.bank_n_fin.sub_industries.fintech.title"),
+					description: t("industries.bank_n_fin.sub_industries.fintech.description"),
+					icon: <BarChart3Icon className={solutionIconClass} />,
+					status: t("industries.status.specialized"),
+					statusIcon: <ShieldIcon className={solutionStatusIconClass} />,
+					statusColor: "bg-purple-100 text-purple-800",
+				},
+				{
+					name: t("industries.bank_n_fin.sub_industries.pos.title"),
+					description: t("industries.bank_n_fin.sub_industries.pos.description"),
+					icon: <ShoppingCartIcon className={solutionIconClass} />,
+					status: t("industries.status.innovation"),
+					statusIcon: <RocketIcon className={solutionStatusIconClass} />,
+					statusColor: "bg-orange-100 text-orange-800",
+				},
+			],
+		},
+		{
+			id: "ecommerce",
+			name: t("industries.ecommerce.title"),
+			icon: <ShoppingCartIcon className={tabIconClass} />,
+			color: "#b1dfe6",
+			gradient: "from-teal-400 to-teal-500",
+			description: t("industries.ecommerce.description"),
+			tagline: t("industries.ecommerce.tagline"),
+			image: "/placeholder.svg?height=400&width=600",
+			solutions: [
+				{
+					name: t("industries.ecommerce.sub_industries.crm.title"),
+					description: t("industries.ecommerce.sub_industries.crm.description"),
+					icon: <BuildingIcon className={solutionIconClass} />,
+					status: t("industries.status.expertise"),
+					statusIcon: <ZapIcon className={solutionStatusIconClass} />,
+					statusColor: "bg-green-100 text-green-800",
+				},
+				{
+					name: t("industries.ecommerce.sub_industries.marketing.title"),
+					description: t("industries.ecommerce.sub_industries.marketing.description"),
+					icon: <BarChart3Icon className={solutionIconClass} />,
+					status: t("industries.status.advanced"),
+					statusIcon: <TrendingUpIcon className={solutionStatusIconClass} />,
+					statusColor: "bg-blue-100 text-blue-800",
+				},
+				{
+					name: t("industries.ecommerce.sub_industries.platforms.title"),
+					description: t("industries.ecommerce.sub_industries.platforms.description"),
+					icon: <ShoppingCartIcon className={solutionIconClass} />,
+					status: t("industries.status.specialized"),
+					statusIcon: <ShieldIcon className={solutionStatusIconClass} />,
+					statusColor: "bg-purple-100 text-purple-800",
+				},
+				{
+					name: t("industries.ecommerce.sub_industries.analytics.title"),
+					description: t("industries.ecommerce.sub_industries.analytics.description"),
+					icon: <BarChart3Icon className={solutionIconClass} />,
+					status: t("industries.status.innovation"),
+					statusIcon: <RocketIcon className={solutionStatusIconClass} />,
+					statusColor: "bg-orange-100 text-orange-800",
+				},
+			],
+		},
+		{
+			id: "ai",
+			name: t("industries.ai.title"),
+			icon: <BrainCircuitIcon className={tabIconClass} />,
+			color: "#120b8f",
+			gradient: "from-indigo-600 to-purple-600",
+			description: t("industries.ai.description"),
+			tagline: t("industries.ai.tagline"),
+			image: "/placeholder.svg?height=400&width=600",
+			solutions: [
+				{
+					name: t("industries.ai.sub_industries.healthcare.title"),
+					description: t("industries.ai.sub_industries.healthcare.description"),
+					icon: <HeartPulseIcon className={solutionIconClass} />,
+					status: t("industries.status.innovation"),
+					statusIcon: <RocketIcon className={solutionStatusIconClass} />,
+					statusColor: "bg-orange-100 text-orange-800",
+				},
+				{
+					name: t("industries.ai.sub_industries.office.title"),
+					description: t("industries.ai.sub_industries.office.description"),
+					icon: <BuildingIcon className={solutionIconClass} />,
+					status: t("industries.status.emerging"),
+					statusIcon: <StarIcon className={solutionStatusIconClass} />,
+					statusColor: "bg-pink-100 text-pink-800",
+				},
+				{
+					name: t("industries.ai.sub_industries.ibeems.title"),
+					description: t("industries.ai.sub_industries.ibeems.description"),
+					icon: <BrainCircuitIcon className={solutionIconClass} />,
+					status: t("industries.status.advanced"),
+					statusIcon: <TrendingUpIcon className={solutionStatusIconClass} />,
+					statusColor: "bg-blue-100 text-blue-800",
+				},
+			],
+		},
+		{
+			id: "logistics",
+			name: t("industries.logistics.title"),
+			icon: <TruckIcon className={tabIconClass} />,
+			color: "#5087f7",
+			gradient: "from-blue-500 to-indigo-600",
+			description: t("industries.logistics.description"),
+			tagline: t("industries.logistics.tagline"),
+			image: "/placeholder.svg?height=400&width=600",
+			solutions: [
+				{
+					name: t("industries.logistics.sub_industries.warehouse.title"),
+					description: t("industries.logistics.sub_industries.warehouse.description"),
+					icon: <PackageIcon className={solutionIconClass} />,
+					status: t("industries.status.expertise"),
+					statusIcon: <ZapIcon className={solutionStatusIconClass} />,
+					statusColor: "bg-green-100 text-green-800",
+				},
+				{
+					name: t("industries.logistics.sub_industries.analytics.title"),
+					description: t("industries.logistics.sub_industries.analytics.description"),
+					icon: <BarChart3Icon className={solutionIconClass} />,
+					status: t("industries.status.advanced"),
+					statusIcon: <TrendingUpIcon className={solutionStatusIconClass} />,
+					statusColor: "bg-blue-100 text-blue-800",
+				},
+				{
+					name: t("industries.logistics.sub_industries.fleet.title"),
+					description: t("industries.logistics.sub_industries.fleet.description"),
+					icon: <TruckIcon className={solutionIconClass} />,
+					status: t("industries.status.specialized"),
+					statusIcon: <ShieldIcon className={solutionStatusIconClass} />,
+					statusColor: "bg-purple-100 text-purple-800",
+				},
+			],
+		},
+	];
 
 	const contentVariants = {
 		hidden: { opacity: 0, x: 20 },
@@ -271,12 +282,10 @@ export default function FocusedIndustries({ contentClass }) {
 				{/* Header */}
 				<div className="flex flex-col gap-4 items-center justify-center text-center">
 					<h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-						Industries We Transform
+						{t("industries.title")}
 					</h2>
 					<p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-						Discover our specialized expertise across five key industries, where we
-						deliver innovative solutions that drive digital transformation and business
-						growth.
+						{t("industries.description")}
 					</p>
 				</div>
 

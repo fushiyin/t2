@@ -2,41 +2,37 @@ import HoverCard from "@/components/card";
 import classNames from "classnames";
 import { motion } from "framer-motion";
 import { Award, HandCoins, Handshake, HeartHandshakeIcon, Scale } from "lucide-react";
-
-const whyVn = [
-	{
-		icon: <Award className="h-8 w-8 rounded-full" />,
-		title: "Advanced talent and technical skills",
-		description:
-			"A wealth of young IT talent who are sensitive to the latest technology and have excellent foreign language communication skills",
-	},
-	{
-		icon: <HandCoins className="h-8 w-8 rounded-full" />,
-		title: "Cost-effectiveness",
-		description:
-			"Development costs are 25–55% lower than in advanced countries, enabling better budget efficiency.									",
-	},
-	{
-		icon: <Handshake className="h-8 w-8 rounded-full" />,
-		title: "Geographic/Cultural Compatibility",
-		description:
-			"Time difference within 2 hours, historical and cultural similarities enable real-time communication and smooth collaboration",
-	},
-	{
-		icon: <Scale className="h-8 w-8 rounded-full" />,
-		title: "Stable political and economic environment",
-		description:
-			"With political and economic stability and growth potential, Vietnam is emerging as a global IT outsourcing destination",
-	},
-	{
-		icon: <HeartHandshakeIcon className="h-8 w-8 rounded-full" />,
-		title: "Experience in global collaboration",
-		description:
-			"Experience in collaboration with global companies from various countries including Korea, Japan, etc",
-	},
-];
+import { useTranslation } from "react-i18next";
 
 export default function WhyVietnam({ contentClass }) {
+	const { t } = useTranslation();
+	const whyVietnam = [
+		{
+			icon: <Award className="h-8 w-8 rounded-full" />,
+			title: t("why_vietnam.talent.title"),
+			description: t("why_vietnam.talent.description"),
+		},
+		{
+			icon: <HandCoins className="h-8 w-8 rounded-full" />,
+			title: t("why_vietnam.cost.title"),
+			description: t("why_vietnam.cost.description"),
+		},
+		{
+			icon: <Handshake className="h-8 w-8 rounded-full" />,
+			title: t("why_vietnam.geo_n_culture.title"),
+			description: t("why_vietnam.geo_n_culture.description"),
+		},
+		{
+			icon: <Scale className="h-8 w-8 rounded-full" />,
+			title: t("why_vietnam.politic_n_eco.title"),
+			description: t("why_vietnam.politic_n_eco.description"),
+		},
+		{
+			icon: <HeartHandshakeIcon className="h-8 w-8 rounded-full" />,
+			title: t("why_vietnam.experience.title"),
+			description: t("why_vietnam.experience.description"),
+		},
+	];
 	// Animation variants
 	const containerVariants = {
 		hidden: { opacity: 0 },
@@ -66,11 +62,10 @@ export default function WhyVietnam({ contentClass }) {
 			>
 				<div className="flex flex-col items-center justify-center gap-6 text-center md:px-12">
 					<h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-						Why Vietnam?
+						{t("why_vietnam.title")}
 					</h2>
 					<p className="max-w-[900px] text-muted-foreground md:text-base/relaxed lg:text-lg/relaxed xl:text-xl/relaxed">
-						Vietnam has emerged as a leading technology hub in Southeast Asia, offering
-						a unique combination of talent, cost-effectiveness, and innovation.
+						{t("why_vietnam.description")}
 					</p>
 				</div>
 
@@ -81,8 +76,8 @@ export default function WhyVietnam({ contentClass }) {
 					whileInView="visible"
 					viewport={{ once: true }}
 				>
-					<div className="flex flex-wrap justify-center items-center md:justify-center gap-4">
-						{whyVn?.map((card, idx) => (
+					<div className="flex flex-wrap justify-center items-center md:justify-center sm:justify-start gap-4">
+						{whyVietnam?.map((card, idx) => (
 							<motion.div
 								key={`why-vietnam-card-${idx}`}
 								variants={cardVariants}

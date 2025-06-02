@@ -312,7 +312,7 @@ export default function FocusedIndustries({ contentClass }) {
 									{activeIndustry === index && (
 										<motion.div
 											layoutId="activeTab"
-											className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-t2-blue to-t2-lightBlue"
+											className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r"
 											transition={{ duration: 0.3 }}
 										/>
 									)}
@@ -387,7 +387,7 @@ export default function FocusedIndustries({ contentClass }) {
 												<Card
 													className={`h-full transition-all duration-300 overflow-hidden py-0 ${
 														hoveredSolution === solution.name
-															? "shadow-xl scale-105 border-t2-blue/50"
+															? "shadow-xl scale-105"
 															: "shadow-md hover:shadow-lg"
 													}`}
 												>

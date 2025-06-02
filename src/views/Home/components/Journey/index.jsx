@@ -114,7 +114,7 @@ const VisionJourney = () => {
 
 			<div className="absolute right-0 top-0 h-full w-1/2 backdrop-blur-lg p-12 flex flex-col justify-center border-l border-[var(--primary)]/20">
 				<div className="max-w-2xl mx-auto">
-					<h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-t2-darkBlue">
+					<h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
 						{slides[activeIndex].title}
 					</h2>
 					<div className="w-[90px] h-[8px] mt-5 bg-linear-to-r from-[var(--color-light-mint)] to-[var(--color-light-green)] mb-4"></div>

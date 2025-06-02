@@ -13,7 +13,7 @@ import WhyVietnam from "./components/WhyVietnam";
 
 function HomePage() {
 	const sectionClass = "flex items-center justify-center relative overflow-hidden";
-	const contentClass = "container h-full px-4 py-16 md:px-6";
+	const contentClass = "container h-full px-4 py-16 md:px-6 max-w-[1440px]";
 	return (
 		<>
 			<section
@@ -38,7 +38,7 @@ function HomePage() {
 				id={SECTIONS_KEY.COMPETITIVE_EDGES.id}
 				className={sectionClass}
 			>
-				<CompetitiveEdges />
+				<CompetitiveEdges contentClass={contentClass} />
 			</section>
 			<section
 				id={SECTIONS_KEY.DEVELOPMENT_CAPACITY.id}

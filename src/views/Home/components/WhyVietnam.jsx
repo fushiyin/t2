@@ -64,11 +64,11 @@ export default function WhyVietnam({ contentClass }) {
 					[contentClass]: contentClass,
 				})}
 			>
-				<div className="flex flex-col items-center justify-center gap-6 text-center">
+				<div className="flex flex-col items-center justify-center gap-6 text-center md:px-12">
 					<h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
 						Why Vietnam?
 					</h2>
-					<p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+					<p className="max-w-[900px] text-muted-foreground md:text-base/relaxed lg:text-lg/relaxed xl:text-xl/relaxed">
 						Vietnam has emerged as a leading technology hub in Southeast Asia, offering
 						a unique combination of talent, cost-effectiveness, and innovation.
 					</p>
@@ -89,7 +89,7 @@ export default function WhyVietnam({ contentClass }) {
 								whileHover={{ scale: 1.03 }}
 								transition={{ type: "spring", stiffness: 200, damping: 15 }}
 								className={classNames(
-									"w-9/10 sm:w-1/3 md:w-1/4 2xl:w-1/6 bg-white/80 rounded-2xl shadow-lg p-6 flex flex-col items-stretch relative sm:min-w-[270px] sm:min-h-[300px] border-t",
+									"w-9/10 sm:w-1/3 md:w-1/4 2xl:w-1/6 bg-white/80 rounded-2xl shadow-lg p-6 flex flex-col items-stretch relative sm:min-w-[250px] sm:min-h-[330px] border-t",
 								)}
 							>
 								<HoverCard {...card} />

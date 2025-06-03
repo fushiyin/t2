@@ -107,7 +107,7 @@ const CompetitiveEdges = ({ contentClass }) => {
 				</div>
 
 				{/* Desktop grid */}
-				<div className="hidden md:flex flex-col 2xl:px-0 lg:px-5 px-10">
+				<div className="hidden md:flex flex-col 2xl:px-0 xl:px-8 lg:px-10 px-8">
 					<div className="grid grid-cols-1 sm:grid-cols-2 2xl:grid-cols-4 gap-8 2xl:gap-4 sm:gap-6 py-12">
 						{edges.map((edge) => {
 							const isActive = activeEdge?.id === edge.id;

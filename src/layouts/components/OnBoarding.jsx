@@ -186,7 +186,8 @@ export default function Onboarding() {
 								animate={{ opacity: showContent ? 1 : 0 }}
 								transition={{ duration: 0.8, delay: 1.1 }}
 							>
-								<p className="text-lg">www.t2soft.com</p>
+								<p className="text-lg">www.ttwosoft.com</p>
+								<p className="text-lg">www.t2soft.vn</p>
 							</motion.div>
 						</div>
 					</div>

@@ -1,9 +1,9 @@
-import team_deploy from "@/assets/images/team_deploy.jpg";
-import team_design from "@/assets/images/team_design.jpg";
-import team_development from "@/assets/images/team_development.png";
-import team_maintain from "@/assets/images/team_maintain.png";
-import team_research from "@/assets/images/team_research.jpg";
-import team_test from "@/assets/images/team_test.jpg";
+import team_deploy from "@/assets/images/deploy.avif";
+import team_design from "@/assets/images/design.avif";
+import team_development from "@/assets/images/dev.avif";
+import team_maintain from "@/assets/images/maitain.webp";
+import team_research from "@/assets/images/analysis.avif";
+import team_test from "@/assets/images/test.jpg";
 import useResponsive from "@/hooks/useResponsive";
 import classNames from "classnames";
 import { AnimatePresence, motion } from "framer-motion";
@@ -20,7 +20,7 @@ import { useTranslation } from "react-i18next";
 
 // Process steps data
 const iconClass =
-	"h-3 w-3 text-gray-600 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-3/5 z-10";
+	"h-3 w-4 text-gray-600 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-3/5 z-10";
 
 export default function OurProcess({ contentClass }) {
 	const { t } = useTranslation();
@@ -264,18 +264,17 @@ export default function OurProcess({ contentClass }) {
 								>
 									<svg
 										xmlns="http://www.w3.org/2000/svg"
-										width="24"
-										height="24"
 										viewBox="0 0 24 24"
-										fill="oklch(96.7% 0.003 264.542)"
+										fill="white"
 										stroke="currentColor"
-										strokeWidth="1"
+										strokeWidth="1.5"
 										strokeLinecap="round"
 										strokeLinejoin="round"
-										className="lucide lucide-map-pin-icon lucide-map-pin text-gray-600 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-1 h-8 w-8"
+										className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-1 h-9 w-9 text-black dark:text-white" // h-9 = 36px
 									>
 										<path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
 									</svg>
+
 									{step?.icon}
 								</div>
 							</button>
@@ -284,10 +283,10 @@ export default function OurProcess({ contentClass }) {
 				</div>
 
 				{/* Active Step Content */}
-				<div className="h-full flex flex-col flex-1 md:flex-row md:gap-12 gap-6 justify-center items-center xl:items-stretch md:py-5 py-10 xl:px-0 lg:px-4 w-[90%]">
+				<div className="h-full flex flex-col flex-1 md:flex-row md:gap-4 gap-6 justify-center items-center xl:items-stretch md:py-5 py-10 xl:px-0 lg:px-4 w-[90%]">
 					{/* Step Visualization */}
 					{!isMobile && (
-						<div className="w-[90%] md:w-6/10 flex justify-center items-center h-auto">
+						<div className="w-[80%] md:w-6/10 flex justify-center items-center h-auto">
 							<AnimatePresence mode="wait">
 								<motion.div
 									key={activeStep}
@@ -299,18 +298,16 @@ export default function OurProcess({ contentClass }) {
 								>
 									<img
 										src={processSteps[activeStep - 1].image}
-										alt={
-											processSteps[activeStep - 1].image +
-											`_${[activeStep - 1]}`
-										}
-										className="rounded-lg shadow-lg max-h-[420px]"
+										alt={`step_${activeStep}`}
+										style={{ width: "700px", height: "392px" }}
+										className="object-cover  rounded-lg shadow-lg"
 									/>
 								</motion.div>
 							</AnimatePresence>
 						</div>
 					)}
 					{/* Step Details */}
-					<div className="w-[90%] lg:w-4/10 h-auto">
+					<div className="w-[95%] sm:w-[90%] lg:w-4/10 h-auto mx-auto">
 						<AnimatePresence mode="wait">
 							<motion.div
 								key={activeStep}
@@ -318,7 +315,7 @@ export default function OurProcess({ contentClass }) {
 								animate={{ opacity: 1, x: 0 }}
 								exit={{ opacity: 0, x: -50 }}
 								transition={{ duration: 0.5 }}
-								className="bg-white p-8 rounded-lg shadow-lg h-full flex flex-col justify-between"
+								className="bg-white p-4 md:p-8 rounded-lg shadow-lg h-full flex flex-col justify-between"
 							>
 								<div className="step-text">
 									<h3 className="text-2xl font-bold mb-4 text-dark-gray">
@@ -338,22 +335,10 @@ export default function OurProcess({ contentClass }) {
 											animate={{ opacity: 1, y: 0 }}
 											transition={{ duration: 0.3, delay: index * 0.1 }}
 										>
-											<div
-												className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 bg-gray-100"
-												// style={{
-												// 	backgroundColor:
-												//  `${processSteps[activeStep - 1].color}30`,
-												// }}
-											>
-												<div
-													className="w-2 h-2 rounded-full bg-gray-100"
-													// style={{
-													// 	backgroundColor:
-													// 		processSteps[activeStep - 1].color,
-													// }}
-												></div>
+											<div className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 border border-gray-400 bg-white dark:bg-gray-800">
+												<div className="w-1.5 h-1.5 rounded-full bg-gray-600 dark:bg-gray-300"></div>
 											</div>
-											<span className="text-gray-700 font-sans break-keep whitespace-normal break-words">
+											<span className="text-gray-700 dark:text-gray-200 font-sans break-keep whitespace-normal break-words">
 												{detail}
 											</span>
 										</motion.div>
@@ -385,52 +370,6 @@ export default function OurProcess({ contentClass }) {
 										</svg>
 										{t("process.navigation.previous")}
 									</button>
-									{/* <button
-										onClick={() => {
-											setIsPaused(!isPaused);
-										}}
-										className="hover:text-dark-gray flex items-center gap-1 
-										transition-colors"
-									>
-										{isPaused ? (
-											<>
-												<svg
-													xmlns="http://www.w3.org/2000/svg"
-													className="h-5 w-5"
-													viewBox="0 0 20 20"
-													fill="currentColor"
-												>
-													<path
-														fillRule="evenodd"
-														d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555
-														 7.168A1 1 0 008 8v4a1 1 0 
-														 001.555.832l3-2a1 1 0 000-1.664l-3-2z"
-														clipRule="evenodd"
-													/>
-												</svg>
-												Resume
-											</>
-										) : (
-											<>
-												<svg
-													xmlns="http://www.w3.org/2000/svg"
-													className="h-5 w-5"
-													viewBox="0 0 20 20"
-													fill="currentColor"
-												>
-													<path
-														fillRule="evenodd"
-														d="M18 10a8 8 0 11-16 0 8 8 0 0116
-														 0zM7 8a1 1 0 012 0v4a1 1 0 11-2
-														  0V8zm5-1a1 1 0 00-1 1v4a1 1 0
-														   102 0V8a1 1 0 00-1-1z"
-														clipRule="evenodd"
-													/>
-												</svg>
-												Pause
-											</>
-										)}
-									</button> */}
 									<button
 										onClick={() => {
 											setActiveStep((prev) =>

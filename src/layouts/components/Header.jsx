@@ -22,7 +22,7 @@ const Header = () => {
 	const [language, setLanguage] = useState({
 		code: "ko",
 		label: "Korean",
-		imageUrl: "https://www.countryflags.com/wp-content/uploads/south-korea-flag-png-large.png",
+		imageUrl: "🇰🇷",
 	});
 	const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = useState(false);
 	const [isMobileSearchOpen, setIsMobileSearchOpen] = useState(false);
@@ -31,20 +31,13 @@ const Header = () => {
 		{
 			code: "ko",
 			label: "Korean",
-			imageUrl:
-				"https://www.countryflags.com/wp-content/uploads/south-korea-flag-png-large.png",
+			imageUrl: "🇰🇷",
 		},
 		{
 			code: "en",
 			label: "English",
-			imageUrl:
-				"https://www.countryflags.com/wp-content/uploads/united-kingdom-flag-png-xl.png",
+			imageUrl: "🇬🇧",
 		},
-		// {
-		// 	code: "vi",
-		// 	label: "Vietnamese",
-		// 	imageUrl: "https://www.countryflags.com/wp-content/uploads/vietnam-flag-png-large.png",
-		// },
 	];
 
 	useEffect(() => {
@@ -144,12 +137,7 @@ const Header = () => {
 								className="flex items-center text-sm text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 cursor-pointer"
 								onClick={toggleLanguageDropdown}
 							>
-								{/* <Globe className="h-5 w-5 mr-1" /> */}
-								<img
-									src={language.imageUrl}
-									alt={language.label}
-									className="inline-block h-5 w-7"
-								/>
+								<span className="text-xl">{language.imageUrl}</span>
 								<ChevronDown className="h-4 w-4 ml-1" />
 							</button>
 
@@ -161,7 +149,7 @@ const Header = () => {
 												key={`lang_item_${lang_item?.code}_${index}`}
 												onClick={() => changeLanguage(lang_item)}
 												className={classNames(
-													"flex justify-start cursor-pointer w-full px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-header-hover hover:text-dark-blue dark:hover:bg-dark-blue",
+													"flex justify-start space-x-2 items-center cursor-pointer w-full px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-header-hover hover:text-dark-blue dark:hover:bg-dark-blue",
 													{
 														"bg-header-active dark:light-blue-gray text-gray-700":
 															language?.code === lang_item.code,
@@ -171,12 +159,10 @@ const Header = () => {
 													},
 												)}
 											>
-												<img
-													src={lang_item.imageUrl}
-													alt={lang_item.label}
-													className="inline-block h-5 w-7 mr-2"
-												/>
-												{lang_item.label}
+												<span className="text-xl">
+													{lang_item.imageUrl}
+												</span>
+												<span>{lang_item.label}</span>
 											</button>
 										);
 									})}
@@ -252,11 +238,7 @@ const Header = () => {
 								>
 									<span className="text-base font-medium">
 										{t("language")} :
-										<img
-											src={language.imageUrl}
-											alt={language.label}
-											className="inline-block h-5 w-7 ml-2"
-										/>
+										<span className="text-xl">{language.imageUrl}</span>
 									</span>
 									<ChevronDown className="absolute right-0" />
 								</button>
@@ -279,12 +261,10 @@ const Header = () => {
 														},
 													)}
 												>
-													<img
-														src={lang_item.imageUrl}
-														alt={lang_item.label}
-														className="inline-block h-5 w-7 mr-2"
-													/>
-													{lang_item.label}
+													<span className="text-xl">
+														{lang_item.imageUrl}
+													</span>
+													<span>{lang_item.label}</span>
 												</button>
 											);
 										})}

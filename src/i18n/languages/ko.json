@@ -532,5 +532,51 @@
 		"faq": {
 			"imageAlt": "자주 묻는 질문 일러스트레이션"
 		}
+	},
+	"blog": {
+		"title": "블로그",
+		"search_placeholder": "블로그 제목 검색...",
+		"no_blog": "게시된 블로그가 없습니다. 나중에 다시 확인해 주세요.",
+		"previous": "이전",
+		"next": "다음"
+	},
+	"careers": {
+		"title": "T2Soft 채용",
+		"description": "혁신, 협업, 개인 성장을 중시하는 저희 역동적인 팀에 합류하세요. T2Soft에서의 흥미로운 커리어 기회를 확인해 보세요.",
+		"open_positions": "채용 중인 포지션",
+		"apply_now": "지금 지원하기",
+		"title_cv": "원하는 포지션이 없으신가요?",
+		"description_cv": "걱정 마세요! 이력서를 남겨주시면 적합한 포지션이 있을 때 연락드리겠습니다.",
+		"apply_cv": "이력서 제출",
+		"collaborative": "협업 중심",
+		"collaborative_description": "팀워크와 지식 공유를 중요시하는 지원 환경에서 함께 일하세요.",
+		"learning": "지속적인 학습",
+		"learning_description": "전문적인 성장을 위한 교육, 컨퍼런스 및 자료를 제공합니다.",
+		"challenging": "도전적인 프로젝트",
+		"challenging_description": "기술의 한계를 뛰어넘는 다양한 혁신 프로젝트에 참여하세요."
+	},
+	"contact": {
+		"title": "문의하기",
+		"description": "당신의 아이디어를 실현할 준비가 되셨나요?",
+		"description2": "T2Soft가 어떻게 귀하의 기술 목표 달성을 도울 수 있는지 함께 이야기해 봅시다. 저희 팀은 귀하의 비전을 현실로 만들 준비가 되어 있습니다.",
+		"description_sub": {
+			"expert": "비즈니스에 맞춘 전문가 상담",
+			"cutting_edge": "최신 기술 솔루션 제공",
+			"dedicated": "프로젝트 전 과정에 걸친 전담 지원"
+		},
+		"form": {
+			"name": "이름",
+			"name_placeholder": "이름을 입력하세요",
+			"email": "이메일",
+			"email_placeholder": "이메일을 입력하세요",
+			"company": "회사명",
+			"company_placeholder": "회사명을 입력하세요",
+			"message": "무엇을 도와드릴까요?",
+			"message_placeholder": "프로젝트나 문의 내용을 알려주세요...",
+			"submit": "메시지 보내기",
+			"submitting": "전송 중...",
+			"success_submit": "메시지가 성공적으로 전송되었습니다!",
+			"success_message": "문의해 주셔서 감사합니다! 곧 연락드리겠습니다."
+		}
 	}
 }

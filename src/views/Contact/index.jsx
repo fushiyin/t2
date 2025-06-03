@@ -3,8 +3,10 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 export default function Contact() {
+	const { t } = useTranslation();
 	const [formState, setFormState] = useState({
 		name: "",
 		email: "",
@@ -46,27 +48,23 @@ export default function Contact() {
 							<div className="grid gap-10 lg:grid-cols-2 items-center">
 								<div className="space-y-4 p-3 md:p-3 lg:p-6 xl:p-6">
 									<h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-dark-gray">
-										Ready to Transform Your Ideas?
+										{t("contact.description")}
 									</h2>
 									<p className="max-w-[600px] text-muted-foreground md:text-xl/relaxed">
-										Let&apos;s discuss how T2Soft can help you achieve your
-										technology goals. Our team is ready to bring your vision to
-										life.
+										{t("contact.description2")}
 									</p>
 									<ul className="space-y-2 text-muted-foreground">
 										<li className="flex items-center gap-2">
 											<span className="h-2 w-2 rounded-full bg-near-black-blue"></span>
-											<span>
-												Expert consultation tailored to your business needs
-											</span>
+											<span>{t("contact.description_sub.expert")}</span>
 										</li>
 										<li className="flex items-center gap-2">
 											<span className="h-2 w-2 rounded-full bg-near-black-blue"></span>
-											<span>Cutting-edge technology solutions</span>
+											<span>{t("contact.description_sub.cutting_edge")}</span>
 										</li>
 										<li className="flex items-center gap-2">
 											<span className="h-2 w-2 rounded-full bg-near-black-blue"></span>
-											<span>Dedicated support throughout your project</span>
+											<span>{t("contact.description_sub.dedicated")}</span>
 										</li>
 									</ul>
 								</div>
@@ -96,11 +94,10 @@ export default function Contact() {
 												</svg>
 											</div>
 											<h3 className="text-xl font-bold mb-2 text-dark-gray">
-												Message Sent!
+												{t("contact.form.success_submit")}
 											</h3>
 											<p className="text-muted-foreground">
-												Thank you for reaching out. We&apos;ll get back to
-												you shortly.
+												{t("contact.form.success_message")}
 											</p>
 										</motion.div>
 									) : (
@@ -113,14 +110,14 @@ export default function Contact() {
 													htmlFor="name"
 													className="block text-sm font-medium mb-1 text-dark-gray"
 												>
-													Full Name
+													{t("contact.form.name")}
 												</label>
 												<Input
 													id="name"
 													name="name"
 													value={formState.name}
 													onChange={handleChange}
-													placeholder="Your name"
+													placeholder={t("contact.form.name_placeholder")}
 													required
 													className="focus:outline-none focus:ring-0 focus-visible:shadow-none focus-visible:outline-none focus-visible:ring-0 border-t2-grayBlue focus-visible:border-light-blue"
 												/>
@@ -130,7 +127,7 @@ export default function Contact() {
 													htmlFor="email"
 													className="block text-sm font-medium mb-1 text-dark-gray"
 												>
-													Email
+													{t("contact.form.email")}
 												</label>
 												<Input
 													id="email"
@@ -138,7 +135,9 @@ export default function Contact() {
 													type="email"
 													value={formState.email}
 													onChange={handleChange}
-													placeholder="your@email.com"
+													placeholder={t(
+														"contact.form.email_placeholder",
+													)}
 													required
 													className="focus:outline-none focus:ring-0 focus-visible:shadow-none focus-visible:outline-none focus-visible:ring-0 border-t2-grayBlue focus-visible:border-light-blue"
 												/>
@@ -148,14 +147,16 @@ export default function Contact() {
 													htmlFor="company"
 													className="block text-sm font-medium mb-1 text-dark-gray"
 												>
-													Company
+													{t("contact.form.company")}
 												</label>
 												<Input
 													id="company"
 													name="company"
 													value={formState.company}
 													onChange={handleChange}
-													placeholder="Your company name"
+													placeholder={t(
+														"contact.form.company_placeholder",
+													)}
 													className="focus:outline-none focus:ring-0 focus-visible:shadow-none focus-visible:outline-none focus-visible:ring-0 border-t2-grayBlue focus-visible:border-light-blue"
 												/>
 											</div>
@@ -164,14 +165,16 @@ export default function Contact() {
 													htmlFor="message"
 													className="block text-sm font-medium mb-1 text-dark-gray"
 												>
-													How can we help?
+													{t("contact.form.message")}
 												</label>
 												<Textarea
 													id="message"
 													name="message"
 													value={formState.message}
 													onChange={handleChange}
-													placeholder="Tell us about your project or inquiry..."
+													placeholder={t(
+														"contact.form.message_placeholder",
+													)}
 													className="min-h-[120px] border-t2-grayBlue focus:outline-none focus:ring-0 focus-visible:shadow-none focus-visible:outline-none focus-visible:ring-0 focus-visible:border-light-blue"
 													required
 												/>
@@ -181,7 +184,9 @@ export default function Contact() {
 												className="w-full bg-dark-blue hover:bg-light-blue cursor-pointer text-white transition-colors duration-300"
 												disabled={isSubmitting}
 											>
-												{isSubmitting ? "Sending..." : "Send Message"}
+												{isSubmitting
+													? t("contact.form.submitting")
+													: t("contact.form.submit")}
 											</Button>
 										</form>
 									)}

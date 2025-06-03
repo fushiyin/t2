@@ -532,5 +532,52 @@
 		"faq": {
 			"imageAlt": "Faqs"
 		}
+	},
+	"blog": {
+		"title": "Blog",
+		"search_placeholder": "Search blog titles...",
+		"no_blog": "No blogs found. Please check back later.",
+		"previous": "Previous",
+		"next": "Next"
+	},
+	"careers": {
+		"title": "Careers at T2soft",
+		"description": "Join our dynamic team and be part of a company that values innovation, collaboration, and personal growth. Explore exciting career opportunities with T2 Soft.",
+		"open_positions": "Open Positions",
+		"apply_now": "Apply Now",
+		"title_cv": "Haven’t found the right position yet?",
+		"description_cv": "No worries! Just leave us your resume, and we&apos;ll reach out when we find the perfect position for you.",
+		"apply_cv": "Apply CV",
+		"collaborative": "Collaborative",
+		"collaborative_description": "Work in a supportive environment where teamwork and knowledge sharing are valued.",
+		"learning": "Continuous Learning",
+		"learning_description": "Access to training, conferences, and resources to help you grow professionally.",
+		"challenging": "Challenging Projects",
+		"challenging_description": "Work on diverse and innovative projects that push the boundaries of technology."
+	},
+	"contact": {
+		"title": "Contact Us",
+		"description": "Ready to Transform Your Ideas?",
+		"description2": "Let's discuss how T2Soft can help you achieve your technology goals. Our team is ready to bring your vision to life.",
+		"description_sub" : {
+			"expert": "Expert consultation tailored to your business needs",
+			"cutting_edge": "Cutting-edge technology solutions",
+			"dedicated": "Dedicated support throughout your project"
+		},
+		"form": {
+			"name": "Yor Name",
+			"name_placeholder": "Enter your name",
+			"email": "Your Email",
+			"email_placeholder": "Enter your email",
+			"company": "Company",
+			"company_placeholder": "Enter your company name",
+			"message": "How can we help?",
+			"message_placeholder": "Tell us about your project or inquiry...",
+			"submit": "Send Message",
+			"submitting": "Sending...",
+			"success_submit": "Message sent successfully!",
+			"success_message": "Thank you for reaching out! We will get back to you shortly."
+		}
 	}
+
 }

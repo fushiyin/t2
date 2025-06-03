@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRightIcon } from "lucide-react";
-import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 
 export default function CTA() {
 	const { t } = useTranslation();

@@ -46,7 +46,7 @@ export default function Onboarding() {
 		// Step 6: Complete onboarding
 		const timer6 = setTimeout(
 			() => {
-				setHasSeenOnboarding(true);
+				// setHasSeenOnboarding(true);
 			},
 			(ANIMATION_DURATION + 1) * 1000,
 		);
@@ -122,7 +122,7 @@ export default function Onboarding() {
 								}}
 								transition={{ duration: 0.8, delay: 0.2 }}
 							>
-								<div className="relative w-80 h-80 rounded-full flex items-center justify-center shadow-lg">
+								<div className="relative w-80 h-40 rounded-full flex items-center justify-center shadow-lg">
 									<img
 										src={T2Logo}
 										alt="logo"
@@ -143,7 +143,8 @@ export default function Onboarding() {
 
 							{/* Description */}
 							<motion.div
-								className="grid grid-cols-1 md:grid-cols-3 gap-6 text-white"
+								// className="grid grid-cols-1 md:grid-cols-3 gap-6 text-white"
+								className="hidden"
 								initial={{ opacity: 0, y: 30 }}
 								animate={{
 									opacity: showContent ? 1 : 0,

@@ -21,18 +21,8 @@ function App() {
 				setIsLanguageReady(true);
 			}
 		} else {
-			const browserLang = navigator.language.split("-")[0];
-			const defaultLang = browserLang === "ko" ? "ko" : "en";
-
-			if (i18n.language !== defaultLang) {
-				i18n.changeLanguage(defaultLang).then(() => {
-					localStorage.setItem("i18nextLng", defaultLang);
-					setIsLanguageReady(true);
-				});
-			} else {
-				localStorage.setItem("i18nextLng", defaultLang);
-				setIsLanguageReady(true);
-			}
+			localStorage.setItem("i18nextLng", "ko");
+			setIsLanguageReady(true);
 		}
 	}, [i18n]);
 

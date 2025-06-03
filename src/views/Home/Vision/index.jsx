@@ -180,10 +180,7 @@ const VisionJourney = () => {
 					{slides[activeIndex].title.toUpperCase()}
 				</div>
 				<p className="max-w-[900px] text-white md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed transition-all duration-500 px-5 mt-5">
-					<TypeWriter
-						text={slides[activeIndex].testimonial}
-						speed={25}
-					/>
+					{slides[activeIndex].testimonial}
 				</p>
 				<div className="w-[90px] h-[8px] mt-5 bg-gradient-to-r from-[var(--color-light-mint)] to-[var(--color-light-green)] mb-4" />
 			</div>

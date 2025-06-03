@@ -20,9 +20,9 @@ const Header = () => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const [isDarkMode, setIsDarkMode] = useState(false);
 	const [language, setLanguage] = useState({
-		code: "en",
-		label: "English",
-		imageUrl: "https://www.countryflags.com/wp-content/uploads/united-kingdom-flag-png-xl.png",
+		code: "ko",
+		label: "Korean",
+		imageUrl: "https://www.countryflags.com/wp-content/uploads/south-korea-flag-png-large.png",
 	});
 	const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = useState(false);
 	const [isMobileSearchOpen, setIsMobileSearchOpen] = useState(false);
@@ -80,8 +80,8 @@ const Header = () => {
 
 	const changeLanguage = (lang) => {
 		setLanguage(lang);
-		i18n.changeLanguage(lang?.code || "en");
-		localStorage.setItem("i18nextLng", lang?.code || "en");
+		i18n.changeLanguage(lang?.code || "ko");
+		localStorage.setItem("i18nextLng", lang?.code || "ko");
 		setIsLanguageDropdownOpen(false);
 	};
 

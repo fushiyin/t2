@@ -107,7 +107,7 @@ export default function AboutPage() {
 									type="mobile"
 								/>
 							</div>
-							<div className="absolute lg:left-90 left-40 top-15 z-20 rotate-90 scale-60 md:scale-100">
+							<div className="absolute lg:left-90 left-40 md:left-90 top-15 z-20 rotate-90 scale-60 md:scale-100">
 								<DeviceMockup
 									imageSrc={t2screen}
 									type="tablet"

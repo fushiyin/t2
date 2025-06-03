@@ -532,5 +532,48 @@
 		"faq": {
 			"imageAlt": "Faqs"
 		}
+	},
+	"blog": {
+		"title": "Blog",
+		"search_placeholder": "Search blog titles...",
+		"no_blog": "No blogs found. Please check back later.",
+		"previous": "Previous",
+		"next": "Next"
+	},
+	"careers": {
+		"title": "Careers at T2soft",
+		"description": "Join our dynamic team and be part of a company that values innovation, collaboration, and personal growth. Explore exciting career opportunities with T2 Soft.",
+		"open_positions": "Open Positions",
+		"apply_now": "Apply Now",
+		"title_cv": "Haven’t found the right position yet?",
+		"description_cv": "No worries! Just leave us your resume, and we&apos;ll reach out when we find the perfect position for you.",
+		"apply_cv": "Apply CV",
+		"collaborative": "Collaborative",
+		"collaborative_description": "Work in a supportive environment where teamwork and knowledge sharing are valued.",
+		"learning": "Continuous Learning",
+		"learning_description": "Access to training, conferences, and resources to help you grow professionally.",
+		"challenging": "Challenging Projects",
+		"challenging_description": "Work on diverse and innovative projects that push the boundaries of technology."
+	},
+	"contact": {
+		"title": "문의하기",
+		"description": "당신의 아이디어를 실현할 준비가 되셨나요?",
+		"description2": "T2Soft가 어떻게 귀하의 기술 목표 달성을 도울 수 있는지 함께 이야기해 봅시다. 저희 팀은 귀하의 비전을 현실로 만들 준비가 되어 있습니다.",
+		"description_sub": {
+			"expert": "비즈니스에 맞춘 전문가 상담",
+			"cutting_edge": "최신 기술 솔루션 제공",
+			"dedicated": "프로젝트 전 과정에 걸친 전담 지원"
+		},
+		"form": {
+			"name": "이름",
+			"email": "이메일",
+			"company": "회사명",
+			"message": "무엇을 도와드릴까요?",
+			"message_placeholder": "프로젝트나 문의 내용을 알려주세요...",
+			"submit": "메시지 보내기",
+			"submitting": "전송 중...",
+			"success_submit": "메시지가 성공적으로 전송되었습니다!",
+			"success_message": "문의해 주셔서 감사합니다! 곧 연락드리겠습니다."
+		}
 	}
 }

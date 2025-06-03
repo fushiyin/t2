@@ -546,9 +546,9 @@
 		"open_positions": "Open Positions",
 		"apply_now": "Apply Now",
 		"title_cv": "Haven’t found the right position yet?",
-		"description_cv": "No worries! Just leave us your resume, and we&apos;ll reach out when we find the perfect position for you.",
+		"description_cv": "No worries! Just leave us your resume, and we'll reach out when we find the perfect position for you.",
 		"apply_cv": "Apply CV",
-		"collaborative": "Collaborative",
+		"collaborative": "Collaborative Culture",
 		"collaborative_description": "Work in a supportive environment where teamwork and knowledge sharing are valued.",
 		"learning": "Continuous Learning",
 		"learning_description": "Access to training, conferences, and resources to help you grow professionally.",
@@ -565,7 +565,7 @@
 			"dedicated": "Dedicated support throughout your project"
 		},
 		"form": {
-			"name": "Yor Name",
+			"name": "Your Name",
 			"name_placeholder": "Enter your name",
 			"email": "Your Email",
 			"email_placeholder": "Enter your email",

@@ -1,9 +1,26 @@
 import AngularLogo from "@/assets/logos/angular.png";
+import DjangoLogo from "@/assets/logos/django.png";
+import ElasticsearchLogo from "@/assets/logos/elasticsearch.png";
+import ExpressLogo from "@/assets/logos/express.png";
+import FirebaseLogo from "@/assets/logos/firebase.png";
+import FlutterLogo from "@/assets/logos/flutter.png";
+import IonicLogo from "@/assets/logos/ionic.png";
+import JavaLogo from "@/assets/logos/java.png";
+import KotlinLogo from "@/assets/logos/kotlin.png";
+import MongoDBLogo from "@/assets/logos/mongodb.png";
+import MySQLLogo from "@/assets/logos/mysql.png";
 import NextJSLogo from "@/assets/logos/nextjs.png";
+import NodeJSLogo from "@/assets/logos/nodejs.png";
+import PostgreSQLLogo from "@/assets/logos/postgresql.png";
+import PythonLogo from "@/assets/logos/python.png";
 import ReactLogo from "@/assets/logos/react.png";
+import RedisLogo from "@/assets/logos/redis.png";
+import SpringLogo from "@/assets/logos/spring.png";
+import SwiftLogo from "@/assets/logos/swift.png";
 import TailwindCSSLogo from "@/assets/logos/tailwind.png";
 import TypeScriptLogo from "@/assets/logos/typescript.png";
 import VueLogo from "@/assets/logos/vue.png";
+import XamarinLogo from "@/assets/logos/xamarin.png";
 import { Button } from "@/components/ui/button";
 import classNames from "classnames";
 import { AnimatePresence, motion } from "framer-motion";
@@ -87,42 +104,42 @@ export default function DevelopmentEnhanced({ contentClass }) {
 			technologies: [
 				{
 					name: "Node.js",
-					logo: "https://static-00.iconduck.com/assets.00/node-js-icon-1817x2048-g8tzf91e.png",
+					logo: NodeJSLogo,
 					description: t("tech_stack.backend.technologies.nodejs.description"),
 					experience: t("tech_stack.backend.technologies.nodejs.experience"),
 					projects: t("tech_stack.backend.technologies.nodejs.projects"),
 				},
 				{
 					name: "Python",
-					logo: "https://images.icon-icons.com/2699/PNG/512/python_logo_icon_168886.png",
+					logo: PythonLogo,
 					description: t("tech_stack.backend.technologies.python.description"),
 					experience: t("tech_stack.backend.technologies.python.experience"),
 					projects: t("tech_stack.backend.technologies.python.projects"),
 				},
 				{
 					name: "Java",
-					logo: "https://cdn4.iconfinder.com/data/icons/logos-and-brands/512/181_Java_logo_logos-512.png",
+					logo: JavaLogo,
 					description: t("tech_stack.backend.technologies.java.description"),
 					experience: t("tech_stack.backend.technologies.java.experience"),
 					projects: t("tech_stack.backend.technologies.java.projects"),
 				},
 				{
 					name: "Express.js",
-					logo: "https://img.icons8.com/color/512/express-js.png",
+					logo: ExpressLogo,
 					description: t("tech_stack.backend.technologies.express.description"),
 					experience: t("tech_stack.backend.technologies.express.experience"),
 					projects: t("tech_stack.backend.technologies.express.projects"),
 				},
 				{
 					name: "Django",
-					logo: "https://w7.pngwing.com/pngs/10/113/png-transparent-django-web-development-web-framework-python-software-framework-django-text-trademark-logo.png",
+					logo: DjangoLogo,
 					description: t("tech_stack.backend.technologies.django.description"),
 					experience: t("tech_stack.backend.technologies.django.experience"),
 					projects: t("tech_stack.backend.technologies.django.projects"),
 				},
 				{
 					name: "Spring Boot",
-					logo: "https://img.icons8.com/?size=512&id=90519&format=png",
+					logo: SpringLogo,
 					description: t("tech_stack.backend.technologies.spring.description"),
 					experience: t("tech_stack.backend.technologies.spring.experience"),
 					projects: t("tech_stack.backend.technologies.spring.projects"),
@@ -146,35 +163,35 @@ export default function DevelopmentEnhanced({ contentClass }) {
 				},
 				{
 					name: "Flutter",
-					logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4o_miePhNB3k5LlT7JXCbgj1N--Ahk5_uwA&s",
+					logo: FlutterLogo,
 					description: t("tech_stack.mobile.technologies.flutter.description"),
 					experience: t("tech_stack.mobile.technologies.flutter.experience"),
 					projects: t("tech_stack.mobile.technologies.flutter.projects"),
 				},
 				{
 					name: "iOS (Swift)",
-					logo: "https://icon2.cleanpng.com/20180525/cx/kisspng-swift-apple-programming-language-macos-5b0898b3eecb89.9438153115272900359781.jpg",
+					logo: SwiftLogo,
 					description: t("tech_stack.mobile.technologies.ios.description"),
 					experience: t("tech_stack.mobile.technologies.ios.experience"),
 					projects: t("tech_stack.mobile.technologies.ios.projects"),
 				},
 				{
 					name: "Android (Kotlin)",
-					logo: "https://images.seeklogo.com/logo-png/32/2/kotlin-logo-png_seeklogo-323430.png",
+					logo: KotlinLogo,
 					description: t("tech_stack.mobile.technologies.android.description"),
 					experience: t("tech_stack.mobile.technologies.android.experience"),
 					projects: t("tech_stack.mobile.technologies.android.projects"),
 				},
 				{
 					name: "Xamarin",
-					logo: "https://pngate.com/wp-content/uploads/2025/05/xamarin-logo-blue-hexagon-modern-flat-design-1.png",
+					logo: XamarinLogo,
 					description: t("tech_stack.mobile.technologies.xamarin.description"),
 					experience: t("tech_stack.mobile.technologies.xamarin.experience"),
 					projects: t("tech_stack.mobile.technologies.xamarin.projects"),
 				},
 				{
 					name: "Ionic",
-					logo: "https://pngate.com/wp-content/uploads/2025/05/ionic-framework-logo-blue-circle-modern-design-1.png",
+					logo: IonicLogo,
 					description: t("tech_stack.mobile.technologies.ionic.description"),
 					experience: t("tech_stack.mobile.technologies.ionic.experience"),
 					projects: t("tech_stack.mobile.technologies.ionic.projects"),
@@ -191,42 +208,42 @@ export default function DevelopmentEnhanced({ contentClass }) {
 			technologies: [
 				{
 					name: "PostgreSQL",
-					logo: "https://w7.pngwing.com/pngs/441/460/png-transparent-postgresql-plain-wordmark-logo-icon-thumbnail.png",
+					logo: PostgreSQLLogo,
 					description: t("tech_stack.database.technologies.postgresql.description"),
 					experience: t("tech_stack.database.technologies.postgresql.experience"),
 					projects: t("tech_stack.database.technologies.postgresql.projects"),
 				},
 				{
 					name: "MongoDB",
-					logo: "https://w7.pngwing.com/pngs/956/695/png-transparent-mongodb-original-wordmark-logo-icon-thumbnail.png",
+					logo: MongoDBLogo,
 					description: t("tech_stack.database.technologies.mongodb.description"),
 					experience: t("tech_stack.database.technologies.mongodb.experience"),
 					projects: t("tech_stack.database.technologies.mongodb.projects"),
 				},
 				{
 					name: "MySQL",
-					logo: "https://toppng.com/uploads/preview/mysql-logo-png-image-11660514413jvwkcjh4av.png",
+					logo: MySQLLogo,
 					description: t("tech_stack.database.technologies.mysql.description"),
 					experience: t("tech_stack.database.technologies.mysql.experience"),
 					projects: t("tech_stack.database.technologies.mysql.projects"),
 				},
 				{
 					name: "Redis",
-					logo: "https://static-00.iconduck.com/assets.00/redis-plain-wordmark-icon-2048x2048-ts2riq6b.png",
+					logo: RedisLogo,
 					description: t("tech_stack.database.technologies.redis.description"),
 					experience: t("tech_stack.database.technologies.redis.experience"),
 					projects: t("tech_stack.database.technologies.redis.projects"),
 				},
 				{
 					name: "Elasticsearch",
-					logo: "https://cdn.iconscout.com/icon/free/png-256/free-elastic-search-logo-icon-download-in-svg-png-gif-file-formats--technology-social-media-vol-2-pack-logos-icons-3029971.png",
+					logo: ElasticsearchLogo,
 					description: t("tech_stack.database.technologies.elasticsearch.description"),
 					experience: t("tech_stack.database.technologies.elasticsearch.experience"),
 					projects: t("tech_stack.database.technologies.elasticsearch.projects"),
 				},
 				{
 					name: "Firebase",
-					logo: "https://upload.wikimedia.org/wikipedia/commons/f/fd/Firebase_Logo_%28No_wordmark%29_%282024-%29.svg",
+					logo: FirebaseLogo,
 					description: t("tech_stack.database.technologies.firebase.description"),
 					experience: t("tech_stack.database.technologies.firebase.experience"),
 					projects: t("tech_stack.database.technologies.firebase.projects"),
@@ -240,7 +257,7 @@ export default function DevelopmentEnhanced({ contentClass }) {
 			setCurrentStackIndex((prev) => (prev + 1) % techStacks.length);
 		}, autoTimer);
 		return () => clearInterval(interval);
-	}, []);
+	}, [techStacks?.length]);
 
 	const currentStack = techStacks[currentStackIndex];
 

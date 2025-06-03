@@ -290,7 +290,7 @@ export default function FocusedIndustries({ contentClass }) {
 				</div>
 
 				{/* Grouped Tab Interface */}
-				<div className="bg-white rounded-3xl shadow-xl border border-gray-200 overflow-hidden">
+				<div className="bg-white rounded-3xl shadow-xl border border-gray-200 overflow-hidden w-full 2xl:w-[100%] md:w-[90%]">
 					{/* Tab Navigation */}
 					<div className=" bg-gray-50">
 						<div className="flex">
@@ -331,7 +331,7 @@ export default function FocusedIndustries({ contentClass }) {
 					</div>
 
 					{/* Tab Content */}
-					<div className="sm:p-8 p-4">
+					<div className="sm:p-8 p-4 w-full">
 						<AnimatePresence mode="wait">
 							<motion.div
 								key={activeIndustry}

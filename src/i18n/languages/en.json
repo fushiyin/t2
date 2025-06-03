@@ -3,7 +3,7 @@
 		"title": "About us"
 	},
 	"competitive_edges": {
-		"description": "Our guding principles that drive everything we do.",
+		"description": "Our guiding principles that drive everything we do.",
 		"edges": {
 			"coordinator": {
 				"description": [
@@ -44,10 +44,10 @@
 		},
 		"title": "Our competitive edges"
 	},
-	"description": "T2 Soft is a Vietnamese SI and IT outsourcing company that provides software development and maintenance, and IT consulting services for Korean corporate clients. We aim to quickly provide high-quality IT solutions optimized for customer needs, successfully support digital transformation, and grow together with our customers.",
-	"description_mobile": "T2 Soft is a Vietnamese SI and IT outsourcing company that provides software development and maintenance, and IT consulting services for Korean corporate clients.",
+	"description": "T2soft is a Vietnamese SI and IT outsourcing company that provides software development and maintenance, and IT consulting services for Korean corporate clients. We aim to quickly provide high-quality IT solutions optimized for customer needs, successfully support digital transformation, and grow together with our customers.",
+	"description_mobile": "T2soft is a Vietnamese SI and IT outsourcing company that provides software development and maintenance, and IT consulting services for Korean corporate clients.",
 	"focus_industries": {
-		"description": "T2 Soft leverages extensive project experience and technical expertise across various industries to deliver customized IT solutions. We work hand-in-hand with our clients to maximize business value, driving both efficiency and innovation.",
+		"description": "T2soft leverages extensive project experience and technical expertise across various industries to deliver customized IT solutions. We work hand-in-hand with our clients to maximize business value, driving both efficiency and innovation.",
 		"title": "Focused Industries"
 	},
 	"footer": {
@@ -58,32 +58,15 @@
 		"studies": "Case Studies",
 		"terms": "Terms of Service"
 	},
-	"language": "Language",
 	"menu": {
 		"about": "About Us",
 		"blog": "Blog",
 		"careers": "Careers",
 		"contact": "Contact Us",
-		"faq": "FAQ",
+		"faq": "FAQs",
 		"home": "Home",
 		"services": "Services",
 		"testimonials": "Testimonials"
-	},
-	"menu_drawer": "Menu",
-	"service": {
-		"ai": "AI & Machine Learning",
-		"ai_desc": "Intelligent solutions that leverage the power of AI and ML to drive insights and automation.",
-		"cloud": "Cloud Services",
-		"cloud_desc": "Cloud architecture, migration, and management services to optimize your infrastructure and operations.",
-		"custom_software": "Custom Software Development",
-		"custom_software_desc": "Bespoke software solutions designed and built from the ground up to address your specific business challenges and requirements",
-		"mobile_app": "Mobile App Development",
-		"mobile_app_desc": "Native and cross-platform mobile applications that deliver exceptional user experiences across all devices.",
-		"qa": "QA & Testing",
-		"qa_desc": "Comprehensive quality assurance and testing services to ensure your software meets the highest standards.",
-		"slogan": "Your global software service and solution partner",
-		"web_dev": "Web Development",
-		"web_dev_desc": "Responsive, high-performance web applications and sites built with the latest technologies and frameworks."
 	},
 	"why_vietnam": {
 		"title": "Why Vietnam?",
@@ -112,7 +95,7 @@
 	"our": "Our",
 	"vision": {
 		"title": "Vision",
-		"description": "T2, Shaping the Future of Technology We strive to be your premier global development partner, leading the advancement of next-generation technologies."
+		"description": "T2soft, Shaping the Future of Technology We strive to be your premier global development partner, leading the advancement of next-generation technologies."
 	},
 	"mission": {
 		"title": "Mission",
@@ -524,7 +507,7 @@
 	},
 	"about": {
 		"title": "About Us",
-		"description": "T2 Soft is a leading software development company with a strong focus on delivering high-quality solutions. We combine technical expertise with innovative thinking to help businesses transform their digital presence.",
+		"description": "T2soft is a leading software development company with a strong focus on delivering high-quality solutions. We combine technical expertise with innovative thinking to help businesses transform their digital presence.",
 		"experience": "10+ years of industry experience",
 		"team": "Skilled team of 50+ professionals",
 		"projects": "200+ successful projects delivered",
@@ -533,6 +516,151 @@
 			"imageAlt": "Faqs"
 		}
 	},
+	"slogan": "Transform Your Business with Innovative Solutions",
+	"services": {
+		"hero": {
+			"title": "Transform Your Business with",
+			"highlight": "Innovative",
+			"description": "Discover our comprehensive range of technology services designed to drive your business forward. From custom software to AI solutions, we've got you covered.",
+			"cta": "Get Started",
+			"subtitle": "Empowering Digital Transformation",
+			"stats": {
+				"clients": "500+",
+				"projects": "1000+",
+				"experience": "10+ Years"
+			}
+		},
+		"section": {
+			"title": "Our Services",
+			"description": "Comprehensive technology solutions tailored to your business needs",
+			"subtitle": "End-to-End Technology Solutions",
+			"whyChooseUs": {
+				"title": "Why Choose Us",
+				"items": {
+					"1": {
+						"title": "Expert Team",
+						"description": "Our team consists of certified professionals with extensive industry experience"
+					},
+					"2": {
+						"title": "Quality Assurance",
+						"description": "Rigorous testing and quality control processes ensure reliable solutions"
+					},
+					"3": {
+						"title": "24/7 Support",
+						"description": "Round-the-clock technical support and maintenance services"
+					},
+					"4": {
+						"title": "Cost-Effective",
+						"description": "Competitive pricing with flexible engagement models"
+					}
+				}
+			}
+		},
+		"items": {
+			"learnMore": "Learn more",
+			"1": {
+				"name": "Custom Software Development",
+				"description": "Bespoke software solutions designed and built from the ground up to address your specific business challenges and requirements",
+				"details": {
+					"0": "Enterprise applications",
+					"1": "Saas platforms",
+					"2": "E-commerce solutions",
+					"3": "CRM and ERP systems"
+				},
+				"benefits": {
+					"0": "Scalable architecture",
+					"1": "Secure and compliant",
+					"2": "Custom integrations",
+					"3": "Ongoing support"
+				}
+			},
+			"2": {
+				"name": "Mobile App Development",
+				"description": "Native and cross-platform mobile applications that deliver exceptional user experiences across all devices.",
+				"details": {
+					"0": "iOS development",
+					"1": "Android development",
+					"2": "React Native",
+					"3": "Flutter"
+				},
+				"benefits": {
+					"0": "Cross-platform compatibility",
+					"1": "Native performance",
+					"2": "Offline capabilities",
+					"3": "Push notifications"
+				}
+			},
+			"3": {
+				"name": "Web Development",
+				"description": "Responsive, high-performance web applications and sites built with the latest technologies and frameworks.",
+				"details": {
+					"0": "Progressive Web Apps",
+					"1": "E-commerce platforms",
+					"2": "Content management systems",
+					"3": "Web portals"
+				},
+				"benefits": {
+					"0": "Responsive design",
+					"1": "SEO optimization",
+					"2": "Fast loading times",
+					"3": "Modern UI/UX"
+				}
+			},
+			"4": {
+				"name": "Cloud Services",
+				"description": "Cloud architecture, migration, and management services to optimize your infrastructure and operations.",
+				"details": {
+					"0": "AWS, Azure, GCP",
+					"1": "Cloud migration",
+					"2": "DevOps implementation",
+					"3": "Microservices architecture"
+				},
+				"benefits": {
+					"0": "Cost optimization",
+					"1": "Scalable infrastructure",
+					"2": "High availability",
+					"3": "Disaster recovery"
+				}
+			},
+			"5": {
+				"name": "AI & Machine Learning",
+				"description": "Intelligent solutions that leverage the power of AI and ML to drive insights and automation.",
+				"details": {
+					"0": "Predictive analytics",
+					"1": "Natural language processing",
+					"2": "Computer vision",
+					"3": "Recommendation systems"
+				},
+				"benefits": {
+					"0": "Data-driven insights",
+					"1": "Process automation",
+					"2": "Enhanced decision making",
+					"3": "Personalized experiences"
+				}
+			},
+			"6": {
+				"name": "QA & Testing",
+				"description": "Comprehensive quality assurance and testing services to ensure your software meets the highest standards.",
+				"details": {
+					"0": "Manual testing",
+					"1": "Automated testing",
+					"2": "Performance testing",
+					"3": "Security testing"
+				},
+				"benefits": {
+					"0": "Quality assurance",
+					"1": "Bug prevention",
+					"2": "Performance optimization",
+					"3": "Security compliance"
+				}
+			}
+		}
+	},
+	"common": {
+		"search": "Search..."
+	},
+	"language": "Language",
+	"menu_drawer": "Menu",
 	"blog": {
 		"title": "Blog",
 		"search_placeholder": "Search blog titles...",
@@ -542,13 +670,13 @@
 	},
 	"careers": {
 		"title": "Careers at T2soft",
-		"description": "Join our dynamic team and be part of a company that values innovation, collaboration, and personal growth. Explore exciting career opportunities with T2 Soft.",
+		"description": "Join our dynamic team and be part of a company that values innovation, collaboration, and personal growth. Explore exciting career opportunities with T2soft.",
 		"open_positions": "Open Positions",
 		"apply_now": "Apply Now",
 		"title_cv": "Haven’t found the right position yet?",
-		"description_cv": "No worries! Just leave us your resume, and we&apos;ll reach out when we find the perfect position for you.",
+		"description_cv": "No worries! Just leave us your resume, and we'll reach out when we find the perfect position for you.",
 		"apply_cv": "Apply CV",
-		"collaborative": "Collaborative",
+		"collaborative": "Collaborative Culture",
 		"collaborative_description": "Work in a supportive environment where teamwork and knowledge sharing are valued.",
 		"learning": "Continuous Learning",
 		"learning_description": "Access to training, conferences, and resources to help you grow professionally.",
@@ -559,13 +687,13 @@
 		"title": "Contact Us",
 		"description": "Ready to Transform Your Ideas?",
 		"description2": "Let's discuss how T2Soft can help you achieve your technology goals. Our team is ready to bring your vision to life.",
-		"description_sub" : {
+		"description_sub": {
 			"expert": "Expert consultation tailored to your business needs",
 			"cutting_edge": "Cutting-edge technology solutions",
 			"dedicated": "Dedicated support throughout your project"
 		},
 		"form": {
-			"name": "Yor Name",
+			"name": "Your Name",
 			"name_placeholder": "Enter your name",
 			"email": "Your Email",
 			"email_placeholder": "Enter your email",
@@ -579,5 +707,4 @@
 			"success_message": "Thank you for reaching out! We will get back to you shortly."
 		}
 	}
-
 }

@@ -20,9 +20,9 @@ const Header = () => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const [isDarkMode, setIsDarkMode] = useState(false);
 	const [language, setLanguage] = useState({
-		code: "en",
-		label: "English",
-		imageUrl: "https://www.countryflags.com/wp-content/uploads/united-kingdom-flag-png-xl.png",
+		code: "ko",
+		label: "Korean",
+		imageUrl: "https://www.countryflags.com/wp-content/uploads/south-korea-flag-png-large.png",
 	});
 	const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = useState(false);
 	const [isMobileSearchOpen, setIsMobileSearchOpen] = useState(false);
@@ -53,6 +53,14 @@ const Header = () => {
 			setIsDarkMode(true);
 			document.documentElement.classList.add("dark");
 		}
+
+		const storedLanguage = localStorage.getItem("language");
+		if (storedLanguage) {
+			const selectedLang = LANGUAGE.find((lang) => lang.code === storedLanguage);
+			if (selectedLang) {
+				setLanguage(selectedLang);
+			}
+		}
 	}, []);
 
 	const toggleMenu = () => {
@@ -72,7 +80,8 @@ const Header = () => {
 
 	const changeLanguage = (lang) => {
 		setLanguage(lang);
-		i18n.changeLanguage(lang?.code || "en");
+		i18n.changeLanguage(lang?.code || "ko");
+		localStorage.setItem("language", lang?.code || "ko");
 		setIsLanguageDropdownOpen(false);
 	};
 
@@ -124,7 +133,7 @@ const Header = () => {
 						<div className="relative mr-4 block md:hidden xl:block lg:block">
 							<input
 								type="text"
-								placeholder="Search..."
+								placeholder={t("common.search")}
 								className="pl-10 pr-4 py-2 rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:text-dark-blue dark:bg-white text-gray-900 focus:outline-none focus:ring-1 focus:ring-gray-500"
 							/>
 							<Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400 dark:text-dark-blue" />
@@ -350,7 +359,7 @@ const Header = () => {
 						<div className="relative">
 							<input
 								type="text"
-								placeholder="Search..."
+								placeholder={t("common.search")}
 								className="pl-10 pr-4 py-2 w-full rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-500"
 							/>
 							<Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />

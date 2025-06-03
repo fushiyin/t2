@@ -1,12 +1,17 @@
-import bg1 from "@/assets/img/bg1.avif";
-import bg2 from "@/assets/img/bg2.avif";
-import bg3 from "@/assets/img/bg3.avif";
-import bg4 from "@/assets/img/bg4.avif";
-import bg5 from "@/assets/img/bg5.avif";
-import bg6 from "@/assets/img/bg6.avif";
-import CTA from "@/components/sections/ContactCTA";
 import { motion } from "framer-motion";
-import { ArrowRight, Code, Database, Globe, Layers, LineChart, Settings } from "lucide-react";
+import {
+	ArrowRight,
+	Code,
+	Database,
+	Globe,
+	Layers,
+	LineChart,
+	Settings,
+	ChevronRight,
+} from "lucide-react";
+import CTA from "@/components/sections/ContactCTA";
+import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const services = [
 	{
@@ -15,7 +20,6 @@ const services = [
 		description:
 			"Bespoke software solutions designed and built from the ground up to address your specific business challenges and requirements",
 		icon: Code,
-		image: bg1,
 		details: [
 			"Enterprise applications",
 			"Saas platforms",
@@ -29,7 +33,6 @@ const services = [
 		description:
 			"Native and cross-platform mobile applications that deliver exceptional user experiences across all devices.",
 		icon: Globe,
-		image: bg2,
 		details: ["iOS development", "Android development", "React Native", "Flutter"],
 	},
 	{
@@ -38,7 +41,6 @@ const services = [
 		description:
 			"Responsive, high-performance web applications and sites built with the latest technologies and frameworks.",
 		icon: Database,
-		image: bg3,
 		details: [
 			"Progressive Web Apps",
 			"E-commerce platforms",
@@ -52,7 +54,6 @@ const services = [
 		description:
 			"Cloud architecture, migration, and management services to optimize your infrastructure and operations.",
 		icon: Layers,
-		image: bg4,
 		details: [
 			"AWS, Azure, GCP",
 			"Cloud migration",
@@ -66,7 +67,6 @@ const services = [
 		description:
 			"Intelligent solutions that leverage the power of AI and ML to drive insights and automation.",
 		icon: LineChart,
-		image: bg5,
 		details: [
 			"Predictive analytics",
 			"Natural language processing",
@@ -80,86 +80,105 @@ const services = [
 		description:
 			"Comprehensive quality assurance and testing services to ensure your software meets the highest standards.",
 		icon: Settings,
-		image: bg6,
 		details: ["Manual testing", "Automated testing", "Performance testing", "Security testing"],
 	},
 ];
 
 export default function ServicesPage() {
+	const navigate = useNavigate();
+	const { t } = useTranslation();
+
+	const handleGetStarted = () => {
+		navigate("/contact");
+	};
+
 	return (
 		<div className="w-full">
-			<section className="flex flex-col items-center justify-center w-full min-h-[50vh] flex items-center bg-muted/50">
-				<div className="container relative max-w-6xl mx-auto px-4">
-					<div>
+			<section className="relative bg-muted/50 min-h-[50vh] flex items-center bg-background overflow-hidden">
+				<div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary/5 via-background to-background" />
+				<div className="container relative mx-auto px-4 max-w-[1440px]">
+					<div className="max-w-3xl mx-auto text-center">
 						<motion.div
-							initial={{ opacity: 0, x: -20 }}
-							animate={{ opacity: 1, x: 0 }}
+							initial={{ opacity: 0, y: 20 }}
+							animate={{ opacity: 1, y: 0 }}
 							transition={{ duration: 0.5 }}
-							className="text-center"
+							className="space-y-8"
 						>
-							<h2 className="text-2xl md:text-3xl my-5 font-bold tracking-tighter sm:text-4xl md:text-5xl text-center">
-								Our Services
+							<h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
+								{t("services.hero.title")}{" "}
+								<span className="text-primary">{t("services.hero.highlight")}</span>
 							</h2>
-							<p className="text-xl text-muted-foreground mb-8">
-								Discover our comprehensive range of technology services designed to
-								drive your business forward.
+
+							<p className="text-xl text-muted-foreground">
+								{t("services.hero.description")}
 							</p>
-							<button className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors">
-								Get Started
-								<ArrowRight className="w-4 h-4" />
-							</button>
+
+							<div className="flex flex-wrap justify-center gap-4">
+								<button
+									onClick={handleGetStarted}
+									className="inline-flex items-center gap-2 px-8 py-4 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors text-lg font-medium"
+								>
+									{t("services.hero.cta")}
+									<ArrowRight className="w-5 h-5" />
+								</button>
+							</div>
 						</motion.div>
 					</div>
 				</div>
 			</section>
+			<section className="w-full py-24 bg-background">
+				<div className="container max-w-[1440px] mx-auto px-4">
+					<div className="text-center mb-16">
+						<h2 className="text-3xl md:text-4xl font-bold mb-4">
+							{t("services.section.title")}
+						</h2>
+						<p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+							{t("services.section.description")}
+						</p>
+					</div>
 
-			<section className="w-full py-20">
-				<div className="container max-w-6xl mx-auto px-4">
-					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 						{services.map((service) => (
 							<motion.div
 								key={service.id}
 								initial={{ opacity: 0, y: 20 }}
 								whileInView={{ opacity: 1, y: 0 }}
 								viewport={{ once: true }}
-								whileHover={{ scale: 1.03 }}
+								whileHover={{ scale: 1.02 }}
 								transition={{ type: "spring", stiffness: 200, damping: 15 }}
-								className="bg-white/80 rounded-2xl shadow-lg flex flex-col gap-3 items-stretch relative sm:min-h-[300px] border-t group relative bg-card rounded-2xl overflow-hidden hover:border-primary/50 transition-colors duration-300 shadow-sm hover:shadow-md"
+								className="bg-white/80 rounded-2xl shadow-lg flex flex-col items-stretch relative duration-300 border-t"
 							>
-								<div className="relative h-48 overflow-hidden border-b border-border">
-									<img
-										src={service.image}
-										alt={service.name}
-										className="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110"
-									/>
-									<div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-								</div>
-
-								<div className="p-6 border-t border-border/50">
-									<h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors">
-										{service.name}
+								<div className="p-8">
+									<div className="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-6">
+										<service.icon className="w-6 h-6" />
+									</div>
+									<h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">
+										{t(`services.items.${service.id}.name`)}
 									</h3>
-									<p className="text-muted-foreground text-sm mb-4">
-										{service.description}
+									<p className="text-muted-foreground text-sm mb-6">
+										{t(`services.items.${service.id}.description`)}
 									</p>
-									<ul className="space-y-2 border-t border-border/50 pt-4">
+									<ul className="space-y-3">
 										{service.details.map((detail, idx) => (
 											<li
 												key={idx}
 												className="flex items-center gap-2 text-sm"
 											>
 												<div className="w-1.5 h-1.5 rounded-full bg-primary" />
-												{detail}
+												{t(`services.items.${service.id}.details.${idx}`)}
 											</li>
 										))}
 									</ul>
+									<button className="mt-6 inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors">
+										{t("services.items.learnMore")}
+										<ArrowRight className="w-4 h-4" />
+									</button>
 								</div>
 							</motion.div>
 						))}
 					</div>
 				</div>
 			</section>
-
 			<CTA />
 		</div>
 	);

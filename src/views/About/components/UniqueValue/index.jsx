@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
 import { GlobeIcon, ShieldCheckIcon, UsersIcon, ZapIcon } from "lucide-react";
+import { useMemo } from "react";
+import { useTranslation } from "react-i18next";
 
 const containerVariants = {
 	hidden: { opacity: 0 },
@@ -18,34 +20,7 @@ const itemVariants = {
 	},
 };
 
-const advantages = [
-	{
-		icon: ShieldCheckIcon,
-		title: "Quality Assurance",
-		description:
-			"Our rigorous quality control processes ensure that every line of code meets the highest standards. We implement comprehensive testing methodologies including unit testing, integration testing, and automated QA processes to deliver robust, bug-free solutions.",
-	},
-	{
-		icon: ZapIcon,
-		title: "Technical Expertise",
-		description:
-			"Our team comprises specialists across various technologies and domains. From cloud architecture to AI implementation, mobile development to enterprise solutions, we bring deep technical knowledge and practical experience to every project.",
-	},
-	{
-		icon: UsersIcon,
-		title: "Cultural Alignment",
-		description:
-			"We bridge Eastern dedication with Western business practices. Our team understands global business cultures while bringing Vietnamese values of diligence, precision, and commitment to excellence, creating a harmonious working relationship with clients worldwide.",
-	},
-	{
-		icon: GlobeIcon,
-		title: "Scalable Solutions",
-		description:
-			"We design with growth in mind. Our architecture and development approaches prioritize scalability, allowing your solutions to grow seamlessly with your business. From startups to enterprises, we build technology that adapts to your evolving needs.",
-	},
-];
-
-function AdvantageItem({ icon: Icon, title, description, index }) {
+function AdvantageItem({ item, index }) {
 	return (
 		<motion.div
 			className="bg-white/80 rounded-2xl shadow-lg p-6 flex flex-col gap-3 items-stretch relative sm:min-h-[300px] border-t"
@@ -59,16 +34,58 @@ function AdvantageItem({ icon: Icon, title, description, index }) {
 				transition={{ type: "spring", stiffness: 300 }}
 			>
 				<div className="bg-gray-100 p-3 rounded-full inline-flex items-center justify-center">
-					<Icon className="h-8 w-8 rounded-full" />
+					<item.icon className="h-8 w-8 rounded-full" />
 				</div>
 			</motion.div>
-			<h3 className="text-2xl font-bold text-dark-gray text-center w-full">{title}</h3>
-			<p className="text-muted-foreground">{description}</p>
+			<h3 className="text-2xl font-bold text-dark-gray text-center w-full">{item.title}</h3>
+			<p className="text-muted-foreground">{item.description}</p>
 		</motion.div>
 	);
 }
 
 export default function UniqueValue() {
+	const { t, i18n } = useTranslation();
+
+	const advantages = useMemo(
+		() => [
+			{
+				icon: ShieldCheckIcon,
+				id: "quality",
+				title: t("unique_value.advantages.quality.title"),
+				description: t("unique_value.advantages.quality.description"),
+			},
+			{
+				icon: ZapIcon,
+				id: "technical",
+				title: t("unique_value.advantages.technical.title"),
+				description: t("unique_value.advantages.technical.description"),
+			},
+			{
+				icon: UsersIcon,
+				id: "cultural",
+				title: t("unique_value.advantages.cultural.title"),
+				description: t("unique_value.advantages.cultural.description"),
+			},
+			{
+				icon: GlobeIcon,
+				id: "scalable",
+				title: t("unique_value.advantages.scalable.title"),
+				description: t("unique_value.advantages.scalable.description"),
+			},
+		],
+		[i18n.language],
+	);
+
+	const memoizedAdvantageItems = useMemo(() => {
+		return advantages.map((item, index) => (
+			<AdvantageItem
+				key={item.id}
+				item={item}
+				index={index}
+			/>
+		));
+	}, [advantages]);
+
 	return (
 		<div
 			id="unique-value"
@@ -78,11 +95,10 @@ export default function UniqueValue() {
 				<div className="flex flex-col items-center justify-center space-y-4 text-center">
 					<div className="space-y-2">
 						<h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-dark-gray">
-							We make sure to provide best services
+							{t("unique_value.title")}
 						</h2>
 						<p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-							What sets us apart from other technology providers and makes us your
-							ideal partner.
+							{t("unique_value.description")}
 						</p>
 					</div>
 				</div>
@@ -93,13 +109,7 @@ export default function UniqueValue() {
 					whileInView="visible"
 					viewport={{ once: true }}
 				>
-					{advantages.map((item, index) => (
-						<AdvantageItem
-							key={item.title}
-							{...item}
-							index={index}
-						/>
-					))}
+					{memoizedAdvantageItems}
 				</motion.div>
 			</div>
 		</div>

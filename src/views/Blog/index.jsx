@@ -4,6 +4,7 @@ import axios from "axios";
 import { motion } from "framer-motion";
 import { ArrowRightIcon, Loader2 } from "lucide-react";
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 const containerVariants = {
 	hidden: {},
@@ -28,6 +29,7 @@ const Blog = () => {
 	const [currentPage, setCurrentPage] = useState(1);
 	const [loading, setLoading] = useState(false);
 	const [searchValue, setSearchValue] = useState("");
+	const { t } = useTranslation();
 
 	useEffect(() => {
 		fetchBlogs();
@@ -69,14 +71,14 @@ const Blog = () => {
 				{/* Header và Search Input */}
 				<div className="mb-10 text-center flex flex-col items-center justify-center gap-6">
 					<h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-dark-gray">
-						Blog
+						{t("blog.title")}
 					</h2>
 					<div className="flex justify-center w-2/3">
 						<input
 							type="text"
 							value={searchValue}
 							onChange={(e) => setSearchValue(e.target.value)}
-							placeholder="Search blog titles..."
+							placeholder={t("blog.search_placeholder")}
 							className="border px-4 py-2 rounded-md w-full max-w-md shadow-sm"
 						/>
 					</div>
@@ -89,9 +91,7 @@ const Blog = () => {
 					</div>
 				) : paginatedBlogs.length === 0 ? (
 					<div className="flex justify-center py-20">
-						<p className="text-lg text-muted-foreground">
-							No blogs found. Please check back later.
-						</p>
+						<p className="text-lg text-muted-foreground">{t("blog.no_blog")}</p>
 					</div>
 				) : (
 					<>

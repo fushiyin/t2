@@ -2,6 +2,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { OPEN_POSITIONS } from "@/constant/career";
 import { motion } from "framer-motion";
 import { BookOpen, Layers, Users } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const containerVariants = {
 	hidden: {},
@@ -21,39 +22,42 @@ const fadeUp = {
 	},
 };
 
-const career_items = [
-	{
-		icon: (
-			<Users
-				className="text-dark-gray"
-				size={24}
-			/>
-		),
-		title: "Collaborative Culture",
-		desc: "Work in a supportive environment where teamwork and knowledge sharing are valued.",
-	},
-	{
-		icon: (
-			<BookOpen
-				className="text-dark-gray"
-				size={24}
-			/>
-		),
-		title: "Continuous Learning",
-		desc: "Access to training, conferences, and resources to help you grow professionally.",
-	},
-	{
-		icon: (
-			<Layers
-				className="text-dark-gray"
-				size={24}
-			/>
-		),
-		title: "Challenging Projects",
-		desc: "Work on diverse and innovative projects that push the boundaries of technology.",
-	},
-];
 export default function Careers() {
+	const { t } = useTranslation();
+
+	const career_items = [
+		{
+			icon: (
+				<Users
+					className="text-dark-gray"
+					size={24}
+				/>
+			),
+			title: t("careers.collaborative"),
+			desc: t("careers.collaborative_description"),
+		},
+		{
+			icon: (
+				<BookOpen
+					className="text-dark-gray"
+					size={24}
+				/>
+			),
+			title: t("careers.learning"),
+			desc: t("careers.learning_description"),
+		},
+		{
+			icon: (
+				<Layers
+					className="text-dark-gray"
+					size={24}
+				/>
+			),
+			title: t("careers.challenging"),
+			desc: t("careers.challenging_description"),
+		},
+	];
+
 	return (
 		<div className="flex flex-col items-center justify-center mx-auto">
 			<div className="container py-12 max-w-[1440px] md:pl-6 md:pr-6 px-4 lg:px-6 xl:px-6">
@@ -63,7 +67,7 @@ export default function Careers() {
 					animate="visible"
 					variants={fadeUp}
 				>
-					Careers at T2Soft
+					{t("careers.title")}
 				</motion.h1>
 
 				<motion.p
@@ -72,8 +76,7 @@ export default function Careers() {
 					animate="visible"
 					variants={fadeUp}
 				>
-					Join our team of talented professionals and work on exciting projects that make
-					a difference.
+					{t("careers.description")}
 				</motion.p>
 
 				<motion.div
@@ -110,7 +113,7 @@ export default function Careers() {
 					viewport={{ once: true }}
 					variants={fadeUp}
 				>
-					Open Positions
+					{t("careers.open_positions")}
 				</motion.h2>
 
 				<motion.div
@@ -151,7 +154,7 @@ export default function Careers() {
 											className="md:item-center bg-primary lg:w-[130px] md:w-[130px] text-white px-4 py-2 rounded-md font-medium hover:bg-primary/90 transition"
 											whileTap={{ scale: 0.95 }}
 										>
-											Apply Now
+											{t("careers.apply_now")}
 										</motion.button>
 									</div>
 								</CardContent>
@@ -171,11 +174,10 @@ export default function Careers() {
 				<div className="max-w-[1440px] flex flex-col md:flex-row mx-auto space-y-6 md:space-y-0 md:space-x-6 sm:w-full">
 					<motion.div className="flex-1 space-y-4">
 						<h2 className="text-3xl text-dark-gray font-bold">
-							Haven’t found the right position yet?
+							{t("careers.title_cv")}
 						</h2>
 						<p className="text-muted-foreground text-lg">
-							No worries! Just leave us your resume, and we&apos;ll reach out when we
-							find the perfect position for you.
+							{t("careers.description_cv")}
 						</p>
 					</motion.div>
 
@@ -189,7 +191,7 @@ export default function Careers() {
 								transition={{ type: "spring", stiffness: 200, damping: 15 }}
 								layout
 							>
-								Apply CV
+								{t("careers.apply_cv")}
 							</motion.a>
 						</div>
 					</div>

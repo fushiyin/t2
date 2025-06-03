@@ -1,12 +1,13 @@
 import { Button } from "@/components/ui/button";
 import useResponsive from "@/hooks/useResponsive";
 import { motion } from "framer-motion";
-import { t } from "i18next";
 import { ArrowRightIcon } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
 export default function Hero() {
 	const { isMobile } = useResponsive();
+	const { t } = useTranslation();
 
 	const containerVariants = {
 		hidden: { opacity: 0 },
@@ -108,7 +109,7 @@ export default function Hero() {
 								href="/contact"
 								className="flex items-center gap-2"
 							>
-								Contact Us <ArrowRightIcon className="h-4 w-4" />
+								{t("menu.contact")} <ArrowRightIcon className="h-4 w-4" />
 							</Link>
 						</Button>
 					</motion.div>

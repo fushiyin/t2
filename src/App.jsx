@@ -9,18 +9,18 @@ function App() {
 	const [isLanguageReady, setIsLanguageReady] = useState(false);
 
 	useEffect(() => {
-		const storedLanguage = localStorage.getItem("i18nextLng");
+		const storedLanguage = localStorage.getItem("language");
 
-		if (storedLanguage) {
-			if (i18n.language !== storedLanguage) {
-				i18n.changeLanguage(storedLanguage).then(() => {
-					setIsLanguageReady(true);
-				});
-			} else {
+		if (storedLanguage && i18n.language !== storedLanguage) {
+			i18n.changeLanguage(storedLanguage).then(() => {
 				setIsLanguageReady(true);
-			}
+			});
+		} else if (!storedLanguage) {
+			i18n.changeLanguage("ko").then(() => {
+				localStorage.setItem("language", "ko");
+				setIsLanguageReady(true);
+			});
 		} else {
-			localStorage.setItem("i18nextLng", "ko");
 			setIsLanguageReady(true);
 		}
 	}, [i18n]);

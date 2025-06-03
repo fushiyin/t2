@@ -7,7 +7,6 @@ import { useTranslation } from "react-i18next";
 function App() {
 	const { i18n } = useTranslation();
 	const [isLanguageReady, setIsLanguageReady] = useState(false);
-	console.log(navigator.language);
 
 	useEffect(() => {
 		const storedLanguage = localStorage.getItem("i18nextLng");

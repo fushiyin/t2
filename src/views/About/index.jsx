@@ -1,18 +1,16 @@
 import image from "@/assets/img/background.png";
-import t2screen from "@/assets/img/t2screen.png";
-import t2screen_en from "@/assets/img/t2screen_en.png";
 import AnimatedSection from "@/components/AnimatedSection";
 import CTA from "@/components/sections/ContactCTA";
 import FAQ from "@/components/sections/FAQ";
 import { FAQs } from "@/constant/common";
 import { motion } from "framer-motion";
 import { CheckCircleIcon } from "lucide-react";
-import DeviceMockup from "./components/DeviceMockup";
+import DeviceShowcase from "./components/DeviceShowcase";
 import UniqueValue from "./components/UniqueValue";
 import { useTranslation } from "react-i18next";
 
 export default function AboutPage() {
-	const { t, i18n } = useTranslation();
+	const { t } = useTranslation();
 	const listVariants = {
 		hidden: { opacity: 0 },
 		visible: {
@@ -98,24 +96,8 @@ export default function AboutPage() {
 								</motion.ul>
 							</motion.div>
 						</div>
-						<div className="relative w-full max-w-[500px] h-[200px] md:h-[300px] mx-auto mt-8 md:mt-0">
-							<div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 scale-75 md:scale-100">
-								<DeviceMockup
-									imageSrc={i18n.language === "ko" ? t2screen : t2screen_en}
-								/>
-							</div>
-							<div className="absolute left-4 top-20 z-20 scale-75 md:scale-100">
-								<DeviceMockup
-									imageSrc={i18n.language === "ko" ? t2screen : t2screen_en}
-									type="mobile"
-								/>
-							</div>
-							<div className="absolute lg:left-90 left-40 md:left-90 top-15 z-20 rotate-90 scale-60 md:scale-100">
-								<DeviceMockup
-									imageSrc={i18n.language === "ko" ? t2screen : t2screen_en}
-									type="tablet"
-								/>
-							</div>
+						<div className="w-full">
+							<DeviceShowcase />
 						</div>
 					</div>
 				</div>

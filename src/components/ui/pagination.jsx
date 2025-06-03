@@ -2,6 +2,7 @@ import { ChevronLeftIcon, ChevronRightIcon, MoreHorizontalIcon } from "lucide-re
 
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { useTranslation } from "react-i18next";
 
 function Pagination({ className, ...props }) {
 	return (
@@ -53,6 +54,7 @@ function PaginationLink({ className, isActive, size = "icon", ...props }) {
 }
 
 function PaginationPrevious({ className, ...props }) {
+	const { t } = useTranslation();
 	return (
 		<PaginationLink
 			aria-label="Go to previous page"
@@ -61,12 +63,13 @@ function PaginationPrevious({ className, ...props }) {
 			{...props}
 		>
 			<ChevronLeftIcon />
-			<span className="hidden sm:block">Previous</span>
+			<span className="hidden sm:block">{t("blog.previous")}</span>
 		</PaginationLink>
 	);
 }
 
 function PaginationNext({ className, ...props }) {
+	const { t } = useTranslation();
 	return (
 		<PaginationLink
 			aria-label="Go to next page"
@@ -74,7 +77,7 @@ function PaginationNext({ className, ...props }) {
 			className={cn("gap-1 px-2.5 sm:pr-2.5", className)}
 			{...props}
 		>
-			<span className="hidden sm:block">Next</span>
+			<span className="hidden sm:block">{t("blog.next")}</span>
 			<ChevronRightIcon />
 		</PaginationLink>
 	);

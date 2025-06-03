@@ -1,9 +1,10 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import Communicate from "@/assets/lotties/communicate.json";
 import Computer from "@/assets/lotties/computer.json";
 import Cost from "@/assets/lotties/cost.json";
 import Dev from "@/assets/lotties/dev.json";
 import classNames from "classnames";
-import { BarChart3, Check, ChevronDown, Code, Cpu, DollarSign } from "lucide-react";
+import { BarChart3, Check, Code, Cpu, DollarSign } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import Lottie from "react-lottie";
@@ -73,7 +74,7 @@ const CompetitiveEdges = ({ contentClass }) => {
 		if (!activeEdge && edges.length > 0) {
 			setActiveEdge(edges[0]);
 		}
-	}, [activeEdge]);
+	}, []);
 
 	useEffect(() => {
 		if (isHovered) return;
@@ -106,7 +107,7 @@ const CompetitiveEdges = ({ contentClass }) => {
 				</div>
 
 				{/* Desktop grid */}
-				<div className="hidden md:flex flex-col 2xl:px-0 lg:px-5 px-10">
+				<div className="hidden md:flex flex-col 2xl:px-0 xl:px-8 lg:px-10 px-8">
 					<div className="grid grid-cols-1 sm:grid-cols-2 2xl:grid-cols-4 gap-8 2xl:gap-4 sm:gap-6 py-12">
 						{edges.map((edge) => {
 							const isActive = activeEdge?.id === edge.id;

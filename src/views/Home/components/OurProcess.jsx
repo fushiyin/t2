@@ -20,15 +20,101 @@ import { useTranslation } from "react-i18next";
 
 // Process steps data
 const iconClass =
-	"h-3 w-3 text-white absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-3/5 z-10";
+	"h-3 w-3 text-gray-600 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-3/5 z-10";
 
 export default function OurProcess({ contentClass }) {
 	const { t } = useTranslation();
 	const sectionRef = useRef(null);
 	const { isMobile } = useResponsive();
 	const [activeStep, setActiveStep] = useState(1);
-	const [isPaused, setIsPaused] = useState(false);
+	const [isPaused, setIsPaused] = useState(true);
 	const [isVisible, setIsVisible] = useState(false);
+	const processSteps = [
+		{
+			id: 1,
+			title: t("process.steps.discovery.title"),
+			image: team_research,
+			icon: (
+				<SearchIcon
+					strokeWidth={3}
+					className={iconClass}
+				/>
+			),
+			description: t("process.steps.discovery.description"),
+			details: t("process.steps.discovery.details", { returnObjects: true }),
+			color: "rgba(45, 45, 45, 0.6)",
+		},
+		{
+			id: 2,
+			title: t("process.steps.design.title"),
+			icon: (
+				<PencilRulerIcon
+					strokeWidth={3}
+					className={iconClass}
+				/>
+			),
+			image: team_design,
+			description: t("process.steps.design.description"),
+			details: t("process.steps.design.details", { returnObjects: true }),
+			color: "rgba(45, 45, 45, 0.6)",
+		},
+		{
+			id: 3,
+			title: t("process.steps.development.title"),
+			icon: (
+				<CodeIcon
+					strokeWidth={3}
+					className={iconClass}
+				/>
+			),
+			image: team_development,
+			description: t("process.steps.development.description"),
+			details: t("process.steps.development.details", { returnObjects: true }),
+			color: "rgba(45, 45, 45, 0.6)",
+		},
+		{
+			id: 4,
+			title: t("process.steps.testing.title"),
+			image: team_test,
+			icon: (
+				<TestTubeIcon
+					strokeWidth={3}
+					className={iconClass}
+				/>
+			),
+			description: t("process.steps.testing.description"),
+			details: t("process.steps.testing.details", { returnObjects: true }),
+			color: "rgba(45, 45, 45, 0.6)",
+		},
+		{
+			id: 5,
+			title: t("process.steps.deployment.title"),
+			image: team_deploy,
+			icon: (
+				<RocketIcon
+					strokeWidth={3}
+					className={iconClass}
+				/>
+			),
+			description: t("process.steps.deployment.description"),
+			details: t("process.steps.deployment.details", { returnObjects: true }),
+			color: "rgba(45, 45, 45, 0.6)",
+		},
+		{
+			id: 6,
+			title: t("process.steps.maintenance.title"),
+			icon: (
+				<RefreshCwIcon
+					strokeWidth={3}
+					className={iconClass}
+				/>
+			),
+			image: team_maintain,
+			description: t("process.steps.maintenance.description"),
+			details: t("process.steps.maintenance.details", { returnObjects: true }),
+			color: "rgba(45, 45, 45, 0.6)",
+		},
+	];
 
 	// Auto-advance through steps
 	useEffect(() => {
@@ -44,7 +130,7 @@ export default function OurProcess({ contentClass }) {
 		}, 4000); // Change step every 4 seconds
 
 		return () => clearInterval(interval);
-	}, [isPaused, isVisible]);
+	}, [isPaused, isVisible, processSteps?.length]);
 
 	// Check if section is visible
 	useEffect(() => {
@@ -66,63 +152,6 @@ export default function OurProcess({ contentClass }) {
 			}
 		};
 	}, []);
-
-	const processSteps = [
-		{
-			id: 1,
-			title: t("process.steps.discovery.title"),
-			image: team_research,
-			icon: <SearchIcon className={iconClass} />,
-			description: t("process.steps.discovery.description"),
-			details: t("process.steps.discovery.details", { returnObjects: true }),
-			color: "#2d2d2d",
-		},
-		{
-			id: 2,
-			title: t("process.steps.design.title"),
-			icon: <PencilRulerIcon className={iconClass} />,
-			image: team_design,
-			description: t("process.steps.design.description"),
-			details: t("process.steps.design.details", { returnObjects: true }),
-			color: "#2d2d2d",
-		},
-		{
-			id: 3,
-			title: t("process.steps.development.title"),
-			icon: <CodeIcon className={iconClass} />,
-			image: team_development,
-			description: t("process.steps.development.description"),
-			details: t("process.steps.development.details", { returnObjects: true }),
-			color: "#2d2d2d",
-		},
-		{
-			id: 4,
-			title: t("process.steps.testing.title"),
-			image: team_test,
-			icon: <TestTubeIcon className={iconClass} />,
-			description: t("process.steps.testing.description"),
-			details: t("process.steps.testing.details", { returnObjects: true }),
-			color: "#2d2d2d",
-		},
-		{
-			id: 5,
-			title: t("process.steps.deployment.title"),
-			image: team_deploy,
-			icon: <RocketIcon className={iconClass} />,
-			description: t("process.steps.deployment.description"),
-			details: t("process.steps.deployment.details", { returnObjects: true }),
-			color: "#2d2d2d",
-		},
-		{
-			id: 6,
-			title: t("process.steps.maintenance.title"),
-			icon: <RefreshCwIcon className={iconClass} />,
-			image: team_maintain,
-			description: t("process.steps.maintenance.description"),
-			details: t("process.steps.maintenance.details", { returnObjects: true }),
-			color: "#2d2d2d",
-		},
-	];
 
 	return (
 		<div
@@ -146,12 +175,12 @@ export default function OurProcess({ contentClass }) {
 				</div>
 
 				{/* Progress Bar */}
-				<div className="relative md:mb-20 w-full">
-					<div className="h-2 w-[80%] bg-gray-200 rounded-full absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+				<div className="relative md:mb-10 w-full">
+					<div className="h-2 w-[80%] px-[10px] md:w-[90%] bg-gray-200 rounded-full absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
 						<motion.div
-							className="h-2 rounded-full"
+							className="h-2 rounded-full bg-gray-600"
 							style={{
-								backgroundColor: processSteps[activeStep - 1].color,
+								// backgroundColor: processSteps[activeStep - 1].color,
 								width: `${((activeStep - 1) / (processSteps.length - 1)) * 100}%`,
 							}}
 							initial={{ width: "0%" }}
@@ -163,11 +192,11 @@ export default function OurProcess({ contentClass }) {
 					</div>
 
 					{/* Step Indicators */}
-					<div className="w-[80%] absolute flex justify-between left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+					<div className="w-[80%] md:w-[90%] absolute flex justify-between left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
 						{processSteps.map((step) => (
 							<button
 								key={step.id}
-								className="relative focus:outline-none"
+								className="relative focus:outline-none backdrop-blur-sm backdrop-brightness-80 rounded-full"
 								onClick={() => {
 									setActiveStep(step.id);
 									setIsPaused(true); // Pause auto-advance when user interacts
@@ -238,17 +267,14 @@ export default function OurProcess({ contentClass }) {
 										width="24"
 										height="24"
 										viewBox="0 0 24 24"
-										fill="none"
+										fill="oklch(96.7% 0.003 264.542)"
 										stroke="currentColor"
-										strokeWidth="2"
+										strokeWidth="1"
 										strokeLinecap="round"
 										strokeLinejoin="round"
-										className="lucide lucide-map-pin-check-inside-icon lucide-map-pin-check-inside absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-1 h-8 w-8 text-black"
+										className="lucide lucide-map-pin-icon lucide-map-pin text-gray-600 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-1 h-8 w-8"
 									>
-										<path
-											d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"
-											fill="black"
-										/>
+										<path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
 									</svg>
 									{step?.icon}
 								</div>
@@ -258,10 +284,10 @@ export default function OurProcess({ contentClass }) {
 				</div>
 
 				{/* Active Step Content */}
-				<div className="flex flex-col flex-1 md:flex-row md:gap-12 gap-6 items-center justify-center md:py-10 py-10 xl:px-0 lg:px-4 w-[90%]">
+				<div className="h-full flex flex-col flex-1 md:flex-row md:gap-12 gap-6 justify-center items-center xl:items-stretch md:py-5 py-10 xl:px-0 lg:px-4 w-[90%]">
 					{/* Step Visualization */}
 					{!isMobile && (
-						<div className="w-[90%] md:w-4/7 flex justify-center ">
+						<div className="w-[90%] md:w-6/10 flex justify-center items-center h-auto">
 							<AnimatePresence mode="wait">
 								<motion.div
 									key={activeStep}
@@ -284,7 +310,7 @@ export default function OurProcess({ contentClass }) {
 						</div>
 					)}
 					{/* Step Details */}
-					<div className="w-[90%] md:w-1/2 h-full">
+					<div className="w-[90%] lg:w-4/10 h-auto">
 						<AnimatePresence mode="wait">
 							<motion.div
 								key={activeStep}
@@ -295,10 +321,7 @@ export default function OurProcess({ contentClass }) {
 								className="bg-white p-8 rounded-lg shadow-lg h-full flex flex-col justify-between"
 							>
 								<div className="step-text">
-									<h3
-										className="text-2xl font-bold mb-4"
-										style={{ color: processSteps[activeStep - 1].color }}
-									>
+									<h3 className="text-2xl font-bold mb-4 text-dark-gray">
 										{processSteps[activeStep - 1].title}
 									</h3>
 									<p className="text-gray-600 mb-6">
@@ -316,17 +339,18 @@ export default function OurProcess({ contentClass }) {
 											transition={{ duration: 0.3, delay: index * 0.1 }}
 										>
 											<div
-												className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
-												style={{
-													backgroundColor: `${processSteps[activeStep - 1].color}30`,
-												}}
+												className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 bg-gray-100"
+												// style={{
+												// 	backgroundColor:
+												//  `${processSteps[activeStep - 1].color}30`,
+												// }}
 											>
 												<div
-													className="w-2 h-2 rounded-full"
-													style={{
-														backgroundColor:
-															processSteps[activeStep - 1].color,
-													}}
+													className="w-2 h-2 rounded-full bg-gray-100"
+													// style={{
+													// 	backgroundColor:
+													// 		processSteps[activeStep - 1].color,
+													// }}
 												></div>
 											</div>
 											<span className="text-gray-700">{detail}</span>

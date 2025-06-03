@@ -292,17 +292,26 @@ export default function FocusedIndustries({ contentClass }) {
 				{/* Grouped Tab Interface */}
 				<div className="bg-white rounded-3xl shadow-xl border border-gray-200 overflow-hidden w-full 2xl:w-[100%] md:w-[90%]">
 					{/* Tab Navigation */}
-					<div className=" bg-gray-50">
+					<div className="bg-gray-50">
 						<div className="flex">
 							{industries.map((industry, index) => (
 								<button
 									key={industry.id}
 									onClick={() => setActiveIndustry(index)}
-									className={`flex-1 min-w-0 p-3 py-3 sm:px-6 sm:py-4 text-center transition-all duration-300 relative ${
-										activeIndustry === index
-											? "bg-white text-dark-blue"
-											: "text-gray-600 hover:text-dark-blue hover:bg-white/50 border-b border-gray-200"
-									}`}
+									className={classNames(
+										"flex-1 min-w-0 p-3 py-3 sm:px-6 sm:py-4 text-center transition-all duration-300 relative border border-transparent border-b-gray-200",
+										{
+											"bg-white text-dark-blue border-b-transparent":
+												activeIndustry === index,
+											"border-r-gray-200":
+												index !== industries?.length - 1 &&
+												activeIndustry === index,
+											"border-l-gray-200":
+												index !== 0 && activeIndustry === index,
+											"text-gray-600 hover:text-dark-blue hover:bg-white/50":
+												activeIndustry !== index,
+										},
+									)}
 								>
 									<div className="flex flex-col items-center">
 										<div
@@ -401,7 +410,7 @@ export default function FocusedIndustries({ contentClass }) {
 													}`}
 												>
 													<CardContent className="p-3 sm:p-6">
-														<div className="flex items-start gap-2 sm:gap-4">
+														<div className="flex items-center gap-2 sm:gap-4">
 															<div
 																className={`p-3 rounded-xl transition-all duration-300 ${
 																	hoveredSolution ===
@@ -412,8 +421,8 @@ export default function FocusedIndustries({ contentClass }) {
 															>
 																{solution.icon}
 															</div>
-															<div className="flex-1">
-																<div className="flex items-center justify-between mb-2 gap-2">
+															<div className="flex-1 flex flex-col gap-2">
+																<div className="flex items-center justify-between gap-2">
 																	<h4 className="text-sm sm:text-lg font-bold text-dark-blue">
 																		{solution.name}
 																	</h4>

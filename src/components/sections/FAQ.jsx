@@ -76,7 +76,7 @@ export default function FAQ() {
 								},
 							)}
 						>
-							<div className="pb-5 pl-2 text-base md:text-lg text-muted-foreground transform transition-all duration-500 ease-in-out">
+							<div className="pb-5 pl-2 text-base md:text-lg text-muted-foreground transform transition-all duration-500 ease-in-out font-sans break-keep whitespace-normal break-words">
 								{faq.answer}
 							</div>
 						</div>

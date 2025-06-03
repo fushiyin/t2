@@ -284,7 +284,7 @@ export default function FocusedIndustries({ contentClass }) {
 					<h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
 						{t("industries.title")}
 					</h2>
-					<p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+					<p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed font-sans break-keep whitespace-normal break-words">
 						{t("industries.description")}
 					</p>
 				</div>

@@ -104,19 +104,19 @@ export default function ServicesPage() {
 							transition={{ duration: 0.5 }}
 							className="space-y-8"
 						>
-							<h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
+							<h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight font-sans break-keep whitespace-normal break-words">
 								{t("services.hero.title")}{" "}
 								<span className="text-primary">{t("services.hero.highlight")}</span>
 							</h2>
 
-							<p className="text-xl text-muted-foreground">
+							<p className="text-xl text-muted-foreground font-sans break-keep whitespace-normal break-words">
 								{t("services.hero.description")}
 							</p>
 
 							<div className="flex flex-wrap justify-center gap-4">
 								<button
 									onClick={handleGetStarted}
-									className="inline-flex items-center gap-2 px-8 py-4 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors text-lg font-medium"
+									className="inline-flex items-center gap-2 px-8 py-4 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors text-lg font-medium font-sans break-keep whitespace-normal break-words"
 								>
 									{t("services.hero.cta")}
 									<ArrowRight className="w-5 h-5" />
@@ -129,10 +129,10 @@ export default function ServicesPage() {
 			<section className="w-full py-24 bg-background">
 				<div className="container max-w-[1440px] mx-auto px-4">
 					<div className="text-center mb-16">
-						<h2 className="text-3xl md:text-4xl font-bold mb-4">
+						<h2 className="text-3xl md:text-4xl font-bold mb-4 font-sans break-keep whitespace-normal break-words">
 							{t("services.section.title")}
 						</h2>
-						<p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+						<p className="text-xl text-muted-foreground max-w-2xl mx-auto font-sans break-keep whitespace-normal break-words">
 							{t("services.section.description")}
 						</p>
 					</div>
@@ -152,10 +152,10 @@ export default function ServicesPage() {
 									<div className="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-6">
 										<service.icon className="w-6 h-6" />
 									</div>
-									<h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">
+									<h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors font-sans break-keep whitespace-normal break-words">
 										{t(`services.items.${service.id}.name`)}
 									</h3>
-									<p className="text-muted-foreground text-sm mb-6">
+									<p className="text-muted-foreground text-sm mb-6 font-sans break-keep whitespace-normal break-words">
 										{t(`services.items.${service.id}.description`)}
 									</p>
 									<ul className="space-y-3">
@@ -164,7 +164,7 @@ export default function ServicesPage() {
 												key={idx}
 												className="flex items-center gap-2 text-sm"
 											>
-												<div className="w-1.5 h-1.5 rounded-full bg-primary" />
+												<div className="w-1.5 h-1.5 rounded-full bg-primary font-sans break-keep whitespace-normal break-words" />
 												{t(`services.items.${service.id}.details.${idx}`)}
 											</li>
 										))}

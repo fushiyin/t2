@@ -36,12 +36,12 @@ export default function AboutPage() {
 		<div className="w-full flex flex-col gap-6 md:gap-10 items-center">
 			<AnimatedSection className="w-full bg-muted/50 flex flex-col items-center">
 				<div className="max-w-[1440px] container px-[20px] py-8 md:py-12 md:px-4 flex flex-col justify-center min-h-[50vh]">
-					<h2 className="text-2xl md:text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center">
+					<h2 className="text-2xl md:text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center font-sans break-keep whitespace-normal break-words">
 						{t("about.title")}
 					</h2>
 					<div className="grid gap-6 lg:grid-cols-2 sm:mt-8 md:mt-16 lg:gap-12 items-center mt-6 md:mt-10">
 						<div className="space-y-4">
-							<p className="text-muted-foreground text-base md:text-xl/relaxed">
+							<p className="text-muted-foreground text-base md:text-xl/relaxed font-sans break-keep whitespace-normal break-words">
 								{t("about.description")}
 							</p>
 							<motion.div
@@ -62,8 +62,8 @@ export default function AboutPage() {
 										className="flex items-center gap-2"
 										variants={itemVariants}
 									>
-										<CheckCircleIcon className="h-4 w-4 md:h-5 md:w-5 text-primary" />
-										<span className="text-sm md:text-base">
+										<CheckCircleIcon className="h-4 w-4 md:h-5 md:w-5 text-primary " />
+										<span className="text-sm md:text-base font-sans break-keep whitespace-normal break-words">
 											{t("about.experience")}
 										</span>
 									</motion.li>
@@ -72,7 +72,7 @@ export default function AboutPage() {
 										variants={itemVariants}
 									>
 										<CheckCircleIcon className="h-4 w-4 md:h-5 md:w-5 text-primary" />
-										<span className="text-sm md:text-base">
+										<span className="text-sm md:text-base font-sans break-keep whitespace-normal break-words">
 											{t("about.team")}
 										</span>
 									</motion.li>
@@ -81,7 +81,7 @@ export default function AboutPage() {
 										variants={itemVariants}
 									>
 										<CheckCircleIcon className="h-4 w-4 md:h-5 md:w-5 text-primary" />
-										<span className="text-sm md:text-base">
+										<span className="text-sm md:text-base font-sans break-keep whitespace-normal break-words">
 											{t("about.projects")}
 										</span>
 									</motion.li>
@@ -90,7 +90,7 @@ export default function AboutPage() {
 										variants={itemVariants}
 									>
 										<CheckCircleIcon className="h-4 w-4 md:h-5 md:w-5 text-primary" />
-										<span className="text-sm md:text-base">
+										<span className="text-sm md:text-base font-sans break-keep whitespace-normal break-words">
 											{t("about.offices")}
 										</span>
 									</motion.li>

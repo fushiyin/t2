@@ -179,7 +179,7 @@ const VisionJourney = () => {
 				<div className="text-2xl sm:text-6xl font-bold text-white transition-all duration-500">
 					{slides[activeIndex].title.toUpperCase()}
 				</div>
-				<p className="max-w-[900px] text-white md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed transition-all duration-500 px-5 mt-5">
+				<p className="max-w-[900px] text-white md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed transition-all duration-500 px-5 mt-5 font-sans break-keep whitespace-normal break-words">
 					<TypeWriter
 						text={slides[activeIndex].testimonial}
 						speed={25}

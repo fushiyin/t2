@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { ArrowRightIcon } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
+import { idRouter } from "@/routes/idRouter";
 
 export default function Hero() {
 	const { isMobile } = useResponsive();
@@ -90,7 +91,7 @@ export default function Hero() {
 							{t("slogan")}
 						</motion.h1>
 						<motion.p
-							className="mx-auto max-w-[1100px] px-3 text-gray-200 md:text-xl"
+							className="mx-auto max-w-[1100px] px-3 text-gray-200 md:text-xl font-sans break-keep whitespace-normal break-words"
 							variants={itemVariants}
 						>
 							{isMobile ? t("description_mobile") : t("description")}
@@ -105,12 +106,15 @@ export default function Hero() {
 							size="lg"
 							className="rounded-md bg-dark-blue text-white hover:bg-light-blue"
 						>
-							<Link
-								href="/contact"
+							<a
+								href={idRouter?.contact}
 								className="flex items-center gap-2"
+								onClick={() => {
+									console.log(idRouter?.contact);
+								}}
 							>
 								{t("menu.contact")} <ArrowRightIcon className="h-4 w-4" />
-							</Link>
+							</a>
 						</Button>
 					</motion.div>
 				</motion.div>

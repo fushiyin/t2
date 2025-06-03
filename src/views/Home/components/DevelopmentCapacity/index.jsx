@@ -291,7 +291,7 @@ export default function DevelopmentEnhanced({ contentClass }) {
 						<h2 className="text-3xl font-bold tracking-tighter sm:text-5xl pb-6 bg-gradient-to-r from-light-blue via-light-blue-gray to-pale-blue bg-clip-text text-transparent">
 							{t("tech_stack.title")}
 						</h2>
-						<p className="max-w-[900px] mx-auto text-gray-300 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed px-8 400:px-6">
+						<p className="max-w-[900px] mx-auto text-gray-300 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed px-8 400:px-6 font-sans break-keep whitespace-normal break-words">
 							{t("tech_stack.description")}
 						</p>
 					</motion.div>
@@ -398,7 +398,7 @@ export default function DevelopmentEnhanced({ contentClass }) {
 					viewport={{ once: true }}
 					className="text-center"
 				>
-					<p className="text-base sm:text-xl text-gray-300 mb-8 max-w-2xl mx-auto px-8 400:px-6">
+					<p className="text-base sm:text-xl text-gray-300 mb-8 max-w-2xl mx-auto px-8 400:px-6 font-sans break-keep whitespace-normal break-words">
 						{t("tech_stack.cta.description")}
 					</p>
 					<button className="text-sm sm:text-xl px-5 py-3 sm:px-8 sm:py-4 bg-gradient-to-r from-pale-blue to-light-blue text-heading-black hover:text-white font-semibold rounded-xl hover:from-light-blue hover:to-normal-dark-blue transition-all duration-300 transform hover:scale-105 shadow-lg">

@@ -47,24 +47,30 @@ export default function Contact() {
 						<div className="container xl:px-4 sm:px-0 md:px-0 h-full flex flex-col justify-center">
 							<div className="grid gap-10 lg:grid-cols-2 items-center">
 								<div className="space-y-4 p-3 md:p-3 lg:p-6 xl:p-6">
-									<h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-dark-gray">
+									<h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-dark-gray font-sans break-keep whitespace-normal break-words">
 										{t("contact.description")}
 									</h2>
-									<p className="max-w-[600px] text-muted-foreground md:text-xl/relaxed">
+									<p className="max-w-[600px] text-muted-foreground md:text-xl/relaxed font-sans break-keep whitespace-normal break-words">
 										{t("contact.description2")}
 									</p>
 									<ul className="space-y-2 text-muted-foreground">
 										<li className="flex items-center gap-2">
 											<span className="h-2 w-2 rounded-full bg-near-black-blue"></span>
-											<span>{t("contact.description_sub.expert")}</span>
+											<span className="font-sans break-keep whitespace-normal break-words">
+												{t("contact.description_sub.expert")}
+											</span>
 										</li>
 										<li className="flex items-center gap-2">
 											<span className="h-2 w-2 rounded-full bg-near-black-blue"></span>
-											<span>{t("contact.description_sub.cutting_edge")}</span>
+											<span className="font-sans break-keep whitespace-normal break-words">
+												{t("contact.description_sub.cutting_edge")}
+											</span>
 										</li>
 										<li className="flex items-center gap-2">
 											<span className="h-2 w-2 rounded-full bg-near-black-blue"></span>
-											<span>{t("contact.description_sub.dedicated")}</span>
+											<span className="font-sans break-keep whitespace-normal break-words">
+												{t("contact.description_sub.dedicated")}
+											</span>
 										</li>
 									</ul>
 								</div>
@@ -93,10 +99,10 @@ export default function Contact() {
 													/>
 												</svg>
 											</div>
-											<h3 className="text-xl font-bold mb-2 text-dark-gray">
+											<h3 className="text-xl font-bold mb-2 text-dark-gray font-sans break-keep whitespace-normal break-words">
 												{t("contact.form.success_submit")}
 											</h3>
-											<p className="text-muted-foreground">
+											<p className="text-muted-foreground font-sans break-keep whitespace-normal break-words">
 												{t("contact.form.success_message")}
 											</p>
 										</motion.div>
@@ -139,7 +145,7 @@ export default function Contact() {
 														"contact.form.email_placeholder",
 													)}
 													required
-													className="focus:outline-none focus:ring-0 focus-visible:shadow-none focus-visible:outline-none focus-visible:ring-0 border-t2-grayBlue focus-visible:border-light-blue"
+													className="font-sans break-keep whitespace-normal break-words focus:outline-none focus:ring-0 focus-visible:shadow-none focus-visible:outline-none focus-visible:ring-0 border-t2-grayBlue focus-visible:border-light-blue"
 												/>
 											</div>
 											<div>
@@ -175,7 +181,7 @@ export default function Contact() {
 													placeholder={t(
 														"contact.form.message_placeholder",
 													)}
-													className="min-h-[120px] border-t2-grayBlue focus:outline-none focus:ring-0 focus-visible:shadow-none focus-visible:outline-none focus-visible:ring-0 focus-visible:border-light-blue"
+													className="font-sans break-keep whitespace-normal break-words min-h-[120px] border-t2-grayBlue focus:outline-none focus:ring-0 focus-visible:shadow-none focus-visible:outline-none focus-visible:ring-0 focus-visible:border-light-blue"
 													required
 												/>
 											</div>

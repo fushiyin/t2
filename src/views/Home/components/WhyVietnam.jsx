@@ -76,7 +76,7 @@ export default function WhyVietnam({ contentClass }) {
 					whileInView="visible"
 					viewport={{ once: true }}
 				>
-					<div className="flex flex-wrap justify-center items-center md:justify-center sm:justify-start gap-4">
+					<div className="flex flex-wrap justify-center items-center gap-4">
 						{whyVietnam?.map((card, idx) => (
 							<motion.div
 								key={`why-vietnam-card-${idx}`}

@@ -64,7 +64,7 @@ export default function WhyVietnam({ contentClass }) {
 					<h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
 						{t("why_vietnam.title")}
 					</h2>
-					<p className="max-w-[900px] text-muted-foreground md:text-base/relaxed lg:text-lg/relaxed xl:text-xl/relaxed">
+					<p className="max-w-[900px] text-muted-foreground md:text-base/relaxed lg:text-lg/relaxed xl:text-xl/relaxed font-sans break-keep whitespace-normal break-words">
 						{t("why_vietnam.description")}
 					</p>
 				</div>
@@ -76,7 +76,7 @@ export default function WhyVietnam({ contentClass }) {
 					whileInView="visible"
 					viewport={{ once: true }}
 				>
-					<div className="flex flex-wrap justify-center items-center gap-4">
+					<div className="flex flex-wrap justify-center items-center md:justify-center sm:justify-start gap-4 font-sans break-keep whitespace-normal break-words">
 						{whyVietnam?.map((card, idx) => (
 							<motion.div
 								key={`why-vietnam-card-${idx}`}

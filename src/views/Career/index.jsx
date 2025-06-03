@@ -62,7 +62,7 @@ export default function Careers() {
 		<div className="flex flex-col items-center justify-center mx-auto">
 			<div className="container py-12 max-w-[1440px] md:pl-6 md:pr-6 px-4 lg:px-6 xl:px-6">
 				<motion.h1
-					className="w-full text-4xl text-center font-bold mb-4"
+					className="w-full text-4xl text-center font-bold mb-4 font-sans break-keep whitespace-normal break-words"
 					initial="hidden"
 					animate="visible"
 					variants={fadeUp}
@@ -71,7 +71,7 @@ export default function Careers() {
 				</motion.h1>
 
 				<motion.p
-					className="w-full text-center text-muted-foreground text-lg mb-8"
+					className="w-full text-center text-muted-foreground text-lg mb-8 font-sans break-keep whitespace-normal break-words"
 					initial="hidden"
 					animate="visible"
 					variants={fadeUp}
@@ -96,10 +96,12 @@ export default function Careers() {
 							<Card className="hover:shadow-lg transition-shadow  bg-white/80 border-t shadow-lg">
 								<CardContent className="p-6 flex flex-col items-center text-center space-y-4">
 									<div className="rounded-full p-3 bg-gray-100">{item.icon}</div>
-									<h3 className="text-2xl text-dark-gray font-bold">
+									<h3 className="text-2xl text-dark-gray font-bold font-sans break-keep whitespace-normal break-words">
 										{item.title}
 									</h3>
-									<p className="text-muted-foreground">{item.desc}</p>
+									<p className="text-muted-foreground font-sans break-keep whitespace-normal break-words">
+										{item.desc}
+									</p>
 								</CardContent>
 							</Card>
 						</motion.div>
@@ -173,10 +175,10 @@ export default function Careers() {
 			>
 				<div className="max-w-[1440px] flex flex-col md:flex-row mx-auto space-y-6 md:space-y-0 md:space-x-6 sm:w-full">
 					<motion.div className="flex-1 space-y-4">
-						<h2 className="text-3xl text-dark-gray font-bold">
+						<h2 className="text-3xl text-dark-gray font-bold font-sans break-keep whitespace-normal break-words">
 							{t("careers.title_cv")}
 						</h2>
-						<p className="text-muted-foreground text-lg">
+						<p className="text-muted-foreground text-lg font-sans break-keep whitespace-normal break-words">
 							{t("careers.description_cv")}
 						</p>
 					</motion.div>

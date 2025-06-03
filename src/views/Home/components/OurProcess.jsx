@@ -168,7 +168,7 @@ export default function OurProcess({ contentClass }) {
 						<h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-dark-gray">
 							{t("process.title")}
 						</h2>
-						<p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+						<p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed font-sans break-keep whitespace-normal break-words">
 							{t("process.description")}
 						</p>
 					</div>
@@ -324,7 +324,7 @@ export default function OurProcess({ contentClass }) {
 									<h3 className="text-2xl font-bold mb-4 text-dark-gray">
 										{processSteps[activeStep - 1].title}
 									</h3>
-									<p className="text-gray-600 mb-6">
+									<p className="text-gray-600 mb-6 font-sans break-keep whitespace-normal break-words">
 										{processSteps[activeStep - 1].description}
 									</p>
 								</div>
@@ -353,7 +353,9 @@ export default function OurProcess({ contentClass }) {
 													// }}
 												></div>
 											</div>
-											<span className="text-gray-700">{detail}</span>
+											<span className="text-gray-700 font-sans break-keep whitespace-normal break-words">
+												{detail}
+											</span>
 										</motion.div>
 									))}
 								</div>

@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRightIcon } from "lucide-react";
-import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 
 export default function CTA() {
 	const { t } = useTranslation();
@@ -13,7 +13,7 @@ export default function CTA() {
 					<h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
 						{t("contact_cta.title")}
 					</h2>
-					<p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+					<p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed px-12">
 						{t("contact_cta.description")}
 					</p>
 				</div>

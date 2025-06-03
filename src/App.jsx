@@ -7,32 +7,21 @@ import { useTranslation } from "react-i18next";
 function App() {
 	const { i18n } = useTranslation();
 	const [isLanguageReady, setIsLanguageReady] = useState(false);
-	console.log(navigator.language);
 
 	useEffect(() => {
-		const storedLanguage = localStorage.getItem("i18nextLng");
+		const storedLanguage = localStorage.getItem("language");
 
-		if (storedLanguage) {
-			if (i18n.language !== storedLanguage) {
-				i18n.changeLanguage(storedLanguage).then(() => {
-					setIsLanguageReady(true);
-				});
-			} else {
+		if (storedLanguage && i18n.language !== storedLanguage) {
+			i18n.changeLanguage(storedLanguage).then(() => {
 				setIsLanguageReady(true);
-			}
+			});
+		} else if (!storedLanguage) {
+			i18n.changeLanguage("ko").then(() => {
+				localStorage.setItem("language", "ko");
+				setIsLanguageReady(true);
+			});
 		} else {
-			const browserLang = navigator.language.split("-")[0];
-			const defaultLang = browserLang === "ko" ? "ko" : "en";
-
-			if (i18n.language !== defaultLang) {
-				i18n.changeLanguage(defaultLang).then(() => {
-					localStorage.setItem("i18nextLng", defaultLang);
-					setIsLanguageReady(true);
-				});
-			} else {
-				localStorage.setItem("i18nextLng", defaultLang);
-				setIsLanguageReady(true);
-			}
+			setIsLanguageReady(true);
 		}
 	}, [i18n]);
 

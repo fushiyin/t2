@@ -2,32 +2,9 @@ import planet1 from "@/assets/img/planet1.png";
 import planet2 from "@/assets/img/planet2.jpg";
 import planet3 from "@/assets/img/planet3.jpg";
 import wallpaper from "@/assets/img/wallpaper.jpg";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import "./styles.css";
-
-const TypeWriter = ({ text, speed = 5 }) => {
-	const [displayText, setDisplayText] = useState("");
-	const [currentIndex, setCurrentIndex] = useState(0);
-
-	useEffect(() => {
-		setDisplayText("");
-		setCurrentIndex(0);
-	}, [text]);
-
-	useEffect(() => {
-		if (currentIndex < text.length) {
-			const timeout = setTimeout(() => {
-				setDisplayText((prev) => prev + text[currentIndex]);
-				setCurrentIndex((prev) => prev + 1);
-			}, speed);
-
-			return () => clearTimeout(timeout);
-		}
-	}, [currentIndex, text, speed]);
-
-	return <span>{displayText}</span>;
-};
 
 const Stars = () => {
 	const stars = Array.from({ length: 100 }).map((_, index) => ({
@@ -180,10 +157,7 @@ const VisionJourney = () => {
 					{slides[activeIndex].title.toUpperCase()}
 				</div>
 				<p className="max-w-[900px] text-white md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed transition-all duration-500 px-5 mt-5">
-					<TypeWriter
-						text={slides[activeIndex].testimonial}
-						speed={25}
-					/>
+					{slides[activeIndex].testimonial}
 				</p>
 				<div className="w-[90px] h-[8px] mt-5 bg-gradient-to-r from-[var(--color-light-mint)] to-[var(--color-light-green)] mb-4" />
 			</div>

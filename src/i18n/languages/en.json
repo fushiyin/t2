@@ -556,24 +556,28 @@
 		"challenging_description": "Work on diverse and innovative projects that push the boundaries of technology."
 	},
 	"contact": {
-		"title": "문의하기",
-		"description": "당신의 아이디어를 실현할 준비가 되셨나요?",
-		"description2": "T2Soft가 어떻게 귀하의 기술 목표 달성을 도울 수 있는지 함께 이야기해 봅시다. 저희 팀은 귀하의 비전을 현실로 만들 준비가 되어 있습니다.",
-		"description_sub": {
-			"expert": "비즈니스에 맞춘 전문가 상담",
-			"cutting_edge": "최신 기술 솔루션 제공",
-			"dedicated": "프로젝트 전 과정에 걸친 전담 지원"
+		"title": "Contact Us",
+		"description": "Ready to Transform Your Ideas?",
+		"description2": "Let's discuss how T2Soft can help you achieve your technology goals. Our team is ready to bring your vision to life.",
+		"description_sub" : {
+			"expert": "Expert consultation tailored to your business needs",
+			"cutting_edge": "Cutting-edge technology solutions",
+			"dedicated": "Dedicated support throughout your project"
 		},
 		"form": {
-			"name": "이름",
-			"email": "이메일",
-			"company": "회사명",
-			"message": "무엇을 도와드릴까요?",
-			"message_placeholder": "프로젝트나 문의 내용을 알려주세요...",
-			"submit": "메시지 보내기",
-			"submitting": "전송 중...",
-			"success_submit": "메시지가 성공적으로 전송되었습니다!",
-			"success_message": "문의해 주셔서 감사합니다! 곧 연락드리겠습니다."
+			"name": "Yor Name",
+			"name_placeholder": "Enter your name",
+			"email": "Your Email",
+			"email_placeholder": "Enter your email",
+			"company": "Company",
+			"company_placeholder": "Enter your company name",
+			"message": "How can we help?",
+			"message_placeholder": "Tell us about your project or inquiry...",
+			"submit": "Send Message",
+			"submitting": "Sending...",
+			"success_submit": "Message sent successfully!",
+			"success_message": "Thank you for reaching out! We will get back to you shortly."
 		}
 	}
+
 }

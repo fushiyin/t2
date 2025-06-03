@@ -117,7 +117,7 @@ export default function Contact() {
 													name="name"
 													value={formState.name}
 													onChange={handleChange}
-													placeholder="Your name"
+													placeholder={t("contact.form.name_placeholder")}
 													required
 													className="focus:outline-none focus:ring-0 focus-visible:shadow-none focus-visible:outline-none focus-visible:ring-0 border-t2-grayBlue focus-visible:border-light-blue"
 												/>
@@ -135,7 +135,9 @@ export default function Contact() {
 													type="email"
 													value={formState.email}
 													onChange={handleChange}
-													placeholder="your@email.com"
+													placeholder={t(
+														"contact.form.email_placeholder",
+													)}
 													required
 													className="focus:outline-none focus:ring-0 focus-visible:shadow-none focus-visible:outline-none focus-visible:ring-0 border-t2-grayBlue focus-visible:border-light-blue"
 												/>
@@ -152,7 +154,9 @@ export default function Contact() {
 													name="company"
 													value={formState.company}
 													onChange={handleChange}
-													placeholder="Your company name"
+													placeholder={t(
+														"contact.form.company_placeholder",
+													)}
 													className="focus:outline-none focus:ring-0 focus-visible:shadow-none focus-visible:outline-none focus-visible:ring-0 border-t2-grayBlue focus-visible:border-light-blue"
 												/>
 											</div>

@@ -3,7 +3,7 @@
 		"title": "About us"
 	},
 	"competitive_edges": {
-		"description": "Our guding principles that drive everything we do.",
+		"description": "Our guiding principles that drive everything we do.",
 		"edges": {
 			"coordinator": {
 				"description": [
@@ -44,10 +44,10 @@
 		},
 		"title": "Our competitive edges"
 	},
-	"description": "T2 Soft is a Vietnamese SI and IT outsourcing company that provides software development and maintenance, and IT consulting services for Korean corporate clients. We aim to quickly provide high-quality IT solutions optimized for customer needs, successfully support digital transformation, and grow together with our customers.",
-	"description_mobile": "T2 Soft is a Vietnamese SI and IT outsourcing company that provides software development and maintenance, and IT consulting services for Korean corporate clients.",
+	"description": "T2soft is a Vietnamese SI and IT outsourcing company that provides software development and maintenance, and IT consulting services for Korean corporate clients. We aim to quickly provide high-quality IT solutions optimized for customer needs, successfully support digital transformation, and grow together with our customers.",
+	"description_mobile": "T2soft is a Vietnamese SI and IT outsourcing company that provides software development and maintenance, and IT consulting services for Korean corporate clients.",
 	"focus_industries": {
-		"description": "T2 Soft leverages extensive project experience and technical expertise across various industries to deliver customized IT solutions. We work hand-in-hand with our clients to maximize business value, driving both efficiency and innovation.",
+		"description": "T2soft leverages extensive project experience and technical expertise across various industries to deliver customized IT solutions. We work hand-in-hand with our clients to maximize business value, driving both efficiency and innovation.",
 		"title": "Focused Industries"
 	},
 	"footer": {
@@ -58,32 +58,15 @@
 		"studies": "Case Studies",
 		"terms": "Terms of Service"
 	},
-	"language": "Language",
 	"menu": {
 		"about": "About Us",
 		"blog": "Blog",
 		"careers": "Careers",
 		"contact": "Contact Us",
-		"faq": "FAQ",
+		"faq": "FAQs",
 		"home": "Home",
 		"services": "Services",
 		"testimonials": "Testimonials"
-	},
-	"menu_drawer": "Menu",
-	"service": {
-		"ai": "AI & Machine Learning",
-		"ai_desc": "Intelligent solutions that leverage the power of AI and ML to drive insights and automation.",
-		"cloud": "Cloud Services",
-		"cloud_desc": "Cloud architecture, migration, and management services to optimize your infrastructure and operations.",
-		"custom_software": "Custom Software Development",
-		"custom_software_desc": "Bespoke software solutions designed and built from the ground up to address your specific business challenges and requirements",
-		"mobile_app": "Mobile App Development",
-		"mobile_app_desc": "Native and cross-platform mobile applications that deliver exceptional user experiences across all devices.",
-		"qa": "QA & Testing",
-		"qa_desc": "Comprehensive quality assurance and testing services to ensure your software meets the highest standards.",
-		"slogan": "Your global software service and solution partner",
-		"web_dev": "Web Development",
-		"web_dev_desc": "Responsive, high-performance web applications and sites built with the latest technologies and frameworks."
 	},
 	"why_vietnam": {
 		"title": "Why Vietnam?",
@@ -112,7 +95,7 @@
 	"our": "Our",
 	"vision": {
 		"title": "Vision",
-		"description": "T2, Shaping the Future of Technology We strive to be your premier global development partner, leading the advancement of next-generation technologies."
+		"description": "T2soft, Shaping the Future of Technology We strive to be your premier global development partner, leading the advancement of next-generation technologies."
 	},
 	"mission": {
 		"title": "Mission",
@@ -524,7 +507,7 @@
 	},
 	"about": {
 		"title": "About Us",
-		"description": "T2 Soft is a leading software development company with a strong focus on delivering high-quality solutions. We combine technical expertise with innovative thinking to help businesses transform their digital presence.",
+		"description": "T2soft is a leading software development company with a strong focus on delivering high-quality solutions. We combine technical expertise with innovative thinking to help businesses transform their digital presence.",
 		"experience": "10+ years of industry experience",
 		"team": "Skilled team of 50+ professionals",
 		"projects": "200+ successful projects delivered",
@@ -532,5 +515,6 @@
 		"faq": {
 			"imageAlt": "Faqs"
 		}
-	}
+	},
+	"slogan": "Transform Your Business with Innovative Solutions"
 }

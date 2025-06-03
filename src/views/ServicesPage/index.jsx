@@ -88,34 +88,74 @@ const services = [
 export default function ServicesPage() {
 	return (
 		<div className="w-full">
-			<section className="flex flex-col items-center justify-center w-full min-h-[50vh] flex items-center bg-muted/50">
-				<div className="container relative max-w-6xl mx-auto px-4">
-					<div>
+			<section className="relative min-h-[70vh] flex items-center bg-muted/50 overflow-hidden">
+				<div className="absolute inset-0 bg-grid-pattern opacity-5" />
+				<div className="absolute top-20 left-10 w-32 h-32 bg-primary/10 rounded-full blur-3xl" />
+				<div className="absolute bottom-20 right-10 w-40 h-40 bg-secondary/10 rounded-full blur-3xl" />
+				<div className="container relative mx-auto px-4 max-w-[1440px]">
+					<div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 						<motion.div
 							initial={{ opacity: 0, x: -20 }}
 							animate={{ opacity: 1, x: 0 }}
 							transition={{ duration: 0.5 }}
-							className="text-center"
+							className="space-y-6"
 						>
-							<h2 className="text-2xl md:text-3xl my-5 font-bold tracking-tighter sm:text-4xl md:text-5xl text-center">
-								Our Services
+							<h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
+								Transform Your Business with{" "}
+								<span className="text-primary">Innovative</span> Solutions
 							</h2>
-							<p className="text-xl text-muted-foreground mb-8">
+
+							<p className="text-xl text-muted-foreground">
 								Discover our comprehensive range of technology services designed to
-								drive your business forward.
+								drive your business forward. From custom software to AI solutions,
+								we've got you covered.
 							</p>
-							<button className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors">
-								Get Started
-								<ArrowRight className="w-4 h-4" />
-							</button>
+
+							<div className="flex flex-wrap gap-4">
+								<button className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors">
+									Get Started
+									<ArrowRight className="w-4 h-4" />
+								</button>
+								<button className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-border hover:bg-muted transition-colors">
+									Learn More
+									<ArrowRight className="w-4 h-4" />
+								</button>
+							</div>
+
+							<div className="flex items-center gap-8 pt-4">
+								<div className="flex -space-x-2">
+									{[1, 2, 3, 4].map((i) => (
+										<div
+											key={i}
+											className="w-8 h-8 rounded-full border-2 border-background bg-muted"
+										/>
+									))}
+								</div>
+							</div>
+						</motion.div>
+
+						<motion.div
+							initial={{ opacity: 0, x: 20 }}
+							animate={{ opacity: 1, x: 0 }}
+							transition={{ duration: 0.5, delay: 0.2 }}
+							className="relative hidden lg:block"
+						>
+							<div className="relative aspect-square my-10 ml-10 rounded-xl overflow-hidden">
+								<img
+									src={bg1}
+									alt="Technology Solutions"
+									className="w-full h-full object-cover"
+								/>
+								<div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
+							</div>
 						</motion.div>
 					</div>
 				</div>
 			</section>
 
 			<section className="w-full py-20">
-				<div className="container max-w-6xl mx-auto px-4">
-					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+				<div className="container max-w-[1440px] mx-auto px-4">
+					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
 						{services.map((service) => (
 							<motion.div
 								key={service.id}

@@ -70,21 +70,6 @@
 		"services": "서비스",
 		"testimonials": "고객 후기"
 	},
-	"servicesPage": {
-		"ai": "AI 및 머신러닝",
-		"ai_desc": "AI와 ML의 힘을 활용하여 인사이트와 자동화를 제공하는 지능형 솔루션",
-		"cloud": "클라우드 서비스",
-		"cloud_desc": "인프라와 운영을 최적화하는 클라우드 아키텍처, 마이그레이션 및 관리 서비스",
-		"custom_software": "맞춤형 소프트웨어 개발",
-		"custom_software_desc": "비즈니스 과제와 요구사항을 해결하기 위해 처음부터 설계 및 구축된 맞춤형 소프트웨어 솔루션",
-		"mobile_app": "모바일 앱 개발",
-		"mobile_app_desc": "모든 기기에서 뛰어난 사용자 경험을 제공하는 네이티브 및 크로스플랫폼 모바일 앱",
-		"qa": "QA 및 테스트",
-		"qa_desc": "최고 수준의 소프트웨어 품질을 보장하는 종합 품질 보증 및 테스트 서비스",
-		"slogan": "글로벌 소프트웨어 서비스 및 솔루션 파트너",
-		"web_dev": "웹 개발",
-		"web_dev_desc": "최신 기술과 프레임워크로 구축된 반응형, 고성능 웹 애플리케이션 및 사이트"
-	},
 	"why_vietnam": {
 		"title": "Why Vietnam?",
 		"description": "베트남은풍부한IT인재,합리적인비용과 빠른기술습득력,안정적인개발.운영서비스로글로벌소프트웨어아웃소싱시장에서한국기업들과완벽한협업가능합니다.",
@@ -112,7 +97,7 @@
 	"our": "Our",
 	"vision": {
 		"title": "Vision",
-		"description": "T2와 함께하는 미래 기술의 중심 차세대 기술을 선도하는 최고의 글로벌 개발 파트너가 됩니다."
+		"description": "T2soft와 함께하는 미래 기술의 중심 차세대 기술을 선도하는 최고의 글로벌 개발 파트너가 됩니다."
 	},
 	"mission": {
 		"title": "Mission",
@@ -123,8 +108,8 @@
 		"description": "우리는 고객과 한 팀이 되어 함께 성장하며, 최신 기술과 트렌드를 빠르게 적용해 앞서 나아갑니다. 또한, 정직한 소통과 책임감 있는 행동으로 신뢰와 투명성을 바탕으로 한 장기적인 관계를 만들어갑니다."
 	},
 	"tech_stack": {
-		"title": "기술 스택",
-		"description": "최신 프레임워크, 언어, 플랫폼을 아우르는 포괄적인 기술 전문성을 보유하고 있습니다. 확장 가능하고 견고하며 혁신적인 솔루션을 구축하기 위해 최첨단 도구를 활용합니다.",
+		"title": "Technology Stack",
+		"description": "저희는 최신 프레임워크, 언어 및 플랫폼 전반에 걸친 포괄적인 기술 전문성을 보유하고 있습니다. 최첨단 도구를 활용하여 확장 가능하고 견고하며 혁신적인 솔루션을 구축합니다.",
 		"frontend": {
 			"title": "프론트엔드 개발",
 			"description": "현대적이고 반응형이며 인터랙티브한 사용자 인터페이스 구축",
@@ -278,20 +263,20 @@
 		"title": "주요 사업 분야",
 		"description": "디지털 혁신과 비즈니스 성장을 이끄는 혁신적인 솔루션을 제공하는 5개의 핵심 산업 분야에서의 전문성을 확인하세요.",
 		"status": {
-			"expertise": "전문성",
-			"advanced": "고도화",
+			"expertise": "엑스퍼티스",
+			"advanced": "고급",
 			"specialized": "전문화",
 			"innovation": "혁신",
-			"emerging": "신규"
+			"emerging": "이머징"
 		},
 		"manufactoring": {
 			"title": "제조업",
-			"description": "스마트 제조 솔루션으로 산업 4.0 혁신을 실현",
+			"description": "산업 4.0 혁신을 위한 스마트 제조 솔루션",
 			"tagline": "생산 혁신",
 			"sub_industries": {
 				"erp": {
 					"title": "ERP 시스템",
-					"description": "원활한 운영을 위한 기업 자원 관리 시스템"
+					"description": "간소화된 운영을 위한 전사적 자원 관리 (ERP)"
 				},
 				"mes": {
 					"title": "MES 솔루션",
@@ -299,7 +284,7 @@
 				},
 				"supply_chain": {
 					"title": "공급망 관리",
-					"description": "종합적인 공급망 최적화 및 추적 시스템"
+					"description": "엔드 투 엔드 공급망 최적화 및 추적"
 				},
 				"quality_manage": {
 					"title": "품질 관리",
@@ -337,7 +322,7 @@
 			"sub_industries": {
 				"crm": {
 					"title": "CRM 시스템",
-					"description": "고급 고객 관계 관리 시스템"
+					"description": "고급 고객 관계 관리"
 				},
 				"marketing": {
 					"title": "마케팅 자동화",
@@ -360,11 +345,11 @@
 			"sub_industries": {
 				"healthcare": {
 					"title": "스마트 헬스케어",
-					"description": "AI 기반 의료 관리 및 진단 시스템"
+					"description": "AI 기반 의료 관리 및 진단"
 				},
 				"office": {
 					"title": "스마트 오피스",
-					"description": "지능형 사무실 자동화 및 관리"
+					"description": "지능형 오피스 자동화 및 관리"
 				},
 				"ibeems": {
 					"title": "AI & iBEEMS",
@@ -379,7 +364,7 @@
 			"sub_industries": {
 				"warehouse": {
 					"title": "창고 관리",
-					"description": "재고 관리 및 최적화를 위한 고급 WMS"
+					"description": "재고 관리 및 최적화를 위한 고급 WMS (창고 관리 시스템)"
 				},
 				"analytics": {
 					"title": "물류 분석",
@@ -401,8 +386,8 @@
 		},
 		"steps": {
 			"discovery": {
-				"title": "요구사항 분석",
-				"description": "심층적인 상담을 통해 비즈니스 목표, 요구사항 및 과제를 이해합니다.",
+				"title": "디스커버리 및 분석",
+				"description": "심층적인 상담을 통해 비즈니스 목표, 요구사항 및 과제 이해",
 				"details": [
 					"요구사항 수집 및 분석",
 					"시장 및 경쟁사 조사",
@@ -412,7 +397,7 @@
 			},
 			"design": {
 				"title": "설계 및 기획",
-				"description": "상세한 디자인과 기술 명세를 작성하여 개발의 기반을 마련합니다.",
+				"description": "개발의 기반 마련을 위한 상세한 디자인과 기술 명세 작성",
 				"details": [
 					"UI/UX 디자인 및 프로토타이핑",
 					"시스템 아키텍처 설계",
@@ -427,7 +412,7 @@
 					"애자일 개발 방법론",
 					"정기적인 코드 리뷰",
 					"지속적 통합",
-					"일일 스탠드업 및 진행 상황 추적"
+					"일일 스탠드업 및 프로그레스 추적"
 				]
 			},
 			"testing": {
@@ -437,7 +422,7 @@
 					"기능 테스트",
 					"성능 및 부하 테스트",
 					"보안 테스트",
-					"사용자 수용 테스트"
+					"사용자 승인 테스트"
 				]
 			},
 			"deployment": {
@@ -463,7 +448,7 @@
 		}
 	},
 	"testimonials": {
-		"title": "고객 후기",
+		"title": "고객의 피드백",
 		"actions": {
 			"reply": "답글",
 			"share": "공유"
@@ -523,14 +508,15 @@
 		}
 	},
 	"about": {
-		"title": "회사 소개",
+		"title": "About us",
 		"description": "T2 Soft는 고품질 솔루션 제공에 중점을 둔 선도적인 소프트웨어 개발 회사입니다. 기술적 전문성과 혁신적인 사고를 결합하여 기업의 디지털 혁신을 지원합니다.",
 		"experience": "10년 이상의 업계 경험",
 		"team": "50명 이상의 숙련된 전문가 팀",
 		"projects": "200개 이상의 성공적인 프로젝트 완료",
-		"offices": "베트남과 한국에 글로벌 사무소 운영",
+		"offices": "베트남과 한국에 글로벌 오피스 운영",
 		"faq": {
-			"imageAlt": "자주 묻는 질문 일러스트레이션"
+			"imageAlt": "자주 묻는 질문 (FAQ)"
 		}
-	}
+	},
+	"slogan": "혁신적인 솔루션으로 비즈니스를 혁신하세요"
 }

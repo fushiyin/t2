@@ -109,9 +109,6 @@ export default function Hero() {
 							<a
 								href={idRouter?.contact}
 								className="flex items-center gap-2"
-								onClick={() => {
-									console.log(idRouter?.contact);
-								}}
 							>
 								{t("contact.title")} <ArrowRightIcon className="h-4 w-4" />
 							</a>

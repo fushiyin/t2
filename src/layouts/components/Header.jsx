@@ -13,6 +13,8 @@ import { ChevronDown, Menu, Moon, Search, Sun, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useLocation } from "react-router-dom";
+import korea from "@/assets/images/korea.webp";
+import england from "@/assets/images/england.png";
 
 const Header = () => {
 	const location = useLocation();
@@ -22,7 +24,7 @@ const Header = () => {
 	const [language, setLanguage] = useState({
 		code: "ko",
 		label: "Korean",
-		imageUrl: "🇰🇷",
+		imageUrl: england,
 	});
 	const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = useState(false);
 	const [isMobileSearchOpen, setIsMobileSearchOpen] = useState(false);
@@ -31,13 +33,18 @@ const Header = () => {
 		{
 			code: "ko",
 			label: "Korean",
-			imageUrl: "🇰🇷",
+			imageUrl: korea,
 		},
 		{
 			code: "en",
 			label: "English",
-			imageUrl: "🇬🇧",
+			imageUrl: england,
 		},
+		// {
+		// 	code: "vi",
+		// 	label: "Vietnamese",
+		// 	imageUrl: "https://www.countryflags.com/wp-content/uploads/vietnam-flag-png-large.png",
+		// },
 	];
 
 	useEffect(() => {
@@ -137,7 +144,12 @@ const Header = () => {
 								className="flex items-center text-sm text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 cursor-pointer"
 								onClick={toggleLanguageDropdown}
 							>
-								<span className="text-xl">{language.imageUrl}</span>
+								{/* <Globe className="h-5 w-5 mr-1" /> */}
+								<img
+									src={language.imageUrl}
+									alt={language.label}
+									className="inline-block h-5 w-7"
+								/>
 								<ChevronDown className="h-4 w-4 ml-1" />
 							</button>
 
@@ -149,7 +161,7 @@ const Header = () => {
 												key={`lang_item_${lang_item?.code}_${index}`}
 												onClick={() => changeLanguage(lang_item)}
 												className={classNames(
-													"flex justify-start space-x-2 items-center cursor-pointer w-full px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-header-hover hover:text-dark-blue dark:hover:bg-dark-blue",
+													"flex justify-start cursor-pointer w-full px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-header-hover hover:text-dark-blue dark:hover:bg-dark-blue",
 													{
 														"bg-header-active dark:light-blue-gray text-gray-700":
 															language?.code === lang_item.code,
@@ -159,10 +171,12 @@ const Header = () => {
 													},
 												)}
 											>
-												<span className="text-xl">
-													{lang_item.imageUrl}
-												</span>
-												<span>{lang_item.label}</span>
+												<img
+													src={lang_item.imageUrl}
+													alt={lang_item.label}
+													className="inline-block h-5 w-7 mr-2"
+												/>
+												{lang_item.label}
 											</button>
 										);
 									})}
@@ -238,7 +252,11 @@ const Header = () => {
 								>
 									<span className="text-base font-medium">
 										{t("language")} :
-										<span className="text-xl">{language.imageUrl}</span>
+										<img
+											src={language.imageUrl}
+											alt={language.label}
+											className="inline-block h-5 w-7 ml-2"
+										/>
 									</span>
 									<ChevronDown className="absolute right-0" />
 								</button>
@@ -261,10 +279,12 @@ const Header = () => {
 														},
 													)}
 												>
-													<span className="text-xl">
-														{lang_item.imageUrl}
-													</span>
-													<span>{lang_item.label}</span>
+													<img
+														src={lang_item.imageUrl}
+														alt={lang_item.label}
+														className="inline-block h-5 w-7 mr-2"
+													/>
+													{lang_item.label}
 												</button>
 											);
 										})}

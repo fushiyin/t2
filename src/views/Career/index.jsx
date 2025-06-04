@@ -156,7 +156,7 @@ export default function Careers() {
 											className="md:item-center bg-primary lg:w-[130px] md:w-[130px] text-white px-4 py-2 rounded-md font-medium hover:bg-primary/90 transition"
 											whileTap={{ scale: 0.95 }}
 										>
-											{t("careers.apply_now")}
+											Apply Now
 										</motion.button>
 									</div>
 								</CardContent>
@@ -193,7 +193,7 @@ export default function Careers() {
 								transition={{ type: "spring", stiffness: 200, damping: 15 }}
 								layout
 							>
-								{t("careers.apply_cv")}
+								Send CV
 							</motion.a>
 						</div>
 					</div>

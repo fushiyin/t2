@@ -113,7 +113,7 @@ export default function Hero() {
 									console.log(idRouter?.contact);
 								}}
 							>
-								Contact Us <ArrowRightIcon className="h-4 w-4" />
+								{t("contact.title")} <ArrowRightIcon className="h-4 w-4" />
 							</a>
 						</Button>
 					</motion.div>

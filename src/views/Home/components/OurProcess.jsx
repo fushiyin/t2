@@ -1,20 +1,13 @@
+import team_research from "@/assets/images/analysis.avif";
 import team_deploy from "@/assets/images/deploy.avif";
 import team_design from "@/assets/images/design.avif";
 import team_development from "@/assets/images/dev.avif";
 import team_maintain from "@/assets/images/maitain.webp";
-import team_research from "@/assets/images/analysis.avif";
 import team_test from "@/assets/images/test.jpg";
 import useResponsive from "@/hooks/useResponsive";
 import classNames from "classnames";
 import { AnimatePresence, motion } from "framer-motion";
-import {
-	CodeIcon,
-	PencilRulerIcon,
-	RefreshCwIcon,
-	RocketIcon,
-	SearchIcon,
-	TestTubeIcon,
-} from "lucide-react";
+import { Handshake, Lightbulb, Rocket, SearchCode, UserRoundCheck, UserSearch } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 
@@ -32,10 +25,10 @@ export default function OurProcess({ contentClass }) {
 	const processSteps = [
 		{
 			id: 1,
-			title: t("process.steps.discovery.title"),
+			title: t("process.steps.client_request.title"),
 			image: team_research,
 			icon: (
-				<SearchIcon
+				<UserSearch
 					strokeWidth={3}
 					className={iconClass}
 				/>
@@ -46,9 +39,9 @@ export default function OurProcess({ contentClass }) {
 		},
 		{
 			id: 2,
-			title: t("process.steps.design.title"),
+			title: t("process.steps.requirement_analysis.title"),
 			icon: (
-				<PencilRulerIcon
+				<SearchCode
 					strokeWidth={3}
 					className={iconClass}
 				/>
@@ -60,9 +53,9 @@ export default function OurProcess({ contentClass }) {
 		},
 		{
 			id: 3,
-			title: t("process.steps.development.title"),
+			title: t("process.steps.proposal.title"),
 			icon: (
-				<CodeIcon
+				<Lightbulb
 					strokeWidth={3}
 					className={iconClass}
 				/>
@@ -74,10 +67,10 @@ export default function OurProcess({ contentClass }) {
 		},
 		{
 			id: 4,
-			title: t("process.steps.testing.title"),
+			title: t("process.steps.client_approval.title"),
 			image: team_test,
 			icon: (
-				<TestTubeIcon
+				<UserRoundCheck
 					strokeWidth={3}
 					className={iconClass}
 				/>
@@ -88,10 +81,10 @@ export default function OurProcess({ contentClass }) {
 		},
 		{
 			id: 5,
-			title: t("process.steps.deployment.title"),
+			title: t("process.steps.contract_sign_off.title"),
 			image: team_deploy,
 			icon: (
-				<RocketIcon
+				<Handshake
 					strokeWidth={3}
 					className={iconClass}
 				/>
@@ -102,9 +95,9 @@ export default function OurProcess({ contentClass }) {
 		},
 		{
 			id: 6,
-			title: t("process.steps.maintenance.title"),
+			title: t("process.steps.project_kick_off.title"),
 			icon: (
-				<RefreshCwIcon
+				<Rocket
 					strokeWidth={3}
 					className={iconClass}
 				/>

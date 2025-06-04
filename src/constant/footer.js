@@ -32,7 +32,7 @@ export const FOOTER_SECTIONS = [
 		titleKey: "footer.studies",
 		links: [
 			{ to: idRouter?.privacy, i18nKey: "footer.privacy" },
-			{ to: idRouter?.terms, i18nKey: "footer.terms" },
+			// { to: idRouter?.terms, i18nKey: "footer.terms" },
 		],
 	},
 ];

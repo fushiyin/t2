@@ -108,7 +108,7 @@
 		"description": "우리는 고객과 한 팀이 되어 함께 성장하며, 최신 기술과 트렌드를 빠르게 적용해 앞서 나아갑니다. 또한, 정직한 소통과 책임감 있는 행동으로 신뢰와 투명성을 바탕으로 한 장기적인 관계를 만들어갑니다."
 	},
 	"tech_stack": {
-		"title": "Technology Stack",
+		"title": "개발 역량",
 		"description": "저희는 최신 프레임워크, 언어 및 플랫폼 전반에 걸친 포괄적인 기술 전문성을 보유하고 있습니다. 최첨단 도구를 활용하여 확장 가능하고 견고하며 혁신적인 솔루션을 구축합니다.",
 		"frontend": {
 			"title": "프론트엔드 개발",
@@ -518,7 +518,7 @@
 			"imageAlt": "자주 묻는 질문 (FAQ)"
 		}
 	},
-	"slogan": "혁신적인 솔루션으로 비즈니스를 혁신하세요",
+	"slogan": "Your Global Software Service And Solution Partner",
 	"services": {
 		"hero": {
 			"title": "혁신적인 솔루션으로",

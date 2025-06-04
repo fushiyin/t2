@@ -66,6 +66,7 @@
 		"faq": "FAQs",
 		"home": "Home",
 		"services": "Services",
+		"solutions": "Solution & Product",
 		"testimonials": "Testimonials"
 	},
 	"why_vietnam": {
@@ -576,7 +577,7 @@
 			"imageAlt": "Faqs"
 		}
 	},
-	"slogan": "Your Global Software Service And Solution Partner",
+	"slogan": "Your Global Software Service & Solution Partner",
 	"services": {
 		"hero": {
 			"title": "Transform Your Business with",

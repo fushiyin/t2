@@ -10,6 +10,7 @@ const Contact = React.lazy(() => import("@/views/Contact"));
 const Careers = React.lazy(() => import("@/views/Career"));
 const Services = React.lazy(() => import("@/views/ServicesPage"));
 const Blog = React.lazy(() => import("@/views/Blog"));
+const Solution = React.lazy(() => import("@/views/SolutionAndProduct"));
 
 const router = createBrowserRouter([
 	{
@@ -30,6 +31,7 @@ const router = createBrowserRouter([
 			{ path: idRouter.contact, element: <Contact /> },
 			{ path: idRouter.service, element: <Services /> },
 			{ path: idRouter.blog, element: <Blog /> },
+			{ path: idRouter.solution, element: <Solution /> },
 		],
 	},
 ]);

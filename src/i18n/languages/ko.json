@@ -68,6 +68,7 @@
 		"faq": "자주 묻는 질문",
 		"home": "홈",
 		"services": "서비스",
+		"solutions": "Solution & Product",
 		"testimonials": "고객 후기"
 	},
 	"why_vietnam": {
@@ -578,7 +579,7 @@
 			"imageAlt": "자주 묻는 질문 (FAQ)"
 		}
 	},
-	"slogan": "Your Global Software Service And Solution Partner",
+	"slogan": "Your Global Software Service & Solution Partner",
 	"services": {
 		"hero": {
 			"title": "혁신적인 솔루션으로",

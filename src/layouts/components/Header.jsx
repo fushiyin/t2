@@ -111,7 +111,7 @@ const Header = () => {
 								key={link.path}
 								href={link.path}
 								className={classNames(
-									"px-3 py-2 text-sm font-medium transition-colors ",
+									"px-3 py-2 text-base font-medium transition-colors ",
 									{
 										"text-[var(--color-dark-blue)] font-extrabold underline underline-offset-8 dark:text-light-blue":
 											window.location?.pathname === link?.path ||

@@ -111,7 +111,7 @@ const Header = () => {
 								key={link.path}
 								href={link.path}
 								className={classNames(
-									"px-3 py-2 text-sm font-medium transition-colors ",
+									"px-3 py-2 xl:text-base lg:text-base sm:text-sm md:text-sm font-medium transition-colors ",
 									{
 										"text-[var(--color-dark-blue)] font-extrabold underline underline-offset-8 dark:text-light-blue":
 											window.location?.pathname === link?.path ||
@@ -130,7 +130,7 @@ const Header = () => {
 					</nav>
 
 					<div className="hidden md:flex items-center ml-auto">
-						<div className="relative mr-4 block md:hidden xl:block lg:block">
+						<div className="relative mr-4 block md:hidden xl:block lg:hidden">
 							<input
 								type="text"
 								placeholder={t("common.search")}
@@ -232,7 +232,7 @@ const Header = () => {
 								<a
 									key={link.path}
 									href={link.path}
-									className={`block px-3 py-2 text-base font-medium border-b rounded-sm ${
+									className={`block px-3 py-2 text-base lg:text-sm sm:text-sm font-medium border-b rounded-sm ${
 										location.pathname === link.path
 											? "text-dark-blue bg-light-blue-gray"
 											: "text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 border-b-[#f4f4f4]"
@@ -250,7 +250,7 @@ const Header = () => {
 									className="flex items-center text-sm text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 cursor-pointer"
 									onClick={toggleLanguageDropdown}
 								>
-									<span className="text-base font-medium">
+									<span className="text-base lg:text-sm sm:text-sm font-medium">
 										{t("language")} :
 										<img
 											src={language.imageUrl}

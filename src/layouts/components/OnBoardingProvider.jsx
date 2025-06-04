@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react-refresh/only-export-components */
 import { createContext, useContext, useEffect, useState } from "react";
 
@@ -26,11 +27,11 @@ export default function OnboardingProvider({ children }) {
 	}, []);
 
 	// Save onboarding state to localStorage
-	useEffect(() => {
-		if (isInitialized && hasSeenOnboarding) {
-			localStorage.setItem("hasSeenOnboarding", "true");
-		}
-	}, [hasSeenOnboarding, isInitialized]);
+	// useEffect(() => {
+	// 	if (isInitialized && hasSeenOnboarding) {
+	// 		localStorage.setItem("hasSeenOnboarding", "true");
+	// 	}
+	// }, [hasSeenOnboarding, isInitialized]);
 
 	return (
 		<OnboardingContext.Provider

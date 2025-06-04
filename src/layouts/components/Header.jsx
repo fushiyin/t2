@@ -14,7 +14,7 @@ import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useLocation } from "react-router-dom";
 import korea from "@/assets/images/korea.webp";
-import england from "@/assets/images/england.png";
+import england from "@/assets/images/usa.png";
 
 const Header = () => {
 	const location = useLocation();

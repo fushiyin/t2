@@ -619,99 +619,40 @@
 		"items": {
 			"learnMore": "Learn more",
 			"1": {
-				"name": "Custom Software Development",
-				"description": "Bespoke software solutions designed and built from the ground up to address your specific business challenges and requirements",
+				"name": "Global Development Center",
+				"description": "",
 				"details": {
-					"0": "Enterprise applications",
-					"1": "Saas platforms",
-					"2": "E-commerce solutions",
-					"3": "CRM and ERP systems"
-				},
-				"benefits": {
-					"0": "Scalable architecture",
-					"1": "Secure and compliant",
-					"2": "Custom integrations",
-					"3": "Ongoing support"
+					"0": "Frontend & Backend Development",
+					"1": "Hybrid & Native App Development",
+					"2": "UI/UX Design & Optimization",
+					"3": "Managed Global Development Center"
 				}
 			},
 			"2": {
-				"name": "Mobile App Development",
-				"description": "Native and cross-platform mobile applications that deliver exceptional user experiences across all devices.",
+				"name": "System Integration (SI)",
+				"description": "",
 				"details": {
-					"0": "iOS development",
-					"1": "Android development",
-					"2": "React Native",
-					"3": "Flutter"
-				},
-				"benefits": {
-					"0": "Cross-platform compatibility",
-					"1": "Native performance",
-					"2": "Offline capabilities",
-					"3": "Push notifications"
+					"0": "Integrated System Development",
+					"1": "Data Integration & Management",
+					"2": "Solution Customization & Optimization"
 				}
 			},
 			"3": {
-				"name": "Web Development",
-				"description": "Responsive, high-performance web applications and sites built with the latest technologies and frameworks.",
+				"name": "IT Consulting",
+				"description": "",
 				"details": {
-					"0": "Progressive Web Apps",
-					"1": "E-commerce platforms",
-					"2": "Content management systems",
-					"3": "Web portals"
-				},
-				"benefits": {
-					"0": "Responsive design",
-					"1": "SEO optimization",
-					"2": "Fast loading times",
-					"3": "Modern UI/UX"
+					"0": "IT Strategy Development",
+					"1": "System Diagnosis & Improvement",
+					"2": "Solution Selection & Implementation Support"
 				}
 			},
 			"4": {
-				"name": "Cloud Services",
-				"description": "Cloud architecture, migration, and management services to optimize your infrastructure and operations.",
+				"name": "Solution Provider",
+				"description": "",
 				"details": {
-					"0": "AWS, Azure, GCP",
-					"1": "Cloud migration",
-					"2": "DevOps implementation",
-					"3": "Microservices architecture"
-				},
-				"benefits": {
-					"0": "Cost optimization",
-					"1": "Scalable infrastructure",
-					"2": "High availability",
-					"3": "Disaster recovery"
-				}
-			},
-			"5": {
-				"name": "AI & Machine Learning",
-				"description": "Intelligent solutions that leverage the power of AI and ML to drive insights and automation.",
-				"details": {
-					"0": "Predictive analytics",
-					"1": "Natural language processing",
-					"2": "Computer vision",
-					"3": "Recommendation systems"
-				},
-				"benefits": {
-					"0": "Data-driven insights",
-					"1": "Process automation",
-					"2": "Enhanced decision making",
-					"3": "Personalized experiences"
-				}
-			},
-			"6": {
-				"name": "QA & Testing",
-				"description": "Comprehensive quality assurance and testing services to ensure your software meets the highest standards.",
-				"details": {
-					"0": "Manual testing",
-					"1": "Automated testing",
-					"2": "Performance testing",
-					"3": "Security testing"
-				},
-				"benefits": {
-					"0": "Quality assurance",
-					"1": "Bug prevention",
-					"2": "Performance optimization",
-					"3": "Security compliance"
+					"0": "Smart Office, Smart Factory, Banking solution",
+					"1": "Modular/Scalable Software Supply",
+					"2": "Enterprise Solutions (CRM, ERP,MES, HRM, WMS, FMS, iBEEMS, etc)"
 				}
 			}
 		}

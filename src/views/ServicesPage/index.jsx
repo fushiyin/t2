@@ -140,10 +140,14 @@ export default function ServicesPage() {
 										{service.details.map((detail, idx) => (
 											<li
 												key={idx}
-												className="flex items-center gap-2 text-sm"
+												className="flex items-start gap-2 text-sm"
 											>
-												<div className="w-1.5 h-1.5 rounded-full bg-primary font-sans break-keep whitespace-normal break-words" />
-												{t(`services.items.${service.id}.details.${idx}`)}
+												<span className="mt-1 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
+												<span className="font-sans break-words whitespace-normal">
+													{t(
+														`services.items.${service.id}.details.${idx}`,
+													)}
+												</span>
 											</li>
 										))}
 									</ul>

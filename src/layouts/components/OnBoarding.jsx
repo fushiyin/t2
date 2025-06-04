@@ -7,7 +7,7 @@ import { useOnboarding } from "./OnBoardingProvider";
 const ANIMATION_DURATION = 5;
 
 export default function Onboarding() {
-	const { hasSeenOnboarding, setHasSeenOnboarding } = useOnboarding();
+	const { hasSeenOnboarding, setHasSeenOnboarding } = useOnboarding(false);
 	const [animationStep, setAnimationStep] = useState(0);
 	const [showContent, setShowContent] = useState(false);
 	const [exitAnimation, setExitAnimation] = useState(false);
@@ -28,7 +28,6 @@ export default function Onboarding() {
 		const timer6 = setTimeout(
 			() => {
 				setHasSeenOnboarding(true);
-				setShowOnboarding(false);
 			},
 			(ANIMATION_DURATION + 1) * 1000,
 		);

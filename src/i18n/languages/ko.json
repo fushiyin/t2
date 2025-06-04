@@ -385,6 +385,66 @@
 			"next": "다음"
 		},
 		"steps": {
+			"client_request": {
+				"title": "고객 요청",
+				"description": "Understanding your needs and gathering requirements to kickstart the project.",
+				"details": [
+					"Initial consultation",
+					"Requirement analysis",
+					"Project scope definition",
+					"Proposal and agreement"
+				]
+			},
+			"requirement_analysis": {
+				"title": "요청사항 분석",
+				"description": "In-depth analysis of your requirements to ensure clarity and alignment.",
+				"details": [
+					"Stakeholder interviews",
+					"Use case development",
+					"Technical feasibility study",
+					"Risk assessment"
+				]
+			},
+			"proposal": {
+				"title": "제안",
+				"description": "Presenting a detailed proposal outlining the project scope, timeline, and budget.",
+				"details": [
+					"Project plan",
+					"Cost estimation",
+					"Timeline and milestones",
+					"Resource allocation"
+				]
+			},
+			"client_approval": {
+				"title": "고객 승인",
+				"description": "Finalizing the project details and obtaining client approval to proceed.",
+				"details": [
+					"Review proposal",
+					"Address feedback",
+					"Sign contract",
+					"Kickoff meeting"
+				]
+			},
+			"contract_sign_off": {
+				"title": "계약 체결",
+				"description": "Formalizing the agreement with a signed contract to ensure mutual understanding.",
+				"details": [
+					"Legal review",
+					"Contract signing",
+					"Project kickoff",
+					"Team introduction"
+				]
+			},
+			"project_kick_off": {
+				"title": "프로젝트 착수",
+				"description": "Launching the project with a kickoff meeting to align expectations and objectives.",
+				"details": [
+					"Project team introduction",
+					"Communication plan",
+					"Project management tools setup",
+					"Initial project timeline"
+				]
+			},
 			"discovery": {
 				"title": "디스커버리 및 분석",
 				"description": "심층적인 상담을 통해 비즈니스 목표, 요구사항 및 과제 이해",
@@ -518,7 +578,7 @@
 			"imageAlt": "자주 묻는 질문 (FAQ)"
 		}
 	},
-	"slogan": "혁신적인 솔루션으로 비즈니스를 혁신하세요",
+	"slogan": "Your Global Software Service And Solution Partner",
 	"services": {
 		"hero": {
 			"title": "혁신적인 솔루션으로",

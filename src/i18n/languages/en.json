@@ -383,6 +383,66 @@
 			"next": "Next"
 		},
 		"steps": {
+			"client_request": {
+				"title": "Client Request",
+				"description": "Understanding your needs and gathering requirements to kickstart the project.",
+				"details": [
+					"Initial consultation",
+					"Requirement analysis",
+					"Project scope definition",
+					"Proposal and agreement"
+				]
+			},
+			"requirement_analysis": {
+				"title": "Requirement Analysis",
+				"description": "In-depth analysis of your requirements to ensure clarity and alignment.",
+				"details": [
+					"Stakeholder interviews",
+					"Use case development",
+					"Technical feasibility study",
+					"Risk assessment"
+				]
+			},
+			"proposal": {
+				"title": "Proposal",
+				"description": "Presenting a detailed proposal outlining the project scope, timeline, and budget.",
+				"details": [
+					"Project plan",
+					"Cost estimation",
+					"Timeline and milestones",
+					"Resource allocation"
+				]
+			},
+			"client_approval": {
+				"title": "Client Approval",
+				"description": "Finalizing the project details and obtaining client approval to proceed.",
+				"details": [
+					"Review proposal",
+					"Address feedback",
+					"Sign contract",
+					"Kickoff meeting"
+				]
+			},
+			"contract_sign_off": {
+				"title": "Contract Sign-off",
+				"description": "Formalizing the agreement with a signed contract to ensure mutual understanding.",
+				"details": [
+					"Legal review",
+					"Contract signing",
+					"Project kickoff",
+					"Team introduction"
+				]
+			},
+			"project_kick_off": {
+				"title": "Project Kick-off",
+				"description": "Launching the project with a kickoff meeting to align expectations and objectives.",
+				"details": [
+					"Project team introduction",
+					"Communication plan",
+					"Project management tools setup",
+					"Initial project timeline"
+				]
+			},
 			"discovery": {
 				"title": "Discovery & Analysis",
 				"description": "Understanding your business objectives, requirements, and challenges through in-depth consultations.",
@@ -516,7 +576,7 @@
 			"imageAlt": "Faqs"
 		}
 	},
-	"slogan": "Transform Your Business with Innovative Solutions",
+	"slogan": "Your Global Software Service And Solution Partner",
 	"services": {
 		"hero": {
 			"title": "Transform Your Business with",

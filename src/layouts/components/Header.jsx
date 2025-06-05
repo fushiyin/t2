@@ -1,7 +1,8 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+import england from "@/assets/images/england.png";
 import korea from "@/assets/images/korea.webp";
 import t2darklogo from "@/assets/images/t2darklogo.png";
 import t2lightlogo from "@/assets/images/t2lightlogo.png";
-import england from "@/assets/images/usa.png";
 import {
 	Drawer,
 	DrawerClose,
@@ -14,7 +15,7 @@ import classNames from "classnames";
 import { ChevronDown, Menu, Moon, Search, Sun, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router";
 
 const Header = () => {
 	const location = useLocation();
@@ -57,7 +58,7 @@ const Header = () => {
 
 		const storedLanguage = localStorage.getItem("language");
 		if (storedLanguage) {
-			const selectedLang = LANGUAGE.find((lang) => lang.code === storedLanguage);
+			const selectedLang = LANGUAGE?.find((lang) => lang.code === storedLanguage);
 			if (selectedLang) {
 				setLanguage(selectedLang);
 			}
@@ -90,8 +91,8 @@ const Header = () => {
 			<div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-0">
 				<div className="w-full flex justify-between items-center h-16">
 					<div className="flex-shrink-0">
-						<a
-							href="/"
+						<Link
+							to="/"
 							className="flex items-center"
 						>
 							<img
@@ -99,14 +100,14 @@ const Header = () => {
 								alt="Company Logo"
 								src={isDarkMode ? t2darklogo : t2lightlogo}
 							/>
-						</a>
+						</Link>
 					</div>
 
 					<nav className="hidden items-center space-x-8 ml-10 md:flex md:space-x-2 xl:space-x-6 lg:space-x-4 flex-1">
 						{NAV_LINKS.map((link) => (
-							<a
+							<Link
 								key={link.path}
-								href={link.path}
+								to={link.path}
 								className={classNames(
 									"px-3 py-2 text-base font-medium transition-colors",
 									{
@@ -124,7 +125,7 @@ const Header = () => {
 								)}
 							>
 								{t(link?.i18nKey) || link?.name}
-							</a>
+							</Link>
 						))}
 					</nav>
 
@@ -143,9 +144,9 @@ const Header = () => {
 							if (!contactLink && !blogLink) return null;
 							return (
 								<div className="origin-top-right flex flex-wrap text-center absolute top-16 right-8 w-36 rounded-md shadow-lg bg-white dark:bg-gray-800 ring-1 ring-gray-700/50 ring-opacity-5 focus:outline-none">
-									<a
+									<Link
 										key={contactLink.path}
-										href={contactLink.path}
+										to={contactLink.path}
 										className={classNames(
 											"px-3 py-2 text-base font-medium transition-colors w-full",
 											{
@@ -163,10 +164,10 @@ const Header = () => {
 										)}
 									>
 										{t(contactLink?.i18nKey) || contactLink?.name}
-									</a>
-									<a
+									</Link>
+									<Link
 										key={blogLink.path}
-										href={blogLink.path}
+										to={blogLink.path}
 										className={classNames(
 											"px-3 py-2 text-base font-medium transition-colors w-full ",
 											{
@@ -183,7 +184,7 @@ const Header = () => {
 										)}
 									>
 										{t(blogLink?.i18nKey) || blogLink?.name}
-									</a>
+									</Link>
 									<ChangeLanguages
 										isTablet
 										language={language}
@@ -257,9 +258,9 @@ const Header = () => {
 					<div className="px-4 py-4 space-y-4">
 						<div className="space-y-1">
 							{NAV_LINKS.map((link) => (
-								<a
+								<Link
 									key={link.path}
-									href={link.path}
+									to={link.path}
 									className={`block px-3 py-2 text-base font-medium border-b rounded-sm ${
 										location.pathname === link.path
 											? "text-dark-blue bg-light-blue-gray"
@@ -267,7 +268,7 @@ const Header = () => {
 									}`}
 								>
 									{t(link?.i18nKey) || link?.name}
-								</a>
+								</Link>
 							))}
 						</div>
 

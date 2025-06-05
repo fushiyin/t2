@@ -3,7 +3,7 @@ import classNames from "classnames";
 import { motion } from "framer-motion";
 import { Globe, Linkedin, Mail, MapPin, MessageCircle, Phone, Send } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 
 const CONTACT_ITEMS = [
 	{

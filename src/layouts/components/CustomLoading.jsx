@@ -2,13 +2,13 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useOnboarding } from "./OnBoardingProvider";
 
-const Loading = () => {
+const Loading = ({ defaultLoading }) => {
 	const { isLoading, setIsLoading } = useOnboarding();
 	const colors = ["#03071F", "#090F33", "#101944", "#19286D", "#DAE4ED"];
 
 	return (
 		<AnimatePresence>
-			{isLoading && (
+			{(defaultLoading || isLoading) && (
 				<motion.div
 					className="fixed inset-0 z-50 flex items-center justify-center bg-white/80 backdrop-blur-sm"
 					initial={{ opacity: 0 }}

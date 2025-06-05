@@ -1,5 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { OPEN_POSITIONS } from "@/constant/career";
+import { FORM_CV, OPEN_POSITIONS } from "@/constant/career";
 import { motion } from "framer-motion";
 import { BookOpen, Layers, Users } from "lucide-react";
 import { useTranslation } from "react-i18next";
@@ -153,8 +153,9 @@ export default function Careers() {
 											</p>
 										</div>
 										<motion.button
-											className="md:item-center bg-primary lg:w-[130px] md:w-[130px] text-white px-4 py-2 rounded-md font-medium hover:bg-primary/90 transition"
+											className="md:item-center cursor-pointer bg-primary lg:w-[130px] md:w-[130px] text-white px-4 py-2 rounded-md font-medium hover:bg-primary/90 transition"
 											whileTap={{ scale: 0.95 }}
+											onClick={() => window.open(FORM_CV)}
 										>
 											Apply Now
 										</motion.button>
@@ -186,8 +187,8 @@ export default function Careers() {
 					<div className="flex-1 flex xl:justify-end lg:justify-end md:justify-end sm:pt-6 md:p-6 lg:p-0 xl:p-0 2xl:p-6 items-center xl:w-fix p-0 sm:w-full">
 						<div className="w-full lg:w-[130px] md:w-[130px] sm:w-full">
 							<motion.a
-								href="mailto:ygkim@t2soft.com?subject=Send CV&body=Please attach your CV and tell us a bit about yourself."
-								className="w-full bg-primary text-center text-white px-4 py-2 rounded-md font-medium hover:bg-primary/90 inline-block"
+								onClick={() => window.open(FORM_CV)}
+								className="w-full bg-primary text-center text-white px-4 py-2 rounded-md font-medium hover:bg-primary/90 inline-block cursor-pointer"
 								whileHover={{ scale: 1.05 }}
 								whileTap={{ scale: 0.97 }}
 								transition={{ type: "spring", stiffness: 200, damping: 15 }}

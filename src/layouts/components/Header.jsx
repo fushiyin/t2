@@ -1,3 +1,5 @@
+import england from "@/assets/images/england.png";
+import korea from "@/assets/images/korea.webp";
 import t2darklogo from "@/assets/images/t2darklogo.png";
 import t2lightlogo from "@/assets/images/t2lightlogo.png";
 import {
@@ -12,9 +14,7 @@ import classNames from "classnames";
 import { ChevronDown, Menu, Moon, Search, Sun, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { useLocation } from "react-router-dom";
-import korea from "@/assets/images/korea.webp";
-import england from "@/assets/images/england.png";
+import { useLocation } from "react-router";
 
 const Header = () => {
 	const location = useLocation();

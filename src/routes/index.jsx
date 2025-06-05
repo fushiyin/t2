@@ -1,7 +1,7 @@
 import { MainLayout } from "@/layouts";
 import PageNotFound from "@/views/PageNotFound";
 import React from "react";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router";
 import { idRouter } from "./idRouter";
 
 const Home = React.lazy(() => import("@/views/Home"));
@@ -13,12 +13,12 @@ const Blog = React.lazy(() => import("@/views/Blog"));
 
 const router = createBrowserRouter([
 	{
-		path: "/",
+		path: idRouter.home,
 		element: <MainLayout />,
 		errorElement: <PageNotFound />,
 		children: [
 			{
-				path: idRouter?.home,
+				index: true,
 				element: <Home />,
 			},
 			{
@@ -37,13 +37,7 @@ function AppRouter() {
 	return (
 		<>
 			<React.Suspense fallback={<div>Loading...</div>}>
-				<RouterProvider
-					router={router}
-					future={{
-						v7_startTransition: true,
-						v7_relativeSplatPath: true,
-					}}
-				/>
+				<RouterProvider router={router} />
 			</React.Suspense>
 		</>
 	);

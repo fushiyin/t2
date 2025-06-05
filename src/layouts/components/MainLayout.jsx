@@ -1,7 +1,7 @@
 import useResponsive from "@/hooks/useResponsive";
 import CustomCursor from "@/views/Home/components/CustomeCursor/Cursor";
 import { Suspense } from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet } from "react-router";
 import {
 	ButtonScrollToTop,
 	CustomLoading,

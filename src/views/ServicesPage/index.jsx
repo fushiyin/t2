@@ -1,17 +1,8 @@
-import { motion } from "framer-motion";
-import {
-	ArrowRight,
-	Code,
-	Database,
-	Globe,
-	Layers,
-	LineChart,
-	Settings,
-	ChevronRight,
-} from "lucide-react";
 import CTA from "@/components/sections/ContactCTA";
-import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
+import { ArrowRight, Code, Database, Globe, Layers, LineChart, Settings } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router";
 
 const services = [
 	{

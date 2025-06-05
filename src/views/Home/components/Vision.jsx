@@ -169,7 +169,7 @@ const Vision = () => {
 				<h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-dark-gray">
 					Vision, Mission & Values
 				</h2>
-				<p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+				<p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed font-sans break-keep whitespace-normal break-words">
 					Which guide us in delivering innovative solutions and driving success for our
 					clients.
 				</p>
@@ -199,7 +199,7 @@ const Vision = () => {
 								>
 									<div className="max-w-3xl mx-auto text-center mt-6 px-6">
 										<div className="bg-white/10 backdrop-blur-md rounded-lg p-6">
-											<p className="text-white font-normal text-xl md:text-2xl font-light leading-relaxed mb-4 font-sans break-keep whitespace-normal break-words">
+											<p className="text-white font-normal text-xl md:text-2xl leading-relaxed mb-4 font-sans break-keep whitespace-normal break-words">
 												{slide.testimonial}
 											</p>
 										</div>

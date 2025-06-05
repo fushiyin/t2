@@ -7,7 +7,7 @@ import { useOnboarding } from "./OnBoardingProvider";
 const ANIMATION_DURATION = 5;
 
 export default function Onboarding() {
-	const { hasSeenOnboarding, setHasSeenOnboarding } = useOnboarding(false);
+	const { hasSeenOnboarding, setHasSeenOnboarding } = useOnboarding();
 	const [animationStep, setAnimationStep] = useState(0);
 	const [showContent, setShowContent] = useState(false);
 	const [exitAnimation, setExitAnimation] = useState(false);
@@ -23,11 +23,13 @@ export default function Onboarding() {
 		const timer1 = setTimeout(() => setAnimationStep(1), 500);
 		const timer2 = setTimeout(() => setAnimationStep(2), 1000);
 		const timer3 = setTimeout(() => setAnimationStep(3), 1500);
+		t;
 		const timer4 = setTimeout(() => setShowContent(true), 2000);
 		const timer5 = setTimeout(() => setExitAnimation(true), ANIMATION_DURATION * 1000);
 		const timer6 = setTimeout(
 			() => {
 				setHasSeenOnboarding(true);
+				setShowOnboarding(false);
 			},
 			(ANIMATION_DURATION + 1) * 1000,
 		);
@@ -160,7 +162,7 @@ export default function Onboarding() {
 							transition={{ duration: 0.8, delay: 1.1 }}
 						>
 							<p className="text-lg">www.ttwosoft.com</p>
-							<p className="text-lg">www.t2soft.vn</p>
+							{/* <p className="text-lg">www.t2soft.vn</p> */}
 						</motion.div>
 					</div>
 				</div>

@@ -7,71 +7,48 @@ import { useNavigate } from "react-router";
 const services = [
 	{
 		id: 1,
-		name: "Custom Software Development",
-		description:
-			"Bespoke software solutions designed and built from the ground up to address your specific business challenges and requirements",
+		name: "Global Development Center",
+		description: "",
 		icon: Code,
 		details: [
-			"Enterprise applications",
-			"Saas platforms",
-			"E-commerce solutions",
-			"CRM and ERP systems",
+			"Frontend & Backend Development",
+			"Hybrid & Native App Development",
+			"UI/UX Design & Optimization",
+			"Managed Global Development Center",
 		],
 	},
 	{
 		id: 2,
-		name: "Mobile App Development",
-		description:
-			"Native and cross-platform mobile applications that deliver exceptional user experiences across all devices.",
+		name: "System Integration (SI)",
+		description: "",
 		icon: Globe,
-		details: ["iOS development", "Android development", "React Native", "Flutter"],
+		details: [
+			"Integrated System Development",
+			"Data Integration & Management",
+			"Solution Customization & Optimization",
+		],
 	},
 	{
 		id: 3,
-		name: "Web Development",
-		description:
-			"Responsive, high-performance web applications and sites built with the latest technologies and frameworks.",
+		name: "IT Consulting",
+		description: "",
 		icon: Database,
 		details: [
-			"Progressive Web Apps",
-			"E-commerce platforms",
-			"Content management systems",
-			"Web portals",
+			"IT Strategy Development",
+			"System Diagnosis & Improvement",
+			"Solution Selection & Implementation Support",
 		],
 	},
 	{
 		id: 4,
-		name: "Cloud Services",
-		description:
-			"Cloud architecture, migration, and management services to optimize your infrastructure and operations.",
+		name: "Solution Provider",
+		description: "",
 		icon: Layers,
 		details: [
-			"AWS, Azure, GCP",
-			"Cloud migration",
-			"DevOps implementation",
-			"Microservices architecture",
+			"Smart Office, Smart Factory, Banking solution",
+			"Modular/Scalable Software Supply",
+			"Enterprise Solutions (CRM, ERP,MES, HRM, WMS, FMS, iBEEMS, etc)",
 		],
-	},
-	{
-		id: 5,
-		name: "AI & Machine Learning",
-		description:
-			"Intelligent solutions that leverage the power of AI and ML to drive insights and automation.",
-		icon: LineChart,
-		details: [
-			"Predictive analytics",
-			"Natural language processing",
-			"Computer vision",
-			"Recommendation systems",
-		],
-	},
-	{
-		id: 6,
-		name: "QA & Testing",
-		description:
-			"Comprehensive quality assurance and testing services to ensure your software meets the highest standards.",
-		icon: Settings,
-		details: ["Manual testing", "Automated testing", "Performance testing", "Security testing"],
 	},
 ];
 
@@ -128,7 +105,8 @@ export default function ServicesPage() {
 						</p>
 					</div>
 
-					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+					{/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"> */}
+					<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
 						{services.map((service) => (
 							<motion.div
 								key={service.id}
@@ -153,10 +131,14 @@ export default function ServicesPage() {
 										{service.details.map((detail, idx) => (
 											<li
 												key={idx}
-												className="flex items-center gap-2 text-sm"
+												className="flex items-start gap-2 text-sm"
 											>
-												<div className="w-1.5 h-1.5 rounded-full bg-primary font-sans break-keep whitespace-normal break-words" />
-												{t(`services.items.${service.id}.details.${idx}`)}
+												<span className="mt-1 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
+												<span className="font-sans break-words whitespace-normal">
+													{t(
+														`services.items.${service.id}.details.${idx}`,
+													)}
+												</span>
 											</li>
 										))}
 									</ul>

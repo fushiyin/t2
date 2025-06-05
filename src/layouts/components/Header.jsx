@@ -14,7 +14,7 @@ import classNames from "classnames";
 import { ChevronDown, Menu, Moon, Search, Sun, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { useLocation } from "react-router";
+import { useLocation } from "react-router-dom";
 
 const Header = () => {
 	const location = useLocation();
@@ -28,6 +28,7 @@ const Header = () => {
 	});
 	const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = useState(false);
 	const [isMobileSearchOpen, setIsMobileSearchOpen] = useState(false);
+	const [isOpenBlog, setIsOpenBlog] = useState(false);
 
 	const LANGUAGE = [
 		{
@@ -63,10 +64,6 @@ const Header = () => {
 		}
 	}, []);
 
-	const toggleMenu = () => {
-		setIsMenuOpen(!isMenuOpen);
-	};
-
 	const toggleDarkMode = () => {
 		const newDarkMode = !isDarkMode;
 		setIsDarkMode(newDarkMode);
@@ -91,7 +88,7 @@ const Header = () => {
 			className="sticky top-0 w-full bg-white dark:bg-dark-blue shadow-md z-50"
 		>
 			<div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-0">
-				<div className="flex justify-between items-center h-16">
+				<div className="w-full flex justify-between items-center h-16">
 					<div className="flex-shrink-0">
 						<a
 							href="/"
@@ -105,14 +102,16 @@ const Header = () => {
 						</a>
 					</div>
 
-					<nav className="hidden items-center space-x-8 ml-10 md:flex md:space-x-2 xl:space-x-6 lg:space-x-4">
+					<nav className="hidden items-center space-x-8 ml-10 md:flex md:space-x-2 xl:space-x-6 lg:space-x-4 flex-1">
 						{NAV_LINKS.map((link) => (
 							<a
 								key={link.path}
 								href={link.path}
 								className={classNames(
-									"px-3 py-2 text-sm font-medium transition-colors ",
+									"px-3 py-2 text-base font-medium transition-colors",
 									{
+										"hidden lg:inline":
+											link.name === "Contact" || link.name === "Blog",
 										"text-[var(--color-dark-blue)] font-extrabold underline underline-offset-8 dark:text-light-blue":
 											window.location?.pathname === link?.path ||
 											!window.location?.pathname,
@@ -129,8 +128,75 @@ const Header = () => {
 						))}
 					</nav>
 
+					<button
+						type="button"
+						className="hidden md:block lg:hidden p-2 rounded-md text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 right-0"
+						onClick={() => setIsOpenBlog(!isOpenBlog)}
+						aria-label="Toggle menu"
+					>
+						<Menu className="h-6 w-6" />
+					</button>
+					{isOpenBlog &&
+						(() => {
+							const contactLink = NAV_LINKS.find((link) => link.path === "/contact");
+							const blogLink = NAV_LINKS.find((link) => link.path === "/blog");
+							if (!contactLink && !blogLink) return null;
+							return (
+								<div className="origin-top-right flex flex-wrap text-center absolute top-16 right-8 w-36 rounded-md shadow-lg bg-white dark:bg-gray-800 ring-1 ring-gray-700/50 ring-opacity-5 focus:outline-none">
+									<a
+										key={contactLink.path}
+										href={contactLink.path}
+										className={classNames(
+											"px-3 py-2 text-base font-medium transition-colors w-full",
+											{
+												"text-[var(--color-dark-blue)] font-extrabold underline underline-offset-8 dark:text-light-blue":
+													window.location?.pathname ===
+														contactLink.path ||
+													!window.location?.pathname,
+												"text-gray-700 dark:text-gray-200 hover:text-[var(--color-dark-blue)] hover:bg-gray-100 dark:hover:bg-light-blue rounded-lg":
+													!(
+														window.location?.pathname ===
+															contactLink.path ||
+														!window.location?.pathname
+													),
+											},
+										)}
+									>
+										{t(contactLink?.i18nKey) || contactLink?.name}
+									</a>
+									<a
+										key={blogLink.path}
+										href={blogLink.path}
+										className={classNames(
+											"px-3 py-2 text-base font-medium transition-colors w-full ",
+											{
+												"text-[var(--color-dark-blue)] font-extrabold underline underline-offset-8 dark:text-light-blue":
+													window.location?.pathname === blogLink.path ||
+													!window.location?.pathname,
+												"text-gray-700 dark:text-gray-200 hover:text-[var(--color-dark-blue)] hover:bg-gray-100 dark:hover:bg-light-blue rounded-lg":
+													!(
+														window.location?.pathname ===
+															blogLink.path ||
+														!window.location?.pathname
+													),
+											},
+										)}
+									>
+										{t(blogLink?.i18nKey) || blogLink?.name}
+									</a>
+									<ChangeLanguages
+										isTablet
+										language={language}
+										LANGUAGE={LANGUAGE}
+										changeLanguage={changeLanguage}
+										setIsOpenBlog={setIsOpenBlog}
+									/>
+								</div>
+							);
+						})()}
+
 					<div className="hidden md:flex items-center ml-auto">
-						<div className="relative mr-4 block md:hidden xl:block lg:block">
+						<div className="relative mr-4 block md:hidden xl:block lg:hidden">
 							<input
 								type="text"
 								placeholder={t("common.search")}
@@ -138,50 +204,12 @@ const Header = () => {
 							/>
 							<Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400 dark:text-dark-blue" />
 						</div>
-						<div className="relative">
-							<button
-								type="button"
-								className="flex items-center text-sm text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 cursor-pointer"
-								onClick={toggleLanguageDropdown}
-							>
-								{/* <Globe className="h-5 w-5 mr-1" /> */}
-								<img
-									src={language.imageUrl}
-									alt={language.label}
-									className="inline-block h-5 w-7"
-								/>
-								<ChevronDown className="h-4 w-4 ml-1" />
-							</button>
-
-							{isLanguageDropdownOpen && (
-								<div className="origin-top-right absolute top-8 right-0 w-48 rounded-md shadow-lg bg-white dark:bg-gray-800 ring-1 ring-gray-700/50 ring-opacity-5 focus:outline-none">
-									{LANGUAGE.map((lang_item, index) => {
-										return (
-											<button
-												key={`lang_item_${lang_item?.code}_${index}`}
-												onClick={() => changeLanguage(lang_item)}
-												className={classNames(
-													"flex justify-start cursor-pointer w-full px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-header-hover hover:text-dark-blue dark:hover:bg-dark-blue",
-													{
-														"bg-header-active dark:light-blue-gray text-gray-700":
-															language?.code === lang_item.code,
-														"rounded-t-md": index === 0,
-														"rounded-b-md":
-															index === LANGUAGE.length - 1,
-													},
-												)}
-											>
-												<img
-													src={lang_item.imageUrl}
-													alt={lang_item.label}
-													className="inline-block h-5 w-7 mr-2"
-												/>
-												{lang_item.label}
-											</button>
-										);
-									})}
-								</div>
-							)}
+						<div className="relative hidden xl:block lg:block">
+							<ChangeLanguages
+								language={language}
+								LANGUAGE={LANGUAGE}
+								changeLanguage={changeLanguage}
+							/>
 						</div>
 
 						<button
@@ -200,7 +228,7 @@ const Header = () => {
 					<button
 						type="button"
 						className="md:hidden p-2 rounded-md text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
-						onClick={toggleMenu}
+						onClick={() => setIsMenuOpen(!isMenuOpen)}
 						aria-label="Toggle menu"
 					>
 						{isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -250,7 +278,7 @@ const Header = () => {
 									className="flex items-center text-sm text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 cursor-pointer"
 									onClick={toggleLanguageDropdown}
 								>
-									<span className="text-base font-medium">
+									<span className="text-base  font-medium">
 										{t("language")} :
 										<img
 											src={language.imageUrl}
@@ -372,3 +400,80 @@ const Header = () => {
 };
 
 export default Header;
+
+export const ChangeLanguages = ({
+	language,
+	LANGUAGE,
+	changeLanguage,
+	isTablet,
+	setIsOpenBlog,
+}) => {
+	const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = useState(false);
+
+	const toggleLanguageDropdown = () => {
+		setIsLanguageDropdownOpen((prev) => !prev);
+	};
+
+	return (
+		<div
+			className={classNames("relative", {
+				"w-full": isTablet,
+			})}
+		>
+			<button
+				type="button"
+				className={classNames(
+					"flex items-center text-center justify-center text-sm text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 cursor-pointer",
+					{
+						"px-3 py-2 w-full": isTablet,
+					},
+				)}
+				onClick={toggleLanguageDropdown}
+			>
+				{/* <Globe className="h-5 w-5 mr-1" /> */}
+				<img
+					src={language.imageUrl}
+					alt={language.label}
+					className="inline-block h-5 w-7"
+				/>
+				<ChevronDown className="h-4 w-4 ml-1" />
+			</button>
+
+			{isLanguageDropdownOpen && (
+				<div
+					className={classNames(
+						"origin-top-right absolute top-10 right-0 rounded-md shadow-lg bg-white dark:bg-gray-800 ring-1 ring-gray-700/50 ring-opacity-5 focus:outline-none z-50",
+						{ "w-36": isTablet, "w-48": !isTablet },
+					)}
+				>
+					{LANGUAGE.map((lang_item, index) => (
+						<button
+							key={`lang_item_${lang_item?.code}_${index}`}
+							onClick={() => {
+								changeLanguage(lang_item);
+								setIsLanguageDropdownOpen(false);
+								setIsOpenBlog(false);
+							}}
+							className={classNames(
+								"flex justify-start cursor-pointer w-full px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-header-hover hover:text-dark-blue dark:hover:bg-dark-blue",
+								{
+									"bg-header-active dark:light-blue-gray text-gray-700":
+										language?.code === lang_item.code,
+									"rounded-t-md": index === 0,
+									"rounded-b-md": index === LANGUAGE.length - 1,
+								},
+							)}
+						>
+							<img
+								src={lang_item.imageUrl}
+								alt={lang_item.label}
+								className="inline-block h-5 w-7 mr-2"
+							/>
+							{lang_item.label}
+						</button>
+					))}
+				</div>
+			)}
+		</div>
+	);
+};

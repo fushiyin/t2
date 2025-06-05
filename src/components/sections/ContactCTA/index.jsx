@@ -26,7 +26,7 @@ export default function CTA() {
 							to="/contact"
 							className="flex items-center gap-2"
 						>
-							Contact Us <ArrowRightIcon className="h-4 w-4" />
+							{t("contact.title")} <ArrowRightIcon className="h-4 w-4" />
 						</Link>
 					</Button>
 					<Button

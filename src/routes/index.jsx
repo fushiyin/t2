@@ -1,6 +1,7 @@
-import { MainLayout } from "@/layouts";
+/* eslint-disable react/display-name */
+import { CustomLoading, MainLayout } from "@/layouts";
 import PageNotFound from "@/views/PageNotFound";
-import React from "react";
+import React, { Suspense } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router";
 import { idRouter } from "./idRouter";
 
@@ -12,6 +13,14 @@ const Services = React.lazy(() => import("@/views/ServicesPage"));
 const Blog = React.lazy(() => import("@/views/Blog"));
 const Solution = React.lazy(() => import("@/views/SolutionAndProduct"));
 
+const withSuspense =
+	(WrappedComponent, fallback = <CustomLoading defaultLoading />) =>
+	(props) => (
+		<Suspense fallback={fallback}>
+			<WrappedComponent {...props} />
+		</Suspense>
+	);
+
 const router = createBrowserRouter([
 	{
 		path: idRouter.home,
@@ -20,29 +29,41 @@ const router = createBrowserRouter([
 		children: [
 			{
 				index: true,
-				element: <Home />,
+				element: React.createElement(withSuspense(Home)),
 			},
 			{
 				path: idRouter?.contact,
-				element: <Contact />,
+				element: React.createElement(withSuspense(Contact)),
 			},
-			{ path: idRouter.about, element: <About /> },
-			{ path: idRouter.career, element: <Careers /> },
-			{ path: idRouter.contact, element: <Contact /> },
-			{ path: idRouter.service, element: <Services /> },
-			{ path: idRouter.blog, element: <Blog /> },
-			{ path: idRouter.solution, element: <Solution /> },
+			{
+				path: idRouter.about,
+				element: React.createElement(withSuspense(About)),
+			},
+			{
+				path: idRouter.career,
+				element: React.createElement(withSuspense(Careers)),
+			},
+			{
+				path: idRouter.contact,
+				element: React.createElement(withSuspense(Contact)),
+			},
+			{
+				path: idRouter.service,
+				element: React.createElement(withSuspense(Services)),
+			},
+			{
+				path: idRouter.blog,
+				element: React.createElement(withSuspense(Blog)),
+			},
+			{
+				path: idRouter.solution,
+				element: React.createElement(withSuspense(Solution)),
+			},
 		],
 	},
 ]);
 function AppRouter() {
-	return (
-		<>
-			<React.Suspense fallback={<div>Loading...</div>}>
-				<RouterProvider router={router} />
-			</React.Suspense>
-		</>
-	);
+	return <RouterProvider router={router} />;
 }
 
 export default AppRouter;

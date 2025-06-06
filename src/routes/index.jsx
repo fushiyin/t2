@@ -11,7 +11,8 @@ const Contact = React.lazy(() => import("@/views/Contact"));
 const Careers = React.lazy(() => import("@/views/Career"));
 const Services = React.lazy(() => import("@/views/ServicesPage"));
 const Blog = React.lazy(() => import("@/views/Blog"));
-const Solution = React.lazy(() => import("@/views/SolutionAndProduct"));
+// const Solution = React.lazy(() => import("@/views/SolutionAndProduct"));
+const Solution = React.lazy(() => import("@/views/ServicesPage"));
 
 const router = createBrowserRouter([
 	{
@@ -49,7 +50,8 @@ const router = createBrowserRouter([
 			},
 			{
 				path: idRouter.solution,
-				element: <Solution />,
+				element: <Services />,
+				// element: <Solution />,
 			},
 			{
 				path: "*",

@@ -1,34 +1,35 @@
+import HadoopLogo from "@/assets/logos/Hadoop.png";
+import SparkLogo from "@/assets/logos/Spark.png";
 import AngularLogo from "@/assets/logos/angular.png";
 import DjangoLogo from "@/assets/logos/django.png";
-import ElasticsearchLogo from "@/assets/logos/elasticsearch.png";
+import ElasticsearchLogo from "@/assets/logos/elasticsearchh.png";
 import ExpressLogo from "@/assets/logos/express.png";
-import FirebaseLogo from "@/assets/logos/firebase.png";
 import FlutterLogo from "@/assets/logos/flutter.png";
+import BigQueryLogo from "@/assets/logos/google-bigquery.svg";
 import IonicLogo from "@/assets/logos/ionic.png";
 import JavaLogo from "@/assets/logos/java.png";
+import KafkaLogo from "@/assets/logos/kafka.svg";
 import KotlinLogo from "@/assets/logos/kotlin.png";
-import MongoDBLogo from "@/assets/logos/mongodb.png";
-import MySQLLogo from "@/assets/logos/mysql.png";
 import NextJSLogo from "@/assets/logos/nextjs.png";
 import NodeJSLogo from "@/assets/logos/nodejs.png";
-import PostgreSQLLogo from "@/assets/logos/postgresql.png";
+import PowerBILogo from "@/assets/logos/power_bi.png";
 import PythonLogo from "@/assets/logos/python.png";
 import ReactLogo from "@/assets/logos/react.png";
-import RedisLogo from "@/assets/logos/redis.png";
 import SpringLogo from "@/assets/logos/spring.png";
 import SwiftLogo from "@/assets/logos/swift.png";
 import TailwindCSSLogo from "@/assets/logos/tailwind.png";
 import TypeScriptLogo from "@/assets/logos/typescript.png";
 import VueLogo from "@/assets/logos/vue.png";
 import XamarinLogo from "@/assets/logos/xamarin.png";
+
 import { Button } from "@/components/ui/button";
 import classNames from "classnames";
 import { AnimatePresence, motion } from "framer-motion";
 import {
+	Brain,
 	ChevronLeftIcon,
 	ChevronRightIcon,
 	CodeIcon,
-	DatabaseIcon,
 	ServerIcon,
 	SmartphoneIcon,
 } from "lucide-react";
@@ -199,54 +200,55 @@ export default function DevelopmentEnhanced({ contentClass }) {
 			],
 		},
 		{
-			id: "database",
-			name: t("tech_stack.database.title"),
-			icon: <DatabaseIcon className="h-8 w-8" />,
-			description: t("tech_stack.database.description"),
+			id: "bigdata",
+			name: "Bigdata & Analysis",
+			icon: <Brain className="h-8 w-8" />,
+			description:
+				"Modern tools for processing, analyzing, and visualizing large-scale data.",
 			color: "#F687B3",
 			gradient: "from-pink-400 to-rose-400",
 			technologies: [
 				{
-					name: "PostgreSQL",
-					logo: PostgreSQLLogo,
-					description: t("tech_stack.database.technologies.postgresql.description"),
-					experience: t("tech_stack.database.technologies.postgresql.experience"),
-					projects: t("tech_stack.database.technologies.postgresql.projects"),
+					name: "Apache Hadoop",
+					logo: HadoopLogo,
+					description: "Distributed system for batch processing with MapReduce.",
+					experience: "Used for data lake and warehouse batch jobs.",
+					projects: "Built ETL pipelines for historical data.",
 				},
 				{
-					name: "MongoDB",
-					logo: MongoDBLogo,
-					description: t("tech_stack.database.technologies.mongodb.description"),
-					experience: t("tech_stack.database.technologies.mongodb.experience"),
-					projects: t("tech_stack.database.technologies.mongodb.projects"),
+					name: "Apache Spark",
+					logo: SparkLogo,
+					description: "Fast engine for batch and real-time data processing.",
+					experience: "Handled both streaming and batch pipelines.",
+					projects: "Created real-time dashboards with Spark Streaming.",
 				},
 				{
-					name: "MySQL",
-					logo: MySQLLogo,
-					description: t("tech_stack.database.technologies.mysql.description"),
-					experience: t("tech_stack.database.technologies.mysql.experience"),
-					projects: t("tech_stack.database.technologies.mysql.projects"),
-				},
-				{
-					name: "Redis",
-					logo: RedisLogo,
-					description: t("tech_stack.database.technologies.redis.description"),
-					experience: t("tech_stack.database.technologies.redis.experience"),
-					projects: t("tech_stack.database.technologies.redis.projects"),
+					name: "Apache Kafka",
+					logo: KafkaLogo,
+					description: "Scalable event streaming for real-time data flows.",
+					experience: "Decoupled microservices and ingested event data.",
+					projects: "Processed IoT data with Kafka and Spark.",
 				},
 				{
 					name: "Elasticsearch",
 					logo: ElasticsearchLogo,
-					description: t("tech_stack.database.technologies.elasticsearch.description"),
-					experience: t("tech_stack.database.technologies.elasticsearch.experience"),
-					projects: t("tech_stack.database.technologies.elasticsearch.projects"),
+					description: "Search and analytics engine for large datasets.",
+					experience: "Indexed and queried semi-structured data.",
+					projects: "Built log analytics and in-app search systems.",
 				},
 				{
-					name: "Firebase",
-					logo: FirebaseLogo,
-					description: t("tech_stack.database.technologies.firebase.description"),
-					experience: t("tech_stack.database.technologies.firebase.experience"),
-					projects: t("tech_stack.database.technologies.firebase.projects"),
+					name: "Google BigQuery",
+					logo: BigQueryLogo,
+					description: "Serverless data warehouse for fast SQL queries.",
+					experience: "Queried petabyte-scale datasets with ease.",
+					projects: "Analyzed marketing and user behavior data.",
+				},
+				{
+					name: "Power BI",
+					logo: PowerBILogo,
+					description: "Business intelligence tool for data visualization.",
+					experience: "Built dashboards and automated reports.",
+					projects: "Delivered sales and operations dashboards.",
 				},
 			],
 		},

@@ -515,7 +515,7 @@
 	},
 	"contact_cta": {
 		"title": "Ready to Transform Your Ideas?",
-		"description": "Let's discuss how T2Soft can help you achieve your technology goals. Our team is ready to bring your vision to life.",
+		"description": "Let's discuss how T2soft can help you achieve your technology goals. Our team is ready to bring your vision to life.",
 		"contact_button": "Contact Us",
 		"services_button": "Explore Our Services"
 	},
@@ -655,6 +655,28 @@
 					"1": "Modular/Scalable Software Supply",
 					"2": "Enterprise Solutions (CRM, ERP,MES, HRM, WMS, FMS, iBEEMS, etc)"
 				}
+			},
+			"5": {
+				"name": "AI & Machine Learning",
+				"description": "Cutting-edge AI solutions for business transformation",
+				"details": {
+					"0": "Machine Learning Model Development",
+					"1": "Natural Language Processing",
+					"2": "Computer Vision Solutions",
+					"3": "AI-powered Automation",
+					"4": "Predictive Analytics"
+				}
+			},
+			"6": {
+				"name": "Big Data & Data Analysis",
+				"description": "Transform your data into actionable insights",
+				"details": {
+					"0": "Big Data Processing & Analytics",
+					"1": "Business Intelligence Solutions",
+					"2": "Data Visualization & Reporting",
+					"3": "Real-time Data Analysis",
+					"4": "Data Mining & Pattern Recognition"
+				}
 			}
 		}
 	},
@@ -688,7 +710,7 @@
 	"contact": {
 		"title": "Contact Us",
 		"description": "Ready to Transform Your Ideas?",
-		"description2": "Let's discuss how T2Soft can help you achieve your technology goals. Our team is ready to bring your vision to life.",
+		"description2": "Let's discuss how T2soft can help you achieve your technology goals. Our team is ready to bring your vision to life.",
 		"description_sub": {
 			"expert": "Expert consultation tailored to your business needs",
 			"cutting_edge": "Cutting-edge technology solutions",

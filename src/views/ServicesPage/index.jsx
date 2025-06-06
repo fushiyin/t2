@@ -1,6 +1,17 @@
-import CTA from "@/components/sections/ContactCTA";
 import { motion } from "framer-motion";
-import { ArrowRight, Code, Database, Globe, Layers, LineChart, Settings } from "lucide-react";
+import {
+	ArrowRight,
+	Code,
+	Database,
+	Globe,
+	Layers,
+	LineChart,
+	Settings,
+	ChevronRight,
+	BrainCircuit,
+	BarChart3,
+} from "lucide-react";
+import CTA from "@/components/sections/ContactCTA";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router";
 
@@ -48,6 +59,32 @@ const services = [
 			"Smart Office, Smart Factory, Banking solution",
 			"Modular/Scalable Software Supply",
 			"Enterprise Solutions (CRM, ERP,MES, HRM, WMS, FMS, iBEEMS, etc)",
+		],
+	},
+	{
+		id: 5,
+		name: "AI & Machine Learning",
+		description: "Cutting-edge AI solutions for modern businesses",
+		icon: BrainCircuit,
+		details: [
+			"Machine Learning Model Development",
+			"Natural Language Processing",
+			"Computer Vision Solutions",
+			"AI-powered Automation",
+			"Predictive Analytics",
+		],
+	},
+	{
+		id: 6,
+		name: "Big Data & Data Analysis",
+		description: "Transform your data into actionable insights",
+		icon: BarChart3,
+		details: [
+			"Big Data Processing & Analytics",
+			"Business Intelligence Solutions",
+			"Data Visualization & Reporting",
+			"Real-time Data Analysis",
+			"Data Mining & Pattern Recognition",
 		],
 	},
 ];
@@ -106,7 +143,7 @@ export default function ServicesPage() {
 					</div>
 
 					{/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"> */}
-					<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+					<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8">
 						{services.map((service) => (
 							<motion.div
 								key={service.id}
@@ -124,14 +161,14 @@ export default function ServicesPage() {
 									<h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors font-sans break-keep whitespace-normal break-words">
 										{t(`services.items.${service.id}.name`)}
 									</h3>
-									<p className="text-muted-foreground text-sm mb-6 font-sans break-keep whitespace-normal break-words">
+									{/* <p className="text-muted-foreground text-sm mb-6 font-sans break-keep whitespace-normal break-words">
 										{t(`services.items.${service.id}.description`)}
-									</p>
+									</p> */}
 									<ul className="space-y-3">
 										{service.details.map((detail, idx) => (
 											<li
 												key={idx}
-												className="flex items-start gap-2 text-sm"
+												className="flex items-center gap-2 text-sm"
 											>
 												<span className="mt-1 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
 												<span className="font-sans break-words whitespace-normal">

@@ -12,8 +12,8 @@ import {
 	BarChart3,
 } from "lucide-react";
 import CTA from "@/components/sections/ContactCTA";
-import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router";
 
 const services = [
 	{

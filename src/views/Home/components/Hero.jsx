@@ -1,10 +1,9 @@
 import { Button } from "@/components/ui/button";
 import useResponsive from "@/hooks/useResponsive";
+import { idRouter } from "@/routes/idRouter";
 import { motion } from "framer-motion";
 import { ArrowRightIcon } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
-import { idRouter } from "@/routes/idRouter";
 
 export default function Hero() {
 	const { isMobile } = useResponsive();

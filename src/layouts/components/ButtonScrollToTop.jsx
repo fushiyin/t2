@@ -3,7 +3,7 @@ import { scrollToTop } from "@/lib/utils";
 import classNames from "classnames";
 import { ChevronUp } from "lucide-react";
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation } from "react-router";
 
 export default function ButtonScrollToTop() {
 	const location = useLocation();

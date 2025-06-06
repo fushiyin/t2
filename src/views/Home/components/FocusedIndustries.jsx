@@ -313,7 +313,7 @@ export default function FocusedIndustries({ contentClass }) {
 										},
 									)}
 								>
-									<div className="flex flex-col items-center">
+									<div className="flex flex-col items-center cursor-pointer">
 										<div
 											className={`p-3 rounded-xl transition-all duration-300 ${
 												activeIndustry === index

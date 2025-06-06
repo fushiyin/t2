@@ -1,10 +1,10 @@
 import { idRouter } from "@/routes/idRouter";
 
 export const FOOTER = Object.freeze({
-	PHONE_VN: "(VN)+84901709 319",
-	PHONE_KR: "(KR)+82104029 6760",
-	EMAIL_1: "ygkim@t2soft.com",
-	EMAIL_2: "ygkim@ttwosoft.com",
+	PHONE_VN: "(VN) +8490 1709 319",
+	PHONE_KR: "(KR) +8210 4029 6760",
+	EMAIL_1: "(KR) ygkim@t2soft.com",
+	EMAIL_2: "(VN) dungnt@t2soft.com",
 	WEB_SITE: "https://www.ttwosoft.com",
 	ADDRESS: "Keangnam Landmark72, Pham Hung, Nam tu Liem, Ha Noi",
 });

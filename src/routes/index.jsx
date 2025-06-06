@@ -1,4 +1,5 @@
 import { CustomLoading, MainLayout } from "@/layouts";
+import ErrorBoundary from "@/views/ErrorBoundary";
 import PageNotFound from "@/views/PageNotFound";
 import React, { Suspense } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router";
@@ -16,7 +17,7 @@ const router = createBrowserRouter([
 	{
 		path: idRouter.home,
 		element: <MainLayout />,
-		errorElement: <PageNotFound />,
+		errorElement: <ErrorBoundary />,
 		children: [
 			{
 				index: true,
@@ -49,6 +50,10 @@ const router = createBrowserRouter([
 			{
 				path: idRouter.solution,
 				element: <Solution />,
+			},
+			{
+				path: "*",
+				element: <PageNotFound />,
 			},
 		],
 	},

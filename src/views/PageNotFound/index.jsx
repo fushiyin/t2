@@ -1,5 +1,4 @@
 import { Button } from "@/components/ui/button";
-import { Footer, Header } from "@/layouts";
 import { idRouter } from "@/routes/idRouter";
 import { motion } from "framer-motion";
 import { ArrowRightIcon } from "lucide-react";
@@ -24,44 +23,40 @@ const itemVariants = {
 
 export default function PageNotFound() {
 	return (
-		<main className="flex min-h-screen flex-col justify-between">
-			<Header />
-			<motion.div
-				variants={containerVariants}
-				initial="hidden"
-				animate="visible"
-				className="flex flex-col items-center justify-center text-center px-4"
+		<motion.div
+			variants={containerVariants}
+			initial="hidden"
+			animate="visible"
+			className="flex flex-col items-center justify-center text-center px-4"
+		>
+			<motion.h2
+				variants={itemVariants}
+				className="text-4xl font-bold text-gray-800 mb-4"
 			>
-				<motion.h2
-					variants={itemVariants}
-					className="text-4xl font-bold text-gray-800 mb-4"
-				>
-					This page could not be found
-				</motion.h2>
+				This page could not be found
+			</motion.h2>
 
-				<motion.p
-					variants={itemVariants}
-					className="text-lg text-gray-600 mb-6"
-				>
-					The page you are trying to access does not exist.
-				</motion.p>
+			<motion.p
+				variants={itemVariants}
+				className="text-lg text-gray-600 mb-6"
+			>
+				The page you are trying to access does not exist.
+			</motion.p>
 
-				<motion.div variants={itemVariants}>
-					<Button
-						asChild
-						size="lg"
-						className="rounded-md bg-draker-blue text-white hover:bg-dark-blue"
+			<motion.div variants={itemVariants}>
+				<Button
+					asChild
+					size="lg"
+					className="rounded-md bg-draker-blue text-white hover:bg-dark-blue"
+				>
+					<a
+						href={idRouter?.home}
+						className="flex items-center gap-2"
 					>
-						<a
-							href={idRouter?.home}
-							className="flex items-center gap-2"
-						>
-							Back To Home <ArrowRightIcon className="h-4 w-4" />
-						</a>
-					</Button>
-				</motion.div>
+						Back To Home <ArrowRightIcon className="h-4 w-4" />
+					</a>
+				</Button>
 			</motion.div>
-			<Footer />
-		</main>
+		</motion.div>
 	);
 }

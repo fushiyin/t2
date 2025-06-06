@@ -1,9 +1,10 @@
-import team_research from "@/assets/images/analysis.avif";
-import team_deploy from "@/assets/images/deploy.avif";
-import team_design from "@/assets/images/design.avif";
-import team_development from "@/assets/images/dev.avif";
-import team_maintain from "@/assets/images/maitain.webp";
-import team_test from "@/assets/images/test.jpg";
+import client_request from "@/assets/images/Client_Request.jpg";
+import requirement_analysis from "@/assets/images/Requirement_Analysis.jpg";
+import proposal from "@/assets/images/Proposal.jpg";
+import client_approval from "@/assets/images/Client_Approval.jpg";
+import contract_sign_off from "@/assets/images/Contract_Sign-off.jpg";
+import project_kick_off from "@/assets/images/Project_Kick-off.jpg";
+
 import useResponsive from "@/hooks/useResponsive";
 import classNames from "classnames";
 import { AnimatePresence, motion } from "framer-motion";
@@ -26,7 +27,7 @@ export default function OurProcess({ contentClass }) {
 		{
 			id: 1,
 			title: t("process.steps.client_request.title"),
-			image: team_research,
+			image: client_request,
 			icon: (
 				<UserSearch
 					strokeWidth={3}
@@ -46,7 +47,7 @@ export default function OurProcess({ contentClass }) {
 					className={iconClass}
 				/>
 			),
-			image: team_design,
+			image: requirement_analysis,
 			description: t("process.steps.design.description"),
 			details: t("process.steps.design.details", { returnObjects: true }),
 			color: "rgba(45, 45, 45, 0.6)",
@@ -60,7 +61,7 @@ export default function OurProcess({ contentClass }) {
 					className={iconClass}
 				/>
 			),
-			image: team_development,
+			image: proposal,
 			description: t("process.steps.development.description"),
 			details: t("process.steps.development.details", { returnObjects: true }),
 			color: "rgba(45, 45, 45, 0.6)",
@@ -68,7 +69,7 @@ export default function OurProcess({ contentClass }) {
 		{
 			id: 4,
 			title: t("process.steps.client_approval.title"),
-			image: team_test,
+			image: client_approval,
 			icon: (
 				<UserRoundCheck
 					strokeWidth={3}
@@ -82,7 +83,7 @@ export default function OurProcess({ contentClass }) {
 		{
 			id: 5,
 			title: t("process.steps.contract_sign_off.title"),
-			image: team_deploy,
+			image: contract_sign_off,
 			icon: (
 				<Handshake
 					strokeWidth={3}
@@ -102,7 +103,7 @@ export default function OurProcess({ contentClass }) {
 					className={iconClass}
 				/>
 			),
-			image: team_maintain,
+			image: project_kick_off,
 			description: t("process.steps.maintenance.description"),
 			details: t("process.steps.maintenance.details", { returnObjects: true }),
 			color: "rgba(45, 45, 45, 0.6)",

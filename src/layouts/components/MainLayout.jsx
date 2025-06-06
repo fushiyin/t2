@@ -1,6 +1,7 @@
 import useResponsive from "@/hooks/useResponsive";
 import CustomCursor from "@/views/Home/components/CustomeCursor/Cursor";
-import { Outlet } from "react-router";
+import { Suspense } from "react";
+import { Outlet, useLocation } from "react-router";
 import {
 	ButtonScrollToTop,
 	CustomLoading,
@@ -14,6 +15,7 @@ import CallPhoneButton from "./CallPhoneButton";
 
 export default function MainLayout() {
 	const { isMobile } = useResponsive();
+	const location = useLocation();
 
 	return (
 		<>
@@ -22,10 +24,16 @@ export default function MainLayout() {
 				<OnboardingProvider>
 					<CustomLoading />
 					<Onboarding />
-					<Header />
-
-					<Outlet />
-					<Footer />
+					<main className="flex min-h-screen flex-col justify-between">
+						<Header />
+						<Suspense
+							fallback={<CustomLoading defaultLoading />}
+							key={location?.key}
+						>
+							<Outlet />
+						</Suspense>
+						<Footer />
+					</main>
 					<ButtonScrollToTop />
 					<CallPhoneButton phoneNumber="0123456789" />
 				</OnboardingProvider>

@@ -1,5 +1,5 @@
-/* eslint-disable react/display-name */
 import { CustomLoading, MainLayout } from "@/layouts";
+import ErrorBoundary from "@/views/ErrorBoundary";
 import PageNotFound from "@/views/PageNotFound";
 import React, { Suspense } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router";
@@ -13,57 +13,57 @@ const Services = React.lazy(() => import("@/views/ServicesPage"));
 const Blog = React.lazy(() => import("@/views/Blog"));
 const Solution = React.lazy(() => import("@/views/SolutionAndProduct"));
 
-const withSuspense =
-	(WrappedComponent, fallback = <CustomLoading defaultLoading />) =>
-	(props) => (
-		<Suspense fallback={fallback}>
-			<WrappedComponent {...props} />
-		</Suspense>
-	);
-
 const router = createBrowserRouter([
 	{
 		path: idRouter.home,
 		element: <MainLayout />,
-		errorElement: <PageNotFound />,
+		errorElement: <ErrorBoundary />,
 		children: [
 			{
 				index: true,
-				element: React.createElement(withSuspense(Home)),
+				element: <Home />,
 			},
 			{
 				path: idRouter?.contact,
-				element: React.createElement(withSuspense(Contact)),
+				element: <Contact />,
 			},
 			{
 				path: idRouter.about,
-				element: React.createElement(withSuspense(About)),
+				element: <About />,
 			},
 			{
 				path: idRouter.career,
-				element: React.createElement(withSuspense(Careers)),
+				element: <Careers />,
 			},
 			{
 				path: idRouter.contact,
-				element: React.createElement(withSuspense(Contact)),
+				element: <Contact />,
 			},
 			{
 				path: idRouter.service,
-				element: React.createElement(withSuspense(Services)),
+				element: <Services />,
 			},
 			{
 				path: idRouter.blog,
-				element: React.createElement(withSuspense(Blog)),
+				element: <Blog />,
 			},
 			{
 				path: idRouter.solution,
-				element: React.createElement(withSuspense(Solution)),
+				element: <Solution />,
+			},
+			{
+				path: "*",
+				element: <PageNotFound />,
 			},
 		],
 	},
 ]);
 function AppRouter() {
-	return <RouterProvider router={router} />;
+	return (
+		<Suspense fallback={<CustomLoading defaultLoading />}>
+			<RouterProvider router={router} />
+		</Suspense>
+	);
 }
 
 export default AppRouter;

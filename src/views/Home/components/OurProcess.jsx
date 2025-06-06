@@ -190,7 +190,7 @@ export default function OurProcess({ contentClass }) {
 						{processSteps.map((step) => (
 							<button
 								key={step.id}
-								className="relative focus:outline-none backdrop-blur-sm backdrop-brightness-80 rounded-full"
+								className="cursor-pointer relative focus:outline-none backdrop-blur-sm backdrop-brightness-80 rounded-full"
 								onClick={() => {
 									setActiveStep(step.id);
 									setIsPaused(true); // Pause auto-advance when user interacts

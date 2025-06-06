@@ -2,7 +2,7 @@ import HadoopLogo from "@/assets/logos/Hadoop.png";
 import SparkLogo from "@/assets/logos/Spark.png";
 import AngularLogo from "@/assets/logos/angular.png";
 import DjangoLogo from "@/assets/logos/django.png";
-import ElasticsearchLogo from "@/assets/logos/elasticsearchh.png";
+import ElasticsearchLogo from "@/assets/logos/elasticsearch.png";
 import ExpressLogo from "@/assets/logos/express.png";
 import FlutterLogo from "@/assets/logos/flutter.png";
 import BigQueryLogo from "@/assets/logos/google-bigquery.svg";

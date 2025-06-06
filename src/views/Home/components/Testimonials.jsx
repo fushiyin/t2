@@ -17,21 +17,21 @@ export default function Testimonials({ contentClass }) {
 				username: "@moderator0n",
 				avatar: "/placeholder.svg?height=40&width=40",
 				content:
-					"After installing T2Soft on a bunch of machines on my home network, it just worked out. Had to restart the process but holy moly, just SSH'ed into my boxes, building code and pushing configs around like I'm home. Amazing. Converted!",
+					"After installing T2soft on a bunch of machines on my home network, it just worked out. Had to restart the process but holy moly, just SSH'ed into my boxes, building code and pushing configs around like I'm home. Amazing. Converted!",
 			},
 			{
 				name: "Grace Chen",
 				username: "@gracetechie",
 				avatar: "/placeholder.svg?height=40&width=40",
 				content:
-					"The hardest thing to understand about T2Soft is that there are no hard things to understand about it and it just works. Their support team is also incredibly responsive.",
+					"The hardest thing to understand about T2soft is that there are no hard things to understand about it and it just works. Their support team is also incredibly responsive.",
 			},
 			{
 				name: "Liam Keegan",
 				username: "@LiamJKeegan",
 				avatar: "/placeholder.svg?height=40&width=40",
 				content:
-					"This is sweet! Redirecting authentication to T2Soft to handle it for you eliminates the need to manage credentials. And EVERYTHING is protected, regardless of where the workload lives. AWESOME!",
+					"This is sweet! Redirecting authentication to T2soft to handle it for you eliminates the need to manage credentials. And EVERYTHING is protected, regardless of where the workload lives. AWESOME!",
 			},
 		],
 
@@ -42,21 +42,21 @@ export default function Testimonials({ contentClass }) {
 				username: "@morgallant",
 				avatar: "/placeholder.svg?height=40&width=40",
 				content:
-					"The beauty of T2Soft is that they enable people to make their own personal internet, for free in most cases. It's this weird paradigm shift, since you have to actively work to make applications insecure rather than the other way around.",
+					"The beauty of T2soft is that they enable people to make their own personal internet, for free in most cases. It's this weird paradigm shift, since you have to actively work to make applications insecure rather than the other way around.",
 			},
 			{
 				name: "Sarah Kim",
 				username: "@techyteachme",
 				avatar: "/placeholder.svg?height=40&width=40",
 				content:
-					"Just set up T2Soft and my entire team was connected within minutes. The onboarding experience was so smooth that even our non-technical staff had no issues getting started.",
+					"Just set up T2soft and my entire team was connected within minutes. The onboarding experience was so smooth that even our non-technical staff had no issues getting started.",
 			},
 			{
 				name: "Martin Lucina",
 				username: "@matolucina",
 				avatar: "/placeholder.svg?height=40&width=40",
 				content:
-					"Install T2Soft. Click 'Share node'. Send link. 2 minutes later, someone who's never used T2Soft before reports 'I can connect to the machine, this works like magic!'",
+					"Install T2soft. Click 'Share node'. Send link. 2 minutes later, someone who's never used T2soft before reports 'I can connect to the machine, this works like magic!'",
 			},
 		],
 
@@ -67,21 +67,21 @@ export default function Testimonials({ contentClass }) {
 				username: "@johnrlynch",
 				avatar: "/placeholder.svg?height=40&width=40",
 				content:
-					"If you deal with servers in any way drop everything and get this. VPN nirvana. T2Soft is a game-changer for our development team's productivity.",
+					"If you deal with servers in any way drop everything and get this. VPN nirvana. T2soft is a game-changer for our development team's productivity.",
 			},
 			{
 				name: "Jasmine Prabowski",
 				username: "@jmsprbw",
 				avatar: "/placeholder.svg?height=40&width=40",
 				content:
-					"I am not an investor in T2Soft (though, I wish I were). From my lens they will change how we all use the internet. Just a question of when, not if. Seriously impressed with their service.",
+					"I am not an investor in T2soft (though, I wish I were). From my lens they will change how we all use the internet. Just a question of when, not if. Seriously impressed with their service.",
 			},
 			{
 				name: "Sumer Cip",
 				username: "@sumercip",
 				avatar: "/placeholder.svg?height=40&width=40",
 				content:
-					"I don't like ranting about software. But I will make an exception: T2Soft is really AMAZING! I have managed to set it up for my personal use WITHOUT reading a single line of documentation.",
+					"I don't like ranting about software. But I will make an exception: T2soft is really AMAZING! I have managed to set it up for my personal use WITHOUT reading a single line of documentation.",
 			},
 		],
 	];

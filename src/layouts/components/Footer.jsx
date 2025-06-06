@@ -179,7 +179,7 @@ const Footer = () => {
 
 				<div className="w-full mt-6 p-4 border-t border-gray-100 text-center">
 					<p className="text-foreground/60 text-sm">
-						© {currentYear} T2Soft. All rights reserved.
+						© {currentYear} T2soft. All rights reserved.
 					</p>
 				</div>
 			</div>

@@ -1,8 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { Footer, Header } from "@/layouts";
 import { idRouter } from "@/routes/idRouter";
-import { ArrowRightIcon } from "lucide-react";
 import { motion } from "framer-motion";
+import { ArrowRightIcon } from "lucide-react";
 
 const containerVariants = {
 	hidden: { opacity: 0, y: 30 },
@@ -24,13 +24,13 @@ const itemVariants = {
 
 export default function PageNotFound() {
 	return (
-		<>
+		<main className="flex min-h-screen flex-col justify-between">
 			<Header />
 			<motion.div
 				variants={containerVariants}
 				initial="hidden"
 				animate="visible"
-				className="flex flex-col items-center justify-center min-h-[70vh] text-center px-4"
+				className="flex flex-col items-center justify-center text-center px-4"
 			>
 				<motion.h2
 					variants={itemVariants}
@@ -62,6 +62,6 @@ export default function PageNotFound() {
 				</motion.div>
 			</motion.div>
 			<Footer />
-		</>
+		</main>
 	);
 }

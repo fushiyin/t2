@@ -8,4 +8,6 @@ export const idRouter = Object.freeze({
 	blog: "/blog",
 	demo: "/demo",
 	vision: "/vision",
+	login: "/login",
+	dashboard: "/dashboard",
 });

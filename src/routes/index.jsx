@@ -4,6 +4,7 @@ import PageNotFound from "@/views/PageNotFound";
 import React, { Suspense } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router";
 import { idRouter } from "./idRouter";
+import Admin from "@/views/Admin";
 
 const Home = React.lazy(() => import("@/views/Home"));
 const About = React.lazy(() => import("@/views/About"));
@@ -13,6 +14,7 @@ const Services = React.lazy(() => import("@/views/ServicesPage"));
 const Blog = React.lazy(() => import("@/views/Blog"));
 // const Solution = React.lazy(() => import("@/views/SolutionAndProduct"));
 const Solution = React.lazy(() => import("@/views/ServicesPage"));
+const Login = React.lazy(() => import("@/views/Login"));
 
 const router = createBrowserRouter([
 	{
@@ -58,6 +60,14 @@ const router = createBrowserRouter([
 				element: <PageNotFound />,
 			},
 		],
+	},
+	{
+		path: idRouter.login,
+		element: <Login />,
+	},
+	{
+		path: idRouter.dashboard,
+		element: <Admin />,
 	},
 ]);
 function AppRouter() {

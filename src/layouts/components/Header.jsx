@@ -1,8 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import england from "@/assets/images/usa.png";
 import korea from "@/assets/images/korea.webp";
-import t2darklogo from "@/assets/images/logot2.jpeg";
-import t2lightlogo from "@/assets/images/logot2.jpeg";
+import t2darklogo from "@/assets/logos/T2_white_logo.png";
+import t2lightlogo from "@/assets/logos/T2_dark_logo.png";
 import {
 	Drawer,
 	DrawerClose,

@@ -11,8 +11,8 @@ const CONTACT_ITEMS = [
 		icon: <Phone className="text-foreground w-5 h-5 flex-shrink-0" />,
 		content: (
 			<div>
-				<p className="text-foreground/80 text-sm">{FOOTER.PHONE_VN}</p>
 				<p className="text-foreground/80 text-sm">{FOOTER.PHONE_KR}</p>
+				<p className="text-foreground/80 text-sm">{FOOTER.PHONE_VN}</p>
 			</div>
 		),
 	},

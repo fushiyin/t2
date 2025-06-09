@@ -1,4 +1,4 @@
-import HoverCard from "@/components/card";
+import HoverCard from "@/components/HoverCard";
 import classNames from "classnames";
 import { motion } from "framer-motion";
 import { Award, HandCoins, Handshake, HeartHandshakeIcon, Scale } from "lucide-react";

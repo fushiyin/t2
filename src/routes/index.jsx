@@ -2,7 +2,7 @@ import { CustomLoading, MainLayout } from "@/layouts";
 import ErrorBoundary from "@/views/ErrorBoundary";
 import PageNotFound from "@/views/PageNotFound";
 import React, { Suspense } from "react";
-import { createBrowserRouter, RouterProvider } from "react-router";
+import { createBrowserRouter, RouterProvider, Navigate } from "react-router";
 import { idRouter } from "./idRouter";
 import Admin from "@/views/Admin";
 
@@ -15,6 +15,12 @@ const Blog = React.lazy(() => import("@/views/Blog"));
 // const Solution = React.lazy(() => import("@/views/SolutionAndProduct"));
 const Solution = React.lazy(() => import("@/views/ServicesPage"));
 const Login = React.lazy(() => import("@/views/Login"));
+const Dashboard = React.lazy(() => import("@/views/Admin/pages/Dashboard"));
+const Inbox = React.lazy(() => import("@/views/Admin/pages/Inbox"));
+const Calendar = React.lazy(() => import("@/views/Admin/pages/Calendar"));
+const CareersAdmin = React.lazy(() => import("@/views/Admin/pages/Careers"));
+const CareersDetail = React.lazy(() => import("@/views/Career/pages/CareersDetail"));
+const Settings = React.lazy(() => import("@/views/Admin/pages/Settings"));
 
 const router = createBrowserRouter([
 	{
@@ -56,6 +62,10 @@ const router = createBrowserRouter([
 				// element: <Solution />,
 			},
 			{
+				path: idRouter.careerDetail,
+				element: <CareersDetail />,
+			},
+			{
 				path: "*",
 				element: <PageNotFound />,
 			},
@@ -66,10 +76,46 @@ const router = createBrowserRouter([
 		element: <Login />,
 	},
 	{
-		path: idRouter.dashboard,
+		path: idRouter.admin,
 		element: <Admin />,
+		children: [
+			{
+				index: true,
+				element: (
+					<Navigate
+						to={idRouter.adminDashboard}
+						replace
+					/>
+				),
+			},
+			{
+				path: idRouter.adminDashboard,
+				element: <Dashboard />,
+			},
+			{
+				path: idRouter.adminInbox,
+				element: <Inbox />,
+			},
+			{
+				path: idRouter.adminCalendar,
+				element: <Calendar />,
+			},
+			{
+				path: idRouter.adminCareers,
+				element: <CareersAdmin />,
+			},
+			{
+				path: idRouter.adminContact,
+				element: <Contact />,
+			},
+			{
+				path: idRouter.adminSettings,
+				element: <Settings />,
+			},
+		],
 	},
 ]);
+
 function AppRouter() {
 	return (
 		<Suspense fallback={<CustomLoading defaultLoading />}>

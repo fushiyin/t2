@@ -3,6 +3,8 @@ import { FORM_CV, OPEN_POSITIONS } from "@/constant/career";
 import { motion } from "framer-motion";
 import { BookOpen, Layers, Users } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
+import { idRouter } from "@/routes/idRouter";
 
 const containerVariants = {
 	hidden: {},
@@ -24,6 +26,7 @@ const fadeUp = {
 
 export default function Careers() {
 	const { t } = useTranslation();
+	const navigate = useNavigate();
 
 	const career_items = [
 		{
@@ -132,7 +135,12 @@ export default function Careers() {
 							whileHover={{ scale: 1.02 }}
 							transition={{ type: "spring", stiffness: 180, damping: 16 }}
 						>
-							<Card className="hover:shadow-md transition-shadow bg-white/80 border-t shadow-lg">
+							<Card
+								className="hover:shadow-md transition-shadow bg-white/80 border-t shadow-lg cursor-pointer"
+								onClick={() =>
+									navigate(`${idRouter.careerDetail.replace(":id", position.id)}`)
+								}
+							>
 								<CardContent className="p-6">
 									<div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
 										<div className="flex-1">
@@ -155,7 +163,10 @@ export default function Careers() {
 										<motion.button
 											className="md:item-center cursor-pointer bg-primary lg:w-[130px] md:w-[130px] text-white px-4 py-2 rounded-md font-medium hover:bg-primary/90 transition"
 											whileTap={{ scale: 0.95 }}
-											onClick={() => window.open(FORM_CV)}
+											onClick={(e) => {
+												e.stopPropagation();
+												window.open(FORM_CV);
+											}}
 										>
 											Apply Now
 										</motion.button>

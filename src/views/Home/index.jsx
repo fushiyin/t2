@@ -8,8 +8,8 @@ import Hero from "./components/Hero";
 import OurProcess from "./components/OurProcess";
 import SideNavigation from "./components/SideNavigation";
 import Testimonials from "./components/Testimonials";
+import VisionJourney from "./components/Vision";
 import WhyVietnam from "./components/WhyVietnam";
-import VisionJourney from "./Vision";
 
 function HomePage() {
 	const sectionClass = "flex items-center justify-center relative overflow-hidden";

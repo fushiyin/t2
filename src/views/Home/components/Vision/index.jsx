@@ -47,21 +47,24 @@ const VisionJourney = () => {
 			title: t("vision.title"),
 			backgroundColor: "#090f33",
 			image: planet1,
-			testimonial: t("vision.description"),
+			des_1: t("vision.des_1"),
+			des_2: t("vision.des_2"),
 		},
 		{
 			id: "mission",
 			title: t("mission.title"),
 			backgroundColor: "#090f33",
 			image: planet2,
-			testimonial: t("mission.description"),
+			des_1: t("mission.des_1"),
+			des_2: t("mission.des_2"),
 		},
 		{
 			id: "values",
 			title: t("values.title"),
 			image: planet3,
 			backgroundColor: "#b95a00",
-			testimonial: t("values.description"),
+			des_1: t("values.des_1"),
+			des_2: t("values.des_2"),
 		},
 	];
 
@@ -156,9 +159,10 @@ const VisionJourney = () => {
 				<div className="text-2xl sm:text-6xl font-bold text-white transition-all duration-500">
 					{slides[activeIndex].title.toUpperCase()}
 				</div>
-				<p className="max-w-[900px] text-white md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed transition-all duration-500 px-5 mt-5 font-sans break-keep whitespace-normal break-words">
-					{slides[activeIndex].testimonial}
-				</p>
+				<div className="max-w-[1100px] text-white md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed transition-all duration-500 px-5 mt-5 font-sans break-keep whitespace-normal break-words">
+					<p>{slides[activeIndex].des_1}</p>
+					<p>{slides[activeIndex].des_2}</p>
+				</div>
 				<div className="w-[90px] h-[8px] mt-5 bg-gradient-to-r from-[var(--color-light-mint)] to-[var(--color-light-green)] mb-4" />
 			</div>
 			<div

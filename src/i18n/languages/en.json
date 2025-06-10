@@ -96,15 +96,18 @@
 	"our": "Our",
 	"vision": {
 		"title": "Vision",
-		"description": "T2 Soft, Shaping the Future of Technology We strive to be your premier global development partner, leading the advancement of next-generation technologies."
+		"des_1": "Toward the core of future technology with T2.",
+		"des_2": "We aim to become a world-class global development partner leading next-generation technologies."
 	},
 	"mission": {
 		"title": "Mission",
-		"description": "We provide reliable software development and solutions to clients worldwide, offering highquality and cost-effective services with Vietnam's top tech talent. Through technological innovation and flexible collaboration, we help our clients grow their businesses.."
+		"des_1": "We provide reliable software development and solutions to global clients, offering cost-effective and high-quality services with outstanding Vietnamese development talent.",
+		"des_2": "We support our clients' business growth through technological innovation and flexible collaboration."
 	},
 	"values": {
 		"title": "Values",
-		"description": "We collaborate closely with our clients as one unified team, embrace next-generation technologies to stay ahead, and foster long-term partnerships built on trust, transparency, and accountability."
+		"des_1": "We grow together as one team with our clients, quickly adopting and applying the latest trends and technologies to stay ahead.",
+		"des_2": "We build trust through honest communication and responsible actions."
 	},
 	"tech_stack": {
 		"title": "Technology Stack",
@@ -386,122 +389,62 @@
 		"steps": {
 			"client_request": {
 				"title": "Client Request",
-				"description": "Understanding your needs and gathering requirements to kickstart the project.",
+				"description": "Initial communication to understand the client's needs and project expectations.",
 				"details": [
-					"Initial consultation",
-					"Requirement analysis",
-					"Project scope definition",
-					"Proposal and agreement"
+					"Introductory meeting",
+					"High-level requirement collection",
+					"Understanding business goals",
+					"Initial project briefing"
 				]
 			},
 			"requirement_analysis": {
 				"title": "Requirement Analysis",
-				"description": "In-depth analysis of your requirements to ensure clarity and alignment.",
+				"description": "Detailed analysis of project requirements to define scope and technical direction.",
 				"details": [
 					"Stakeholder interviews",
-					"Use case development",
-					"Technical feasibility study",
-					"Risk assessment"
+					"Define functional and non-functional requirements",
+					"Feasibility and risk analysis",
+					"Documenting the requirement specifications"
 				]
 			},
 			"proposal": {
 				"title": "Proposal",
-				"description": "Presenting a detailed proposal outlining the project scope, timeline, and budget.",
+				"description": "Creating a clear proposal including scope, timeline, budget, and methodology.",
 				"details": [
-					"Project plan",
-					"Cost estimation",
-					"Timeline and milestones",
-					"Resource allocation"
+					"Solution design overview",
+					"Time and cost estimation",
+					"Delivery plan and milestones",
+					"Team structure and responsibilities"
 				]
 			},
 			"client_approval": {
 				"title": "Client Approval",
-				"description": "Finalizing the project details and obtaining client approval to proceed.",
+				"description": "Reviewing the proposal with the client and making necessary adjustments.",
 				"details": [
-					"Review proposal",
-					"Address feedback",
-					"Sign contract",
-					"Kickoff meeting"
+					"Proposal walkthrough",
+					"Gathering client feedback",
+					"Refining scope and deliverables",
+					"Verbal or written agreement to proceed"
 				]
 			},
 			"contract_sign_off": {
 				"title": "Contract Sign-off",
-				"description": "Formalizing the agreement with a signed contract to ensure mutual understanding.",
+				"description": "Formal agreement on the project through contract signing.",
 				"details": [
-					"Legal review",
-					"Contract signing",
-					"Project kickoff",
-					"Team introduction"
+					"Final proposal approval",
+					"Legal document preparation",
+					"Contract signing by both parties",
+					"Project confirmation"
 				]
 			},
 			"project_kick_off": {
 				"title": "Project Kick-off",
-				"description": "Launching the project with a kickoff meeting to align expectations and objectives.",
+				"description": "Launching the project with a team meeting to align everyone on objectives and roles.",
 				"details": [
-					"Project team introduction",
-					"Communication plan",
-					"Project management tools setup",
-					"Initial project timeline"
-				]
-			},
-			"discovery": {
-				"title": "Discovery & Analysis",
-				"description": "Understanding your business objectives, requirements, and challenges through in-depth consultations.",
-				"details": [
-					"Requirements gathering and analysis",
-					"Market and competitor research",
-					"Technical feasibility assessment",
-					"Project scope definition"
-				]
-			},
-			"design": {
-				"title": "Design & Planning",
-				"description": "Creating detailed designs and technical specifications, establishing the foundation for development.",
-				"details": [
-					"UI/UX design and prototyping",
-					"System architecture design",
-					"Database schema design",
-					"Project roadmap and sprint planning"
-				]
-			},
-			"development": {
-				"title": "Development",
-				"description": "Our skilled developers write clean, efficient code following industry best practices.",
-				"details": [
-					"Agile development methodology",
-					"Regular code reviews",
-					"Continuous integration",
-					"Daily stand-ups and progress tracking"
-				]
-			},
-			"testing": {
-				"title": "Testing & QA",
-				"description": "Rigorous testing ensures your software is bug-free, secure, and performs optimally.",
-				"details": [
-					"Functional testing",
-					"Performance and load testing",
-					"Security testing",
-					"User acceptance testing"
-				]
-			},
-			"deployment": {
-				"title": "Deployment",
-				"description": "Smooth deployment of your solution to production environments, ensuring minimal disruption.",
-				"details": [
-					"Deployment planning and execution",
-					"Environment configuration",
-					"Data migration (if needed)",
-					"Post-deployment verification"
-				]
-			},
-			"maintenance": {
-				"title": "Maintenance & Support",
-				"description": "Ongoing support and maintenance to ensure your solution continues to perform optimally.",
-				"details": [
-					"Regular updates and improvements",
-					"Bug fixes and issue resolution",
-					"Performance monitoring",
-					"Technical support and consultation"
+					"Kickoff meeting with client and team",
+					"Reviewing project goals and timeline",
+					"Setting communication protocols",
+					"Access and environment setup"
 				]
 			}
 		}

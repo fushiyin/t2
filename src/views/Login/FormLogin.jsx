@@ -41,7 +41,7 @@ export default function FormLogin() {
 
 				setTimeout(() => {
 					setLoading(false);
-					navigate("/dashboard");
+					navigate("/admin/dashboard");
 				}, 1000);
 			} else {
 				console.log("Login fail");

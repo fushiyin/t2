@@ -28,7 +28,7 @@ const Header = () => {
 		imageUrl: england,
 	});
 	const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = useState(false);
-	const [isMobileSearchOpen, setIsMobileSearchOpen] = useState(false);
+	// const [isMobileSearchOpen, setIsMobileSearchOpen] = useState(false);
 	const [isOpenBlog, setIsOpenBlog] = useState(false);
 
 	const LANGUAGE = [
@@ -197,14 +197,14 @@ const Header = () => {
 						})()}
 
 					<div className="hidden md:flex items-center ml-auto">
-						<div className="relative mr-4 block md:hidden xl:block lg:hidden">
+						{/* <div className="relative mr-4 block md:hidden xl:block lg:hidden">
 							<input
 								type="text"
 								placeholder={t("common.search")}
 								className="pl-10 pr-4 py-2 rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:text-dark-blue dark:bg-white text-gray-900 focus:outline-none focus:ring-1 focus:ring-gray-500"
 							/>
 							<Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400 dark:text-dark-blue" />
-						</div>
+						</div> */}
 						<div className="relative hidden xl:block lg:block">
 							<ChangeLanguages
 								language={language}
@@ -375,7 +375,7 @@ const Header = () => {
 				</DrawerContent>
 			</Drawer>
 
-			{isMobileSearchOpen && (
+			{/* {isMobileSearchOpen && (
 				<div className="fixed inset-0 z-50 bg-black bg-opacity-30 flex items-start justify-center pt-24 md:pt-32">
 					<div className="bg-white dark:bg-gray-900 rounded-lg shadow-lg w-[90vw] max-w-md p-4 relative">
 						<button
@@ -395,7 +395,7 @@ const Header = () => {
 						</div>
 					</div>
 				</div>
-			)}
+			)} */}
 		</header>
 	);
 };

@@ -1,6 +1,6 @@
-import t2screen from "@/assets/img/t2screen.png";
-import t2screen_mobile from "@/assets/img/t2screen_mobile.png";
-import t2screen_tablet from "@/assets/img/t2screen_tablet.png";
+import t2screen from "@/assets/img/t2_pc.png";
+import t2screen_mobile from "@/assets/img/t2_mobile.png";
+import t2screen_tablet from "@/assets/img/t2_tablet.png";
 import DeviceMockup from "./DeviceMockup";
 
 const DeviceShowcase = () => {

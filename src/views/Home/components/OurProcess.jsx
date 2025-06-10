@@ -1,9 +1,9 @@
-import client_request from "@/assets/images/Client_Request.jpg";
-import requirement_analysis from "@/assets/images/Requirement_Analysis.jpg";
-import proposal from "@/assets/images/Proposal.jpg";
 import client_approval from "@/assets/images/Client_Approval.jpg";
+import client_request from "@/assets/images/Client_Request.jpg";
 import contract_sign_off from "@/assets/images/Contract_Sign-off.jpg";
 import project_kick_off from "@/assets/images/Project_Kick-off.jpg";
+import proposal from "@/assets/images/Proposal.jpg";
+import requirement_analysis from "@/assets/images/Requirement_Analysis.jpg";
 
 import useResponsive from "@/hooks/useResponsive";
 import classNames from "classnames";
@@ -34,8 +34,8 @@ export default function OurProcess({ contentClass }) {
 					className={iconClass}
 				/>
 			),
-			description: t("process.steps.discovery.description"),
-			details: t("process.steps.discovery.details", { returnObjects: true }),
+			description: t("process.steps.client_request.description"),
+			details: t("process.steps.client_request.details", { returnObjects: true }),
 			color: "rgba(45, 45, 45, 0.6)",
 		},
 		{
@@ -48,8 +48,8 @@ export default function OurProcess({ contentClass }) {
 				/>
 			),
 			image: requirement_analysis,
-			description: t("process.steps.design.description"),
-			details: t("process.steps.design.details", { returnObjects: true }),
+			description: t("process.steps.requirement_analysis.description"),
+			details: t("process.steps.requirement_analysis.details", { returnObjects: true }),
 			color: "rgba(45, 45, 45, 0.6)",
 		},
 		{
@@ -62,8 +62,8 @@ export default function OurProcess({ contentClass }) {
 				/>
 			),
 			image: proposal,
-			description: t("process.steps.development.description"),
-			details: t("process.steps.development.details", { returnObjects: true }),
+			description: t("process.steps.proposal.description"),
+			details: t("process.steps.proposal.details", { returnObjects: true }),
 			color: "rgba(45, 45, 45, 0.6)",
 		},
 		{
@@ -76,8 +76,8 @@ export default function OurProcess({ contentClass }) {
 					className={iconClass}
 				/>
 			),
-			description: t("process.steps.testing.description"),
-			details: t("process.steps.testing.details", { returnObjects: true }),
+			description: t("process.steps.client_approval.description"),
+			details: t("process.steps.client_approval.details", { returnObjects: true }),
 			color: "rgba(45, 45, 45, 0.6)",
 		},
 		{
@@ -90,8 +90,8 @@ export default function OurProcess({ contentClass }) {
 					className={iconClass}
 				/>
 			),
-			description: t("process.steps.deployment.description"),
-			details: t("process.steps.deployment.details", { returnObjects: true }),
+			description: t("process.steps.contract_sign_off.description"),
+			details: t("process.steps.contract_sign_off.details", { returnObjects: true }),
 			color: "rgba(45, 45, 45, 0.6)",
 		},
 		{
@@ -104,8 +104,8 @@ export default function OurProcess({ contentClass }) {
 				/>
 			),
 			image: project_kick_off,
-			description: t("process.steps.maintenance.description"),
-			details: t("process.steps.maintenance.details", { returnObjects: true }),
+			description: t("process.steps.project_kick_off.description"),
+			details: t("process.steps.project_kick_off.details", { returnObjects: true }),
 			color: "rgba(45, 45, 45, 0.6)",
 		},
 	];

@@ -96,15 +96,18 @@
 	"our": "Our",
 	"vision": {
 		"title": "Vision",
-		"description": "T2 Soft, Shaping the Future of Technology We strive to be your premier global development partner, leading the advancement of next-generation technologies."
+		"des_1": "Toward the core of future technology with T2.",
+		"des_2": "We aim to become a world-class global development partner leading next-generation technologies."
 	},
 	"mission": {
 		"title": "Mission",
-		"description": "We provide reliable software development and solutions to clients worldwide, offering highquality and cost-effective services with Vietnam's top tech talent. Through technological innovation and flexible collaboration, we help our clients grow their businesses.."
+		"des_1": "We provide reliable software development and solutions to global clients, offering cost-effective and high-quality services with outstanding Vietnamese development talent.",
+		"des_2": "We support our clients' business growth through technological innovation and flexible collaboration."
 	},
 	"values": {
 		"title": "Values",
-		"description": "We collaborate closely with our clients as one unified team, embrace next-generation technologies to stay ahead, and foster long-term partnerships built on trust, transparency, and accountability."
+		"des_1": "We grow together as one team with our clients, quickly adopting and applying the latest trends and technologies to stay ahead.",
+		"des_2": "We build trust through honest communication and responsible actions."
 	},
 	"tech_stack": {
 		"title": "Technology Stack",

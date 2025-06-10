@@ -12,17 +12,17 @@ const VisionJourney = () => {
 		{
 			id: "vision",
 			title: t("vision.title"),
-			testimonial: t("vision.description"),
+			testimonial: `${t("vision.des_1")}\n${t("vision.des_2")}`,
 		},
 		{
 			id: "mission",
 			title: t("mission.title"),
-			testimonial: t("mission.description"),
+			testimonial: `${t("mission.des_1")}\n${t("mission.des_2")}`,
 		},
 		{
 			id: "values",
 			title: t("values.title"),
-			testimonial: t("values.description"),
+			testimonial: `${t("values.des_1")}\n${t("values.des_2")}`,
 		},
 	];
 

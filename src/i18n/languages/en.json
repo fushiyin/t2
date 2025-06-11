@@ -389,62 +389,62 @@
 		"steps": {
 			"client_request": {
 				"title": "Client Request",
-				"description": "Initial communication to understand the client's needs and project expectations.",
+				"description": "Initial engagement with the client to understand their goals and high-level project scope.",
 				"details": [
-					"Introductory meeting",
-					"High-level requirement collection",
-					"Understanding business goals",
-					"Initial project briefing"
+					"Preliminary discussion with the client",
+					"Collecting general requirements",
+					"Understanding the business context and goals",
+					"Identifying initial project scope"
 				]
 			},
 			"requirement_analysis": {
 				"title": "Requirement Analysis",
-				"description": "Detailed analysis of project requirements to define scope and technical direction.",
+				"description": "In-depth analysis of the client's needs to define scope, assess feasibility, and plan the technical approach.",
 				"details": [
-					"Stakeholder interviews",
-					"Define functional and non-functional requirements",
-					"Feasibility and risk analysis",
-					"Documenting the requirement specifications"
+					"Stakeholder meetings and interviews",
+					"Defining functional and non-functional requirements",
+					"Risk assessment and feasibility analysis",
+					"Creating detailed requirement specifications"
 				]
 			},
 			"proposal": {
 				"title": "Proposal",
-				"description": "Creating a clear proposal including scope, timeline, budget, and methodology.",
+				"description": "Preparing a comprehensive project proposal outlining the solution, timeline, budget, and methodology.",
 				"details": [
-					"Solution design overview",
-					"Time and cost estimation",
-					"Delivery plan and milestones",
-					"Team structure and responsibilities"
+					"Designing the proposed solution",
+					"Estimating time and budget",
+					"Creating a delivery roadmap with key milestones",
+					"Defining team structure and responsibilities"
 				]
 			},
 			"client_approval": {
 				"title": "Client Approval",
-				"description": "Reviewing the proposal with the client and making necessary adjustments.",
+				"description": "Reviewing the proposal with the client, collecting feedback, and refining the plan as needed.",
 				"details": [
-					"Proposal walkthrough",
-					"Gathering client feedback",
-					"Refining scope and deliverables",
-					"Verbal or written agreement to proceed"
+					"Presenting the proposal to the client",
+					"Gathering feedback and additional requirements",
+					"Adjusting the scope and deliverables",
+					"Reaching a mutual agreement to proceed"
 				]
 			},
 			"contract_sign_off": {
 				"title": "Contract Sign-off",
-				"description": "Formal agreement on the project through contract signing.",
+				"description": "Formalizing the agreement through a signed contract that confirms the project scope and terms.",
 				"details": [
-					"Final proposal approval",
-					"Legal document preparation",
-					"Contract signing by both parties",
-					"Project confirmation"
+					"Finalizing the approved proposal",
+					"Preparing legal documents",
+					"Signing the contract by both parties",
+					"Official confirmation to start the project"
 				]
 			},
 			"project_kick_off": {
 				"title": "Project Kick-off",
-				"description": "Launching the project with a team meeting to align everyone on objectives and roles.",
+				"description": "Initiating the project with a kickoff meeting to align all stakeholders on objectives, roles, and timelines.",
 				"details": [
-					"Kickoff meeting with client and team",
-					"Reviewing project goals and timeline",
-					"Setting communication protocols",
-					"Access and environment setup"
+					"Kickoff meeting with client and internal team",
+					"Reviewing project goals and schedule",
+					"Establishing communication protocols",
+					"Setting up tools, environments, and access"
 				]
 			}
 		}

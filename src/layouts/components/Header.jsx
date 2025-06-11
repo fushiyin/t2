@@ -1,8 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import england from "@/assets/images/usa.png";
 import korea from "@/assets/images/korea.webp";
-import t2darklogo from "@/assets/logos/T2_white_logo.png";
-import t2lightlogo from "@/assets/logos/T2_dark_logo.png";
+import t2darklogo from "@/assets/logos/T2 Soft_white logo.png";
+import t2lightlogo from "@/assets/logos/T2_Soft_Logo.png";
 import {
 	Drawer,
 	DrawerClose,
@@ -210,6 +210,7 @@ const Header = () => {
 								language={language}
 								LANGUAGE={LANGUAGE}
 								changeLanguage={changeLanguage}
+								setIsOpenBlog={setIsOpenBlog}
 							/>
 						</div>
 
@@ -225,6 +226,30 @@ const Header = () => {
 							)}
 						</button>
 					</div>
+					{/* Theme Toggle */}
+					{/* <div className="flex justify-between items-center">
+						<div className="flex items-center text-gray-700 dark:text-gray-200">
+							{isDarkMode ? (
+								<Sun className="h-5 w-5 mr-2" />
+							) : (
+								<Moon className="h-5 w-5 mr-2" />
+							)}
+							<span>{isDarkMode ? "Dark" : "Light"}</span>
+						</div>
+						<button
+							onClick={toggleDarkMode}
+							className="relative inline-flex h-6 w-11
+									 items-center rounded-full bg-gray-200 dark:bg-gray-700"
+						>
+							<span
+								className={`${
+									isDarkMode
+										? "translate-x-6 bg-blue-500"
+										: "translate-x-1 bg-white"
+								} inline-block h-4 w-4 transform rounded-full transition`}
+							/>
+						</button>
+					</div> */}
 
 					<button
 						type="button"

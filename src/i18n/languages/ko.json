@@ -223,39 +223,45 @@
 				}
 			}
 		},
-		"database": {
-			"title": "데이터베이스 및 스토리지",
-			"description": "데이터 관리 및 스토리지 솔루션",
+		"bigdata": {
+			"title": "Big Data & Analytics",
+			"description": "Modern tools for processing, analyzing, and visualizing large-scale data.",
 			"technologies": {
-				"postgresql": {
-					"description": "고급 오픈 소스 데이터베이스",
-					"experience": "6년 이상",
-					"projects": "100개 이상 프로젝트"
+				"hadoop": {
+					"name": "Hadoop",
+					"description": "Distributed system for batch processing with MapReduce.",
+					"experience": "Used for data lake and warehouse batch jobs.",
+					"projects": "Built ETL pipelines for historical data."
 				},
-				"mongodb": {
-					"description": "NoSQL 문서 데이터베이스",
-					"experience": "5년 이상",
-					"projects": "90개 이상 프로젝트"
+				"spark": {
+					"name": "Spark",
+					"description": "Fast engine for batch and real-time data processing.",
+					"experience": "Handled both streaming and batch pipelines.",
+					"projects": "Created real-time dashboards with Spark Streaming."
 				},
-				"mysql": {
-					"description": "인기 있는 관계형 데이터베이스",
-					"experience": "7년 이상",
-					"projects": "120개 이상 프로젝트"
-				},
-				"redis": {
-					"description": "인메모리 데이터 구조 저장소",
-					"experience": "4년 이상",
-					"projects": "80개 이상 프로젝트"
+				"kafka": {
+					"name": "Kafka",
+					"description": "Scalable event streaming for real-time data flows.",
+					"experience": "Decoupled microservices and ingested event data.",
+					"projects": "Processed IoT data with Kafka and Spark."
 				},
 				"elasticsearch": {
-					"description": "검색 및 분석 엔진",
-					"experience": "3년 이상",
-					"projects": "35개 이상 프로젝트"
+					"name": "Elasticsearch",
+					"description": "Search and analytics engine for large datasets.",
+					"experience": "Indexed and queried semi-structured data.",
+					"projects": "Built log analytics and in-app search systems."
 				},
-				"firebase": {
-					"description": "Google의 모바일 플랫폼",
-					"experience": "4년 이상",
-					"projects": "70개 이상 프로젝트"
+				"bigQueryLogo": {
+					"name": "BigQuery",
+					"description": "Serverless data warehouse for fast SQL queries.",
+					"experience": "Queried petabyte-scale datasets with ease.",
+					"projects": "Analyzed marketing and user behavior data."
+				},
+				"powerBI": {
+					"name": "Power BI",
+					"description": "Business intelligence tool for data visualization.",
+					"experience": "Built dashboards and automated reports.",
+					"projects": "Delivered sales and operations dashboards."
 				}
 			}
 		},
@@ -383,71 +389,71 @@
 		}
 	},
 	"process": {
-		"title": "Our Process",
-		"description": "A structured approach to delivering high-quality software solutions.",
+		"title": "워킹 프로세스",
+		"description": "T2Soft는 표준화된 전문 프로세스를 바탕으로 고객 요구에 정확히 부합하는 IT 서비스를 신속하고 효율적으로 제공합니다",
 		"navigation": {
-			"previous": "Previous",
-			"next": "Next"
+			"previous": "이전",
+			"next": "다음"
 		},
 		"steps": {
 			"client_request": {
-				"title": "Client Request",
-				"description": "Initial communication to understand the client's needs and project expectations.",
+				"title": "고객 요청",
+				"description": "고객의 프로젝트 니즈를 접수하고 초기 방향을 설정합니다.",
 				"details": [
-					"Introductory meeting",
-					"High-level requirement collection",
-					"Understanding business goals",
-					"Initial project briefing"
+					"서비스 목적 및 범위 확인.",
+					"관련 자료 및 레퍼런스 수집.",
+					"커뮤니케이션 채널 설정.",
+					"기본 일정/예산 공유."
 				]
 			},
 			"requirement_analysis": {
-				"title": "Requirement Analysis",
-				"description": "Detailed analysis of project requirements to define scope and technical direction.",
+				"title": "요청사항 분석",
+				"description": "요구사항을 구체적으로 분석하여 개발 가능성과 범위를 도출합니다.",
 				"details": [
-					"Stakeholder interviews",
-					"Define functional and non-functional requirements",
-					"Feasibility and risk analysis",
-					"Documenting the requirement specifications"
+					"핵심 기능 및 요구사항 정리.",
+					"기술적 타당성 및 리스크 검토.",
+					"일정 및 리소스 예측.",
+					"사전 이슈 파악 및 대응 전략 수립."
 				]
 			},
 			"proposal": {
-				"title": "Proposal",
-				"description": "Creating a clear proposal including scope, timeline, budget, and methodology.",
+				"title": "맞춤형 제안",
+				"description": "분석 결과를 바탕으로 최적화된 개발 제안을 제시합니다.",
 				"details": [
-					"Solution design overview",
-					"Time and cost estimation",
-					"Delivery plan and milestones",
-					"Team structure and responsibilities"
+					"개발 범위 및 단계 정의.",
+					"견적 및 투입 인력 계획 수립.",
+					"협업 및 커뮤니케이션 방식 제안.",
+					"제안서 전달 및 설명."
 				]
 			},
 			"client_approval": {
-				"title": "Client Approval",
-				"description": "Reviewing the proposal with the client and making necessary adjustments.",
+				"title": "고객 승인",
+				"description": "고객의 확인 및 피드백을 반영하여 제안을 확정합니다.",
 				"details": [
-					"Proposal walkthrough",
-					"Gathering client feedback",
-					"Refining scope and deliverables",
-					"Verbal or written agreement to proceed"
+					"제안서 검토 및 의견 수렴.",
+					"수정 및 보완 사항 반영.",
+					"최종 범위 및 일정 확정.",
+					"계약 준비 진행."
 				]
 			},
 			"contract_sign_off": {
-				"title": "Contract Sign-off",
-				"description": "Formal agreement on the project through contract signing.",
+				"title": "계약 체결",
+				"description": "합의된 조건을 기반으로 정식 계약을 진행합니다.",
 				"details": [
-					"Final proposal approval",
-					"Legal document preparation",
-					"Contract signing by both parties",
-					"Project confirmation"
+					"계약서 작성 및 조율.",
+					"비용, 일정, 범위 명시.",
+					"프로젝트 책임자 및 담당자 지정.",
+					"서명 완료 및 보관."
 				]
 			},
 			"project_kick_off": {
-				"title": "Project Kick-off",
-				"description": "Launching the project with a team meeting to align everyone on objectives and roles.",
+				"title": "프로젝트 착수",
+				"description": "계약 후 개발팀을 구성하고 본격적인 작업에 착수합니다.",
 				"details": [
-					"Kickoff meeting with client and team",
-					"Reviewing project goals and timeline",
-					"Setting communication protocols",
-					"Access and environment setup"
+					"전담 인력 배치.",
+					"킥오프 미팅 진행.",
+					"개발 환경 구축.",
+					"초기 일정 및 작업 시작."
 				]
 			}
 		}

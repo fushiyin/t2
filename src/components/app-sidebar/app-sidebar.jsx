@@ -7,6 +7,8 @@ import {
 	Phone,
 	Settings,
 	User2,
+	UserRoundCog,
+	UsersRound,
 } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 
@@ -50,7 +52,7 @@ const items = [
 	},
 	{
 		title: "Careers",
-		icon: User2,
+		icon: UsersRound,
 		url: "/admin/careers",
 	},
 ];
@@ -172,7 +174,8 @@ export function AppSidebar() {
 								<DropdownMenu>
 									<DropdownMenuTrigger asChild>
 										<SidebarMenuButton>
-											<User2 /> Username
+											<UserRoundCog />
+											Username
 											<ChevronUp className="ml-auto" />
 										</SidebarMenuButton>
 									</DropdownMenuTrigger>

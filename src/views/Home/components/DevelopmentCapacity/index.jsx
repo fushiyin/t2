@@ -399,8 +399,11 @@ export default function DevelopmentEnhanced({ contentClass }) {
 					viewport={{ once: true }}
 					className="text-center"
 				>
+					<p className="text-base sm:text-xl text-gray-300 mb-2 max-w-2xl mx-auto px-8 400:px-6 font-sans break-keep whitespace-normal break-words">
+						{t("tech_stack.cta.des_1")}
+					</p>
 					<p className="text-base sm:text-xl text-gray-300 mb-8 max-w-2xl mx-auto px-8 400:px-6 font-sans break-keep whitespace-normal break-words">
-						{t("tech_stack.cta.description")}
+						{t("tech_stack.cta.des_2")}
 					</p>
 					<button className="text-sm sm:text-xl px-5 py-3 sm:px-8 sm:py-4 bg-gradient-to-r from-pale-blue to-light-blue text-heading-black hover:text-white font-semibold rounded-xl hover:from-light-blue hover:to-normal-dark-blue transition-all duration-300 transform hover:scale-105 shadow-lg">
 						{t("tech_stack.cta.button")}

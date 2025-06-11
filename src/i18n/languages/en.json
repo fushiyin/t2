@@ -263,7 +263,8 @@
 			}
 		},
 		"cta": {
-			"description": "Ready to leverage our technical expertise for your next project? Let's discuss how we can bring your vision to life.",
+			"des_1": "Ready to leverage our technical expertise for your next project?",
+			"des_2": "Let's discuss how we can bring your vision to life.",
 			"button": "Start Your Project"
 		}
 	},
@@ -659,7 +660,7 @@
 	"contact": {
 		"title": "Contact Us",
 		"description": "Ready to Transform Your Ideas?",
-		"description2": "Let's discuss how T2soft can help you achieve your technology goals. Our team is ready to bring your vision to life.",
+		"description2": "Let's discuss how T2Soft can help you achieve your technology goals. Our team is ready to bring your vision to life.",
 		"description_sub": {
 			"expert": "Expert consultation tailored to your business needs",
 			"cutting_edge": "Cutting-edge technology solutions",

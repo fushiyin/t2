@@ -1,4 +1,4 @@
-import T2Logo from "@/assets/images/t2darklogo.png";
+import T2Logo from "@/assets/logos/T2_dark_Logo.png";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";

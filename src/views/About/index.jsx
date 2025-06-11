@@ -1,4 +1,4 @@
-import image from "@/assets/img/background.png";
+import image from "@/assets/img/bg-about-us.png";
 import AnimatedSection from "@/components/AnimatedSection";
 import CTA from "@/components/sections/ContactCTA";
 import FAQ from "@/components/sections/FAQ";

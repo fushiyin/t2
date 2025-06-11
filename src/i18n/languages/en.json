@@ -220,39 +220,45 @@
 				}
 			}
 		},
-		"database": {
-			"title": "Database & Storage",
-			"description": "Data management and storage solutions",
+		"bigdata": {
+			"title": "Big Data & Analytics",
+			"description": "Modern tools for processing, analyzing, and visualizing large-scale data.",
 			"technologies": {
-				"postgresql": {
-					"description": "Advanced open source database",
-					"experience": "6+ years",
-					"projects": "100+ projects"
+				"hadoop": {
+					"name": "Hadoop",
+					"description": "Distributed system for batch processing with MapReduce.",
+					"experience": "Used for data lake and warehouse batch jobs.",
+					"projects": "Built ETL pipelines for historical data."
 				},
-				"mongodb": {
-					"description": "NoSQL document database",
-					"experience": "5+ years",
-					"projects": "90+ projects"
+				"spark": {
+					"name": "Spark",
+					"description": "Fast engine for batch and real-time data processing.",
+					"experience": "Handled both streaming and batch pipelines.",
+					"projects": "Created real-time dashboards with Spark Streaming."
 				},
-				"mysql": {
-					"description": "Popular relational database",
-					"experience": "7+ years",
-					"projects": "120+ projects"
-				},
-				"redis": {
-					"description": "In-memory data structure store",
-					"experience": "4+ years",
-					"projects": "80+ projects"
+				"kafka": {
+					"name": "Kafka",
+					"description": "Scalable event streaming for real-time data flows.",
+					"experience": "Decoupled microservices and ingested event data.",
+					"projects": "Processed IoT data with Kafka and Spark."
 				},
 				"elasticsearch": {
-					"description": "Search and analytics engine",
-					"experience": "3+ years",
-					"projects": "35+ projects"
+					"name": "Elasticsearch",
+					"description": "Search and analytics engine for large datasets.",
+					"experience": "Indexed and queried semi-structured data.",
+					"projects": "Built log analytics and in-app search systems."
 				},
-				"firebase": {
-					"description": "Google's mobile platform",
-					"experience": "4+ years",
-					"projects": "70+ projects"
+				"bigQueryLogo": {
+					"name": "BigQuery",
+					"description": "Serverless data warehouse for fast SQL queries.",
+					"experience": "Queried petabyte-scale datasets with ease.",
+					"projects": "Analyzed marketing and user behavior data."
+				},
+				"powerBI": {
+					"name": "Power BI",
+					"description": "Business intelligence tool for data visualization.",
+					"experience": "Built dashboards and automated reports.",
+					"projects": "Delivered sales and operations dashboards."
 				}
 			}
 		},
@@ -381,7 +387,7 @@
 	},
 	"process": {
 		"title": "Our Working Process",
-		"description": "A structured approach to delivering high-quality software solutions.",
+		"description": "T2Soft delivers fast and efficient IT services through a standardized and professional process, precisely tailored to meet each client's needs.",
 		"navigation": {
 			"previous": "Previous",
 			"next": "Next"
@@ -389,62 +395,62 @@
 		"steps": {
 			"client_request": {
 				"title": "Client Request",
-				"description": "Initial engagement with the client to understand their goals and high-level project scope.",
+				"description": "We gather the client’s project goals and define the initial direction.",
 				"details": [
-					"Preliminary discussion with the client",
-					"Collecting general requirements",
-					"Understanding the business context and goals",
-					"Identifying initial project scope"
+					"Define project objectives and scope.",
+					"Collect related materials and references.",
+					"Establish communication channels.",
+					"Share initial timeline and budget."
 				]
 			},
 			"requirement_analysis": {
 				"title": "Requirement Analysis",
-				"description": "In-depth analysis of the client's needs to define scope, assess feasibility, and plan the technical approach.",
+				"description": "We analyze the client's requirements in detail to determine development feasibility and scope.",
 				"details": [
-					"Stakeholder meetings and interviews",
-					"Defining functional and non-functional requirements",
-					"Risk assessment and feasibility analysis",
-					"Creating detailed requirement specifications"
+					"Identify core features and detailed requirements.",
+					"Review technical feasibility and potential risks.",
+					"Estimate timeline and resource needs.",
+					"Anticipate potential issues and define response strategies."
 				]
 			},
 			"proposal": {
 				"title": "Proposal",
-				"description": "Preparing a comprehensive project proposal outlining the solution, timeline, budget, and methodology.",
+				"description": "Based on the analysis, we provide an optimized development proposal.",
 				"details": [
-					"Designing the proposed solution",
-					"Estimating time and budget",
-					"Creating a delivery roadmap with key milestones",
-					"Defining team structure and responsibilities"
+					"Define development scope and phased approach.",
+					"Prepare cost estimates and manpower plan.",
+					"Suggest collaboration and communication methods.",
+					"Deliver and explain the proposal to the client."
 				]
 			},
 			"client_approval": {
 				"title": "Client Approval",
-				"description": "Reviewing the proposal with the client, collecting feedback, and refining the plan as needed.",
+				"description": "We finalize the proposal by incorporating the client's review and feedback.",
 				"details": [
-					"Presenting the proposal to the client",
-					"Gathering feedback and additional requirements",
-					"Adjusting the scope and deliverables",
-					"Reaching a mutual agreement to proceed"
+					"Review proposal and collect feedback.",
+					"Apply necessary revisions and improvements.",
+					"Confirm final scope and timeline.",
+					"Prepare for contract signing."
 				]
 			},
 			"contract_sign_off": {
-				"title": "Contract Sign-off",
-				"description": "Formalizing the agreement through a signed contract that confirms the project scope and terms.",
+				"title": "Contract Signing",
+				"description": "A formal contract is signed based on the agreed terms and conditions.",
 				"details": [
-					"Finalizing the approved proposal",
-					"Preparing legal documents",
-					"Signing the contract by both parties",
-					"Official confirmation to start the project"
+					"Draft and coordinate the contract.",
+					"Specify cost, schedule, and project scope.",
+					"Assign project manager and key contacts.",
+					"Complete and archive the signed agreement."
 				]
 			},
 			"project_kick_off": {
 				"title": "Project Kick-off",
-				"description": "Initiating the project with a kickoff meeting to align all stakeholders on objectives, roles, and timelines.",
+				"description": "After signing, the project officially begins with a dedicated development team.",
 				"details": [
-					"Kickoff meeting with client and internal team",
-					"Reviewing project goals and schedule",
-					"Establishing communication protocols",
-					"Setting up tools, environments, and access"
+					"Assign dedicated resources",
+					"Conduct kick-off meeting",
+					"Set up development environment",
+					"Share and initiate initial project schedule"
 				]
 			}
 		}

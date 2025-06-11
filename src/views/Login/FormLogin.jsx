@@ -1,4 +1,4 @@
-import loginImage from "@/assets/logos/T2_icon_dark.png";
+import loginImage from "@/assets/logos/T2_dark_ICon.png";
 import { Button } from "@/components/ui/button";
 import {
 	Card,

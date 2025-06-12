@@ -205,12 +205,12 @@ export default function DevelopmentEnhanced({ contentClass }) {
 		},
 	];
 
-	// useEffect(() => {
-	// 	const interval = setInterval(() => {
-	// 		setCurrentStackIndex((prev) => (prev + 1) % techStacks.length);
-	// 	}, autoTimer);
-	// 	return () => clearInterval(interval);
-	// }, [techStacks?.length]);
+	useEffect(() => {
+		const interval = setInterval(() => {
+			setCurrentStackIndex((prev) => (prev + 1) % techStacks.length);
+		}, autoTimer);
+		return () => clearInterval(interval);
+	}, [techStacks?.length]);
 
 	const currentStack = techStacks[currentStackIndex];
 

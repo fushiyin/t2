@@ -8,6 +8,8 @@ import { CheckCircleIcon } from "lucide-react";
 import DeviceShowcase from "./components/DeviceShowcase";
 import UniqueValue from "./components/UniqueValue";
 import { useTranslation } from "react-i18next";
+import { SECTIONS_KEY } from "@/constant/sideNavigation";
+import VisionJourney from "../Home/components/Vision";
 
 export default function AboutPage() {
 	const { t } = useTranslation();
@@ -30,7 +32,7 @@ export default function AboutPage() {
 			transition: { duration: 0.5 },
 		},
 	};
-
+	const contentClass = "container h-full px-4 py-16 md:px-6 max-w-[1440px]";
 	return (
 		<div className="w-full flex flex-col gap-6 md:gap-10 items-center">
 			<AnimatedSection className="w-full bg-muted/50 flex flex-col items-center">
@@ -102,6 +104,7 @@ export default function AboutPage() {
 					</div>
 				</div>
 			</AnimatedSection>
+			<VisionJourney classNam={contentClass} />
 			<UniqueValue />
 			<div className="flex flex-col items-center px-[20px] md:px-4 lg:px-0">
 				<h2 className="text-2xl md:text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center">

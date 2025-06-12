@@ -24,12 +24,13 @@ const CompetitiveEdges = ({ contentClass }) => {
 	const [isHovered, setIsHovered] = useState(false);
 	const [hoveredIndex, setHoveredIndex] = useState(null);
 	const { t } = useTranslation();
+	const classNames_icon = "w-12 h-12 xl:w-[36px] xl:h-[36px] lg:w-[24px] lg:h-[24px] text-black";
 
 	const edges = [
 		{
 			id: 0,
 			title: t("competitive_edges.edges.coordinator.title"),
-			icon: <Cpu className="w-12 h-12 text-black" />,
+			icon: <Cpu className={classNames_icon} />,
 			description: t("competitive_edges.edges.coordinator.description", {
 				returnObjects: true,
 			}),
@@ -40,7 +41,7 @@ const CompetitiveEdges = ({ contentClass }) => {
 		{
 			id: 1,
 			title: t("competitive_edges.edges.developer.title"),
-			icon: <Code className="w-12 h-12 text-black" />,
+			icon: <Code className={classNames_icon} />,
 			description: t("competitive_edges.edges.developer.description", {
 				returnObjects: true,
 			}),
@@ -51,7 +52,7 @@ const CompetitiveEdges = ({ contentClass }) => {
 		{
 			id: 2,
 			title: t("competitive_edges.edges.communication.title"),
-			icon: <BarChart3 className="w-12 h-12 text-black" />,
+			icon: <BarChart3 className={classNames_icon} />,
 			description: t("competitive_edges.edges.communication.description", {
 				returnObjects: true,
 			}),
@@ -62,14 +63,13 @@ const CompetitiveEdges = ({ contentClass }) => {
 		{
 			id: 3,
 			title: t("competitive_edges.edges.cost.title"),
-			icon: <DollarSign className="w-12 h-12 text-black" />,
+			icon: <DollarSign className={classNames_icon} />,
 			description: t("competitive_edges.edges.cost.description", { returnObjects: true }),
 			lottie: Cost,
 			width: 250,
 			height: 250,
 		},
 	];
-
 	useEffect(() => {
 		if (!activeEdge && edges.length > 0) {
 			setActiveEdge(edges[0]);
@@ -107,8 +107,8 @@ const CompetitiveEdges = ({ contentClass }) => {
 				</div>
 
 				{/* Desktop grid */}
-				<div className="hidden md:flex flex-col 2xl:px-0 xl:px-8 lg:px-10 px-8">
-					<div className="grid grid-cols-1 sm:grid-cols-2 2xl:grid-cols-4 gap-8 2xl:gap-4 sm:gap-6 py-12">
+				<div className="hidden lg:flex flex-col 2xl:px-0 xl:px-8 lg:px-10 px-8">
+					<div className="grid grid-cols-1 md:grid-cols-4 2xl:grid-cols-4 gap-8 2xl:gap-4 sm:gap-6 py-12">
 						{edges.map((edge) => {
 							const isActive = activeEdge?.id === edge.id;
 							const isHovering = hoveredIndex === edge.id;
@@ -135,8 +135,8 @@ const CompetitiveEdges = ({ contentClass }) => {
 												: "bg-white text-dark",
 										)}
 									>
-										<p className="text-center text-xl w-full">
-											{edge.title.toUpperCase()}
+										<p className="text-center text-base lg:text-md xl:text-xl w-full font-bold uppercase text-dark-gray">
+											{edge.title}
 										</p>
 										<div className="w-full h-full flex items-center justify-center">
 											<Lottie
@@ -167,14 +167,16 @@ const CompetitiveEdges = ({ contentClass }) => {
 									className="text-gray-700 mt-1"
 									size={20}
 								/>
-								<p className="leading-relaxed text-[21px]">{benefit}</p>
+								<p className="leading-relaxed text-base lg:text-md xl:text-xl w-full">
+									{benefit}
+								</p>
 							</div>
 						))}
 					</div>
 				</div>
 
 				{/* Mobile */}
-				<div className="flex flex-col gap-4 md:hidden px-4">
+				<div className="flex flex-col gap-4 lg:hidden px-4">
 					{edges.map((edge) => (
 						<div
 							key={edge.id}

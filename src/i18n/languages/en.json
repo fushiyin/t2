@@ -3,7 +3,7 @@
 		"title": "About us"
 	},
 	"competitive_edges": {
-		"description": "Your Smart Development Partner for Shared Success.",
+		"description": "Your Smart Development Partner for Shared Success",
 		"edges": {
 			"coordinator": {
 				"description": [
@@ -111,7 +111,7 @@
 	},
 	"tech_stack": {
 		"title": "Technology Stack",
-		"description": "Our comprehensive technology expertise spans across modern frameworks, languages, and platforms. We leverage cutting-edge tools to build scalable, robust, and innovative solutions.",
+		"description": "Our comprehensive technology expertise spans across modern frameworks, languages, and platforms. We leverage cutting-edge tools to build scalable, robust, and innovative solutions",
 		"frontend": {
 			"title": "Frontend Development",
 			"description": "Building modern, responsive, and interactive user interfaces",
@@ -214,7 +214,7 @@
 		},
 		"cta": {
 			"des_1": "Ready to leverage our technical expertise for your next project?",
-			"des_2": "Let's discuss how we can bring your vision to life.",
+			"des_2": "Let's discuss how we can bring your vision to life",
 			"button": "Start Your Project"
 		}
 	},
@@ -234,7 +234,7 @@
 			"tagline": "Revolutionizing Production",
 			"sub_industries": {
 				"erp": {
-					"title": "ERP Systems",
+					"title": "ERP Solution",
 					"description": "Enterprise Resource Planning for streamlined operations"
 				},
 				"mes": {
@@ -253,7 +253,7 @@
 		},
 		"bank_n_fin": {
 			"title": "Bank & Finance",
-			"description": "Secure and innovative financial technology solutions",
+			"description": "Trusted Financial Solutions Combining Innovation and Security",
 			"tagline": "Securing Financial Future",
 			"sub_industries": {
 				"payment_gateways": {
@@ -266,11 +266,11 @@
 				},
 				"fintech": {
 					"title": "Fintech Platforms",
-					"description": "Comprehensive financial technology solutions"
+					"description": "Innovative platform for seamless financial services"
 				},
 				"pos": {
 					"title": "POS Systems",
-					"description": "Advanced point of sale and payment terminals"
+					"description": "Smart and efficient POS solutions for modern businesses"
 				}
 			}
 		},
@@ -299,7 +299,7 @@
 		},
 		"ai": {
 			"title": "AI Solutions",
-			"description": "Artificial Intelligence solutions for smart automation",
+			"description": "Artificial Intelligence solutions for smart automation and data-driven intelligence",
 			"tagline": "Building Intelligent Systems",
 			"sub_industries": {
 				"healthcare": {
@@ -308,7 +308,7 @@
 				},
 				"office": {
 					"title": "Smart Office",
-					"description": "Intelligent office automation and management"
+					"description": "Smart and Connected Office Solutions for Modern Workspaces"
 				},
 				"ibeems": {
 					"title": "AI & iBEEMS",
@@ -338,7 +338,7 @@
 	},
 	"process": {
 		"title": "Our Working Process",
-		"description": "T2Soft delivers fast and efficient IT services through a standardized and professional process, precisely tailored to meet each client's needs.",
+		"description": "T2Soft delivers fast and efficient IT services through a standardized and professional process, precisely tailored to meet each client's needs",
 		"navigation": {
 			"previous": "Previous",
 			"next": "Next"
@@ -346,57 +346,57 @@
 		"steps": {
 			"client_request": {
 				"title": "Client Request",
-				"description": "We gather the client’s project goals and define the initial direction.",
+				"description": "We gather the client’s project goals and define the initial direction",
 				"details": [
-					"Define project objectives and scope.",
-					"Collect related materials and references.",
-					"Establish communication channels.",
-					"Share initial timeline and budget."
+					"Define project objectives and scope",
+					"Collect related materials and references",
+					"Establish communication channels",
+					"Share initial timeline and budget"
 				]
 			},
 			"requirement_analysis": {
 				"title": "Requirement Analysis",
-				"description": "We analyze the client's requirements in detail to determine development feasibility and scope.",
+				"description": "We analyze the client's requirements in detail to determine development feasibility and scope",
 				"details": [
-					"Identify core features and detailed requirements.",
-					"Review technical feasibility and potential risks.",
-					"Estimate timeline and resource needs.",
-					"Anticipate potential issues and define response strategies."
+					"Identify core features and detailed requirements",
+					"Review technical feasibility and potential risks",
+					"Estimate timeline and resource needs",
+					"Anticipate potential issues and define response strategies"
 				]
 			},
 			"proposal": {
 				"title": "Proposal",
-				"description": "Based on the analysis, we provide an optimized development proposal.",
+				"description": "Based on the analysis, we provide an optimized development proposal",
 				"details": [
-					"Define development scope and phased approach.",
-					"Prepare cost estimates and manpower plan.",
-					"Suggest collaboration and communication methods.",
-					"Deliver and explain the proposal to the client."
+					"Define development scope and phased approach",
+					"Prepare cost estimates and manpower plan",
+					"Suggest collaboration and communication methods",
+					"Deliver and explain the proposal to the client"
 				]
 			},
 			"client_approval": {
 				"title": "Client Approval",
-				"description": "We finalize the proposal by incorporating the client's review and feedback.",
+				"description": "We finalize the proposal by incorporating the client's review and feedback",
 				"details": [
-					"Review proposal and collect feedback.",
-					"Apply necessary revisions and improvements.",
-					"Confirm final scope and timeline.",
-					"Prepare for contract signing."
+					"Review proposal and collect feedback",
+					"Apply necessary revisions and improvements",
+					"Confirm final scope and timeline",
+					"Prepare for contract signing"
 				]
 			},
 			"contract_sign_off": {
 				"title": "Contract Signing",
-				"description": "A formal contract is signed based on the agreed terms and conditions.",
+				"description": "A formal contract is signed based on the agreed terms and conditions",
 				"details": [
-					"Draft and coordinate the contract.",
-					"Specify cost, schedule, and project scope.",
-					"Assign project manager and key contacts.",
-					"Complete and archive the signed agreement."
+					"Draft and coordinate the contract",
+					"Specify cost, schedule, and project scope",
+					"Assign project manager and key contacts",
+					"Complete and archive the signed agreement"
 				]
 			},
 			"project_kick_off": {
 				"title": "Project Kick-off",
-				"description": "After signing, the project officially begins with a dedicated development team.",
+				"description": "After signing, the project officially begins with a dedicated development team",
 				"details": [
 					"Assign dedicated resources",
 					"Conduct kick-off meeting",
@@ -407,7 +407,7 @@
 		}
 	},
 	"testimonials": {
-		"title": "Feedback from customers",
+		"title": "Testimonial",
 		"actions": {
 			"reply": "Reply",
 			"share": "Share"
@@ -415,7 +415,7 @@
 	},
 	"contact_cta": {
 		"title": "Ready to Transform Your Ideas?",
-		"description": "Let's discuss how T2soft can help you achieve your technology goals. Our team is ready to bring your vision to life.",
+		"description": "Let's discuss how T2 Soft can help you achieve your technology goals. Our team is ready to bring your vision to life.",
 		"contact_button": "Contact Us",
 		"services_button": "Explore Our Services"
 	},

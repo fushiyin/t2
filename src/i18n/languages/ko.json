@@ -117,73 +117,49 @@
 		"description": "저희는 최신 프레임워크와 프로그래밍 언어는 물론, 다양한 플랫폼에 대한 폭넓은 기술 역량을 보유하고 있습니다. 축적된 노하우와 최신 기술을 바탕으로 확장성, 안정성, 혁신성을 갖춘 최적의 솔루션을 제공합니다.",
 		"frontend": {
 			"title": "프론트엔드 개발",
-			"description": "현대적이고 반응형이며 인터랙티브한 사용자 인터페이스 구축",
+			"description": "직관적인 반응형 사용자 인터페이스 구현.",
 			"technologies": {
 				"react": {
-					"description": "컴포넌트 기반 UI 라이브러리",
-					"experience": "5년 이상",
-					"projects": "150개 이상 프로젝트"
+					"description": "컴포넌트 기반 UI 라이브러리."
 				},
 				"nextjs": {
-					"description": "풀스택 React 프레임워크",
-					"experience": "4년 이상",
-					"projects": "100개 이상 프로젝트"
+					"description": "풀스택 React 프레임워크"
 				},
 				"typescript": {
-					"description": "타입이 지정된 JavaScript 확장",
-					"experience": "4년 이상",
-					"projects": "120개 이상 프로젝트"
+					"description": "타입 자바스크립트 슈퍼셋"
 				},
 				"tailwind": {
-					"description": "유틸리티 우선 CSS 프레임워크",
-					"experience": "3년 이상",
-					"projects": "80개 이상 프로젝트"
+					"description": "유틸리티 우선 CSS 프레임워크"
 				},
 				"vue": {
-					"description": "점진적 JavaScript 프레임워크",
-					"experience": "3년 이상",
-					"projects": "60개 이상 프로젝트"
+					"description": "점진적 JavaScript 프레임워크"
 				},
 				"angular": {
-					"description": "모바일 및 데스크톱 앱 구축 플랫폼",
-					"experience": "4년 이상",
-					"projects": "70개 이상 프로젝트"
+					"description": "모바일 및 데스크톱 앱 구축 플랫폼"
 				}
 			}
 		},
 		"backend": {
 			"title": "백엔드 개발",
-			"description": "확장 가능한 서버 측 애플리케이션 및 강력한 API",
+			"description": "확장 가능한 서버 사이드 애플리케이션 및 견고한 API 구축",
 			"technologies": {
 				"nodejs": {
-					"description": "JavaScript 런타임 환경",
-					"experience": "5년 이상",
-					"projects": "130개 이상 프로젝트"
+					"description": "JavaScript 런타임 환경"
 				},
 				"python": {
-					"description": "다목적 프로그래밍 언어",
-					"experience": "6년 이상",
-					"projects": "90개 이상 프로젝트"
+					"description": "다목적 프로그래밍 언어"
 				},
 				"java": {
-					"description": "엔터프라이즈급 프로그래밍 언어",
-					"experience": "7년 이상",
-					"projects": "110개 이상 프로젝트"
+					"description": "엔터프라이즈급 프로그래밍 언어"
 				},
 				"express": {
-					"description": "빠른 Node.js 웹 프레임워크",
-					"experience": "5년 이상",
-					"projects": "120개 이상 프로젝트"
+					"description": "빠른 Node.js 웹 프레임워크"
 				},
 				"django": {
-					"description": "고수준 Python 웹 프레임워크",
-					"experience": "4년 이상",
-					"projects": "65개 이상 프로젝트"
+					"description": "고수준 Python 웹 프레임워크"
 				},
 				"spring": {
-					"description": "Java 기반 프레임워크",
-					"experience": "5년 이상",
-					"projects": "85개 이상 프로젝트"
+					"description": "자바 기반 프레임워크 "
 				}
 			}
 		},
@@ -192,87 +168,64 @@
 			"description": "네이티브 및 크로스 플랫폼 모바일 애플리케이션",
 			"technologies": {
 				"react_native": {
-					"description": "크로스 플랫폼 모바일 프레임워크",
-					"experience": "4년 이상",
-					"projects": "75개 이상 프로젝트"
+					"description": "크로스 플랫폼 모바일 프레임워크"
 				},
 				"flutter": {
-					"description": "Google의 UI 툴킷",
-					"experience": "3년 이상",
-					"projects": "50개 이상 프로젝트"
+					"description": "Google의 UI 툴킷"
 				},
 				"ios": {
-					"description": "네이티브 iOS 개발",
-					"experience": "5년 이상",
-					"projects": "60개 이상 프로젝트"
+					"description": "네이티브 iOS 개발"
 				},
 				"android": {
-					"description": "네이티브 Android 개발",
-					"experience": "5년 이상",
-					"projects": "70개 이상 프로젝트"
+					"description": "네이티브 Android 개발"
 				},
 				"xamarin": {
-					"description": "Microsoft의 모바일 플랫폼",
-					"experience": "3년 이상",
-					"projects": "40개 이상 프로젝트"
+					"description": "Microsoft의 모바일 플랫폼"
 				},
 				"ionic": {
-					"description": "하이브리드 모바일 앱 프레임워크",
-					"experience": "3년 이상",
-					"projects": "45개 이상 프로젝트"
+					"description": "하이브리드 모바일 앱 프레임워크"
 				}
 			}
 		},
 		"bigdata": {
-			"title": "Big Data & Analytics",
-			"description": "Modern tools for processing, analyzing, and visualizing large-scale data.",
+			"title": "빅데이터 및 분석",
+			"description": "대용량 데이터 처리, 분석, 시각화하기 위한 최신 도구.",
 			"technologies": {
 				"hadoop": {
 					"name": "Hadoop",
-					"description": "Distributed system for batch processing with MapReduce.",
-					"experience": "Used for data lake and warehouse batch jobs.",
-					"projects": "Built ETL pipelines for historical data."
+					"description": "MapReduce를 활용한 배치 처리용 분산 시스템."
 				},
 				"spark": {
 					"name": "Spark",
-					"description": "Fast engine for batch and real-time data processing.",
-					"experience": "Handled both streaming and batch pipelines.",
-					"projects": "Created real-time dashboards with Spark Streaming."
+					"description": "배치 및 실시간 데이터 처리를 위한 고속 엔진."
 				},
 				"kafka": {
 					"name": "Kafka",
-					"description": "Scalable event streaming for real-time data flows.",
-					"experience": "Decoupled microservices and ingested event data.",
-					"projects": "Processed IoT data with Kafka and Spark."
+					"description": "실시간 데이터 흐름을 위한 확장 가능한 이벤트 스트리밍 시스템."
 				},
 				"elasticsearch": {
 					"name": "Elasticsearch",
-					"description": "Search and analytics engine for large datasets.",
-					"experience": "Indexed and queried semi-structured data.",
-					"projects": "Built log analytics and in-app search systems."
+					"description": "대용량 데이터셋을 위한 검색 및 분석 엔진."
 				},
 				"bigQueryLogo": {
 					"name": "BigQuery",
-					"description": "Serverless data warehouse for fast SQL queries.",
-					"experience": "Queried petabyte-scale datasets with ease.",
-					"projects": "Analyzed marketing and user behavior data."
+					"description": "빠른 SQL 쿼리를 위한 서버리스 데이터 웨어하우스."
 				},
 				"powerBI": {
 					"name": "Power BI",
-					"description": "Business intelligence tool for data visualization.",
-					"experience": "Built dashboards and automated reports.",
-					"projects": "Delivered sales and operations dashboards."
+					"description": "데이터 시각화를 위한 비즈니스 인텔리전스 도구."
 				}
 			}
 		},
 		"cta": {
-			"description": "다음 프로젝트에 저희의 기술 전문성을 더해보세요. 여러분의 비전을 현실로 구현할 방법에 대해 함께 이야기해보겠습니다.",
+			"des_1": "다음 프로젝트에 저희의 기술 역량을 활용해보시겠습니까?",
+			"des_2": "고객님의 비전을 실현할 수 있는 방법을 함께 이야기해보세요.",
 			"button": "프로젝트 시작하기"
 		}
 	},
 	"industries": {
-		"title": "주요 사업 분야",
-		"description": "T2 Soft는 다양한 산업 분야에서 축적한 풍부한 프로젝트 경험과 기술 전문성을 바탕으로, 고객 맞춤형 IT 솔루션을 제공합니다. 고객의 비즈니스 가치를 핵심 사업 분야 극대화하고, 효율성과 혁신을 동시에 실현할 수 있도록 T2 Soft가 함께합니다.",
+		"title": "주요 사업",
+		"description": "T2 Soft는 다양한 산업 분야에서 축적한 풍부한 프로젝트 경험과 기술 전문성을 바탕으로, 고객 맞춤형 IT 솔루션을 제공합니다. 고객의 비즈니스 가치를 극대화하고, 효율성과 혁신을 동시에 실현할 수 있도록 T2 Soft가 함께합니다.",
 		"status": {
 			"expertise": "엑스퍼티스",
 			"advanced": "고급",
@@ -659,8 +612,8 @@
 	},
 	"contact": {
 		"title": "문의하기",
-		"description": "아이디어를 현실로 만들 준비가 되셨나요?",
-		"description2": "T2soft가 귀사의 기술 목표 달성을 어떻게 도와 드릴 수 있는지 함께 이야기해 보세요. 저희 팀이 귀사의 비전을 현실로 만들어 드릴 준비가 되어 있습니다.",
+		"description": "아이디어를 현신로 만들 준비가 되셨나요?",
+		"description2": "T2 Soft와 함께 성공적인 디지털 여정을 시작하세요. 저희 팀은 고객님의 비전을 현실로 만들 준비가 되어 있습니다.",
 		"description_sub": {
 			"expert": "비즈니스 요구에 맞춘 전문가 상담 서비스",
 			"cutting_edge": "최첨단 기술 솔루션",

@@ -117,34 +117,20 @@
 			"description": "Building modern, responsive, and interactive user interfaces",
 			"technologies": {
 				"react": {
-					"description": "Component-based UI library",
-					"experience": "5+ years",
-					"projects": "150+ projects"
+					"description": "Component-based UI library"
 				},
-				"nextjs": {
-					"description": "Full-stack React framework",
-					"experience": "4+ years",
-					"projects": "100+ projects"
-				},
+				"nextjs": {},
 				"typescript": {
-					"description": "Typed JavaScript superset",
-					"experience": "4+ years",
-					"projects": "120+ projects"
+					"description": "Typed JavaScript superset"
 				},
 				"tailwind": {
-					"description": "Utility-first CSS framework",
-					"experience": "3+ years",
-					"projects": "80+ projects"
+					"description": "Utility-first CSS framework"
 				},
 				"vue": {
-					"description": "Progressive JavaScript framework",
-					"experience": "3+ years",
-					"projects": "60+ projects"
+					"description": "Progressive JavaScript framework"
 				},
 				"angular": {
-					"description": "Platform for building mobile and desktop apps",
-					"experience": "4+ years",
-					"projects": "70+ projects"
+					"description": "Platform for building mobile and desktop apps"
 				}
 			}
 		},
@@ -153,34 +139,22 @@
 			"description": "Scalable server-side applications and robust APIs",
 			"technologies": {
 				"nodejs": {
-					"description": "JavaScript runtime environment",
-					"experience": "5+ years",
-					"projects": "130+ projects"
+					"description": "JavaScript runtime environment"
 				},
 				"python": {
-					"description": "Versatile programming language",
-					"experience": "6+ years",
-					"projects": "90+ projects"
+					"description": "Versatile programming language"
 				},
 				"java": {
-					"description": "Enterprise-grade programming language",
-					"experience": "7+ years",
-					"projects": "110+ projects"
+					"description": "Enterprise-grade programming language"
 				},
 				"express": {
-					"description": "Fast Node.js web framework",
-					"experience": "5+ years",
-					"projects": "120+ projects"
+					"description": "Fast Node.js web framework"
 				},
 				"django": {
-					"description": "High-level Python web framework",
-					"experience": "4+ years",
-					"projects": "65+ projects"
+					"description": "High-level Python web framework"
 				},
 				"spring": {
-					"description": "Java-based framework",
-					"experience": "5+ years",
-					"projects": "85+ projects"
+					"description": "Java-based framework"
 				}
 			}
 		},
@@ -189,34 +163,22 @@
 			"description": "Native and cross-platform mobile applications",
 			"technologies": {
 				"react_native": {
-					"description": "Cross-platform mobile framework",
-					"experience": "4+ years",
-					"projects": "75+ projects"
+					"description": "Cross-platform mobile framework"
 				},
 				"flutter": {
-					"description": "Google's UI toolkit",
-					"experience": "3+ years",
-					"projects": "50+ projects"
+					"description": "Google's UI toolkit"
 				},
 				"ios": {
-					"description": "Native iOS development",
-					"experience": "5+ years",
-					"projects": "60+ projects"
+					"description": "Native iOS development"
 				},
 				"android": {
-					"description": "Native Android development",
-					"experience": "5+ years",
-					"projects": "70+ projects"
+					"description": "Native Android development"
 				},
 				"xamarin": {
-					"description": "Microsoft's mobile platform",
-					"experience": "3+ years",
-					"projects": "40+ projects"
+					"description": "Microsoft's mobile platform"
 				},
 				"ionic": {
-					"description": "Hybrid mobile app framework",
-					"experience": "3+ years",
-					"projects": "45+ projects"
+					"description": "Hybrid mobile app framework"
 				}
 			}
 		},
@@ -226,39 +188,27 @@
 			"technologies": {
 				"hadoop": {
 					"name": "Hadoop",
-					"description": "Distributed system for batch processing with MapReduce.",
-					"experience": "Used for data lake and warehouse batch jobs.",
-					"projects": "Built ETL pipelines for historical data."
+					"description": "Distributed system for batch processing with MapReduce."
 				},
 				"spark": {
 					"name": "Spark",
-					"description": "Fast engine for batch and real-time data processing.",
-					"experience": "Handled both streaming and batch pipelines.",
-					"projects": "Created real-time dashboards with Spark Streaming."
+					"description": "Fast engine for batch and real-time data processing."
 				},
 				"kafka": {
 					"name": "Kafka",
-					"description": "Scalable event streaming for real-time data flows.",
-					"experience": "Decoupled microservices and ingested event data.",
-					"projects": "Processed IoT data with Kafka and Spark."
+					"description": "Scalable event streaming for real-time data flows."
 				},
 				"elasticsearch": {
 					"name": "Elasticsearch",
-					"description": "Search and analytics engine for large datasets.",
-					"experience": "Indexed and queried semi-structured data.",
-					"projects": "Built log analytics and in-app search systems."
+					"description": "Search and analytics engine for large datasets."
 				},
 				"bigQueryLogo": {
 					"name": "BigQuery",
-					"description": "Serverless data warehouse for fast SQL queries.",
-					"experience": "Queried petabyte-scale datasets with ease.",
-					"projects": "Analyzed marketing and user behavior data."
+					"description": "Serverless data warehouse for fast SQL queries."
 				},
 				"powerBI": {
 					"name": "Power BI",
-					"description": "Business intelligence tool for data visualization.",
-					"experience": "Built dashboards and automated reports.",
-					"projects": "Delivered sales and operations dashboards."
+					"description": "Business intelligence tool for data visualization."
 				}
 			}
 		},
@@ -270,7 +220,7 @@
 	},
 	"industries": {
 		"title": "Industries We Transform",
-		"description": "Discover our specialized expertise across five key industries, where we deliver innovative solutions that drive digital transformation and business growth.",
+		"description": "T2 Soft leverages extensive project experience and technical expertise across various industries to deliver customized IT solutions. We work hand-in-hand with our clients to maximize business value, driving both efficiency and innovation.",
 		"status": {
 			"expertise": "Expertise",
 			"advanced": "Advanced",

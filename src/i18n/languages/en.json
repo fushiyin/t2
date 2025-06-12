@@ -338,7 +338,7 @@
 	},
 	"process": {
 		"title": "Our Working Process",
-		"description": "T2Soft delivers fast and efficient IT services through a standardized and professional process, precisely tailored to meet each client's needs.",
+		"description": "T2Soft delivers fast and efficient IT services through a standardized and professional process, precisely tailored to meet each client's needs",
 		"navigation": {
 			"previous": "Previous",
 			"next": "Next"
@@ -346,57 +346,57 @@
 		"steps": {
 			"client_request": {
 				"title": "Client Request",
-				"description": "We gather the client’s project goals and define the initial direction.",
+				"description": "We gather the client’s project goals and define the initial direction",
 				"details": [
-					"Define project objectives and scope.",
-					"Collect related materials and references.",
-					"Establish communication channels.",
-					"Share initial timeline and budget."
+					"Define project objectives and scope",
+					"Collect related materials and references",
+					"Establish communication channels",
+					"Share initial timeline and budget"
 				]
 			},
 			"requirement_analysis": {
 				"title": "Requirement Analysis",
-				"description": "We analyze the client's requirements in detail to determine development feasibility and scope.",
+				"description": "We analyze the client's requirements in detail to determine development feasibility and scope",
 				"details": [
-					"Identify core features and detailed requirements.",
-					"Review technical feasibility and potential risks.",
-					"Estimate timeline and resource needs.",
-					"Anticipate potential issues and define response strategies."
+					"Identify core features and detailed requirements",
+					"Review technical feasibility and potential risks",
+					"Estimate timeline and resource needs",
+					"Anticipate potential issues and define response strategies"
 				]
 			},
 			"proposal": {
 				"title": "Proposal",
-				"description": "Based on the analysis, we provide an optimized development proposal.",
+				"description": "Based on the analysis, we provide an optimized development proposal",
 				"details": [
-					"Define development scope and phased approach.",
-					"Prepare cost estimates and manpower plan.",
-					"Suggest collaboration and communication methods.",
-					"Deliver and explain the proposal to the client."
+					"Define development scope and phased approach",
+					"Prepare cost estimates and manpower plan",
+					"Suggest collaboration and communication methods",
+					"Deliver and explain the proposal to the client"
 				]
 			},
 			"client_approval": {
 				"title": "Client Approval",
-				"description": "We finalize the proposal by incorporating the client's review and feedback.",
+				"description": "We finalize the proposal by incorporating the client's review and feedback",
 				"details": [
-					"Review proposal and collect feedback.",
-					"Apply necessary revisions and improvements.",
-					"Confirm final scope and timeline.",
-					"Prepare for contract signing."
+					"Review proposal and collect feedback",
+					"Apply necessary revisions and improvements",
+					"Confirm final scope and timeline",
+					"Prepare for contract signing"
 				]
 			},
 			"contract_sign_off": {
 				"title": "Contract Signing",
-				"description": "A formal contract is signed based on the agreed terms and conditions.",
+				"description": "A formal contract is signed based on the agreed terms and conditions",
 				"details": [
-					"Draft and coordinate the contract.",
-					"Specify cost, schedule, and project scope.",
-					"Assign project manager and key contacts.",
-					"Complete and archive the signed agreement."
+					"Draft and coordinate the contract",
+					"Specify cost, schedule, and project scope",
+					"Assign project manager and key contacts",
+					"Complete and archive the signed agreement"
 				]
 			},
 			"project_kick_off": {
 				"title": "Project Kick-off",
-				"description": "After signing, the project officially begins with a dedicated development team.",
+				"description": "After signing, the project officially begins with a dedicated development team",
 				"details": [
 					"Assign dedicated resources",
 					"Conduct kick-off meeting",

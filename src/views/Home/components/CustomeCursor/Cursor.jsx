@@ -17,6 +17,7 @@ const CustomCursor = () => {
 		trailContainer.style.height = "100vh";
 		trailContainer.style.pointerEvents = "none";
 		trailContainer.style.zIndex = "9998";
+
 		document.body.appendChild(trailContainer);
 		trailContainerRef.current = trailContainer;
 

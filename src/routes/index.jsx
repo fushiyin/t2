@@ -12,8 +12,7 @@ const Contact = React.lazy(() => import("@/views/Contact"));
 const Careers = React.lazy(() => import("@/views/Career"));
 const Services = React.lazy(() => import("@/views/ServicesPage"));
 const Blog = React.lazy(() => import("@/views/Blog"));
-// const Solution = React.lazy(() => import("@/views/SolutionAndProduct"));
-const Solution = React.lazy(() => import("@/views/ServicesPage"));
+const Solution = React.lazy(() => import("@/views/SolutionAndProduct"));
 const Login = React.lazy(() => import("@/views/Login"));
 const Dashboard = React.lazy(() => import("@/views/Admin/pages/Dashboard"));
 const Inbox = React.lazy(() => import("@/views/Admin/pages/Inbox"));
@@ -64,6 +63,10 @@ const router = createBrowserRouter([
 			{
 				path: idRouter.careerDetail,
 				element: <CareersDetail />,
+			},
+			{
+				path: idRouter.solution_check,
+				element: <Solution />,
 			},
 			{
 				path: "*",

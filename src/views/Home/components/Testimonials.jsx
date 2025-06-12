@@ -13,75 +13,54 @@ export default function Testimonials({ contentClass }) {
 		// First row (scrolls right to left)
 		[
 			{
-				name: "Michael P.",
-				username: "@moderator0n",
+				name: "TK Lee .",
+				username: "@Knim",
 				avatar: "/placeholder.svg?height=40&width=40",
 				content:
-					"After installing T2soft on a bunch of machines on my home network, it just worked out. Had to restart the process but holy moly, just SSH'ed into my boxes, building code and pushing configs around like I'm home. Amazing. Converted!",
+					"T2Soft delivered beyond our expectations. Their team was responsive, professional, and deeply knowledgeable.",
 			},
 			{
-				name: "Grace Chen",
-				username: "@gracetechie",
+				name: "Han YS",
+				username: "@yshan",
 				avatar: "/placeholder.svg?height=40&width=40",
 				content:
-					"The hardest thing to understand about T2soft is that there are no hard things to understand about it and it just works. Their support team is also incredibly responsive.",
-			},
-			{
-				name: "Liam Keegan",
-				username: "@LiamJKeegan",
-				avatar: "/placeholder.svg?height=40&width=40",
-				content:
-					"This is sweet! Redirecting authentication to T2soft to handle it for you eliminates the need to manage credentials. And EVERYTHING is protected, regardless of where the workload lives. AWESOME!",
+					"Working with T2Soft was a game-changer for our technical transformation. Their team was proactive, communicative, and technically sound. They didn’t just follow our requirements — they enhanced them with smart suggestions that improved both user experience and system performance.",
 			},
 		],
 
 		// Second row (scrolls left to right)
 		[
 			{
-				name: "Morgan Gallant",
-				username: "@morgallant",
+				name: "Jeong GH",
+				username: "@MrJ",
 				avatar: "/placeholder.svg?height=40&width=40",
 				content:
-					"The beauty of T2soft is that they enable people to make their own personal internet, for free in most cases. It's this weird paradigm shift, since you have to actively work to make applications insecure rather than the other way around.",
+					"The T2Soft team brought our vision to life with professionalism and agility. Their understanding of modern frameworks and attention to detail helped us launch a stable, scalable web platform on time. We look forward to future collaborations.",
 			},
 			{
-				name: "Sarah Kim",
-				username: "@techyteachme",
+				name: "Kwak JH",
+				username: "@jhkwak",
 				avatar: "/placeholder.svg?height=40&width=40",
 				content:
-					"Just set up T2soft and my entire team was connected within minutes. The onboarding experience was so smooth that even our non-technical staff had no issues getting started.",
-			},
-			{
-				name: "Martin Lucina",
-				username: "@matolucina",
-				avatar: "/placeholder.svg?height=40&width=40",
-				content:
-					"Install T2soft. Click 'Share node'. Send link. 2 minutes later, someone who's never used T2soft before reports 'I can connect to the machine, this works like magic!'",
+					"T2Soft delivered not just a product, but a complete solution. They took the time to understand our goals and provided valuable input throughout the development cycle. The final system was efficient, user-friendly, and exceeded our expectations.",
 			},
 		],
 
 		// Third row (scrolls right to left)
 		[
 			{
-				name: "John Lynch",
-				username: "@johnrlynch",
+				name: "Lee SY",
+				username: "@synim",
 				avatar: "/placeholder.svg?height=40&width=40",
 				content:
-					"If you deal with servers in any way drop everything and get this. VPN nirvana. T2soft is a game-changer for our development team's productivity.",
+					"We were amazed by how T2Soft balanced speed and reliability. Even with tight deadlines, their team ensured a stable rollout and provided responsive technical support throughout the entire process.",
 			},
 			{
-				name: "Jasmine Prabowski",
-				username: "@jmsprbw",
+				name: "MG Bang",
+				username: "@bangmung",
 				avatar: "/placeholder.svg?height=40&width=40",
 				content:
-					"I am not an investor in T2soft (though, I wish I were). From my lens they will change how we all use the internet. Just a question of when, not if. Seriously impressed with their service.",
-			},
-			{
-				name: "Sumer Cip",
-				username: "@sumercip",
-				avatar: "/placeholder.svg?height=40&width=40",
-				content:
-					"I don't like ranting about software. But I will make an exception: T2soft is really AMAZING! I have managed to set it up for my personal use WITHOUT reading a single line of documentation.",
+					"From planning to deployment, T2Soft worked with agility and precision. The system was up and running smoothly, and their technical support team was always available when we needed them!'",
 			},
 		],
 	];

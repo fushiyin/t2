@@ -54,11 +54,10 @@
 	"menu_drawer": "메뉴",
 	"footer": {
 		"company": "회사",
-		"documentation": "문서",
+		"documentation": "자료",
 		"privacy": "성공 사례",
 		"resources": "리소스",
-		"studies": "사례 연구",
-		"terms": "서비스 약관"
+		"studies": "사례"
 	},
 	"menu": {
 		"about": "소개",
@@ -419,7 +418,7 @@
 		}
 	},
 	"contact_cta": {
-		"title": "아이디어를 현신로 만들 준비가 되셨나요?",
+		"title": "아이디어를 현실로 만들 준비가 되셨나요?",
 		"description": "T2 Soft와 함께 성공적인 디지털 여정을 시작하세요. 저희 팀은 고객님의 비전을 현실로 만들 준비가 되어 있습니다.",
 		"contact_button": "문의하기",
 		"services_button": "서비스 살펴보기"
@@ -447,19 +446,19 @@
 		}
 	},
 	"faq": {
-		"title": "자주 묻는 질문",
+		"title": "자주 묻는 질문 (FAQ)",
 		"questions": {
 			"services": {
 				"question": "어떤 프로그래밍 서비스를 제공하나요?",
-				"answer": "웹 및 모바일 앱 개발, 백엔드 시스템, API 통합, 유지보수 지원을 포함한 종합적인 소프트웨어 개발 서비스를 제공합니다."
+				"answer": "웹 및 모바일 앱 개발, 백엔드 개발, API 통합, 유지보수 지원을 포함한 엔 투 엔 소프트웨어 개발 서비스를 제공합니다."
 			},
 			"technologies": {
-				"question": "어떤 기술에 전문성이 있나요?",
-				"answer": "JavaScript(React, Node.js), Python, Java, PHP, .NET 및 AWS, Azure와 같은 클라우드 플랫폼을 포함한 다양한 기술에 전문성을 보유하고 있습니다."
+				"question": "주로 사용하는 기술 스택은 무엇인가요?",
+				"answer": "T2 Soft 팀은 JavaScript(React, Node.js), Python, Java, PHP, .NET 등 다양한 최신 기술 스택에 대한 깊은 전문성과 실무 경험을 보유하고 있습니다. 또한 AWS, Azure 등 글로벌 클라우드 플랫폼에서도 검증된 역량을 바탕으로 안정적이고 확장 가능한 솔루션을 제공합니다."
 			},
 			"quality": {
 				"question": "코드 품질은 어떻게 보장하나요?",
-				"answer": "코드 리뷰, 단위 테스트, 지속적 통합, 버전 관리 등 모범 사례를 따르며 높은 코드 품질을 유지합니다."
+				"answer": "높은 코드 품질을 유지하기 위해 코드 리뷰, 단위 테스트, 지속적인 통합(CI), 버전 관리 등의 최적의 개발 방법론을 철저히 준수하고 있습니다."
 			},
 			"communication": {
 				"question": "개발자와 직접 소통할 수 있나요?",
@@ -485,9 +484,9 @@
 	"slogan": "Where Innovation Meets Execution",
 	"services": {
 		"hero": {
-			"title": "혁신적인 솔루션으로",
+			"title": "T2 Soft과 함께하는 비즈니스 혁신의 시작",
 			"highlight": "비즈니스를 혁신하세요",
-			"description": "맞춤형 소프트웨어부터 AI 솔루션까지, 귀사의 비즈니스를 성장시키기 위한 포괄적인 기술 서비스를 제공합니다.",
+			"description": "비즈니스를 성장시키기 위한 T2 Soft의 종합 기술 서비스를 만나보세요. 맞춤형 소프트웨어부터 AI 솔루션까지, 비즈니스에 꼭 맞는 최적의 기술 서비스를 제공합니다.",
 			"cta": "시작하기",
 			"subtitle": "디지털 혁신을 위한 파트너",
 			"stats": {
@@ -597,17 +596,17 @@
 	},
 	"careers": {
 		"title": "채용 공고",
-		"description": "저희의 역동적인 팀에 합류하여 혁신, 협업, 그리고 개인 성장을 중시하는 회사의 작원이 되세요. T2 Soft와 함께 흥미로운 채용 기회를 탐색해 보세요.",
-		"open_positions": "채용 공고",
+		"description": "T2 Soft와 함께 성장하고 싶은 분을 기다리고 있습니다. 혁신과 협업을 중시하며, 개인의 성장을 응원하는 저희 팀에 합류해 보세요. 지금 바로 다양한 커리어 기회를 확인해보세요!",
+		"open_positions": "현재 채용 중인 포지션",
 		"apply_now": "지금 지원하기",
 		"title_cv": "아직 적합한 포지션을 찾지 못하셨나요?",
-		"description_cv": "걱정하지 마세요! 이력서를 남겨주시면 적합한 포지션이 생길 때 연락드리겠습니다.",
+		"description_cv": "걱정하지 마세요! 이력서를 남겨주시면 적합한 생겼을 때 바로 연락드리겠습니다.",
 		"apply_cv": "이력서 제출하기",
-		"collaborative": "협력적인 문화",
-		"collaborative_description": "팀워크와 지식 공유를 중시하는 지원 환경에서 함께 성장하세요.",
+		"collaborative": "협업 중심의 문화",
+		"collaborative_description": "T2 Soft에서는 혼자보다 함께의 힘을 믿습니다. 서로의 아이디어를 존중하고 지식을 나누며, 다양한 관점을 통해 더 나은 결과를 만들어갑니다. 열린 커뮤니케이션과 팀워크를 바탕으로, 누구나 성장할 수 있는 협력적인 문화를 만들어가고 있습니다.",
 		"learning": "지속적인 학습",
-		"learning_description": "전문성 향상을 위해 교육, 컨퍼런스 및 다양한 자료를 이용하실 수 있습니다.",
-		"challenging": "도전적인 프로젝트",
+		"learning_description": "개인의 성장이 곧 회사의 성장이라고 믿습니다. 빠르게 변화하는 IT 환경에 발맞춰 최신 기술 트렌드를 학습할 수 있는 다양한 교육 기회를 제공합니다. 세미나, 워크숍, 온라인 강의 등 지속적인 역량 향상을 통해 누구나 전문가로 성장할 수 있는 환경을 만들어갑니다.",
+		"challenging": "도전정신",
 		"challenging_description": "기술의 한계를 뛰어넘는 다양한 혁신 프로젝트에 참여하세요."
 	},
 	"contact": {
@@ -617,7 +616,7 @@
 		"description_sub": {
 			"expert": "비즈니스 요구에 맞춘 전문가 상담 서비스",
 			"cutting_edge": "최첨단 기술 솔루션",
-			"dedicated": "프로젝트 전반에 걸친 전담 지원 제공"
+			"dedicated": "프로젝트 시작부터 완료까지 책임 있는 전담 지원"
 		},
 		"form": {
 			"name": "이름",
@@ -632,6 +631,34 @@
 			"submitting": "전송 중...",
 			"success_submit": "메시지가 성공적으로 전송되었습니다!",
 			"success_message": "문의해 주셔서 감사합니다! 곧 연락드리겠습니다."
+		}
+	},
+	"our_services": {
+		"title": "Our Services",
+		"description": "Discover our comprehensive range of technology solutions",
+		"global_development": {
+			"title": "Global Development Center",
+			"description": "Your Reliable Global Development Partner"
+		},
+		"system_integration": {
+			"title": "System Integration (SI)",
+			"description": "Seamless System Integration for a Smarter Enterprise"
+		},
+		"it_consulting": {
+			"title": "IT Consulting",
+			"description": "Empowering Smarter Decisions with Expert IT Consulting"
+		},
+		"solution_provider": {
+			"title": "Solution Provider",
+			"description": "Empower your business with intelligent, future-ready solutions from a partner you can trust"
+		},
+		"ai_machine_learning": {
+			"title": "AI & Machine Learning",
+			"description": "Turning AI Innovation into Real Business Impact"
+		},
+		"big_data": {
+			"title": "Big Data & Data Analytics",
+			"description": "From data to insights, from insights to successful decisions"
 		}
 	}
 }

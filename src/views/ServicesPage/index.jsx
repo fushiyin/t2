@@ -99,7 +99,7 @@ export default function ServicesPage() {
 
 	return (
 		<div className="w-full">
-			<section className="relative bg-muted/50 min-h-[50vh] flex items-center bg-background overflow-hidden">
+			<section className="relative bg-muted/50 min-h-[50vh] flex items-center overflow-hidden">
 				<div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary/5 via-background to-background" />
 				<div className="container relative mx-auto px-4 max-w-[1440px]">
 					<div className="max-w-3xl mx-auto text-center">
@@ -111,7 +111,7 @@ export default function ServicesPage() {
 						>
 							<h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight font-sans break-keep whitespace-normal break-words">
 								{t("services.hero.title")}{" "}
-								<span className="text-primary">{t("services.hero.highlight")}</span>
+								{/* <span className="text-primary">{t("services.hero.highlight")}</span> */}
 							</h2>
 
 							<p className="text-xl text-muted-foreground font-sans break-keep whitespace-normal break-words">

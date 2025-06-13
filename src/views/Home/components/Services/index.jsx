@@ -6,6 +6,12 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
+import IT_Consulting from "@/assets/img/IT_Consulting.jpg";
+import System_Integration from "@/assets/img/System_Integration.jpg";
+import Bigdata_Analysis from "@/assets/img/Bigdata_Analysis.jpg";
+import Solution_Provider from "@/assets/img/Solution_Provider.png";
+import Development_Center from "@/assets/img/Development_Center.png";
+import AI from "@/assets/img/AI.png";
 
 const Services = ({ contentClass }) => {
 	const { t } = useTranslation();
@@ -13,9 +19,8 @@ const Services = ({ contentClass }) => {
 		{
 			id: 1,
 			name: "Global Development Center",
-			description:
-				"Our Global Development Center delivers end-to-end technology solutions tailored to your business needs. We help businesses accelerate digital transformation with agility, quality, and trust.",
-			image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop",
+			description: "Your Reliable Global Development Partner",
+			image: Development_Center,
 			details: [
 				"Frontend & Backend Development",
 				"Hybrid & Native App Development",
@@ -28,7 +33,7 @@ const Services = ({ contentClass }) => {
 			name: "System Integration (SI)",
 			description:
 				"Our Global Development Center delivers end-to-end technology solutions tailored to your business needs. We help businesses accelerate digital transformation with agility, quality, and trust.",
-			image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=2070&auto=format&fit=crop",
+			image: System_Integration,
 			details: [
 				"Integrated System Development",
 				"Data Integration & Management",
@@ -40,7 +45,7 @@ const Services = ({ contentClass }) => {
 			name: "IT Consulting",
 			description:
 				"Our Global Development Center delivers end-to-end technology solutions tailored to your business needs. We help businesses accelerate digital transformation with agility, quality, and trust.",
-			image: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop",
+			image: IT_Consulting,
 			details: [
 				"IT Strategy Development",
 				"System Diagnosis & Improvement",
@@ -52,7 +57,7 @@ const Services = ({ contentClass }) => {
 			name: "Solution Provider",
 			description:
 				"Our Global Development Center delivers end-to-end technology solutions tailored to your business needs. We help businesses accelerate digital transformation with agility, quality, and trust.",
-			image: "https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=2070&auto=format&fit=crop",
+			image: Solution_Provider,
 			details: [
 				"Smart Office, Smart Factory, Banking solution",
 				"Modular/Scalable Software Supply",
@@ -64,7 +69,7 @@ const Services = ({ contentClass }) => {
 			name: "AI & Machine Learning",
 			description:
 				"Our Global Development Center delivers end-to-end technology solutions tailored to your business needs. We help businesses accelerate digital transformation with agility, quality, and trust.",
-			image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2070&auto=format&fit=crop",
+			image: AI,
 			details: [
 				"Machine Learning Model Development",
 				"Natural Language Processing",
@@ -78,7 +83,7 @@ const Services = ({ contentClass }) => {
 			name: "Big Data & Data Analysis",
 			description:
 				"Our Global Development Center delivers end-to-end technology solutions tailored to your business needs. We help businesses accelerate digital transformation with agility, quality, and trust.",
-			image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop",
+			image: Bigdata_Analysis,
 			details: [
 				"Big Data Processing & Analytics",
 				"Business Intelligence Solutions",
@@ -90,7 +95,7 @@ const Services = ({ contentClass }) => {
 	];
 
 	return (
-		<div className="w-full h-full">
+		<div className="w-full h-full bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white">
 			<div
 				className={classNames(
 					"max-w-[1440px] flex flex-col items-center justify-center gap-12 mx-auto",
@@ -100,10 +105,10 @@ const Services = ({ contentClass }) => {
 				)}
 			>
 				<div className="flex flex-col items-center justify-center space-y-4 text-center px-5 mb-5">
-					<h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-dark-gray">
+					<h2 className="text-3xl font-bold tracking-tighter sm:text-5xl pb-6 bg-gradient-to-r from-light-blue via-light-blue-gray to-pale-blue bg-clip-text text-transparent">
 						{t("services.section.title")}
 					</h2>
-					<p className="md:max-w-[900px] text-muted-foreground md:text-xl/relaxed">
+					<p className="md:max-w-[900px] text-white md:text-xl/relaxed">
 						{t("services.section.description")}
 					</p>
 				</div>
@@ -112,27 +117,30 @@ const Services = ({ contentClass }) => {
 					spaceBetween={30}
 					slidesPerView={1}
 					navigation
-					pagination={{ clickable: true }}
-					autoplay={{
-						delay: 5000,
-						disableOnInteraction: false,
+					pagination={{
+						clickable: true,
+						bulletClass: "swiper-pagination-bullet",
+						bulletActiveClass: "swiper-pagination-bullet-active",
 					}}
+					// autoplay={{
+					// 	delay: 5000,
+					// 	disableOnInteraction: false,
+					// }}
 					className="w-full h-[600px]"
 				>
 					{services.map((service) => (
 						<SwiperSlide key={service.id}>
-							<div className="relative flex flex-col md:flex-row h-full bg-white/80 rounded-2xl shadow-lg overflow-hidden">
+							<div className="relative flex flex-col md:flex-row h-full bg-transparent rounded-2xl shadow-lg overflow-hidden">
 								{/* Image Section */}
-								<div className="w-[50%] h-[95%] relative flex ">
-									<div className="absolute left-[60px] top-1/2 -translate-y-1/2 w-[20px] h-[60%] bg-gradient-to-r from-pale-blue to-light-blue" />
-									<div className="absolute left-[80px] w-[90%] h-[95%] flex items-center justify-center bg-white shadow-xl rounded-lg overflow-hidden mx-auto">
+								<div className="w-[60%] h-[95%] relative flex ">
+									<div className="absolute left-[80px] top-1/2 -translate-y-1/2 w-[20px] h-[60%] bg-light-blue" />
+									<div className="absolute left-[100px] w-[90%] h-[95%] flex items-center justify-center bg-white shadow-xl rounded-lg overflow-hidden mx-auto">
 										<img
 											src={service.image}
 											alt={service.name}
 											className="object-cover w-[95%] h-[95%]"
 										/>
 									</div>
-
 									{/* <div className="absolute bottom-6 right-0 -translate-x-1/2 flex gap-2">
 										{[...Array(5)].map((_, i) => (
 											<div
@@ -152,7 +160,7 @@ const Services = ({ contentClass }) => {
 								</div>
 
 								{/* Content Section */}
-								<div className="w-[50%] h-[90%]  md:w-1/2 pl-12 pr-8 pt-8 pb-8 flex flex-col justify-center">
+								<div className="w-[50%] h-[90%]  md:w-1/2 pl-16 pr-8 pt-8 pb-8 flex flex-col justify-center">
 									<h3 className="text-4xl font-bold mb-4 group-hover:text-primary transition-colors font-sans break-keep whitespace-normal break-words">
 										{service.name}
 									</h3>

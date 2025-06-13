@@ -10,6 +10,7 @@ import SideNavigation from "./components/SideNavigation";
 import Testimonials from "./components/Testimonials";
 import VisionJourney from "./components/Vision";
 import WhyVietnam from "./components/WhyVietnam";
+import Services from "./components/Services";
 
 function HomePage() {
 	const sectionClass = "flex items-center justify-center relative overflow-hidden";
@@ -29,22 +30,23 @@ function HomePage() {
 				<WhyVietnam contentClass={contentClass} />
 			</section>
 			<section
-				id={SECTIONS_KEY.COMPETITIVE_EDGES.id}
+				id={SECTIONS_KEY.SERVICES.id}
 				className={sectionClass}
 			>
-				<CompetitiveEdges contentClass={contentClass} />
-			</section>
-			<section
-				id={SECTIONS_KEY.DEVELOPMENT_CAPACITY.id}
-				className={sectionClass}
-			>
-				<DevelopmentCapacity contentClass={contentClass} />
+				<Services contentClass={contentClass} />
 			</section>
 			<section
 				id={SECTIONS_KEY.FOCUSED_INDUSTRIES.id}
 				className={sectionClass}
 			>
 				<FocusedIndustries contentClass={contentClass} />
+			</section>
+
+			<section
+				id={SECTIONS_KEY.DEVELOPMENT_CAPACITY.id}
+				className={sectionClass}
+			>
+				<DevelopmentCapacity contentClass={contentClass} />
 			</section>
 			<section
 				id={SECTIONS_KEY.OUR_PROCESS.id}

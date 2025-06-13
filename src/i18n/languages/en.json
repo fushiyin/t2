@@ -55,8 +55,7 @@
 		"documentation": "Documentation",
 		"privacy": "Success Story",
 		"resources": "Resources",
-		"studies": "Case Studies",
-		"terms": "Terms of Service"
+		"studies": "Case Studies"
 	},
 	"menu": {
 		"about": "About Us",
@@ -468,11 +467,15 @@
 	},
 	"about": {
 		"title": "About Us",
-		"description": "T2 Soft is a leading software development company with a strong focus on delivering high-quality solutions. We combine technical expertise with innovative thinking to help businesses transform their digital presence.",
-		"experience": "10+ years of industry experience",
-		"team": "Skilled team of 50+ professionals",
-		"projects": "200+ successful projects delivered",
-		"offices": "Global presence with offices in Vietnam and Korea",
+		"description": "Explore Our Services",
+		"content": "T2 Soft is an IT outsourcing and systems integration company providing software development, maintenance, and IT consulting services for global clients. Led by experienced Korean IT professionals and supported by a dynamic team of skilled Vietnamese developers, we combine technical expertise, cultural understanding, and cost-efficiency to deliver real business value. We specialize in developing smart, scalable, and reliable solutions tailored to our clients’ needs — from enterprise systems to AI-powered applications and custom software. At T2 Soft, we grow together with our clients — through innovation, transparency, and a shared vision for sustainable success.",
+		"experience": "T2 Soft Commit To",
+		"experience_list": {
+			"1": "Swift Action from Clear Understanding",
+			"2": "Quality-Driven Development Process",
+			"3": "Transparent Communication & Ongoing Collaboration",
+			"4": "Reliable Support Beyond Delivery"
+		},
 		"faq": {
 			"imageAlt": "Faqs"
 		}
@@ -480,7 +483,7 @@
 	"slogan": "Where Innovation Meets Execution",
 	"services": {
 		"hero": {
-			"title": "Transform Your Business with",
+			"title": "Transform Your Business with Innovative Solutions",
 			"highlight": "Innovative",
 			"description": "Discover our comprehensive range of technology services designed to drive your business forward. From custom software to AI solutions, we've got you covered.",
 			"cta": "Get Started",
@@ -630,5 +633,34 @@
 			"success_submit": "Message sent successfully!",
 			"success_message": "Thank you for reaching out! We will get back to you shortly."
 		}
+	},
+	"our_services": {
+		"title": "Our Services",
+		"description": "Discover our comprehensive range of technology solutions",
+		"global_development": {
+			"title": "Global Development Center",
+			"description": "Your Reliable Global Development Partner"
+		},
+		"system_integration": {
+			"title": "System Integration (SI)",
+			"description": "Seamless System Integration for a Smarter Enterprise"
+		},
+		"it_consulting": {
+			"title": "IT Consulting",
+			"description": "Empowering Smarter Decisions with Expert IT Consulting"
+		},
+		"solution_provider": {
+			"title": "Solution Provider",
+			"description": "Empower your business with intelligent, future-ready solutions from a partner you can trust"
+		},
+		"ai_machine_learning": {
+			"title": "AI & Machine Learning",
+			"description": "Turning AI Innovation into Real Business Impact"
+		},
+		"big_data": {
+			"title": "Big Data & Data Analytics",
+			"description": "From data to insights, from insights to successful decisions"
+		},
+		"button_learn_more": "Learn More"
 	}
 }

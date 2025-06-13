@@ -169,3 +169,12 @@
 .no-scrollbar::-webkit-scrollbar {
 	display: none;
 }
+
+.swiper-pagination-bullet {
+	background-color: white !important;
+	opacity: 1 !important;
+}
+
+.swiper-pagination-bullet-active {
+	background-color: #00aeef !important;
+}

@@ -69,7 +69,7 @@ export default function Testimonials({ contentClass }) {
 	const duplicatedTestimonials = testimonials.map((row) => [...row, ...row, ...row, ...row]);
 
 	return (
-		<div className="relative bg-dark-gray w-full flex items-center justify-center h-[760px] md:h-full">
+		<div className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white w-full flex items-center justify-center h-[760px] md:h-full">
 			<div
 				className={classNames(
 					"relative w-full flex items-center justify-center max-w-[1440px] h-full",
@@ -77,8 +77,8 @@ export default function Testimonials({ contentClass }) {
 				)}
 			>
 				{/* Absolutely positioned title with box shadow */}
-				<div className="absolute inset-10 md:inset-0 z-10 m-auto aspect-[1051/375] w-full max-w-[1051px] rounded-[300px]  blur-[97px] bg-dark-gray"></div>
-				<div className="absolute inset-10 md:inset-0 z-20 m-auto aspect-[639/229] w-full max-w-[639px] rounded-[300px] blur-[52px] bg-dark-gray"></div>
+				<div className="absolute inset-10 md:inset-0 z-10 m-auto aspect-[1051/375] w-full max-w-[1051px] rounded-[300px]  blur-[97px] bg-dark-gray/80"></div>
+				<div className="absolute inset-10 md:inset-0 z-20 m-auto aspect-[639/229] w-full max-w-[639px] rounded-[300px] blur-[52px] bg-dark-gray/80"></div>
 				<div className="absolute inset-10 md:inset-0 flex items-center justify-center">
 					<h2 className="z-30 w-full max-w-[600px] text-xl sm:text-2xl md:text-4xl lg:text-5xl font-bold  bg-gradient-to-r from-light-blue via-light-blue-gray to-pale-blue bg-clip-text text-transparent text-center px-6 py-4 sm:px-8 sm:py-5 md:px-[30px] md:py-[25px] rounded-[10px]">
 						{t("testimonials.title")}
@@ -132,7 +132,7 @@ function TestimonialCard({ testimonial }) {
 	const { t } = useTranslation();
 
 	return (
-		<Card className="bg-dark-gray shadow-md h-[280px] w-[400px] border border-white/[0.08] rounded-xl">
+		<Card className="bg-via-gray text-white shadow-md h-[280px] w-[400px] border border-white/[0.08] rounded-xl">
 			<CardContent className="p-6">
 				<div className="flex items-start space-x-4">
 					<Avatar className="border-2 border-white/[0.3]">

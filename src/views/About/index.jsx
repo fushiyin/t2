@@ -10,6 +10,7 @@ import UniqueValue from "./components/UniqueValue";
 import { useTranslation } from "react-i18next";
 import { SECTIONS_KEY } from "@/constant/sideNavigation";
 import VisionJourney from "../Home/components/Vision";
+import CompetitiveEdges from "../Home/components/CompetitiveEdges";
 
 export default function AboutPage() {
 	const { t } = useTranslation();
@@ -105,7 +106,7 @@ export default function AboutPage() {
 				</div>
 			</AnimatedSection>
 			<VisionJourney classNam={contentClass} />
-			<UniqueValue />
+			<CompetitiveEdges />
 			<div className="flex flex-col items-center px-[20px] md:px-4 lg:px-0">
 				<h2 className="text-2xl md:text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center">
 					{t("faq.title")}

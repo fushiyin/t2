@@ -634,31 +634,32 @@
 		}
 	},
 	"our_services": {
-		"title": "Our Services",
-		"description": "Discover our comprehensive range of technology solutions",
+		"title": "서비스",
+		"description": "귀사의 비즈니스 요구사항에 맞춘 포괄적인 기술 솔루션",
 		"global_development": {
-			"title": "Global Development Center",
-			"description": "Your Reliable Global Development Partner"
+			"title": "글로벌 개발 센터",
+			"description": "신뢰할 수 있는 글로벌 개발 파트너"
 		},
 		"system_integration": {
-			"title": "System Integration (SI)",
-			"description": "Seamless System Integration for a Smarter Enterprise"
+			"title": "시스템 통합 (SI)",
+			"description": "지능형 비즈니스를 위한 통합 시스템 구축"
 		},
 		"it_consulting": {
-			"title": "IT Consulting",
-			"description": "Empowering Smarter Decisions with Expert IT Consulting"
+			"title": "IT 컨설팅",
+			"description": "IT 전문가와 함께하는 스마트한 비즈니스 혁신"
 		},
 		"solution_provider": {
-			"title": "Solution Provider",
-			"description": "Empower your business with intelligent, future-ready solutions from a partner you can trust"
+			"title": "글로벌 솔루션 공급자",
+			"description": "미래를 대비한 스마트 솔루션의 신뢰할 수 있는 파트너"
 		},
 		"ai_machine_learning": {
-			"title": "AI & Machine Learning",
-			"description": "Turning AI Innovation into Real Business Impact"
+			"title": "AI & 머신러닝",
+			"description": "AI로 혁신을 현실로"
 		},
 		"big_data": {
 			"title": "Big Data & Data Analytics",
-			"description": "From data to insights, from insights to successful decisions"
-		}
+			"description": "데이터에서 인사이트를, 인사이트에서 성공적인 결정까지"
+		},
+		"button_learn_more": "자세히 보기"
 	}
 }

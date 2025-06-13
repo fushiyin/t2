@@ -660,6 +660,7 @@
 		"big_data": {
 			"title": "Big Data & Data Analytics",
 			"description": "From data to insights, from insights to successful decisions"
-		}
+		},
+		"button_learn_more": "Learn More"
 	}
 }

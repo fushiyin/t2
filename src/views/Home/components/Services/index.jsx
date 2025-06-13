@@ -15,11 +15,12 @@ import AI from "@/assets/img/AI.png";
 
 const Services = ({ contentClass }) => {
 	const { t } = useTranslation();
+
 	const services = [
 		{
 			id: 1,
-			name: "Global Development Center",
-			description: "Your Reliable Global Development Partner",
+			name: t("our_services.global_development.title"),
+			description: t("our_services.global_development.description"),
 			image: Development_Center,
 			details: [
 				"Frontend & Backend Development",
@@ -30,9 +31,8 @@ const Services = ({ contentClass }) => {
 		},
 		{
 			id: 2,
-			name: "System Integration (SI)",
-			description:
-				"Our Global Development Center delivers end-to-end technology solutions tailored to your business needs. We help businesses accelerate digital transformation with agility, quality, and trust.",
+			name: t("our_services.system_integration.title"),
+			description: t("our_services.system_integration.description"),
 			image: System_Integration,
 			details: [
 				"Integrated System Development",
@@ -42,9 +42,8 @@ const Services = ({ contentClass }) => {
 		},
 		{
 			id: 3,
-			name: "IT Consulting",
-			description:
-				"Our Global Development Center delivers end-to-end technology solutions tailored to your business needs. We help businesses accelerate digital transformation with agility, quality, and trust.",
+			name: t("our_services.it_consulting.title"),
+			description: t("our_services.it_consulting.description"),
 			image: IT_Consulting,
 			details: [
 				"IT Strategy Development",
@@ -54,9 +53,8 @@ const Services = ({ contentClass }) => {
 		},
 		{
 			id: 4,
-			name: "Solution Provider",
-			description:
-				"Our Global Development Center delivers end-to-end technology solutions tailored to your business needs. We help businesses accelerate digital transformation with agility, quality, and trust.",
+			name: t("our_services.solution_provider.title"),
+			description: t("our_services.solution_provider.description"),
 			image: Solution_Provider,
 			details: [
 				"Smart Office, Smart Factory, Banking solution",
@@ -66,9 +64,8 @@ const Services = ({ contentClass }) => {
 		},
 		{
 			id: 5,
-			name: "AI & Machine Learning",
-			description:
-				"Our Global Development Center delivers end-to-end technology solutions tailored to your business needs. We help businesses accelerate digital transformation with agility, quality, and trust.",
+			name: t("our_services.ai_machine_learning.title"),
+			description: t("our_services.ai_machine_learning.description"),
 			image: AI,
 			details: [
 				"Machine Learning Model Development",
@@ -80,9 +77,8 @@ const Services = ({ contentClass }) => {
 		},
 		{
 			id: 6,
-			name: "Big Data & Data Analysis",
-			description:
-				"Our Global Development Center delivers end-to-end technology solutions tailored to your business needs. We help businesses accelerate digital transformation with agility, quality, and trust.",
+			name: t("our_services.big_data.title"),
+			description: t("our_services.big_data.description"),
 			image: Bigdata_Analysis,
 			details: [
 				"Big Data Processing & Analytics",
@@ -181,7 +177,7 @@ const Services = ({ contentClass }) => {
 										))}
 									</ul> */}
 									<button className="inline-flex cursor-pointer font-bold items-center gap-2 px-6 py-3 text-heading-black hover:text-white bg-gradient-to-r from-pale-blue to-light-blue rounded-lg hover:bg-primary/90 w-fit duration-300 transform hover:scale-105 shadow-lg">
-										Learn More
+										{t("our_services.button_learn_more")}
 										<ArrowRight className="w-4 h-4" />
 									</button>
 								</div>

@@ -66,7 +66,7 @@ const Blog = () => {
 	};
 
 	return (
-		<div className="flex flex-col items-center justify-center mx-auto overflow-y-hidden">
+		<div className="flex flex-col items-center justify-center mx-auto overflow-y-hidden mt-[64px]">
 			<div className="max-w-[1440px] mx-auto px-4 py-12 md:pl-6 md:pr-6 lg:px-6 xl:px-0 sm:w-full">
 				{/* Header và Search Input */}
 				<div className="mb-10 text-center flex flex-col items-center justify-center gap-6">

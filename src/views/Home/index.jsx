@@ -19,7 +19,7 @@ function HomePage() {
 		<>
 			<section
 				id={SECTIONS_KEY.HERO.id}
-				className={sectionClass + ` h-[calc(100vh-${HEADER_STYLE.HEIGHT})]`}
+				className={sectionClass + " h-screen"}
 			>
 				<Hero />
 			</section>

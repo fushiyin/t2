@@ -700,5 +700,11 @@
 			}
 		},
 		"button_learn_more": "Learn More"
+	},
+	"hero_section": {
+		"hero_slogan": "Where Innovation Meets Execution",
+		"hero_description": "With experienced Korean IT professionals leading the projects and a dynamic team of skilled Vietnamese developers, we deliver high-quality, customized solutions quickly and reliably.",
+		"home_slogan": "From Insight to Execution — Your One-Stop IT Partner",
+		"home_description": "We support your entire digital transformation journey, from IT outsourcing and expert consulting to customized solution delivery. Our flexible and effective technology services are optimized to meet your unique business goals."
 	}
 }

@@ -50,7 +50,7 @@ export default function Contact() {
 	};
 
 	return (
-		<div className="w-full h-full bg-white py-[64px]">
+		<div className="w-full h-full bg-white py-[64px] mt-[64px]">
 			<div className="mx-auto max-w-[1440px]">
 				<div className="flex flex-col md:flex-row-reverse">
 					<div className="w-full h-full bg-white flex items-center justify-center">

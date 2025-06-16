@@ -62,7 +62,7 @@ export default function Careers() {
 	];
 
 	return (
-		<div className="flex flex-col items-center justify-center mx-auto">
+		<div className="flex flex-col items-center justify-center mx-auto mt-[64px]">
 			<div className="container py-12 max-w-[1440px] md:pl-6 md:pr-6 px-4 lg:px-6 xl:px-6">
 				<motion.h1
 					className="w-full text-4xl text-center font-bold mb-4 font-sans break-keep whitespace-normal break-words"

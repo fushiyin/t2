@@ -2,7 +2,7 @@ import React from "react";
 import section1_bg from "@/assets/solution_img/section01_background.svg";
 const SolutionAndProduct = () => {
 	return (
-		<div className="w-full h-full bg-white">
+		<div className="w-full h-full bg-white mt-[64px]">
 			<div className="mx-auto max-w-[1440px] relative">
 				<img
 					src={section1_bg}

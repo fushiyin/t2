@@ -14,7 +14,7 @@ export default function AboutPage() {
 	const { t } = useTranslation();
 	const { isMobile, isLg } = useResponsive();
 	return (
-		<div className="w-full flex flex-col gap-6 md:gap-10 items-center">
+		<div className="w-full flex flex-col gap-6 md:gap-10 items-center mt-[64px]">
 			<AnimatedSection className="w-full flex flex-col items-center">
 				<div className="max-w-[1440px] container px-[20px] py-8 md:py-12 md:px-0 flex flex-col justify-center min-h-[50vh]">
 					<div className="content mb-8 flex flex-col items-center justify-space-between text-center">

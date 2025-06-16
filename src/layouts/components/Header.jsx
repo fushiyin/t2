@@ -30,7 +30,8 @@ const Header = () => {
 	const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = useState(false);
 	// const [isMobileSearchOpen, setIsMobileSearchOpen] = useState(false);
 	const [isOpenBlog, setIsOpenBlog] = useState(false);
-
+	const [isScrolled, setIsScrolled] = useState(false);
+	const isHome = location.pathname === "/" ? true : false;
 	const LANGUAGE = [
 		{
 			code: "ko",
@@ -63,6 +64,14 @@ const Header = () => {
 				setLanguage(selectedLang);
 			}
 		}
+
+		const handleScroll = () => {
+			const scrollPosition = window.scrollY;
+			setIsScrolled(scrollPosition > 50);
+		};
+
+		window.addEventListener("scroll", handleScroll);
+		return () => window.removeEventListener("scroll", handleScroll);
 	}, []);
 
 	const toggleDarkMode = () => {
@@ -86,7 +95,13 @@ const Header = () => {
 	return (
 		<header
 			id="header"
-			className="sticky top-0 w-full bg-white dark:bg-dark-blue shadow-md z-50"
+			className={classNames(
+				"w-full  z-50 transition-all duration-300 fixed top-0 left-0 right-0",
+				{
+					"bg-transparent": !isScrolled,
+					"bg-white dark:bg-dark-blue shadow-md": isScrolled,
+				},
+			)}
 		>
 			<div className="w-full max-w-[1440px] mx-auto px-4 2xl:px-0">
 				<div className="w-full flex justify-between items-center h-16">
@@ -98,7 +113,7 @@ const Header = () => {
 							<img
 								className="h-8 w-auto"
 								alt="Company Logo"
-								src={isDarkMode ? t2darklogo : t2lightlogo}
+								src={isScrolled || isDarkMode | !isHome ? t2lightlogo : t2darklogo}
 							/>
 						</Link>
 					</div>
@@ -113,14 +128,26 @@ const Header = () => {
 									{
 										"hidden lg:inline":
 											link.name === "Contact" || link.name === "Blog",
-										"text-[var(--color-dark-blue)] font-extrabold underline underline-offset-8 dark:text-light-blue":
+										"text-[var(--color-dark-blue)] font-extrabold underline underline-offset-8":
 											window.location?.pathname === link?.path ||
 											!window.location?.pathname,
-										"text-gray-700 dark:text-gray-200 hover:text-[var(--color-dark-blue)] hover:bg-gray-100 dark:hover:bg-light-blue rounded-lg":
+										"text-white hover:bg-white rounded-lg hover:text-dark-blue":
+											isHome &&
+											!isScrolled &&
 											!(
 												window.location?.pathname === link?.path ||
 												!window.location?.pathname
 											),
+										"text-gray-700 dark:text-gray-200 hover:text-[var(--color-dark-blue)] hover:bg-gray-100 dark:hover:bg-light-blue rounded-lg":
+											!isHome &&
+											!(
+												window.location?.pathname === link?.path ||
+												!window.location?.pathname
+											),
+										"dark:text-light-blue":
+											isScrolled &&
+											(window.location?.pathname === link?.path ||
+												!window.location?.pathname),
 									},
 								)}
 							>
@@ -131,7 +158,13 @@ const Header = () => {
 
 					<button
 						type="button"
-						className="hidden md:block lg:hidden p-2 rounded-md text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 right-0"
+						className={classNames(
+							"hidden md:block lg:hidden p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 right-0",
+							{
+								"text-white": !isScrolled,
+								"text-gray-700 dark:text-gray-200": isScrolled,
+							},
+						)}
 						onClick={() => setIsOpenBlog(!isOpenBlog)}
 						aria-label="Toggle menu"
 					>
@@ -187,6 +220,7 @@ const Header = () => {
 									</Link>
 									<ChangeLanguages
 										isTablet
+										isScrolled={isScrolled}
 										language={language}
 										LANGUAGE={LANGUAGE}
 										changeLanguage={changeLanguage}
@@ -207,6 +241,7 @@ const Header = () => {
 						</div> */}
 						<div className="relative hidden xl:block lg:block">
 							<ChangeLanguages
+								isScrolled={isScrolled}
 								language={language}
 								LANGUAGE={LANGUAGE}
 								changeLanguage={changeLanguage}
@@ -216,7 +251,13 @@ const Header = () => {
 
 						<button
 							onClick={toggleDarkMode}
-							className="hidden ml-4 p-2 rounded-full text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
+							className={classNames(
+								"hidden ml-4 p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700",
+								{
+									"text-white": !isScrolled,
+									"text-gray-700 dark:text-gray-200": isScrolled,
+								},
+							)}
 							aria-label="Toggle dark mode"
 						>
 							{isDarkMode ? (
@@ -253,7 +294,13 @@ const Header = () => {
 
 					<button
 						type="button"
-						className="md:hidden p-2 rounded-md text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
+						className={classNames(
+							"md:hidden p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700",
+							{
+								"text-white": !isScrolled,
+								"text-gray-700 dark:text-gray-200": isScrolled,
+							},
+						)}
 						onClick={() => setIsMenuOpen(!isMenuOpen)}
 						aria-label="Toggle menu"
 					>
@@ -433,6 +480,7 @@ export const ChangeLanguages = ({
 	changeLanguage,
 	isTablet,
 	setIsOpenBlog,
+	isScrolled,
 }) => {
 	const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = useState(false);
 
@@ -449,9 +497,11 @@ export const ChangeLanguages = ({
 			<button
 				type="button"
 				className={classNames(
-					"flex items-center text-center justify-center text-sm text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 cursor-pointer",
+					"flex items-center text-center justify-center text-sm dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 cursor-pointer",
 					{
 						"px-3 py-2 w-full": isTablet,
+						"text-dark-gray": isScrolled,
+						"text-white": !isScrolled,
 					},
 				)}
 				onClick={toggleLanguageDropdown}

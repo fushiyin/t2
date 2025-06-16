@@ -98,7 +98,7 @@ export default function ServicesPage() {
 	};
 
 	return (
-		<div className="w-full">
+		<div className="w-full mt-[64px]">
 			<section className="relative bg-muted/50 min-h-[50vh] flex items-center overflow-hidden">
 				<div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary/5 via-background to-background" />
 				<div className="container relative mx-auto px-4 max-w-[1440px]">

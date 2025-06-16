@@ -1,13 +1,35 @@
+import video_home from "@/assets/video/Vid_Home4.mp4";
+import video_hero from "@/assets/video/video-hero.mp4";
 import { Button } from "@/components/ui/button";
-import useResponsive from "@/hooks/useResponsive";
 import { idRouter } from "@/routes/idRouter";
 import { motion } from "framer-motion";
 import { ArrowRightIcon } from "lucide-react";
+import { useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 
 export default function Hero() {
-	const { isMobile } = useResponsive();
 	const { t } = useTranslation();
+	const [isShowingHero, setIsShowingHero] = useState(false);
+	const [heroPlayCount, setHeroPlayCount] = useState(0);
+	const videoHomeRef = useRef(null);
+	const videoHeroRef = useRef(null);
+
+	const handleVideoEnd = () => {
+		if (!isShowingHero) {
+			setIsShowingHero(true);
+			setHeroPlayCount(1);
+			videoHeroRef.current?.play();
+		} else {
+			if (heroPlayCount < 3) {
+				setHeroPlayCount((prev) => prev + 1);
+				videoHeroRef.current?.play();
+			} else {
+				setIsShowingHero(false);
+				setHeroPlayCount(0);
+				videoHomeRef.current?.play();
+			}
+		}
+	};
 
 	const containerVariants = {
 		hidden: { opacity: 0 },
@@ -41,41 +63,82 @@ export default function Hero() {
 		},
 	};
 
+	const getContent = () => {
+		if (!isShowingHero) {
+			return {
+				title: t("hero_section.hero_slogan"),
+				description: t("hero_section.hero_description"),
+			};
+		} else {
+			return {
+				title: t("hero_section.home_slogan"),
+				description: t("hero_section.home_description"),
+			};
+		}
+	};
+
+	const content = getContent();
+
 	return (
 		<>
 			{/* Video Background */}
 			<div className="absolute inset-0 w-full h-full">
-				<video
-					autoPlay
-					loop
-					muted
-					playsInline
-					className="w-full h-full object-cover"
-				>
-					<source
-						src="https://www.var-meta.com/images/home/video-hero.webm"
-						type="video/webm"
-					/>
-					{/* Fallback image if video doesn't load */}
-					<img
-						src="/placeholder.svg?height=1080&width=1920"
-						alt="Technology background"
-						className="w-full h-full object-cover"
-					/>
-				</video>
+				<div className="relative w-full h-full">
+					{/* video_home */}
+					<motion.div
+						className="absolute inset-0 z-10"
+						animate={{ opacity: isShowingHero ? 0 : 1 }}
+						transition={{ duration: 1 }}
+					>
+						<video
+							ref={videoHomeRef}
+							autoPlay
+							muted
+							playsInline
+							loop={false}
+							className="w-full h-full object-cover"
+							onEnded={handleVideoEnd}
+						>
+							<source
+								src={video_home}
+								type="video/webm"
+							/>
+						</video>
+					</motion.div>
+
+					{/* video_hero */}
+					<motion.div
+						className="absolute inset-0 z-10"
+						animate={{ opacity: isShowingHero ? 1 : 0 }}
+						transition={{ duration: 1 }}
+					>
+						<video
+							ref={videoHeroRef}
+							autoPlay
+							muted
+							playsInline
+							loop={false}
+							className="w-full h-full object-cover"
+							onEnded={handleVideoEnd}
+						>
+							<source
+								src={video_hero}
+								type="video/mp4"
+							/>
+						</video>
+					</motion.div>
+				</div>
+
 				{/* Overlay for better text readability */}
 				<motion.div
-					className="absolute inset-0 bg-dark-blue/50"
+					className="absolute inset-0 bg-dark-blue/50 z-20"
 					initial={{ opacity: 0 }}
 					animate={{ opacity: 1 }}
 					transition={{ duration: 1 }}
 				></motion.div>
-				{/* <div className="absolute bottom-0 left-0 right-0">
-					<PartnerLogos />
-				</div> */}
 			</div>
 			{/* Content */}
-			<div className="container relative z-10 flex items-center">
+			<div className="container h-full w-full relative z-30 flex justify-center text-center items-center">
 				<motion.div
 					className="flex flex-col items-center space-y-6 text-center w-full"
 					variants={containerVariants}
@@ -84,38 +147,41 @@ export default function Hero() {
 				>
 					<div className="space-y-4">
 						<motion.h1
-							className="px-4 text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none text-white"
+							className="px-4 text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl text-white pb-4 font-sans break-keep whitespace-normal break-words"
 							variants={itemVariants}
 						>
-							{t("slogan")}
+							{content.title}
 						</motion.h1>
 						<motion.p
-							className="mx-auto max-w-[1100px] px-3 text-gray-200 md:text-xl font-sans break-keep whitespace-normal break-words"
+							className="text-xl mx-auto max-w-[1100px] px-3 text-gray-200 sm:text-lg md:text-xl lg:text-2xl font-sans break-keep whitespace-normal break-words"
 							variants={itemVariants}
 						>
-							{isMobile ? t("description_mobile") : t("description")}
+							{content.description}
 						</motion.p>
 					</div>
 					<motion.div
-						className="space-x-4"
+						className="space-x-6"
 						variants={buttonVariants}
 					>
 						<Button
 							asChild
 							size="lg"
-							className="rounded-md bg-dark-blue text-white hover:bg-light-blue"
+							className="rounded-md bg-dark-blue text-white hover:bg-light-blue text-2xl sm:text-lg md:text-xl lg:text-2xl px-10 py-8 sm:px-8 sm:py-6 md:px-10 md:py-7 lg:px-12 lg:py-8"
 						>
 							<a
 								href={idRouter?.contact}
-								className="flex items-center gap-2"
+								className="flex items-center gap-3"
+								onClick={() => {
+									console.log(idRouter?.contact);
+								}}
 							>
-								{t("contact.title")} <ArrowRightIcon className="h-4 w-4" />
+								Contact Us{" "}
+								<ArrowRightIcon className="h-6 w-6 sm:h-5 sm:w-5 md:h-6 md:w-6" />
 							</a>
 						</Button>
 					</motion.div>
 				</motion.div>
 			</div>
-			{/* Partner Logos */}
 		</>
 	);
 }

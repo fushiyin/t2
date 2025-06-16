@@ -467,7 +467,10 @@
 	},
 	"about": {
 		"title": "About Us",
-		"description": "Explore Our Services",
+		"description": {
+			"title": "Code the Future ",
+			"explain": "Where Innovation Meets Execution"
+		},
 		"content": "T2 Soft is an IT outsourcing and systems integration company providing software development, maintenance, and IT consulting services for global clients. Led by experienced Korean IT professionals and supported by a dynamic team of skilled Vietnamese developers, we combine technical expertise, cultural understanding, and cost-efficiency to deliver real business value. We specialize in developing smart, scalable, and reliable solutions tailored to our clients’ needs — from enterprise systems to AI-powered applications and custom software. At T2 Soft, we grow together with our clients — through innovation, transparency, and a shared vision for sustainable success.",
 		"experience": "T2 Soft Commit To",
 		"experience_list": {
@@ -639,27 +642,62 @@
 		"description": "Discover our comprehensive range of technology solutions",
 		"global_development": {
 			"title": "Global Development Center",
-			"description": "Your Reliable Global Development Partner"
+			"description": "Your Reliable Global Development Partner",
+			"details": {
+				"1": "Frontend & Backend Development",
+				"2": "Hybrid & Native App Development",
+				"3": "UI/UX Design & Optimization",
+				"4": "Managed Global Development Center"
+			}
 		},
 		"system_integration": {
 			"title": "System Integration (SI)",
-			"description": "Seamless System Integration for a Smarter Enterprise"
+			"description": "Seamless System Integration for a Smarter Enterprise",
+			"details": {
+				"1": "Integrated System Development",
+				"2": "Data Integration & Management",
+				"3": "Solution Customization & Optimization"
+			}
 		},
 		"it_consulting": {
 			"title": "IT Consulting",
-			"description": "Empowering Smarter Decisions with Expert IT Consulting"
+			"description": "Empowering Smarter Decisions with Expert IT Consulting",
+			"details": {
+				"1": "IT Strategy Development",
+				"2": "System Diagnosis & Improvement",
+				"3": "Solution Selection & Implementation Support"
+			}
 		},
 		"solution_provider": {
 			"title": "Solution Provider",
-			"description": "Empower your business with intelligent, future-ready solutions from a partner you can trust"
+			"description": "Empower your business with intelligent, future-ready solutions from a partner you can trust",
+			"details": {
+				"1": "Smart Office, Smart Factory, Banking solution",
+				"2": "Modular/Scalable Software Supply",
+				"3": "Enterprise Solutions (CRM, ERP,MES, HRM, WMS, FMS, iBEEMS, etc)"
+			}
 		},
 		"ai_machine_learning": {
 			"title": "AI & Machine Learning",
-			"description": "Turning AI Innovation into Real Business Impact"
+			"description": "Turning AI Innovation into Real Business Impact",
+			"details": {
+				"1": "Machine Learning Model Development",
+				"2": "Natural Language Processing",
+				"3": "Computer Vision Solutions",
+				"4": "AI-powered Automation",
+				"5": "Predictive Analytics"
+			}
 		},
 		"big_data": {
 			"title": "Big Data & Data Analytics",
-			"description": "From data to insights, from insights to successful decisions"
+			"description": "From data to insights, from insights to successful decisions",
+			"details": {
+				"1": "Big Data Processing & Analytics",
+				"2": "Business Intelligence Solutions",
+				"3": "Data Visualization & Reporting",
+				"4": "Real-time Data Analysis",
+				"5": "Data Mining & Pattern Recognition"
+			}
 		},
 		"button_learn_more": "Learn More"
 	}

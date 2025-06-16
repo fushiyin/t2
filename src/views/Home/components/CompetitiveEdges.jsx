@@ -159,7 +159,7 @@ const CompetitiveEdges = () => {
 										{/* Front of card */}
 										<div className="w-full h-full absolute backface-hidden">
 											<div className="relative w-full h-full flex flex-col items-end justify-between rounded-lg shadow-lg p-8 cursor-pointer transition-all duration-300 border-t border-zinc-300 dark:border-zinc-700 bg-white text-dark">
-												<p className="text-center text-xl 2xl:text-2xl xl:text-xl lg:text-xl md:text-xl w-full font-bold uppercase text-dark-gray">
+												<p className="text-center text-xl 2xl:text-2xl xl:text-xl lg:text-xl md:text-xl w-full font-bold uppercase text-dark-gray font-sans break-keep whitespace-normal break-words">
 													{edge.title}
 												</p>
 												<div className="w-full h-full flex items-center justify-center">

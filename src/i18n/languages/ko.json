@@ -471,14 +471,21 @@
 		}
 	},
 	"about": {
-		"title": "About us",
-		"description": "T2 Soft는 고품질 솔루션 제공에 중점을 둔 선도적인 소프트웨어 개발 회사입니다. 기술적 전문성과 혁신적인 사고를 결합하여 기업의 디지털 혁신을 지원합니다.",
-		"experience": "10년 이상의 업계 경험",
-		"team": "50명 이상의 숙련된 전문가 팀",
-		"projects": "200개 이상의 성공적인 프로젝트 완료",
-		"offices": "베트남과 한국에 글로벌 오피스 운영",
+		"title": "소개",
+		"description": {
+			"title": "Code the Future ",
+			"explain": "Where Innovation Meets Execution"
+		},
+		"content": "T2 Soft는 한국 기업 고객을 대상으로 소프트웨어 개발, 유지보수 및 IT 컨설팅 서비스를 제공하는 IT 아웃소싱 및 시스템 통합 전문 기업입니다. 경험 많은 한국인 IT 전문가의 리딩과 역량 있는 베트남 개발자 팀의 협업을 통해, 기술 전문성, 문화적 이해, 비용 효율성을 바탕으로 실질적인 비즈니스 가치를 제공합니다. 엔터프라이즈 시스템부터 AI 기반 애플리케이션, 맞춤형 소프트웨어까지, 고객의 니즈에 최적화된 스마트하고 확장 가능한 솔루션을 신속하고 안정적으로 제공합니다. T2 Soft는 혁신과 투명성, 지속 가능한 성공에 대한 공동의 비전을 바탕으로 고객과 함께 성장해 나갑니다.",
+		"experience": "주요 수치로 보는 T2 Soft",
+		"experience_list": {
+			"1": "정확한 이해, 빠른 실행",
+			"2": "품질 중심 개발 프로세스",
+			"3": "투명한 소통과 지속적 협업",
+			"4": "사후 관리까지 책임지는 지원"
+		},
 		"faq": {
-			"imageAlt": "자주 묻는 질문 (FAQ)"
+			"imageAlt": "Faqs"
 		}
 	},
 	"slogan": "Where Innovation Meets Execution",
@@ -638,27 +645,62 @@
 		"description": "귀사의 비즈니스 요구사항에 맞춘 포괄적인 기술 솔루션",
 		"global_development": {
 			"title": "글로벌 개발 센터",
-			"description": "신뢰할 수 있는 글로벌 개발 파트너"
+			"description": "신뢰할 수 있는 글로벌 개발 파트너",
+			"details": {
+				"1": "Frontend & Backend Development",
+				"2": "Hybrid & Native App Development",
+				"3": "UI/UX Design & Optimization",
+				"4": "Managed Global Development Center"
+			}
 		},
 		"system_integration": {
 			"title": "시스템 통합 (SI)",
-			"description": "지능형 비즈니스를 위한 통합 시스템 구축"
+			"description": "지능형 비즈니스를 위한 통합 시스템 구축",
+			"details": {
+				"1": "Integrated System Development",
+				"2": "Data Integration & Management",
+				"3": "Solution Customization & Optimization"
+			}
 		},
 		"it_consulting": {
 			"title": "IT 컨설팅",
-			"description": "IT 전문가와 함께하는 스마트한 비즈니스 혁신"
+			"description": "IT 전문가와 함께하는 스마트한 비즈니스 혁신",
+			"details": {
+				"1": "IT Strategy Development",
+				"2": "System Diagnosis & Improvement",
+				"3": "Solution Selection & Implementation Support"
+			}
 		},
 		"solution_provider": {
 			"title": "글로벌 솔루션 공급자",
-			"description": "미래를 대비한 스마트 솔루션의 신뢰할 수 있는 파트너"
+			"description": "미래를 대비한 스마트 솔루션의 신뢰할 수 있는 파트너",
+			"details": {
+				"1": "Smart Office, Smart Factory, Banking solution",
+				"2": "Modular/Scalable Software Supply",
+				"3": "Enterprise Solutions (CRM, ERP,MES, HRM, WMS, FMS, iBEEMS, etc)"
+			}
 		},
 		"ai_machine_learning": {
 			"title": "AI & 머신러닝",
-			"description": "AI로 혁신을 현실로"
+			"description": "AI로 혁신을 현실로",
+			"details": {
+				"1": "Machine Learning Model Development",
+				"2": "Natural Language Processing",
+				"3": "Computer Vision Solutions",
+				"4": "AI-powered Automation",
+				"5": "Predictive Analytics"
+			}
 		},
 		"big_data": {
 			"title": "빅데이터 & 데이터 분석",
-			"description": "데이터에서 인사이트를, 인사이트에서 성공적인 결정까지"
+			"description": "데이터에서 인사이트를, 인사이트에서 성공적인 결정까지",
+			"details": {
+				"1": "Big Data Processing & Analytics",
+				"2": "Business Intelligence Solutions",
+				"3": "Data Visualization & Reporting",
+				"4": "Real-time Data Analysis",
+				"5": "Data Mining & Pattern Recognition"
+			}
 		},
 		"button_learn_more": "자세히 보기"
 	}

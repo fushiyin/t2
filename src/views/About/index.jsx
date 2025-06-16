@@ -12,23 +12,30 @@ import useResponsive from "@/hooks/useResponsive";
 
 export default function AboutPage() {
 	const { t } = useTranslation();
-	const { isMobile } = useResponsive();
+	const { isMobile, isLg } = useResponsive();
 	return (
 		<div className="w-full flex flex-col gap-6 md:gap-10 items-center">
-			<AnimatedSection className="w-full bg-muted/50 flex flex-col items-center">
+			<AnimatedSection className="w-full flex flex-col items-center">
 				<div className="max-w-[1440px] container px-[20px] py-8 md:py-12 md:px-0 flex flex-col justify-center min-h-[50vh]">
+					<div className="content mb-8 flex flex-col items-center justify-space-between text-center">
+						<h2 className="text-left text-5xl font-bold tracking-tighter font-sans break-keep whitespace-normal break-words">
+							{t("about.title")}
+						</h2>
+					</div>
 					<div className="flex flex-col lg:flex-row">
-						<div className="w-full px-4 2xl:px-0 sm:px-0 lg:w-[50%] order-2 lg:order-1">
+						<div
+							className={`w-full ${isMobile ? "px-0" : "px-4 2xl:px-0"} lg:w-[50%] order-2 lg:order-1`}
+						>
 							<div className="w-[90%] border-l-4 border-dark-blue pl-4">
-								<h2 className="text-left text-5xl mb-4 font-bold tracking-tighter font-sans break-keep whitespace-normal break-words">
-									{t("about.title")}
+								<h2 className="text-left text-4xl mb-4 font-bold tracking-tighter font-sans break-keep whitespace-normal break-words ">
+									{t("about.description.title")}
 								</h2>
 								<p className="text-left text-dark-blue md:text-xl/relaxed font-sans break-keep whitespace-normal break-words">
-									{t("about.description")}
+									{t("about.description.explain")}
 								</p>
 							</div>
 
-							<p className="ml-0 md:ml-6 mt-4 md:mt-6 w-full md:w-[80%] text-muted-foreground text-sm font-sans text-left break-words whitespace-normal">
+							<p className="ml-0 md:ml-6 mt-4 md:mt-6 w-full md:w-[80%] text-muted-foreground text-sm text-left  font-sans break-keep whitespace-normal break-words">
 								{t("about.content")}
 							</p>
 
@@ -60,7 +67,7 @@ export default function AboutPage() {
 							</div>
 						</div>
 						<div
-							className={`${isMobile ? "pl-0 pb-6" : "pl-8 lg:pl-12"} w-full lg:w-[50%] relative h-[300px] md:h-[400px] lg:h-[600px] order-1 lg:order-2`}
+							className={`${isLg ? "pl-8 lg:pl-12" : isMobile ? "pl-0 pb-6" : "pl-6 pb-6"} w-full lg:w-[50%] relative h-[300px] md:h-[400px] lg:h-[600px] order-1 lg:order-2`}
 						>
 							<div className="relative w-full h-full">
 								<img

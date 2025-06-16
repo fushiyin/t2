@@ -25,10 +25,10 @@ const Services = ({ contentClass }) => {
 			description: t("our_services.global_development.description"),
 			image: Development_Center,
 			details: [
-				"Frontend & Backend Development",
-				"Hybrid & Native App Development",
-				"UI/UX Design & Optimization",
-				"Managed Global Development Center",
+				t("our_services.global_development.details.1"),
+				t("our_services.global_development.details.2"),
+				t("our_services.global_development.details.3"),
+				t("our_services.global_development.details.4"),
 			],
 		},
 		{
@@ -37,9 +37,9 @@ const Services = ({ contentClass }) => {
 			description: t("our_services.system_integration.description"),
 			image: System_Integration,
 			details: [
-				"Integrated System Development",
-				"Data Integration & Management",
-				"Solution Customization & Optimization",
+				t("our_services.system_integration.details.1"),
+				t("our_services.system_integration.details.2"),
+				t("our_services.system_integration.details.3"),
 			],
 		},
 		{
@@ -48,9 +48,9 @@ const Services = ({ contentClass }) => {
 			description: t("our_services.it_consulting.description"),
 			image: IT_Consulting,
 			details: [
-				"IT Strategy Development",
-				"System Diagnosis & Improvement",
-				"Solution Selection & Implementation Support",
+				t("our_services.it_consulting.details.1"),
+				t("our_services.it_consulting.details.2"),
+				t("our_services.it_consulting.details.3"),
 			],
 		},
 		{
@@ -59,9 +59,9 @@ const Services = ({ contentClass }) => {
 			description: t("our_services.solution_provider.description"),
 			image: Solution_Provider,
 			details: [
-				"Smart Office, Smart Factory, Banking solution",
-				"Modular/Scalable Software Supply",
-				"Enterprise Solutions (CRM, ERP,MES, HRM, WMS, FMS, iBEEMS, etc)",
+				t("our_services.solution_provider.details.1"),
+				t("our_services.solution_provider.details.2"),
+				t("our_services.solution_provider.details.3"),
 			],
 		},
 		{
@@ -70,11 +70,11 @@ const Services = ({ contentClass }) => {
 			description: t("our_services.ai_machine_learning.description"),
 			image: AI,
 			details: [
-				"Machine Learning Model Development",
-				"Natural Language Processing",
-				"Computer Vision Solutions",
-				"AI-powered Automation",
-				"Predictive Analytics",
+				t("our_services.ai_machine_learning.details.1"),
+				t("our_services.ai_machine_learning.details.2"),
+				t("our_services.ai_machine_learning.details.3"),
+				t("our_services.ai_machine_learning.details.4"),
+				t("our_services.ai_machine_learning.details.5"),
 			],
 		},
 		{
@@ -83,11 +83,11 @@ const Services = ({ contentClass }) => {
 			description: t("our_services.big_data.description"),
 			image: Bigdata_Analysis,
 			details: [
-				"Big Data Processing & Analytics",
-				"Business Intelligence Solutions",
-				"Data Visualization & Reporting",
-				"Real-time Data Analysis",
-				"Data Mining & Pattern Recognition",
+				t("our_services.big_data.details.1"),
+				t("our_services.big_data.details.2"),
+				t("our_services.big_data.details.3"),
+				t("our_services.big_data.details.4"),
+				t("our_services.big_data.details.5"),
 			],
 		},
 	];

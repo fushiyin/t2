@@ -42,7 +42,7 @@ const CompetitiveEdges = () => {
 	const { isDesktop, isTablet, isMobile, is2xl, isXl, isLg } = useResponsive();
 	const contentClass = "container h-full px-4 py-16 md:px-6 max-w-[1440px]";
 	const classNames_icon =
-		"w-20 h-20 2xl:w-[48px] 2xl:h-[48px] xl:w-[40px] xl:h-[40px] lg:w-[36px] lg:h-[36px] md:w-[32px] md:h-[32px] text-black";
+		"w-[36px] h-[36px] sm:w-[36px] sm:h-[36px] md:w-[32px] md:h-[32px] lg:w-[36px] lg:h-[36px] xl:w-[40px] xl:h-[40px] 2xl:w-[48px] 2xl:h-[48px] text-black";
 
 	const getLottieSize = () => {
 		if (isMobile) return { width: 300, height: 225 };
@@ -159,7 +159,7 @@ const CompetitiveEdges = () => {
 										{/* Front of card */}
 										<div className="w-full h-full absolute backface-hidden">
 											<div className="relative w-full h-full flex flex-col items-end justify-between rounded-lg shadow-lg p-8 cursor-pointer transition-all duration-300 border-t border-zinc-300 dark:border-zinc-700 bg-white text-dark">
-												<p className="text-center text-xl 2xl:text-2xl xl:text-xl lg:text-xl md:text-xl w-full font-bold uppercase text-dark-gray">
+												<p className="text-center text-xl 2xl:text-2xl xl:text-xl lg:text-xl md:text-xl w-full font-bold uppercase text-dark-gray font-sans break-keep whitespace-normal break-words">
 													{edge.title}
 												</p>
 												<div className="w-full h-full flex items-center justify-center">

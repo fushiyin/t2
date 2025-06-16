@@ -647,59 +647,59 @@
 			"title": "글로벌 개발 센터",
 			"description": "신뢰할 수 있는 글로벌 개발 파트너",
 			"details": {
-				"1": "Frontend & Backend Development",
-				"2": "Hybrid & Native App Development",
-				"3": "UI/UX Design & Optimization",
-				"4": "Managed Global Development Center"
+				"1": "프론트엔드 & 백엔드 개발",
+				"2": "하이브리드 및 네이티브 앱 개발",
+				"3": "UI/UX 디자인 및 사용자 경험 개선",
+				"4": "Managed GDC"
 			}
 		},
 		"system_integration": {
 			"title": "시스템 통합 (SI)",
 			"description": "지능형 비즈니스를 위한 통합 시스템 구축",
 			"details": {
-				"1": "Integrated System Development",
-				"2": "Data Integration & Management",
-				"3": "Solution Customization & Optimization"
+				"1": "통합 시스템 개발",
+				"2": "데이터 통합 및 관리",
+				"3": "솔루션 커스터마이징 및 최적화"
 			}
 		},
 		"it_consulting": {
 			"title": "IT 컨설팅",
 			"description": "IT 전문가와 함께하는 스마트한 비즈니스 혁신",
 			"details": {
-				"1": "IT Strategy Development",
-				"2": "System Diagnosis & Improvement",
-				"3": "Solution Selection & Implementation Support"
+				"1": "IT 전략 수립",
+				"2": "시스템 진단 및 개선 방안 제시",
+				"3": "솔루션 선정 및 도입 지원"
 			}
 		},
 		"solution_provider": {
 			"title": "글로벌 솔루션 공급자",
 			"description": "미래를 대비한 스마트 솔루션의 신뢰할 수 있는 파트너",
 			"details": {
-				"1": "Smart Office, Smart Factory, Banking solution",
-				"2": "Modular/Scalable Software Supply",
-				"3": "Enterprise Solutions (CRM, ERP,MES, HRM, WMS, FMS, iBEEMS, etc)"
+				"1": "스마트 오피스트, 스마트 팩토리,뱅킹 솔루션",
+				"2": "모듈형/확장형 소프트웨어 공급",
+				"3": "기업용 솔루션 공급 (CRM, ERP,MES, HRM, WMS, FMS,iBEEMS, 등)"
 			}
 		},
 		"ai_machine_learning": {
 			"title": "AI & 머신러닝",
 			"description": "AI로 혁신을 현실로",
 			"details": {
-				"1": "Machine Learning Model Development",
-				"2": "Natural Language Processing",
-				"3": "Computer Vision Solutions",
-				"4": "AI-powered Automation",
-				"5": "Predictive Analytics"
+				"1": "머신러닝 모델 개발",
+				"2": "자연어 처리",
+				"3": "컴퓨터 비전 솔루션",
+				"4": "AI 기반 자동화",
+				"5": "예측 분석"
 			}
 		},
 		"big_data": {
 			"title": "빅데이터 & 데이터 분석",
 			"description": "데이터에서 인사이트를, 인사이트에서 성공적인 결정까지",
 			"details": {
-				"1": "Big Data Processing & Analytics",
-				"2": "Business Intelligence Solutions",
-				"3": "Data Visualization & Reporting",
-				"4": "Real-time Data Analysis",
-				"5": "Data Mining & Pattern Recognition"
+				"1": "빅데이터 처리 & 분석",
+				"2": "비즈니스 인텔리전스 솔루션",
+				"3": "데이터 시각화 & 보고",
+				"4": "실시간 데이터 분석",
+				"5": "데이터 마이닝 & 패턴 인식"
 			}
 		},
 		"button_learn_more": "자세히 보기"

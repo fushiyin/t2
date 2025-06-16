@@ -3,11 +3,26 @@ import Communicate from "@/assets/lotties/communicate.json";
 import Computer from "@/assets/lotties/computer.json";
 import Cost from "@/assets/lotties/cost.json";
 import Dev from "@/assets/lotties/dev.json";
+import useResponsive from "@/hooks/useResponsive";
 import classNames from "classnames";
 import { BarChart3, Check, Code, Cpu, DollarSign } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import Lottie from "react-lottie";
+
+// Add flip card styles
+const styles = `
+  .preserve-3d {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+  }
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+  .rotate-y-180 {
+    transform: rotateY(180deg);
+  }
+`;
 
 const defaultOptions = {
 	loop: true,
@@ -19,12 +34,27 @@ const defaultOptions = {
 
 const AUTO_SWITCH_INTERVAL = 5000;
 
-const CompetitiveEdges = ({ contentClass }) => {
+const CompetitiveEdges = () => {
 	const [activeEdge, setActiveEdge] = useState(null);
 	const [isHovered, setIsHovered] = useState(false);
 	const [hoveredIndex, setHoveredIndex] = useState(null);
 	const { t } = useTranslation();
-	const classNames_icon = "w-12 h-12 xl:w-[36px] xl:h-[36px] lg:w-[24px] lg:h-[24px] text-black";
+	const { isDesktop, isTablet, isMobile, is2xl, isXl, isLg } = useResponsive();
+	const contentClass = "container h-full px-4 py-16 md:px-6 max-w-[1440px]";
+	const classNames_icon =
+		"w-20 h-20 2xl:w-[48px] 2xl:h-[48px] xl:w-[40px] xl:h-[40px] lg:w-[36px] lg:h-[36px] md:w-[32px] md:h-[32px] text-black";
+
+	const getLottieSize = () => {
+		if (isMobile) return { width: 300, height: 225 };
+		if (isTablet) return { width: 320, height: 240 };
+		if (isDesktop) {
+			if (is2xl) return { width: 300, height: 225 };
+			if (isXl) return { width: 280, height: 210 };
+			if (isLg) return { width: 260, height: 250 };
+			return { width: 260, height: 195 };
+		}
+		return { width: 300, height: 225 };
+	};
 
 	const edges = [
 		{
@@ -35,8 +65,6 @@ const CompetitiveEdges = ({ contentClass }) => {
 				returnObjects: true,
 			}),
 			lottie: Computer,
-			width: 300,
-			height: 250,
 		},
 		{
 			id: 1,
@@ -46,8 +74,6 @@ const CompetitiveEdges = ({ contentClass }) => {
 				returnObjects: true,
 			}),
 			lottie: Dev,
-			width: 300,
-			height: 250,
 		},
 		{
 			id: 2,
@@ -57,8 +83,6 @@ const CompetitiveEdges = ({ contentClass }) => {
 				returnObjects: true,
 			}),
 			lottie: Communicate,
-			width: 300,
-			height: 200,
 		},
 		{
 			id: 3,
@@ -66,10 +90,9 @@ const CompetitiveEdges = ({ contentClass }) => {
 			icon: <DollarSign className={classNames_icon} />,
 			description: t("competitive_edges.edges.cost.description", { returnObjects: true }),
 			lottie: Cost,
-			width: 250,
-			height: 250,
 		},
 	];
+
 	useEffect(() => {
 		if (!activeEdge && edges.length > 0) {
 			setActiveEdge(edges[0]);
@@ -91,27 +114,27 @@ const CompetitiveEdges = ({ contentClass }) => {
 
 	return (
 		<div className="w-full bg-white flex flex-col items-center justify-center">
+			<style>{styles}</style>
 			<div
 				className={classNames({
 					[contentClass]: contentClass,
 				})}
 			>
-				{/* Heading */}
-				<div className="flex flex-col items-center justify-center space-y-4 text-center px-5 mb-5">
-					<h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-dark-gray">
-						{t("competitive_edges.title")}
-					</h2>
-					<p className="md:max-w-[900px] text-muted-foreground md:text-xl/relaxed">
-						{t("competitive_edges.description")}
-					</p>
-				</div>
+				<div className="flex flex-col items-center justify-center gap-8">
+					<div className="flex flex-col items-center justify-center gap-4">
+						<h2 className="text-5xl font-bold text-center text-dark-gray">
+							{t("competitive_edges.title")}
+						</h2>
+						<p className="text-center text-dark-gray">
+							{t("competitive_edges.description")}
+						</p>
+					</div>
 
-				{/* Desktop grid */}
-				<div className="hidden lg:flex flex-col 2xl:px-0 xl:px-8 lg:px-10 px-8">
-					<div className="grid grid-cols-1 md:grid-cols-4 2xl:grid-cols-4 gap-8 2xl:gap-4 sm:gap-6 py-12">
+					<div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 md:gap-8 w-full">
 						{edges.map((edge) => {
 							const isActive = activeEdge?.id === edge.id;
 							const isHovering = hoveredIndex === edge.id;
+							const lottieSize = getLottieSize();
 
 							return (
 								<div
@@ -129,101 +152,57 @@ const CompetitiveEdges = ({ contentClass }) => {
 								>
 									<div
 										className={classNames(
-											"w-full aspect-square flex flex-col items-end justify-between rounded-lg shadow-lg p-4 cursor-pointer h-90 transition-all duration-300 border-t border-zinc-300 dark:border-zinc-700",
-											isActive || isHovering
-												? "bg-gradient-to-r from-[var(--color-light-mint)] to-[var(--color-light-green)] text-white scale-[1.03]"
-												: "bg-white text-dark",
+											"w-full h-[350px] sm:h-[350px] md:h-[350px] xl:h-[400px] aspect-[3/4] relative transition-all duration-500 preserve-3d",
+											isActive || isHovering ? "rotate-y-180" : "",
 										)}
 									>
-										<p className="text-center text-base lg:text-md xl:text-xl w-full font-bold uppercase text-dark-gray">
-											{edge.title}
-										</p>
-										<div className="w-full h-full flex items-center justify-center">
-											<Lottie
-												options={{
-													...defaultOptions,
-													animationData: edge.lottie,
-												}}
-												width={edge.width}
-												height={edge.height}
-											/>
+										{/* Front of card */}
+										<div className="w-full h-full absolute backface-hidden">
+											<div className="relative w-full h-full flex flex-col items-end justify-between rounded-lg shadow-lg p-8 cursor-pointer transition-all duration-300 border-t border-zinc-300 dark:border-zinc-700 bg-white text-dark">
+												<p className="text-center text-xl 2xl:text-2xl xl:text-xl lg:text-xl md:text-xl w-full font-bold uppercase text-dark-gray">
+													{edge.title}
+												</p>
+												<div className="w-full h-full flex items-center justify-center">
+													<Lottie
+														options={{
+															...defaultOptions,
+															animationData: edge.lottie,
+														}}
+														width={lottieSize.width}
+														height={lottieSize.height}
+													/>
+												</div>
+												<div className="absolute bottom-2 right-2">
+													{edge.icon}
+												</div>
+											</div>
 										</div>
-										<div>{edge.icon}</div>
+
+										{/* Back of card */}
+										<div className="w-full h-full absolute backface-hidden rotate-y-180 bg-gradient-to-r from-[var(--color-light-mint)] to-[var(--color-light-green)] rounded-lg shadow-lg p-8">
+											<div className="w-full h-full flex flex-col justify-center space-y-6">
+												{edge.description.map((benefit, index) => (
+													<div
+														key={index}
+														className="flex items-start gap-4 mb-2"
+													>
+														<Check
+															className="text-white mt-1 flex-shrink-0"
+															size={24}
+														/>
+														<p className="text-white leading-relaxed text-base 2xl:text-base xl:text-xs lg:text-xl md:text-sm">
+															{benefit}
+														</p>
+													</div>
+												))}
+											</div>
+										</div>
 									</div>
 								</div>
 							);
 						})}
 					</div>
-
 					<div className="w-[90px] h-[8px] bg-gradient-to-r from-[var(--color-light-mint)] to-[var(--color-light-green)] mb-4"></div>
-
-					<div className="text-gray-700 dark:text-white pl-4 md:pl-0 space-y-3">
-						{(activeEdge?.description ?? edges[0].description).map((benefit, index) => (
-							<div
-								key={index}
-								className="flex items-center gap-2 transition-transform duration-300 hover:-translate-y-1"
-							>
-								<Check
-									className="text-gray-700 mt-1"
-									size={20}
-								/>
-								<p className="leading-relaxed text-base lg:text-md xl:text-xl w-full">
-									{benefit}
-								</p>
-							</div>
-						))}
-					</div>
-				</div>
-
-				{/* Mobile */}
-				<div className="flex flex-col gap-4 lg:hidden px-4">
-					{edges.map((edge) => (
-						<div
-							key={edge.id}
-							className="rounded-xl overflow-hidden shadow-sm border border-gray-200 bg-white"
-						>
-							<div className="p-3 flex items-center gap-4 bg-gray-100">
-								<div className="w-20 h-20 flex-shrink-0 bg-gray-100 rounded-lg flex items-center justify-center relative">
-									<div className="absolute inset-0 bg-gradient-to-r from-[var(--color-light-mint)] to-[var(--color-light-green)] opacity-80 rounded-lg"></div>
-									<div className="relative z-10 w-16 h-16">
-										<Lottie
-											options={{
-												...defaultOptions,
-												animationData: edge.lottie,
-											}}
-											width={64}
-											height={64}
-										/>
-									</div>
-								</div>
-								<div className="flex-1">
-									<h3 className="text-base font-semibold text-gray-900 tracking-wide">
-										{edge.title?.toUpperCase()}
-									</h3>
-								</div>
-							</div>
-
-							{/* Always expanded */}
-							<div className="transition-all duration-300 ease-in-out overflow-hidden max-h-[500px] opacity-100">
-								<div className="px-5 pt-4 pb-5 space-y-3 bg-white">
-									{edge.description.map((benefit, index) => (
-										<div
-											key={index}
-											className="flex items-start gap-3"
-										>
-											<Check
-												className="text-green-500 mt-1 flex-shrink-0"
-												size={18}
-											/>
-											<p className="text-sm text-gray-800 leading-relaxed">
-												{benefit}
-											</p>
-										</div>
-									))}
-								</div>
-							</div>
-						</div>
-					))}
 				</div>
 			</div>
 		</div>

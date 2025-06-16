@@ -12,9 +12,11 @@ import Bigdata_Analysis from "@/assets/img/Bigdata_Analysis.jpg";
 import Solution_Provider from "@/assets/img/Solution_Provider.png";
 import Development_Center from "@/assets/img/Development_Center.png";
 import AI from "@/assets/img/AI.png";
+import useResponsive from "@/hooks/useResponsive";
 
 const Services = ({ contentClass }) => {
 	const { t } = useTranslation();
+	const { isMobile } = useResponsive();
 
 	const services = [
 		{
@@ -94,91 +96,79 @@ const Services = ({ contentClass }) => {
 		<div className="w-full h-full bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white">
 			<div
 				className={classNames(
-					"max-w-[1440px] flex flex-col items-center justify-center gap-12 mx-auto",
+					"max-w-[1440px] flex flex-col items-center justify-center gap-6 md:gap-12 mx-auto px-4 sm:px-6 lg:px-8",
 					{
 						[contentClass]: contentClass,
 					},
 				)}
 			>
-				<div className="flex flex-col items-center justify-center space-y-4 text-center px-5 mb-5">
-					<h2 className="text-3xl font-bold tracking-tighter sm:text-5xl pb-6 bg-gradient-to-r from-light-blue via-light-blue-gray to-pale-blue bg-clip-text text-transparent">
+				<div className="flex flex-col items-center justify-center space-y-2 md:space-y-4 text-center px-2 sm:px-5 mb-3 md:mb-5">
+					<h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter pb-4 md:pb-6 bg-gradient-to-r from-light-blue via-light-blue-gray to-pale-blue bg-clip-text text-transparent">
 						{t("services.section.title")}
 					</h2>
-					<p className="md:max-w-[900px] text-white md:text-xl/relaxed">
+					<p className="max-w-[600px] md:max-w-[900px] text-white text-sm sm:text-base md:text-xl/relaxed">
 						{t("services.section.description")}
 					</p>
 				</div>
 				<Swiper
 					modules={[Navigation, Pagination, Autoplay]}
-					spaceBetween={30}
+					spaceBetween={20}
 					slidesPerView={1}
-					navigation
+					navigation={!isMobile}
 					pagination={{
 						clickable: true,
 						bulletClass: "swiper-pagination-bullet",
 						bulletActiveClass: "swiper-pagination-bullet-active",
 					}}
-					// autoplay={{
-					// 	delay: 5000,
-					// 	disableOnInteraction: false,
-					// }}
-					className="w-full h-[600px]"
+					autoplay={{
+						delay: 5000,
+						disableOnInteraction: false,
+					}}
+					className="w-full h-[500px] sm:h-[550px] md:h-[600px]"
 				>
 					{services.map((service) => (
 						<SwiperSlide key={service.id}>
 							<div className="relative flex flex-col md:flex-row h-full bg-transparent rounded-2xl shadow-lg overflow-hidden">
 								{/* Image Section */}
-								<div className="w-[60%] h-[95%] relative flex ">
-									<div className="absolute left-[80px] top-1/2 -translate-y-1/2 w-[20px] h-[60%] bg-light-blue" />
-									<div className="absolute left-[100px] w-[90%] h-[95%] flex items-center justify-center bg-white shadow-xl rounded-lg overflow-hidden mx-auto">
+								<div className="w-full md:w-[60%] h-[40%] md:h-[95%] relative flex">
+									{!isMobile && (
+										<div className="absolute left-[80px] top-1/2 -translate-y-1/2 w-[20px] h-[60%] bg-light-blue" />
+									)}
+									<div
+										className={`absolute ${isMobile ? "left-0 w-full" : "left-[100px] w-[90%]"} h-[95%] flex items-center justify-center bg-white shadow-xl rounded-lg overflow-hidden mx-auto`}
+									>
 										<img
 											src={service.image}
 											alt={service.name}
-											className="object-cover w-[95%] h-[95%]"
+											className="object-cover w-[96%] h-[96%] rounded-lg"
 										/>
 									</div>
-									{/* <div className="absolute bottom-6 right-0 -translate-x-1/2 flex gap-2">
-										{[...Array(5)].map((_, i) => (
-											<div
-												key={`bottom-${i}`}
-												className="w-2 h-2 rounded-full bg-primary/50"
-											/>
-										))}
-									</div>
-									<div className="absolute right-4 top-1/2 -translate-y-1/2 flex flex-col gap-2">
-										{[...Array(5)].map((_, i) => (
-											<div
-												key={`right-${i}`}
-												className="w-2 h-2 rounded-full bg-primary/50"
-											/>
-										))}
-									</div> */}
 								</div>
 
 								{/* Content Section */}
-								<div className="w-[50%] h-[90%]  md:w-1/2 pl-16 pr-8 pt-8 pb-8 flex flex-col justify-center">
-									<h3 className="text-4xl font-bold mb-4 group-hover:text-primary transition-colors font-sans break-keep whitespace-normal break-words">
+								<div className="w-full md:w-[50%] h-[60%] md:h-[90%] px-4 md:pl-16 md:pr-8 pt-4 md:pt-8 pb-4 md:pb-8 flex flex-col justify-center">
+									<h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 md:mb-4 group-hover:text-primary transition-colors font-sans break-keep whitespace-normal break-words">
 										{service.name}
 									</h3>
-									<p className="text-muted-foreground mb-8 font-sans break-keep whitespace-normal break-words w-[80%]">
+									<p className="text-sm md:text-base text-muted-foreground mb-4 md:mb-8 font-sans break-keep whitespace-normal break-words w-full md:w-[80%]">
 										{service.description}
 									</p>
-									{/* <ul className="space-y-3 mb-8">
+									<ul className="space-y-2 sm:mb-12 md:space-y-3 md:mb-8 mb-4">
 										{service.details.map((detail, idx) => (
 											<li
 												key={idx}
-												className="flex items-center gap-2 text-sm"
+												className="flex items-center gap-2 text-xs sm:text-sm"
 											>
-												<span className="mt-1 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
-												<span className="font-sans break-words whitespace-normal">
+												<span className="mt-1 w-1.5 h-1.5 rounded-full bg-light-blue shrink-0" />
+												<span className="font-sans break-words whitespace-normal text-white/80">
 													{detail}
 												</span>
 											</li>
 										))}
-									</ul> */}
-									<button className="inline-flex cursor-pointer font-bold items-center gap-2 px-6 py-3 text-heading-black hover:text-white bg-gradient-to-r from-pale-blue to-light-blue rounded-lg hover:bg-primary/90 w-fit duration-300 transform hover:scale-105 shadow-lg">
+									</ul>
+									<button className="inline-flex cursor-pointer font-bold items-center gap-2 px-4 md:px-6 py-2 md:py-3 text-sm md:text-base text-heading-black hover:text-white bg-gradient-to-r from-pale-blue to-light-blue rounded-lg hover:bg-primary/90 w-fit duration-300 transform hover:scale-105 shadow-lg">
 										{t("our_services.button_learn_more")}
-										<ArrowRight className="w-4 h-4" />
+										<ArrowRight className="w-3 h-3 md:w-4 md:h-4" />
 									</button>
 								</div>
 							</div>

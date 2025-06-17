@@ -92,6 +92,13 @@
 		"experience": {
 			"title": "글로벌 협업 경험",
 			"description": "한국, 일본, 등 다양한 국가의 글로벌 기업들과 협업 경험 보유"
+		},
+		"text_header": {
+			"title": "Outsourcing solves talent shortages & tech gaps with expert teams, cost efficiency, and flexible scalability."
+		},
+		"text_footer": {
+			"title": "Leading the next generation of technology as your trusted development partner",
+			"desc": "T2 Soft is a leading IT outsourcing and systems integration company, providing software development, maintenance, and IT consulting services to global clients. We aim to quickly deliver high-quality IT solutions optimized for customer needs, successfully support digital transformation, and grow together with our clients."
 		}
 	},
 	"our": "우리의",
@@ -709,5 +716,39 @@
 		"hero_description": "한국인 IT전문가의 풍부한 프로젝트 리딩 경험과 최신 기술에 능퉁한 베트남 개발팀의 시너지로, 고객 맞춤형 IT 솔루션을 빠르고 안정적으로 제공합니다.",
 		"home_slogan": "인사이트에서 실행까지, 원스톱 IT 파트너",
 		"home_description": "IT 아웃소싱부터 전문 컨설팅, 맞춤형 솔루션 제공까지 고객의 디지털 전환 전 과정을 함께합니다. 비즈니스 목표에 최적화된 유연하고 효과적인 기술 서비스를 제공합니다."
+	},
+	"challenges": {
+		"title": "비즈니스 성장을 가로막는 IT 장애물",
+		"title_2": "고민 중이신가요?",
+		"description": "인재 부족, 기술 격차, 빠듯한 일정. 내부 역량만으로는 부족합니다.",
+		"item": {
+			"1": [
+				{ "text": "국내", "className": "text-white" },
+				{ "text": "인건비 부담, ", "className": "text-light-blue font-bold" },
+				{ "text": "프로젝트 시작조차 어렵게 만듭니다.", "className": "text-white" }
+			],
+			"2": [
+				{
+					"text": "최신 기술을 구현할",
+					"className": "text-dark-gray"
+				},
+				{ "text": "개발자 찾기", "className": "text-light-blue font-bold" },
+				{ "text": "이제는 더 어렵고 더 비쌉니다.", "className": "text-dark-gray" }
+			],
+			"3": [
+				{ "text": "급변하는 시장 속", "className": "text-dark-gray" },
+				{ "text": "즉각적인 인력 확충", "className": "text-light-blue font-bold" },
+				{ "text": "이 쉽지 않습니다.", "className": "text-dark-gray" }
+			],
+			"4": [
+				{ "text": "한정된 인력과 촉박한 일정", "className": "text-white font-bold" },
+				{ "text": "늘 쫓기듯 개발하고 계신가요?", "className": "text-dark-gray" }
+			],
+			"5": [
+				{ "text": "빠르게 벌어지는", "className": "text-white" },
+				{ "text": " 기술 격차 ", "className": "text-light-blue font-bold" },
+				{ "text": " 는 곧 경쟁력의 격차로 이어집니다.", "className": "text-white" }
+			]
+		}
 	}
 }

@@ -1,12 +1,18 @@
+import bg_whyVietnam from "@/assets/img/why-vn-bg.png";
 import HoverCard from "@/components/HoverCard";
 import classNames from "classnames";
 import { motion } from "framer-motion";
-import { Award, HandCoins, Handshake, HeartHandshakeIcon, Scale } from "lucide-react";
+import { ArrowRight, Award, HandCoins, Handshake, HeartHandshakeIcon, Scale } from "lucide-react";
 import { useTranslation } from "react-i18next";
-
-export default function WhyVietnam({ contentClass }) {
+import bg_whyVietnam_2 from "@/assets/img/bg-text-why_vn.jpg";
+import logo_t2 from "@/assets/logos/T2_light_Logo.png";
+export default function WhyVietnam() {
 	const { t } = useTranslation();
 	const whyVietnam = [
+		{
+			title: t("why_vietnam.title"),
+			description: t("why_vietnam.description"),
+		},
 		{
 			icon: <Award className="h-8 w-8 rounded-full" />,
 			title: t("why_vietnam.talent.title"),
@@ -33,65 +39,76 @@ export default function WhyVietnam({ contentClass }) {
 			description: t("why_vietnam.experience.description"),
 		},
 	];
-	// Animation variants
-	const containerVariants = {
-		hidden: { opacity: 0 },
-		visible: {
-			opacity: 1,
-			transition: {
-				staggerChildren: 0.1,
-			},
-		},
-	};
-
-	const cardVariants = {
-		hidden: { opacity: 0, y: 20 },
-		visible: {
-			opacity: 1,
-			y: 0,
-			transition: { duration: 0.5 },
-		},
-	};
 
 	return (
-		<div className={classNames("w-full bg-white flex flex-col justify-center items-center")}>
-			<div
-				className={classNames("flex flex-col justify-center gap-15", {
-					[contentClass]: contentClass,
-				})}
-			>
-				<div className="flex flex-col items-center justify-center gap-6 text-center md:px-12">
-					<h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-						{t("why_vietnam.title")}
-					</h2>
-					<p className="max-w-[900px] text-muted-foreground md:text-base/relaxed lg:text-lg/relaxed xl:text-xl/relaxed font-sans break-keep whitespace-normal break-words">
-						{t("why_vietnam.description")}
+		<div className="flex flex-col pt-6">
+			<div className="w-full h-[250px] relative flex justify-center">
+				<img
+					src={bg_whyVietnam}
+					alt=""
+					className="w-full h-full object-cover"
+				/>
+				<div className="max-w-[1440px] absolute top-1/2 w-full transform -translate-y-1/2 flex items-center justify-between font-sans break-keep whitespace-normal break-words">
+					<p className="text-white text-4xl font-bold max-w-[50%] leading-relaxed">
+						{t("why_vietnam.text_header.title")}
+					</p>
+					<motion.button
+						whileHover={{ scale: 1.05 }}
+						whileTap={{ scale: 0.95 }}
+						initial={{ opacity: 0, y: 20 }}
+						animate={{ opacity: 1, y: 0 }}
+						transition={{ duration: 0.5, delay: 1 }}
+						className="absolute right-[5%] inline-flex cursor-pointer font-bold items-center gap-3 px-6 md:px-8 py-3 md:py-4 text-base md:text-lg text-heading-black hover:text-white bg-gradient-to-r from-pale-blue to-light-blue rounded-xl hover:bg-primary/90 w-fit duration-300 transform hover:scale-105 shadow-xl"
+					>
+						{t("our_services.button_learn_more")}
+						<ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
+					</motion.button>
+				</div>
+			</div>
+
+			<div className={classNames("w-full bg-white flex justify-center items-center")}>
+				<div className="flex justify-center gap-15 container h-full py-10 max-w-[1440px]">
+					<div className="flex items-center justify-center gap-6 text-center ">
+						{/* Grid layout for whyVietnam items */}
+						<div className="flex gap-8 w-full items-center">
+							<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
+								{whyVietnam.map((item, idx) => (
+									<HoverCard
+										key={idx}
+										icon={item.icon}
+										title={item.title}
+										description={item.description}
+										className={`w-full h-[250px] flex flex-col items-center text-center p-4 ${
+											item.icon ? "bg-gray-50 rounded-xl shadow-md" : ""
+										}`}
+									/>
+								))}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div className="w-full h-[320px] relative flex justify-center">
+				<img
+					src={bg_whyVietnam_2}
+					alt=""
+					className="w-full h-full object-cover"
+				/>
+				<div className="max-w-[1440px] absolute top-1/2 w-full transform -translate-y-1/2 flex items-center justify-between font-sans break-keep whitespace-normal break-words">
+					<div className="px-4">
+						<img
+							src={logo_t2}
+							className="w-[200px] object-cover mb-4"
+						/>
+						<p className="text-dark-gray text-4xl font-bold max-w-[80%] leading-relaxed">
+							{t("why_vietnam.text_footer.title")}
+						</p>
+					</div>
+					<p className="text-dark-gray text-xl font-bold max-w-[50%] leading-relaxed">
+						{t("why_vietnam.text_footer.desc")}
 					</p>
 				</div>
-
-				<motion.div
-					className="w-full flex justify-center"
-					variants={containerVariants}
-					initial="hidden"
-					whileInView="visible"
-					viewport={{ once: true }}
-				>
-					<div className="flex flex-wrap justify-center items-center md:justify-center sm:justify-start gap-4 font-sans break-keep whitespace-normal break-words">
-						{whyVietnam?.map((card, idx) => (
-							<motion.div
-								key={`why-vietnam-card-${idx}`}
-								variants={cardVariants}
-								whileHover={{ scale: 1.03 }}
-								transition={{ type: "spring", stiffness: 200, damping: 15 }}
-								className={classNames(
-									"w-9/10 sm:w-1/3 md:w-1/4 2xl:w-1/6 bg-white/80 rounded-2xl shadow-lg p-6 flex flex-col items-stretch relative sm:min-w-[250px] sm:min-h-[330px] border-t",
-								)}
-							>
-								<HoverCard {...card} />
-							</motion.div>
-						))}
-					</div>
-				</motion.div>
 			</div>
 		</div>
 	);

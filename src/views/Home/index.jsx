@@ -1,16 +1,14 @@
 import CTA from "@/components/sections/ContactCTA";
-import { HEADER_STYLE } from "@/constant/header";
 import { SECTIONS_KEY } from "@/constant/sideNavigation";
-import CompetitiveEdges from "./components/CompetitiveEdges";
+import Challenges from "./components/Challenges";
 import DevelopmentCapacity from "./components/DevelopmentCapacity/index";
 import FocusedIndustries from "./components/FocusedIndustries";
 import Hero from "./components/Hero";
 import OurProcess from "./components/OurProcess";
+import Services from "./components/Services";
 import SideNavigation from "./components/SideNavigation";
 import Testimonials from "./components/Testimonials";
-import VisionJourney from "./components/Vision";
 import WhyVietnam from "./components/WhyVietnam";
-import Services from "./components/Services";
 
 function HomePage() {
 	const sectionClass = "flex items-center justify-center relative overflow-hidden";
@@ -24,10 +22,16 @@ function HomePage() {
 				<Hero />
 			</section>
 			<section
-				id={SECTIONS_KEY.WHY_VIETNAM.id}
-				className={sectionClass}
+				id={SECTIONS_KEY.CHALLENGES.id}
+				className={sectionClass + " h-screen"}
 			>
-				<WhyVietnam contentClass={contentClass} />
+				<Challenges />
+			</section>
+			<section
+				id={SECTIONS_KEY.WHY_VIETNAM.id}
+				// className={sectionClass}
+			>
+				<WhyVietnam />
 			</section>
 			<section
 				id={SECTIONS_KEY.SERVICES.id}

@@ -90,6 +90,13 @@
 		"experience": {
 			"title": "Global experience",
 			"description": "Proven experience collaborating with global enterprises from KR, JP and beyond"
+		},
+		"text_header": {
+			"title": "Outsourcing solves talent shortages & tech gaps with expert teams, cost efficiency, and flexible scalability."
+		},
+		"text_footer": {
+			"title": "Leading the next generation of technology as your trusted development partner",
+			"desc": "T2 Soft is a leading IT outsourcing and systems integration company, providing software development, maintenance, and IT consulting services to global clients. We aim to quickly deliver high-quality IT solutions optimized for customer needs, successfully support digital transformation, and grow together with our clients."
 		}
 	},
 	"our": "Our",
@@ -100,7 +107,7 @@
 	},
 	"mission": {
 		"title": "Mission",
-		"des_1": "We provide reliable software development and solutions to clients worldwide, offering high-quality and cost-effective services with Vietnam’s top tech talent.",
+		"des_1": "We provide reliable software development and solutions to clients worldwide, offering high-quality and cost-effective services with Vietnam's top tech talent.",
 		"des_2": "Through technological innovation and flexible collaboration, we help our clients grow their businesses."
 	},
 	"values": {
@@ -345,7 +352,7 @@
 		"steps": {
 			"client_request": {
 				"title": "Client Request",
-				"description": "We gather the client’s project goals and define the initial direction",
+				"description": "We gather the client's project goals and define the initial direction",
 				"details": [
 					"Define project objectives and scope",
 					"Collect related materials and references",
@@ -471,7 +478,7 @@
 			"title": "Code the Future ",
 			"explain": "Where Innovation Meets Execution"
 		},
-		"content": "T2 Soft is an IT outsourcing and systems integration company providing software development, maintenance, and IT consulting services for global clients. Led by experienced Korean IT professionals and supported by a dynamic team of skilled Vietnamese developers, we combine technical expertise, cultural understanding, and cost-efficiency to deliver real business value. We specialize in developing smart, scalable, and reliable solutions tailored to our clients’ needs — from enterprise systems to AI-powered applications and custom software. At T2 Soft, we grow together with our clients — through innovation, transparency, and a shared vision for sustainable success.",
+		"content": "T2 Soft is an IT outsourcing and systems integration company providing software development, maintenance, and IT consulting services for global clients. Led by experienced Korean IT professionals and supported by a dynamic team of skilled Vietnamese developers, we combine technical expertise, cultural understanding, and cost-efficiency to deliver real business value. We specialize in developing smart, scalable, and reliable solutions tailored to our clients' needs — from enterprise systems to AI-powered applications and custom software. At T2 Soft, we grow together with our clients — through innovation, transparency, and a shared vision for sustainable success.",
 		"experience": "T2 Soft Commit To",
 		"experience_list": {
 			"1": "Swift Action from Clear Understanding",
@@ -603,7 +610,7 @@
 		"description": "Join our dynamic team and be part of a company that values innovation, collaboration, and personal growth. Explore exciting career opportunities with T2 Soft.",
 		"open_positions": "Open Positions",
 		"apply_now": "Apply Now",
-		"title_cv": "Haven’t found the right position yet?",
+		"title_cv": "Haven't found the right position yet?",
 		"description_cv": "No worries! Just leave us your resume, and we'll reach out when we find the perfect position for you.",
 		"apply_cv": "Apply CV",
 		"collaborative": "Collaborative Culture",
@@ -706,5 +713,34 @@
 		"hero_description": "With experienced Korean IT professionals leading the projects and a dynamic team of skilled Vietnamese developers, we deliver high-quality, customized solutions quickly and reliably.",
 		"home_slogan": "From Insight to Execution — Your One-Stop IT Partner",
 		"home_description": "We support your entire digital transformation journey, from IT outsourcing and expert consulting to customized solution delivery. Our flexible and effective technology services are optimized to meet your unique business goals."
+	},
+	"challenges": {
+		"title": "Struggling with IT roadblocks ",
+		"title_2": "holding back your business growth?",
+		"description": "Talent shortages, technology gaps, and tight deadlines — internal capabilities alone are no longer enough.",
+		"item": {
+			"1": [
+				{ "text": "Skilled tech talent", "className": "text-light-blue font-bold" },
+				{ "text": " is harder to find and costlier than ever.", "className": "text-white" }
+			],
+			"2": [
+				{ "text": "Skilled tech talent", "className": "text-light-blue font-bold" },
+				{ "text": " harder to find and costlier than ever.", "className": "text-dark-gray" }
+			],
+			"3": [
+				{ "text": "Hard to", "className": "text-dark-gray" },
+				{ "text": " deploy talent instantly", "className": "text-light-blue font-bold" },
+				{ "text": " in a rapidly changing market.", "className": "text-dark-gray" }
+			],
+			"4": [
+				{ "text": "Skilled tech talent", "className": "text-light-blue font-bold" },
+				{ "text": " harder to find and costlier than ever.", "className": "text-white" }
+			],
+			"5": [
+				{ "text": "A fast-growing", "className": "text-white" },
+				{ "text": " tech gap", "className": "text-light-blue font-bold" },
+				{ "text": " leads to a loss in competitiveness", "className": "text-white" }
+			]
+		}
 	}
 }

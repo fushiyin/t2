@@ -95,13 +95,10 @@ const Header = () => {
 	return (
 		<header
 			id="header"
-			className={classNames(
-				"w-full  z-50 transition-all duration-300 fixed top-0 left-0 right-0",
-				{
-					"bg-transparent": !isScrolled,
-					"bg-white dark:bg-dark-blue shadow-md": isScrolled,
-				},
-			)}
+			className={classNames("w-full z-50 transition-all duration-300 fixed left-0 right-0", {
+				"top-10 bg-transparent": !isScrolled,
+				"top-0 bg-white dark:bg-dark-blue shadow-md": isScrolled,
+			})}
 		>
 			<div className="w-full max-w-[1440px] mx-auto px-4 2xl:px-0">
 				<div className="w-full flex justify-between items-center h-16">
@@ -118,42 +115,38 @@ const Header = () => {
 						</Link>
 					</div>
 
-					<nav className="hidden justify-center items-center space-x-8 md:flex md:space-x-2 xl:space-x-6 lg:space-x-4 flex-1">
-						{NAV_LINKS.map((link) => (
-							<Link
-								key={link.path}
-								to={link.path}
-								className={classNames(
-									"px-3 py-2 text-base font-medium transition-colors flex text-center items-center",
-									{
-										"hidden lg:inline":
-											link.name === "Contact" || link.name === "Blog",
-										"text-[var(--color-dark-blue)] font-extrabold bg-white rounded-4xl":
-											window.location?.pathname === link?.path ||
-											!window.location?.pathname,
-										"text-white hover:bg-white rounded-4xl hover:text-dark-blue":
-											isHome &&
-											!isScrolled &&
-											!(
-												window.location?.pathname === link?.path ||
-												!window.location?.pathname
-											),
-										"text-gray-700 dark:text-gray-200 hover:text-[var(--color-dark-blue)] hover:bg-gray-100 dark:hover:bg-light-blue rounded-lg":
-											!isHome &&
-											!(
-												window.location?.pathname === link?.path ||
-												!window.location?.pathname
-											),
-										"dark:text-light-blue":
-											isScrolled &&
-											(window.location?.pathname === link?.path ||
-												!window.location?.pathname),
-									},
-								)}
-							>
-								{t(link?.i18nKey) || link?.name}
-							</Link>
-						))}
+					<nav className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-5 xl:gap-7 border border-[#5c5cff] border-opacity-80 rounded-full px-6 py-2 shadow-sm backdrop-blur-sm bg-white/10">
+						{NAV_LINKS.map((link) => {
+							const isActive =
+								window.location?.pathname === link?.path ||
+								!window.location?.pathname;
+
+							return (
+								<Link
+									key={link.path}
+									to={link.path}
+									className={classNames(
+										"relative transition-all duration-300 ease-in-out flex items-center justify-center font-medium text-base px-5 py-2 rounded-full group whitespace-nowrap",
+										{
+											"text-[var(--color-dark-blue)] font-extrabold bg-white shadow-md":
+												isActive,
+											"text-white hover:bg-white hover:text-[var(--color-dark-blue)] hover:px-6 hover:py-2.5":
+												isHome && !isScrolled && !isActive,
+											"text-gray-700 dark:text-gray-200 hover:text-[var(--color-dark-blue)] hover:bg-gray-100 dark:hover:bg-light-blue":
+												!isHome && !isActive,
+											"dark:text-light-blue": isScrolled && isActive,
+										},
+									)}
+								>
+									{isActive && (
+										<span className="h-2 w-2 bg-green-500 rounded-full mr-2"></span>
+									)}
+									<span className="relative z-10">
+										{t(link?.i18nKey) || link?.name}
+									</span>
+								</Link>
+							);
+						})}
 					</nav>
 
 					<button

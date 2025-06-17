@@ -10,27 +10,34 @@ const HoverCard = ({ icon, title, description, className = "" }) => {
 			className={`flex flex-col ${icon ? "items-center text-center" : "items-start text-left"} w-full h-full gap-4 ${className}`}
 		>
 			{icon && (
-				<div className="bg-gradient-to-r from-pale-blue to-light-blue p-3 rounded-full inline-flex items-center justify-center text-white">
+				<div className="bg-gradient-to-r from-blue-500 to-blue-600 p-3 rounded-full inline-flex items-center justify-center text-white">
 					{icon}
 				</div>
 			)}
 			<div>
 				<h2
 					className={`font-semibold mb-2 text-gray-900 sm:min-h-[48px] ${
-						icon ? "text-xl" : "h-[48px] text-5xl font-bold mb-6"
+						icon ? "text-xl" : "text-3xl sm:text-4xl md:text-5xl font-bold mb-6"
 					}`}
 				>
 					{title}
 				</h2>
 				{!icon && (
-					<div className="flex items-center gap-2 mb-4">
-						<div className="w-[10px] h-[10px] rounded-full bg-gradient-to-r from-pale-blue to-light-blue"></div>
-						<div className="w-[10px] h-[10px] rounded-full bg-gradient-to-r from-pale-blue to-light-blue"></div>
-						<div className="w-[10px] h-[10px] rounded-full bg-gradient-to-r from-pale-blue to-light-blue"></div>
-						<div className="h-[10px] w-1/2 bg-gradient-to-r from-pale-blue to-light-blue"></div>
+					<div className="flex flex-wrap items-center gap-1 sm:gap-2 mb-4">
+						<div className="w-2.5 h-2.5 sm:w-[10px] sm:h-[10px] rounded-full bg-gradient-to-r from-pale-blue to-light-blue"></div>
+						<div className="w-2.5 h-2.5 sm:w-[10px] sm:h-[10px] rounded-full bg-gradient-to-r from-pale-blue to-light-blue"></div>
+						<div className="w-2.5 h-2.5 sm:w-[10px] sm:h-[10px] rounded-full bg-gradient-to-r from-pale-blue to-light-blue"></div>
+						<div className="w-2.5 h-2.5 sm:w-[10px] sm:h-[10px] rounded-full bg-gradient-to-r from-pale-blue to-light-blue"></div>
+						<div className="w-2.5 h-2.5 sm:w-[10px] sm:h-[10px] rounded-full bg-gradient-to-r from-pale-blue to-light-blue"></div>
+						<div className="w-2.5 h-2.5 sm:w-[10px] sm:h-[10px] rounded-full bg-gradient-to-r from-pale-blue to-light-blue"></div>
+						<div className="w-2.5 h-2.5 sm:w-[10px] sm:h-[10px] rounded-full bg-gradient-to-r from-pale-blue to-light-blue"></div>
+						<div className="w-20 sm:w-28 md:w-32 h-2.5 sm:h-[10px] bg-gradient-to-r from-pale-blue to-light-blue rounded-full" />
 					</div>
 				)}
-				<p className={`text-gray-900 min-h-[96px] ${icon ? "text-base" : "text-lg mt-4"}`}>
+
+				<p
+					className={`text-gray-900 ${icon ? "text-base" : "text-base sm:text-lg mt-4"} min-h-[96px]`}
+				>
 					{description}
 				</p>
 			</div>

@@ -177,7 +177,7 @@ const Services = ({ contentClass }) => {
 						initial={{ opacity: 0, y: 20 }}
 						animate={{ opacity: 1, y: 0 }}
 						transition={{ duration: 0.5, delay: 0.2 }}
-						className="max-w-[600px] md:max-w-[900px] text-white text-sm sm:text-base md:text-xl/relaxed"
+						className="max-w-[600px] md:max-w-[900px] text-white text-base md:text-xl/relaxed"
 					>
 						{t("services.section.description")}
 					</motion.p>
@@ -205,7 +205,7 @@ const Services = ({ contentClass }) => {
 							crossFade: true,
 						}}
 						onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
-						className="w-full h-[500px] sm:h-[550px] md:h-[600px]"
+						className="w-full h-[500px] sm:h-[550px] md:h-[600px] pb-12 sm:pb-16"
 					>
 						{services.map((service, index) => (
 							<SwiperSlide key={service.id}>
@@ -262,7 +262,7 @@ const Services = ({ contentClass }) => {
 												initial={{ y: 20, opacity: 0 }}
 												animate={{ y: 0, opacity: 1 }}
 												transition={{ duration: 0.5, delay: 0.5 }}
-												className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 md:mb-4 group-hover:text-primary transition-colors font-sans break-keep whitespace-normal break-words"
+												className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-6 text-white group-hover:text-primary transition-colors font-sans break-keep whitespace-normal break-words"
 											>
 												{service.name}
 											</motion.h3>
@@ -270,11 +270,11 @@ const Services = ({ contentClass }) => {
 												initial={{ y: 20, opacity: 0 }}
 												animate={{ y: 0, opacity: 1 }}
 												transition={{ duration: 0.5, delay: 0.6 }}
-												className="text-sm md:text-base text-muted-foreground mb-4 md:mb-8 font-sans break-keep whitespace-normal break-words w-full md:w-[80%]"
+												className="text-base sm:text-lg md:text-xl text-muted-foreground mb-4 md:mb-6 font-sans break-keep whitespace-normal break-words w-full md:w-[80%]"
 											>
 												{service.description}
 											</motion.p>
-											<ul className="space-y-2 sm:mb-12 md:space-y-3 md:mb-8 mb-4">
+											<ul className="space-y-2 md:space-y-3 mb-4 md:mb-8">
 												{service.details.map((detail, idx) => (
 													<motion.li
 														key={idx}
@@ -284,7 +284,7 @@ const Services = ({ contentClass }) => {
 															duration: 0.3,
 															delay: 0.7 + idx * 0.1,
 														}}
-														className="flex items-center gap-2 text-xs sm:text-sm"
+														className="flex items-center gap-2 text-base md:text-lg"
 													>
 														<motion.span
 															initial={{ scale: 0 }}
@@ -295,7 +295,7 @@ const Services = ({ contentClass }) => {
 															}}
 															className="mt-1 w-1.5 h-1.5 rounded-full bg-light-blue shrink-0"
 														/>
-														<span className="font-sans break-words whitespace-normal text-white/80">
+														<span className="font-sans break-words whitespace-normal text-white/90">
 															{detail}
 														</span>
 													</motion.li>
@@ -307,7 +307,7 @@ const Services = ({ contentClass }) => {
 												initial={{ opacity: 0, y: 20 }}
 												animate={{ opacity: 1, y: 0 }}
 												transition={{ duration: 0.5, delay: 1 }}
-												className="inline-flex cursor-pointer font-bold items-center gap-2 px-4 md:px-6 py-2 md:py-3 text-sm md:text-base text-heading-black hover:text-white bg-gradient-to-r from-pale-blue to-light-blue rounded-lg hover:bg-primary/90 w-fit duration-300 transform hover:scale-105 shadow-lg"
+												className="hidden md:inline-flex cursor-pointer font-bold items-center gap-2 px-4 md:px-6 py-2 md:py-3 text-base text-heading-black hover:text-white bg-gradient-to-r from-pale-blue to-light-blue rounded-lg hover:bg-primary/90 w-fit duration-300 transform hover:scale-105 shadow-lg"
 											>
 												{t("our_services.button_learn_more")}
 												<ArrowRight className="w-3 h-3 md:w-4 md:h-4" />

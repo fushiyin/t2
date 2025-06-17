@@ -48,8 +48,9 @@ export default function WhyVietnam() {
 					alt=""
 					className="w-full h-full object-cover"
 				/>
-				<div className="max-w-[1440px] absolute top-1/2 w-full transform -translate-y-1/2 flex items-center justify-between font-sans break-keep whitespace-normal break-words">
-					<p className="text-white text-4xl font-bold max-w-[50%] leading-relaxed">
+
+				<div className="max-w-[1440px] absolute top-1/2 w-full transform -translate-y-1/2 flex items-center justify-between font-sans px-4 sm:px-6 md:px-8">
+					<p className="text-white font-bold leading-relaxed text-xl sm:text-2xl md:text-3xl lg:text-4xl max-w-[80%] sm:max-w-[70%] md:max-w-[60%] lg:max-w-[50%]">
 						{t("why_vietnam.text_header.title")}
 					</p>
 					<motion.button
@@ -58,7 +59,7 @@ export default function WhyVietnam() {
 						initial={{ opacity: 0, y: 20 }}
 						animate={{ opacity: 1, y: 0 }}
 						transition={{ duration: 0.5, delay: 1 }}
-						className="absolute right-[5%] inline-flex cursor-pointer font-bold items-center gap-3 px-6 md:px-8 py-3 md:py-4 text-base md:text-lg text-heading-black hover:text-white bg-gradient-to-r from-pale-blue to-light-blue rounded-xl hover:bg-primary/90 w-fit duration-300 transform hover:scale-105 shadow-xl"
+						className="hidden sm:inline-flex absolute right-[5%] font-bold items-center gap-2 md:gap-3 px-4 md:px-6 py-2 md:py-3 text-sm md:text-base lg:text-lg text-heading-black hover:text-white bg-gradient-to-r from-pale-blue to-light-blue rounded-xl hover:bg-primary/90 duration-300 transform hover:scale-105 shadow-xl"
 					>
 						{t("our_services.button_learn_more")}
 						<ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
@@ -66,46 +67,48 @@ export default function WhyVietnam() {
 				</div>
 			</div>
 
-			<div className={classNames("w-full bg-white flex justify-center items-center")}>
-				<div className="flex justify-center gap-15 container h-full py-10 max-w-[1440px]">
-					<div className="flex items-center justify-center gap-6 text-center ">
-						{/* Grid layout for whyVietnam items */}
-						<div className="flex gap-8 w-full items-center">
-							<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
-								{whyVietnam.map((item, idx) => (
-									<HoverCard
-										key={idx}
-										icon={item.icon}
-										title={item.title}
-										description={item.description}
-										className={`w-full h-[250px] flex flex-col items-center text-center p-4 ${
-											item.icon ? "bg-gray-50 rounded-xl shadow-md" : ""
-										}`}
-									/>
-								))}
-							</div>
+			<div className="w-full bg-white flex justify-center items-center">
+				<div className="flex justify-center container h-full py-6 sm:py-10 px-4 sm:px-6 md:px-10 max-w-[1440px]">
+					<div className="w-full">
+						<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 w-full">
+							{whyVietnam.map((item, idx) => (
+								<HoverCard
+									key={idx}
+									icon={item.icon}
+									title={item.title}
+									description={item.description}
+									className={classNames(
+										"w-full flex flex-col items-center text-center p-4 sm:p-5",
+										"rounded-xl shadow-md",
+										"transition duration-300 hover:shadow-lg",
+										item.icon ? "bg-gray-50" : "",
+										"h-auto min-h-[200px] sm:min-h-[220px] md:min-h-[250px]",
+									)}
+								/>
+							))}
 						</div>
 					</div>
 				</div>
 			</div>
 
-			<div className="w-full h-[320px] relative flex justify-center">
+			<div className="w-full relative bg-white">
 				<img
 					src={bg_whyVietnam_2}
 					alt=""
-					className="w-full h-full object-cover"
+					className="absolute inset-0 w-full h-full object-cover z-0"
 				/>
-				<div className="max-w-[1440px] absolute top-1/2 w-full transform -translate-y-1/2 flex items-center justify-between font-sans break-keep whitespace-normal break-words">
-					<div className="px-4">
+				<div className="relative z-10 w-full max-w-[1440px] mx-auto flex flex-col md:flex-row items-center justify-between px-4 sm:px-8 lg:px-12 xl:px-16 2xl:px-24 py-10 min-h-[400px]">
+					<div className="flex flex-col items-center md:items-start w-full md:w-1/2 gap-4">
 						<img
 							src={logo_t2}
-							className="w-[200px] object-cover mb-4"
+							className="w-[140px] sm:w-[180px] md:w-[200px] object-cover"
+							alt="Logo"
 						/>
-						<p className="text-dark-gray text-4xl font-bold max-w-[80%] leading-relaxed">
+						<p className="text-dark-gray text-2xl sm:text-3xl md:text-4xl font-bold leading-relaxed max-w-[90%] text-center md:text-left">
 							{t("why_vietnam.text_footer.title")}
 						</p>
 					</div>
-					<p className="text-dark-gray text-xl font-bold max-w-[50%] leading-relaxed">
+					<p className="text-dark-gray text-base sm:text-lg md:text-xl font-medium md:font-bold leading-relaxed max-w-[90%] md:max-w-[50%] text-center md:text-left mt-6 md:mt-0">
 						{t("why_vietnam.text_footer.desc")}
 					</p>
 				</div>

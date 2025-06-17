@@ -1,45 +1,47 @@
+import { motion, useInView } from "framer-motion";
+import { useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
+import "./styles.css";
 import planet1 from "@/assets/img/planet1.png";
 import planet2 from "@/assets/img/planet2.jpg";
 import planet3 from "@/assets/img/planet3.jpg";
 import wallpaper from "@/assets/img/wallpaper.jpg";
-import { useRef, useState } from "react";
-import { useTranslation } from "react-i18next";
-import "./styles.css";
-
-const Stars = () => {
-	const stars = Array.from({ length: 100 }).map((_, index) => ({
-		id: index,
-		top: `${Math.random() * 100}%`,
-		left: `${Math.random() * 100}%`,
-		size: `${Math.random() * 2 + 1}px`,
-		opacity: Math.random() * 0.5 + 0.5,
-		animationDelay: `${Math.random() * 5}s`,
-	}));
-
-	return (
-		<div className="absolute inset-0 overflow-hidden">
-			{stars.map((star) => (
-				<div
-					key={star.id}
-					className="absolute rounded-full bg-white animate-twinkle"
-					style={{
-						top: star.top,
-						left: star.left,
-						width: star.size,
-						height: star.size,
-						opacity: star.opacity,
-						animationDelay: star.animationDelay,
-					}}
-				/>
-			))}
-		</div>
-	);
-};
 
 const VisionJourney = () => {
 	const [activeIndex, setActiveIndex] = useState(0);
 	const containerRef = useRef(null);
+	const isInView = useInView(containerRef, { once: true, margin: "-50px" });
 	const { t } = useTranslation();
+
+	const textVariants = {
+		hidden: { opacity: 0, y: 20 },
+		visible: {
+			opacity: 1,
+			y: 0,
+			transition: {
+				duration: 0.6,
+				staggerChildren: 0.2,
+			},
+		},
+	};
+
+	const itemVariants = {
+		hidden: { opacity: 0, y: 20 },
+		visible: {
+			opacity: 1,
+			y: 0,
+			transition: { duration: 0.5 },
+		},
+	};
+
+	const planetVariants = {
+		hidden: { scale: 0.8, opacity: 0 },
+		visible: {
+			scale: 1,
+			opacity: 1,
+			transition: { duration: 0.8 },
+		},
+	};
 
 	const slides = [
 		{
@@ -152,21 +154,44 @@ const VisionJourney = () => {
 			}}
 		>
 			<Stars />
-			<div className="content flex flex-col items-center justify-space-between text-center">
-				<h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-white mt-5">
+			<motion.div
+				variants={textVariants}
+				initial="hidden"
+				animate={isInView ? "visible" : "hidden"}
+				className="content flex flex-col items-center justify-space-between text-center"
+			>
+				<motion.h2
+					variants={itemVariants}
+					className="text-3xl font-bold tracking-tighter sm:text-5xl text-white mt-5"
+				>
 					{t("our")}
-				</h2>
-				<div className="text-2xl sm:text-6xl font-bold text-white transition-all duration-500">
+				</motion.h2>
+				<motion.div
+					variants={itemVariants}
+					className="text-2xl sm:text-6xl font-bold text-white transition-all duration-500"
+				>
 					{slides[activeIndex].title.toUpperCase()}
-				</div>
-				<div className="max-w-[1100px] text-white md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed transition-all duration-500 px-5 mt-5 font-sans break-keep whitespace-normal break-words">
+				</motion.div>
+				<motion.div
+					variants={itemVariants}
+					className="max-w-[1100px] text-white md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed transition-all duration-500 px-5 mt-5 font-sans break-keep whitespace-normal break-words"
+				>
 					<p>{slides[activeIndex].des_1}</p>
 					<p>{slides[activeIndex].des_2}</p>
-				</div>
-				<div className="w-[90px] h-[8px] mt-5 bg-gradient-to-r from-[var(--color-light-mint)] to-[var(--color-light-green)] mb-4" />
-			</div>
-			<div
-				className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full flex items-center justify-center  transform-3d  [animation:rotate_20s_linear_infinite]"
+				</motion.div>
+				<motion.div
+					variants={itemVariants}
+					initial={{ width: 0 }}
+					animate={isInView ? { width: "90px" } : { width: 0 }}
+					transition={{ duration: 0.6, delay: 0.4 }}
+					className="h-[8px] mt-5 bg-gradient-to-r from-[var(--color-light-mint)] to-[var(--color-light-green)] mb-4"
+				/>
+			</motion.div>
+			<motion.div
+				initial={{ opacity: 0 }}
+				animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+				transition={{ duration: 0.8, delay: 0.2 }}
+				className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full flex items-center justify-center transform-3d [animation:rotate_20s_linear_infinite]"
 				style={{ perspective: "1000px", transformStyle: "preserve-3d" }}
 			>
 				{slides.map((slide, index) => {
@@ -174,13 +199,17 @@ const VisionJourney = () => {
 					const isCenter = index === activeIndex;
 					const isLeft = index === getPrevSlide(activeIndex);
 					return (
-						<div
+						<motion.div
+							variants={planetVariants}
+							initial="hidden"
+							animate={isInView ? "visible" : "hidden"}
+							transition={{ delay: index * 0.2 }}
 							className="flex gap-5"
 							key={slide.id}
 							style={planetStyles}
 							onClick={() => setActiveIndex(index)}
 						>
-							<div
+							<motion.div
 								className="w-full h-full absolute rounded-full [animation:rotate_15s_linear_infinite] animate-spin-slow rotate"
 								style={{
 									backgroundImage: `url(${slide?.image})`,
@@ -193,7 +222,14 @@ const VisionJourney = () => {
 							/>
 
 							{!isCenter && (
-								<div
+								<motion.div
+									initial={{ opacity: 0, x: isLeft ? -20 : 20 }}
+									animate={
+										isInView
+											? { opacity: 1, x: 0 }
+											: { opacity: 0, x: isLeft ? -20 : 20 }
+									}
+									transition={{ duration: 0.5, delay: index * 0.2 + 0.3 }}
 									className="absolute text-white font-semibold z-20 text-center w-max px-2 text-base md:text-2xl"
 									style={{
 										top: "50%",
@@ -204,14 +240,44 @@ const VisionJourney = () => {
 									}}
 								>
 									{slide.title.toUpperCase()}
-								</div>
+								</motion.div>
 							)}
-						</div>
+						</motion.div>
 					);
 				})}
-			</div>
+			</motion.div>
 		</div>
 	);
 };
 
 export default VisionJourney;
+
+const Stars = () => {
+	const stars = Array.from({ length: 100 }).map((_, index) => ({
+		id: index,
+		top: `${Math.random() * 100}%`,
+		left: `${Math.random() * 100}%`,
+		size: `${Math.random() * 2 + 1}px`,
+		opacity: Math.random() * 0.5 + 0.5,
+		animationDelay: `${Math.random() * 5}s`,
+	}));
+
+	return (
+		<div className="absolute inset-0 overflow-hidden">
+			{stars.map((star) => (
+				<div
+					key={star.id}
+					className="absolute rounded-full bg-white animate-twinkle"
+					style={{
+						top: star.top,
+						left: star.left,
+						width: star.size,
+						height: star.size,
+						opacity: star.opacity,
+						animationDelay: star.animationDelay,
+					}}
+				/>
+			))}
+		</div>
+	);
+};

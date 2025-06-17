@@ -1,22 +1,29 @@
+import AI from "@/assets/img/AI.png";
+import Bigdata_Analysis from "@/assets/img/Bigdata_Analysis.jpg";
+import Development_Center from "@/assets/img/Development_Center.png";
+import IT_Consulting from "@/assets/img/IT_Consulting.jpg";
+import Solution_Provider from "@/assets/img/Solution_Provider.png";
+import System_Integration from "@/assets/img/System_Integration.jpg";
+import useResponsive from "@/hooks/useResponsive";
 import classNames from "classnames";
 import { ArrowRight } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { Autoplay, Navigation, Pagination } from "swiper/modules";
+import "swiper/css/effect-fade";
+import { Autoplay, Navigation, Pagination, EffectFade } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import IT_Consulting from "@/assets/img/IT_Consulting.jpg";
-import System_Integration from "@/assets/img/System_Integration.jpg";
-import Bigdata_Analysis from "@/assets/img/Bigdata_Analysis.jpg";
-import Solution_Provider from "@/assets/img/Solution_Provider.png";
-import Development_Center from "@/assets/img/Development_Center.png";
-import AI from "@/assets/img/AI.png";
-import useResponsive from "@/hooks/useResponsive";
+import { motion, AnimatePresence } from "framer-motion";
+import { useInView } from "framer-motion";
+import { useRef, useState } from "react";
 
 const Services = ({ contentClass }) => {
 	const { t } = useTranslation();
 	const { isMobile } = useResponsive();
+	const ref = useRef(null);
+	const isInView = useInView(ref, { once: true, amount: 0.3 });
+	const [activeIndex, setActiveIndex] = useState(0);
 
 	const services = [
 		{
@@ -92,9 +99,61 @@ const Services = ({ contentClass }) => {
 		},
 	];
 
+	const containerVariants = {
+		hidden: { opacity: 0 },
+		visible: {
+			opacity: 1,
+			transition: {
+				staggerChildren: 0.2,
+			},
+		},
+	};
+
+	const itemVariants = {
+		hidden: { y: 50, opacity: 0 },
+		visible: {
+			y: 0,
+			opacity: 1,
+			transition: {
+				duration: 0.5,
+				ease: "easeOut",
+			},
+		},
+	};
+
+	const slideVariants = {
+		enter: (direction) => ({
+			x: direction > 0 ? 1000 : -1000,
+			opacity: 0,
+			scale: 0.8,
+		}),
+		center: {
+			zIndex: 1,
+			x: 0,
+			opacity: 1,
+			scale: 1,
+		},
+		exit: (direction) => ({
+			zIndex: 0,
+			x: direction < 0 ? 1000 : -1000,
+			opacity: 0,
+			scale: 0.8,
+		}),
+	};
+
+	const slideTransition = {
+		type: "spring",
+		stiffness: 300,
+		damping: 30,
+	};
+
 	return (
 		<div className="w-full h-full bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white">
-			<div
+			<motion.div
+				ref={ref}
+				initial="hidden"
+				animate={isInView ? "visible" : "hidden"}
+				variants={containerVariants}
 				className={classNames(
 					"max-w-[1440px] flex flex-col items-center justify-center gap-6 md:gap-12 mx-auto px-4 sm:px-6 lg:px-8",
 					{
@@ -102,80 +161,165 @@ const Services = ({ contentClass }) => {
 					},
 				)}
 			>
-				<div className="flex flex-col items-center justify-center space-y-2 md:space-y-4 text-center px-2 sm:px-5 mb-3 md:mb-5">
-					<h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter pb-4 md:pb-6 bg-gradient-to-r from-light-blue via-light-blue-gray to-pale-blue bg-clip-text text-transparent">
-						{t("services.section.title")}
-					</h2>
-					<p className="max-w-[600px] md:max-w-[900px] text-white text-sm sm:text-base md:text-xl/relaxed">
-						{t("services.section.description")}
-					</p>
-				</div>
-				<Swiper
-					modules={[Navigation, Pagination, Autoplay]}
-					spaceBetween={20}
-					slidesPerView={1}
-					navigation={!isMobile}
-					pagination={{
-						clickable: true,
-						bulletClass: "swiper-pagination-bullet",
-						bulletActiveClass: "swiper-pagination-bullet-active",
-					}}
-					autoplay={{
-						delay: 5000,
-						disableOnInteraction: false,
-					}}
-					className="w-full h-[500px] sm:h-[550px] md:h-[600px]"
+				<motion.div
+					variants={itemVariants}
+					className="flex flex-col items-center justify-center space-y-2 md:space-y-4 text-center px-2 sm:px-5 mb-3 md:mb-5"
 				>
-					{services.map((service) => (
-						<SwiperSlide key={service.id}>
-							<div className="relative flex flex-col md:flex-row h-full bg-transparent rounded-2xl shadow-lg overflow-hidden">
-								{/* Image Section */}
-								<div className="w-full md:w-[60%] h-[40%] md:h-[95%] relative flex">
-									{!isMobile && (
-										<div className="absolute left-[80px] top-1/2 -translate-y-1/2 w-[20px] h-[60%] bg-light-blue" />
-									)}
-									<div
-										className={`absolute ${isMobile ? "left-0 w-full" : "left-[100px] w-[90%]"} h-[95%] flex items-center justify-center bg-white shadow-xl rounded-lg overflow-hidden mx-auto`}
+					<motion.h2
+						initial={{ opacity: 0, y: 20 }}
+						animate={{ opacity: 1, y: 0 }}
+						transition={{ duration: 0.5 }}
+						className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter pb-4 md:pb-6 bg-gradient-to-r from-light-blue via-light-blue-gray to-pale-blue bg-clip-text text-transparent"
+					>
+						{t("services.section.title")}
+					</motion.h2>
+					<motion.p
+						initial={{ opacity: 0, y: 20 }}
+						animate={{ opacity: 1, y: 0 }}
+						transition={{ duration: 0.5, delay: 0.2 }}
+						className="max-w-[600px] md:max-w-[900px] text-white text-sm sm:text-base md:text-xl/relaxed"
+					>
+						{t("services.section.description")}
+					</motion.p>
+				</motion.div>
+				<motion.div
+					variants={itemVariants}
+					className="w-full"
+				>
+					<Swiper
+						modules={[Navigation, Pagination, Autoplay, EffectFade]}
+						spaceBetween={20}
+						slidesPerView={1}
+						navigation={!isMobile}
+						pagination={{
+							clickable: true,
+							bulletClass: "swiper-pagination-bullet",
+							bulletActiveClass: "swiper-pagination-bullet-active",
+						}}
+						autoplay={{
+							delay: 5000,
+							disableOnInteraction: false,
+						}}
+						effect="fade"
+						fadeEffect={{
+							crossFade: true,
+						}}
+						onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
+						className="w-full h-[500px] sm:h-[550px] md:h-[600px]"
+					>
+						{services.map((service, index) => (
+							<SwiperSlide key={service.id}>
+								<AnimatePresence
+									initial={false}
+									custom={index - activeIndex}
+								>
+									<motion.div
+										custom={index - activeIndex}
+										variants={slideVariants}
+										initial="enter"
+										animate="center"
+										exit="exit"
+										transition={slideTransition}
+										className="relative flex flex-col md:flex-row h-full bg-transparent rounded-2xl shadow-lg overflow-hidden"
 									>
-										<img
-											src={service.image}
-											alt={service.name}
-											className="object-cover w-[96%] h-[96%] rounded-lg"
-										/>
-									</div>
-								</div>
-
-								{/* Content Section */}
-								<div className="w-full md:w-[50%] h-[60%] md:h-[90%] px-4 md:pl-16 md:pr-8 pt-4 md:pt-8 pb-4 md:pb-8 flex flex-col justify-center">
-									<h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 md:mb-4 group-hover:text-primary transition-colors font-sans break-keep whitespace-normal break-words">
-										{service.name}
-									</h3>
-									<p className="text-sm md:text-base text-muted-foreground mb-4 md:mb-8 font-sans break-keep whitespace-normal break-words w-full md:w-[80%]">
-										{service.description}
-									</p>
-									<ul className="space-y-2 sm:mb-12 md:space-y-3 md:mb-8 mb-4">
-										{service.details.map((detail, idx) => (
-											<li
-												key={idx}
-												className="flex items-center gap-2 text-xs sm:text-sm"
+										{/* Image Section */}
+										<motion.div
+											initial={{ x: -50, opacity: 0 }}
+											animate={{ x: 0, opacity: 1 }}
+											transition={{ duration: 0.5, delay: 0.2 }}
+											className="w-full md:w-[60%] h-[40%] md:h-[95%] relative flex"
+										>
+											{!isMobile && (
+												<motion.div
+													initial={{ height: 0 }}
+													animate={{ height: "60%" }}
+													transition={{ duration: 0.5, delay: 0.3 }}
+													className="absolute left-[80px] top-1/2 -translate-y-1/2 w-[20px] bg-light-blue"
+												/>
+											)}
+											<div
+												className={`absolute ${isMobile ? "left-0 w-full" : "left-[100px] w-[90%]"} h-[95%] flex items-center justify-center bg-white shadow-xl rounded-lg overflow-hidden mx-auto`}
 											>
-												<span className="mt-1 w-1.5 h-1.5 rounded-full bg-light-blue shrink-0" />
-												<span className="font-sans break-words whitespace-normal text-white/80">
-													{detail}
-												</span>
-											</li>
-										))}
-									</ul>
-									<button className="inline-flex cursor-pointer font-bold items-center gap-2 px-4 md:px-6 py-2 md:py-3 text-sm md:text-base text-heading-black hover:text-white bg-gradient-to-r from-pale-blue to-light-blue rounded-lg hover:bg-primary/90 w-fit duration-300 transform hover:scale-105 shadow-lg">
-										{t("our_services.button_learn_more")}
-										<ArrowRight className="w-3 h-3 md:w-4 md:h-4" />
-									</button>
-								</div>
-							</div>
-						</SwiperSlide>
-					))}
-				</Swiper>
-			</div>
+												<motion.img
+													initial={{ scale: 0.8, opacity: 0 }}
+													animate={{ scale: 1, opacity: 1 }}
+													transition={{ duration: 0.5, delay: 0.4 }}
+													src={service.image}
+													alt={service.name}
+													className="object-cover w-[96%] h-[96%] rounded-lg"
+												/>
+											</div>
+										</motion.div>
+
+										{/* Content Section */}
+										<motion.div
+											initial={{ x: 50, opacity: 0 }}
+											animate={{ x: 0, opacity: 1 }}
+											transition={{ duration: 0.5, delay: 0.3 }}
+											className="w-full md:w-[50%] h-[60%] md:h-[90%] px-4 md:pl-16 md:pr-8 pt-4 md:pt-8 pb-4 md:pb-8 flex flex-col justify-center"
+										>
+											<motion.h3
+												initial={{ y: 20, opacity: 0 }}
+												animate={{ y: 0, opacity: 1 }}
+												transition={{ duration: 0.5, delay: 0.5 }}
+												className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 md:mb-4 group-hover:text-primary transition-colors font-sans break-keep whitespace-normal break-words"
+											>
+												{service.name}
+											</motion.h3>
+											<motion.p
+												initial={{ y: 20, opacity: 0 }}
+												animate={{ y: 0, opacity: 1 }}
+												transition={{ duration: 0.5, delay: 0.6 }}
+												className="text-sm md:text-base text-muted-foreground mb-4 md:mb-8 font-sans break-keep whitespace-normal break-words w-full md:w-[80%]"
+											>
+												{service.description}
+											</motion.p>
+											<ul className="space-y-2 sm:mb-12 md:space-y-3 md:mb-8 mb-4">
+												{service.details.map((detail, idx) => (
+													<motion.li
+														key={idx}
+														initial={{ opacity: 0, x: 20 }}
+														animate={{ opacity: 1, x: 0 }}
+														transition={{
+															duration: 0.3,
+															delay: 0.7 + idx * 0.1,
+														}}
+														className="flex items-center gap-2 text-xs sm:text-sm"
+													>
+														<motion.span
+															initial={{ scale: 0 }}
+															animate={{ scale: 1 }}
+															transition={{
+																duration: 0.3,
+																delay: 0.8 + idx * 0.1,
+															}}
+															className="mt-1 w-1.5 h-1.5 rounded-full bg-light-blue shrink-0"
+														/>
+														<span className="font-sans break-words whitespace-normal text-white/80">
+															{detail}
+														</span>
+													</motion.li>
+												))}
+											</ul>
+											<motion.button
+												whileHover={{ scale: 1.05 }}
+												whileTap={{ scale: 0.95 }}
+												initial={{ opacity: 0, y: 20 }}
+												animate={{ opacity: 1, y: 0 }}
+												transition={{ duration: 0.5, delay: 1 }}
+												className="inline-flex cursor-pointer font-bold items-center gap-2 px-4 md:px-6 py-2 md:py-3 text-sm md:text-base text-heading-black hover:text-white bg-gradient-to-r from-pale-blue to-light-blue rounded-lg hover:bg-primary/90 w-fit duration-300 transform hover:scale-105 shadow-lg"
+											>
+												{t("our_services.button_learn_more")}
+												<ArrowRight className="w-3 h-3 md:w-4 md:h-4" />
+											</motion.button>
+										</motion.div>
+									</motion.div>
+								</AnimatePresence>
+							</SwiperSlide>
+						))}
+					</Swiper>
+				</motion.div>
+			</motion.div>
 		</div>
 	);
 };

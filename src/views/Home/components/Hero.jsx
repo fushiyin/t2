@@ -1,7 +1,8 @@
-import video_home from "@/assets/video/Vid_Home4.mp4";
+import video_home from "@/assets/video/Vid_Home.mp4";
 import video_hero from "@/assets/video/video-hero.mp4";
 import { Button } from "@/components/ui/button";
 import { idRouter } from "@/routes/idRouter";
+import classNames from "classnames";
 import { motion } from "framer-motion";
 import { ArrowRightIcon } from "lucide-react";
 import { useRef, useState } from "react";
@@ -9,23 +10,30 @@ import { useTranslation } from "react-i18next";
 
 export default function Hero() {
 	const { t } = useTranslation();
-	const [isShowingHero, setIsShowingHero] = useState(false);
+	const [isShowingHero, setIsShowingHero] = useState(true);
 	const [heroPlayCount, setHeroPlayCount] = useState(0);
+	const [homeVideoStartTime, setHomeVideoStartTime] = useState(null);
 	const videoHomeRef = useRef(null);
 	const videoHeroRef = useRef(null);
 
 	const handleVideoEnd = () => {
-		if (!isShowingHero) {
-			setIsShowingHero(true);
-			setHeroPlayCount(1);
-			videoHeroRef.current?.play();
-		} else {
+		if (isShowingHero) {
 			if (heroPlayCount < 3) {
 				setHeroPlayCount((prev) => prev + 1);
 				videoHeroRef.current?.play();
 			} else {
 				setIsShowingHero(false);
 				setHeroPlayCount(0);
+				setHomeVideoStartTime(Date.now());
+				videoHomeRef.current?.play();
+			}
+		} else {
+			const currentTime = Date.now();
+			if (homeVideoStartTime && currentTime - homeVideoStartTime >= 5000) {
+				setIsShowingHero(true);
+				setHeroPlayCount(1);
+				videoHeroRef.current?.play();
+			} else {
 				videoHomeRef.current?.play();
 			}
 		}
@@ -64,7 +72,7 @@ export default function Hero() {
 	};
 
 	const getContent = () => {
-		if (!isShowingHero) {
+		if (isShowingHero) {
 			return {
 				title: t("hero_section.hero_slogan"),
 				description: t("hero_section.hero_description"),
@@ -131,7 +139,9 @@ export default function Hero() {
 
 				{/* Overlay for better text readability */}
 				<motion.div
-					className="absolute inset-0 bg-dark-blue/50 z-20"
+					className={classNames("absolute inset-0 z-20", {
+						"bg-dark-blue/50": isShowingHero,
+					})}
 					initial={{ opacity: 0 }}
 					animate={{ opacity: 1 }}
 					transition={{ duration: 1 }}
@@ -166,7 +176,7 @@ export default function Hero() {
 						<Button
 							asChild
 							size="lg"
-							className="rounded-md bg-dark-blue text-white hover:bg-light-blue text-2xl sm:text-lg md:text-xl lg:text-2xl px-10 py-8 sm:px-8 sm:py-6 md:px-10 md:py-7 lg:px-12 lg:py-8"
+							className="rounded-4xl border bg-transparent border-gray-100 text-white text-2xl sm:text-lg md:text-xl lg:text-2xl px-10 py-8 sm:px-8 sm:py-6 md:px-10 md:py-7 lg:px-12 lg:py-8"
 						>
 							<a
 								href={idRouter?.contact}
@@ -175,7 +185,7 @@ export default function Hero() {
 									console.log(idRouter?.contact);
 								}}
 							>
-								Contact Us{" "}
+								Contact Us
 								<ArrowRightIcon className="h-6 w-6 sm:h-5 sm:w-5 md:h-6 md:w-6" />
 							</a>
 						</Button>

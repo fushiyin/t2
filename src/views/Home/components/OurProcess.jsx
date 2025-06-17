@@ -110,6 +110,55 @@ export default function OurProcess({ contentClass }) {
 		},
 	];
 
+	// Animation variants
+	const containerVariants = {
+		hidden: { opacity: 0 },
+		visible: {
+			opacity: 1,
+			transition: {
+				staggerChildren: 0.1,
+			},
+		},
+	};
+
+	const itemVariants = {
+		hidden: { opacity: 0, y: 20 },
+		visible: {
+			opacity: 1,
+			y: 0,
+			transition: {
+				duration: 0.5,
+				ease: "easeOut",
+			},
+		},
+	};
+
+	const stepVariants = {
+		enter: (direction) => ({
+			x: direction > 0 ? 1000 : -1000,
+			opacity: 0,
+			scale: 0.8,
+		}),
+		center: {
+			zIndex: 1,
+			x: 0,
+			opacity: 1,
+			scale: 1,
+		},
+		exit: (direction) => ({
+			zIndex: 0,
+			x: direction < 0 ? 1000 : -1000,
+			opacity: 0,
+			scale: 0.8,
+		}),
+	};
+
+	const stepTransition = {
+		type: "spring",
+		stiffness: 300,
+		damping: 30,
+	};
+
 	// Auto-advance through steps
 	useEffect(() => {
 		if (!isVisible || isPaused) return;
@@ -148,33 +197,55 @@ export default function OurProcess({ contentClass }) {
 	}, []);
 
 	return (
-		<div
+		<motion.div
 			ref={sectionRef}
+			initial="hidden"
+			whileInView="visible"
+			viewport={{ once: true }}
+			variants={containerVariants}
 			className="w-full h-full flex items-center justify-center bg-muted/50"
 		>
-			<div
+			<motion.div
+				variants={itemVariants}
 				className={classNames("flex flex-col justify-center items-center", {
 					[contentClass]: contentClass,
 				})}
 			>
-				<div className="flex flex-col items-center justify-center space-y-4 text-center mb-16 md:mb-20">
+				<motion.div
+					variants={itemVariants}
+					className="flex flex-col items-center justify-center space-y-4 text-center mb-16 md:mb-20"
+				>
 					<div className="space-y-2">
-						<h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-dark-gray">
+						<motion.h2
+							initial={{ opacity: 0, y: 20 }}
+							whileInView={{ opacity: 1, y: 0 }}
+							transition={{ duration: 0.6 }}
+							viewport={{ once: true }}
+							className="text-3xl font-bold tracking-tighter sm:text-5xl text-dark-gray"
+						>
 							{t("process.title")}
-						</h2>
-						<p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed font-sans break-keep whitespace-normal break-words">
+						</motion.h2>
+						<motion.p
+							initial={{ opacity: 0, y: 20 }}
+							whileInView={{ opacity: 1, y: 0 }}
+							transition={{ duration: 0.6, delay: 0.2 }}
+							viewport={{ once: true }}
+							className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed font-sans break-keep whitespace-normal break-words"
+						>
 							{t("process.description")}
-						</p>
+						</motion.p>
 					</div>
-				</div>
+				</motion.div>
 
 				{/* Progress Bar */}
-				<div className="relative md:mb-10 w-full">
+				<motion.div
+					variants={itemVariants}
+					className="relative md:mb-10 w-full"
+				>
 					<div className="h-2 w-[80%] px-[10px] md:w-[90%] bg-gray-200 rounded-full absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
 						<motion.div
 							className="h-2 rounded-full bg-gray-600"
 							style={{
-								// backgroundColor: processSteps[activeStep - 1].color,
 								width: `${((activeStep - 1) / (processSteps.length - 1)) * 100}%`,
 							}}
 							initial={{ width: "0%" }}
@@ -187,14 +258,17 @@ export default function OurProcess({ contentClass }) {
 
 					{/* Step Indicators */}
 					<div className="w-[80%] md:w-[90%] absolute flex justify-between left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-						{processSteps.map((step) => (
-							<button
+						{processSteps.map((step, index) => (
+							<motion.button
 								key={step.id}
+								initial={{ opacity: 0, y: 20 }}
+								animate={{ opacity: 1, y: 0 }}
+								transition={{ duration: 0.5, delay: index * 0.1 }}
+								whileHover={{ scale: 1.1 }}
 								className="cursor-pointer relative focus:outline-none backdrop-blur-sm backdrop-brightness-80 rounded-full"
 								onClick={() => {
 									setActiveStep(step.id);
-									setIsPaused(true); // Pause auto-advance when user interacts
-									// Resume auto-advance after 10 seconds of inactivity
+									setIsPaused(true);
 									setTimeout(() => setIsPaused(false), 10000);
 								}}
 							>
@@ -220,7 +294,10 @@ export default function OurProcess({ contentClass }) {
 									transition={{ duration: 0.3 }}
 								>
 									{step.id < activeStep && (
-										<svg
+										<motion.svg
+											initial={{ scale: 0 }}
+											animate={{ scale: 1 }}
+											transition={{ duration: 0.3 }}
 											xmlns="http://www.w3.org/2000/svg"
 											className="h-3 w-3 text-white"
 											fill="none"
@@ -233,7 +310,7 @@ export default function OurProcess({ contentClass }) {
 												strokeWidth={3}
 												d="M5 13l4 4L19 7"
 											/>
-										</svg>
+										</motion.svg>
 									)}
 									{step.id === activeStep && (
 										<motion.div
@@ -246,7 +323,10 @@ export default function OurProcess({ contentClass }) {
 										/>
 									)}
 								</motion.div>
-								<div
+								<motion.div
+									initial={{ opacity: 0, y: 10 }}
+									animate={{ opacity: 1, y: 0 }}
+									transition={{ duration: 0.3, delay: index * 0.1 }}
 									className={classNames(
 										"absolute -top-5 left-1/2 transform -translate-x-1/2 whitespace-nowrap text-xs font-medium",
 										{
@@ -256,7 +336,8 @@ export default function OurProcess({ contentClass }) {
 										},
 									)}
 								>
-									<svg
+									<motion.svg
+										whileHover={{ scale: 1.1 }}
 										xmlns="http://www.w3.org/2000/svg"
 										viewBox="0 0 24 24"
 										fill="white"
@@ -264,83 +345,126 @@ export default function OurProcess({ contentClass }) {
 										strokeWidth="1.5"
 										strokeLinecap="round"
 										strokeLinejoin="round"
-										className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-1 h-9 w-9 text-black dark:text-white" // h-9 = 36px
+										className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-1 h-9 w-9 text-black dark:text-white"
 									>
 										<path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
-									</svg>
+									</motion.svg>
 
 									{step?.icon}
-								</div>
-							</button>
+								</motion.div>
+							</motion.button>
 						))}
 					</div>
-				</div>
+				</motion.div>
 
 				{/* Active Step Content */}
 				<div className="h-full flex flex-col flex-1 md:flex-row md:gap-4 gap-6 justify-center items-center xl:items-stretch md:py-5 py-10 xl:px-0 lg:px-4 w-[90%]">
 					{/* Step Visualization */}
 					{!isMobile && (
-						<div className="w-[80%] md:w-6/10 flex justify-center items-center h-auto">
+						<motion.div
+							variants={itemVariants}
+							className="w-[80%] md:w-6/10 flex justify-center items-center h-auto"
+						>
 							<AnimatePresence mode="wait">
 								<motion.div
 									key={activeStep}
-									initial={{ opacity: 0, scale: 0.8, y: 20 }}
-									animate={{ opacity: 1, scale: 1, y: 0 }}
-									exit={{ opacity: 0, scale: 0.8, y: -20 }}
-									transition={{ duration: 0.5 }}
+									custom={activeStep}
+									variants={stepVariants}
+									initial="enter"
+									animate="center"
+									exit="exit"
+									transition={stepTransition}
 									className="relative"
 								>
-									<img
+									<motion.img
+										whileHover={{ scale: 1.02 }}
+										transition={{ duration: 0.3 }}
 										src={processSteps[activeStep - 1].image}
 										alt={`step_${activeStep}`}
 										style={{ width: "700px", height: "392px" }}
-										className="object-cover  rounded-lg shadow-lg"
+										className="object-cover rounded-lg shadow-lg"
 									/>
 								</motion.div>
 							</AnimatePresence>
-						</div>
+						</motion.div>
 					)}
 					{/* Step Details */}
-					<div className="w-[95%] sm:w-[90%] lg:w-4/10 h-auto mx-auto">
+					<motion.div
+						variants={itemVariants}
+						className="w-[95%] sm:w-[90%] lg:w-4/10 h-auto mx-auto"
+					>
 						<AnimatePresence mode="wait">
 							<motion.div
 								key={activeStep}
-								initial={{ opacity: 0, x: 50 }}
-								animate={{ opacity: 1, x: 0 }}
-								exit={{ opacity: 0, x: -50 }}
-								transition={{ duration: 0.5 }}
+								custom={activeStep}
+								variants={stepVariants}
+								initial="enter"
+								animate="center"
+								exit="exit"
+								transition={stepTransition}
 								className="bg-white p-4 md:p-8 rounded-lg shadow-lg h-full flex flex-col justify-between"
 							>
 								<div className="step-text">
-									<h3 className="text-2xl font-bold mb-4 text-dark-gray">
+									<motion.h3
+										initial={{ opacity: 0, y: 20 }}
+										animate={{ opacity: 1, y: 0 }}
+										transition={{ duration: 0.5 }}
+										className="text-2xl font-bold mb-4 text-dark-gray"
+									>
 										{processSteps[activeStep - 1].title}
-									</h3>
-									<p className="text-gray-600 mb-6 font-sans break-keep whitespace-normal break-words">
+									</motion.h3>
+									<motion.p
+										initial={{ opacity: 0, y: 20 }}
+										animate={{ opacity: 1, y: 0 }}
+										transition={{ duration: 0.5, delay: 0.2 }}
+										className="text-gray-600 mb-6 font-sans break-keep whitespace-normal break-words"
+									>
 										{processSteps[activeStep - 1].description}
-									</p>
+									</motion.p>
 								</div>
 
 								<div className="flex flex-col flex-wrap gap-4">
 									{processSteps[activeStep - 1].details.map((detail, index) => (
 										<motion.div
 											key={index}
+											initial={{ opacity: 0, x: -20 }}
+											animate={{ opacity: 1, x: 0 }}
+											transition={{ duration: 0.3, delay: 0.3 + index * 0.1 }}
 											className="flex items-start gap-2 w-fit"
-											initial={{ opacity: 0, y: 10 }}
-											animate={{ opacity: 1, y: 0 }}
-											transition={{ duration: 0.3, delay: index * 0.1 }}
 										>
-											<div className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 border border-gray-400 bg-white dark:bg-gray-800">
-												<div className="w-1.5 h-1.5 rounded-full bg-gray-600 dark:bg-gray-300"></div>
-											</div>
-											<span className="text-gray-700 dark:text-gray-200 font-sans break-keep whitespace-normal break-words">
+											<motion.div
+												whileHover={{ scale: 1.1 }}
+												className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 border border-gray-400 bg-white dark:bg-gray-800"
+											>
+												<motion.div
+													initial={{ scale: 0 }}
+													animate={{ scale: 1 }}
+													transition={{
+														duration: 0.3,
+														delay: 0.4 + index * 0.1,
+													}}
+													className="w-1.5 h-1.5 rounded-full bg-gray-600 dark:bg-gray-300"
+												/>
+											</motion.div>
+											<motion.span
+												initial={{ opacity: 0 }}
+												animate={{ opacity: 1 }}
+												transition={{
+													duration: 0.3,
+													delay: 0.5 + index * 0.1,
+												}}
+												className="text-gray-700 dark:text-gray-200 font-sans break-keep whitespace-normal break-words"
+											>
 												{detail}
-											</span>
+											</motion.span>
 										</motion.div>
 									))}
 								</div>
 
 								<div className="mt-8 flex justify-between">
-									<button
+									<motion.button
+										whileHover={{ scale: 1.05 }}
+										whileTap={{ scale: 0.95 }}
 										onClick={() => {
 											setActiveStep((prev) =>
 												prev > 1 ? prev - 1 : processSteps.length,
@@ -348,7 +472,7 @@ export default function OurProcess({ contentClass }) {
 											setIsPaused(true);
 											setTimeout(() => setIsPaused(false), 10000);
 										}}
-										className=" hover:text-dark-gray flex items-center gap-1 transition-colors"
+										className="hover:text-dark-gray flex items-center gap-1 transition-colors"
 									>
 										<svg
 											xmlns="http://www.w3.org/2000/svg"
@@ -363,8 +487,10 @@ export default function OurProcess({ contentClass }) {
 											/>
 										</svg>
 										{t("process.navigation.previous")}
-									</button>
-									<button
+									</motion.button>
+									<motion.button
+										whileHover={{ scale: 1.05 }}
+										whileTap={{ scale: 0.95 }}
 										onClick={() => {
 											setActiveStep((prev) =>
 												prev < processSteps.length ? prev + 1 : 1,
@@ -372,7 +498,7 @@ export default function OurProcess({ contentClass }) {
 											setIsPaused(true);
 											setTimeout(() => setIsPaused(false), 10000);
 										}}
-										className=" hover:text-dark-gray flex items-center gap-1 transition-colors"
+										className="hover:text-dark-gray flex items-center gap-1 transition-colors"
 									>
 										{t("process.navigation.next")}
 										<svg
@@ -387,13 +513,13 @@ export default function OurProcess({ contentClass }) {
 												clipRule="evenodd"
 											/>
 										</svg>
-									</button>
+									</motion.button>
 								</div>
 							</motion.div>
 						</AnimatePresence>
-					</div>
+					</motion.div>
 				</div>
-			</div>
-		</div>
+			</motion.div>
+		</motion.div>
 	);
 }

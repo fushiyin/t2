@@ -118,20 +118,20 @@ const Header = () => {
 						</Link>
 					</div>
 
-					<nav className="hidden items-center space-x-8 ml-10 md:flex md:space-x-2 xl:space-x-6 lg:space-x-4 flex-1">
+					<nav className="hidden justify-center items-center space-x-8 md:flex md:space-x-2 xl:space-x-6 lg:space-x-4 flex-1">
 						{NAV_LINKS.map((link) => (
 							<Link
 								key={link.path}
 								to={link.path}
 								className={classNames(
-									"px-3 py-2 text-base font-medium transition-colors",
+									"px-3 py-2 text-base font-medium transition-colors flex text-center items-center",
 									{
 										"hidden lg:inline":
 											link.name === "Contact" || link.name === "Blog",
-										"text-[var(--color-dark-blue)] font-extrabold underline underline-offset-8":
+										"text-[var(--color-dark-blue)] font-extrabold bg-white rounded-4xl":
 											window.location?.pathname === link?.path ||
 											!window.location?.pathname,
-										"text-white hover:bg-white rounded-lg hover:text-dark-blue":
+										"text-white hover:bg-white rounded-4xl hover:text-dark-blue":
 											isHome &&
 											!isScrolled &&
 											!(

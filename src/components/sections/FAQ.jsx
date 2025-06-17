@@ -1,4 +1,5 @@
 import classNames from "classnames";
+import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 
@@ -33,15 +34,51 @@ export default function FAQ() {
 		},
 	];
 
+	const questionVariants = {
+		hidden: { opacity: 0, y: 20 },
+		visible: (i) => ({
+			opacity: 1,
+			y: 0,
+			transition: {
+				delay: i * 0.1,
+				duration: 0.5,
+			},
+		}),
+	};
+
+	const answerVariants = {
+		hidden: { opacity: 0, height: 0 },
+		visible: {
+			opacity: 1,
+			height: "auto",
+			transition: {
+				duration: 0.5,
+				ease: "easeInOut",
+			},
+		},
+		exit: {
+			opacity: 0,
+			height: 0,
+			transition: {
+				duration: 0.3,
+				ease: "easeInOut",
+			},
+		},
+	};
+
 	return (
 		<section className="w-full max-w-2xl mx-auto">
 			<div className="divide-y divide-gray-200">
 				{faqs.map((faq, idx) => (
-					<div
+					<motion.div
 						key={idx}
 						className="relative"
+						variants={questionVariants}
+						initial="hidden"
+						animate="visible"
+						custom={idx}
 					>
-						<button
+						<motion.button
 							className={classNames(
 								"w-full flex items-center justify-between pb-5 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-colors duration-300",
 								{
@@ -51,36 +88,51 @@ export default function FAQ() {
 							onClick={() => handleToggle(idx)}
 							aria-expanded={openIndex === idx}
 							aria-controls={`faq-panel-${idx}`}
+							whileHover={{ scale: 1.01 }}
+							whileTap={{ scale: 0.99 }}
 						>
-							<span className="font-semibold text-lg md:text-xl transition-colors duration-300">
+							<motion.span
+								className="font-semibold text-lg md:text-xl transition-colors duration-300"
+								animate={{
+									color:
+										openIndex === idx ? "var(--color-light-mint)" : "inherit",
+								}}
+							>
 								{faq.question}
-							</span>
-							<span
-								className={classNames(
-									"ml-4 text-2xl select-none transition-all duration-500 ease-in-out",
-									{
-										"rotate-45 scale-110": openIndex === idx,
-									},
-								)}
+							</motion.span>
+							<motion.span
+								className="ml-4 text-2xl select-none"
+								animate={{
+									rotate: openIndex === idx ? 45 : 0,
+									scale: openIndex === idx ? 1.1 : 1,
+								}}
+								transition={{ duration: 0.3 }}
 							>
 								+
-							</span>
-						</button>
-						<div
-							id={`faq-panel-${idx}`}
-							className={classNames(
-								"overflow-hidden transition-all duration-500 ease-in-out",
-								{
-									"max-h-0 opacity-0": openIndex !== idx,
-									"max-h-[500px] opacity-100": openIndex === idx,
-								},
+							</motion.span>
+						</motion.button>
+						<AnimatePresence>
+							{openIndex === idx && (
+								<motion.div
+									id={`faq-panel-${idx}`}
+									variants={answerVariants}
+									initial="hidden"
+									animate="visible"
+									exit="exit"
+									className="overflow-hidden"
+								>
+									<motion.div
+										className="pb-5 pl-2 text-base md:text-lg text-muted-foreground font-sans break-keep whitespace-normal break-words"
+										initial={{ opacity: 0, y: -10 }}
+										animate={{ opacity: 1, y: 0 }}
+										transition={{ delay: 0.2 }}
+									>
+										{faq.answer}
+									</motion.div>
+								</motion.div>
 							)}
-						>
-							<div className="pb-5 pl-2 text-base md:text-lg text-muted-foreground transform transition-all duration-500 ease-in-out font-sans break-keep whitespace-normal break-words">
-								{faq.answer}
-							</div>
-						</div>
-					</div>
+						</AnimatePresence>
+					</motion.div>
 				))}
 			</div>
 		</section>

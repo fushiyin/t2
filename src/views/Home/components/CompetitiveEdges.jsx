@@ -5,8 +5,9 @@ import Cost from "@/assets/lotties/cost.json";
 import Dev from "@/assets/lotties/dev.json";
 import useResponsive from "@/hooks/useResponsive";
 import classNames from "classnames";
+import { motion, useInView } from "framer-motion";
 import { BarChart3, Check, Code, Cpu, DollarSign } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import Lottie from "react-lottie";
 
@@ -34,6 +35,27 @@ const defaultOptions = {
 
 const AUTO_SWITCH_INTERVAL = 5000;
 
+const containerVariants = {
+	hidden: { opacity: 0 },
+	visible: {
+		opacity: 1,
+		transition: {
+			staggerChildren: 0.2,
+		},
+	},
+};
+
+const itemVariants = {
+	hidden: { opacity: 0, y: 20 },
+	visible: {
+		opacity: 1,
+		y: 0,
+		transition: {
+			duration: 0.5,
+		},
+	},
+};
+
 const CompetitiveEdges = () => {
 	const [activeEdge, setActiveEdge] = useState(null);
 	const [isHovered, setIsHovered] = useState(false);
@@ -41,6 +63,8 @@ const CompetitiveEdges = () => {
 	const { t } = useTranslation();
 	const { isDesktop, isTablet, isMobile, is2xl, isXl, isLg } = useResponsive();
 	const contentClass = "container h-full px-4 py-16 md:px-6 max-w-[1440px]";
+	const ref = useRef(null);
+	const isInView = useInView(ref, { once: true, margin: "-50px" });
 	const classNames_icon =
 		"w-[36px] h-[36px] sm:w-[36px] sm:h-[36px] md:w-[32px] md:h-[32px] lg:w-[36px] lg:h-[36px] xl:w-[40px] xl:h-[40px] 2xl:w-[48px] 2xl:h-[48px] text-black";
 
@@ -113,32 +137,57 @@ const CompetitiveEdges = () => {
 	}, [isHovered]);
 
 	return (
-		<div className="w-full bg-white flex flex-col items-center justify-center">
+		<motion.div
+			ref={ref}
+			initial={{ opacity: 0 }}
+			animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+			transition={{ duration: 0.6 }}
+			className="w-full bg-white flex flex-col items-center justify-center"
+		>
 			<style>{styles}</style>
 			<div
 				className={classNames({
 					[contentClass]: contentClass,
 				})}
 			>
-				<div className="flex flex-col items-center justify-center gap-8">
-					<div className="flex flex-col items-center justify-center gap-4">
-						<h2 className="text-5xl font-bold text-center text-dark-gray">
+				<motion.div
+					variants={containerVariants}
+					initial="hidden"
+					animate={isInView ? "visible" : "hidden"}
+					className="flex flex-col items-center justify-center gap-8"
+				>
+					<motion.div
+						variants={itemVariants}
+						className="flex flex-col items-center justify-center gap-4"
+					>
+						<motion.h2
+							variants={itemVariants}
+							className="text-5xl font-bold text-center text-dark-gray"
+						>
 							{t("competitive_edges.title")}
-						</h2>
-						<p className="text-center text-dark-gray">
+						</motion.h2>
+						<motion.p
+							variants={itemVariants}
+							className="text-center text-dark-gray"
+						>
 							{t("competitive_edges.description")}
-						</p>
-					</div>
+						</motion.p>
+					</motion.div>
 
-					<div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 md:gap-8 w-full">
-						{edges.map((edge) => {
+					<motion.div
+						variants={containerVariants}
+						className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 md:gap-8 w-full"
+					>
+						{edges.map((edge, index) => {
 							const isActive = activeEdge?.id === edge.id;
 							const isHovering = hoveredIndex === edge.id;
 							const lottieSize = getLottieSize();
 
 							return (
-								<div
+								<motion.div
 									key={edge.id}
+									variants={itemVariants}
+									custom={index}
 									className="flex flex-col"
 									onMouseEnter={() => {
 										setIsHovered(true);
@@ -150,14 +199,23 @@ const CompetitiveEdges = () => {
 										setHoveredIndex(null);
 									}}
 								>
-									<div
+									<motion.div
+										initial={false}
+										animate={{
+											rotateY: isActive || isHovering ? 180 : 0,
+										}}
+										transition={{ duration: 0.5 }}
 										className={classNames(
-											"w-full h-[350px] sm:h-[350px] md:h-[350px] xl:h-[400px] aspect-[3/4] relative transition-all duration-500 preserve-3d",
-											isActive || isHovering ? "rotate-y-180" : "",
+											"w-full h-[350px] sm:h-[350px] md:h-[350px] xl:h-[400px] aspect-[3/4] relative preserve-3d",
 										)}
 									>
 										{/* Front of card */}
-										<div className="w-full h-full absolute backface-hidden">
+										<motion.div
+											initial={{ opacity: 0 }}
+											animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+											transition={{ duration: 0.5, delay: index * 0.1 }}
+											className="w-full h-full absolute backface-hidden"
+										>
 											<div className="relative w-full h-full flex flex-col items-end justify-between rounded-lg shadow-lg p-8 cursor-pointer transition-all duration-300 border-t border-zinc-300 dark:border-zinc-700 bg-white text-dark">
 												<p className="text-center text-xl 2xl:text-2xl xl:text-xl lg:text-xl md:text-xl w-full font-bold uppercase text-dark-gray font-sans break-keep whitespace-normal break-words">
 													{edge.title}
@@ -176,14 +234,29 @@ const CompetitiveEdges = () => {
 													{edge.icon}
 												</div>
 											</div>
-										</div>
+										</motion.div>
 
 										{/* Back of card */}
-										<div className="w-full h-full absolute backface-hidden rotate-y-180 bg-gradient-to-r from-[var(--color-light-mint)] to-[var(--color-light-green)] rounded-lg shadow-lg p-8">
+										<motion.div
+											initial={{ opacity: 0 }}
+											animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+											transition={{ duration: 0.5, delay: index * 0.1 }}
+											className="w-full h-full absolute backface-hidden rotate-y-180 bg-gradient-to-r from-[var(--color-light-mint)] to-[var(--color-light-green)] rounded-lg shadow-lg p-8"
+										>
 											<div className="w-full h-full flex flex-col justify-center space-y-6">
 												{edge.description.map((benefit, index) => (
-													<div
+													<motion.div
 														key={index}
+														initial={{ opacity: 0, x: -20 }}
+														animate={
+															isInView
+																? { opacity: 1, x: 0 }
+																: { opacity: 0, x: -20 }
+														}
+														transition={{
+															duration: 0.3,
+															delay: index * 0.1,
+														}}
 														className="flex items-start gap-4 mb-2"
 													>
 														<Check
@@ -193,19 +266,24 @@ const CompetitiveEdges = () => {
 														<p className="text-white leading-relaxed text-base 2xl:text-base xl:text-xs lg:text-xl md:text-sm">
 															{benefit}
 														</p>
-													</div>
+													</motion.div>
 												))}
 											</div>
-										</div>
-									</div>
-								</div>
+										</motion.div>
+									</motion.div>
+								</motion.div>
 							);
 						})}
-					</div>
-					<div className="w-[90px] h-[8px] bg-gradient-to-r from-[var(--color-light-mint)] to-[var(--color-light-green)] mb-4"></div>
-				</div>
+					</motion.div>
+					<motion.div
+						initial={{ width: 0 }}
+						animate={isInView ? { width: "90px" } : { width: 0 }}
+						transition={{ duration: 0.6, delay: 0.8 }}
+						className="h-[8px] bg-gradient-to-r from-[var(--color-light-mint)] to-[var(--color-light-green)] mb-4"
+					/>
+				</motion.div>
 			</div>
-		</div>
+		</motion.div>
 	);
 };
 

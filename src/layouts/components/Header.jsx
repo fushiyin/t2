@@ -96,7 +96,7 @@ const Header = () => {
 		<header
 			id="header"
 			className={classNames("w-full z-50 transition-all duration-300 fixed left-0 right-0", {
-				"top-10 bg-transparent": !isScrolled,
+				"top-10 bg-transparent": !isScrolled && isHome,
 				"top-0 bg-white dark:bg-dark-blue shadow-md": isScrolled,
 			})}
 		>

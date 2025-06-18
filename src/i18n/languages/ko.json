@@ -94,11 +94,27 @@
 			"description": "한국, 일본, 등 다양한 국가의 글로벌 기업들과 협업 경험 보유"
 		},
 		"text_header": {
-			"title": "Outsourcing solves talent shortages & tech gaps with expert teams, cost efficiency, and flexible scalability."
+			"title": [
+				{ "text": "외주개발은 ", "className": "text-white" },
+				{ "text": "전문 인력, 비용 절감, ", "className": "text-light-blue font-bold" },
+				{
+					"text": "유연한 대응으로 기술 격차와 인재 부족 문제를 ",
+					"className": "text-white"
+				},
+				{ "text": "효과적으로 ", "className": "text-light-blue font-bold" },
+				{ "text": "해결합니다. ", "className": "text-white" }
+			]
 		},
 		"text_footer": {
-			"title": "Leading the next generation of technology as your trusted development partner",
-			"desc": "T2 Soft is a leading IT outsourcing and systems integration company, providing software development, maintenance, and IT consulting services to global clients. We aim to quickly deliver high-quality IT solutions optimized for customer needs, successfully support digital transformation, and grow together with our clients."
+			"title": [
+				{ "text": "차세대 기술을 이끄는 신뢰의 ", "className": "text-dark-gray" },
+				{ "text": "개발 파트너 ", "className": "text-light-blue font-bold" },
+				{
+					"text": "가 되어드립니다.",
+					"className": "text-dark-gray"
+				}
+			],
+			"desc": "T2 Soft는 SI 및 IT 아웃소싱 전문기업으로, 한국 기업 고객을 위한 소프트웨어 개발 및 유지보수, IT 컨설팅 서비스를 제공하고 있습니다. 고객 니즈에 최적화된 고품질 IT 솔루션을 빠르게 제공하고, 디지털 전환을 성공적으로 지원하고 고객과 함께 성장하는 것을 목표로 하고 있습니다."
 		}
 	},
 	"our": "우리의",
@@ -723,31 +739,34 @@
 		"description": "인재 부족, 기술 격차, 빠듯한 일정. 내부 역량만으로는 부족합니다.",
 		"item": {
 			"1": [
-				{ "text": "국내", "className": "text-white" },
-				{ "text": "인건비 부담, ", "className": "text-light-blue font-bold" },
-				{ "text": "프로젝트 시작조차 어렵게 만듭니다.", "className": "text-white" }
+				{ "text": "국내 ", "className": "text-white text-2xl" },
+				{ "text": "인건비 부담, ", "className": "text-light-blue font-bold text-3xl" },
+				{ "text": "프로젝트 시작조차 어렵게 만듭니다.", "className": "text-white text-2xl" }
 			],
 			"2": [
 				{
 					"text": "최신 기술을 구현할",
-					"className": "text-dark-gray"
+					"className": "text-dark-gray text-2xl"
 				},
-				{ "text": "개발자 찾기", "className": "text-light-blue font-bold" },
-				{ "text": "이제는 더 어렵고 더 비쌉니다.", "className": "text-dark-gray" }
+				{ "text": "개발자 찾기", "className": "text-light-blue font-bold text-3xl" },
+				{ "text": "이제는 더 어렵고 더 비쌉니다.", "className": "text-dark-gray text-2xl" }
 			],
 			"3": [
-				{ "text": "급변하는 시장 속", "className": "text-dark-gray" },
-				{ "text": "즉각적인 인력 확충", "className": "text-light-blue font-bold" },
-				{ "text": "이 쉽지 않습니다.", "className": "text-dark-gray" }
+				{ "text": "급변하는 시장 속", "className": "text-dark-gray text-2xl" },
+				{ "text": "즉각적인 인력 확충", "className": "text-light-blue font-bold text-3xl" },
+				{ "text": "이 쉽지 않습니다.", "className": "text-dark-gray text-2xl" }
 			],
 			"4": [
-				{ "text": "한정된 인력과 촉박한 일정", "className": "text-white font-bold" },
-				{ "text": "늘 쫓기듯 개발하고 계신가요?", "className": "text-dark-gray" }
+				{
+					"text": "한정된 인력과 촉박한 일정",
+					"className": "text-white font-bold text-3xl"
+				},
+				{ "text": "늘 쫓기듯 개발하고 계신가요?", "className": "text-dark-gray text-2xl" }
 			],
 			"5": [
-				{ "text": "빠르게 벌어지는", "className": "text-white" },
-				{ "text": " 기술 격차 ", "className": "text-light-blue font-bold" },
-				{ "text": " 는 곧 경쟁력의 격차로 이어집니다.", "className": "text-white" }
+				{ "text": "빠르게 벌어지는", "className": "text-white text-2xl" },
+				{ "text": " 기술 격차 ", "className": "text-light-blue font-bold text-3xl" },
+				{ "text": " 는 곧 경쟁력의 격차로 이어집니다.", "className": "text-white text-2xl" }
 			]
 		}
 	}

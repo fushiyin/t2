@@ -23,7 +23,7 @@ function HomePage() {
 			</section>
 			<section
 				id={SECTIONS_KEY.CHALLENGES.id}
-				className={sectionClass + " h-screen"}
+				className={sectionClass + " h-auto md:h-screen"}
 			>
 				<Challenges />
 			</section>

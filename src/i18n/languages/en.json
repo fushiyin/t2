@@ -92,10 +92,32 @@
 			"description": "Proven experience collaborating with global enterprises from KR, JP and beyond"
 		},
 		"text_header": {
-			"title": "Outsourcing solves talent shortages & tech gaps with expert teams, cost efficiency, and flexible scalability."
+			"title": [
+				{
+					"text": "Outsourcing solves talent shortages & tech gaps with ",
+					"className": "text-white"
+				},
+				{
+					"text": "expert teams, cost efficiency, ",
+					"className": "text-light-blue font-bold"
+				},
+				{
+					"text": "and flexible scalability. ",
+					"className": "text-white"
+				}
+			]
 		},
 		"text_footer": {
-			"title": "Leading the next generation of technology as your trusted development partner",
+			"title": [
+				{
+					"text": "Leading the next generation of technology as your trusted ",
+					"className": "text-dark-gray"
+				},
+				{
+					"text": "development partner ",
+					"className": "text-light-blue font-bold"
+				}
+			],
 			"desc": "T2 Soft is a leading IT outsourcing and systems integration company, providing software development, maintenance, and IT consulting services to global clients. We aim to quickly deliver high-quality IT solutions optimized for customer needs, successfully support digital transformation, and grow together with our clients."
 		}
 	},
@@ -720,26 +742,50 @@
 		"description": "Talent shortages, technology gaps, and tight deadlines — internal capabilities alone are no longer enough.",
 		"item": {
 			"1": [
-				{ "text": "Skilled tech talent", "className": "text-light-blue font-bold" },
-				{ "text": " is harder to find and costlier than ever.", "className": "text-white" }
+				{
+					"text": "Skilled tech talent",
+					"className": "text-light-blue font-bold text-3xl"
+				},
+				{
+					"text": " is harder to find and costlier than ever.",
+					"className": "text-white text-2xl"
+				}
 			],
 			"2": [
-				{ "text": "Skilled tech talent", "className": "text-light-blue font-bold" },
-				{ "text": " harder to find and costlier than ever.", "className": "text-dark-gray" }
+				{
+					"text": "Skilled tech talent",
+					"className": "text-light-blue font-bold text-3xl"
+				},
+				{
+					"text": " harder to find and costlier than ever.",
+					"className": "text-dark-gray text-2xl"
+				}
 			],
 			"3": [
-				{ "text": "Hard to", "className": "text-dark-gray" },
-				{ "text": " deploy talent instantly", "className": "text-light-blue font-bold" },
-				{ "text": " in a rapidly changing market.", "className": "text-dark-gray" }
+				{ "text": "Hard to", "className": "text-dark-gray text-2xl" },
+				{
+					"text": " deploy talent instantly",
+					"className": "text-light-blue font-bold text-3xl"
+				},
+				{ "text": " in a rapidly changing market.", "className": "text-dark-gray text-2xl" }
 			],
 			"4": [
-				{ "text": "Skilled tech talent", "className": "text-light-blue font-bold" },
-				{ "text": " harder to find and costlier than ever.", "className": "text-white" }
+				{
+					"text": "Skilled tech talent",
+					"className": "text-white font-bold text-3xl"
+				},
+				{
+					"text": " harder to find and costlier than ever.",
+					"className": "text-dark-gray text-2xl"
+				}
 			],
 			"5": [
-				{ "text": "A fast-growing", "className": "text-white" },
-				{ "text": " tech gap", "className": "text-light-blue font-bold" },
-				{ "text": " leads to a loss in competitiveness", "className": "text-white" }
+				{ "text": "A fast-growing", "className": "text-white text-2xl" },
+				{ "text": " tech gap", "className": "text-light-blue font-bold text-3xl" },
+				{
+					"text": " leads to a loss in competitiveness",
+					"className": "text-white text-2xl"
+				}
 			]
 		}
 	}

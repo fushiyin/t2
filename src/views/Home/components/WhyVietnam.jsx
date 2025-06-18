@@ -8,6 +8,10 @@ import bg_whyVietnam_2 from "@/assets/img/bg-text-why_vn.jpg";
 import logo_t2 from "@/assets/logos/T2_light_Logo.png";
 export default function WhyVietnam() {
 	const { t } = useTranslation();
+
+	const item1 = t("why_vietnam.text_header.title", { returnObjects: true });
+	const item2 = t("why_vietnam.text_footer.title", { returnObjects: true });
+
 	const whyVietnam = [
 		{
 			title: t("why_vietnam.title"),
@@ -50,8 +54,15 @@ export default function WhyVietnam() {
 				/>
 
 				<div className="max-w-[1440px] absolute top-1/2 w-full transform -translate-y-1/2 flex items-center justify-between font-sans px-4 sm:px-6 md:px-8">
-					<p className="text-white font-bold leading-relaxed text-xl sm:text-2xl md:text-3xl lg:text-4xl max-w-[80%] sm:max-w-[70%] md:max-w-[60%] lg:max-w-[50%]">
-						{t("why_vietnam.text_header.title")}
+					<p className="text-white font-bold leading-relaxed text-xl sm:text-2xl md:text-3xl lg:text-4xl max-w-[80%] sm:max-w-[70%] md:max-w-[60%] lg:max-w-[50%] font-sans break-keep whitespace-normal break-words">
+						{item1.map((part, idx) => (
+							<span
+								key={idx}
+								className={part.className}
+							>
+								{part.text}
+							</span>
+						))}
 					</p>
 					<motion.button
 						whileHover={{ scale: 1.05 }}
@@ -104,11 +115,18 @@ export default function WhyVietnam() {
 							className="w-[140px] sm:w-[180px] md:w-[200px] object-cover"
 							alt="Logo"
 						/>
-						<p className="text-dark-gray text-2xl sm:text-3xl md:text-4xl font-bold leading-relaxed max-w-[90%] text-center md:text-left">
-							{t("why_vietnam.text_footer.title")}
+						<p className="text-dark-gray text-2xl sm:text-3xl md:text-4xl font-bold leading-relaxed max-w-[90%] text-center md:text-left font-sans break-keep whitespace-normal break-words">
+							{item2.map((part, idx) => (
+								<span
+									key={idx}
+									className={part.className}
+								>
+									{part.text}
+								</span>
+							))}
 						</p>
 					</div>
-					<p className="text-dark-gray text-base sm:text-lg md:text-xl font-medium md:font-bold leading-relaxed max-w-[90%] md:max-w-[50%] text-center md:text-left mt-6 md:mt-0">
+					<p className="text-dark-gray text-base sm:text-lg md:text-xl leading-relaxed max-w-[90%] md:max-w-[50%] text-center md:text-left mt-6 md:mt-0 font-sans break-keep whitespace-normal break-words">
 						{t("why_vietnam.text_footer.desc")}
 					</p>
 				</div>

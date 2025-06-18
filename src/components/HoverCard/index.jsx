@@ -16,7 +16,7 @@ const HoverCard = ({ icon, title, description, className = "" }) => {
 			)}
 			<div>
 				<h2
-					className={`font-semibold mb-2 text-gray-900 sm:min-h-[48px] ${
+					className={`font-semibold mb-2 text-gray-900 sm:min-h-[48px] font-sans break-keep whitespace-normal break-words ${
 						icon ? "text-xl" : "text-3xl sm:text-4xl md:text-5xl font-bold mb-6"
 					}`}
 				>
@@ -36,7 +36,7 @@ const HoverCard = ({ icon, title, description, className = "" }) => {
 				)}
 
 				<p
-					className={`text-gray-900 ${icon ? "text-base" : "text-base sm:text-lg mt-4"} min-h-[96px]`}
+					className={`text-gray-900 font-sans break-keep whitespace-normal break-words ${icon ? "text-base" : "text-base sm:text-lg mt-4"} min-h-[96px]`}
 				>
 					{description}
 				</p>

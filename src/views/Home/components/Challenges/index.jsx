@@ -41,7 +41,7 @@ const Challenges = () => {
 					className="container mb-12 mt-4"
 				>
 					<div className="flex flex-col">
-						<h2 className="text-5xl font-bold text-dark-gray font-sans break-keep whitespace-normal break-words leading-relaxed">
+						<h2 className="text-5xl font-bold text-dark-gray font-sans break-keep whitespace-normal break-words leading-relaxed ">
 							{t("challenges.title")}
 						</h2>
 						<h2 className="text-5xl font-bold text-dark-gray font-sans break-keep whitespace-normal break-words leading-relaxed pb-4">
@@ -69,8 +69,8 @@ const Challenges = () => {
 					>
 						<h3 className="text-xl font-semibold h-[44px] bg-[#F0EFF5] rounded-t-3xl" />
 						<div className="h-full flex items-center justify-between bg-dark-blue rounded-b-3xl px-8">
-							<div className="flex text-2xl flex-col text-left gap-2">
-								<p>
+							<div className="flex flex-col text-left gap-2">
+								<p className="font-sans break-keep whitespace-normal break-words">
 									{item1.map((part, idx) => (
 										<span
 											key={idx}
@@ -97,8 +97,8 @@ const Challenges = () => {
 						className="absolute top-[-5%] right-0 w-[400px] h-[160px] bg-white rounded-3xl shadow-lg border border-gray-200 z-20 flex flex-col hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
 					>
 						<h3 className="text-xl font-semibold h-[44px] bg-[#F0EFF5] rounded-t-3xl" />
-						<div className="h-full flex flex-col text-center gap-2 bg-white rounded-b-3xl text-2xl p-4">
-							<p>
+						<div className="h-full flex flex-col text-center gap-2 bg-white rounded-b-3xl p-4">
+							<p className="font-sans break-keep whitespace-normal break-words">
 								{item2.map((part, idx) => (
 									<span
 										key={idx}
@@ -124,8 +124,8 @@ const Challenges = () => {
 						className="absolute top-[35%] left-[10%] w-[480px] h-[160px] bg-white rounded-3xl shadow-lg border border-gray-200 z-20 flex flex-col hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
 					>
 						<h3 className="text-xl font-semibold h-[44px] bg-[#F0EFF5] rounded-t-3xl" />
-						<div className="h-full flex flex-col text-center gap-2 bg-white rounded-b-3xl text-2xl p-8">
-							<p>
+						<div className="h-full flex flex-col text-center gap-2 bg-white rounded-b-3xl p-8">
+							<p className="font-sans break-keep whitespace-normal break-words">
 								{item3.map((part, idx) => (
 									<span
 										key={idx}
@@ -151,8 +151,8 @@ const Challenges = () => {
 						className="absolute top-[25%] right-[10%] w-[480px] h-[160px] bg-white rounded-3xl shadow-lg border border-gray-200 z-20 flex flex-col hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
 					>
 						<h3 className="text-xl font-semibold h-[44px] bg-[#F0EFF5] rounded-t-3xl" />
-						<div className="h-full flex flex-col text-center gap-2 bg-[#748FF8] rounded-b-3xl text-2xl p-8">
-							<p>
+						<div className="h-full flex flex-col text-center gap-2 bg-[#748FF8] rounded-b-3xl p-8">
+							<p className="font-sans break-keep whitespace-normal break-words">
 								{item4.map((part, idx) => (
 									<span
 										key={idx}
@@ -178,8 +178,8 @@ const Challenges = () => {
 						className="absolute bottom-[10%] left-1/2 transform -translate-x-1/2 w-[570px] h-[160px] bg-white rounded-3xl shadow-lg border border-gray-200 z-20 flex flex-col hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
 					>
 						<h3 className="text-xl font-semibold h-[44px] bg-[#F0EFF5] rounded-t-3xl" />
-						<div className="h-full flex flex-col text-center gap-2 bg-dark-blue rounded-b-3xl text-2xl p-8">
-							<p>
+						<div className="h-full flex flex-col text-center gap-2 bg-dark-blue rounded-b-3xl p-8">
+							<p className="font-sans break-keep whitespace-normal break-words">
 								{item5.map((part, idx) => (
 									<span
 										key={idx}

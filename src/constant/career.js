@@ -1,3 +1,5 @@
+export const FORM_CV = "https://forms.gle/your-form-link";
+
 export const OPEN_POSITIONS = [
 	{
 		id: 1,
@@ -6,20 +8,27 @@ export const OPEN_POSITIONS = [
 		location: "Keangnam Landmark 72 ,Pham Hung, Me Tri, Nam Tu Liem",
 		type: "Full-time",
 		site: "On-site",
-		description: "We are looking for a Intern Frontend Developer to join our team...",
+		description: "We are looking for an Intern Frontend Developer to join our team...",
 	},
 	{
 		id: 2,
 		title: "Intern Backend Developer",
+		department: "Backend Development Team",
 		location: "Keangnam Landmark 72 ,Pham Hung, Me Tri, Nam Tu Liem",
-		site: "Hanoi",
 		type: "Full-time",
-		description:
-			"Developed and maintained corporate websites, web-based APIs, and data-driven portal systems.",
+		site: "On-site",
+		description: "We are seeking an experienced Senior Backend Developer...",
+	},
+	{
+		id: 3,
+		title: "Intern Korean Interpreter",
+		department: "Interpreter & Communication Team",
+		location: "Keangnam Landmark 72 ,Pham Hung, Me Tri, Nam Tu Liem",
+		type: "Full-time",
+		site: "On-site",
+		description: "We are looking for an Intern Korean Interpreter to join our team.",
 	},
 ];
-
-export const FORM_CV = "https://forms.gle/your-form-link";
 
 export const CAREER_DETAILS = [
 	{
@@ -76,6 +85,39 @@ export const CAREER_DETAILS = [
 			" Development and maintenance of corporate homepages",
 			"Development of API Program for Web-based Software Products",
 			"Development web portal systems linked to big data platforms",
+		],
+		benefits: [
+			"Social Insurance, Salary increase and Promotion opportunities",
+			"Providing educational opportunities to improve new technical skills.",
+			"Team building, holidays, Holiday guarantees and holiday gifts.",
+			"Chance to work oversea",
+		],
+	},
+	{
+		id: 3,
+		title: "Intern Korean Interpreter",
+		department: "Interpreter & Communication Team",
+		location: "Ha Noi City",
+		type: "Full-time",
+		status: "Open",
+		applicants: 2,
+		postedDate: "2024-06-09",
+		description: "We are looking for an Intern Korean Interpreter to join our team.",
+		requirements: [
+			"Translate project description documents and all kinds of work-related documents from Vietnamese into Korean and vice versa.",
+			"Interpret during internal meetings, external client meetings, or via email/chat.",
+			"Support developers during software project development; translate weekly/monthly reports for dev teams.",
+			"Report to team leader.",
+			"Bachelor’s degree in Korean language or related fields (preferred).",
+			"Proficient in Korean in both written and oral communication (TOPIK Level 5 or 6).",
+			"Proficient in using Microsoft Office.",
+			"Good interpersonal skills: communication, emotional intelligence, negotiation, problem-solving.",
+		],
+		responsibilities: [
+			"Translate and interpret project-related documents between Korean and Vietnamese.",
+			"Interpret in internal/external meetings, including chat/email communications.",
+			"Support developer teams with translations of reports and documents.",
+			"Collaborate and report directly to team leader.",
 		],
 		benefits: [
 			"Social Insurance, Salary increase and Promotion opportunities",

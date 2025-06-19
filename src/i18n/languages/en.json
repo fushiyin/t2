@@ -496,6 +496,7 @@
 	},
 	"about": {
 		"title": "About Us",
+		"title_sub": "With a global perspective and deep local insights, We bridges cultures and technologies to deliver real business value.",
 		"description": {
 			"title": "Code the Future ",
 			"explain": "Where Innovation Meets Execution"
@@ -528,7 +529,7 @@
 		},
 		"section": {
 			"title": "Our Services",
-			"description": "Discover our comprehensive range of technology solutions",
+			"description": "Delivering smart, scalable, and tailored tech solutions to power your growth.",
 			"subtitle": "End-to-End Technology Solutions",
 			"whyChooseUs": {
 				"title": "Why Choose Us",

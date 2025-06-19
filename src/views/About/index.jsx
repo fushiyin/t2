@@ -1,16 +1,17 @@
 import about_img from "@/assets/img/About_us.png";
 import image from "@/assets/img/bg-about-us.png";
+import bg_title from "@/assets/img/bg_title_about.png";
 import AnimatedSection from "@/components/AnimatedSection";
 import CTA from "@/components/sections/ContactCTA";
 import FAQ from "@/components/sections/FAQ";
 import { FAQs } from "@/constant/common";
+import useResponsive from "@/hooks/useResponsive";
+import { motion } from "framer-motion";
+import { Award, CheckCircle2, Globe, Users } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { useInView } from "react-intersection-observer";
 import CompetitiveEdges from "../Home/components/CompetitiveEdges";
 import VisionJourney from "../Home/components/Vision";
-import { CheckCircle2, Users, Globe, Award } from "lucide-react";
-import useResponsive from "@/hooks/useResponsive";
-import { useInView } from "react-intersection-observer";
-import { motion } from "framer-motion";
 
 export default function AboutPage() {
 	const { t } = useTranslation();
@@ -45,18 +46,28 @@ export default function AboutPage() {
 	return (
 		<div className="w-full flex flex-col gap-6 md:gap-10 items-center mt-[64px]">
 			<AnimatedSection className="w-full flex flex-col items-center">
-				<div className="max-w-[1440px] container px-[20px] py-8 md:py-12 md:px-0 flex flex-col justify-center min-h-[50vh]">
-					<motion.div
-						ref={titleRef}
-						initial={{ opacity: 0, y: -20 }}
-						animate={titleInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
-						transition={{ duration: 0.6 }}
-						className="content mb-8 flex flex-col items-center justify-space-between text-center"
-					>
+				<motion.div
+					ref={titleRef}
+					initial={{ opacity: 0, y: -20 }}
+					animate={titleInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
+					transition={{ duration: 0.6 }}
+					className="content mb-8 flex flex-col items-center justify-space-between text-center"
+				>
+					<img
+						src={bg_title}
+						alt="bg-title-about"
+						className="w-full h-[500px] object-cover relative"
+					/>
+					{/* <div className="absolute top-1/2">
 						<h2 className="text-left text-5xl font-bold tracking-tighter font-sans break-keep whitespace-normal break-words">
 							{t("about.title")}
 						</h2>
-					</motion.div>
+						<h2 className="text-left text-5xl font-bold tracking-tighter font-sans break-keep whitespace-normal break-words">
+							{t("about.title_sub")}
+						</h2>
+					</div> */}
+				</motion.div>
+				<div className="max-w-[1440px] container px-[20px]  md:px-0 flex flex-col justify-center min-h-[50vh]">
 					<div className="flex flex-col lg:flex-row">
 						<motion.div
 							ref={contentRef}

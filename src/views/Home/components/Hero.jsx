@@ -169,7 +169,7 @@ export default function Hero() {
 						<Button
 							asChild
 							size="lg"
-							className="rounded-4xl border bg-transparent border-gray-100 text-white text-2xl sm:text-lg md:text-xl lg:text-2xl px-10 py-8 sm:px-8 sm:py-6 md:px-10 md:py-7 lg:px-12 lg:py-8"
+							className="rounded-4xl border bg-transparent border-gray-100 text-white text-xl sm:text-xl md:text-xl lg:text-xl 2xl:text-2xl px-10 py-8 sm:px-8 sm:py-6 md:px-10 md:py-7 lg:px-12 lg:py-8"
 						>
 							<a
 								href={idRouter?.contact}

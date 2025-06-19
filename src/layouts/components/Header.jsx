@@ -268,16 +268,21 @@ const Header = () => {
 						<button
 							type="button"
 							className={classNames(
-								"p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700",
+								"group p-2 rounded-md transition-colors duration-200",
 								{
 									"text-white": !isScrolled && isHome,
 									"text-gray-700 dark:text-gray-200": isScrolled,
+									"hover:bg-white dark:hover:bg-gray-800": true,
 								},
 							)}
 							onClick={() => setIsMenuOpen(!isMenuOpen)}
 							aria-label="Toggle menu"
 						>
-							{isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+							{isMenuOpen ? (
+								<X className="h-6 w-6 group-hover:text-black" />
+							) : (
+								<Menu className="h-6 w-6 group-hover:text-black" />
+							)}
 						</button>
 					)}
 				</div>

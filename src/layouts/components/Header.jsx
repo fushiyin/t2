@@ -119,7 +119,9 @@ const Header = () => {
 						{NAV_LINKS.map((link) => {
 							const isActive =
 								window.location?.pathname === link?.path ||
-								!window.location?.pathname;
+								(!window.location?.pathname && link.path === "/");
+
+							const isHomeTab = link.path === "/";
 
 							return (
 								<Link
@@ -128,12 +130,15 @@ const Header = () => {
 									className={classNames(
 										"relative transition-all duration-300 ease-in-out flex items-center justify-center font-medium text-base px-5 py-2 rounded-full group whitespace-nowrap",
 										{
+											"bg-black text-white shadow-md":
+												isActive && (isScrolled || !isHomeTab),
 											"text-[var(--color-dark-blue)] font-extrabold bg-white shadow-md":
-												isActive,
+												isActive && isHomeTab && !isScrolled,
 											"text-white hover:bg-white hover:text-[var(--color-dark-blue)] hover:px-6 hover:py-2.5":
 												isHome && !isScrolled && !isActive,
 											"text-gray-700 dark:text-gray-200 hover:text-[var(--color-dark-blue)] hover:bg-gray-100 dark:hover:bg-light-blue":
 												!isHome && !isActive,
+
 											"dark:text-light-blue": isScrolled && isActive,
 										},
 									)}

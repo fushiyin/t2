@@ -83,7 +83,7 @@ const Challenges = () => {
 						</h3>
 
 						{/* Content */}
-						<div className="bg-[#6A5ACD] flex-1 flex flex-col justify-start text-left gap-4 text-white text-sm p-4 rounded-b-3xl">
+						<div className="bg-gradient-to-r from-pale-blue to-light-blu flex-1 flex flex-col justify-start text-left gap-4 text-white text-sm p-4 rounded-b-3xl">
 							{[item1, item2, item3, item4, item5].map((item, idx) => (
 								<div
 									key={idx}

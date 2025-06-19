@@ -135,7 +135,7 @@ const Header = () => {
 						</Link>
 					</div>
 
-					<nav className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-5 xl:gap-7 border border-[#5c5cff] border-opacity-80 rounded-full px-6 py-2 shadow-sm backdrop-blur-sm bg-white/10">
+					<nav className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-2 xl:gap-7 border border-[#5c5cff] border-opacity-80 rounded-full px-6 py-2 shadow-sm backdrop-blur-sm bg-white/10">
 						{visibleLinks.map((link) => {
 							const isActive =
 								window.location?.pathname === link?.path ||

@@ -17,14 +17,14 @@ export default function Testimonials({ contentClass }) {
 				username: "@Knim",
 				avatar: "/placeholder.svg?height=40&width=40",
 				content:
-					"T2Soft delivered beyond our expectations. Their team was responsive, professional, and deeply knowledgeable.",
+					"  delivered beyond our expectations. Their team was responsive, professional, and deeply knowledgeable.",
 			},
 			{
 				name: "Han YS",
 				username: "@yshan",
 				avatar: "/placeholder.svg?height=40&width=40",
 				content:
-					"Working with T2Soft was a game-changer for our technical transformation. Their team was proactive, communicative, and technically sound. They didn’t just follow our requirements — they enhanced them with smart suggestions that improved both user experience and system performance.",
+					"Working with T2 Soft was a game-changer for our technical transformation. Their team was proactive, communicative, and technically sound. They didn’t just follow our requirements — they enhanced them with smart suggestions that improved both user experience and system performance.",
 			},
 		],
 
@@ -35,14 +35,14 @@ export default function Testimonials({ contentClass }) {
 				username: "@MrJ",
 				avatar: "/placeholder.svg?height=40&width=40",
 				content:
-					"The T2Soft team brought our vision to life with professionalism and agility. Their understanding of modern frameworks and attention to detail helped us launch a stable, scalable web platform on time. We look forward to future collaborations.",
+					"The T2 Soft team brought our vision to life with professionalism and agility. Their understanding of modern frameworks and attention to detail helped us launch a stable, scalable web platform on time. We look forward to future collaborations.",
 			},
 			{
 				name: "Kwak JH",
 				username: "@jhkwak",
 				avatar: "/placeholder.svg?height=40&width=40",
 				content:
-					"T2Soft delivered not just a product, but a complete solution. They took the time to understand our goals and provided valuable input throughout the development cycle. The final system was efficient, user-friendly, and exceeded our expectations.",
+					"T2 Soft delivered not just a product, but a complete solution. They took the time to understand our goals and provided valuable input throughout the development cycle. The final system was efficient, user-friendly, and exceeded our expectations.",
 			},
 		],
 
@@ -53,14 +53,14 @@ export default function Testimonials({ contentClass }) {
 				username: "@synim",
 				avatar: "/placeholder.svg?height=40&width=40",
 				content:
-					"We were amazed by how T2Soft balanced speed and reliability. Even with tight deadlines, their team ensured a stable rollout and provided responsive technical support throughout the entire process.",
+					"We were amazed by how T2 Soft balanced speed and reliability. Even with tight deadlines, their team ensured a stable rollout and provided responsive technical support throughout the entire process.",
 			},
 			{
 				name: "MG Bang",
 				username: "@bangmung",
 				avatar: "/placeholder.svg?height=40&width=40",
 				content:
-					"From planning to deployment, T2Soft worked with agility and precision. The system was up and running smoothly, and their technical support team was always available when we needed them!'",
+					"From planning to deployment, T2 Soft worked with agility and precision. The system was up and running smoothly, and their technical support team was always available when we needed them!'",
 			},
 		],
 	];

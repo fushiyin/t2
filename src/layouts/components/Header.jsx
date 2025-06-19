@@ -135,7 +135,7 @@ const Header = () => {
 						</Link>
 					</div>
 
-					<nav className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-5 xl:gap-7 border border-[#5c5cff] border-opacity-80 rounded-full px-6 py-2 shadow-sm backdrop-blur-sm bg-white/10">
+					<nav className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-2 xl:gap-7 border border-[#5c5cff] border-opacity-80 rounded-full px-6 py-2 shadow-sm backdrop-blur-sm bg-white/10">
 						{visibleLinks.map((link) => {
 							const isActive =
 								window.location?.pathname === link?.path ||
@@ -319,7 +319,7 @@ const Header = () => {
 										to={link.path}
 										onClick={() => setIsMenuOpen(false)}
 										className={classNames(
-											"flex items-center gap-2 px-3 py-2 text-base font-medium rounded-md transition-all duration-200",
+											"flex items-center gap-3 px-3 py-2 text-base font-medium rounded-md transition-all duration-200",
 											{
 												"bg-black text-white": isActive,
 												"text-gray-700 dark:text-gray-200 hover:bg-white hover:text-black":
@@ -330,11 +330,21 @@ const Header = () => {
 										{isActive && (
 											<span className="h-2 w-2 bg-green-500 rounded-full"></span>
 										)}
+										{link.icon && (
+											<link.icon
+												className={classNames("w-5 h-5", {
+													"text-white": isActive,
+													"text-black": !isActive,
+												})}
+											/>
+										)}
+
 										<span>{t(link?.i18nKey) || link?.name}</span>
 									</Link>
 								);
 							})}
 						</div>
+						<div className="border-t border-gray-200 dark:border-gray-700 my-4" />
 
 						<div className="space-y-4 py-2 px-3">
 							<div className="relative flex">

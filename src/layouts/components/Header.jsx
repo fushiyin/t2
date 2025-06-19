@@ -29,7 +29,6 @@ const Header = () => {
 		imageUrl: england,
 	});
 	const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = useState(false);
-	// const [isMobileSearchOpen, setIsMobileSearchOpen] = useState(false);
 	const [isOpenBlog, setIsOpenBlog] = useState(false);
 	const [isScrolled, setIsScrolled] = useState(false);
 	const isHome = location.pathname === "/" ? true : false;
@@ -46,11 +45,6 @@ const Header = () => {
 			label: "English",
 			imageUrl: england,
 		},
-		// {
-		// 	code: "vi",
-		// 	label: "Vietnamese",
-		// 	imageUrl: "https://www.countryflags.com/wp-content/uploads/vietnam-flag-png-large.png",
-		// },
 	];
 
 	useEffect(() => {
@@ -164,6 +158,7 @@ const Header = () => {
 							{
 								"text-white": !isScrolled,
 								"text-gray-700 dark:text-gray-200": isScrolled,
+								"hover:text-black": !isMenuOpen,
 							},
 						)}
 						onClick={() => setIsOpenBlog(!isOpenBlog)}
@@ -232,14 +227,6 @@ const Header = () => {
 						})()}
 
 					<div className="hidden md:flex items-center ml-auto">
-						{/* <div className="relative mr-4 block md:hidden xl:block lg:hidden">
-							<input
-								type="text"
-								placeholder={t("common.search")}
-								className="pl-10 pr-4 py-2 rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:text-dark-blue dark:bg-white text-gray-900 focus:outline-none focus:ring-1 focus:ring-gray-500"
-							/>
-							<Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400 dark:text-dark-blue" />
-						</div> */}
 						<div className="relative hidden xl:block lg:block">
 							<ChangeLanguages
 								isScrolled={isScrolled}
@@ -268,31 +255,6 @@ const Header = () => {
 							)}
 						</button>
 					</div>
-					{/* Theme Toggle */}
-					{/* <div className="flex justify-between items-center">
-						<div className="flex items-center text-gray-700 dark:text-gray-200">
-							{isDarkMode ? (
-								<Sun className="h-5 w-5 mr-2" />
-							) : (
-								<Moon className="h-5 w-5 mr-2" />
-							)}
-							<span>{isDarkMode ? "Dark" : "Light"}</span>
-						</div>
-						<button
-							onClick={toggleDarkMode}
-							className="relative inline-flex h-6 w-11
-									 items-center rounded-full bg-gray-200 dark:bg-gray-700"
-						>
-							<span
-								className={`${
-									isDarkMode
-										? "translate-x-6 bg-blue-500"
-										: "translate-x-1 bg-white"
-								} inline-block h-4 w-4 transform rounded-full transition`}
-							/>
-						</button>
-					</div> */}
-
 					<button
 						type="button"
 						className={classNames(
@@ -322,7 +284,10 @@ const Header = () => {
 					<DrawerHeader className="flex items-center justify-between border-b border-gray-200 dark:border-gray-700">
 						<DrawerTitle className="flex w-full text-center justify-center relative text-lg font-semibold">
 							{t("menu_drawer")}
-							<DrawerClose asChild>
+							<DrawerClose
+								asChild
+								onClick={() => setIsMenuOpen(false)}
+							>
 								<X className="absolute h-6 w-6 right-0" />
 							</DrawerClose>
 						</DrawerTitle>
@@ -330,22 +295,29 @@ const Header = () => {
 
 					<div className="px-4 py-4 space-y-4">
 						<div className="space-y-1">
-							{NAV_LINKS.map((link) => (
-								<Link
-									key={link.path}
-									to={link.path}
-									onClick={() => setIsMenuOpen(false)}
-									className={`block px-3 py-2 text-base font-medium border-b rounded-sm ${
-										location.pathname === link.path
-											? "text-dark-blue bg-light-blue-gray"
-											: isHome && !isScrolled
-												? "text-white hover:bg-gray-100 dark:hover:bg-gray-700 border-b-[#f4f4f4]"
-												: "text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 border-b-[#f4f4f4]"
-									}`}
-								>
-									{t(link?.i18nKey) || link?.name}
-								</Link>
-							))}
+							{NAV_LINKS.map((link) => {
+								const isActive = location.pathname === link.path;
+								return (
+									<Link
+										key={link.path}
+										to={link.path}
+										onClick={() => setIsMenuOpen(false)}
+										className={classNames(
+											"flex items-center gap-2 px-3 py-2 text-base font-medium rounded-md transition-all duration-200",
+											{
+												"bg-black text-white": isActive,
+												"text-gray-700 dark:text-gray-200 hover:bg-white hover:text-black":
+													!isActive,
+											},
+										)}
+									>
+										{isActive && (
+											<span className="h-2 w-2 bg-green-500 rounded-full"></span>
+										)}
+										<span>{t(link?.i18nKey) || link?.name}</span>
+									</Link>
+								);
+							})}
 						</div>
 
 						<div className="space-y-4 py-2 px-3">
@@ -396,82 +368,10 @@ const Header = () => {
 									</div>
 								)}
 							</div>
-
-							{/* <div>
-								<div className="flex items-center text-gray-700 font-medium
-								 dark:text-gray-200 mb-2">
-									<Globe className="h-5 w-5 mr-2" />
-									<span>Language: {language?.label}</span>
-								</div>
-								<div className="grid grid-cols-3 gap-2 mt-4">
-									{LANGUAGE.map((lang_item, index) => (
-										<button
-											key={`lang_item_${lang_item?.code}_${index}`}
-											onClick={() => changeLanguage(lang_item)}
-											className={`px-4 py-2 text-sm font-medium rounded ${
-												language?.code === lang_item.code
-													? "bg-[var(--color-deepest-navy)] 
-													dark:bg-light-blue text-white"
-													: "bg-gray-100 dark:bg-white dark:text-[var
-													(--color-deepest-navy)] text-gray-700 "
-											}`}
-										>
-											{lang_item?.label}
-										</button>
-									))}
-								</div>
-							</div> */}
-
-							{/* Theme Toggle */}
-							{/* <div className="flex justify-between items-center">
-								<div className="flex items-center text-gray-700 dark:text-gray-200">
-									{isDarkMode ? (
-										<Sun className="h-5 w-5 mr-2" />
-									) : (
-										<Moon className="h-5 w-5 mr-2" />
-									)}
-									<span>Theme: {isDarkMode ? "Dark" : "Light"}</span>
-								</div>
-								<button
-									onClick={toggleDarkMode}
-									className="relative inline-flex h-6 w-11
-									 items-center rounded-full bg-gray-200 dark:bg-gray-700"
-								>
-									<span
-										className={`${
-											isDarkMode
-												? "translate-x-6 bg-blue-500"
-												: "translate-x-1 bg-white"
-										} inline-block h-4 w-4 transform rounded-full transition`}
-									/>
-								</button>
-							</div> */}
 						</div>
 					</div>
 				</DrawerContent>
 			</Drawer>
-
-			{/* {isMobileSearchOpen && (
-				<div className="fixed inset-0 z-50 bg-black bg-opacity-30 flex items-start justify-center pt-24 md:pt-32">
-					<div className="bg-white dark:bg-gray-900 rounded-lg shadow-lg w-[90vw] max-w-md p-4 relative">
-						<button
-							className="absolute top-2 right-2 p-1 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700"
-							onClick={() => setIsMobileSearchOpen(false)}
-							aria-label="Close search"
-						>
-							<X className="h-5 w-5" />
-						</button>
-						<div className="relative">
-							<input
-								type="text"
-								placeholder={t("common.search")}
-								className="pl-10 pr-4 py-2 w-full rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-500"
-							/>
-							<Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
-						</div>
-					</div>
-				</div>
-			)} */}
 		</header>
 	);
 };

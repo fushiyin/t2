@@ -16,7 +16,6 @@ import CallPhoneButton from "./CallPhoneButton";
 export default function MainLayout() {
 	const { isTouchDevice } = useResponsive();
 	const location = useLocation();
-	console.log("isMobile:", isMobile);
 
 	return (
 		<>

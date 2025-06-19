@@ -53,7 +53,7 @@ export default function WhyVietnam() {
 					className="w-full h-full object-cover"
 				/>
 
-				<div className="max-w-[1440px] absolute top-1/2 w-full transform -translate-y-1/2 flex items-center justify-between font-sans px-4 sm:px-6 md:px-8">
+				<div className="max-w-[1440px] absolute top-1/2 w-full h-auto transform -translate-y-1/2 flex items-center justify-between font-sans px-4 sm:px-6 md:px-8">
 					<p className="text-white font-bold leading-relaxed text-xl sm:text-2xl md:text-3xl lg:text-4xl max-w-[80%] sm:max-w-[70%] md:max-w-[60%] lg:max-w-[50%] font-sans break-keep whitespace-normal break-words">
 						{item1.map((part, idx) => (
 							<span

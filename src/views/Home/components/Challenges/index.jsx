@@ -11,7 +11,7 @@ const Challenges = () => {
 	const item5 = t("challenges.item.5", { returnObjects: true });
 
 	const renderBox = (item, bgColor = "bg-white") => (
-		<div className="flex flex-col h-full rounded-3xl overflow-hidden shadow-lg border border-gray-200 hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+		<div className="flex flex-col rounded-3xl overflow-hidden shadow-lg border border-gray-200 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 2xl:h-[180px] xl:h-[180px] lg:h-[160px]">
 			{/* Header */}
 			<h3 className="relative text-base md:text-3xl font-semibold h-[44px] bg-[#F0EFF5] rounded-t-3xl">
 				<span className="absolute left-4 top-1/2 -translate-y-1/2 w-[24px] h-[24px] rounded-full bg-[#031F8D] text-white flex items-center justify-center text-sm md:text-xl font-bold leading-[1]">
@@ -38,14 +38,14 @@ const Challenges = () => {
 	);
 
 	return (
-		<section className="w-full min-h-fit md:min-h-screen px-4 bg-white mt-2 relative">
-			<div className="w-full min-h-fit md:min-h-screen py-4 md:px-8 mx-auto max-w-[1440px] relative">
+		<section className="w-full h-full md:min-h-screen px-4 bg-white mt-2 relative">
+			<div className="w-full h-full md:min-h-screen py-4 md:px-8 mx-auto max-w-[1440px] relative">
 				{/* Title */}
-				<div className="container mb-12 mt-4">
-					<h2 className="text-[20px] md:text-5xl font-bold text-dark-gray font-sans leading-snug">
+				<div className="container mb-12 mt-4 w-full h-auto">
+					<h2 className="text-[20px] md:text-5xl font-bold text-dark-gray font-sans leading-snug break-keep whitespace-normal break-words">
 						{t("challenges.title")}
 					</h2>
-					<h2 className="text-[20px] md:text-5xl font-bold text-dark-gray font-sans leading-snug pb-4">
+					<h2 className="text-[20px] md:text-5xl font-bold text-dark-gray font-sans leading-snug pb-4 break-keep whitespace-normal break-words ">
 						{t("challenges.title_2")}
 					</h2>
 					<p className="text-[16px] md:text-xl font-light text-muted-foreground leading-relaxed max-w-[900px]">
@@ -54,20 +54,20 @@ const Challenges = () => {
 				</div>
 
 				{/* Desktop layout */}
-				<div className="relative max-w-[1440px] min-h-[700px] mx-auto hidden md:block">
-					<FloatingBox className="absolute top-[5%] left-0 w-[420px] h-[160px] z-20">
+				<div className="relative h-[calc(100%-14rem)] max-w-[1440px] mx-auto hidden md:block">
+					<FloatingBox className="absolute md:w-full lg:w-[550px] md:top-0 lg:top-[10%] left-0 2xl:top-[10%] z-20">
 						{renderBox(item1, "bg-dark-blue")}
 					</FloatingBox>
-					<FloatingBox className="absolute top-[-5%] right-0 w-[400px] h-[160px] z-20">
+					<FloatingBox className="absolute md:top-[17%] md:w-full lg:w-[550px] lg:top-0 xl:top-0 right-0 xl 2xl:top-0 z-20">
 						{renderBox(item2)}
 					</FloatingBox>
-					<FloatingBox className="absolute top-[35%] left-[10%] w-[480px] h-[160px] z-20">
+					<FloatingBox className="absolute md:top-[35%] md:w-full lg:w-[550px] lg:top-[35%] xl:top-[40%] xl:left-[5%] 2xl:left-[5%] 2xl:top-[40%] z-20">
 						{renderBox(item3)}
 					</FloatingBox>
-					<FloatingBox className="absolute top-[25%] right-[10%] w-[480px] h-[160px] z-20">
+					<FloatingBox className="absolute md:top-[53%] md:w-full lg:w-[550px] lg:right-0 lg:top-[25%] xl:top-[30%] xl:right-[5%] 2xl:right-[5%] 2xl:top-[30%] z-20">
 						{renderBox(item4, "bg-[#748FF8]")}
 					</FloatingBox>
-					<FloatingBox className="absolute bottom-[10%] left-1/2 transform -translate-x-1/2 w-[570px] h-[160px] z-20">
+					<FloatingBox className="absolute md:bottom-[15%] md:w-full lg:w-[550px] lg:bottom-[25%] lg:right-0 2xl:bottom-[5%] xl:left-1/2 xl:bottom-[10%] transform xl:-translate-x-1/2 z-20">
 						{renderBox(item5, "bg-dark-blue")}
 					</FloatingBox>
 				</div>

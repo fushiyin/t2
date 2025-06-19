@@ -10,30 +10,23 @@ import { useTranslation } from "react-i18next";
 
 export default function Hero() {
 	const { t } = useTranslation();
-	const [isShowingHero, setIsShowingHero] = useState(true);
+	const [isShowingHero, setIsShowingHero] = useState(false);
 	const [heroPlayCount, setHeroPlayCount] = useState(0);
-	const [homeVideoStartTime, setHomeVideoStartTime] = useState(null);
 	const videoHomeRef = useRef(null);
 	const videoHeroRef = useRef(null);
 
 	const handleVideoEnd = () => {
-		if (isShowingHero) {
-			if (heroPlayCount < 3) {
+		if (!isShowingHero) {
+			setIsShowingHero(true);
+			setHeroPlayCount(1);
+			videoHeroRef.current?.play();
+		} else {
+			if (heroPlayCount < 2) {
 				setHeroPlayCount((prev) => prev + 1);
 				videoHeroRef.current?.play();
 			} else {
 				setIsShowingHero(false);
 				setHeroPlayCount(0);
-				setHomeVideoStartTime(Date.now());
-				videoHomeRef.current?.play();
-			}
-		} else {
-			const currentTime = Date.now();
-			if (homeVideoStartTime && currentTime - homeVideoStartTime >= 5000) {
-				setIsShowingHero(true);
-				setHeroPlayCount(1);
-				videoHeroRef.current?.play();
-			} else {
 				videoHomeRef.current?.play();
 			}
 		}
@@ -72,7 +65,7 @@ export default function Hero() {
 	};
 
 	const getContent = () => {
-		if (isShowingHero) {
+		if (!isShowingHero) {
 			return {
 				title: t("hero_section.hero_slogan"),
 				description: t("hero_section.hero_description"),
@@ -91,53 +84,52 @@ export default function Hero() {
 		<>
 			{/* Video Background */}
 			<div className="absolute inset-0 w-full h-full">
-				<div className="relative w-full h-full">
-					{/* video_home */}
-					<motion.div
-						className="absolute inset-0 z-10"
-						animate={{ opacity: isShowingHero ? 0 : 1 }}
-						transition={{ duration: 1 }}
+				{/* video_hero */}
+				<motion.div
+					className={classNames("absolute inset-0 transition-opacity duration-1000", {
+						"opacity-100 z-10 pointer-events-auto": isShowingHero,
+						"opacity-0 z-0 pointer-events-none": !isShowingHero,
+					})}
+				>
+					<video
+						ref={videoHeroRef}
+						autoPlay
+						muted
+						playsInline
+						loop={false}
+						className="w-full h-full object-cover"
+						onEnded={handleVideoEnd}
 					>
-						<video
-							ref={videoHomeRef}
-							autoPlay
-							muted
-							playsInline
-							loop={false}
-							className="w-full h-full object-cover"
-							onEnded={handleVideoEnd}
-						>
-							<source
-								src={video_home}
-								type="video/webm"
-							/>
-						</video>
-					</motion.div>
+						<source
+							src={video_hero}
+							type="video/mp4"
+						/>
+					</video>
+				</motion.div>
 
-					{/* video_hero */}
-					<motion.div
-						className="absolute inset-0 z-10"
-						animate={{ opacity: isShowingHero ? 1 : 0 }}
-						transition={{ duration: 1 }}
+				{/* video_home */}
+				<motion.div
+					className={classNames("absolute inset-0 transition-opacity duration-1000", {
+						"opacity-100 z-10 pointer-events-auto": !isShowingHero,
+						"opacity-0 z-0 pointer-events-none": isShowingHero,
+					})}
+				>
+					<video
+						ref={videoHomeRef}
+						autoPlay
+						muted
+						playsInline
+						loop={false}
+						className="w-full h-full object-cover"
+						onEnded={handleVideoEnd}
 					>
-						<video
-							ref={videoHeroRef}
-							autoPlay
-							muted
-							playsInline
-							loop={false}
-							className="w-full h-full object-cover"
-							onEnded={handleVideoEnd}
-						>
-							<source
-								src={video_hero}
-								type="video/mp4"
-							/>
-						</video>
-					</motion.div>
-				</div>
+						<source
+							src={video_home}
+							type="video/webm"
+						/>
+					</video>
+				</motion.div>
 
-				{/* Overlay for better text readability */}
 				<motion.div
 					className={classNames("absolute inset-0 z-20", {
 						"bg-dark-blue/50": isShowingHero,
@@ -147,6 +139,7 @@ export default function Hero() {
 					transition={{ duration: 1 }}
 				></motion.div>
 			</div>
+
 			{/* Content */}
 			<div className="container h-full w-full relative z-30 flex justify-center text-center items-center">
 				<motion.div

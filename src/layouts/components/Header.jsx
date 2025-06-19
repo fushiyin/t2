@@ -1,8 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import england from "@/assets/images/usa.png";
 import korea from "@/assets/images/korea.webp";
-import t2lightlogo from "@/assets/logos/T2_light_Logo.png";
+import england from "@/assets/images/usa.png";
 import t2darklogo from "@/assets/logos/T2_dark_Logo.png";
+import t2lightlogo from "@/assets/logos/T2_light_Logo.png";
 import {
 	Drawer,
 	DrawerClose,
@@ -11,8 +11,9 @@ import {
 	DrawerTitle,
 } from "@/components/ui/drawer";
 import { NAV_LINKS } from "@/constant/header";
+import useResponsive from "@/hooks/useResponsive";
 import classNames from "classnames";
-import { ChevronDown, Menu, Moon, Search, Sun, X } from "lucide-react";
+import { ChevronDown, Menu, Moon, Sun, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link, useLocation } from "react-router";
@@ -32,6 +33,8 @@ const Header = () => {
 	const [isOpenBlog, setIsOpenBlog] = useState(false);
 	const [isScrolled, setIsScrolled] = useState(false);
 	const isHome = location.pathname === "/" ? true : false;
+
+	const { isMobile } = useResponsive();
 	const LANGUAGE = [
 		{
 			code: "ko",
@@ -96,7 +99,7 @@ const Header = () => {
 		<header
 			id="header"
 			className={classNames("w-full z-50 transition-all duration-300 fixed left-0 right-0", {
-				"top-10 bg-transparent": !isScrolled && isHome,
+				"top-10 bg-transparent": !isScrolled && isHome && !isMobile,
 				"top-0 bg-white dark:bg-dark-blue shadow-md": isScrolled,
 			})}
 		>
@@ -295,7 +298,7 @@ const Header = () => {
 						className={classNames(
 							"md:hidden p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700",
 							{
-								"text-white": !isScrolled,
+								"text-white": !isScrolled && isMobile && isHome,
 								"text-gray-700 dark:text-gray-200": isScrolled,
 							},
 						)}
@@ -310,7 +313,7 @@ const Header = () => {
 			<Drawer
 				direction="right"
 				open={isMenuOpen}
-				onOpenChange={setIsMenuOpen}
+				// onOpenChange={setIsMenuOpen}
 			>
 				<DrawerContent
 					header={true}
@@ -331,10 +334,13 @@ const Header = () => {
 								<Link
 									key={link.path}
 									to={link.path}
+									onClick={() => setIsMenuOpen(false)}
 									className={`block px-3 py-2 text-base font-medium border-b rounded-sm ${
 										location.pathname === link.path
 											? "text-dark-blue bg-light-blue-gray"
-											: "text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 border-b-[#f4f4f4]"
+											: isHome && !isScrolled
+												? "text-white hover:bg-gray-100 dark:hover:bg-gray-700 border-b-[#f4f4f4]"
+												: "text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 border-b-[#f4f4f4]"
 									}`}
 								>
 									{t(link?.i18nKey) || link?.name}

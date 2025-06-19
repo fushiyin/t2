@@ -1,54 +1,50 @@
 import { useState, useEffect } from "react";
 
 const useResponsive = () => {
-	const [isDesktop, setIsDesktop] = useState(false);
-	const [isTablet, setIsTablet] = useState(false);
 	const [isMobile, setIsMobile] = useState(false);
-	const [is2xl, setIs2xl] = useState(false);
-	const [isXl, setIsXl] = useState(false);
+	const [isTablet, setIsTablet] = useState(false);
+	const [isDesktop, setIsDesktop] = useState(false);
 	const [isLg, setIsLg] = useState(false);
-	const [isMd, setIsMd] = useState(false);
-	const [isSm, setIsSm] = useState(false);
+	const [isXl, setIsXl] = useState(false);
+	const [is2xl, setIs2xl] = useState(false);
+	const [isTouchDevice, setIsTouchDevice] = useState(false);
 
 	useEffect(() => {
 		const handleResize = () => {
-			// Desktop (>= 1024px)
-			setIsDesktop(window.innerWidth >= 1024);
-			// Tablet (>= 768px and < 1024px)
-			setIsTablet(window.innerWidth >= 768 && window.innerWidth < 1024);
-			// Mobile (< 768px)
-			setIsMobile(window.innerWidth < 768);
-			// 2xl (>= 1536px)
-			setIs2xl(window.innerWidth >= 1536);
-			// xl (>= 1280px)
-			setIsXl(window.innerWidth >= 1280);
-			// lg (>= 1024px)
-			setIsLg(window.innerWidth >= 1024);
-			// md (>= 768px)
-			setIsMd(window.innerWidth >= 768);
-			// sm (>= 640px)
-			setIsSm(window.innerWidth >= 640);
+			const width = window.innerWidth;
+
+			setIsMobile(width < 768);
+			setIsTablet(width >= 768 && width < 1024);
+			setIsDesktop(width >= 1024);
+			setIsLg(width >= 1024);
+			setIsXl(width >= 1280);
+			setIs2xl(width >= 1536);
+
+			// Check if device supports touch
+			const isTouch = "ontouchstart" in window || navigator.maxTouchPoints > 0;
+			setIsTouchDevice(isTouch);
 		};
 
 		// Initial check
 		handleResize();
 
-		// Add event listener
+		// Add resize event listener
 		window.addEventListener("resize", handleResize);
 
-		// Cleanup
-		return () => window.removeEventListener("resize", handleResize);
+		// Cleanup on unmount
+		return () => {
+			window.removeEventListener("resize", handleResize);
+		};
 	}, []);
 
 	return {
-		isDesktop,
-		isTablet,
 		isMobile,
-		is2xl,
-		isXl,
+		isTablet,
+		isDesktop,
 		isLg,
-		isMd,
-		isSm,
+		isXl,
+		is2xl,
+		isTouchDevice,
 	};
 };
 

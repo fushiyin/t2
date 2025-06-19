@@ -16,10 +16,11 @@ import CallPhoneButton from "./CallPhoneButton";
 export default function MainLayout() {
 	const { isMobile } = useResponsive();
 	const location = useLocation();
+	console.log("isMobile:", isMobile);
 
 	return (
 		<>
-			{!isMobile && <CustomCursor />}
+			{!!isMobile && <CustomCursor />}
 			<LenisProvider>
 				<OnboardingProvider>
 					<CustomLoading />

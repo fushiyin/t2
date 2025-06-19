@@ -83,7 +83,7 @@ export default function AboutPage() {
 										contentInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
 									}
 									transition={{ duration: 0.5, delay: 0.3 }}
-									className="text-left text-4xl mb-4 font-bold tracking-tighter font-sans break-keep whitespace-normal break-words "
+									className="text-3xl font-bold tracking-tighter sm:text-5xl pb-6 bg-gradient-to-r from-[var(--color-light-mint)] to-[var(--color-light-green)] bg-clip-text text-transparent font-sans break-keep whitespace-normal break-words"
 								>
 									{t("about.description.title")}
 								</motion.h2>
@@ -93,7 +93,7 @@ export default function AboutPage() {
 										contentInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
 									}
 									transition={{ duration: 0.5, delay: 0.4 }}
-									className="text-left text-dark-blue md:text-xl/relaxed font-sans break-keep whitespace-normal break-words"
+									className="text-left text-gray-900 md:text-xl/relaxed font-sans break-keep whitespace-normal break-words"
 								>
 									{t("about.description.explain")}
 								</motion.p>
@@ -140,19 +140,19 @@ export default function AboutPage() {
 												: { opacity: 0, y: 20 }
 										}
 										transition={{ duration: 0.5, delay: 0.8 + i * 0.1 }}
-										className="text-dark-blue text-sm md:text-base lg:text-xl/relaxed font-sans text-left break-keep whitespace-normal break-words w-full sm:w-[calc(50%-12px)] flex items-center gap-2"
+										className=" text-sm md:text-base lg:text-xl/relaxed font-sans text-left break-keep whitespace-normal break-words w-full sm:w-[calc(50%-12px)] flex items-center gap-2"
 									>
 										{i === 1 && (
-											<CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-dark-blue shrink-0" />
+											<CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-light-green shrink-0" />
 										)}
 										{i === 2 && (
-											<Users className="w-4 h-4 sm:w-5 sm:h-5 text-dark-blue shrink-0" />
+											<Users className="w-4 h-4 sm:w-5 sm:h-5 text-light-green shrink-0" />
 										)}
 										{i === 3 && (
-											<Globe className="w-4 h-4 sm:w-5 sm:h-5 text-dark-blue shrink-0" />
+											<Globe className="w-4 h-4 sm:w-5 sm:h-5 text-light-green shrink-0" />
 										)}
 										{i === 4 && (
-											<Award className="w-4 h-4 sm:w-5 sm:h-5 text-dark-blue shrink-0" />
+											<Award className="w-4 h-4 sm:w-5 sm:h-5 text-light-green shrink-0" />
 										)}
 										{t(`about.experience_list.${i}`)}
 									</motion.p>

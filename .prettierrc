@@ -1,11 +1,8 @@
 {
 	"arrowParens": "always",
 	"bracketSameLine": false,
-	"objectWrap": "preserve",
 	"bracketSpacing": true,
 	"semi": true,
-	"experimentalOperatorPosition": "end",
-	"experimentalTernaries": false,
 	"singleQuote": false,
 	"jsxSingleQuote": false,
 	"quoteProps": "as-needed",

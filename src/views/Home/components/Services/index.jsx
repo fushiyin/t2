@@ -262,7 +262,7 @@ const Services = ({ contentClass }) => {
 												initial={{ y: 20, opacity: 0 }}
 												animate={{ y: 0, opacity: 1 }}
 												transition={{ duration: 0.5, delay: 0.5 }}
-												className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-6 text-white group-hover:text-primary transition-colors font-sans break-keep whitespace-normal break-words"
+												className="text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold mb-4 md:mb-6 text-white group-hover:text-primary transition-colors font-sans break-keep whitespace-normal break-words"
 											>
 												{service.name}
 											</motion.h3>

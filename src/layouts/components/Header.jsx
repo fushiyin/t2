@@ -20,6 +20,9 @@ import { Link, useLocation } from "react-router";
 
 const Header = () => {
 	const location = useLocation();
+	const [visibleLinks, setVisibleLinks] = useState(NAV_LINKS);
+	const [hiddenLinks, setHiddenLinks] = useState([]);
+	const [isCompactNav, setIsCompactNav] = useState(false);
 	const { t, i18n } = useTranslation();
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const [isDarkMode, setIsDarkMode] = useState(false);
@@ -46,6 +49,26 @@ const Header = () => {
 			imageUrl: england,
 		},
 	];
+
+	useEffect(() => {
+		const handleResize = () => {
+			const width = window.innerWidth;
+			if (width <= 1140) {
+				setIsCompactNav(true);
+				const showPaths = ["/", "/about", "/services", "/solution&product"];
+				setVisibleLinks(NAV_LINKS.filter((link) => showPaths.includes(link.path)));
+				setHiddenLinks(NAV_LINKS.filter((link) => !showPaths.includes(link.path)));
+			} else {
+				setIsCompactNav(false);
+				setVisibleLinks(NAV_LINKS);
+				setHiddenLinks([]);
+			}
+		};
+
+		handleResize(); // Gọi lần đầu
+		window.addEventListener("resize", handleResize);
+		return () => window.removeEventListener("resize", handleResize);
+	}, []);
 
 	useEffect(() => {
 		const savedDarkMode = localStorage.getItem("darkMode") === "true";
@@ -113,7 +136,7 @@ const Header = () => {
 					</div>
 
 					<nav className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-5 xl:gap-7 border border-[#5c5cff] border-opacity-80 rounded-full px-6 py-2 shadow-sm backdrop-blur-sm bg-white/10">
-						{NAV_LINKS.map((link) => {
+						{visibleLinks.map((link) => {
 							const isActive =
 								window.location?.pathname === link?.path ||
 								(!window.location?.pathname && link.path === "/");
@@ -151,21 +174,6 @@ const Header = () => {
 						})}
 					</nav>
 
-					<button
-						type="button"
-						className={classNames(
-							"hidden md:block lg:hidden p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 right-0",
-							{
-								"text-white": !isScrolled,
-								"text-gray-700 dark:text-gray-200": isScrolled,
-								"hover:text-black": !isMenuOpen,
-							},
-						)}
-						onClick={() => setIsOpenBlog(!isOpenBlog)}
-						aria-label="Toggle menu"
-					>
-						<Menu className="h-6 w-6" />
-					</button>
 					{isOpenBlog &&
 						(() => {
 							const contactLink = NAV_LINKS.find((link) => link.path === "/contact");
@@ -255,20 +263,23 @@ const Header = () => {
 							)}
 						</button>
 					</div>
-					<button
-						type="button"
-						className={classNames(
-							"md:hidden p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700",
-							{
-								"text-white": !isScrolled && isMobile && isHome,
-								"text-gray-700 dark:text-gray-200": isScrolled,
-							},
-						)}
-						onClick={() => setIsMenuOpen(!isMenuOpen)}
-						aria-label="Toggle menu"
-					>
-						{isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-					</button>
+
+					{isCompactNav && (
+						<button
+							type="button"
+							className={classNames(
+								"p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700",
+								{
+									"text-white": !isScrolled && isHome,
+									"text-gray-700 dark:text-gray-200": isScrolled,
+								},
+							)}
+							onClick={() => setIsMenuOpen(!isMenuOpen)}
+							aria-label="Toggle menu"
+						>
+							{isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+						</button>
+					)}
 				</div>
 			</div>
 
@@ -295,7 +306,7 @@ const Header = () => {
 
 					<div className="px-4 py-4 space-y-4">
 						<div className="space-y-1">
-							{NAV_LINKS.map((link) => {
+							{[...visibleLinks, ...hiddenLinks].map((link) => {
 								const isActive = location.pathname === link.path;
 								return (
 									<Link

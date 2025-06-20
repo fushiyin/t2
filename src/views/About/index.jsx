@@ -79,13 +79,13 @@ export default function AboutPage() {
 					{/* Content */}
 					<div className="relative z-10 flex flex-col justify-center items-center h-full max-w-3xl mx-auto text-center space-y-3">
 						<h2
-							className="px-4 text-4xl md:pb-2 md:text-5xl lg:text-6xl font-bold tracking-tight font-sans break-keep whitespace-normal break-words text-white"
+							className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight font-sans break-keep whitespace-normal break-words text-white"
 							style={{ textShadow: "0 2px 8px rgba(0,0,0,0.7)" }}
 						>
 							{t("about.title")}
 						</h2>
 						<p
-							className="px-4 text-xl md:text-2xl tracking-tighter font-sans break-keep whitespace-normal break-words text-white"
+							className="p-2 text-xl md:text-2xl tracking-tighter font-sans break-keep whitespace-normal break-words text-white"
 							style={{ textShadow: "0 2px 8px rgba(0,0,0,0.7)" }}
 						>
 							{t("about.title_sub")}
@@ -102,7 +102,7 @@ export default function AboutPage() {
 										imageInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
 									}
 									transition={{ duration: 0.5, delay: 0.3 }}
-									className="text-3xl font-bold tracking-tighter sm:text-5xl pb-2 bg-gradient-to-r from-[var(--color-light-mint)] to-[var(--color-light-green)] bg-clip-text text-transparent font-sans break-keep whitespace-normal break-words"
+									className="text-4xl md:text-5xl font-bold tracking-tighter pb-2 bg-gradient-to-r from-[var(--color-light-mint)] to-[var(--color-light-green)] bg-clip-text text-transparent font-sans break-keep whitespace-normal break-words"
 								>
 									{t("about.description.title")}
 								</motion.h2>
@@ -112,7 +112,7 @@ export default function AboutPage() {
 										imageInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
 									}
 									transition={{ duration: 0.5, delay: 0.4 }}
-									className="text-left text-gray-900 md:text-xl/relaxed font-sans break-keep whitespace-normal break-words"
+									className="text-left text-gray-900 text-4xl md:text-5xl font-bold font-sans break-keep whitespace-normal break-words"
 								>
 									{t("about.description.explain")}
 								</motion.p>
@@ -135,7 +135,7 @@ export default function AboutPage() {
 												: { opacity: 0, y: 20 }
 										}
 										transition={{ duration: 0.5, delay: 0.3 }}
-										className="text-3xl font-bold tracking-tighter sm:text-5xl pb-6 bg-gradient-to-r from-[var(--color-light-mint)] to-[var(--color-light-green)] bg-clip-text text-transparent font-sans break-keep whitespace-normal break-words"
+										className="text-3xl md:text-5xl font-bold tracking-tighter pb-4 bg-gradient-to-r from-[var(--color-light-mint)] to-[var(--color-light-green)] bg-clip-text text-transparent font-sans break-keep whitespace-normal break-words"
 									>
 										{t("about.description.title")}
 									</motion.h2>
@@ -147,7 +147,7 @@ export default function AboutPage() {
 												: { opacity: 0, y: 20 }
 										}
 										transition={{ duration: 0.5, delay: 0.4 }}
-										className="text-left text-gray-900 md:text-xl/relaxed font-sans break-keep whitespace-normal break-words"
+										className="text-left text-gray-900 font-bold text-3xl md:text-5xl font-sans break-keep whitespace-normal break-words"
 									>
 										{t("about.description.explain")}
 									</motion.p>
@@ -160,7 +160,7 @@ export default function AboutPage() {
 									contentInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
 								}
 								transition={{ duration: 0.5, delay: 0.5 }}
-								className="ml-0 md:ml-6 mt-4 md:mt-6 w-full md:w-[80%] text-muted-foreground text-sm text-left  font-sans break-keep whitespace-normal break-words"
+								className="ml-0 md:ml-6 mt-6 md:mt-6 w-full md:w-[90%] text-muted-foreground text-sx text-left  font-sans break-keep whitespace-normal break-words"
 							>
 								{t("about.content")}
 							</motion.p>
@@ -172,7 +172,7 @@ export default function AboutPage() {
 									experienceInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
 								}
 								transition={{ duration: 0.5, delay: 0.6 }}
-								className="w-full flex font-bold mt-4 md:mt-8 text-2xl sm:text-3xl md:text-4xl tracking-tighter justify-center font-sans break-keep whitespace-normal break-words"
+								className="w-full md:w-[90%] flex font-bold mt-4 md:mt-8 text-2xl sm:text-3xl md:text-4xl tracking-tighter justify-center font-sans break-keep whitespace-normal break-words"
 							>
 								{t("about.experience")}
 							</motion.h2>
@@ -183,7 +183,7 @@ export default function AboutPage() {
 									experienceInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }
 								}
 								transition={{ duration: 0.6, delay: 0.7 }}
-								className="flex w-full sm:w-[90%] flex-col sm:flex-row sm:flex-wrap gap-4 sm:gap-6 mt-4 sm:mt-8"
+								className="flex w-full md:w-[90%] flex-col sm:flex-row sm:flex-wrap gap-4 sm:gap-6 mt-4 sm:mt-8"
 							>
 								{[1, 2, 3, 4].map((i) => (
 									<motion.p

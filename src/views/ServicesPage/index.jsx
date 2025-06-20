@@ -1,11 +1,15 @@
 import video_services from "@/assets/video/Services.mp4";
 import AnimatedSection from "@/components/AnimatedSection";
 import CTA from "@/components/sections/ContactCTA";
+import { SECTIONS_KEY } from "@/constant/sideNavigation";
 import { motion } from "framer-motion";
 import { ArrowRight, BarChart3, BrainCircuit, Code, Database, Globe, Layers } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useInView } from "react-intersection-observer";
 import { useNavigate } from "react-router";
+import { contentClass, sectionClass } from "../Home";
+import CompetitiveEdges from "../Home/components/CompetitiveEdges";
+import DevelopmentCapacity from "../Home/components/DevelopmentCapacity";
 
 const services = [
 	{
@@ -95,118 +99,132 @@ export default function ServicesPage() {
 	};
 
 	return (
-		<div className="w-full mt-[64px]">
-			<AnimatedSection className="w-full flex flex-col items-center">
-				<motion.div
-					ref={heroRef}
-					initial={{ opacity: 0, y: -20 }}
-					animate={heroInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
-					transition={{ duration: 0.6 }}
-					className="relative mb-8 flex flex-col items-center justify-center text-center h-[400px] md:h-[500px] w-full"
-				>
-					{/* Background image */}
+		<>
+			<div className="w-full mt-[64px]">
+				<AnimatedSection className="w-full flex flex-col items-center">
 					<motion.div
-						initial={{ opacity: 0 }}
-						animate={heroInView ? { opacity: 1 } : { opacity: 0 }}
+						ref={heroRef}
+						initial={{ opacity: 0, y: -20 }}
+						animate={heroInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
 						transition={{ duration: 0.6 }}
-						className="absolute inset-0 w-full h-full bg-cover bg-center overflow-hidden"
+						className="relative mb-8 flex flex-col items-center justify-center text-center h-[400px] md:h-[500px] w-full"
 					>
-						<video
-							src={video_services}
-							autoPlay
-							loop
-							muted
-							playsInline
-							className="w-full h-full object-cover"
-						/>
-					</motion.div>
-					{/* Overlay */}
-					<div className="absolute inset-0 bg-dark-blue/50" />
-					{/* Content */}
-					<div className="relative z-10 flex flex-col justify-center items-center h-full max-w-3xl mx-auto text-center space-y-3">
-						<h2
-							className="px-4 md:pb-4 text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight font-sans break-keep whitespace-normal break-words text-white"
-							style={{ textShadow: "0 2px 8px rgba(0,0,0,0.7)" }}
+						{/* Background image */}
+						<motion.div
+							initial={{ opacity: 0 }}
+							animate={heroInView ? { opacity: 1 } : { opacity: 0 }}
+							transition={{ duration: 0.6 }}
+							className="absolute inset-0 w-full h-full bg-cover bg-center overflow-hidden"
 						>
-							{t("services.hero.title")}{" "}
-						</h2>
-						<p
-							className="px-4 text-xl md:text-2xl tracking-tighter font-sans break-keep whitespace-normal break-words text-white"
-							style={{ textShadow: "0 2px 8px rgba(0,0,0,0.7)" }}
-						>
-							{t("services.hero.description")}
-						</p>
-						<div className="flex flex-wrap justify-center gap-4 mt-2">
-							<button
-								onClick={handleGetStarted}
-								className="cursor-pointer inline-flex border border-white items-center gap-2 px-4 py-2 md:px-8 md:py-4 rounded-4xl text-primary-foreground transition-colors text-lg font-medium font-sans break-keep whitespace-normal break-words"
+							<video
+								src={video_services}
+								autoPlay
+								loop
+								muted
+								playsInline
+								className="w-full h-full object-cover"
+							/>
+						</motion.div>
+						{/* Overlay */}
+						<div className="absolute inset-0 bg-dark-blue/50" />
+						{/* Content */}
+						<div className="relative z-10 flex flex-col justify-center items-center h-full max-w-3xl mx-auto text-center space-y-3">
+							<h2
+								className="px-4 md:pb-4 text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight font-sans break-keep whitespace-normal break-words text-white"
+								style={{ textShadow: "0 2px 8px rgba(0,0,0,0.7)" }}
 							>
-								{t("services.hero.cta")}
-								<ArrowRight className="w-5 h-5" />
-							</button>
+								{t("services.hero.title")}{" "}
+							</h2>
+							<p
+								className="px-4 text-xl md:text-2xl tracking-tighter font-sans break-keep whitespace-normal break-words text-white"
+								style={{ textShadow: "0 2px 8px rgba(0,0,0,0.7)" }}
+							>
+								{t("services.hero.description")}
+							</p>
+							<div className="flex flex-wrap justify-center gap-4 mt-2">
+								<button
+									onClick={handleGetStarted}
+									className="cursor-pointer inline-flex border border-white items-center gap-2 px-4 py-2 md:px-8 md:py-4 rounded-4xl text-primary-foreground transition-colors text-lg font-medium font-sans break-keep whitespace-normal break-words"
+								>
+									{t("services.hero.cta")}
+									<ArrowRight className="w-5 h-5" />
+								</button>
+							</div>
 						</div>
-					</div>
-				</motion.div>
-			</AnimatedSection>
-			<section className="w-full pt-4 pb-12 bg-background">
-				<div className="container max-w-[1440px] mx-auto px-4">
-					<div className="text-center mb-16">
-						<h2 className="text-3xl md:text-4xl font-bold mb-4 font-sans break-keep whitespace-normal break-words">
-							{t("services.section.title")}
-						</h2>
-						<p className="text-xl text-muted-foreground max-w-2xl mx-auto font-sans break-keep whitespace-normal break-words">
-							{t("services.section.description")}
-						</p>
-					</div>
+					</motion.div>
+				</AnimatedSection>
+				<section className="w-full pt-4 pb-12 bg-background">
+					<div className="container max-w-[1440px] mx-auto px-4">
+						<div className="text-center mb-16">
+							<h2 className="text-4xl md:text-5xl font-bold mb-4 font-sans break-keep whitespace-normal break-words">
+								{t("services.section.title")}
+							</h2>
+							<p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto font-sans break-keep whitespace-normal break-words">
+								{t("services.section.description")}
+							</p>
+						</div>
 
-					{/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"> */}
-					<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8">
-						{services.map((service) => (
-							<motion.div
-								key={service.id}
-								initial={{ opacity: 0, y: 20 }}
-								whileInView={{ opacity: 1, y: 0 }}
-								viewport={{ once: true }}
-								whileHover={{ scale: 1.02 }}
-								transition={{ type: "spring", stiffness: 200, damping: 15 }}
-								className="bg-white/80 rounded-2xl shadow-lg flex flex-col items-stretch relative duration-300 border-t"
-							>
-								<div className="p-8">
-									<div className="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-6">
-										<service.icon className="w-6 h-6" />
-									</div>
-									<h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors font-sans break-keep whitespace-normal break-words">
-										{t(`services.items.${service.id}.name`)}
-									</h3>
-									{/* <p className="text-muted-foreground text-sm mb-6 font-sans break-keep whitespace-normal break-words">
+						{/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"> */}
+						<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8">
+							{services.map((service) => (
+								<motion.div
+									key={service.id}
+									initial={{ opacity: 0, y: 20 }}
+									whileInView={{ opacity: 1, y: 0 }}
+									viewport={{ once: true }}
+									whileHover={{ scale: 1.02 }}
+									transition={{ type: "spring", stiffness: 200, damping: 15 }}
+									className="bg-white/80 rounded-2xl shadow-lg flex flex-col items-stretch relative duration-300 border-t"
+								>
+									<div className="p-8">
+										<div className="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-6">
+											<service.icon className="w-6 h-6" />
+										</div>
+										<h3 className="text-2xl md:text-[28px] font-bold mb-3 group-hover:text-primary transition-colors font-sans break-keep whitespace-normal break-words">
+											{t(`services.items.${service.id}.name`)}
+										</h3>
+										{/* <p className="text-muted-foreground text-sm mb-6 font-sans break-keep whitespace-normal break-words">
 										{t(`services.items.${service.id}.description`)}
 									</p> */}
-									<ul className="space-y-3">
-										{service.details.map((detail, idx) => (
-											<li
-												key={idx}
-												className="flex items-center gap-2 text-sm"
-											>
-												<span className="mt-1 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
-												<span className="font-sans break-words whitespace-normal">
-													{t(
-														`services.items.${service.id}.details.${idx}`,
-													)}
-												</span>
-											</li>
-										))}
-									</ul>
-									<button className="mt-6 inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors">
+										<ul className="space-y-3">
+											{service.details.map((detail, idx) => (
+												<li
+													key={idx}
+													className="flex items-center gap-2 text-base md:text-xl"
+												>
+													<span className="mt-1 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
+													<span className="font-sans break-words whitespace-normal">
+														{t(
+															`services.items.${service.id}.details.${idx}`,
+														)}
+													</span>
+												</li>
+											))}
+										</ul>
+										{/* <button className="mt-6 inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors">
 										{t("services.items.learnMore")}
 										<ArrowRight className="w-4 h-4" />
-									</button>
-								</div>
-							</motion.div>
-						))}
+									</button> */}
+									</div>
+								</motion.div>
+							))}
+						</div>
 					</div>
-				</div>
+				</section>
+			</div>
+			<section
+				id={SECTIONS_KEY.DEVELOPMENT_CAPACITY.id}
+				className={sectionClass}
+			>
+				<DevelopmentCapacity contentClass={contentClass} />
+			</section>
+			<section
+				id="aaa"
+				className={sectionClass}
+			>
+				<CompetitiveEdges />
 			</section>
 			<CTA />
-		</div>
+		</>
 	);
 }

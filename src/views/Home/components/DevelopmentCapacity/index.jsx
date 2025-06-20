@@ -36,7 +36,7 @@ import {
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 
-export default function DevelopmentEnhanced({ contentClass }) {
+export default function DevelopmentCapacity({ contentClass }) {
 	const { t } = useTranslation();
 	const [currentStackIndex, setCurrentStackIndex] = useState(0);
 	const autoTimer = 6000; // 6 seconds

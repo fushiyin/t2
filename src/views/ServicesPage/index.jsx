@@ -1,18 +1,10 @@
-import { motion } from "framer-motion";
-import {
-	ArrowRight,
-	Code,
-	Database,
-	Globe,
-	Layers,
-	LineChart,
-	Settings,
-	ChevronRight,
-	BrainCircuit,
-	BarChart3,
-} from "lucide-react";
+import video_services from "@/assets/video/Services.mp4";
+import AnimatedSection from "@/components/AnimatedSection";
 import CTA from "@/components/sections/ContactCTA";
+import { motion } from "framer-motion";
+import { ArrowRight, BarChart3, BrainCircuit, Code, Database, Globe, Layers } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { useInView } from "react-intersection-observer";
 import { useNavigate } from "react-router";
 
 const services = [
@@ -90,8 +82,13 @@ const services = [
 ];
 
 export default function ServicesPage() {
-	const navigate = useNavigate();
 	const { t } = useTranslation();
+	const navigate = useNavigate();
+
+	const [heroRef, heroInView] = useInView({
+		triggerOnce: true,
+		threshold: 0.1,
+	});
 
 	const handleGetStarted = () => {
 		navigate("/contact");
@@ -99,39 +96,59 @@ export default function ServicesPage() {
 
 	return (
 		<div className="w-full mt-[64px]">
-			<section className="relative bg-muted/50 min-h-[50vh] flex items-center overflow-hidden">
-				<div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary/5 via-background to-background" />
-				<div className="container relative mx-auto px-4 max-w-[1440px]">
-					<div className="max-w-3xl mx-auto text-center">
-						<motion.div
-							initial={{ opacity: 0, y: 20 }}
-							animate={{ opacity: 1, y: 0 }}
-							transition={{ duration: 0.5 }}
-							className="space-y-8"
+			<AnimatedSection className="w-full flex flex-col items-center">
+				<motion.div
+					ref={heroRef}
+					initial={{ opacity: 0, y: -20 }}
+					animate={heroInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
+					transition={{ duration: 0.6 }}
+					className="relative mb-8 flex flex-col items-center justify-center text-center h-[400px] md:h-[500px] w-full"
+				>
+					{/* Background image */}
+					<motion.div
+						initial={{ opacity: 0 }}
+						animate={heroInView ? { opacity: 1 } : { opacity: 0 }}
+						transition={{ duration: 0.6 }}
+						className="absolute inset-0 w-full h-full bg-cover bg-center overflow-hidden"
+					>
+						<video
+							src={video_services}
+							autoPlay
+							loop
+							muted
+							playsInline
+							className="w-full h-full object-cover"
+						/>
+					</motion.div>
+					{/* Overlay */}
+					<div className="absolute inset-0 bg-dark-blue/50" />
+					{/* Content */}
+					<div className="relative z-10 flex flex-col justify-center items-center h-full max-w-3xl mx-auto text-center space-y-3">
+						<h2
+							className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight font-sans break-keep whitespace-normal break-words text-white"
+							style={{ textShadow: "0 2px 8px rgba(0,0,0,0.7)" }}
 						>
-							<h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight font-sans break-keep whitespace-normal break-words">
-								{t("services.hero.title")}{" "}
-								{/* <span className="text-primary">{t("services.hero.highlight")}</span> */}
-							</h2>
-
-							<p className="text-xl text-muted-foreground font-sans break-keep whitespace-normal break-words">
-								{t("services.hero.description")}
-							</p>
-
-							<div className="flex flex-wrap justify-center gap-4">
-								<button
-									onClick={handleGetStarted}
-									className="inline-flex items-center gap-2 px-8 py-4 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors text-lg font-medium font-sans break-keep whitespace-normal break-words"
-								>
-									{t("services.hero.cta")}
-									<ArrowRight className="w-5 h-5" />
-								</button>
-							</div>
-						</motion.div>
+							{t("services.hero.title")}{" "}
+						</h2>
+						<p
+							className="p-2 text-xl tracking-tighter font-sans break-keep whitespace-normal break-words text-white"
+							style={{ textShadow: "0 2px 8px rgba(0,0,0,0.7)" }}
+						>
+							{t("services.hero.description")}
+						</p>
+						<div className="flex flex-wrap justify-center gap-4">
+							<button
+								onClick={handleGetStarted}
+								className="cursor-pointer inline-flex items-center gap-2 px-8 py-4 rounded-lg bg-primary text-primary-foreground hover:bg-primary/50 transition-colors text-lg font-medium font-sans break-keep whitespace-normal break-words"
+							>
+								{t("services.hero.cta")}
+								<ArrowRight className="w-5 h-5" />
+							</button>
+						</div>
 					</div>
-				</div>
-			</section>
-			<section className="w-full py-24 bg-background">
+				</motion.div>
+			</AnimatedSection>
+			<section className="w-full pt-4 pb-12 bg-background">
 				<div className="container max-w-[1440px] mx-auto px-4">
 					<div className="text-center mb-16">
 						<h2 className="text-3xl md:text-4xl font-bold mb-4 font-sans break-keep whitespace-normal break-words">

@@ -495,6 +495,7 @@
 	},
 	"about": {
 		"title": "소개",
+		"title_sub": "글로벌 시각과 현지 인사이트를 바탕으로, 한국 기업이 신뢰할 수 있는 기술 파트너로서 실질적인 비즈니스 가치를 제공합니다.",
 		"description": {
 			"title": "미래를 여는 코드",
 			"explain": "혁신과 실행이 만나는 곳"
@@ -768,6 +769,12 @@
 				{ "text": " 기술 격차 ", "className": "text-light-blue font-bold text-3xl" },
 				{ "text": " 는 곧 경쟁력의 격차로 이어집니다.", "className": "text-white text-2xl" }
 			]
+		}
+	},
+	"solution": {
+		"video": {
+			"title": "성과를 만드는 기술, T2 Soft의 솔루션으로",
+			"sublime": "비즈니스에 필요한 모든 솔루션을 한 번에 기획부터 구축까지 신뢰할 수 있는 파트너가 되어드립니다."
 		}
 	}
 }

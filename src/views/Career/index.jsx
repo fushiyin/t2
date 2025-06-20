@@ -1,5 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { FORM_CV, OPEN_POSITIONS } from "@/constant/career";
+import { FORM_CV, FORM_CV_INTERPRETER, OPEN_POSITIONS } from "@/constant/career";
 import { motion } from "framer-motion";
 import { BookOpen, Layers, Users } from "lucide-react";
 import { useTranslation } from "react-i18next";
@@ -96,8 +96,8 @@ export default function Careers() {
 							whileHover={{ scale: 1.03 }}
 							transition={{ type: "spring", stiffness: 200, damping: 15 }}
 						>
-							<Card className="hover:shadow-lg transition-shadow  bg-white/80 border-t shadow-lg">
-								<CardContent className="p-6 flex flex-col items-center text-center space-y-4">
+							<Card className="hover:shadow-lg transition-shadow bg-white/80 border-t shadow-lg h-[300px] md:h-[350px]">
+								<CardContent className="p-6 flex flex-col items-center text-center space-y-4 h-full">
 									<div className="rounded-full p-3 bg-gray-100">{item.icon}</div>
 									<h3 className="text-2xl text-dark-gray font-bold font-sans break-keep whitespace-normal break-words">
 										{item.title}
@@ -146,13 +146,13 @@ export default function Careers() {
 										<div className="flex-1">
 											<h3 className="text-xl font-bold">{position.title}</h3>
 											<div className="flex flex-wrap gap-2 mt-2">
-												<span className="inline-flex text-dark-gray items-center rounded-full bg-muted px-2.5 py-0.5 text-xs font-medium">
+												<span className="inline-flex text-dark-gray items-center rounded-full bg-muted px-2.5 py-0.5 text-xs font-medium font-sans break-keep whitespace-normal break-words">
 													{position.location}
 												</span>
-												<span className="inline-flex text-dark-gray items-center rounded-full bg-muted px-2.5 py-0.5 text-xs font-medium">
+												<span className="inline-flex text-dark-gray items-center rounded-full bg-muted px-2.5 py-0.5 text-xs font-medium font-sans break-keep whitespace-normal break-words">
 													{position.type}
 												</span>
-												<span className="inline-flex text-dark-gray items-center rounded-full bg-muted px-2.5 py-0.5 text-xs font-medium">
+												<span className="inline-flex text-dark-gray items-center rounded-full bg-muted px-2.5 py-0.5 text-xs font-medium font-sans break-keep whitespace-normal break-words">
 													{position.site}
 												</span>
 											</div>
@@ -165,7 +165,11 @@ export default function Careers() {
 											whileTap={{ scale: 0.95 }}
 											onClick={(e) => {
 												e.stopPropagation();
-												window.open(FORM_CV);
+												window.open(
+													position.id === 3
+														? FORM_CV_INTERPRETER
+														: FORM_CV,
+												);
 											}}
 										>
 											Apply Now

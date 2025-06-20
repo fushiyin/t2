@@ -162,13 +162,13 @@ const CompetitiveEdges = () => {
 					>
 						<motion.h2
 							variants={itemVariants}
-							className="text-5xl font-bold text-center text-dark-gray"
+							className="text-5xl font-bold text-center text-dark-gray font-sans break-keep whitespace-normal break-words"
 						>
 							{t("competitive_edges.title")}
 						</motion.h2>
 						<motion.p
 							variants={itemVariants}
-							className="text-center text-dark-gray"
+							className="text-center text-dark-gray font-sans break-keep whitespace-normal break-words"
 						>
 							{t("competitive_edges.description")}
 						</motion.p>

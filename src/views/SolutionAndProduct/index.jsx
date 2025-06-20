@@ -90,20 +90,18 @@ export default function SolutionAndProduct() {
 		threshold: 0.1,
 	});
 
-	const [imageRef, imageInView] = useInView({
-		triggerOnce: true,
-		threshold: 0.1,
-	});
 	return (
 		<div className="w-full mt-[64px]">
 			<AnimatedSection className="w-full flex flex-col items-center">
 				<motion.div
-					ref={isMobile ? imageRef : titleRef}
+					ref={titleRef}
 					initial={{ opacity: 0, y: -20 }}
 					animate={
-						(isMobile ? imageInView : titleInView)
+						isMobile
 							? { opacity: 1, y: 0 }
-							: { opacity: 0, y: -20 }
+							: titleInView
+								? { opacity: 1, y: 0 }
+								: { opacity: 0, y: -20 }
 					}
 					transition={{ duration: 0.6 }}
 					className="relative mb-8 flex flex-col items-center justify-center text-center h-[300px] md:h-[500px] w-full"
@@ -112,7 +110,11 @@ export default function SolutionAndProduct() {
 					<motion.div
 						initial={{ opacity: 0 }}
 						animate={
-							(isMobile ? imageInView : titleInView) ? { opacity: 1 } : { opacity: 0 }
+							isMobile
+								? { opacity: 1 }
+								: titleInView
+									? { opacity: 1 }
+									: { opacity: 0 }
 						}
 						transition={{ duration: 0.6 }}
 						className="absolute inset-0 w-full h-full bg-cover bg-center overflow-hidden"
@@ -130,14 +132,14 @@ export default function SolutionAndProduct() {
 					{/* <div className="absolute inset-0 bg-dark-blue/30" /> */}
 					{/* Content */}
 					<div className="relative z-10 flex flex-col justify-center items-center h-full max-w-3xl mx-auto text-center space-y-3">
-						<h2
-							className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight font-sans break-keep whitespace-normal break-words text-white"
-							style={{ textShadow: "0 2px 8px rgba(0,0,0,0.7)" }}
-						>
-							{t("solution.video.title")}{" "}
-						</h2>
+						<motion.h2
+							className="leading-relaxed px-8 md:pb-4 text-4xl md:text-5xl lg:text-5xl font-bold tracking-tight font-sans break-keep whitespace-normal break-words text-white "
+							style={{ textShadow: "0 2px 8px rgba(0,0,0,0.7)", lineHeight: "1.2" }}
+							dangerouslySetInnerHTML={{ __html: t("solution.video.title") }}
+						/>
+
 						<p
-							className="p-2 text-xl tracking-tighter font-sans break-keep whitespace-normal break-words text-white"
+							className="px-4 text-xl md:text-2xl tracking-tighter font-sans break-keep whitespace-normal break-words text-white "
 							style={{ textShadow: "0 2px 8px rgba(0,0,0,0.7)" }}
 						>
 							{t("solution.video.sublime")}
@@ -147,11 +149,11 @@ export default function SolutionAndProduct() {
 			</AnimatedSection>
 			<section className="w-full pt-4 pb-12 bg-background">
 				<div className="container max-w-[1440px] mx-auto px-4">
-					<div className="text-center mb-16">
-						<h2 className="text-3xl md:text-4xl font-bold mb-4 font-sans break-keep whitespace-normal break-words">
+					<div className="text-center mb-8">
+						<h2 className="text-3xl md:text-4xl font-bold mb-4 font-sans break-keep whitespace-normal break-words ">
 							{t("services.section.title")}
 						</h2>
-						<p className="text-xl text-muted-foreground max-w-2xl mx-auto font-sans break-keep whitespace-normal break-words">
+						<p className="text-xl text-muted-foreground max-w-2xl mx-auto font-sans break-keep whitespace-normal break-words ">
 							{t("services.section.description")}
 						</p>
 					</div>

@@ -30,48 +30,8 @@ const Challenges = () => {
 							/>
 						</svg>
 					</div>
-
-					{/* Minimize */}
-					<div className="w-4 h-4 rounded-full bg-yellow-400 flex items-center justify-center">
-						<svg
-							className="w-2 h-2 text-white"
-							viewBox="0 0 10 10"
-							fill="currentColor"
-						>
-							<path
-								d="M1 5H9"
-								stroke="currentColor"
-								strokeWidth="1.5"
-							/>
-						</svg>
-					</div>
-
-					{/* Maximize (2 chiều ↘️↖️ kiểu macOS) */}
-					<div className="w-4 h-4 rounded-full bg-green-500 flex items-center justify-center">
-						<svg
-							className="w-2.5 h-2.5 text-white"
-							viewBox="0 0 20 20"
-							fill="none"
-							xmlns="http://www.w3.org/2000/svg"
-						>
-							<path
-								d="M6 6L9 6L6 9M14 14L11 14L14 11"
-								stroke="currentColor"
-								strokeWidth="1.2"
-								strokeLinecap="round"
-								strokeLinejoin="round"
-							/>
-						</svg>
-					</div>
 				</div>
-
-				{/* Mobile/Tablet: × icon */}
-				<span className="absolute xl:hidden left-4 top-1/2 -translate-y-1/2 w-[24px] h-[24px] rounded-full bg-[#031F8D] text-white flex items-center justify-center text-sm md:text-xl font-bold leading-[1]">
-					×
-				</span>
 			</h3>
-
-			{/* Content */}
 			<div
 				className={`flex-1 flex justify-center items-center text-center gap-2 ${bgColor} text-base md:text-xl p-4 md:p-6 rounded-b-3xl`}
 			>
@@ -79,7 +39,7 @@ const Challenges = () => {
 					{item.map((part, idx) => (
 						<span
 							key={idx}
-							className={`text-base md:text-xl ${part.className}`}
+							className={`text-base md:text-xl korean-text ${part.className}`}
 						>
 							{part.text}
 						</span>
@@ -94,13 +54,13 @@ const Challenges = () => {
 			<div className="w-full h-full py-4 md:px-8 mx-auto max-w-[1440px] relative">
 				{/* Title */}
 				<div className="container mb-6 mt-4 w-full h-auto">
-					<h2 className="text-[20px] md:text-5xl font-bold text-dark-gray font-sans leading-snug break-keep whitespace-normal break-words">
+					<h2 className="text-[20px] md:text-5xl font-bold text-dark-gray font-sans leading-snug break-keep whitespace-normal break-words korean-text ">
 						{t("challenges.title")}
 					</h2>
 					<h2 className="text-[20px] md:text-5xl font-bold text-dark-gray font-sans leading-snug pb-4 break-keep whitespace-normal break-words ">
 						{t("challenges.title_2")}
 					</h2>
-					<p className="text-[16px] md:text-xl font-light text-muted-foreground leading-relaxed max-w-[900px]">
+					<p className="text-[16px] md:text-xl font-light text-muted-foreground leading-relaxed max-w-[900px] korean-text">
 						{t("challenges.description")}
 					</p>
 				</div>
@@ -123,6 +83,8 @@ const Challenges = () => {
 						{renderBox(item5, "bg-dark-blue")}
 					</FloatingBox>
 				</div>
+
+				{/* Mobile */}
 				<div className="xl:hidden relative flex flex-col items-center bg-white overflow-hidden text-sm md:text-base">
 					{/* Top row */}
 					<div className="flex justify-between w-full mb-5 z-10 gap-x-2 px-2">
@@ -153,49 +115,21 @@ const Challenges = () => {
 													/>
 												</svg>
 											</div>
-
-											{/* Minimize */}
-											<div className="w-3 h-3 rounded-full bg-yellow-400 flex items-center justify-center">
-												<svg
-													className="w-[6px] h-[6px] text-white"
-													viewBox="0 0 10 10"
-													fill="none"
-													xmlns="http://www.w3.org/2000/svg"
-												>
-													<path
-														d="M2 5H8"
-														stroke="currentColor"
-														strokeWidth="1.2"
-														strokeLinecap="round"
-													/>
-												</svg>
-											</div>
-
-											{/* Maximize */}
-											<div className="w-3 h-3 rounded-full bg-green-500 flex items-center justify-center">
-												<svg
-													className="w-[6px] h-[6px] text-white"
-													viewBox="0 0 20 20"
-													fill="none"
-													xmlns="http://www.w3.org/2000/svg"
-												>
-													<path
-														d="M6 6L9 6L6 9M14 14L11 14L14 11"
-														stroke="currentColor"
-														strokeWidth="1.2"
-														strokeLinecap="round"
-														strokeLinejoin="round"
-													/>
-												</svg>
-											</div>
 										</div>
 									</div>
 								</div>
-
+								{/* content */}
 								<div
-									className={`px-4 py-4 text-[14px] text-inherit text-${box.text} md:px-12 md:py-12 md:text-[20px] lg:px-12 lg:py-12`}
+									className={`px-4 py-4 text-[14px] md:px-12 md:py-12 md:text-[20px] lg:px-12 lg:py-12`}
 								>
-									{box.data.map((part) => part.text).join(" ")}
+									{box.data.map((part, idx) => (
+										<span
+											key={idx}
+											className={`text-base md:text-xl korean-text ${part.className}`}
+										>
+											{part.text}
+										</span>
+									))}
 								</div>
 							</div>
 						))}
@@ -232,50 +166,22 @@ const Challenges = () => {
 													/>
 												</svg>
 											</div>
-
-											{/* Minimize */}
-											<div className="w-3 h-3 rounded-full bg-yellow-400 flex items-center justify-center">
-												<svg
-													className="w-[6px] h-[6px] text-white"
-													viewBox="0 0 10 10"
-													fill="none"
-													xmlns="http://www.w3.org/2000/svg"
-												>
-													<path
-														d="M2 5H8"
-														stroke="currentColor"
-														strokeWidth="1.2"
-														strokeLinecap="round"
-													/>
-												</svg>
-											</div>
-
-											{/* Maximize */}
-											<div className="w-3 h-3 rounded-full bg-green-500 flex items-center justify-center">
-												<svg
-													className="w-[6px] h-[6px] text-white"
-													viewBox="0 0 20 20"
-													fill="none"
-													xmlns="http://www.w3.org/2000/svg"
-												>
-													<path
-														d="M6 6L9 6L6 9M14 14L11 14L14 11"
-														stroke="currentColor"
-														strokeWidth="1.2"
-														strokeLinecap="round"
-														strokeLinejoin="round"
-													/>
-												</svg>
-											</div>
 										</div>
 									</div>
 								</div>
 
-								{/* Content */}
+								{/* content */}
 								<div
-									className={`px-4 py-4 text-[14px] ${box.text} md:px-12 md:py-12 md:text-[20px] lg:px-12 lg:py-12`}
+									className={`px-4 py-4 text-[14px] md:px-12 md:py-12 md:text-[20px] lg:px-12 lg:py-12`}
 								>
-									{box.data.map((part) => part.text).join(" ")}
+									{box.data.map((part, idx) => (
+										<span
+											key={idx}
+											className={`text-base md:text-xl korean-text ${part.className}`}
+										>
+											{part.text}
+										</span>
+									))}
 								</div>
 							</div>
 						))}
@@ -302,46 +208,20 @@ const Challenges = () => {
 											/>
 										</svg>
 									</div>
-
-									{/* Minimize */}
-									<div className="w-3 h-3 rounded-full bg-yellow-400 flex items-center justify-center">
-										<svg
-											className="w-[6px] h-[6px] text-white"
-											viewBox="0 0 10 10"
-											fill="none"
-											xmlns="http://www.w3.org/2000/svg"
-										>
-											<path
-												d="M2 5H8"
-												stroke="currentColor"
-												strokeWidth="1.2"
-												strokeLinecap="round"
-											/>
-										</svg>
-									</div>
-
-									{/* Maximize */}
-									<div className="w-3 h-3 rounded-full bg-green-500 flex items-center justify-center">
-										<svg
-											className="w-[6px] h-[6px] text-white"
-											viewBox="0 0 20 20"
-											fill="none"
-											xmlns="http://www.w3.org/2000/svg"
-										>
-											<path
-												d="M6 6L9 6L6 9M14 14L11 14L14 11"
-												stroke="currentColor"
-												strokeWidth="1.2"
-												strokeLinecap="round"
-												strokeLinejoin="round"
-											/>
-										</svg>
-									</div>
 								</div>
 							</div>
 						</div>
-						<div className="px-4 py-4 text-[14px] text-white md:px-12 md:py-12 md:text-[20px] lg:px-12 lg:py-12">
-							{item5.map((part) => part.text).join(" ")}
+						<div className="px-4 py-4 md:px-12 md:py-12">
+							<p className="leading-snug">
+								{item5.map((part, idx) => (
+									<span
+										key={idx}
+										className={`text-base md:text-xl korean-text ${part.className}`}
+									>
+										{part.text}
+									</span>
+								))}
+							</p>
 						</div>
 					</div>
 				</div>

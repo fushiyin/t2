@@ -178,3 +178,8 @@
 .swiper-pagination-bullet-active {
 	background-color: #00aeef !important;
 }
+
+.korean-text {
+	word-break: keep-all;
+	line-break: auto;
+  }

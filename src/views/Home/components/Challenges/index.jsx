@@ -66,7 +66,7 @@ const Challenges = () => {
 				</div>
 
 				{/* Desktop layout (≥1280px) */}
-				<div className="relative h-[calc(100%-14rem)] max-w-[1440px] mx-auto hidden xl:block">
+				<div className="relative xl:h-[calc(100%-14rem)] max-w-[1440px] mx-auto hidden xl:block">
 					<FloatingBox className="absolute w-full lg:w-[550px] top-0 lg:top-[10%] left-0 2xl:top-[10%] z-20">
 						{renderBox(item1, "bg-dark-blue")}
 					</FloatingBox>

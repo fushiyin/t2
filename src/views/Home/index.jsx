@@ -25,7 +25,7 @@ function HomePage() {
 			</section>
 			<section
 				id={SECTIONS_KEY.CHALLENGES.id}
-				className={sectionClass + " h-auto md:h-screen"}
+				className={`${sectionClass} h-auto md:min-h-[900px] xl:h-screen`}
 			>
 				<Challenges />
 			</section>

@@ -150,7 +150,7 @@ export default function Hero() {
 				>
 					<div className="space-y-4">
 						<motion.h1
-							className="px-4 text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl text-white pb-4 font-sans break-keep whitespace-normal break-words"
+							className="px-4 text-4xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl text-white pb-4 font-sans break-keep whitespace-normal break-words"
 							variants={itemVariants}
 						>
 							{content.title}
@@ -169,7 +169,7 @@ export default function Hero() {
 						<Button
 							asChild
 							size="lg"
-							className="rounded-4xl border bg-transparent border-gray-100 text-white text-xl sm:text-xl md:text-xl lg:text-xl 2xl:text-2xl px-10 py-8 sm:px-8 sm:py-6 md:px-10 md:py-7 lg:px-12 lg:py-8"
+							className="rounded-4xl border bg-transparent border-gray-100 text-white text-xl sm:text-xl md:text-xl lg:text-xl 2xl:text-2xl px-10 py-6 sm:px-8 sm:py-6 md:px-10 md:py-7 lg:px-12 lg:py-8"
 						>
 							<a
 								href={idRouter?.contact}

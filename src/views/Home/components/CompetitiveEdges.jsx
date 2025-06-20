@@ -162,13 +162,13 @@ const CompetitiveEdges = () => {
 					>
 						<motion.h2
 							variants={itemVariants}
-							className="text-5xl font-bold text-center text-dark-gray font-sans break-keep whitespace-normal break-words"
+							className="text-4xl md:text-5xl font-bold text-center text-dark-gray font-sans break-keep whitespace-normal break-words"
 						>
 							{t("competitive_edges.title")}
 						</motion.h2>
 						<motion.p
 							variants={itemVariants}
-							className="text-center text-dark-gray font-sans break-keep whitespace-normal break-words"
+							className="text-center text-xl md:text-2xl text-dark-gray font-sans break-keep whitespace-normal break-words"
 						>
 							{t("competitive_edges.description")}
 						</motion.p>
@@ -263,7 +263,7 @@ const CompetitiveEdges = () => {
 															className="text-white mt-1 flex-shrink-0"
 															size={24}
 														/>
-														<p className="text-white leading-relaxed text-base 2xl:text-base xl:text-xs lg:text-xl md:text-sm">
+														<p className="text-white leading-relaxed text-xl md:text-base">
 															{benefit}
 														</p>
 													</motion.div>

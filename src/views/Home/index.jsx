@@ -1,7 +1,6 @@
 import CTA from "@/components/sections/ContactCTA";
 import { SECTIONS_KEY } from "@/constant/sideNavigation";
 import Challenges from "./components/Challenges";
-import DevelopmentCapacity from "./components/DevelopmentCapacity/index";
 import FocusedIndustries from "./components/FocusedIndustries";
 import Hero from "./components/Hero";
 import OurProcess from "./components/OurProcess";
@@ -10,10 +9,12 @@ import SideNavigation from "./components/SideNavigation";
 import Testimonials from "./components/Testimonials";
 import WhyVietnam from "./components/WhyVietnam";
 import CompetitiveEdges from "./components/CompetitiveEdges";
+import DevelopmentCapacity from "./components/DevelopmentCapacity";
+
+export const sectionClass = "flex items-center justify-center relative overflow-hidden";
+export const contentClass = "container h-full px-4 py-16 md:px-6 max-w-[1440px]";
 
 function HomePage() {
-	const sectionClass = "flex items-center justify-center relative overflow-hidden";
-	const contentClass = "container h-full px-4 py-16 md:px-6 max-w-[1440px]";
 	return (
 		<>
 			<section

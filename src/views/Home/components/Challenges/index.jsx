@@ -94,7 +94,13 @@ const Challenges = () => {
 						].map((box, idx) => (
 							<div
 								key={idx}
-								className={`w-[45%] rounded-2xl shadow-md overflow-hidden border border-gray-200 bg-[${box.bg}]`}
+								className={`
+				rounded-2xl shadow-md overflow-hidden border border-gray-200
+				${idx === 0 ? "translate-y-[45px]" : ""}
+			`}
+								style={{
+									backgroundColor: box.bg,
+								}}
 							>
 								<div className="bg-[#F1F0F6] py-2 px-1">
 									<div className="flex items-center justify-between px-2">
@@ -118,10 +124,8 @@ const Challenges = () => {
 										</div>
 									</div>
 								</div>
-								{/* content */}
-								<div
-									className={`px-4 py-4 text-[14px] md:px-12 md:py-12 md:text-[20px] lg:px-12 lg:py-12`}
-								>
+
+								<div className="px-4 py-4 text-[14px] md:px-12 md:py-12 md:text-[20px]">
 									{box.data.map((part, idx) => (
 										<span
 											key={idx}
@@ -143,8 +147,12 @@ const Challenges = () => {
 						].map((box, idx) => (
 							<div
 								key={idx}
-								className="w-[45%] rounded-2xl shadow-md overflow-hidden border border-gray-200"
-								style={{ backgroundColor: box.bg }}
+								className={`w-[45%] rounded-2xl shadow-md overflow-hidden border border-gray-200 
+								${idx === 0 ? "translate-y-[35px]" : ""}`}
+								style={{
+									backgroundColor: box.bg,
+									width: idx === 1 ? "55%" : "43%",
+								}}
 							>
 								{/* Header bar with colored dots */}
 								<div className="bg-[#F1F0F6] py-2 px-1">
@@ -177,7 +185,7 @@ const Challenges = () => {
 									{box.data.map((part, idx) => (
 										<span
 											key={idx}
-											className={`text-base md:text-xl korean-text ${part.className}`}
+											className={`text-base md:text-xl ${part.className}`}
 										>
 											{part.text}
 										</span>
@@ -211,17 +219,20 @@ const Challenges = () => {
 								</div>
 							</div>
 						</div>
-						<div className="px-4 py-4 md:px-12 md:py-12">
-							<p className="leading-snug">
-								{item5.map((part, idx) => (
-									<span
-										key={idx}
-										className={`text-base md:text-xl korean-text ${part.className}`}
-									>
-										{part.text}
-									</span>
-								))}
-							</p>
+
+						<div className="w-[85%] mx-auto rounded-2xl shadow-md overflow-hidden bg-[#162A7B]">
+							<div className="px-4 py-4 md:px-12 md:py-12 mt-2">
+								<p className="leading-snug text-white">
+									{item5.map((part, idx) => (
+										<span
+											key={idx}
+											className={`text-base md:text-xl korean-text ${part.className}`}
+										>
+											{part.text}
+										</span>
+									))}
+								</p>
+							</div>
 						</div>
 					</div>
 				</div>

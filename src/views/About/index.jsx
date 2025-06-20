@@ -79,13 +79,13 @@ export default function AboutPage() {
 					{/* Content */}
 					<div className="relative z-10 flex flex-col justify-center items-center h-full max-w-3xl mx-auto text-center space-y-3">
 						<h2
-							className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight font-sans break-keep whitespace-normal break-words text-white"
+							className="px-4 text-4xl md:pb-2 md:text-5xl lg:text-6xl font-bold tracking-tight font-sans break-keep whitespace-normal break-words text-white"
 							style={{ textShadow: "0 2px 8px rgba(0,0,0,0.7)" }}
 						>
 							{t("about.title")}
 						</h2>
 						<p
-							className="p-2 text-xl tracking-tighter font-sans break-keep whitespace-normal break-words text-white"
+							className="px-4 text-xl md:text-2xl tracking-tighter font-sans break-keep whitespace-normal break-words text-white"
 							style={{ textShadow: "0 2px 8px rgba(0,0,0,0.7)" }}
 						>
 							{t("about.title_sub")}

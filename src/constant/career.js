@@ -1,5 +1,7 @@
 export const FORM_CV =
 	"https://docs.google.com/forms/d/1RLJYBgHfbeP2xAl4fx7YncJTaI8fyf9tBDZr9fMKGlA/viewform?edit_requested=true";
+export const FORM_CV_INTERPRETER =
+	"https://docs.google.com/forms/d/1uGYjG3Fd09wYve1aT8kjB-BykUKsmcxYFrluzB6YJkU/viewform?hl=vi&hl=vi&edit_requested=true";
 
 export const OPEN_POSITIONS = [
 	{

@@ -125,21 +125,21 @@ export default function ServicesPage() {
 					{/* Content */}
 					<div className="relative z-10 flex flex-col justify-center items-center h-full max-w-3xl mx-auto text-center space-y-3">
 						<h2
-							className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight font-sans break-keep whitespace-normal break-words text-white"
+							className="px-4 md:pb-4 text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight font-sans break-keep whitespace-normal break-words text-white"
 							style={{ textShadow: "0 2px 8px rgba(0,0,0,0.7)" }}
 						>
 							{t("services.hero.title")}{" "}
 						</h2>
 						<p
-							className="p-2 text-xl tracking-tighter font-sans break-keep whitespace-normal break-words text-white"
+							className="px-4 text-xl md:text-2xl tracking-tighter font-sans break-keep whitespace-normal break-words text-white"
 							style={{ textShadow: "0 2px 8px rgba(0,0,0,0.7)" }}
 						>
 							{t("services.hero.description")}
 						</p>
-						<div className="flex flex-wrap justify-center gap-4">
+						<div className="flex flex-wrap justify-center gap-4 mt-2">
 							<button
 								onClick={handleGetStarted}
-								className="cursor-pointer inline-flex items-center gap-2 px-8 py-4 rounded-lg bg-primary text-primary-foreground hover:bg-primary/50 transition-colors text-lg font-medium font-sans break-keep whitespace-normal break-words"
+								className="cursor-pointer inline-flex border border-white items-center gap-2 px-4 py-2 md:px-8 md:py-4 rounded-4xl text-primary-foreground transition-colors text-lg font-medium font-sans break-keep whitespace-normal break-words"
 							>
 								{t("services.hero.cta")}
 								<ArrowRight className="w-5 h-5" />

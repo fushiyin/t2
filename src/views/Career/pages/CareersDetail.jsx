@@ -37,21 +37,27 @@ export default function CareersDetail() {
 	}
 
 	return (
-		<div className="container py-12 max-w-[1440px] mx-auto px-4 md:px-6">
+		<div className="container pt-20 pb-12 max-w-[1440px] mx-auto px-4 md:px-6">
 			<motion.div
 				initial="hidden"
 				animate="visible"
 				variants={fadeUp}
 				className="mb-8"
 			>
-				<Button
-					variant="ghost"
-					className="mb-4"
-					onClick={() => navigate(-1)}
+				<motion.div
+					className="w-fit"
+					whileHover={{ scale: 1.05 }}
+					whileTap={{ scale: 0.95 }}
 				>
-					<ArrowLeft className="mr-2 h-4 w-4" />
-					Back to Careers
-				</Button>
+					<Button
+						variant="ghost"
+						className="mb-4 bg-primary text-white hover:bg-primary/90 cursor-pointer hover:text-white"
+						onClick={() => navigate(-1)}
+					>
+						<ArrowLeft className="mr-2 h-4 w-4" />
+						Back to Careers
+					</Button>
+				</motion.div>
 
 				<div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
 					<div>
@@ -75,12 +81,17 @@ export default function CareersDetail() {
 							</span>
 						</div>
 					</div>
-					<Button
-						className="bg-primary text-white hover:bg-primary/90"
-						onClick={() => window.open(FORM_CV)}
+					<motion.div
+						whileHover={{ scale: 1.05 }}
+						whileTap={{ scale: 0.95 }}
 					>
-						Apply Now
-					</Button>
+						<Button
+							className="bg-primary text-white hover:bg-primary/90 cursor-pointer"
+							onClick={() => window.open(FORM_CV)}
+						>
+							Apply Now
+						</Button>
+					</motion.div>
 				</div>
 			</motion.div>
 

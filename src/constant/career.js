@@ -1,4 +1,5 @@
-export const FORM_CV = "https://forms.gle/your-form-link";
+export const FORM_CV =
+	"https://docs.google.com/forms/d/1RLJYBgHfbeP2xAl4fx7YncJTaI8fyf9tBDZr9fMKGlA/viewform?edit_requested=true";
 
 export const OPEN_POSITIONS = [
 	{
@@ -71,7 +72,7 @@ export const CAREER_DETAILS = [
 		status: "Open",
 		applicants: 2,
 		postedDate: "2024-06-08",
-		description: "We are seeking an experienced Senior Backend Developer...",
+		description: "We are seeking an experienced Intern Backend Developer...",
 		requirements: [
 			"Backend Web Developers Good at : API development, SQL optimization.",
 			"Technologies. Have experience in: Java core ,Python , SQL , Java Spring Boot Framework, used some database like MySQL, Postgres, Oracle,...",

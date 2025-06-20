@@ -1,10 +1,10 @@
 import { CustomLoading, MainLayout } from "@/layouts";
+import Admin from "@/views/Admin";
 import ErrorBoundary from "@/views/ErrorBoundary";
 import PageNotFound from "@/views/PageNotFound";
 import React, { Suspense } from "react";
-import { createBrowserRouter, RouterProvider, Navigate } from "react-router";
+import { createBrowserRouter, Navigate, RouterProvider } from "react-router";
 import { idRouter } from "./idRouter";
-import Admin from "@/views/Admin";
 
 const Home = React.lazy(() => import("@/views/Home"));
 const About = React.lazy(() => import("@/views/About"));
@@ -57,16 +57,11 @@ const router = createBrowserRouter([
 			},
 			{
 				path: idRouter.solution,
-				element: <Services />,
-				// element: <Solution />,
+				element: <Solution />,
 			},
 			{
 				path: idRouter.careerDetail,
 				element: <CareersDetail />,
-			},
-			{
-				path: idRouter.solution_check,
-				element: <Solution />,
 			},
 			{
 				path: "*",

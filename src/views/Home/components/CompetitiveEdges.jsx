@@ -274,7 +274,7 @@ const CompetitiveEdges = ({ isSolution }) => {
 															className="text-white mt-1 flex-shrink-0"
 															size={24}
 														/>
-														<p className="text-white leading-relaxed text-xl md:text-base">
+														<p className="text-white leading-relaxed text-base">
 															{benefit}
 														</p>
 													</motion.div>

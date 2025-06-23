@@ -13,14 +13,15 @@ import { motion } from "framer-motion";
 import { ArrowRight, ArrowRightIcon } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useInView } from "react-intersection-observer";
+import { useNavigate } from "react-router";
 import "swiper/css";
 import "swiper/css/effect-fade";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Autoplay, EffectFade, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import CompetitiveEdges from "../Home/components/CompetitiveEdges";
 import { sectionClass } from "../Home";
+import CompetitiveEdges from "../Home/components/CompetitiveEdges";
 
 const SOLUTION_IMAGES = [
 	{
@@ -36,16 +37,16 @@ const SOLUTION_IMAGES = [
 			t("solution.implementation.development.description", { returnObjects: true }),
 	},
 	{
-		image: Maintenance,
-		title: (t) => t("solution.implementation.maintenance.title"),
-		description: (t) =>
-			t("solution.implementation.maintenance.description", { returnObjects: true }),
-	},
-	{
 		image: Training,
 		title: (t) => t("solution.implementation.deploy_training.title"),
 		description: (t) =>
 			t("solution.implementation.deploy_training.description", { returnObjects: true }),
+	},
+	{
+		image: Maintenance,
+		title: (t) => t("solution.implementation.maintenance.title"),
+		description: (t) =>
+			t("solution.implementation.maintenance.description", { returnObjects: true }),
 	},
 ];
 
@@ -58,7 +59,25 @@ export default function SolutionAndProduct() {
 		threshold: 0.1,
 	});
 
-	const services = [
+	const { ref: ref1, inView: inView1 } = useInView({
+		threshold: 0.1,
+	});
+
+	const { ref: ref2, inView: inView2 } = useInView({
+		threshold: 0.1,
+	});
+
+	const { ref: ref3, inView: inView3 } = useInView({
+		threshold: 0.1,
+	});
+
+	const { ref: ref4, inView: inView4 } = useInView({
+		threshold: 0.1,
+	});
+
+	const navigate = useNavigate();
+
+	const products = [
 		{
 			id: 1,
 			name: t("solution.product.so.title"),
@@ -124,13 +143,25 @@ export default function SolutionAndProduct() {
 					</div>
 				</motion.div>
 			</AnimatedSection>
-			<section className="w-full pt-4 pb-4 bg-background">
-				<div className="container max-w-[1440px] mx-auto">
+			<motion.section
+				ref={ref1}
+				className="w-full pt-4 pb-4 bg-background"
+				initial={{ opacity: 0, y: 20 }}
+				animate={inView1 ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+				transition={{ duration: 0.6 }}
+			>
+				<motion.div
+					className="container max-w-[1440px] mx-auto"
+					initial={{ opacity: 0 }}
+					animate={inView1 ? { opacity: 1 } : { opacity: 0 }}
+					transition={{ duration: 0.6, delay: 0.2 }}
+				>
 					<Swiper
 						modules={[Navigation, Pagination, Autoplay, EffectFade]}
 						spaceBetween={20}
 						slidesPerView={1}
-						navigation={!isMobile}
+						navigation={false}
+						allowTouchMove={false}
 						pagination={{
 							clickable: true,
 							bulletClass: "swiper-pagination-bullet",
@@ -146,8 +177,8 @@ export default function SolutionAndProduct() {
 						}}
 						className="w-full h-[600px] md:h-[500px] pb-12 sm:pb-16"
 					>
-						{services.map((service) => (
-							<SwiperSlide key={service.id}>
+						{products.map((product) => (
+							<SwiperSlide key={product.id}>
 								<div className="relative flex flex-col items-center md:flex-row h-full bg-transparent rounded-3xl overflow-hidden">
 									{/* Image Section */}
 									<div className="w-[95%] md:w-[60%] h-[80%] md:h-[95%] relative flex">
@@ -161,8 +192,8 @@ export default function SolutionAndProduct() {
 											className={`absolute ${isMobile ? "left-0 w-full" : "left-[100px] w-[85%]"} h-full md:h-[90%] flex items-center justify-center bg-white shadow-xl rounded-3xl overflow-hidden mx-auto`}
 										>
 											<img
-												src={service.image}
-												alt={service.name}
+												src={product.image}
+												alt={product.name}
 												className="object-cover w-[95%] h-[93%] rounded-3xl"
 											/>
 										</div>
@@ -180,14 +211,15 @@ export default function SolutionAndProduct() {
 											</h3>
 										</div>
 										<h3 className="text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold mb-4 md:mb-2 text-[#000] group-hover:text-primary transition-colors font-sans break-keep whitespace-normal break-words">
-											{service.name}
+											{product.name}
 										</h3>
 										<p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-4 md:mb-2 font-sans break-keep whitespace-normal break-words w-full md:w-[90%] ">
-											{service.description}
+											{product.description}
 										</p>
 										<button
 											type="button"
 											className="hidden md:inline-flex cursor-pointer font-bold items-center gap-2 px-4 md:px-6 py-2 md:py-3 text-base text-heading-black hover:text-white bg-gradient-to-r from-pale-blue to-light-blue rounded-lg hover:bg-primary/90 w-fit duration-300 transform hover:scale-105 shadow-lg font-sans break-keep whitespace-normal break-words"
+											onClick={() => navigate(idRouter.contact)}
 										>
 											{t("solution.product.so.learn_more")}
 											<ArrowRight className="w-3 h-3 md:w-4 md:h-4" />
@@ -197,10 +229,21 @@ export default function SolutionAndProduct() {
 							</SwiperSlide>
 						))}
 					</Swiper>
-				</div>
-			</section>
-			<section className="w-full pt-4 pb-[73px] md:pb-28 bg-[#F8FAFC]">
-				<div className="container max-w-[1440px] mx-auto">
+				</motion.div>
+			</motion.section>
+			<motion.section
+				ref={ref2}
+				className="w-full pt-4 pb-[73px] md:pb-28 bg-[#F8FAFC]"
+				initial={{ opacity: 0, y: 20 }}
+				animate={inView2 ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+				transition={{ duration: 0.6 }}
+			>
+				<motion.div
+					className="container max-w-[1440px] mx-auto"
+					initial={{ opacity: 0 }}
+					animate={inView2 ? { opacity: 1 } : { opacity: 0 }}
+					transition={{ duration: 0.6, delay: 0.2 }}
+				>
 					<div className="flex flex-col items-center justify-center gap-8 text-center mb-4 md:mb-8">
 						<div className="space-y-2">
 							<p className="max-w-[900px] text-[#0A33D1] font-bold md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed 2xl:text-xl font-sans break-keep whitespace-normal break-words">
@@ -225,13 +268,13 @@ export default function SolutionAndProduct() {
 									/>
 									<div className="absolute inset-0 bg-[#16224E9C] group-hover:bg-[#0730D0BD] transition-opacity duration-600 pointer-events-none"></div>
 									<div className="absolute inset-0 flex flex-col justify-end items-start w-full h-full px-4 py-6 text-white z-10 transition-all duration-600 ease-in-out group-hover:opacity-0 opacity-100 group-hover:translate-y-8 translate-y-0">
-										<div className="w-16 h-1 bg-light-blue mb-2"></div>
+										<div className="w-16 h-1 bg-light-blue group-hover:bg-white mb-2"></div>
 										<div className="text-2xl font-semibold drop-shadow mb-0 w-full transition-all duration-600 ease-in-out text-left font-sans break-keep whitespace-normal break-words">
 											{item.title(t)}
 										</div>
 									</div>
 									<div className="absolute inset-0 flex flex-col justify-start items-start w-full h-full px-4 py-6 text-white z-10 transition-all duration-600 ease-in-out opacity-0 group-hover:opacity-100 group-hover:translate-y-0 translate-y-8">
-										<div className="w-16 h-1 bg-light-blue mb-2"></div>
+										<div className="w-16 h-1 bg-light-blue group-hover:bg-white mb-2"></div>
 										<div className="text-2xl font-semibold drop-shadow mb-2 w-full transition-all duration-600 ease-in-out text-left font-sans break-keep whitespace-normal break-words">
 											{item.title(t)}
 										</div>
@@ -240,7 +283,7 @@ export default function SolutionAndProduct() {
 												{Object.values(item.description(t)).map(
 													(desc, i) => (
 														<li
-															className="font-sans break-keep whitespace-normal break-words"
+															className="font-sans break-keep whitespace-normal break-words leading-loose"
 															key={i}
 														>
 															{desc}
@@ -254,27 +297,36 @@ export default function SolutionAndProduct() {
 							))}
 						</div>
 					</div>
-				</div>
-			</section>
-			<section className="w-full bg-white h-0 relative justify-center flex shadow-lg z-30">
-				<div
+				</motion.div>
+			</motion.section>
+			<motion.section
+				ref={ref3}
+				className="w-full bg-white h-0 relative justify-center flex shadow-lg z-30"
+				initial={{ opacity: 0, y: 20 }}
+				animate={inView3 ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+				transition={{ duration: 0.6 }}
+			>
+				<motion.div
 					className="container max-w-[1440px] mx-auto absolute md:rounded-3xl top-[-90px]"
 					style={{
 						background: "linear-gradient(90deg, #1A3087 0%, #2D54ED 100%)",
 					}}
+					initial={{ opacity: 0 }}
+					animate={inView3 ? { opacity: 1 } : { opacity: 0 }}
+					transition={{ duration: 0.6, delay: 0.2 }}
 				>
 					<div className="w-full h-auto md:h-[200px] flex flex-col justify-center p-6 gap-4 md:gap-0">
 						<h2
 							className="w-full md:w-[60%] md:px-4 md:pb-4 text-xl md:text-2xl lg:text-3xl font-bold tracking-tight font-sans break-keep whitespace-normal break-words text-white"
 							style={{ textShadow: "0 2px 8px rgba(0,0,0,0.7)" }}
 						>
-							{t("services.hero.title")}{" "}
+							{t("solution.suggest.title")}{" "}
 						</h2>
 						<p
 							className="w-full md:w-[40%] md:px-4 text-base tracking-tighter font-sans break-keep whitespace-normal break-words text-white"
 							style={{ textShadow: "0 2px 8px rgba(0,0,0,0.7)" }}
 						>
-							{t("services.hero.description")}
+							{t("solution.suggest.description")}
 						</p>
 						{isMobile && (
 							<button
@@ -313,14 +365,18 @@ export default function SolutionAndProduct() {
 							</button>
 						</div>
 					)}
-				</div>
-			</section>
-			<section
+				</motion.div>
+			</motion.section>
+			<motion.section
+				ref={ref4}
 				id={SECTIONS_KEY.COMPETITIVE_EDGE.id}
 				className={sectionClass}
+				initial={{ opacity: 0, y: 20 }}
+				animate={inView4 ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+				transition={{ duration: 0.6 }}
 			>
 				<CompetitiveEdges isSolution={true} />
-			</section>
+			</motion.section>
 			<CTA />
 		</div>
 	);

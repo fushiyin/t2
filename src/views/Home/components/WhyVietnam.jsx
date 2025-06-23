@@ -1,13 +1,17 @@
+import bg_whyVietnam_2 from "@/assets/img/bg-text-why_vn.jpg";
 import bg_whyVietnam from "@/assets/img/why-vn-bg.png";
+import logo_t2 from "@/assets/logos/T2_light_Logo.png";
 import HoverCard from "@/components/HoverCard";
+import { idRouter } from "@/routes/idRouter";
 import classNames from "classnames";
 import { motion } from "framer-motion";
 import { ArrowRight, Award, HandCoins, Handshake, HeartHandshakeIcon, Scale } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import bg_whyVietnam_2 from "@/assets/img/bg-text-why_vn.jpg";
-import logo_t2 from "@/assets/logos/T2_light_Logo.png";
+import { useNavigate } from "react-router-dom";
+
 export default function WhyVietnam() {
 	const { t } = useTranslation();
+	const navigate = useNavigate();
 
 	const item1 = t("why_vietnam.text_header.title", { returnObjects: true });
 	const item2 = t("why_vietnam.text_footer.title", { returnObjects: true });
@@ -70,7 +74,8 @@ export default function WhyVietnam() {
 						initial={{ opacity: 0, y: 20 }}
 						animate={{ opacity: 1, y: 0 }}
 						transition={{ duration: 0.5, delay: 1 }}
-						className="hidden sm:inline-flex absolute right-[5%] font-bold items-center gap-2 md:gap-3 px-4 md:px-6 py-2 md:py-3 text-sm md:text-base lg:text-lg text-heading-black hover:text-white bg-gradient-to-r from-pale-blue to-light-blue rounded-xl hover:bg-primary/90 duration-300 transform hover:scale-105 shadow-xl"
+						onClick={() => navigate(idRouter?.contact)}
+						className="cursor-pointer hidden sm:inline-flex absolute right-[5%] font-bold items-center gap-2 md:gap-3 px-4 md:px-6 py-2 md:py-3 text-sm md:text-base lg:text-lg text-heading-black hover:text-white bg-gradient-to-r from-pale-blue to-light-blue rounded-xl hover:bg-primary/90 duration-300 transform hover:scale-105 shadow-xl"
 					>
 						{t("our_services.button_learn_more")}
 						<ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
@@ -115,7 +120,7 @@ export default function WhyVietnam() {
 							className="w-[140px] sm:w-[180px] md:w-[200px] object-cover"
 							alt="Logo"
 						/>
-						<p className="text-dark-gray text-2xl sm:text-3xl md:text-4xl font-bold leading-relaxed max-w-[90%] text-center md:text-left font-sans break-keep whitespace-normal break-words">
+						<p className="text-dark-gray text-2xl sm:text-3xl md:text-4xl font-bold leading-normal max-w-[90%] text-center md:text-left font-sans break-keep whitespace-normal break-words">
 							{item2.map((part, idx) => (
 								<span
 									key={idx}
@@ -126,7 +131,7 @@ export default function WhyVietnam() {
 							))}
 						</p>
 					</div>
-					<p className="text-dark-gray text-base sm:text-lg md:text-xl leading-relaxed max-w-[90%] md:max-w-[50%] text-center md:text-left mt-6 md:mt-0 font-sans break-keep whitespace-normal break-words">
+					<p className="text-dark-gray text-base sm:text-lg md:text-xl leading-loose max-w-[90%] md:max-w-[55%] text-center md:text-left mt-6 md:mt-0 font-sans break-keep whitespace-normal break-words">
 						{t("why_vietnam.text_footer.desc")}
 					</p>
 				</div>

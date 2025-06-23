@@ -23,6 +23,7 @@ import VueLogo from "@/assets/logos/vue.png";
 import XamarinLogo from "@/assets/logos/xamarin.png";
 
 import { Button } from "@/components/ui/button";
+import { idRouter } from "@/routes/idRouter";
 import classNames from "classnames";
 import { AnimatePresence, motion } from "framer-motion";
 import {
@@ -35,11 +36,13 @@ import {
 } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router";
 
 export default function DevelopmentCapacity({ contentClass }) {
 	const { t } = useTranslation();
 	const [currentStackIndex, setCurrentStackIndex] = useState(0);
 	const autoTimer = 6000; // 6 seconds
+	const navigate = useNavigate();
 
 	// Technology stacks with more comprehensive data
 	const techStacks = [
@@ -357,7 +360,10 @@ export default function DevelopmentCapacity({ contentClass }) {
 					<p className="text-base sm:text-xl text-gray-300 mb-8 max-w-2xl mx-auto px-8 400:px-6 font-sans break-keep whitespace-normal break-words">
 						{t("tech_stack.cta.des_2")}
 					</p>
-					<button className="text-sm sm:text-xl px-5 py-3 sm:px-8 sm:py-4 bg-gradient-to-r from-pale-blue to-light-blue text-heading-black hover:text-white font-semibold rounded-xl hover:from-light-blue hover:to-normal-dark-blue transition-all duration-300 transform hover:scale-105 shadow-lg">
+					<button
+						className="cursor-pointer text-sm sm:text-xl px-5 py-3 sm:px-8 sm:py-4 bg-gradient-to-r from-pale-blue to-light-blue text-heading-black hover:text-white font-semibold rounded-xl hover:from-light-blue hover:to-normal-dark-blue transition-all duration-300 transform hover:scale-105 shadow-lg"
+						onClick={() => navigate(idRouter.contact)}
+					>
 						{t("tech_stack.cta.button")}
 					</button>
 				</motion.div>

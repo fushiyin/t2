@@ -5,11 +5,13 @@ import IT_Consulting from "@/assets/img/IT_Consulting.jpg";
 import Solution_Provider from "@/assets/img/Solution_Provider.png";
 import System_Integration from "@/assets/img/System Integration.png";
 import useResponsive from "@/hooks/useResponsive";
+import { idRouter } from "@/routes/idRouter";
 import classNames from "classnames";
 import { AnimatePresence, motion, useInView } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router";
 import "swiper/css";
 import "swiper/css/effect-fade";
 import "swiper/css/navigation";
@@ -23,6 +25,7 @@ const Services = ({ contentClass }) => {
 	const ref = useRef(null);
 	const isInView = useInView(ref, { once: true, amount: 0.3 });
 	const [activeIndex, setActiveIndex] = useState(0);
+	const navigate = useNavigate();
 
 	const services = [
 		{
@@ -307,6 +310,7 @@ const Services = ({ contentClass }) => {
 												initial={{ opacity: 0, y: 20 }}
 												animate={{ opacity: 1, y: 0 }}
 												transition={{ duration: 0.5, delay: 1 }}
+												onClick={() => navigate(idRouter?.service)}
 												className="hidden md:inline-flex cursor-pointer font-bold items-center gap-2 px-4 md:px-6 py-2 md:py-3 text-base text-heading-black hover:text-white bg-gradient-to-r from-pale-blue to-light-blue rounded-lg hover:bg-primary/90 w-fit duration-300 transform hover:scale-105 shadow-lg"
 											>
 												{t("our_services.button_learn_more")}

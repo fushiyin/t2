@@ -74,7 +74,7 @@ export const CAREER_DETAILS = [
 		status: "Open",
 		applicants: 2,
 		postedDate: "2024-06-08",
-		description: "We are seeking an experienced Intern Backend Developer...",
+		description: "We are looking for a Intern Backend Developer to join our team...",
 		requirements: [
 			"Backend Web Developers Good at : API development, SQL optimization.",
 			"Technologies. Have experience in: Java core ,Python , SQL , Java Spring Boot Framework, used some database like MySQL, Postgres, Oracle,...",
@@ -85,7 +85,7 @@ export const CAREER_DETAILS = [
 			"  4. GPA of 3.2 or higher.",
 		],
 		responsibilities: [
-			" Development and maintenance of corporate homepages",
+			"Development and maintenance of corporate homepages",
 			"Development of API Program for Web-based Software Products",
 			"Development web portal systems linked to big data platforms",
 		],

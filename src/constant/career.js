@@ -20,7 +20,7 @@ export const OPEN_POSITIONS = [
 		location: "Keangnam Landmark 72 ,Pham Hung, Me Tri, Nam Tu Liem",
 		type: "Full-time",
 		site: "On-site",
-		description: "We are seeking an experienced Senior Backend Developer...",
+		description: "We are looking for an Intern Backend Developer to join our team...",
 	},
 	{
 		id: 3,

@@ -65,23 +65,36 @@ const Challenges = () => {
 					</p>
 				</div>
 
-				{/* Desktop layout (≥1280px) */}
-				<div className="relative xl:h-[calc(100%-14rem)] max-w-[1440px] mx-auto hidden xl:block">
-					<FloatingBox className="absolute w-full lg:w-[550px] top-0 lg:top-[10%] left-0 2xl:top-[10%] z-20">
-						{renderBox(item1, "bg-dark-blue")}
-					</FloatingBox>
-					<FloatingBox className="absolute top-[17%] w-full lg:w-[550px] lg:top-0 xl:top-0 right-0 z-20">
-						{renderBox(item2)}
-					</FloatingBox>
-					<FloatingBox className="absolute top-[35%] w-full lg:w-[550px] lg:top-[35%] xl:top-[40%] xl:left-[5%] 2xl:left-[5%] 2xl:top-[40%] z-20">
-						{renderBox(item3)}
-					</FloatingBox>
-					<FloatingBox className="absolute top-[53%] w-full lg:w-[550px] lg:right-0 lg:top-[25%] xl:top-[30%] xl:right-[5%] 2xl:right-[5%] 2xl:top-[30%] z-20">
-						{renderBox(item4, "bg-[#748FF8]")}
-					</FloatingBox>
-					<FloatingBox className="absolute bottom-[15%] w-full lg:w-[550px] lg:bottom-[25%] lg:right-0 2xl:bottom-[5%] xl:left-1/2 xl:bottom-[10%] transform xl:-translate-x-1/2 z-20">
-						{renderBox(item5, "bg-dark-blue")}
-					</FloatingBox>
+				<div className="relative hidden xl:flex flex-col items-center gap-y-[50px] min-h-[750px] max-w-[1440px] mx-auto">
+					{/* Top row */}
+					<div className="flex justify-between w-full px-[3%] relative">
+						<FloatingBox className="relative w-full lg:w-[500px]">
+							{renderBox(item1, "bg-dark-blue")}
+						</FloatingBox>
+						<FloatingBox className="relative w-full lg:w-[500px] top-[-60px]">
+							{renderBox(item2)}
+						</FloatingBox>
+					</div>
+
+					{/* Middle row */}
+					<div className="flex justify-center w-full px-[5%] relative gap-x-8">
+						{/* Box 3 - Trái giữa (hơi lệch xuống) */}
+						<FloatingBox className="relative w-full max-w-[500px] top-[20px]">
+							{renderBox(item3)}
+						</FloatingBox>
+
+						{/* Box 4 - Phải giữa (lệch lên cao hơn, cách xa hơn) */}
+						<FloatingBox className="relative w-full max-w-[500px] top-[-40px] ml-[60px]">
+							{renderBox(item4, "bg-[#748FF8]")}
+						</FloatingBox>
+					</div>
+
+					{/* Bottom center box */}
+					<div className="flex justify-center w-full mt-4">
+						<FloatingBox className="w-full lg:w-[520px]">
+							{renderBox(item5, "bg-dark-blue")}
+						</FloatingBox>
+					</div>
 				</div>
 
 				{/* Mobile */}

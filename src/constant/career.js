@@ -41,7 +41,7 @@ export const CAREER_DETAILS = [
 		location: "Ha Noi City",
 		type: "Full-time",
 		status: "Open",
-		applicants: 2,
+		applicants: 30,
 		postedDate: "2024-06-09",
 		description: "We are looking for a Intern Frontend Developer to join our team...",
 		requirements: [
@@ -72,7 +72,7 @@ export const CAREER_DETAILS = [
 		location: "Ha Noi City",
 		type: "Full-time",
 		status: "Open",
-		applicants: 2,
+		applicants: 40,
 		postedDate: "2024-06-08",
 		description: "We are looking for a Intern Backend Developer to join our team...",
 		requirements: [
@@ -103,7 +103,7 @@ export const CAREER_DETAILS = [
 		location: "Ha Noi City",
 		type: "Full-time",
 		status: "Open",
-		applicants: 2,
+		applicants: 10,
 		postedDate: "2024-06-09",
 		description: "We are looking for an Intern Korean Interpreter to join our team.",
 		requirements: [

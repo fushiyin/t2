@@ -1,4 +1,4 @@
-import bg_whyVietnam_2 from "@/assets/img/bg-text-why_vn.jpg";
+import bg_whyVietnam_2 from "@/assets/img/bg-text-why_vn.png";
 import bg_whyVietnam from "@/assets/img/why-vn-bg.png";
 import logo_t2 from "@/assets/logos/T2_light_Logo.png";
 import HoverCard from "@/components/HoverCard";

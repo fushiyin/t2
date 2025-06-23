@@ -21,6 +21,7 @@ export default function CTA() {
 					<Button
 						asChild
 						size="lg"
+						className="text-base px-4 py-2"
 					>
 						<Link className="flex items-center gap-2">
 							{t("contact.title")} <ArrowRightIcon className="h-4 w-4" />
@@ -30,7 +31,7 @@ export default function CTA() {
 						asChild
 						variant="outline"
 						size="lg"
-						className="text-base md:text-xl px-4 py-2"
+						className="text-base px-4 py-2"
 					>
 						<Link to="/services">{t("contact_cta.services_button")}</Link>
 					</Button>

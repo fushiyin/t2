@@ -180,7 +180,7 @@ export default function ServicesPage() {
 										<div className="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-6">
 											<service.icon className="w-6 h-6" />
 										</div>
-										<h3 className="text-2xl md:text-[28px] font-bold mb-3 group-hover:text-primary transition-colors font-sans break-keep whitespace-normal break-words">
+										<h3 className="text-2xl md:text-2xl font-bold mb-3 group-hover:text-primary transition-colors font-sans break-keep whitespace-normal break-words">
 											{t(`services.items.${service.id}.name`)}
 										</h3>
 										{/* <p className="text-muted-foreground text-sm mb-6 font-sans break-keep whitespace-normal break-words">
@@ -190,7 +190,7 @@ export default function ServicesPage() {
 											{service.details.map((detail, idx) => (
 												<li
 													key={idx}
-													className="flex items-center gap-2 text-base md:text-xl"
+													className="flex items-center gap-2 text-base md:text-[18px]"
 												>
 													<span className="mt-1 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
 													<span className="font-sans break-words whitespace-normal">

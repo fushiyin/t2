@@ -794,6 +794,54 @@
 		"video": {
 			"title": "Tailored Tech Products for Real-World Impact",
 			"sublime": "All the solutions your business needs, in one place. From planning to implementation, we are your trusted partner every step of the way."
+		},
+		"product": {
+			"so": {
+				"kick_start":"Kickstart Your New Business",
+				"title": "Smart Office",
+				"description": "Maximize workspace efficiency and user experience with innovative technology. Our Smart Office Solutions transform office spaces into strategic assets that enhance collaboration and productivity.",
+				"learn_more": "Learn More"
+			}
+		},
+		"implementation": {
+			"title" : "Implementation Process",
+			"description": "Clear Process for Trusted Results",
+			"requirement": {
+				"title":"Requirement Analysis",
+				"description": {
+					"1": "Understand specific business needs",
+					"2": "Define project scope and objectives",
+					"3": "Provide optimized solution consulting"
+				}
+			},
+			"development": {
+				"title": "Develop implementation plan",
+				"description": {
+					"1": "Customized Development",
+					"2": "Customize the system ",
+					"3": "Develop additional features as needed",
+					"4": "Internal QA and iterative enhancements",
+					"5": "Integration with existing systems"
+				}
+			},
+			"deploy_training": {
+				"title": "Deployment & Training",
+				"description": {
+					"1": "Install and configure in production",
+					"2": "Training for end-users and administrators",
+					"3": "Support initial data migration",
+					"4": "Refine system based on real-world feedback"
+				}
+			},
+			"maintenance": {
+				"title": "Maintenance",
+				"description": {
+					"1": "Regular maintenance",
+					"2": "Offer fast and flexible technical support",
+					"3": "Update based on business changes",
+					"4": "Recommend upgrades as needs grow"
+				}
+			}
 		}
 	}
 }

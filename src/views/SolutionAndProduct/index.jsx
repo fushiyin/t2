@@ -1,83 +1,51 @@
+import Development from "@/assets/solution_img/Development.png";
+import Maintenance from "@/assets/solution_img/Maintenance.png";
+import Requirement from "@/assets/solution_img/Requirement.jpg";
+import SO_Solution from "@/assets/solution_img/SO_Solution.png";
+import Training from "@/assets/solution_img/Training.png";
 import video_solution from "@/assets/video/Solution.mp4";
 import AnimatedSection from "@/components/AnimatedSection";
 import CTA from "@/components/sections/ContactCTA";
+import { SECTIONS_KEY } from "@/constant/sideNavigation";
 import useResponsive from "@/hooks/useResponsive";
+import { idRouter } from "@/routes/idRouter";
 import { motion } from "framer-motion";
-import { ArrowRight, BarChart3, BrainCircuit, Code, Database, Globe, Layers } from "lucide-react";
+import { ArrowRight, ArrowRightIcon } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useInView } from "react-intersection-observer";
+import "swiper/css";
+import "swiper/css/effect-fade";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import { Autoplay, EffectFade, Navigation, Pagination } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+import CompetitiveEdges from "../Home/components/CompetitiveEdges";
+import { sectionClass } from "../Home";
 
-const services = [
+const SOLUTION_IMAGES = [
 	{
-		id: 1,
-		name: "Global Development Center",
-		description: "",
-		icon: Code,
-		details: [
-			"Frontend & Backend Development",
-			"Hybrid & Native App Development",
-			"UI/UX Design & Optimization",
-			"Managed Global Development Center",
-		],
+		image: Requirement,
+		title: (t) => t("solution.implementation.requirement.title"),
+		description: (t) =>
+			t("solution.implementation.requirement.description", { returnObjects: true }),
 	},
 	{
-		id: 2,
-		name: "System Integration (SI)",
-		description: "",
-		icon: Globe,
-		details: [
-			"Integrated System Development",
-			"Data Integration & Management",
-			"Solution Customization & Optimization",
-		],
+		image: Development,
+		title: (t) => t("solution.implementation.development.title"),
+		description: (t) =>
+			t("solution.implementation.development.description", { returnObjects: true }),
 	},
 	{
-		id: 3,
-		name: "IT Consulting",
-		description: "",
-		icon: Database,
-		details: [
-			"IT Strategy Development",
-			"System Diagnosis & Improvement",
-			"Solution Selection & Implementation Support",
-		],
+		image: Maintenance,
+		title: (t) => t("solution.implementation.maintenance.title"),
+		description: (t) =>
+			t("solution.implementation.maintenance.description", { returnObjects: true }),
 	},
 	{
-		id: 4,
-		name: "Solution Provider",
-		description: "",
-		icon: Layers,
-		details: [
-			"Smart Office, Smart Factory, Banking solution",
-			"Modular/Scalable Software Supply",
-			"Enterprise Solutions (CRM, ERP,MES, HRM, WMS, FMS, iBEEMS, etc)",
-		],
-	},
-	{
-		id: 5,
-		name: "AI & Machine Learning",
-		description: "Cutting-edge AI solutions for modern businesses",
-		icon: BrainCircuit,
-		details: [
-			"Machine Learning Model Development",
-			"Natural Language Processing",
-			"Computer Vision Solutions",
-			"AI-powered Automation",
-			"Predictive Analytics",
-		],
-	},
-	{
-		id: 6,
-		name: "Big Data & Data Analysis",
-		description: "Transform your data into actionable insights",
-		icon: BarChart3,
-		details: [
-			"Big Data Processing & Analytics",
-			"Business Intelligence Solutions",
-			"Data Visualization & Reporting",
-			"Real-time Data Analysis",
-			"Data Mining & Pattern Recognition",
-		],
+		image: Training,
+		title: (t) => t("solution.implementation.deploy_training.title"),
+		description: (t) =>
+			t("solution.implementation.deploy_training.description", { returnObjects: true }),
 	},
 ];
 
@@ -89,6 +57,15 @@ export default function SolutionAndProduct() {
 		triggerOnce: true,
 		threshold: 0.1,
 	});
+
+	const services = [
+		{
+			id: 1,
+			name: t("solution.product.so.title"),
+			description: t("solution.product.so.description"),
+			image: SO_Solution,
+		},
+	];
 
 	return (
 		<div className="w-full mt-[64px]">
@@ -147,60 +124,202 @@ export default function SolutionAndProduct() {
 					</div>
 				</motion.div>
 			</AnimatedSection>
-			<section className="w-full pt-4 pb-12 bg-background">
-				<div className="container max-w-[1440px] mx-auto px-4">
-					<div className="text-center mb-8">
-						<h2 className="text-3xl md:text-4xl font-bold mb-4 font-sans break-keep whitespace-normal break-words ">
-							{t("services.section.title")}
-						</h2>
-						<p className="text-xl text-muted-foreground max-w-2xl mx-auto font-sans break-keep whitespace-normal break-words ">
-							{t("services.section.description")}
-						</p>
-					</div>
-
-					{/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"> */}
-					<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8">
+			<section className="w-full pt-4 pb-4 bg-background">
+				<div className="container max-w-[1440px] mx-auto">
+					<Swiper
+						modules={[Navigation, Pagination, Autoplay, EffectFade]}
+						spaceBetween={20}
+						slidesPerView={1}
+						navigation={!isMobile}
+						pagination={{
+							clickable: true,
+							bulletClass: "swiper-pagination-bullet",
+							bulletActiveClass: "swiper-pagination-bullet-active",
+						}}
+						autoplay={{
+							delay: 5000,
+							disableOnInteraction: false,
+						}}
+						effect="fade"
+						fadeEffect={{
+							crossFade: true,
+						}}
+						className="w-full h-[600px] md:h-[500px] pb-12 sm:pb-16"
+					>
 						{services.map((service) => (
-							<motion.div
-								key={service.id}
-								initial={{ opacity: 0, y: 20 }}
-								whileInView={{ opacity: 1, y: 0 }}
-								viewport={{ once: true }}
-								whileHover={{ scale: 1.02 }}
-								transition={{ type: "spring", stiffness: 200, damping: 15 }}
-								className="bg-white/80 rounded-2xl shadow-lg flex flex-col items-stretch relative duration-300 border-t"
-							>
-								<div className="p-8">
-									<div className="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-6">
-										<service.icon className="w-6 h-6" />
+							<SwiperSlide key={service.id}>
+								<div className="relative flex flex-col items-center md:flex-row h-full bg-transparent rounded-3xl overflow-hidden">
+									{/* Image Section */}
+									<div className="w-[95%] md:w-[60%] h-[80%] md:h-[95%] relative flex">
+										{!isMobile && (
+											<div
+												className="absolute left-[80px] top-[45%] -translate-y-1/2 w-[20px] bg-[#000]"
+												style={{ height: "60%" }}
+											/>
+										)}
+										<div
+											className={`absolute ${isMobile ? "left-0 w-full" : "left-[100px] w-[85%]"} h-full md:h-[90%] flex items-center justify-center bg-white shadow-xl rounded-3xl overflow-hidden mx-auto`}
+										>
+											<img
+												src={service.image}
+												alt={service.name}
+												className="object-cover w-[95%] h-[93%] rounded-3xl"
+											/>
+										</div>
 									</div>
-									<h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors font-sans break-keep whitespace-normal break-words">
-										{t(`services.items.${service.id}.name`)}
-									</h3>
-									<ul className="space-y-3">
-										{service.details.map((detail, idx) => (
-											<li
-												key={idx}
-												className="flex items-center gap-2 text-sm"
-											>
-												<span className="mt-1 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
-												<span className="font-sans break-words whitespace-normal">
-													{t(
-														`services.items.${service.id}.details.${idx}`,
-													)}
-												</span>
-											</li>
-										))}
-									</ul>
-									<button className="mt-6 inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors">
-										{t("services.items.learnMore")}
-										<ArrowRight className="w-4 h-4" />
-									</button>
+
+									{/* Content Section */}
+									<div className="w-full md:w-[50%] h-[60%] md:h-[90%] px-4 md:pl-8 md:pr-8 pt-4 md:pt-8 pb-4 md:pb-8 gap-4 flex flex-col md:px-0 ">
+										<div className="flex items-center space-x-3">
+											<div className="flex space-x-1">
+												<div className="w-8 h-4 bg-gradient-to-r from-pale-blue to-light-blue transform -skew-x-[30deg]"></div>
+												<div className="w-8 h-4 bg-gradient-to-r from-pale-blue to-light-blue transform -skew-x-[30deg]"></div>
+											</div>
+											<h3 className="text-lg font-semibold font-sans break-keep whitespace-normal break-words">
+												{t("solution.product.so.kick_start")}
+											</h3>
+										</div>
+										<h3 className="text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold mb-4 md:mb-2 text-[#000] group-hover:text-primary transition-colors font-sans break-keep whitespace-normal break-words">
+											{service.name}
+										</h3>
+										<p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-4 md:mb-2 font-sans break-keep whitespace-normal break-words w-full md:w-[90%] ">
+											{service.description}
+										</p>
+										<button
+											type="button"
+											className="hidden md:inline-flex cursor-pointer font-bold items-center gap-2 px-4 md:px-6 py-2 md:py-3 text-base text-heading-black hover:text-white bg-gradient-to-r from-pale-blue to-light-blue rounded-lg hover:bg-primary/90 w-fit duration-300 transform hover:scale-105 shadow-lg font-sans break-keep whitespace-normal break-words"
+										>
+											{t("solution.product.so.learn_more")}
+											<ArrowRight className="w-3 h-3 md:w-4 md:h-4" />
+										</button>
+									</div>
 								</div>
-							</motion.div>
+							</SwiperSlide>
 						))}
+					</Swiper>
+				</div>
+			</section>
+			<section className="w-full pt-4 pb-[73px] md:pb-28 bg-[#F8FAFC]">
+				<div className="container max-w-[1440px] mx-auto">
+					<div className="flex flex-col items-center justify-center gap-8 text-center mb-4 md:mb-8">
+						<div className="space-y-2">
+							<p className="max-w-[900px] text-[#0A33D1] font-bold md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed 2xl:text-xl font-sans break-keep whitespace-normal break-words">
+								{t("solution.implementation.title")}
+							</p>
+							<h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-dark-gray font-sans break-keep whitespace-normal break-words">
+								{t("solution.implementation.description")}
+							</h2>
+						</div>
+
+						<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4">
+							{SOLUTION_IMAGES.map((item, idx) => (
+								<div
+									key={idx}
+									className="group relative aspect-[4/5] overflow-hidden cursor-pointer"
+								>
+									<img
+										src={item.image}
+										alt={item.title(t)}
+										className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+										draggable={false}
+									/>
+									<div className="absolute inset-0 bg-[#16224E9C] group-hover:bg-[#0730D0BD] transition-opacity duration-600 pointer-events-none"></div>
+									<div className="absolute inset-0 flex flex-col justify-end items-start w-full h-full px-4 py-6 text-white z-10 transition-all duration-600 ease-in-out group-hover:opacity-0 opacity-100 group-hover:translate-y-8 translate-y-0">
+										<div className="w-16 h-1 bg-light-blue mb-2"></div>
+										<div className="text-2xl font-semibold drop-shadow mb-0 w-full transition-all duration-600 ease-in-out text-left font-sans break-keep whitespace-normal break-words">
+											{item.title(t)}
+										</div>
+									</div>
+									<div className="absolute inset-0 flex flex-col justify-start items-start w-full h-full px-4 py-6 text-white z-10 transition-all duration-600 ease-in-out opacity-0 group-hover:opacity-100 group-hover:translate-y-0 translate-y-8">
+										<div className="w-16 h-1 bg-light-blue mb-2"></div>
+										<div className="text-2xl font-semibold drop-shadow mb-2 w-full transition-all duration-600 ease-in-out text-left font-sans break-keep whitespace-normal break-words">
+											{item.title(t)}
+										</div>
+										<div className="text-base drop-shadow w-full transition-all duration-600 ease-in-out opacity-0 group-hover:opacity-100 group-hover:translate-y-0 translate-y-4">
+											<ul className="list-disc list-outside pl-6 text-left">
+												{Object.values(item.description(t)).map(
+													(desc, i) => (
+														<li
+															className="font-sans break-keep whitespace-normal break-words"
+															key={i}
+														>
+															{desc}
+														</li>
+													),
+												)}
+											</ul>
+										</div>
+									</div>
+								</div>
+							))}
+						</div>
 					</div>
 				</div>
+			</section>
+			<section className="w-full bg-white h-0 relative justify-center flex shadow-lg z-30">
+				<div
+					className="container max-w-[1440px] mx-auto absolute md:rounded-3xl top-[-90px]"
+					style={{
+						background: "linear-gradient(90deg, #1A3087 0%, #2D54ED 100%)",
+					}}
+				>
+					<div className="w-full h-auto md:h-[200px] flex flex-col justify-center p-6 gap-4 md:gap-0">
+						<h2
+							className="w-full md:w-[60%] md:px-4 md:pb-4 text-xl md:text-2xl lg:text-3xl font-bold tracking-tight font-sans break-keep whitespace-normal break-words text-white"
+							style={{ textShadow: "0 2px 8px rgba(0,0,0,0.7)" }}
+						>
+							{t("services.hero.title")}{" "}
+						</h2>
+						<p
+							className="w-full md:w-[40%] md:px-4 text-base tracking-tighter font-sans break-keep whitespace-normal break-words text-white"
+							style={{ textShadow: "0 2px 8px rgba(0,0,0,0.7)" }}
+						>
+							{t("services.hero.description")}
+						</p>
+						{isMobile && (
+							<button
+								type="button"
+								className="cursor-pointer font-bold items-center gap-2 px-4 md:px-6 py-2 md:py-3 text-base text-white bg-primary/90 rounded-lg hover:bg-[#1E399F] w-fit duration-300 transform hover:scale-105 shadow-lg"
+							>
+								<a
+									href={idRouter?.contact}
+									className="flex items-center gap-3"
+									onClick={() => {
+										console.log(idRouter?.contact);
+									}}
+								>
+									Contact Us
+									<ArrowRightIcon className="h-6 w-6 sm:h-5 sm:w-5 md:h-6 md:w-6" />
+								</a>
+							</button>
+						)}
+					</div>
+					{!isMobile && (
+						<div className="flex justify-center absolute right-[5%] top-[40%]">
+							<button
+								type="button"
+								className="hidden md:inline-flex cursor-pointer font-bold items-center gap-2 px-4 md:px-6 py-2 md:py-3 text-base text-white bg-primary/90 rounded-lg hover:bg-[#1E399F] w-fit duration-300 transform hover:scale-105 shadow-lg"
+							>
+								<a
+									href={idRouter?.contact}
+									className="flex items-center gap-3"
+									onClick={() => {
+										console.log(idRouter?.contact);
+									}}
+								>
+									Contact Us
+									<ArrowRightIcon className="h-6 w-6 sm:h-5 sm:w-5 md:h-6 md:w-6" />
+								</a>
+							</button>
+						</div>
+					)}
+				</div>
+			</section>
+			<section
+				id={SECTIONS_KEY.COMPETITIVE_EDGE.id}
+				className={sectionClass}
+			>
+				<CompetitiveEdges isSolution={true} />
 			</section>
 			<CTA />
 		</div>

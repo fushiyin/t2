@@ -16,6 +16,7 @@ import video_about from "@/assets/video/About_us.mp4";
 export default function AboutPage() {
 	const { t } = useTranslation();
 	const { isMobile, isLg } = useResponsive();
+	const iconList = [CheckCircle2, Users, Globe, Award];
 
 	// Intersection observers for different sections
 	const [titleRef, titleInView] = useInView({
@@ -185,7 +186,7 @@ export default function AboutPage() {
 								transition={{ duration: 0.6, delay: 0.7 }}
 								className="flex w-full md:w-[90%] flex-col sm:flex-row sm:flex-wrap gap-4 sm:gap-6 mt-4 sm:mt-8"
 							>
-								{[1, 2, 3, 4].map((i) => (
+								{iconList?.map((Icon, i) => (
 									<motion.p
 										key={i}
 										initial={{ opacity: 0, y: 20 }}
@@ -195,21 +196,10 @@ export default function AboutPage() {
 												: { opacity: 0, y: 20 }
 										}
 										transition={{ duration: 0.5, delay: 0.8 + i * 0.1 }}
-										className=" text-sm md:text-base lg:text-xl/relaxed font-sans text-left break-keep whitespace-normal break-words w-full sm:w-[calc(50%-12px)] flex items-center gap-2"
+										className="text-sm md:text-base lg:text-xl/relaxed font-sans text-left break-keep whitespace-normal break-words w-full sm:w-[calc(50%-12px)] flex gap-3"
 									>
-										{i === 1 && (
-											<CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-light-green shrink-0" />
-										)}
-										{i === 2 && (
-											<Users className="w-4 h-4 sm:w-5 sm:h-5 text-light-green shrink-0" />
-										)}
-										{i === 3 && (
-											<Globe className="w-4 h-4 sm:w-5 sm:h-5 text-light-green shrink-0" />
-										)}
-										{i === 4 && (
-											<Award className="w-4 h-4 sm:w-5 sm:h-5 text-light-green shrink-0" />
-										)}
-										{t(`about.experience_list.${i}`)}
+										<Icon className="w-6 h-6 sm:w-7 sm:h-7 text-light-green shrink-0" />
+										{t(`about.experience_list.${i + 1}`)}
 									</motion.p>
 								))}
 							</motion.div>

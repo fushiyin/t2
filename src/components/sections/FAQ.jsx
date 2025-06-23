@@ -92,14 +92,21 @@ export default function FAQ() {
 							whileTap={{ scale: 0.99 }}
 						>
 							<motion.span
-								className="font-semibold text-lg md:text-xl transition-colors duration-300"
-								animate={{
-									color:
-										openIndex === idx ? "var(--color-light-mint)" : "inherit",
-								}}
+								className="font-semibold text-lg md:text-xl transition-all duration-300"
+								style={
+									openIndex === idx
+										? {
+												background:
+													"linear-gradient(to right, var(--color-light-mint), var(--color-light-green))",
+												WebkitBackgroundClip: "text",
+												WebkitTextFillColor: "transparent",
+											}
+										: {}
+								}
 							>
 								{faq.question}
 							</motion.span>
+
 							<motion.span
 								className="ml-4 text-2xl select-none"
 								animate={{

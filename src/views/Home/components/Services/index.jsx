@@ -3,20 +3,19 @@ import Bigdata_Analysis from "@/assets/img/Bigdata_Analysis.jpg";
 import Development_Center from "@/assets/img/Development_Center.png";
 import IT_Consulting from "@/assets/img/IT_Consulting.jpg";
 import Solution_Provider from "@/assets/img/Solution_Provider.png";
-import System_Integration from "@/assets/img/System_Integration.jpg";
+import System_Integration from "@/assets/img/System Integration.png";
 import useResponsive from "@/hooks/useResponsive";
 import classNames from "classnames";
+import { AnimatePresence, motion, useInView } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import "swiper/css";
+import "swiper/css/effect-fade";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import "swiper/css/effect-fade";
-import { Autoplay, Navigation, Pagination, EffectFade } from "swiper/modules";
+import { Autoplay, EffectFade, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { motion, AnimatePresence } from "framer-motion";
-import { useInView } from "framer-motion";
-import { useRef, useState } from "react";
 
 const Services = ({ contentClass }) => {
 	const { t } = useTranslation();
@@ -200,6 +199,7 @@ const Services = ({ contentClass }) => {
 							delay: 5000,
 							disableOnInteraction: false,
 						}}
+						loop={true}
 						effect="fade"
 						fadeEffect={{
 							crossFade: true,

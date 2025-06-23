@@ -219,7 +219,7 @@ export default function ServicesPage() {
 				<DevelopmentCapacity contentClass={contentClass} />
 			</section>
 			<section
-				id="aaa"
+				id={SECTIONS_KEY.COMPETITIVE_EDGE.id}
 				className={sectionClass}
 			>
 				<CompetitiveEdges />

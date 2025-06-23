@@ -56,7 +56,7 @@ const itemVariants = {
 	},
 };
 
-const CompetitiveEdges = () => {
+const CompetitiveEdges = ({ isSolution }) => {
 	const [activeEdge, setActiveEdge] = useState(null);
 	const [isHovered, setIsHovered] = useState(false);
 	const [hoveredIndex, setHoveredIndex] = useState(null);
@@ -142,7 +142,12 @@ const CompetitiveEdges = () => {
 			initial={{ opacity: 0 }}
 			animate={isInView ? { opacity: 1 } : { opacity: 0 }}
 			transition={{ duration: 0.6 }}
-			className="w-full bg-white flex flex-col items-center justify-center"
+			className={classNames(
+				"w-full flex flex-col items-center justify-center",
+				isSolution
+					? "bg-gradient-to-br from-gray-900 via-gray-800 to-black pt-24"
+					: "bg-white",
+			)}
 		>
 			<style>{styles}</style>
 			<div
@@ -162,13 +167,19 @@ const CompetitiveEdges = () => {
 					>
 						<motion.h2
 							variants={itemVariants}
-							className="text-4xl md:text-5xl font-bold text-center text-dark-gray font-sans break-keep whitespace-normal break-words"
+							className={classNames(
+								"text-4xl md:text-5xl font-bold text-center text-dark-gray font-sans break-keep whitespace-normal break-words",
+								isSolution ? "text-white" : "text-dark-gray",
+							)}
 						>
 							{t("competitive_edges.title")}
 						</motion.h2>
 						<motion.p
 							variants={itemVariants}
-							className="text-center text-xl md:text-2xl text-dark-gray font-sans break-keep whitespace-normal break-words"
+							className={classNames(
+								"text-center text-xl md:text-2xl font-sans break-keep whitespace-normal break-words",
+								isSolution ? "text-white" : "text-dark-gray",
+							)}
 						>
 							{t("competitive_edges.description")}
 						</motion.p>

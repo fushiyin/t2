@@ -13,15 +13,15 @@ export default function Testimonials({ contentClass }) {
 		// First row (scrolls right to left)
 		[
 			{
-				name: "TK Lee .",
-				username: "@Knim",
+				name: "Kim Ji Won",
+				username: "@kjw",
 				avatar: "/placeholder.svg?height=40&width=40",
 				content:
 					"  delivered beyond our expectations. Their team was responsive, professional, and deeply knowledgeable.",
 			},
 			{
-				name: "Han YS",
-				username: "@yshan",
+				name: "Shine",
+				username: "@shine",
 				avatar: "/placeholder.svg?height=40&width=40",
 				content:
 					"Working with T2 Soft was a game-changer for our technical transformation. Their team was proactive, communicative, and technically sound. They didn’t just follow our requirements — they enhanced them with smart suggestions that improved both user experience and system performance.",
@@ -31,15 +31,15 @@ export default function Testimonials({ contentClass }) {
 		// Second row (scrolls left to right)
 		[
 			{
-				name: "Jeong GH",
-				username: "@MrJ",
+				name: "Lee Hoon",
+				username: "@leehoon",
 				avatar: "/placeholder.svg?height=40&width=40",
 				content:
 					"The T2 Soft team brought our vision to life with professionalism and agility. Their understanding of modern frameworks and attention to detail helped us launch a stable, scalable web platform on time. We look forward to future collaborations.",
 			},
 			{
-				name: "Kwak JH",
-				username: "@jhkwak",
+				name: "Jong Bok",
+				username: "@jongbok",
 				avatar: "/placeholder.svg?height=40&width=40",
 				content:
 					"T2 Soft delivered not just a product, but a complete solution. They took the time to understand our goals and provided valuable input throughout the development cycle. The final system was efficient, user-friendly, and exceeded our expectations.",
@@ -49,15 +49,15 @@ export default function Testimonials({ contentClass }) {
 		// Third row (scrolls right to left)
 		[
 			{
-				name: "Lee SY",
-				username: "@synim",
+				name: "Lee Kang",
+				username: "@leekang",
 				avatar: "/placeholder.svg?height=40&width=40",
 				content:
 					"We were amazed by how T2 Soft balanced speed and reliability. Even with tight deadlines, their team ensured a stable rollout and provided responsive technical support throughout the entire process.",
 			},
 			{
-				name: "MG Bang",
-				username: "@bangmung",
+				name: "Kim dade",
+				username: "@dade",
 				avatar: "/placeholder.svg?height=40&width=40",
 				content:
 					"From planning to deployment, T2 Soft worked with agility and precision. The system was up and running smoothly, and their technical support team was always available when we needed them!'",

@@ -1,17 +1,15 @@
-// components/FloatingBox.jsx
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
-const FloatingBox = ({ children, className, duration = 0.6 }) => {
+const FloatingBox = ({ children, className, duration = 0.6, order = 0 }) => {
 	const { ref, inView } = useInView({
-		triggerOnce: false,
+		triggerOnce: false, // ✅ kích hoạt lại nhiều lần khi cuộn
 		threshold: 0.3,
 	});
 
 	const variants = {
 		hidden: { opacity: 0, y: 50 },
 		visible: { opacity: 1, y: 0 },
-		exit: { opacity: 0, y: 50 },
 	};
 
 	return (
@@ -19,20 +17,19 @@ const FloatingBox = ({ children, className, duration = 0.6 }) => {
 			ref={ref}
 			className={className}
 		>
-			<AnimatePresence>
-				{inView && (
-					<motion.div
-						initial="hidden"
-						animate="visible"
-						exit="exit"
-						variants={variants}
-						transition={{ duration, ease: "easeOut" }}
-						className="w-full h-full"
-					>
-						{children}
-					</motion.div>
-				)}
-			</AnimatePresence>
+			<motion.div
+				initial="hidden"
+				animate={inView ? "visible" : "hidden"}
+				variants={variants}
+				transition={{
+					duration,
+					ease: "easeOut",
+					delay: order * 0.15, // giữ thứ tự xuất hiện
+				}}
+				className="w-full h-full"
+			>
+				{children}
+			</motion.div>
 		</div>
 	);
 };

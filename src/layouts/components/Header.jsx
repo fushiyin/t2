@@ -224,6 +224,7 @@ const Header = () => {
 									</Link>
 									<ChangeLanguages
 										isTablet
+										isHome={isHome}
 										isScrolled={isScrolled}
 										language={language}
 										LANGUAGE={LANGUAGE}
@@ -237,6 +238,7 @@ const Header = () => {
 					<div className="hidden md:flex items-center ml-auto">
 						<div className="relative hidden xl:block lg:block">
 							<ChangeLanguages
+								isHome={isHome}
 								isScrolled={isScrolled}
 								language={language}
 								LANGUAGE={LANGUAGE}
@@ -411,6 +413,7 @@ export const ChangeLanguages = ({
 	isTablet,
 	setIsOpenBlog,
 	isScrolled,
+	isHome,
 }) => {
 	const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = useState(false);
 
@@ -431,7 +434,7 @@ export const ChangeLanguages = ({
 					{
 						"px-3 py-2 w-full": isTablet,
 						"text-dark-gray": isScrolled,
-						"text-white": !isScrolled,
+						"text-white": !isScrolled && isHome,
 					},
 				)}
 				onClick={toggleLanguageDropdown}

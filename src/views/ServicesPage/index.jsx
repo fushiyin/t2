@@ -172,27 +172,23 @@ export default function ServicesPage() {
 									initial={{ opacity: 0, y: 20 }}
 									whileInView={{ opacity: 1, y: 0 }}
 									viewport={{ once: true }}
-									whileHover={{ scale: 1.02 }}
 									transition={{ type: "spring", stiffness: 200, damping: 15 }}
-									className="bg-white/80 rounded-2xl shadow-lg flex flex-col items-stretch relative duration-300 border-t"
+									className="bg-white/80 cursor-pointer rounded-2xl shadow-lg flex flex-col items-stretch relative border-t group transition-all duration-700 hover:bg-gradient-to-br hover:from-gray-900 hover:via-gray-800 hover:to-gray-900"
 								>
 									<div className="p-8">
-										<div className="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-6">
-											<service.icon className="w-6 h-6" />
+										<div className="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-6 transition-colors duration-300 group-hover:bg-light-blue/80 group-hover:text-white">
+											<service.icon className="w-6 h-6 transition-colors duration-300" />
 										</div>
-										<h3 className="text-2xl md:text-2xl font-bold mb-3 group-hover:text-primary transition-colors font-sans break-keep whitespace-normal break-words">
+										<h3 className="text-2xl md:text-2xl font-bold mb-3 group-hover:text-white transition-colors font-sans break-keep whitespace-normal break-words">
 											{t(`services.items.${service.id}.name`)}
 										</h3>
-										{/* <p className="text-muted-foreground text-sm mb-6 font-sans break-keep whitespace-normal break-words">
-										{t(`services.items.${service.id}.description`)}
-									</p> */}
 										<ul className="space-y-3">
 											{service.details.map((detail, idx) => (
 												<li
 													key={idx}
-													className="flex items-center gap-2 text-base md:text-[18px]"
+													className="flex items-center gap-2 text-base md:text-[18px] group-hover:text-white"
 												>
-													<span className="mt-1 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
+													<span className="mt-1 w-1.5 h-1.5 rounded-full bg-primary shrink-0 group-hover:bg-white" />
 													<span className="font-sans break-words whitespace-normal">
 														{t(
 															`services.items.${service.id}.details.${idx}`,
@@ -201,10 +197,6 @@ export default function ServicesPage() {
 												</li>
 											))}
 										</ul>
-										{/* <button className="mt-6 inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors">
-										{t("services.items.learnMore")}
-										<ArrowRight className="w-4 h-4" />
-									</button> */}
 									</div>
 								</motion.div>
 							))}

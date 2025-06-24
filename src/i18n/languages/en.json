@@ -845,7 +845,8 @@
 		},
 		"suggest": {
 			"title": "Got a great idea but unsure how to make it happen?",
-			"description": "Turn your idea into reality with our experts."
+			"description": "Turn your idea into reality with our experts.",
+			"btn": "Leave a Message"
 		}
 	}
 }

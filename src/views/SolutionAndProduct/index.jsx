@@ -407,7 +407,7 @@ export default function SolutionAndProduct() {
 										console.log(idRouter?.contact);
 									}}
 								>
-									Contact Us
+									{t("solution.suggest.btn")}
 									<ArrowRightIcon className="h-6 w-6 sm:h-5 sm:w-5 md:h-6 md:w-6" />
 								</a>
 							</button>
@@ -426,7 +426,7 @@ export default function SolutionAndProduct() {
 										console.log(idRouter?.contact);
 									}}
 								>
-									Contact Us
+									{t("solution.suggest.btn")}
 									<ArrowRightIcon className="h-6 w-6 sm:h-5 sm:w-5 md:h-6 md:w-6" />
 								</a>
 							</button>

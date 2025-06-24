@@ -55,7 +55,7 @@ const Header = () => {
 			const width = window.innerWidth;
 			if (width <= 1140) {
 				setIsCompactNav(true);
-				const showPaths = ["/", "/about", "/services", "/solution&product"];
+				const showPaths = ["/", "/about", "/services", "/solution"];
 				setVisibleLinks(NAV_LINKS.filter((link) => showPaths.includes(link.path)));
 				setHiddenLinks(NAV_LINKS.filter((link) => !showPaths.includes(link.path)));
 			} else {

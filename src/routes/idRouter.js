@@ -3,7 +3,7 @@ export const idRouter = Object.freeze({
 	about: "/about",
 	contact: "/contact",
 	service: "/services",
-	solution: "/solution&product",
+	solution: "/solution",
 	career: "/career",
 	blog: "/blog",
 	demo: "/demo",

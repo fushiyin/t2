@@ -35,11 +35,22 @@ const Challenges = () => {
 			<div
 				className={`flex-1 flex justify-center items-center text-center gap-2 ${bgColor} text-base md:text-xl p-4 md:p-6 rounded-b-3xl`}
 			>
-				<p className="leading-snug">
+				{/* <p className="leading-snug">
 					{item.map((part, idx) => (
 						<span
 							key={idx}
 							className={`text-base md:text-xl korean-text ${part.className}`}
+						>
+							{part.text}
+						</span>
+					))}
+				</p> */}
+
+				<p className="leading-relaxed whitespace-pre-wrap break-words text-center">
+					{item.map((part, idx) => (
+						<span
+							key={idx}
+							className={`font-bold block md:inline ${part.className}`}
 						>
 							{part.text}
 						</span>
@@ -68,10 +79,10 @@ const Challenges = () => {
 				<div className="relative hidden xl:flex flex-col items-center gap-y-[50px] min-h-[750px] max-w-[1440px] mx-auto">
 					{/* Top row */}
 					<div className="flex justify-between w-full px-[3%] relative">
-						<FloatingBox className="relative w-full lg:w-[500px]">
+						<FloatingBox className="relative w-full lg:w-[500px] max-w-[480px]">
 							{renderBox(item1, "bg-dark-blue")}
 						</FloatingBox>
-						<FloatingBox className="relative w-full lg:w-[500px] top-[-60px]">
+						<FloatingBox className="relative w-full lg:w-[500px] top-[-60px] max-w-[480px]">
 							{renderBox(item2)}
 						</FloatingBox>
 					</div>
@@ -79,19 +90,19 @@ const Challenges = () => {
 					{/* Middle row */}
 					<div className="flex justify-center w-full px-[5%] relative gap-x-8">
 						{/* Box 3 - Trái giữa (hơi lệch xuống) */}
-						<FloatingBox className="relative w-full max-w-[500px] top-[20px]">
+						<FloatingBox className="relative w-full max-w-[500px] top-[20px] max-w-[480px]">
 							{renderBox(item3)}
 						</FloatingBox>
 
 						{/* Box 4 - Phải giữa (lệch lên cao hơn, cách xa hơn) */}
-						<FloatingBox className="relative w-full max-w-[500px] top-[-40px] ml-[60px]">
+						<FloatingBox className="relative w-full max-w-[500px] top-[-40px] ml-[60px] max-w-[480px]">
 							{renderBox(item4, "bg-[#748FF8]")}
 						</FloatingBox>
 					</div>
 
 					{/* Bottom center box */}
 					<div className="flex justify-center w-full mt-4">
-						<FloatingBox className="w-full lg:w-[520px]">
+						<FloatingBox className="w-full lg:w-[520px] max-w-[480px]">
 							{renderBox(item5, "bg-dark-blue")}
 						</FloatingBox>
 					</div>
@@ -142,7 +153,7 @@ const Challenges = () => {
 									{box.data.map((part, idx) => (
 										<span
 											key={idx}
-											className={`text-base md:text-xl korean-text ${part.className}`}
+											className={`text-base font-bold md:text-xl korean-text ${part.className}`}
 										>
 											{part.text}
 										</span>
@@ -198,7 +209,7 @@ const Challenges = () => {
 									{box.data.map((part, idx) => (
 										<span
 											key={idx}
-											className={`text-base md:text-xl ${part.className}`}
+											className={`text-base font-bold md:text-xl ${part.className}`}
 										>
 											{part.text}
 										</span>
@@ -239,7 +250,7 @@ const Challenges = () => {
 									{item5.map((part, idx) => (
 										<span
 											key={idx}
-											className={`text-base md:text-xl korean-text ${part.className}`}
+											className={`text-base font-bold md:text-xl korean-text ${part.className}`}
 										>
 											{part.text}
 										</span>

@@ -252,7 +252,7 @@ export default function SolutionAndProduct() {
 							<p className="max-w-[900px] text-[#0A33D1] font-bold text-xl md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed 2xl:text-2xl font-sans break-keep whitespace-normal break-words">
 								{t("solution.implementation.title")}
 							</p>
-							<h2 className="mx-auto w-[80%] md:w-full text-4xl font-bold tracking-tighter sm:text-5xl text-dark-gray font-sans break-keep whitespace-normal break-words leading-normal">
+							<h2 className="capitalize mx-auto w-[80%] md:w-full text-4xl font-bold tracking-tighter sm:text-5xl text-dark-gray font-sans break-keep whitespace-normal break-words leading-normal">
 								{t("solution.implementation.description")}
 							</h2>
 						</div>
@@ -300,7 +300,7 @@ export default function SolutionAndProduct() {
 											}}
 										>
 											<div className="w-16 h-1 bg-light-blue mb-2"></div>
-											<div className="text-2xl font-semibold drop-shadow mb-0 w-full text-left font-sans break-keep whitespace-normal break-words">
+											<div className="text-2xl font-semibold drop-shadow mb-0 w-full text-left font-sans break-keep whitespace-normal break-words capitalize">
 												{item.title(t)}
 											</div>
 											<div
@@ -334,7 +334,7 @@ export default function SolutionAndProduct() {
 										<>
 											<div className="absolute inset-0 flex flex-col justify-end items-start w-full h-full px-4 py-6 text-white z-10 transition-all duration-600 ease-in-out group-hover:opacity-0 opacity-100 group-hover:translate-y-8 translate-y-0">
 												<div className="w-16 h-1 bg-light-blue group-hover:bg-white mb-2"></div>
-												<div className="text-2xl font-semibold drop-shadow mb-0 w-full transition-all duration-600 ease-in-out text-left font-sans break-keep whitespace-normal break-words">
+												<div className="text-2xl font-semibold drop-shadow mb-0 w-full transition-all duration-600 ease-in-out text-left font-sans break-keep whitespace-normal break-words capitalize">
 													{item.title(t)}
 												</div>
 											</div>

@@ -17,7 +17,7 @@ export default function Testimonials({ contentClass }) {
 				username: "@kjw",
 				avatar: "/placeholder.svg?height=40&width=40",
 				content:
-					"  delivered beyond our expectations. Their team was responsive, professional, and deeply knowledgeable.",
+					" T2 Soft delivered beyond our expectations. Their team was responsive, professional, and deeply knowledgeable.",
 			},
 			{
 				name: "Shine",

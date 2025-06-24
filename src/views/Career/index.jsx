@@ -62,126 +62,133 @@ export default function Careers() {
 	];
 
 	return (
-		<div className="flex flex-col items-center justify-center mx-auto mt-[64px]">
-			<div className="container py-12 max-w-[1440px] md:pl-6 md:pr-6 px-4 lg:px-6 xl:px-6">
-				<motion.h1
-					className="w-full text-4xl text-center font-bold mb-4 font-sans break-keep whitespace-normal break-words"
-					initial="hidden"
-					animate="visible"
-					variants={fadeUp}
-				>
-					{t("careers.title")}
-				</motion.h1>
+		<>
+			<div className="flex flex-col items-center justify-center mx-auto mt-[64px]">
+				<div className="container py-12 max-w-[1440px] md:pl-6 md:pr-6 px-4 lg:px-6 xl:px-6">
+					<motion.h1
+						className="w-full text-4xl md:text-5xl text-center font-bold mb-4 font-sans break-keep whitespace-normal break-words"
+						initial="hidden"
+						animate="visible"
+						variants={fadeUp}
+					>
+						{t("careers.title")}
+					</motion.h1>
 
-				<motion.p
-					className="w-full text-center text-muted-foreground text-lg mb-8 font-sans break-keep whitespace-normal break-words"
-					initial="hidden"
-					animate="visible"
-					variants={fadeUp}
-				>
-					{t("careers.description")}
-				</motion.p>
+					<motion.p
+						className="w-[80%] mx-auto text-center text-muted-foreground text-xl md:text-2xl mb-8 font-sans break-keep whitespace-normal break-words"
+						initial="hidden"
+						animate="visible"
+						variants={fadeUp}
+					>
+						{t("careers.description")}
+					</motion.p>
 
-				<motion.div
-					className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mb-12"
-					variants={containerVariants}
-					initial="hidden"
-					whileInView="visible"
-					viewport={{ once: true }}
-				>
-					{career_items.map((item, index) => (
-						<motion.div
-							key={index}
-							variants={fadeUp}
-							whileHover={{ scale: 1.03 }}
-							transition={{ type: "spring", stiffness: 200, damping: 15 }}
-						>
-							<Card className="hover:shadow-lg transition-shadow bg-white/80 border-t shadow-lg h-[300px] md:h-[350px]">
-								<CardContent className="p-6 flex flex-col items-center text-center space-y-4 h-full">
-									<div className="rounded-full p-3 bg-gray-100">{item.icon}</div>
-									<h3 className="text-2xl text-dark-gray font-bold font-sans break-keep whitespace-normal break-words">
-										{item.title}
-									</h3>
-									<p className="text-muted-foreground font-sans break-keep whitespace-normal break-words">
-										{item.desc}
-									</p>
-								</CardContent>
-							</Card>
-						</motion.div>
-					))}
-				</motion.div>
-
-				<motion.h2
-					className="text-3xl text-dark-gray font-bold mb-6"
-					initial="hidden"
-					whileInView="visible"
-					viewport={{ once: true }}
-					variants={fadeUp}
-				>
-					{t("careers.open_positions")}
-				</motion.h2>
-
-				<motion.div
-					className="space-y-6 mb-12"
-					variants={containerVariants}
-					initial="hidden"
-					whileInView="visible"
-					viewport={{ once: true }}
-				>
-					{OPEN_POSITIONS.map((position, index) => (
-						<motion.div
-							key={index}
-							variants={fadeUp}
-							whileHover={{ scale: 1.02 }}
-							transition={{ type: "spring", stiffness: 180, damping: 16 }}
-						>
-							<Card
-								className="hover:shadow-md transition-shadow bg-white/80 border-t shadow-lg cursor-pointer"
-								onClick={() =>
-									navigate(`${idRouter.careerDetail.replace(":id", position.id)}`)
-								}
+					<motion.div
+						className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mb-12"
+						variants={containerVariants}
+						initial="hidden"
+						whileInView="visible"
+						viewport={{ once: true }}
+					>
+						{career_items.map((item, index) => (
+							<motion.div
+								key={index}
+								variants={fadeUp}
+								whileHover={{ scale: 1.03 }}
+								transition={{ type: "spring", stiffness: 200, damping: 15 }}
 							>
-								<CardContent className="p-6">
-									<div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-										<div className="flex-1">
-											<h3 className="text-xl font-bold">{position.title}</h3>
-											<div className="flex flex-wrap gap-2 mt-2">
-												<span className="inline-flex text-dark-gray items-center rounded-full bg-muted px-2.5 py-0.5 text-xs font-medium font-sans break-keep whitespace-normal break-words">
-													{position.location}
-												</span>
-												<span className="inline-flex text-dark-gray items-center rounded-full bg-muted px-2.5 py-0.5 text-xs font-medium font-sans break-keep whitespace-normal break-words">
-													{position.type}
-												</span>
-												<span className="inline-flex text-dark-gray items-center rounded-full bg-muted px-2.5 py-0.5 text-xs font-medium font-sans break-keep whitespace-normal break-words">
-													{position.site}
-												</span>
-											</div>
-											<p className="text-muted-foreground mt-2">
-												{position.description}
-											</p>
+								<Card className="hover:shadow-lg transition-shadow bg-white/80 border-t shadow-lg h-[300px] md:h-[350px]">
+									<CardContent className="p-6 flex flex-col items-center text-center space-y-4 h-full">
+										<div className="rounded-full p-3 bg-gray-100">
+											{item.icon}
 										</div>
-										<motion.button
-											className="md:item-center cursor-pointer bg-primary lg:w-[130px] md:w-[130px] text-white px-4 py-2 rounded-md font-medium hover:bg-primary/90 transition"
-											whileTap={{ scale: 0.95 }}
-											onClick={(e) => {
-												e.stopPropagation();
-												window.open(
-													position.id === 3
-														? FORM_CV_INTERPRETER
-														: FORM_CV,
-												);
-											}}
-										>
-											Apply Now
-										</motion.button>
-									</div>
-								</CardContent>
-							</Card>
-						</motion.div>
-					))}
-				</motion.div>
-			</div>
+										<h3 className="text-2xl text-dark-gray font-bold font-sans break-keep whitespace-normal break-words">
+											{item.title}
+										</h3>
+										<p className="text-muted-foreground font-sans break-keep whitespace-normal break-words">
+											{item.desc}
+										</p>
+									</CardContent>
+								</Card>
+							</motion.div>
+						))}
+					</motion.div>
 
+					<motion.h2
+						className="text-3xl md:text-4xl text-dark-gray font-bold mb-6"
+						initial="hidden"
+						whileInView="visible"
+						viewport={{ once: true }}
+						variants={fadeUp}
+					>
+						{t("careers.open_positions")}
+					</motion.h2>
+
+					<motion.div
+						className="space-y-6 mb-12"
+						variants={containerVariants}
+						initial="hidden"
+						whileInView="visible"
+						viewport={{ once: true }}
+					>
+						{OPEN_POSITIONS.map((position, index) => (
+							<motion.div
+								key={index}
+								variants={fadeUp}
+								whileHover={{ scale: 1.02 }}
+								transition={{ type: "spring", stiffness: 180, damping: 16 }}
+							>
+								<Card
+									className="hover:shadow-md transition-shadow bg-white/80 border-t shadow-lg cursor-pointer"
+									onClick={() =>
+										navigate(
+											`${idRouter.careerDetail.replace(":id", position.id)}`,
+										)
+									}
+								>
+									<CardContent className="p-6">
+										<div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+											<div className="flex-1">
+												<h3 className="text-xl md:text-2xl font-bold">
+													{position.title}
+												</h3>
+												<div className="flex flex-wrap gap-2 mt-2">
+													<span className="inline-flex text-dark-gray items-center rounded-full bg-muted px-2.5 py-0.5 text-xs font-medium font-sans break-keep whitespace-normal break-words">
+														{position.location}
+													</span>
+													<span className="inline-flex text-dark-gray items-center rounded-full bg-muted px-2.5 py-0.5 text-xs font-medium font-sans break-keep whitespace-normal break-words">
+														{position.type}
+													</span>
+													<span className="inline-flex text-dark-gray items-center rounded-full bg-muted px-2.5 py-0.5 text-xs font-medium font-sans break-keep whitespace-normal break-words">
+														{position.site}
+													</span>
+												</div>
+												<p className="text-muted-foreground mt-2">
+													{position.description}
+												</p>
+											</div>
+											<motion.button
+												className="md:item-center cursor-pointer bg-primary lg:w-[130px] md:w-[130px] text-white px-4 py-2 rounded-md font-medium hover:bg-primary/90 transition"
+												whileTap={{ scale: 0.95 }}
+												onClick={(e) => {
+													e.stopPropagation();
+													window.open(
+														position.id === 3
+															? FORM_CV_INTERPRETER
+															: FORM_CV,
+													);
+												}}
+											>
+												Apply Now
+											</motion.button>
+										</div>
+									</CardContent>
+								</Card>
+							</motion.div>
+						))}
+					</motion.div>
+				</div>
+			</div>
 			<motion.div
 				className="w-full bg-muted py-12 px-6"
 				initial="hidden"
@@ -191,10 +198,10 @@ export default function Careers() {
 			>
 				<div className="max-w-[1440px] flex flex-col md:flex-row mx-auto space-y-6 md:space-y-0 md:space-x-6 sm:w-full">
 					<motion.div className="flex-1 space-y-4">
-						<h2 className="text-3xl text-dark-gray font-bold font-sans break-keep whitespace-normal break-words">
+						<h2 className="text-3xl md:text-4xl text-dark-gray font-bold font-sans break-keep whitespace-normal break-words">
 							{t("careers.title_cv")}
 						</h2>
-						<p className="text-muted-foreground text-lg font-sans break-keep whitespace-normal break-words">
+						<p className="text-muted-foreground text-lg md:text-xl font-sans break-keep whitespace-normal break-words">
 							{t("careers.description_cv")}
 						</p>
 					</motion.div>
@@ -215,6 +222,6 @@ export default function Careers() {
 					</div>
 				</div>
 			</motion.div>
-		</div>
+		</>
 	);
 }

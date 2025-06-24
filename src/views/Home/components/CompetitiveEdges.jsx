@@ -178,7 +178,7 @@ const CompetitiveEdges = ({ isSolution }) => {
 							variants={itemVariants}
 							className={classNames(
 								"text-center text-xl md:text-2xl font-sans break-keep whitespace-normal break-words",
-								isSolution ? "text-white" : "text-dark-gray",
+								isSolution ? "text-white" : "text-muted-foreground",
 							)}
 						>
 							{t("competitive_edges.description")}

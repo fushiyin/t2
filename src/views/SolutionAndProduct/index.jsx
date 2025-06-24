@@ -22,6 +22,7 @@ import { Autoplay, EffectFade, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { sectionClass } from "../Home";
 import CompetitiveEdges from "../Home/components/CompetitiveEdges";
+import { useState } from "react";
 
 const SOLUTION_IMAGES = [
 	{
@@ -76,6 +77,8 @@ export default function SolutionAndProduct() {
 	});
 
 	const navigate = useNavigate();
+
+	const [activeIdx, setActiveIdx] = useState(null);
 
 	const products = [
 		{
@@ -246,10 +249,10 @@ export default function SolutionAndProduct() {
 				>
 					<div className="flex flex-col items-center justify-center gap-8 text-center mb-4 md:mb-8">
 						<div className="space-y-2">
-							<p className="max-w-[900px] text-[#0A33D1] font-bold md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed 2xl:text-xl font-sans break-keep whitespace-normal break-words">
+							<p className="max-w-[900px] text-[#0A33D1] font-bold text-xl md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed 2xl:text-2xl font-sans break-keep whitespace-normal break-words">
 								{t("solution.implementation.title")}
 							</p>
-							<h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-dark-gray font-sans break-keep whitespace-normal break-words">
+							<h2 className="capitalize mx-auto w-[80%] md:w-full text-4xl font-bold tracking-tighter sm:text-5xl text-dark-gray font-sans break-keep whitespace-normal break-words leading-normal">
 								{t("solution.implementation.description")}
 							</h2>
 						</div>
@@ -259,6 +262,12 @@ export default function SolutionAndProduct() {
 								<div
 									key={idx}
 									className="group relative aspect-[4/5] overflow-hidden cursor-pointer"
+									{...(isMobile
+										? {
+												onClick: () =>
+													setActiveIdx(idx === activeIdx ? null : idx),
+											}
+										: {})}
 								>
 									<img
 										src={item.image}
@@ -266,33 +275,91 @@ export default function SolutionAndProduct() {
 										className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
 										draggable={false}
 									/>
-									<div className="absolute inset-0 bg-[#16224E9C] group-hover:bg-[#0730D0BD] transition-opacity duration-600 pointer-events-none"></div>
-									<div className="absolute inset-0 flex flex-col justify-end items-start w-full h-full px-4 py-6 text-white z-10 transition-all duration-600 ease-in-out group-hover:opacity-0 opacity-100 group-hover:translate-y-8 translate-y-0">
-										<div className="w-16 h-1 bg-light-blue group-hover:bg-white mb-2"></div>
-										<div className="text-2xl font-semibold drop-shadow mb-0 w-full transition-all duration-600 ease-in-out text-left font-sans break-keep whitespace-normal break-words">
-											{item.title(t)}
+									{/* Overlay */}
+									<div
+										className={
+											"absolute inset-0 transition-opacity duration-600 pointer-events-none " +
+											(isMobile
+												? activeIdx === idx
+													? "bg-[#0730D0BD]"
+													: "bg-[#16224E9C]"
+												: "bg-[#16224E9C] group-hover:bg-[#0730D0BD]")
+										}
+										style={{ transition: "background-color 0.6s" }}
+									/>
+									{/* Title only (mobile, not active) */}
+									{isMobile && (
+										<div
+											className={
+												"absolute inset-0 flex flex-col w-full h-full px-4 py-6 text-white z-10 transition-all duration-500 ease-in-out items-start"
+											}
+											style={{
+												opacity: 1,
+												transform: "translateY(0)",
+												pointerEvents: "auto",
+											}}
+										>
+											<div className="w-16 h-1 bg-light-blue mb-2"></div>
+											<div className="text-2xl font-semibold drop-shadow mb-0 w-full text-left font-sans break-keep whitespace-normal break-words capitalize">
+												{item.title(t)}
+											</div>
+											<div
+												className={
+													"text-base drop-shadow w-full mt-2 transition-all duration-500 ease-in-out " +
+													(activeIdx === idx
+														? "opacity-100 max-h-[500px] translate-y-0"
+														: "opacity-0 max-h-0 -translate-y-4 pointer-events-none")
+												}
+												style={{
+													overflow: "hidden",
+												}}
+											>
+												<ul className="list-disc list-outside pl-6 text-left">
+													{Object.values(item.description(t)).map(
+														(desc, i) => (
+															<li
+																className="font-sans break-keep whitespace-normal break-words leading-loose"
+																key={i}
+															>
+																{desc}
+															</li>
+														),
+													)}
+												</ul>
+											</div>
 										</div>
-									</div>
-									<div className="absolute inset-0 flex flex-col justify-start items-start w-full h-full px-4 py-6 text-white z-10 transition-all duration-600 ease-in-out opacity-0 group-hover:opacity-100 group-hover:translate-y-0 translate-y-8">
-										<div className="w-16 h-1 bg-light-blue group-hover:bg-white mb-2"></div>
-										<div className="text-2xl font-semibold drop-shadow mb-2 w-full transition-all duration-600 ease-in-out text-left font-sans break-keep whitespace-normal break-words">
-											{item.title(t)}
-										</div>
-										<div className="text-base drop-shadow w-full transition-all duration-600 ease-in-out opacity-0 group-hover:opacity-100 group-hover:translate-y-0 translate-y-4">
-											<ul className="list-disc list-outside pl-6 text-left">
-												{Object.values(item.description(t)).map(
-													(desc, i) => (
-														<li
-															className="font-sans break-keep whitespace-normal break-words leading-loose"
-															key={i}
-														>
-															{desc}
-														</li>
-													),
-												)}
-											</ul>
-										</div>
-									</div>
+									)}
+									{/* PC: giữ nguyên hover */}
+									{!isMobile && (
+										<>
+											<div className="absolute inset-0 flex flex-col justify-end items-start w-full h-full px-4 py-6 text-white z-10 transition-all duration-600 ease-in-out group-hover:opacity-0 opacity-100 group-hover:translate-y-8 translate-y-0">
+												<div className="w-16 h-1 bg-light-blue group-hover:bg-white mb-2"></div>
+												<div className="text-2xl font-semibold drop-shadow mb-0 w-full transition-all duration-600 ease-in-out text-left font-sans break-keep whitespace-normal break-words capitalize">
+													{item.title(t)}
+												</div>
+											</div>
+											<div className="absolute inset-0 flex flex-col justify-start items-start w-full h-full px-4 py-6 text-white z-10 transition-all duration-600 ease-in-out opacity-0 group-hover:opacity-100 group-hover:translate-y-0 translate-y-8">
+												<div className="w-16 h-1 bg-light-blue group-hover:bg-white mb-2"></div>
+												<div className="text-2xl font-semibold drop-shadow mb-2 w-full transition-all duration-600 ease-in-out text-left font-sans break-keep whitespace-normal break-words">
+													{item.title(t)}
+												</div>
+												<div className="text-base drop-shadow w-full transition-all duration-600 ease-in-out opacity-0 group-hover:opacity-100 group-hover:translate-y-0 translate-y-4">
+													<ul className="list-disc list-outside pl-6 text-left">
+														{Object.values(item.description(t)).map(
+															(desc, i) => (
+																<li
+																	className="font-sans break-keep whitespace-normal break-words leading-loose"
+																	key={i}
+																>
+																	{desc}
+																</li>
+															),
+														)}
+													</ul>
+												</div>
+											</div>
+										</>
+									)}
 								</div>
 							))}
 						</div>
@@ -340,7 +407,7 @@ export default function SolutionAndProduct() {
 										console.log(idRouter?.contact);
 									}}
 								>
-									Contact Us
+									{t("solution.suggest.btn")}
 									<ArrowRightIcon className="h-6 w-6 sm:h-5 sm:w-5 md:h-6 md:w-6" />
 								</a>
 							</button>
@@ -359,7 +426,7 @@ export default function SolutionAndProduct() {
 										console.log(idRouter?.contact);
 									}}
 								>
-									Contact Us
+									{t("solution.suggest.btn")}
 									<ArrowRightIcon className="h-6 w-6 sm:h-5 sm:w-5 md:h-6 md:w-6" />
 								</a>
 							</button>

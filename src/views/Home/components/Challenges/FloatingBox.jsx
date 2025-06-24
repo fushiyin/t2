@@ -24,7 +24,7 @@ const FloatingBox = ({ children, className, duration = 0.6, order = 0 }) => {
 				transition={{
 					duration,
 					ease: "easeOut",
-					delay: order * 0.15, // giữ thứ tự xuất hiện
+					delay: order * 0.1, // giữ thứ tự xuất hiện
 				}}
 				className="w-full h-full"
 			>

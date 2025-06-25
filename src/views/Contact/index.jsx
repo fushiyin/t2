@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { ADDRESS_SITE } from "@/constant/common";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -54,7 +55,7 @@ export default function Contact() {
 			<div className="mx-auto max-w-[1440px]">
 				<div className="flex flex-col md:flex-row-reverse">
 					<div className="w-full h-full bg-white flex items-center justify-center">
-						<div className="container xl:px-4 sm:px-0 md:px-0 h-full flex flex-col justify-center">
+						<div className="container px-0 md:px-4 h-full flex flex-col justify-center">
 							<motion.div
 								variants={containerVariants}
 								initial="hidden"
@@ -191,6 +192,21 @@ export default function Contact() {
 								</motion.div>
 							</motion.div>
 						</div>
+					</div>
+				</div>
+				{/* Map Section */}
+				<div className="w-full flex flex-col items-center mt-12 px-2 md:px-4">
+					<div className="w-full h-[700px] rounded-lg overflow-hidden shadow-lg border ">
+						<iframe
+							title={ADDRESS_SITE.title}
+							src={ADDRESS_SITE.map}
+							width="100%"
+							height="100%"
+							style={{ border: 0 }}
+							allowFullScreen=""
+							loading="lazy"
+							referrerPolicy="no-referrer-when-downgrade"
+						></iframe>
 					</div>
 				</div>
 			</div>

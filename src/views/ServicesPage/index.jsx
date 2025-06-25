@@ -164,31 +164,35 @@ export default function ServicesPage() {
 							</p>
 						</div>
 
-						{/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"> */}
 						<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8">
 							{services.map((service) => (
 								<motion.div
 									key={service.id}
 									initial={{ opacity: 0, y: 20 }}
 									whileInView={{ opacity: 1, y: 0 }}
+									whileHover={{ scale: 1.03 }}
 									viewport={{ once: true }}
-									transition={{ type: "spring", stiffness: 200, damping: 15 }}
-									className="bg-white/80 cursor-pointer rounded-2xl shadow-lg flex flex-col items-stretch relative border-t group transition-all duration-700 hover:bg-gradient-to-br hover:from-gray-900 hover:via-gray-800 hover:to-gray-900"
+									transition={{
+										type: "spring",
+										stiffness: 200,
+										damping: 15,
+									}}
+									className="bg-white/80 cursor-pointer rounded-2xl shadow-lg flex flex-col items-stretch relative border-t group transform transition duration-500 hover:bg-gradient-to-br hover:from-gray-900 hover:via-gray-800 hover:to-gray-900"
 								>
-									<div className="p-8">
-										<div className="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-6 transition-colors duration-300 group-hover:bg-light-blue/80 group-hover:text-white">
-											<service.icon className="w-6 h-6 transition-colors duration-300" />
+									<div className="p-8 transition-all duration-500">
+										<div className="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-6 transition-colors duration-500  group-hover:text-white">
+											<service.icon className="w-6 h-6 transition-colors duration-500" />
 										</div>
-										<h3 className="text-2xl md:text-2xl font-bold mb-3 group-hover:text-white transition-colors font-sans break-keep whitespace-normal break-words">
+										<h3 className="text-2xl md:text-2xl font-bold mb-3 group-hover:text-white transition-colors duration-500 font-sans break-keep whitespace-normal break-words">
 											{t(`services.items.${service.id}.name`)}
 										</h3>
 										<ul className="space-y-3">
 											{service.details.map((detail, idx) => (
 												<li
 													key={idx}
-													className="flex items-center gap-2 text-base md:text-[18px] group-hover:text-white"
+													className="flex items-center gap-2 text-base md:text-[18px] group-hover:text-white transition-colors duration-500"
 												>
-													<span className="mt-1 w-1.5 h-1.5 rounded-full bg-primary shrink-0 group-hover:bg-white" />
+													<span className="mt-1 w-1.5 h-1.5 rounded-full bg-primary shrink-0 group-hover:bg-white transition-colors duration-500" />
 													<span className="font-sans break-words whitespace-normal">
 														{t(
 															`services.items.${service.id}.details.${idx}`,

@@ -221,7 +221,7 @@ const Challenges = () => {
 					</div>
 
 					{/* Bottom box */}
-					<div className="w-[70%] rounded-2xl shadow-md overflow-hidden border border-gray-200 bg-[#162A7B] z-10">
+					<div className="w-[70%] rounded-2xl shadow-md overflow-hidden border z-10">
 						<div className="bg-[#F1F0F6] py-2 px-1">
 							<div className="flex items-center justify-between px-2">
 								<div className="flex items-center space-x-1">
@@ -245,7 +245,7 @@ const Challenges = () => {
 							</div>
 						</div>
 
-						<div className="w-[85%] mx-auto rounded-2xl shadow-md overflow-hidden bg-[#162A7B]">
+						<div className="mx-auto shadow-md bg-[#162A7B] overflow-hidden">
 							<div className="px-4 py-4 md:px-12 md:py-12 mt-2">
 								<p className="leading-snug text-white">
 									{item5.map((part, idx) => (

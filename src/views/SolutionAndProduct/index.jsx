@@ -22,7 +22,6 @@ import { Autoplay, EffectFade, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { sectionClass } from "../Home";
 import CompetitiveEdges from "../Home/components/CompetitiveEdges";
-import { useState } from "react";
 
 const SOLUTION_IMAGES = [
 	{
@@ -77,8 +76,6 @@ export default function SolutionAndProduct() {
 	});
 
 	const navigate = useNavigate();
-
-	const [activeIdx, setActiveIdx] = useState(null);
 
 	const products = [
 		{
@@ -257,63 +254,86 @@ export default function SolutionAndProduct() {
 							</h2>
 						</div>
 
-						<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4">
-							{SOLUTION_IMAGES.map((item, idx) => (
-								<div
-									key={idx}
-									className="group relative aspect-[4/5] overflow-hidden cursor-pointer"
-									{...(isMobile
-										? {
-												onClick: () =>
-													setActiveIdx(idx === activeIdx ? null : idx),
-											}
-										: {})}
+						<div className="w-full grid grid-cols-1 md:grid-cols-4">
+							{isMobile ? (
+								<Swiper
+									modules={[Navigation, Pagination, Autoplay]}
+									spaceBetween={20}
+									slidesPerView={1}
+									navigation={false}
+									pagination={{
+										clickable: true,
+										bulletClass: "swiper-pagination-bullet",
+										bulletActiveClass: "swiper-pagination-bullet-active",
+									}}
+									autoplay={{
+										delay: 3000,
+										disableOnInteraction: false,
+									}}
+									className="w-full h-[550px] pb-12 mx-auto"
 								>
-									<img
-										src={item.image}
-										alt={item.title(t)}
-										className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-										draggable={false}
-									/>
-									{/* Overlay */}
+									{SOLUTION_IMAGES.map((item, idx) => (
+										<SwiperSlide key={idx}>
+											<div className="group relative overflow-hidden cursor-pointer h-full">
+												<img
+													src={item.image}
+													alt={item.title(t)}
+													className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+													draggable={false}
+												/>
+												{/* Overlay */}
+												<div className="absolute inset-0 bg-[#16224E9C] pointer-events-none" />
+												{/* Content */}
+												<div className="absolute inset-0 flex flex-col w-full h-full px-4 py-6 text-white z-10 items-start">
+													<div className="w-16 h-1 bg-light-blue mb-2"></div>
+													<div className="text-2xl font-semibold drop-shadow mb-2 w-full text-left font-sans break-keep whitespace-normal break-words capitalize">
+														{item.title(t)}
+													</div>
+													<div className="text-base drop-shadow w-full">
+														<ul className="list-disc list-outside pl-6 text-left">
+															{Object.values(item.description(t)).map(
+																(desc, i) => (
+																	<li
+																		className="font-sans break-keep whitespace-normal break-words leading-loose"
+																		key={i}
+																	>
+																		{desc}
+																	</li>
+																),
+															)}
+														</ul>
+													</div>
+												</div>
+											</div>
+										</SwiperSlide>
+									))}
+								</Swiper>
+							) : (
+								SOLUTION_IMAGES.map((item, idx) => (
 									<div
-										className={
-											"absolute inset-0 transition-opacity duration-600 pointer-events-none " +
-											(isMobile
-												? activeIdx === idx
-													? "bg-[#0730D0BD]"
-													: "bg-[#16224E9C]"
-												: "bg-[#16224E9C] group-hover:bg-[#0730D0BD]")
-										}
-										style={{ transition: "background-color 0.6s" }}
-									/>
-									{/* Title only (mobile, not active) */}
-									{isMobile && (
-										<div
-											className={
-												"absolute inset-0 flex flex-col w-full h-full px-4 py-6 text-white z-10 transition-all duration-500 ease-in-out items-start"
-											}
-											style={{
-												opacity: 1,
-												transform: "translateY(0)",
-												pointerEvents: "auto",
-											}}
-										>
-											<div className="w-16 h-1 bg-light-blue mb-2"></div>
-											<div className="text-2xl font-semibold drop-shadow mb-0 w-full text-left font-sans break-keep whitespace-normal break-words capitalize">
+										key={idx}
+										className="group relative aspect-[4/5] overflow-hidden cursor-pointer"
+									>
+										<img
+											src={item.image}
+											alt={item.title(t)}
+											className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+											draggable={false}
+										/>
+										{/* Overlay */}
+										<div className="absolute inset-0 bg-[#16224E9C] group-hover:bg-[#0730D0BD] transition-all duration-600 pointer-events-none" />
+										<div className="absolute inset-0 flex flex-col justify-end items-start w-full h-full px-4 py-6 text-white z-10 transition-all duration-600 ease-in-out group-hover:opacity-0 opacity-100 group-hover:translate-y-8 translate-y-0">
+											<div className="w-16 h-1 bg-light-blue group-hover:bg-white mb-2"></div>
+											<div className="text-2xl font-semibold drop-shadow mb-0 w-full transition-all duration-600 ease-in-out text-left font-sans break-keep whitespace-normal break-words capitalize">
 												{item.title(t)}
 											</div>
-											<div
-												className={
-													"text-base drop-shadow w-full mt-2 transition-all duration-500 ease-in-out " +
-													(activeIdx === idx
-														? "opacity-100 max-h-[500px] translate-y-0"
-														: "opacity-0 max-h-0 -translate-y-4 pointer-events-none")
-												}
-												style={{
-													overflow: "hidden",
-												}}
-											>
+										</div>
+										<div className="absolute inset-0 flex flex-col justify-start items-start w-full h-full px-4 py-6 text-white z-10 transition-all duration-600 ease-in-out opacity-0 group-hover:opacity-100 group-hover:translate-y-0 translate-y-8">
+											<div className="w-16 h-1 bg-light-blue group-hover:bg-white mb-2"></div>
+											<div className="text-2xl font-semibold drop-shadow mb-2 w-full transition-all duration-600 ease-in-out text-left font-sans break-keep whitespace-normal break-words">
+												{item.title(t)}
+											</div>
+											<div className="text-base drop-shadow w-full transition-all duration-600 ease-in-out opacity-0 group-hover:opacity-100 group-hover:translate-y-0 translate-y-4">
 												<ul className="list-disc list-outside pl-6 text-left">
 													{Object.values(item.description(t)).map(
 														(desc, i) => (
@@ -328,40 +348,9 @@ export default function SolutionAndProduct() {
 												</ul>
 											</div>
 										</div>
-									)}
-									{/* PC: giữ nguyên hover */}
-									{!isMobile && (
-										<>
-											<div className="absolute inset-0 flex flex-col justify-end items-start w-full h-full px-4 py-6 text-white z-10 transition-all duration-600 ease-in-out group-hover:opacity-0 opacity-100 group-hover:translate-y-8 translate-y-0">
-												<div className="w-16 h-1 bg-light-blue group-hover:bg-white mb-2"></div>
-												<div className="text-2xl font-semibold drop-shadow mb-0 w-full transition-all duration-600 ease-in-out text-left font-sans break-keep whitespace-normal break-words capitalize">
-													{item.title(t)}
-												</div>
-											</div>
-											<div className="absolute inset-0 flex flex-col justify-start items-start w-full h-full px-4 py-6 text-white z-10 transition-all duration-600 ease-in-out opacity-0 group-hover:opacity-100 group-hover:translate-y-0 translate-y-8">
-												<div className="w-16 h-1 bg-light-blue group-hover:bg-white mb-2"></div>
-												<div className="text-2xl font-semibold drop-shadow mb-2 w-full transition-all duration-600 ease-in-out text-left font-sans break-keep whitespace-normal break-words">
-													{item.title(t)}
-												</div>
-												<div className="text-base drop-shadow w-full transition-all duration-600 ease-in-out opacity-0 group-hover:opacity-100 group-hover:translate-y-0 translate-y-4">
-													<ul className="list-disc list-outside pl-6 text-left">
-														{Object.values(item.description(t)).map(
-															(desc, i) => (
-																<li
-																	className="font-sans break-keep whitespace-normal break-words leading-loose"
-																	key={i}
-																>
-																	{desc}
-																</li>
-															),
-														)}
-													</ul>
-												</div>
-											</div>
-										</>
-									)}
-								</div>
-							))}
+									</div>
+								))
+							)}
 						</div>
 					</div>
 				</motion.div>

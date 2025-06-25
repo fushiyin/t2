@@ -97,15 +97,15 @@ export default function Careers() {
 								whileHover={{ scale: 1.03 }}
 								transition={{ type: "spring", stiffness: 200, damping: 15 }}
 							>
-								<Card className="hover:shadow-lg transition-shadow bg-white/80 border-t shadow-lg h-[300px] md:h-[350px]">
+								<Card className="cursor-pointer group transition-shadow bg-white/80 border-t shadow-lg h-[300px] md:h-[350px] hover:bg-gradient-to-br hover:from-gray-900 hover:via-gray-800 hover:to-gray-900">
 									<CardContent className="p-6 flex flex-col items-center text-center space-y-4 h-full">
 										<div className="rounded-full p-3 bg-gray-100">
 											{item.icon}
 										</div>
-										<h3 className="text-2xl text-dark-gray font-bold font-sans break-keep whitespace-normal break-words">
+										<h3 className="text-2xl text-dark-gray font-bold font-sans break-keep whitespace-normal break-words group-hover:text-white">
 											{item.title}
 										</h3>
-										<p className="text-muted-foreground font-sans break-keep whitespace-normal break-words">
+										<p className="text-muted-foreground font-sans break-keep whitespace-normal break-words group-hover:text-gray-200">
 											{item.desc}
 										</p>
 									</CardContent>

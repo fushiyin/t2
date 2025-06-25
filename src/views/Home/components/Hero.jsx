@@ -27,8 +27,18 @@ export default function Hero() {
 			} else {
 				setIsShowingHero(false);
 				setHeroPlayCount(0);
-				videoHomeRef.current?.play();
+				if (videoHomeRef.current) {
+					videoHomeRef.current.currentTime = 0;
+					videoHomeRef.current.play();
+				}
 			}
+		}
+	};
+
+	const handleVideoHomeTimeUpdate = () => {
+		if (videoHomeRef.current && videoHomeRef.current.currentTime >= 6) {
+			videoHomeRef.current.pause();
+			handleVideoEnd();
 		}
 	};
 
@@ -122,6 +132,7 @@ export default function Hero() {
 						loop={false}
 						className="w-full h-full object-cover"
 						onEnded={handleVideoEnd}
+						onTimeUpdate={handleVideoHomeTimeUpdate}
 					>
 						<source
 							src={video_home}

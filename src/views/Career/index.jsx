@@ -5,6 +5,7 @@ import { BookOpen, Layers, Users } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { idRouter } from "@/routes/idRouter";
+import Company from "./component/Company";
 
 const containerVariants = {
 	hidden: {},
@@ -27,40 +28,6 @@ const fadeUp = {
 export default function Careers() {
 	const { t } = useTranslation();
 	const navigate = useNavigate();
-
-	const career_items = [
-		{
-			icon: (
-				<Users
-					className="text-dark-gray"
-					size={24}
-				/>
-			),
-			title: t("careers.collaborative"),
-			desc: t("careers.collaborative_description"),
-		},
-		{
-			icon: (
-				<BookOpen
-					className="text-dark-gray"
-					size={24}
-				/>
-			),
-			title: t("careers.learning"),
-			desc: t("careers.learning_description"),
-		},
-		{
-			icon: (
-				<Layers
-					className="text-dark-gray"
-					size={24}
-				/>
-			),
-			title: t("careers.challenging"),
-			desc: t("careers.challenging_description"),
-		},
-	];
-
 	return (
 		<>
 			<div className="flex flex-col items-center justify-center mx-auto mt-[64px]">
@@ -75,7 +42,7 @@ export default function Careers() {
 					</motion.h1>
 
 					<motion.p
-						className="w-[80%] mx-auto text-center text-muted-foreground text-xl md:text-2xl mb-8 font-sans break-keep whitespace-normal break-words"
+						className="w-[90%] md:w-[80%] mx-auto text-center text-muted-foreground text-xl md:text-2xl mb-8 font-sans break-keep whitespace-normal break-words"
 						initial="hidden"
 						animate="visible"
 						variants={fadeUp}
@@ -83,36 +50,7 @@ export default function Careers() {
 						{t("careers.description")}
 					</motion.p>
 
-					<motion.div
-						className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mb-12"
-						variants={containerVariants}
-						initial="hidden"
-						whileInView="visible"
-						viewport={{ once: true }}
-					>
-						{career_items.map((item, index) => (
-							<motion.div
-								key={index}
-								variants={fadeUp}
-								whileHover={{ scale: 1.03 }}
-								transition={{ type: "spring", stiffness: 200, damping: 15 }}
-							>
-								<Card className="cursor-pointer group transition-shadow bg-white/80 border-t shadow-lg h-[300px] md:h-[350px] hover:bg-gradient-to-br hover:from-gray-900 hover:via-gray-800 hover:to-gray-900">
-									<CardContent className="p-6 flex flex-col items-center text-center space-y-4 h-full">
-										<div className="rounded-full p-3 bg-gray-100">
-											{item.icon}
-										</div>
-										<h3 className="text-2xl text-dark-gray font-bold font-sans break-keep whitespace-normal break-words group-hover:text-white">
-											{item.title}
-										</h3>
-										<p className="text-muted-foreground font-sans break-keep whitespace-normal break-words group-hover:text-gray-200">
-											{item.desc}
-										</p>
-									</CardContent>
-								</Card>
-							</motion.div>
-						))}
-					</motion.div>
+					<Company />
 
 					<motion.h2
 						className="text-3xl md:text-4xl text-dark-gray font-bold mb-6"

@@ -2,7 +2,7 @@ import bg_banner from "@/assets/career/career_banner.jpg";
 import CTA from "@/components/sections/ContactCTA";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { CAREER_DETAILS, FORM_CV } from "@/constant/career";
+import { CAREER_DETAILS, FORM_CV, FORM_CV_INTERPRETER } from "@/constant/career";
 import { motion } from "framer-motion";
 import { ArrowLeft, ArrowRight, Briefcase, Building2, MapPin, Users } from "lucide-react";
 import { useTranslation } from "react-i18next";
@@ -124,7 +124,10 @@ export default function CareersDetail() {
 						>
 							<Button
 								className="bg-primary text-white hover:bg-primary/90 cursor-pointer"
-								onClick={() => window.open(FORM_CV)}
+								onClick={(e) => {
+									e.stopPropagation();
+									window.open(id == 3 ? FORM_CV_INTERPRETER : FORM_CV);
+								}}
 							>
 								Apply Now
 							</Button>

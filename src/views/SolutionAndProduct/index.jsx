@@ -100,7 +100,7 @@ export default function SolutionAndProduct() {
 								: { opacity: 0, y: -20 }
 					}
 					transition={{ duration: 0.6 }}
-					className="relative mb-8 flex flex-col items-center justify-center text-center h-[300px] md:h-[500px] w-full"
+					className="relative mb-8 flex flex-col items-center justify-center text-center h-[500px] md:h-[700px] w-full"
 				>
 					{/* video */}
 					<motion.div

@@ -18,7 +18,7 @@ const Dashboard = React.lazy(() => import("@/views/Admin/pages/Dashboard"));
 const Inbox = React.lazy(() => import("@/views/Admin/pages/Inbox"));
 const Calendar = React.lazy(() => import("@/views/Admin/pages/Calendar"));
 const CareersAdmin = React.lazy(() => import("@/views/Admin/pages/Careers"));
-const CareersDetail = React.lazy(() => import("@/views/Career/pages/CareersDetail"));
+const CareersDetail = React.lazy(() => import("@/views/Career/CareersDetail"));
 const Settings = React.lazy(() => import("@/views/Admin/pages/Settings"));
 
 const router = createBrowserRouter([

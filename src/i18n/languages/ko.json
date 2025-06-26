@@ -628,11 +628,14 @@
 	"careers": {
 		"title": "채용 공고",
 		"description": "T2 Soft와 함께 성장하고 싶은 분을 기다리고 있습니다. 혁신과 협업을 중시하며, 개인의 성장을 응원하는 저희 팀에 합류해 보세요. 지금 바로 다양한 커리어 기회를 확인해보세요!",
+		"contact_button": "Contact Us",
+		"job_list_button": "Job List",
 		"open_positions": "현재 채용 중인 포지션",
 		"apply_now": "지금 지원하기",
 		"title_cv": "아직 적합한 포지션을 찾지 못하셨나요?",
 		"description_cv": "걱정하지 마세요! 이력서를 남겨주시면 적합한 생겼을 때 바로 연락드리겠습니다.",
 		"apply_cv": "이력서 제출하기",
+		"title_company": "Dare to Learn – Dare to Collaborate – Dare to Lead",
 		"collaborative": "협업 중심의 문화",
 		"collaborative_description": "T2 Soft에서는 혼자보다 함께의 힘을 믿습니다. 열린 커뮤니케이션과 팀워크를 바탕으로, 누구나 성장할 수 있는 협력적인 문화를 만들어가고 있습니다.",
 		"learning": "지속적인 학습",
@@ -696,7 +699,7 @@
 			}
 		},
 		"solution_provider": {
-			"title": "글로벌 솔루션 공급자",
+			"title": "글로벌 솔루션 공급",
 			"description": "미래를 대비한 스마트 솔루션의 신뢰할 수 있는 파트너",
 			"details": {
 				"1": "스마트 오피스트, 스마트 팩토리,뱅킹 솔루션",

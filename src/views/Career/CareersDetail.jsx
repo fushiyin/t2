@@ -65,7 +65,7 @@ export default function CareersDetail() {
 					</motion.p>
 					<div className="flex flex-wrap justify-center gap-4 mt-2">
 						<button
-							className="cursor-pointer inline-flex bg-primary border hover:bg-white/80 border-white items-center gap-2 px-4 py-2 rounded-4xl text-primary-foreground transition-colors text-lg font-medium font-sans break-keep whitespace-normal break-words"
+							className="cursor-pointer inline-flex bg-primary border hover:bg-white/80 border-white hover:text-dark-gray hover:border-dark-gray items-center gap-2 px-4 py-2 rounded-4xl text-primary-foreground transition-colors text-lg font-medium font-sans break-keep whitespace-normal break-words"
 							onClick={() => navigate("/contact")}
 						>
 							{t("careers.contact_button")}

@@ -36,6 +36,8 @@ const Header = () => {
 	const [isScrolled, setIsScrolled] = useState(false);
 	const isHome = location.pathname === "/" ? true : false;
 
+	console.log("location", location);
+
 	const { isMobile } = useResponsive();
 	const LANGUAGE = [
 		{
@@ -138,9 +140,9 @@ const Header = () => {
 					<nav className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-2 xl:gap-7 border border-[#5c5cff] border-opacity-80 rounded-full px-6 py-2 shadow-sm backdrop-blur-sm bg-white/10">
 						{visibleLinks.map((link) => {
 							const isActive =
-								window.location?.pathname === link?.path ||
-								(!window.location?.pathname && link.path === "/");
-
+								link.path === "/"
+									? window.location?.pathname === "/"
+									: window.location?.pathname.startsWith(link.path);
 							const isHomeTab = link.path === "/";
 
 							return (

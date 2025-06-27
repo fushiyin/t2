@@ -18,7 +18,7 @@ import { Autoplay, EffectFade, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { sectionClass } from "../Home";
 import CompetitiveEdges from "../Home/components/CompetitiveEdges";
-import Slide_Swiper from "./slide_swiper";
+import Slide_Swiper from "./Slide_Swiper";
 
 export default function SolutionAndProduct() {
 	const { t } = useTranslation();

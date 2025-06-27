@@ -13,7 +13,7 @@ import { useTranslation } from "react-i18next";
 import { useInView } from "react-intersection-observer";
 import Lottie from "react-lottie";
 import { useNavigate, useParams } from "react-router";
-import Slide_Swiper from "./slide_swiper";
+import Slide_Swiper from "./Slide_Swiper";
 
 const fadeUp = {
 	hidden: { opacity: 0, y: 20 },

@@ -17,4 +17,5 @@ export const idRouter = Object.freeze({
 	adminCareers: "careers",
 	adminContact: "contact",
 	adminSettings: "settings",
+	solutionDetail: "/solution/:id",
 });

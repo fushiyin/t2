@@ -53,7 +53,7 @@ const Challenges = () => {
 		<section className="w-full h-full px-4 bg-white mt-2 relative">
 			<div className="w-full h-full py-4 md:px-8 mx-auto max-w-[1440px] relative">
 				{/* Title */}
-				<div className="container mb-6 mt-4 w-full h-auto">
+				<div className="container mb-4 md:mb-16 mt-4 w-full h-auto">
 					<h2 className="text-[20px] md:text-5xl font-bold text-dark-gray font-sans leading-snug break-keep whitespace-normal break-words korean-text ">
 						{t("challenges.title")}
 					</h2>
@@ -204,9 +204,7 @@ const Challenges = () => {
 								</div>
 
 								{/* content */}
-								<div
-									className={`px-4 py-4 text-[14px] md:px-12 md:py-12 md:text-[20px] lg:px-12 lg:py-12`}
-								>
+								<div className="px-4 py-4 text-[14px] md:px-12 md:py-12 md:text-[20px] lg:px-12 lg:py-12">
 									{box.data.map((part, idx) => (
 										<span
 											key={idx}

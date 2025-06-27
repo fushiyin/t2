@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { idRouter } from "@/routes/idRouter";
 import { motion } from "framer-motion";
 import { ArrowRightIcon } from "lucide-react";
+import CustomCursor from "../Home/components/CustomeCursor/Cursor";
 
 const containerVariants = {
 	hidden: { opacity: 0, y: 30 },
@@ -23,40 +24,43 @@ const itemVariants = {
 
 export default function PageNotFound() {
 	return (
-		<motion.div
-			variants={containerVariants}
-			initial="hidden"
-			animate="visible"
-			className="flex flex-col items-center justify-center text-center px-4"
-		>
-			<motion.h2
-				variants={itemVariants}
-				className="text-4xl font-bold text-gray-800 mb-4"
+		<>
+			<CustomCursor />
+			<motion.div
+				variants={containerVariants}
+				initial="hidden"
+				animate="visible"
+				className="w-full h-screen flex flex-col items-center justify-center text-center px-4"
 			>
-				This page could not be found
-			</motion.h2>
-
-			<motion.p
-				variants={itemVariants}
-				className="text-lg text-gray-600 mb-6"
-			>
-				The page you are trying to access does not exist.
-			</motion.p>
-
-			<motion.div variants={itemVariants}>
-				<Button
-					asChild
-					size="lg"
-					className="rounded-md bg-draker-blue text-white hover:bg-dark-blue"
+				<motion.h2
+					variants={itemVariants}
+					className="text-4xl font-bold text-gray-800 mb-4"
 				>
-					<a
-						href={idRouter?.home}
-						className="flex items-center gap-2"
+					This page could not be found
+				</motion.h2>
+
+				<motion.p
+					variants={itemVariants}
+					className="text-lg text-gray-600 mb-6"
+				>
+					The page you are trying to access does not exist.
+				</motion.p>
+
+				<motion.div variants={itemVariants}>
+					<Button
+						asChild
+						size="lg"
+						className="rounded-md bg-draker-blue text-white hover:bg-dark-blue"
 					>
-						Back To Home <ArrowRightIcon className="h-4 w-4" />
-					</a>
-				</Button>
+						<a
+							href={idRouter?.home}
+							className="flex items-center gap-2"
+						>
+							Back To Home <ArrowRightIcon className="h-4 w-4" />
+						</a>
+					</Button>
+				</motion.div>
 			</motion.div>
-		</motion.div>
+		</>
 	);
 }

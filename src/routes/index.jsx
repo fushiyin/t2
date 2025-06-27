@@ -13,12 +13,13 @@ const Careers = React.lazy(() => import("@/views/Career"));
 const Services = React.lazy(() => import("@/views/ServicesPage"));
 const Blog = React.lazy(() => import("@/views/Blog"));
 const Solution = React.lazy(() => import("@/views/SolutionAndProduct"));
+const SolutionDetail = React.lazy(() => import("@/views/SolutionAndProduct/SolutionDetail"));
 const Login = React.lazy(() => import("@/views/Login"));
 const Dashboard = React.lazy(() => import("@/views/Admin/pages/Dashboard"));
 const Inbox = React.lazy(() => import("@/views/Admin/pages/Inbox"));
 const Calendar = React.lazy(() => import("@/views/Admin/pages/Calendar"));
 const CareersAdmin = React.lazy(() => import("@/views/Admin/pages/Careers"));
-const CareersDetail = React.lazy(() => import("@/views/Career/pages/CareersDetail"));
+const CareersDetail = React.lazy(() => import("@/views/Career/CareersDetail"));
 const Settings = React.lazy(() => import("@/views/Admin/pages/Settings"));
 
 const router = createBrowserRouter([
@@ -64,10 +65,14 @@ const router = createBrowserRouter([
 				element: <CareersDetail />,
 			},
 			{
-				path: "*",
-				element: <PageNotFound />,
+				path: idRouter.solutionDetail,
+				element: <SolutionDetail />,
 			},
 		],
+	},
+	{
+		path: "*",
+		element: <PageNotFound />,
 	},
 	{
 		path: idRouter.login,

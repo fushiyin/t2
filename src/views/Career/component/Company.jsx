@@ -3,7 +3,7 @@ import collaboration from "@/assets/career/collaboration.json";
 import learning from "@/assets/career/learning.json";
 import useResponsive from "@/hooks/useResponsive";
 import classNames from "classnames";
-import { Check } from "lucide-react";
+import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import Lottie from "react-lottie";
@@ -26,6 +26,14 @@ const defaultOptions = {
 	autoplay: true,
 	rendererSettings: {
 		preserveAspectRatio: "xMidYMid slice",
+	},
+};
+const fadeUp = {
+	hidden: { opacity: 0, y: 20 },
+	visible: {
+		opacity: 1,
+		y: 0,
+		transition: { duration: 0.5, ease: "easeOut" },
 	},
 };
 
@@ -101,6 +109,14 @@ const Company = () => {
 
 			<div className={classNames({ [contentClass]: contentClass })}>
 				<div className="flex flex-col items-center justify-center gap-8">
+					<motion.h1
+						className="w-full text-4xl md:text-5xl text-center text-dark-gray font-bold mb-4 font-sans break-keep whitespace-normal break-words"
+						initial="hidden"
+						animate="visible"
+						variants={fadeUp}
+					>
+						{t("careers.title_company")}
+					</motion.h1>
 					<div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-8 w-full">
 						{companys.map((company) => {
 							const isActive = activeCompany?.id === company.id;
@@ -153,10 +169,6 @@ const Company = () => {
 										<div className="w-full h-full absolute backface-hidden rotate-y-180 bg-gradient-to-br from-gray-900 via-gray-800 to-black rounded-lg shadow-lg p-8">
 											<div className="w-full h-full flex flex-col justify-center space-y-6">
 												<div className="flex items-center justify-center space-x-2 w-full">
-													<Check
-														className="text-white flex-shrink-0"
-														size={24}
-													/>
 													<p className="text-white leading-relaxed text-base break-words text-center w-full">
 														{company.desc}
 													</p>

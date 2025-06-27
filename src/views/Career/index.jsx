@@ -1,11 +1,13 @@
+import bg_banner from "@/assets/career/career_banner.jpg";
 import { Card, CardContent } from "@/components/ui/card";
 import { FORM_CV, FORM_CV_INTERPRETER, OPEN_POSITIONS } from "@/constant/career";
+import { smoothScrollTo } from "@/lib/utils";
+import { idRouter } from "@/routes/idRouter";
 import { motion } from "framer-motion";
-import { BookOpen, Layers, Users } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
-import { idRouter } from "@/routes/idRouter";
 import Company from "./component/Company";
+import { ArrowRight } from "lucide-react";
 
 const containerVariants = {
 	hidden: {},
@@ -28,31 +30,65 @@ const fadeUp = {
 export default function Careers() {
 	const { t } = useTranslation();
 	const navigate = useNavigate();
+
+	const scrollToSection = (sectionId) => {
+		const section = document.getElementById(sectionId);
+		if (section) {
+			const y = section.offsetTop;
+			smoothScrollTo(y - 60, 800);
+		}
+	};
 	return (
 		<>
-			<div className="flex flex-col items-center justify-center mx-auto mt-[64px]">
-				<div className="container py-12 max-w-[1440px] md:pl-6 md:pr-6 px-4 lg:px-6 xl:px-6">
-					<motion.h1
-						className="w-full text-4xl md:text-5xl text-center font-bold mb-4 font-sans break-keep whitespace-normal break-words"
-						initial="hidden"
-						animate="visible"
-						variants={fadeUp}
-					>
-						{t("careers.title")}
-					</motion.h1>
-
-					<motion.p
-						className="w-[90%] md:w-[80%] mx-auto text-center text-muted-foreground text-xl md:text-2xl mb-8 font-sans break-keep whitespace-normal break-words"
-						initial="hidden"
-						animate="visible"
-						variants={fadeUp}
-					>
-						{t("careers.description")}
-					</motion.p>
-
+			<div className="w-full flex flex-col gap-6 md:gap-10 items-center mt-[64px]">
+				<div className="w-full relative">
+					<img
+						src={bg_banner}
+						className="w-full h-[500px]  md:h-[700px]"
+					/>
+					<div className="absolute max-w-3xl mx-auto inset-0 flex flex-col items-center justify-center">
+						<motion.h1
+							className="w-full text-4xl md:text-5xl text-center text-white font-bold mb-4 font-sans break-keep whitespace-normal break-words"
+							initial="hidden"
+							animate="visible"
+							variants={fadeUp}
+							style={{ textShadow: "0 2px 8px rgba(0,0,0,0.7)", lineHeight: "1.2" }}
+						>
+							{t("careers.title")}
+						</motion.h1>
+						<motion.p
+							className="text-center text-white text-xl md:text-2xl mb-8 font-sans break-keep whitespace-normal break-words"
+							initial="hidden"
+							animate="visible"
+							variants={fadeUp}
+						>
+							{t("careers.description")}
+						</motion.p>
+						<div className="flex gap-4 mt-2">
+							<div className="flex flex-wrap justify-center gap-4 mt-2">
+								<button
+									className="w-[150px] flex text-center cursor-pointer justify-center hover:bg-white/80 hover:border-dark-gray hover:text-dark-gray border border-white items-center gap-2 px-4 py-2 rounded-4xl text-primary-foreground transition-colors text-lg font-medium font-sans break-keep whitespace-normal break-words"
+									onClick={() => scrollToSection("open-positions-list")}
+								>
+									{t("careers.job_list_button")}
+								</button>
+							</div>
+							<div className="flex flex-wrap justify-center gap-4 mt-2">
+								<button
+									className=" cursor-pointer inline-flex bg-primary border hover:bg-white/80 hover:text-dark-gray hover:border-primary border-white items-center gap-2 px-4 py-2 rounded-4xl text-primary-foreground transition-colors text-lg font-medium font-sans break-keep whitespace-normal break-words"
+									onClick={() => navigate("/contact")}
+								>
+									{t("careers.contact_button")}
+									<ArrowRight className="w-5 h-5" />
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div className="container max-w-[1440px] md:pl-6 md:pr-6 px-4 lg:px-6 xl:px-6">
 					<Company />
-
 					<motion.h2
+						id="open-positions-list"
 						className="text-3xl md:text-4xl text-dark-gray font-bold mb-6"
 						initial="hidden"
 						whileInView="visible"

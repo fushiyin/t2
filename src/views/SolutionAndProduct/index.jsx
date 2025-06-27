@@ -1,8 +1,4 @@
-import Development from "@/assets/solution_img/Development.png";
-import Maintenance from "@/assets/solution_img/Maintenance.png";
-import Requirement from "@/assets/solution_img/Requirement.jpg";
 import SO_Solution from "@/assets/solution_img/SO_Solution.png";
-import Training from "@/assets/solution_img/Training.png";
 import video_solution from "@/assets/video/Solution.mp4";
 import AnimatedSection from "@/components/AnimatedSection";
 import CTA from "@/components/sections/ContactCTA";
@@ -22,33 +18,7 @@ import { Autoplay, EffectFade, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { sectionClass } from "../Home";
 import CompetitiveEdges from "../Home/components/CompetitiveEdges";
-
-const SOLUTION_IMAGES = [
-	{
-		image: Requirement,
-		title: (t) => t("solution.implementation.requirement.title"),
-		description: (t) =>
-			t("solution.implementation.requirement.description", { returnObjects: true }),
-	},
-	{
-		image: Development,
-		title: (t) => t("solution.implementation.development.title"),
-		description: (t) =>
-			t("solution.implementation.development.description", { returnObjects: true }),
-	},
-	{
-		image: Training,
-		title: (t) => t("solution.implementation.deploy_training.title"),
-		description: (t) =>
-			t("solution.implementation.deploy_training.description", { returnObjects: true }),
-	},
-	{
-		image: Maintenance,
-		title: (t) => t("solution.implementation.maintenance.title"),
-		description: (t) =>
-			t("solution.implementation.maintenance.description", { returnObjects: true }),
-	},
-];
+import Slide_Swiper from "./Slide_Swiper";
 
 export default function SolutionAndProduct() {
 	const { t } = useTranslation();
@@ -60,10 +30,6 @@ export default function SolutionAndProduct() {
 	});
 
 	const { ref: ref1, inView: inView1 } = useInView({
-		threshold: 0.1,
-	});
-
-	const { ref: ref2, inView: inView2 } = useInView({
 		threshold: 0.1,
 	});
 
@@ -100,7 +66,7 @@ export default function SolutionAndProduct() {
 								: { opacity: 0, y: -20 }
 					}
 					transition={{ duration: 0.6 }}
-					className="relative mb-8 flex flex-col items-center justify-center text-center h-[300px] md:h-[500px] w-full"
+					className="relative mb-8 flex flex-col items-center justify-center text-center h-[500px] md:h-[700px] w-full"
 				>
 					{/* video */}
 					<motion.div
@@ -219,7 +185,11 @@ export default function SolutionAndProduct() {
 										<button
 											type="button"
 											className="hidden md:inline-flex cursor-pointer font-bold items-center gap-2 px-4 md:px-6 py-2 md:py-3 text-base text-heading-black hover:text-white bg-gradient-to-r from-pale-blue to-light-blue rounded-lg hover:bg-primary/90 w-fit duration-300 transform hover:scale-105 shadow-lg font-sans break-keep whitespace-normal break-words"
-											onClick={() => navigate(idRouter.contact)}
+											onClick={() =>
+												navigate(
+													`${idRouter.solutionDetail.replace(":id", product.id)}`,
+												)
+											}
 										>
 											{t("solution.product.so.learn_more")}
 											<ArrowRight className="w-3 h-3 md:w-4 md:h-4" />
@@ -231,130 +201,9 @@ export default function SolutionAndProduct() {
 					</Swiper>
 				</motion.div>
 			</motion.section>
-			<motion.section
-				ref={ref2}
-				className="w-full pt-4 pb-[73px] md:pb-28 bg-[#F8FAFC]"
-				initial={{ opacity: 0, y: 20 }}
-				animate={inView2 ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-				transition={{ duration: 0.6 }}
-			>
-				<motion.div
-					className="container max-w-[1440px] mx-auto"
-					initial={{ opacity: 0 }}
-					animate={inView2 ? { opacity: 1 } : { opacity: 0 }}
-					transition={{ duration: 0.6, delay: 0.2 }}
-				>
-					<div className="flex flex-col items-center justify-center gap-8 text-center mb-4 md:mb-8">
-						<div className="space-y-2">
-							<p className="max-w-[900px] text-[#0A33D1] font-bold text-xl md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed 2xl:text-2xl font-sans break-keep whitespace-normal break-words">
-								{t("solution.implementation.title")}
-							</p>
-							<h2 className="capitalize mx-auto w-[80%] md:w-full text-4xl font-bold tracking-tighter sm:text-5xl text-dark-gray font-sans break-keep whitespace-normal break-words leading-normal">
-								{t("solution.implementation.description")}
-							</h2>
-						</div>
 
-						<div className="w-full grid grid-cols-1 md:grid-cols-4">
-							{isMobile ? (
-								<Swiper
-									modules={[Navigation, Pagination, Autoplay]}
-									spaceBetween={20}
-									slidesPerView={1}
-									navigation={false}
-									pagination={{
-										clickable: true,
-										bulletClass: "swiper-pagination-bullet",
-										bulletActiveClass: "swiper-pagination-bullet-active",
-									}}
-									autoplay={{
-										delay: 3000,
-										disableOnInteraction: false,
-									}}
-									className="w-full h-[550px] pb-12 mx-auto"
-								>
-									{SOLUTION_IMAGES.map((item, idx) => (
-										<SwiperSlide key={idx}>
-											<div className="group relative overflow-hidden cursor-pointer h-full">
-												<img
-													src={item.image}
-													alt={item.title(t)}
-													className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-													draggable={false}
-												/>
-												{/* Overlay */}
-												<div className="absolute inset-0 bg-[#16224E9C] pointer-events-none" />
-												{/* Content */}
-												<div className="absolute inset-0 flex flex-col w-full h-full px-4 py-6 text-white z-10 items-start">
-													<div className="w-16 h-1 bg-light-blue mb-2"></div>
-													<div className="text-2xl font-semibold drop-shadow mb-2 w-full text-left font-sans break-keep whitespace-normal break-words capitalize">
-														{item.title(t)}
-													</div>
-													<div className="text-base drop-shadow w-full">
-														<ul className="list-disc list-outside pl-6 text-left">
-															{Object.values(item.description(t)).map(
-																(desc, i) => (
-																	<li
-																		className="font-sans break-keep whitespace-normal break-words leading-loose"
-																		key={i}
-																	>
-																		{desc}
-																	</li>
-																),
-															)}
-														</ul>
-													</div>
-												</div>
-											</div>
-										</SwiperSlide>
-									))}
-								</Swiper>
-							) : (
-								SOLUTION_IMAGES.map((item, idx) => (
-									<div
-										key={idx}
-										className="group relative aspect-[4/5] overflow-hidden cursor-pointer"
-									>
-										<img
-											src={item.image}
-											alt={item.title(t)}
-											className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-											draggable={false}
-										/>
-										{/* Overlay */}
-										<div className="absolute inset-0 bg-[#16224E9C] group-hover:bg-[#0730D0BD] transition-all duration-600 pointer-events-none" />
-										<div className="absolute inset-0 flex flex-col justify-end items-start w-full h-full px-4 py-6 text-white z-10 transition-all duration-600 ease-in-out group-hover:opacity-0 opacity-100 group-hover:translate-y-8 translate-y-0">
-											<div className="w-16 h-1 bg-light-blue group-hover:bg-white mb-2"></div>
-											<div className="text-2xl font-semibold drop-shadow mb-0 w-full transition-all duration-600 ease-in-out text-left font-sans break-keep whitespace-normal break-words capitalize">
-												{item.title(t)}
-											</div>
-										</div>
-										<div className="absolute inset-0 flex flex-col justify-start items-start w-full h-full px-4 py-6 text-white z-10 transition-all duration-600 ease-in-out opacity-0 group-hover:opacity-100 group-hover:translate-y-0 translate-y-8">
-											<div className="w-16 h-1 bg-light-blue group-hover:bg-white mb-2"></div>
-											<div className="text-2xl font-semibold drop-shadow mb-2 w-full transition-all duration-600 ease-in-out text-left font-sans break-keep whitespace-normal break-words">
-												{item.title(t)}
-											</div>
-											<div className="text-base drop-shadow w-full transition-all duration-600 ease-in-out opacity-0 group-hover:opacity-100 group-hover:translate-y-0 translate-y-4">
-												<ul className="list-disc list-outside pl-6 text-left">
-													{Object.values(item.description(t)).map(
-														(desc, i) => (
-															<li
-																className="font-sans break-keep whitespace-normal break-words leading-loose"
-																key={i}
-															>
-																{desc}
-															</li>
-														),
-													)}
-												</ul>
-											</div>
-										</div>
-									</div>
-								))
-							)}
-						</div>
-					</div>
-				</motion.div>
-			</motion.section>
+			<Slide_Swiper />
+
 			<motion.section
 				ref={ref3}
 				className="w-full bg-white h-0 relative justify-center flex shadow-lg z-30"
@@ -423,6 +272,7 @@ export default function SolutionAndProduct() {
 					)}
 				</motion.div>
 			</motion.section>
+
 			<motion.section
 				ref={ref4}
 				id={SECTIONS_KEY.COMPETITIVE_EDGE.id}

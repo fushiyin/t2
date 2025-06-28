@@ -67,7 +67,7 @@ const Challenges = () => {
 
 				<div className="relative hidden xl:flex flex-col items-center gap-y-[50px] min-h-[750px] max-w-[1440px] mx-auto">
 					{/* Top row */}
-					<div className="mt-0 md:mt-8 flex justify-between w-full px-[3%] relative">
+					<div className="mt-0 flex justify-between w-full px-[3%] relative">
 						<FloatingBox
 							order={1}
 							className="relative w-full lg:w-[500px] max-w-[480px]"

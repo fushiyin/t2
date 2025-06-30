@@ -68,7 +68,7 @@ const Blog = () => {
 	return (
 		<>
 			<div className="flex flex-col items-center justify-center mx-auto overflow-y-hidden mt-[64px]">
-				<div className="max-w-[1440px] mx-auto px-4 py-12 md:pl-6 md:pr-6 lg:px-6 xl:px-0 sm:w-full">
+				<div className="max-w-[1440px] mx-auto px-4 md:px-2 2xl:px-0 py-12 md:pl-6 md:pr-6 sm:w-full">
 					{/* Header và Search Input */}
 					<div className="mb-10 text-center flex flex-col items-center justify-center gap-6">
 						<h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-dark-gray">
@@ -129,9 +129,9 @@ const Blog = () => {
 											<motion.p className="text-sm text-muted-foreground">
 												{blog.description}
 											</motion.p>
-											<motion.span className="flex items-center gap-1 text-primary mt-2 cursor-pointer">
+											{/* <motion.span className="flex items-center gap-1 text-primary mt-2 cursor-pointer">
 												Read more <ArrowRightIcon className="h-4 w-4" />
-											</motion.span>
+											</motion.span> */}
 										</div>
 									</motion.div>
 								))}

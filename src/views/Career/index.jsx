@@ -44,9 +44,9 @@ export default function Careers() {
 				<div className="w-full relative">
 					<img
 						src={bg_banner}
-						className="w-full h-[500px]  md:h-[700px]"
+						className="w-full h-[600px]  md:h-[700px] object-cover"
 					/>
-					<div className="absolute max-w-3xl mx-auto inset-0 flex flex-col items-center justify-center">
+					<div className="absolute max-w-5xl mx-auto inset-0 flex flex-col items-center justify-center">
 						<motion.h1
 							className="w-full text-4xl md:text-5xl text-center text-white font-bold mb-4 font-sans break-keep whitespace-normal break-words"
 							initial="hidden"
@@ -57,14 +57,14 @@ export default function Careers() {
 							{t("careers.title")}
 						</motion.h1>
 						<motion.p
-							className="text-center text-white text-xl md:text-2xl mb-8 font-sans break-keep whitespace-normal break-words"
+							className="text-center text-white text-xl md:text-2xl mb-4 font-sans break-keep whitespace-normal break-words"
 							initial="hidden"
 							animate="visible"
 							variants={fadeUp}
 						>
 							{t("careers.description")}
 						</motion.p>
-						<div className="flex gap-4 mt-2">
+						<div className="flex gap-4">
 							<div className="flex flex-wrap justify-center gap-4 mt-2">
 								<button
 									className="w-[150px] flex text-center cursor-pointer justify-center hover:bg-white/80 hover:border-dark-gray hover:text-dark-gray border border-white items-center gap-2 px-4 py-2 rounded-4xl text-primary-foreground transition-colors text-lg font-medium font-sans break-keep whitespace-normal break-words"
@@ -85,7 +85,7 @@ export default function Careers() {
 						</div>
 					</div>
 				</div>
-				<div className="container max-w-[1440px] md:pl-6 md:pr-6 px-4 lg:px-6 xl:px-6">
+				<div className="container max-w-[1440px] md:pl-6 md:pr-6 px-2 2xl:px-0">
 					<Company />
 					<motion.h2
 						id="open-positions-list"

@@ -49,9 +49,9 @@ const Slide_Swiper = ({ details }) => {
 			}
 		>
 			<div className="container max-w-[1440px] mx-auto">
-				<div className="w-full md:w-[60%] mb-4 md:mb-16 mt-4 h-auto flex flex-col text-center md:text-left items-center md:items-start mx-auto">
+				<div className="w-full md:w-[60%] mb-4 md:mb-16 mt-4 h-auto flex flex-col text-center md:text-left items-center mx-auto">
 					<div className="space-y-2">
-						<p className="max-w-[900px] text-light-blue font-bold text-xl md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed 2xl:text-2xl font-sans break-keep whitespace-normal break-words">
+						<p className="max-w-[900px] text-center text-light-blue font-bold text-xl md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed 2xl:text-2xl font-sans break-keep whitespace-normal break-words">
 							{t("solution.implementation.title")}
 						</p>
 						<h2

@@ -45,7 +45,7 @@ export default function SolutionAndProduct() {
 
 	const products = [
 		{
-			id: 1,
+			id: "Smart_Office",
 			name: t("solution.product.so.title"),
 			description: t("solution.product.so.description"),
 			image: SO_Solution,
@@ -212,7 +212,7 @@ export default function SolutionAndProduct() {
 				transition={{ duration: 0.6 }}
 			>
 				<motion.div
-					className="container max-w-[1440px] mx-auto absolute md:rounded-3xl top-[-90px]"
+					className="container max-w-[1440px] w-full md:w-[95%] mx-auto absolute md:rounded-3xl top-[-90px]"
 					style={{
 						background: "linear-gradient(90deg, #1A3087 0%, #2D54ED 100%)",
 					}}

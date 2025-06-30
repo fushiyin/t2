@@ -62,7 +62,7 @@ const CompetitiveEdges = ({ isSolution }) => {
 	const [hoveredIndex, setHoveredIndex] = useState(null);
 	const { t } = useTranslation();
 	const { isDesktop, isTablet, isMobile, is2xl, isXl, isLg } = useResponsive();
-	const contentClass = "container h-full px-4 py-16 md:px-0 max-w-[1440px]";
+	const contentClass = "container h-full px-4 py-16 md:px-2 max-w-[1440px]";
 	const ref = useRef(null);
 	const isInView = useInView(ref, { once: true, margin: "-50px" });
 	const classNames_icon =

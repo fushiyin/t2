@@ -33,7 +33,7 @@ export default function SolutionAndProduct() {
 		threshold: 0.1,
 	});
 
-	const { ref: ref3, inView: inView3 } = useInView({
+	const { ref: ref3 } = useInView({
 		threshold: 0.1,
 	});
 
@@ -204,39 +204,33 @@ export default function SolutionAndProduct() {
 
 			<Slide_Swiper />
 
-			<motion.section
+			<section
 				ref={ref3}
 				className="w-full bg-white h-0 relative justify-center flex shadow-lg z-30"
-				initial={{ opacity: 0, y: 20 }}
-				animate={inView3 ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-				transition={{ duration: 0.6 }}
 			>
-				<motion.div
+				<div
 					className="container max-w-[1440px] w-full md:w-[95%] mx-auto absolute md:rounded-3xl top-[-90px]"
 					style={{
 						background: "linear-gradient(90deg, #1A3087 0%, #2D54ED 100%)",
 					}}
-					initial={{ opacity: 0 }}
-					animate={inView3 ? { opacity: 1 } : { opacity: 0 }}
-					transition={{ duration: 0.6, delay: 0.2 }}
 				>
 					<div className="w-full h-auto md:h-[200px] flex flex-col justify-center p-6 gap-4 md:gap-0">
 						<h2
-							className="w-full md:w-[60%] md:px-4 md:pb-4 text-xl md:text-2xl lg:text-3xl font-bold tracking-tight font-sans break-keep whitespace-normal break-words text-white"
+							className="w-full md:w-[60%] md:px-4 md:pb-4 text-xl md:text-2xl lg:text-3xl font-bold tracking-tight font-sans break-keep whitespace-normal break-words text-white korean-text"
 							style={{ textShadow: "0 2px 8px rgba(0,0,0,0.7)" }}
 						>
-							{t("solution.suggest.title")}{" "}
+							{t("solution.so.contact.title")}
 						</h2>
 						<p
-							className="w-full md:w-[40%] md:px-4 text-base tracking-tighter font-sans break-keep whitespace-normal break-words text-white"
+							className="w-full md:w-[40%] md:px-4 text-base tracking-tighter font-sans break-keep whitespace-normal break-words text-white korean-text"
 							style={{ textShadow: "0 2px 8px rgba(0,0,0,0.7)" }}
 						>
-							{t("solution.suggest.description")}
+							{t("solution.so.contact.desc")}
 						</p>
 						{isMobile && (
 							<button
 								type="button"
-								className="cursor-pointer font-bold items-center gap-2 px-4 md:px-6 py-2 md:py-3 text-base text-white bg-primary/90 rounded-lg hover:bg-[#1E399F] w-fit duration-300 transform hover:scale-105 shadow-lg"
+								className="cursor-pointer font-bold items-center gap-2 px-4 md:px-6 py-2 md:py-3 text-base text-white bg-primary/90 rounded-lg hover:bg-[#1E399F] w-fit duration-300 transform hover:scale-105 shadow-lg korean-text"
 							>
 								<a
 									href={idRouter?.contact}
@@ -245,7 +239,7 @@ export default function SolutionAndProduct() {
 										console.log(idRouter?.contact);
 									}}
 								>
-									{t("solution.suggest.btn")}
+									{t("solution.so.contact.btn")}
 									<ArrowRightIcon className="h-6 w-6 sm:h-5 sm:w-5 md:h-6 md:w-6" />
 								</a>
 							</button>
@@ -255,7 +249,7 @@ export default function SolutionAndProduct() {
 						<div className="flex justify-center absolute right-[5%] top-[40%]">
 							<button
 								type="button"
-								className="hidden md:inline-flex cursor-pointer font-bold items-center gap-2 px-4 md:px-6 py-2 md:py-3 text-base text-white bg-primary/90 rounded-lg hover:bg-[#1E399F] w-fit duration-300 transform hover:scale-105 shadow-lg"
+								className="hidden md:inline-flex cursor-pointer font-bold items-center gap-2 px-4 md:px-6 py-2 md:py-3 text-base text-white bg-primary/90 rounded-lg hover:bg-[#1E399F] w-fit duration-300 transform hover:scale-105 shadow-lg korean-text"
 							>
 								<a
 									href={idRouter?.contact}
@@ -264,14 +258,14 @@ export default function SolutionAndProduct() {
 										console.log(idRouter?.contact);
 									}}
 								>
-									{t("solution.suggest.btn")}
+									{t("solution.so.contact.btn")}
 									<ArrowRightIcon className="h-6 w-6 sm:h-5 sm:w-5 md:h-6 md:w-6" />
 								</a>
 							</button>
 						</div>
 					)}
-				</motion.div>
-			</motion.section>
+				</div>
+			</section>
 
 			<motion.section
 				ref={ref4}

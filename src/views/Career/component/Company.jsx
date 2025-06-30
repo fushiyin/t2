@@ -47,7 +47,7 @@ const Company = () => {
 	const [isHovered, setIsHovered] = useState(false);
 	const { isDesktop, isTablet, isMobile, is2xl, isXl, isLg } = useResponsive();
 
-	const contentClass = "container h-full px-4 py-6 md:py-8 md:px-6 max-w-[1440px]";
+	const contentClass = "container h-full px-4 py-6 md:py-8 md:px-0 max-w-[1440px]";
 	const companys = [
 		{
 			id: 0,

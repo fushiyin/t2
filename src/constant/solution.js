@@ -1,23 +1,22 @@
-import i18n from "i18next";
 import intro_1 from "@/assets/solution_img/intro_1.json";
 import intro_2 from "@/assets/solution_img/intro_2.json";
 import intro_3 from "@/assets/solution_img/intro_3.json";
-import item_1_icon from "@/assets/solution_img/tab_item_1_icon.json";
-import item_2_icon from "@/assets/solution_img/tab_item_2_icon.json";
-import item_3_icon from "@/assets/solution_img/tab_item_3_icon.json";
-import reservation_1 from "@/assets/solution_img/so_reservation_1.png";
-import reservation_2 from "@/assets/solution_img/so_reservation_2.png";
-import reservation_3 from "@/assets/solution_img/so_reservation_3.png";
 import item_2_1 from "@/assets/solution_img/item_2_1.png";
 import item_2_2 from "@/assets/solution_img/item_2_2.png";
 import item_2_3 from "@/assets/solution_img/item_2_3.png";
 import item_3_1 from "@/assets/solution_img/item_3_1.png";
 import item_3_2 from "@/assets/solution_img/item_3_2.png";
 import item_3_3 from "@/assets/solution_img/item_3_3.png";
+import reservation_1 from "@/assets/solution_img/so_reservation_1.png";
+import reservation_2 from "@/assets/solution_img/so_reservation_2.png";
+import reservation_3 from "@/assets/solution_img/so_reservation_3.png";
+import item_1_icon from "@/assets/solution_img/tab_item_1_icon.json";
+import item_2_icon from "@/assets/solution_img/tab_item_2_icon.json";
+import i18n from "i18next";
 
 export const SOLUTION_DETAILS = [
 	{
-		id: 1,
+		id: "Smart_Office",
 		banner: i18n.t("solution.so.banner.header"),
 		title: i18n.t("solution.so.banner.title", { returnObjects: true }),
 		description: i18n.t("solution.so.banner.desc"),
@@ -45,8 +44,7 @@ export const SOLUTION_DETAILS = [
 			desc: i18n.t("solution.so.officeIntro.desc"),
 		},
 		video: {
-			title_1: i18n.t("solution.so.video.title_1", { returnObjects: true }),
-			title_2: i18n.t("solution.so.video.title_2", { returnObjects: true }),
+			title: i18n.t("solution.so.video.title", { returnObjects: true }),
 		},
 		menu_sub: {
 			header: {
@@ -112,12 +110,12 @@ export const SOLUTION_DETAILS = [
 					1: {
 						title: i18n.t("solution.so.tab.3.item.1.title"),
 						desc: i18n.t("solution.so.tab.3.item.1.desc"),
-						icon: item_3_icon,
+						icon: item_1_icon,
 					},
 					2: {
 						title: i18n.t("solution.so.tab.3.item.2.title"),
 						desc: i18n.t("solution.so.tab.3.item.2.desc"),
-						icon: item_3_icon,
+						icon: item_1_icon,
 					},
 				},
 				img_1: item_3_1,
@@ -130,22 +128,22 @@ export const SOLUTION_DETAILS = [
 					1: {
 						title: i18n.t("solution.so.tab.4.item.1.title"),
 						desc: i18n.t("solution.so.tab.4.item.1.desc"),
-						icon: item_1_icon,
+						icon: item_2_icon,
 					},
 					2: {
 						title: i18n.t("solution.so.tab.4.item.2.title"),
 						desc: i18n.t("solution.so.tab.4.item.2.desc"),
-						icon: item_1_icon,
+						icon: item_2_icon,
 					},
 					3: {
 						title: i18n.t("solution.so.tab.4.item.3.title"),
 						desc: i18n.t("solution.so.tab.4.item.3.desc"),
-						icon: item_1_icon,
+						icon: item_2_icon,
 					},
 					4: {
 						title: i18n.t("solution.so.tab.4.item.4.title"),
 						desc: i18n.t("solution.so.tab.4.item.4.desc"),
-						icon: item_1_icon,
+						icon: item_2_icon,
 					},
 				},
 				img_1: reservation_1,

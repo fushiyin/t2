@@ -36,8 +36,6 @@ const Header = () => {
 	const [isScrolled, setIsScrolled] = useState(false);
 	const isHome = location.pathname === "/" ? true : false;
 
-	console.log("location", location);
-
 	const { isMobile } = useResponsive();
 	const LANGUAGE = [
 		{

@@ -100,7 +100,7 @@ const Footer = () => {
 							to="/"
 							className="text-foreground font-bold text-2xl"
 						>
-							T2Soft
+							T2 Soft
 						</Link>
 						<p className="text-foreground/80 text-sm xl:text-left">{t("slogan")}</p>
 						<div className="flex space-x-3">
@@ -179,7 +179,7 @@ const Footer = () => {
 
 				<div className="w-full mt-6 p-4 border-t border-gray-100 text-center">
 					<p className="text-foreground/60 text-sm">
-						© {currentYear} T2soft. All rights reserved.
+						© {currentYear} T2 Soft. All rights reserved.
 					</p>
 				</div>
 			</div>

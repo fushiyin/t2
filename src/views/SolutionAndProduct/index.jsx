@@ -176,15 +176,15 @@ export default function SolutionAndProduct() {
 												{t("solution.product.so.kick_start")}
 											</h3>
 										</div>
-										<h3 className="text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold mb-4 md:mb-2 text-[#000] group-hover:text-primary transition-colors font-sans break-keep whitespace-normal break-words">
+										<h3 className="text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold text-[#000] group-hover:text-primary transition-colors font-sans break-keep whitespace-normal break-words">
 											{product.name}
 										</h3>
-										<p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-4 md:mb-2 font-sans break-keep whitespace-normal break-words w-full md:w-[90%] ">
+										<p className="text-base sm:text-lg md:text-xl md:mb-4 text-muted-foreground font-sans break-keep whitespace-normal break-words w-full md:w-[90%] ">
 											{product.description}
 										</p>
 										<button
 											type="button"
-											className="hidden md:inline-flex cursor-pointer font-bold items-center gap-2 px-4 md:px-6 py-2 md:py-3 text-base text-heading-black hover:text-white bg-gradient-to-r from-pale-blue to-light-blue rounded-lg hover:bg-primary/90 w-fit duration-300 transform hover:scale-105 shadow-lg font-sans break-keep whitespace-normal break-words"
+											className="inline-flex cursor-pointer font-bold items-center gap-2 px-6 md:px-6 py-2 md:py-3 text-base text-heading-black hover:text-white bg-gradient-to-r from-pale-blue to-light-blue rounded-lg hover:bg-primary/90 w-fit duration-300 transform hover:scale-105 shadow-lg font-sans break-keep whitespace-normal break-words"
 											onClick={() =>
 												navigate(
 													`${idRouter.solutionDetail.replace(":id", product.id)}`,

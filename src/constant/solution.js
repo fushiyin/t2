@@ -128,22 +128,22 @@ export const SOLUTION_DETAILS = [
 					1: {
 						title: i18n.t("solution.so.tab.4.item.1.title"),
 						desc: i18n.t("solution.so.tab.4.item.1.desc"),
-						icon: item_1_icon,
+						icon: item_2_icon,
 					},
 					2: {
 						title: i18n.t("solution.so.tab.4.item.2.title"),
 						desc: i18n.t("solution.so.tab.4.item.2.desc"),
-						icon: item_1_icon,
+						icon: item_2_icon,
 					},
 					3: {
 						title: i18n.t("solution.so.tab.4.item.3.title"),
 						desc: i18n.t("solution.so.tab.4.item.3.desc"),
-						icon: item_1_icon,
+						icon: item_2_icon,
 					},
 					4: {
 						title: i18n.t("solution.so.tab.4.item.4.title"),
 						desc: i18n.t("solution.so.tab.4.item.4.desc"),
-						icon: item_1_icon,
+						icon: item_2_icon,
 					},
 				},
 				img_1: reservation_1,

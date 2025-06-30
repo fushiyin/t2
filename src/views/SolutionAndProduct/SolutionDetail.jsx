@@ -78,7 +78,7 @@ const SolutionDetail = () => {
 			>
 				<img
 					src={bg_banner}
-					className={`w-full h-[500px] md:h-[800px] ${isMobile ? " flex justify-center" : ""}`}
+					className={`w-full h-[500px] md:h-[800px] ${isMobile ? "object-cover flex justify-center" : ""}`}
 				/>
 				{/* overlay */}
 				{/* <div className="absolute inset-0 bg-dark-blue/50" /> */}
@@ -588,8 +588,8 @@ const SolutionDetail = () => {
 																			"xMidYMid slice",
 																	},
 																}}
-																width={isMobile ? 80 : 100}
-																height={isMobile ? 80 : 100}
+																width={isMobile ? 48 : 64}
+																height={isMobile ? 48 : 64}
 															/>
 														</div>
 														<div>

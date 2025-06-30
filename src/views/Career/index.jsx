@@ -44,7 +44,7 @@ export default function Careers() {
 				<div className="w-full relative">
 					<img
 						src={bg_banner}
-						className="w-full h-[600px]  md:h-[700px] object-cover"
+						className="w-full h-[600px] md:h-[700px] object-cover"
 					/>
 					<div className="absolute max-w-5xl mx-auto inset-0 flex flex-col items-center justify-center">
 						<motion.h1

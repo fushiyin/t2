@@ -81,7 +81,10 @@ export default function AboutPage() {
 					<div className="relative z-10 flex flex-col justify-center items-center h-full max-w-3xl mx-auto text-center space-y-3">
 						<h2
 							className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight font-sans break-keep whitespace-normal break-words text-white"
-							style={{ textShadow: "0 2px 8px rgba(0,0,0,0.7)" }}
+							style={{
+								textShadow:
+									"0 2px 8px rgba(0,0,0,0.9), 0 0px 2px rgba(0,0,0,0.8), 0 4px 16px rgba(0,0,0,0.7)",
+							}}
 						>
 							{t("about.title")}
 						</h2>

@@ -95,7 +95,7 @@ export default function SolutionAndProduct() {
 					{/* Content */}
 					<div className="relative z-10 flex flex-col justify-center items-center h-full max-w-3xl mx-auto text-center space-y-3">
 						<motion.h2
-							className="leading-relaxed px-8 md:pb-4 text-4xl md:text-5xl lg:text-5xl font-bold tracking-tight font-sans break-keep whitespace-normal break-words text-white "
+							className="leading-relaxed px-8 md:pb-4 text-4xl md:text-5xl lg:text-5xl font-bold tracking-tight font-sans break-keep whitespace-normal break-words text-white"
 							style={{ textShadow: "0 2px 8px rgba(0,0,0,0.7)", lineHeight: "1.2" }}
 							dangerouslySetInnerHTML={{ __html: t("solution.video.title") }}
 						/>
@@ -172,19 +172,19 @@ export default function SolutionAndProduct() {
 												<div className="w-8 h-4 bg-gradient-to-r from-pale-blue to-light-blue transform -skew-x-[30deg]"></div>
 												<div className="w-8 h-4 bg-gradient-to-r from-pale-blue to-light-blue transform -skew-x-[30deg]"></div>
 											</div>
-											<h3 className="text-lg font-semibold font-sans break-keep whitespace-normal break-words">
+											<h3 className="text-lg font-semibold font-sans break-keep whitespace-normal break-words korean-text">
 												{t("solution.product.so.kick_start")}
 											</h3>
 										</div>
-										<h3 className="text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold text-[#000] group-hover:text-primary transition-colors font-sans break-keep whitespace-normal break-words">
+										<h3 className="text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold text-[#000] group-hover:text-primary transition-colors font-sans break-keep whitespace-normal break-words korean-text">
 											{product.name}
 										</h3>
-										<p className="text-base sm:text-lg md:text-xl md:mb-4 text-muted-foreground font-sans break-keep whitespace-normal break-words w-full md:w-[90%] ">
+										<p className="text-base sm:text-lg md:text-xl md:mb-4 text-muted-foreground font-sans break-keep whitespace-normal break-words w-full md:w-[90%] korean-text ">
 											{product.description}
 										</p>
 										<button
 											type="button"
-											className="inline-flex cursor-pointer font-bold items-center gap-2 px-6 md:px-6 py-2 md:py-3 text-base text-heading-black hover:text-white bg-gradient-to-r from-pale-blue to-light-blue rounded-lg hover:bg-primary/90 w-fit duration-300 transform hover:scale-105 shadow-lg font-sans break-keep whitespace-normal break-words"
+											className="inline-flex korean-text cursor-pointer font-bold items-center gap-2 px-6 md:px-6 py-2 md:py-3 text-base text-heading-black hover:text-white bg-gradient-to-r from-pale-blue to-light-blue rounded-lg hover:bg-primary/90 w-fit duration-300 transform hover:scale-105 shadow-lg font-sans break-keep whitespace-normal break-words"
 											onClick={() =>
 												navigate(
 													`${idRouter.solutionDetail.replace(":id", product.id)}`,
@@ -217,7 +217,10 @@ export default function SolutionAndProduct() {
 					<div className="w-full h-auto md:h-[200px] flex flex-col justify-center p-6 gap-4 md:gap-0">
 						<h2
 							className="w-full md:w-[60%] md:px-4 md:pb-4 text-xl md:text-2xl lg:text-3xl font-bold tracking-tight font-sans break-keep whitespace-normal break-words text-white korean-text"
-							style={{ textShadow: "0 2px 8px rgba(0,0,0,0.7)" }}
+							style={{
+								textShadow:
+									"0 2px 8px rgba(0,0,0,0.9), 0 0px 2px rgba(0,0,0,0.8), 0 4px 16px rgba(0,0,0,0.7)",
+							}}
 						>
 							{t("solution.so.contact.title")}
 						</h2>
@@ -230,7 +233,7 @@ export default function SolutionAndProduct() {
 						{isMobile && (
 							<button
 								type="button"
-								className="cursor-pointer font-bold items-center gap-2 px-4 md:px-6 py-2 md:py-3 text-base text-white bg-primary/90 rounded-lg hover:bg-[#1E399F] w-fit duration-300 transform hover:scale-105 shadow-lg korean-text"
+								className="cursor-pointer font-bold korean-text items-center gap-2 px-4 md:px-6 py-2 md:py-3 text-base text-white bg-primary/90 rounded-lg hover:bg-[#1E399F] w-fit duration-300 transform hover:scale-105 shadow-lg korean-text"
 							>
 								<a
 									href={idRouter?.contact}
@@ -249,7 +252,7 @@ export default function SolutionAndProduct() {
 						<div className="flex justify-center absolute right-[5%] top-[40%]">
 							<button
 								type="button"
-								className="hidden md:inline-flex cursor-pointer font-bold items-center gap-2 px-4 md:px-6 py-2 md:py-3 text-base text-white bg-primary/90 rounded-lg hover:bg-[#1E399F] w-fit duration-300 transform hover:scale-105 shadow-lg korean-text"
+								className="hidden korean-text md:inline-flex cursor-pointer font-bold items-center gap-2 px-4 md:px-6 py-2 md:py-3 text-base text-white bg-primary/90 rounded-lg hover:bg-[#1E399F] w-fit duration-300 transform hover:scale-105 shadow-lg korean-text"
 							>
 								<a
 									href={idRouter?.contact}

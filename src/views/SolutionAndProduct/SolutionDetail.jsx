@@ -85,7 +85,7 @@ const SolutionDetail = () => {
 
 				<div className="absolute max-w-[1440px] mx-auto px-2 md:px-6 inset-0 flex gap-4 flex-col items-center md:items-start justify-center">
 					<motion.p
-						className={`text-xl text-white ${isMobile ? "" : ""}`}
+						className={`text-xl text-white korean-text ${isMobile ? "" : ""}`}
 						initial="hidden"
 						animate={bannerInView ? "visible" : "hidden"}
 						variants={fadeUp}
@@ -98,7 +98,7 @@ const SolutionDetail = () => {
 					</motion.p>
 
 					<motion.p
-						className={`text-center md:text-left  leading-relaxed font-sans break-keep whitespace-normal break-words ${isMobile ? "w-full" : "w-[55%]"}`}
+						className={`text-center md:text-left leading-relaxed font-sans break-keep whitespace-normal break-words ${isMobile ? "w-full" : "w-[55%]"}`}
 						initial="hidden"
 						animate={bannerInView ? "visible" : "hidden"}
 						variants={fadeUp}
@@ -107,7 +107,7 @@ const SolutionDetail = () => {
 						{solution.title?.map((part, idx) => (
 							<span
 								key={idx}
-								className={`text-3xl md:text-5xl text-center md:text-start font-bold inline font-sans break-keep whitespace-normal break-words ${part.className}`}
+								className={`text-3xl md:text-5xl text-center md:text-start font-bold inline font-sans break-keep whitespace-normal korean-text break-words ${part.className}`}
 								style={{
 									textShadow:
 										"0 2px 8px rgba(0,0,0,0.9), 0 0px 2px rgba(0,0,0,0.8), 0 4px 16px rgba(0,0,0,0.7)",
@@ -119,7 +119,7 @@ const SolutionDetail = () => {
 					</motion.p>
 
 					<motion.p
-						className=" text-center md:text-left w-full md:w-[50%] text-white text-base md:text-xl font-sans break-keep whitespace-normal break-words"
+						className=" text-center md:text-left w-full md:w-[50%] text-white text-base md:text-xl font-sans break-keep whitespace-normal break-words korean-text"
 						initial="hidden"
 						animate={bannerInView ? "visible" : "hidden"}
 						variants={fadeUp}
@@ -133,7 +133,7 @@ const SolutionDetail = () => {
 					</motion.p>
 					<motion.button
 						type="button"
-						className="hidden md:inline-flex cursor-pointer font-bold items-center gap-2 px-4 md:px-6 py-2 md:py-3 text-base text-heading-black hover:text-white bg-gradient-to-r from-pale-blue to-light-blue rounded-lg hover:bg-primary/90 w-fit duration-300 transform hover:scale-105 shadow-lg font-sans break-keep whitespace-normal break-words"
+						className="inline-flex korean-text cursor-pointer font-bold items-center gap-2 px-4 md:px-6 py-2 md:py-3 text-base text-heading-black hover:text-white bg-gradient-to-r from-pale-blue to-light-blue rounded-lg hover:bg-primary/90 w-fit duration-300 transform hover:scale-105 shadow-lg font-sans break-keep whitespace-normal break-words"
 						onClick={() => navigate(idRouter.contact)}
 						initial="hidden"
 						animate={bannerInView ? "visible" : "hidden"}
@@ -202,7 +202,7 @@ const SolutionDetail = () => {
 					animate={boxIntroInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }}
 					transition={{ duration: 0.6, delay: 0.3 }}
 				>
-					<h2 className="text-3xl md:text-5xl font-bold text-dark-gray leading-snug font-sans break-keep whitespace-normal break-words mb-1">
+					<h2 className="text-3xl md:text-5xl font-bold text-dark-gray leading-snug font-sans break-keep whitespace-normal break-words mb-1 korean-text">
 						{solution.officeIntro.title_1}
 					</h2>
 					<h2 className="text-3xl mb-4 md:text-5xl font-bold text-dark-gray leading-snug font-sans break-keep whitespace-normal break-words korean-text">
@@ -242,13 +242,13 @@ const SolutionDetail = () => {
 					{/* Content */}
 					<div className="relative z-10 flex flex-col justify-center items-center h-full  mx-auto text-center space-y-3">
 						<h2
-							className="px-4 text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight font-sans break-keep whitespace-normal break-words text-white"
+							className="px-4 text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight font-sans break-keep whitespace-normal break-words text-white korean-text"
 							style={{ textShadow: "0 2px 8px rgba(0,0,0,0.7)" }}
 						>
 							{solution.video.title?.map((part, idx) => (
 								<span
 									key={idx}
-									className={`text-3xl md:text-5xl font-bold block md:inline font-sans break-keep whitespace-normal break-words leading-normal ${part.className}`}
+									className={`text-3xl md:text-5xl font-bold block md:inline font-sans break-keep whitespace-normal break-words leading-normal korean-text ${part.className}`}
 									dangerouslySetInnerHTML={{ __html: part.text }}
 								/>
 							))}
@@ -392,7 +392,7 @@ const SolutionDetail = () => {
 							<div className="bg-white py-4 px-4 md:px-6">
 								<div className="w-full mb-4 md:mb-16 mt-4 h-auto flex flex-col md:items-left justify-center">
 									<h2
-										className="mb-4 md:mb-6 text-2xl md:text-5xl font-bold text-center md:text-left text-dark-gray leading-snug font-sans break-keep whitespace-normal break-words"
+										className="mb-4 md:mb-6 text-2xl md:text-5xl font-bold text-center md:text-left text-dark-gray leading-snug font-sans break-keep whitespace-normal break-words korean-text"
 										dangerouslySetInnerHTML={{
 											__html: solution.menu_sub[2].title,
 										}}
@@ -474,7 +474,7 @@ const SolutionDetail = () => {
 							<div className="bg-white py-4 px-4 md:px-6">
 								<div className="w-full mb-4 md:mb-16 mt-4 h-auto flex flex-col md:items-left justify-center">
 									<h2
-										className="mb-4 md:mb-6 text-2xl text-center md:text-left md:text-5xl font-bold text-dark-gray leading-snug font-sans break-keep whitespace-normal break-words"
+										className="mb-4 md:mb-6 text-2xl text-center md:text-left md:text-5xl font-bold text-dark-gray leading-snug font-sans break-keep whitespace-normal break-words korean-text"
 										dangerouslySetInnerHTML={{
 											__html: solution.menu_sub[3].title,
 										}}
@@ -513,10 +513,10 @@ const SolutionDetail = () => {
 															/>
 														</div>
 														<div>
-															<h3 className="text-xl md:text-2xl font-bold mb-2 korean-text ">
+															<h3 className="text-xl md:text-2xl font-bold mb-2 korean-text">
 																{item.title}
 															</h3>
-															<p className="text-base md:text-xl text-gray-600 korean-text w-full md:w-[60%]">
+															<p className="text-base md:text-xl text-gray-600 korean-text w-full md:w-[70%]">
 																{item.desc}
 															</p>
 														</div>
@@ -535,10 +535,10 @@ const SolutionDetail = () => {
 												className="object-contain shadow-lg "
 												src={solution.menu_sub[3].img_2}
 											/>
-											<img
+											{/* <img
 												className="object-contain shadow-lg "
 												src={solution.menu_sub[3].img_3}
-											/>
+											/> */}
 										</div>
 									</div>
 								</div>
@@ -554,7 +554,7 @@ const SolutionDetail = () => {
 							<div className="bg-white py-4 px-4 md:px-6">
 								<div className="w-full mb-4 md:mb-16 mt-4 h-auto flex flex-col md:items-left justify-center">
 									<h2
-										className="mb-4 md:mb-6 text-2xl md:text-5xl text-center md:text-left font-bold text-dark-gray leading-snug font-sans break-keep whitespace-normal break-words"
+										className="mb-4 md:mb-6 text-2xl md:text-5xl text-center md:text-left font-bold text-dark-gray leading-snug font-sans break-keep whitespace-normal break-words korean-text"
 										dangerouslySetInnerHTML={{
 											__html: solution.menu_sub[1].title,
 										}}

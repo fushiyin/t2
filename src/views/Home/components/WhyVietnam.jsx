@@ -125,9 +125,8 @@ export default function WhyVietnam() {
 								<span
 									key={idx}
 									className={part.className}
-								>
-									{part.text}
-								</span>
+									dangerouslySetInnerHTML={{ __html: part.text }}
+								></span>
 							))}
 						</p>
 					</div>

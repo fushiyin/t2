@@ -49,24 +49,21 @@ const VisionJourney = () => {
 			title: t("vision.title"),
 			backgroundColor: "#090f33",
 			image: planet1,
-			des_1: t("vision.des_1"),
-			des_2: t("vision.des_2"),
+			des: t("vision.des"),
 		},
 		{
 			id: "mission",
 			title: t("mission.title"),
 			backgroundColor: "#090f33",
 			image: planet2,
-			des_1: t("mission.des_1"),
-			des_2: t("mission.des_2"),
+			des: t("mission.des"),
 		},
 		{
 			id: "values",
 			title: t("values.title"),
 			image: planet3,
 			backgroundColor: "#b95a00",
-			des_1: t("values.des_1"),
-			des_2: t("values.des_2"),
+			des: t("values.des"),
 		},
 	];
 
@@ -174,11 +171,9 @@ const VisionJourney = () => {
 				</motion.div>
 				<motion.div
 					variants={itemVariants}
-					className="max-w-[1100px] text-white md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed transition-all duration-500 px-5 mt-5 font-sans break-keep whitespace-normal break-words"
-				>
-					<p>{slides[activeIndex].des_1}</p>
-					<p>{slides[activeIndex].des_2}</p>
-				</motion.div>
+					className="max-w-6xl text-white md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed transition-all duration-500 px-5 mt-5 font-sans break-keep whitespace-normal break-words"
+					dangerouslySetInnerHTML={{ __html: slides[activeIndex].des }}
+				></motion.div>
 				<motion.div
 					variants={itemVariants}
 					initial={{ width: 0 }}

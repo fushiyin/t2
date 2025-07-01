@@ -93,9 +93,8 @@ const SolutionDetail = () => {
 							textShadow:
 								"0 2px 8px rgba(0,0,0,0.9), 0 0px 2px rgba(0,0,0,0.8), 0 4px 16px rgba(0,0,0,0.7)",
 						}}
-					>
-						{solution.banner}
-					</motion.p>
+						dangerouslySetInnerHTML={{ __html: solution.banner }}
+					></motion.p>
 
 					<motion.p
 						className={`text-center md:text-left leading-relaxed font-sans break-keep whitespace-normal break-words ${isMobile ? "w-full" : "w-[55%]"}`}
@@ -107,14 +106,13 @@ const SolutionDetail = () => {
 						{solution.title?.map((part, idx) => (
 							<span
 								key={idx}
-								className={`text-3xl md:text-5xl text-center md:text-start font-bold inline font-sans break-keep whitespace-normal korean-text break-words ${part.className}`}
+								className={`text-3xl md:text-5xl text-center md:text-start font-bold inline font-sans break-keep whitespace-normal korean-text break-words leading-normal ${part.className}`}
 								style={{
 									textShadow:
 										"0 2px 8px rgba(0,0,0,0.9), 0 0px 2px rgba(0,0,0,0.8), 0 4px 16px rgba(0,0,0,0.7)",
 								}}
-							>
-								{part.text}
-							</span>
+								dangerouslySetInnerHTML={{ __html: part.text }}
+							></span>
 						))}
 					</motion.p>
 
@@ -240,9 +238,9 @@ const SolutionDetail = () => {
 					{/* Overlay */}
 					{/* <div className="absolute inset-0 bg-dark-blue/40" /> */}
 					{/* Content */}
-					<div className="relative z-10 flex flex-col justify-center items-center h-full  mx-auto text-center space-y-3">
+					<div className="relative z-10 flex flex-col justify-center items-center h-full w-[80%] mx-auto text-center space-y-3">
 						<h2
-							className="px-4 text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight font-sans break-keep whitespace-normal break-words text-white korean-text"
+							className="w-full px-4 text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight font-sans break-keep whitespace-normal break-words text-white korean-text"
 							style={{ textShadow: "0 2px 8px rgba(0,0,0,0.7)" }}
 						>
 							{solution.video.title?.map((part, idx) => (
@@ -525,7 +523,7 @@ const SolutionDetail = () => {
 											)}
 										</div>
 										<div
-											className={`flex flex-col gap-4 md:gap-6 justify-end items-end  ${isMobile ? "w-full" : "w-[450px]"}`}
+											className={`flex flex-col gap-4 md:gap-6 justify-end items-end  ${isMobile ? "w-full" : "w-[350px]"}`}
 										>
 											<img
 												className="shadow-lg object-cover "

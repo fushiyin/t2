@@ -116,7 +116,7 @@ export default function AboutPage() {
 										imageInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
 									}
 									transition={{ duration: 0.5, delay: 0.4 }}
-									className="text-left text-gray-900 text-4xl md:text-5xl font-bold font-sans break-keep whitespace-normal break-words"
+									className="text-left text-gray-900 text-[20px] md:text-3xl font-bold font-sans break-keep whitespace-normal break-words"
 								>
 									{t("about.description.explain")}
 								</motion.p>
@@ -151,7 +151,7 @@ export default function AboutPage() {
 												: { opacity: 0, y: 20 }
 										}
 										transition={{ duration: 0.5, delay: 0.4 }}
-										className="text-left text-gray-900 font-bold text-3xl md:text-5xl font-sans break-keep whitespace-normal break-words"
+										className="text-left text-gray-900 font-bold text-3xl md:text-4xl font-sans break-keep whitespace-normal break-words"
 									>
 										{t("about.description.explain")}
 									</motion.p>

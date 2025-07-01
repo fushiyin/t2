@@ -95,7 +95,7 @@ export default function SolutionAndProduct() {
 					{/* Content */}
 					<div className="relative z-10 flex flex-col justify-center items-center h-full max-w-3xl mx-auto text-center space-y-3">
 						<motion.h2
-							className="leading-relaxed px-8 md:pb-4 text-4xl md:text-5xl lg:text-5xl font-bold tracking-tight font-sans break-keep whitespace-normal break-words text-white"
+							className="px-8 md:pb-4 text-4xl md:text-5xl lg:text-5xl font-bold tracking-tight font-sans break-keep whitespace-normal break-words leading-tight text-white"
 							style={{ textShadow: "0 2px 8px rgba(0,0,0,0.7)", lineHeight: "1.2" }}
 							dangerouslySetInnerHTML={{ __html: t("solution.video.title") }}
 						/>

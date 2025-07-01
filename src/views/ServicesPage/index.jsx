@@ -130,14 +130,13 @@ export default function ServicesPage() {
 						{/* Content */}
 						<div className="relative z-10 flex flex-col justify-center items-center h-full max-w-4xl mx-auto text-center space-y-3">
 							<h2
-								className="px-4 md:pb-4 text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight font-sans break-keep whitespace-normal break-words text-white"
+								className="px-4 md:pb-4 text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight font-sans break-keep whitespace-normal leading-tight break-words text-white"
 								style={{
 									textShadow:
 										"0 2px 8px rgba(0,0,0,0.9), 0 0px 2px rgba(0,0,0,0.8), 0 4px 16px rgba(0,0,0,0.7)",
 								}}
-							>
-								{t("services.hero.title")}{" "}
-							</h2>
+								dangerouslySetInnerHTML={{ __html: t("services.hero.title") }}
+							></h2>
 							<p className="px-4 text-xl md:text-2xl tracking-tighter font-sans break-keep whitespace-normal break-words text-white">
 								{t("services.hero.description")}
 							</p>

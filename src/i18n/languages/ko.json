@@ -741,36 +741,44 @@
 		"item": {
 			"1": [
 				{ "text": "국내 ", "className": "text-white text-2xl" },
-				{ "text": "인건비 부담,<br>", "className": "text-light-blue font-bold text-3xl" },
+				{
+					"text": "인건비 부담, ",
+					"className": "text-light-blue font-bold text-3xl",
+					"br": true
+				},
 				{ "text": "프로젝트 시작조차 어렵게 만듭니다.", "className": "text-white text-2xl" }
 			],
 			"2": [
+				{ "text": "최신 기술을 구현할 ", "className": "text-dark-gray text-2xl" },
 				{
-					"text": "최신 기술을 구현할 ",
-					"className": "text-dark-gray text-2xl"
+					"text": "개발자 찾기, ",
+					"className": "text-light-blue font-bold text-3xl",
+					"br": true
 				},
-				{ "text": "개발자 찾기,<br>", "className": "text-light-blue font-bold text-3xl" },
 				{ "text": "이제는 더 어렵고 더 비쌉니다.", "className": "text-dark-gray text-2xl" }
 			],
 			"3": [
-				{ "text": "급변하는 시장 속, <br>", "className": "text-dark-gray text-2xl" },
+				{
+					"text": "급변하는 시장 속, ",
+					"className": "text-dark-gray text-2xl",
+					"br": true
+				},
 				{ "text": "즉각적인 인력 확충", "className": "text-light-blue font-bold text-3xl" },
 				{ "text": "이 쉽지 않습니다.", "className": "text-dark-gray text-2xl" }
 			],
 			"4": [
 				{
-					"text": "한정된 인력과 촉박한 일정,<br>",
-					"className": "text-white font-bold text-3xl"
+					"text": "한정된 인력과 촉박한 일정, ",
+					"className": "text-white font-bold text-3xl",
+					"br": true
 				},
 				{ "text": "늘 쫓기듯 개발하고 계신가요?", "className": "text-dark-gray text-2xl" }
 			],
 			"5": [
 				{ "text": "빠르게 벌어지는", "className": "text-white text-2xl" },
 				{ "text": " 기술 격차", "className": "text-light-blue font-bold text-3xl" },
-				{
-					"text": "는 <br>곧 경쟁력의 격차로 이어집니다.",
-					"className": "text-white text-2xl"
-				}
+				{ "text": "는 ", "className": "text-white text-2xl", "br": true },
+				{ "text": "곧 경쟁력의 격차로 이어집니다.", "className": "text-white text-2xl" }
 			]
 		}
 	},
@@ -837,14 +845,9 @@
 				"header": "디지털 시대에서",
 				"title": [
 					{ "text": "출근이 기다려지는", "className": "text-white text-2xl" },
-					{
-						"text": " 스마트 오피스",
-						"className": "font-bold text-3xl"
-					},
-					{
-						"text": " ,<br> 상상해보셨나요?",
-						"className": "text-white font-bold text-3xl"
-					}
+					{ "text": " 스마트 오피스", "className": "font-bold text-3xl" },
+					{ "text": ",", "className": "text-white font-bold text-3xl", "br": true },
+					{ "text": " 상상해보셨나요?", "className": "text-white font-bold text-3xl" }
 				],
 				"desc": "지금까지의 오피스를 잊게 만드는, 새로운 일상이 시작됩니다. 업무 공간의 효율성과 조직 문화를 동시에 혁신하는 첫걸음을 지금 시작해보세요.",
 				"contact_us": "Contact Us"
@@ -872,12 +875,14 @@
 				"title": [
 					{ "text": "출근이 기다려지는", "className": "text-white text-2xl" },
 					{
-						"text": " 스마트 오피스 <br>",
-						"className": "text-[#000000] font-bold text-3xl"
+						"text": " 스마트 오피스",
+						"className": "text-[#000000] font-bold text-3xl",
+						"br": true
 					},
-					{ "text": "당신의 손안에.", "className": "text-white text-2xl" },
-					{ "text": " T2 Soft", "className": "font-bold text-3xl" },
-					{ "text": " 가 함께 만들겠습니다.", "className": "text-white text-2xl" }
+					{
+						"text": "당신의 손안에. T2 Soft가 함께 만들겠습니다",
+						"className": "text-white text-2xl"
+					}
 				]
 			},
 			"tab": {

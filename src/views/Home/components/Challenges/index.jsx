@@ -1,8 +1,11 @@
+import useResponsive from "@/hooks/useResponsive";
+import React from "react";
 import { useTranslation } from "react-i18next";
 import FloatingBox from "./FloatingBox";
 
 const Challenges = () => {
 	const { t } = useTranslation();
+	const { isMobile } = useResponsive();
 
 	const item1 = t("challenges.item.1", { returnObjects: true });
 	const item2 = t("challenges.item.2", { returnObjects: true });
@@ -37,11 +40,10 @@ const Challenges = () => {
 			>
 				<p className="leading-relaxed whitespace-pre-wrap break-words text-center korean-text">
 					{item.map((part, idx) => (
-						<span
-							key={idx}
-							className={`font-bold block md:inline korean-text ${part.className}`}
-							dangerouslySetInnerHTML={{ __html: part.text }}
-						></span>
+						<React.Fragment key={idx}>
+							<span className={part.className}>{part.text}</span>
+							{!isMobile && part.br && <br />}
+						</React.Fragment>
 					))}
 				</p>
 			</div>

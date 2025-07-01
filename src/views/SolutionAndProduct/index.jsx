@@ -19,6 +19,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { sectionClass } from "../Home";
 import CompetitiveEdges from "../Home/components/CompetitiveEdges";
 import Slide_Swiper from "./Slide_Swiper";
+import classNames from "classnames";
 
 export default function SolutionAndProduct() {
 	const { t } = useTranslation();
@@ -209,7 +210,10 @@ export default function SolutionAndProduct() {
 				className="w-full bg-white h-0 relative justify-center flex shadow-lg z-30"
 			>
 				<div
-					className="container max-w-[1440px] w-full md:w-[95%] mx-auto absolute md:rounded-3xl top-[-90px]"
+					className={classNames(
+						"container max-w-[1440px] w-full md:w-[95%] mx-auto absolute md:rounded-3xl",
+						!isMobile && "top-[-90px]",
+					)}
 					style={{
 						background: "linear-gradient(90deg, #1A3087 0%, #2D54ED 100%)",
 					}}

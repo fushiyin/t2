@@ -8,7 +8,7 @@ import useResponsive from "@/hooks/useResponsive";
 import { idRouter } from "@/routes/idRouter";
 import { motion } from "framer-motion";
 import { ArrowRight, ArrowRightIcon } from "lucide-react";
-import React, { useEffect } from "react";
+import React from "react";
 import { useTranslation } from "react-i18next";
 import { useInView } from "react-intersection-observer";
 import Lottie from "react-lottie";
@@ -54,18 +54,8 @@ const SolutionDetail = () => {
 		threshold: 0.1,
 	});
 
-	const { t, i18n } = useTranslation();
+	const { t } = useTranslation();
 	const { isMobile } = useResponsive();
-
-	useEffect(() => {
-		const onLangChanged = () => {
-			window.location.reload();
-		};
-		i18n.on("languageChanged", onLangChanged);
-		return () => {
-			i18n.off("languageChanged", onLangChanged);
-		};
-	}, [i18n]);
 
 	return (
 		<div className="w-full flex flex-col items-center mt-[64px]">
@@ -85,7 +75,7 @@ const SolutionDetail = () => {
 
 				<div className="absolute max-w-[1440px] mx-auto px-2 md:px-6 inset-0 flex gap-4 flex-col items-center md:items-start justify-center">
 					<motion.p
-						className={`text-xl text-white korean-text ${isMobile ? "" : ""}`}
+						className="text-xl text-white korean-text"
 						initial="hidden"
 						animate={bannerInView ? "visible" : "hidden"}
 						variants={fadeUp}
@@ -93,8 +83,14 @@ const SolutionDetail = () => {
 							textShadow:
 								"0 2px 8px rgba(0,0,0,0.9), 0 0px 2px rgba(0,0,0,0.8), 0 4px 16px rgba(0,0,0,0.7)",
 						}}
-						dangerouslySetInnerHTML={{ __html: solution.banner }}
-					></motion.p>
+					>
+						{solution.banner.title?.map((part, idx) => (
+							<React.Fragment key={idx}>
+								<span className={part.className}>{part.text}</span>
+								{!isMobile && part.br && <br />}
+							</React.Fragment>
+						))}
+					</motion.p>
 
 					<motion.p
 						className={`text-center md:text-left leading-relaxed font-sans break-keep whitespace-normal break-words ${isMobile ? "w-full" : "w-[70%]"}`}
@@ -237,11 +233,14 @@ const SolutionDetail = () => {
 					<div className="relative z-10 flex flex-col justify-center items-center h-full mx-auto text-center space-y-3">
 						<h2 className="px-4 text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight font-sans break-keep whitespace-normal break-words text-white korean-text">
 							{solution.video.title?.map((part, idx) => (
-								<span
-									key={idx}
-									className={`text-3xl md:text-5xl font-bold block md:inline font-sans break-keep whitespace-normal break-words leading-normal korean-text ${part.className}`}
-									dangerouslySetInnerHTML={{ __html: part.text }}
-								/>
+								<React.Fragment key={idx}>
+									<span
+										className={`text-3xl md:text-5xl font-bold block md:inline font-sans break-keep whitespace-normal break-words leading-normal korean-text ${part.className}`}
+									>
+										{part.text}
+									</span>
+									{!isMobile && part.br && <br />}
+								</React.Fragment>
 							))}
 						</h2>
 					</div>

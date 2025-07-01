@@ -51,6 +51,16 @@ const Header = () => {
 	];
 
 	useEffect(() => {
+		const onLangChanged = () => {
+			window.location.reload();
+		};
+		i18n.on("languageChanged", onLangChanged);
+		return () => {
+			i18n.off("languageChanged", onLangChanged);
+		};
+	}, [i18n]);
+
+	useEffect(() => {
 		const handleResize = () => {
 			const width = window.innerWidth;
 			if (width <= 1140) {

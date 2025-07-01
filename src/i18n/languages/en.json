@@ -853,7 +853,7 @@
 				"header": "In the digital age",
 				"title": [
 					{ "text": "Ready for a", "className": "text-white text-2xl" },
-					{ "text": " Smart Office", "className": "text-[#0435F2] font-bold text-3xl" },
+					{ "text": " Smart Office", "className": "text-[#000000] font-bold text-3xl" },
 					{
 						"text": " ,<br>that makes you look forward to going to work?",
 						"className": "text-white font-bold text-3xl"
@@ -884,9 +884,9 @@
 			"video": {
 				"title": [
 					{ "text": "A", "className": "text-white text-2xl" },
-					{ "text": " Smart Office ", "className": "text-[#0435F2] font-bold text-3xl" },
+					{ "text": " Smart Office ", "className": "text-[#000000] font-bold text-3xl" },
 					{
-						"text": "you look forward to<br>Right at your fingertips.<br>",
+						"text": "you look forward to<br>Right at your fingertips. ",
 						"className": "text-white text-2xl"
 					},
 					{ "text": "Let’s build it together.", "className": "text-white text-2xl" }

@@ -137,9 +137,10 @@ export default function ServicesPage() {
 								}}
 								dangerouslySetInnerHTML={{ __html: t("services.hero.title") }}
 							></h2>
-							<p className="px-4 text-xl md:text-2xl tracking-tighter font-sans break-keep whitespace-normal break-words text-white">
-								{t("services.hero.description")}
-							</p>
+							<p
+								className="px-4 text-xl md:text-2xl tracking-tighter font-sans break-keep whitespace-normal break-words text-white"
+								dangerouslySetInnerHTML={{ __html: t("services.hero.description") }}
+							></p>
 							<div className="flex flex-wrap justify-center gap-4 mt-2">
 								<button
 									onClick={handleGetStarted}

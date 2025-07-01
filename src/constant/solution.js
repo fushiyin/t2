@@ -12,6 +12,9 @@ import reservation_2 from "@/assets/solution_img/so_reservation_2.png";
 import reservation_3 from "@/assets/solution_img/so_reservation_3.png";
 import item_1_icon from "@/assets/solution_img/tab_item_1_icon.json";
 import item_2_icon from "@/assets/solution_img/tab_item_2_icon.json";
+import cafe_1 from "@/assets/solution_img/cafe_1.jpg";
+import cafe_3 from "@/assets/solution_img/cafe_3.jpg";
+
 import i18n from "i18next";
 
 export const SOLUTION_DETAILS = [
@@ -146,9 +149,8 @@ export const SOLUTION_DETAILS = [
 						icon: item_2_icon,
 					},
 				},
-				img_1: reservation_1,
-				img_2: reservation_2,
-				img_3: reservation_3,
+				img_1: cafe_1,
+				img_3: cafe_3,
 			},
 		},
 	},

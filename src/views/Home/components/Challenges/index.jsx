@@ -49,8 +49,8 @@ const Challenges = () => {
 	);
 
 	return (
-		<section className="w-full h-full px-4 bg-white mt-2 relative md:min-h-[800px] xl:min-h-[950px] 2xl:h-screen">
-			<div className="w-full h-full py-4 md:px-8 mx-auto max-w-[1440px] relative">
+		<section className="w-full h-full px-4 bg-white mt-2 relative md:min-h-[900px] xl:min-h-[950px] 2xl:h-full">
+			<div className="w-full h-full py-4 md:px-8 mx-auto max-w-[1440px] relative ">
 				{/* Title */}
 				<div className="container mb-4 md:mb-16 mt-4 w-full h-auto">
 					<h2 className="text-[20px] md:text-5xl font-bold text-dark-gray font-sans leading-snug break-keep whitespace-normal break-words korean-text">
@@ -64,7 +64,7 @@ const Challenges = () => {
 					</p>
 				</div>
 
-				<div className="relative hidden xl:flex flex-col items-center gap-y-[50px] min-h-[800px] max-w-[1440px] mx-auto">
+				<div className="relative hidden xl:flex flex-col items-center gap-y-[50px] min-h-[900px] max-w-[1440px] mx-auto">
 					{/* Top row */}
 					<div className="mt-0 flex justify-between w-full px-[3%] relative">
 						<FloatingBox
@@ -98,7 +98,7 @@ const Challenges = () => {
 					</div>
 
 					{/* Bottom center box */}
-					<div className="flex justify-center w-full mt-4">
+					<div className="flex justify-center w-full mt-4 mb-4">
 						<FloatingBox
 							order={5}
 							className="w-full lg:w-[520px] max-w-[500px]"

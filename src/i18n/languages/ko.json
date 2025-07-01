@@ -120,7 +120,7 @@
 	"our": "우리의",
 	"vision": {
 		"title": "Vision",
-		"des": "T2와 함께하는 미래 기술의 중심.<br>차세대 기술을 선도하는 최고의 글로벌 개발 파트너가 됩니다"
+		"des": "T2와 함께하는 미래 기술의 중심.<br>차세대 기술을 선도하는 최고의 글로벌 개발 파트너가 됩니다."
 	},
 	"mission": {
 		"title": "Mission",
@@ -136,10 +136,10 @@
 		"description": "저희는 최신 프레임워크와 프로그래밍 언어는 물론, 다양한 플랫폼에 대한 폭넓은 기술 역량을 보유하고 있습니다. 축적된 노하우와 최신 기술을 바탕으로 확장성, 안정성, 혁신성을 갖춘 최적의 솔루션을 제공합니다.",
 		"frontend": {
 			"title": "프론트엔드 개발",
-			"description": "직관적인 반응형 사용자 인터페이스 구현.",
+			"description": "직관적인 반응형 사용자 인터페이스 구현",
 			"technologies": {
 				"react": {
-					"description": "컴포넌트 기반 UI 라이브러리."
+					"description": "컴포넌트 기반 UI 라이브러리"
 				},
 				"nextjs": {
 					"description": "풀스택 React 프레임워크"
@@ -178,7 +178,7 @@
 					"description": "고수준 Python 웹 프레임워크"
 				},
 				"spring": {
-					"description": "자바 기반 프레임워크 "
+					"description": "자바 기반 프레임워크"
 				}
 			}
 		},
@@ -208,7 +208,7 @@
 		},
 		"bigdata": {
 			"title": "빅데이터 및 분석",
-			"description": "대용량 데이터 처리, 분석, 시각화하기 위한 최신 도구.",
+			"description": "대용량 데이터 처리, 분석, 시각화하기 위한 최신 도구",
 			"technologies": {
 				"hadoop": {
 					"name": "Hadoop",
@@ -216,23 +216,23 @@
 				},
 				"spark": {
 					"name": "Spark",
-					"description": "배치 및 실시간 데이터 처리를 위한 고속 엔진."
+					"description": "배치 및 실시간 데이터 처리를 위한 고속 엔진"
 				},
 				"kafka": {
 					"name": "Kafka",
-					"description": "실시간 데이터 흐름을 위한 확장 가능한 이벤트 스트리밍 시스템."
+					"description": "실시간 데이터 흐름을 위한 확장 가능한 이벤트 스트리밍 시스템"
 				},
 				"elasticsearch": {
 					"name": "Elasticsearch",
-					"description": "대용량 데이터셋을 위한 검색 및 분석 엔진."
+					"description": "대용량 데이터셋을 위한 검색 및 분석 엔진"
 				},
 				"bigQueryLogo": {
 					"name": "BigQuery",
-					"description": "빠른 SQL 쿼리를 위한 서버리스 데이터 웨어하우스."
+					"description": "빠른 SQL 쿼리를 위한 서버리스 데이터 웨어하우스"
 				},
 				"powerBI": {
 					"name": "Power BI",
-					"description": "데이터 시각화를 위한 비즈니스 인텔리전스 도구."
+					"description": "데이터 시각화를 위한 비즈니스 인텔리전스 도구"
 				}
 			}
 		},
@@ -630,7 +630,7 @@
 		"open_positions": "현재 채용 중인 포지션",
 		"apply_now": "지금 지원하기",
 		"title_cv": "아직 적합한 포지션을 찾지 못하셨나요?",
-		"description_cv": "걱정하지 마세요! 이력서를 남겨주시면 적합한 생겼을 때 바로 연락드리겠습니다.",
+		"description_cv": "걱정하지 마세요! 이력서를 남겨주시면 적합한 포지션이 생겼을 때 바로 연락드리겠습니다.",
 		"apply_cv": "이력서 제출하기",
 		"title_company": "Dare to Learn – Dare to Collaborate – Dare to Lead",
 		"collaborative": "협업 중심의 문화",
@@ -730,12 +730,12 @@
 	},
 	"hero_section": {
 		"hero_slogan": "혁신과 실행이 만나는 곳",
-		"hero_description": "한국인 IT전문가의 풍부한 프로젝트 리딩 경험과 최신 기술에 능퉁한 베트남 개발팀의 시너지로, 고객 맞춤형 IT 솔루션을 빠르고 안정적으로 제공합니다.",
+		"hero_description": "한국인 IT 전문가의 풍부한 프로젝트 리딩 경험과 최신 기술에 능퉁한 베트남 개발팀의 시너지로, 고객 맞춤형 IT 솔루션을 빠르고 안정적으로 제공합니다.",
 		"home_slogan": "인사이트에서 실행까지, 원스톱 IT 파트너",
 		"home_description": "IT 아웃소싱부터 전문 컨설팅, 맞춤형 솔루션 제공까지 고객의 디지털 전환 전 과정을 함께합니다. 비즈니스 목표에 최적화된 유연하고 효과적인 기술 서비스를 제공합니다."
 	},
 	"challenges": {
-		"title": "비즈니스 성장을 가로막는 IT 장애물",
+		"title": "비즈니스 성장을 가로막는 IT 장애물,",
 		"title_2": "고민 중이신가요?",
 		"description": "인재 부족, 기술 격차, 빠듯한 일정. 내부 역량만으로는 부족합니다.",
 		"item": {

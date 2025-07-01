@@ -50,7 +50,7 @@ const Challenges = () => {
 	);
 
 	return (
-		<section className="w-full h-full px-4 bg-white mt-2 relative md:min-h-[800px] xl:min-h-[950px] 2xl:h-screen">
+		<section className="w-full h-full px-4 bg-white mt-2 relative md:min-h-[975px] xl:h-screen">
 			<div className="w-full h-full py-4 md:px-8 mx-auto max-w-[1440px] relative">
 				{/* Title */}
 				<div className="container mb-4 md:mb-16 mt-4 w-full h-auto">
@@ -108,7 +108,6 @@ const Challenges = () => {
 						</FloatingBox>
 					</div>
 				</div>
-
 				{/* Mobile */}
 				<div className="xl:hidden relative flex flex-col items-center bg-white overflow-hidden text-sm md:text-base">
 					{/* Top row */}

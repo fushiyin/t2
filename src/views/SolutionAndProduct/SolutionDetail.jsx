@@ -108,10 +108,6 @@ const SolutionDetail = () => {
 							<span
 								key={idx}
 								className={`text-3xl md:text-5xl text-center md:text-start font-bold inline font-sans break-keep whitespace-normal korean-text break-words ${part.className}`}
-								style={{
-									textShadow:
-										"0 2px 8px rgba(0,0,0,0.9), 0 0px 2px rgba(0,0,0,0.8), 0 4px 16px rgba(0,0,0,0.7)",
-								}}
 							>
 								{part.text}
 							</span>
@@ -241,10 +237,7 @@ const SolutionDetail = () => {
 					{/* <div className="absolute inset-0 bg-dark-blue/40" /> */}
 					{/* Content */}
 					<div className="relative z-10 flex flex-col justify-center items-center h-full  mx-auto text-center space-y-3">
-						<h2
-							className="px-4 text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight font-sans break-keep whitespace-normal break-words text-white korean-text"
-							style={{ textShadow: "0 2px 8px rgba(0,0,0,0.7)" }}
-						>
+						<h2 className="px-4 text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight font-sans break-keep whitespace-normal break-words text-white korean-text">
 							{solution.video.title?.map((part, idx) => (
 								<span
 									key={idx}

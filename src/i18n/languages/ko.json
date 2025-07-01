@@ -839,7 +839,7 @@
 					{ "text": "출근이 기다려지는", "className": "text-white text-2xl" },
 					{
 						"text": " 스마트 오피스",
-						"className": "text-[#0435F2] font-bold text-3xl"
+						"className": "font-bold text-3xl"
 					},
 					{
 						"text": " , 상상해보셨나요?",
@@ -873,10 +873,10 @@
 					{ "text": "출근이 기다려지는", "className": "text-white text-2xl" },
 					{
 						"text": " 스마트 오피스 <br>",
-						"className": "text-[#0435F2] font-bold text-3xl"
+						"className": "text-[#000000] font-bold text-3xl"
 					},
 					{ "text": "당신의 손안에.", "className": "text-white text-2xl" },
-					{ "text": " T2 Soft", "className": "text-[#0435F2] font-bold text-3xl" },
+					{ "text": " T2 Soft", "className": "font-bold text-3xl" },
 					{ "text": " 가 함께 만들겠습니다.", "className": "text-white text-2xl" }
 				]
 			},

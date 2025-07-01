@@ -222,13 +222,13 @@ export default function SolutionAndProduct() {
 									"0 2px 8px rgba(0,0,0,0.9), 0 0px 2px rgba(0,0,0,0.8), 0 4px 16px rgba(0,0,0,0.7)",
 							}}
 						>
-							{t("solution.so.contact.title")}
+							{t("solution.suggest.title")}
 						</h2>
 						<p
 							className="w-full md:w-[40%] md:px-4 text-base tracking-tighter font-sans break-keep whitespace-normal break-words text-white korean-text"
 							style={{ textShadow: "0 2px 8px rgba(0,0,0,0.7)" }}
 						>
-							{t("solution.so.contact.desc")}
+							{t("solution.suggest.description")}
 						</p>
 						{isMobile && (
 							<button
@@ -242,7 +242,7 @@ export default function SolutionAndProduct() {
 										console.log(idRouter?.contact);
 									}}
 								>
-									{t("solution.so.contact.btn")}
+									{t("solution.suggest.btn")}
 									<ArrowRightIcon className="h-6 w-6 sm:h-5 sm:w-5 md:h-6 md:w-6" />
 								</a>
 							</button>

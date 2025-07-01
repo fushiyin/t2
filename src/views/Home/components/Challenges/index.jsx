@@ -50,7 +50,7 @@ const Challenges = () => {
 	);
 
 	return (
-		<section className="w-full h-full px-4 bg-white mt-2 relative">
+		<section className="w-full h-full px-4 bg-white mt-2 relative md:min-h-[800px] xl:min-h-[950px] 2xl:h-screen">
 			<div className="w-full h-full py-4 md:px-8 mx-auto max-w-[1440px] relative">
 				{/* Title */}
 				<div className="container mb-4 md:mb-16 mt-4 w-full h-auto">
@@ -65,7 +65,7 @@ const Challenges = () => {
 					</p>
 				</div>
 
-				<div className="relative hidden xl:flex flex-col items-center gap-y-[50px] min-h-[750px] max-w-[1440px] mx-auto">
+				<div className="relative hidden xl:flex flex-col items-center gap-y-[50px] min-h-[800px] max-w-[1440px] mx-auto">
 					{/* Top row */}
 					<div className="mt-0 flex justify-between w-full px-[3%] relative">
 						<FloatingBox
@@ -86,13 +86,13 @@ const Challenges = () => {
 					<div className="flex justify-center w-full px-[5%] relative gap-x-8">
 						<FloatingBox
 							order={4}
-							className="relative w-full max-w-[500px] top-[20px] max-w-[480px]"
+							className="relative w-full lg:w-[500px] top-[20px] max-w-[480px]"
 						>
 							{renderBox(item3)}
 						</FloatingBox>
 						<FloatingBox
 							order={3}
-							className="relative w-full max-w-[500px] top-[-40px] ml-[60px] max-w-[480px]"
+							className="relative w-full lg:w-[500px] top-[-40px] ml-[60px] max-w-[480px]"
 						>
 							{renderBox(item4, "bg-[#748FF8]")}
 						</FloatingBox>

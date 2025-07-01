@@ -814,17 +814,17 @@
 				"description": {
 					"1": "Understand specific business needs",
 					"2": "Define project scope and objectives",
-					"3": "Provide optimized solution consulting"
+					"3": "Provide optimized solution consulting",
+					"4": "Develop implementation plan"
 				}
 			},
 			"development": {
 				"title": "Develop implementation plan",
 				"description": {
-					"1": "Customized Development",
-					"2": "Customize the system ",
-					"3": "Develop additional features as needed",
-					"4": "Internal QA and iterative enhancements",
-					"5": "Integration with existing systems"
+					"1": "Customize the system ",
+					"2": "Develop additional features as needed",
+					"3": "Internal QA and iterative enhancements",
+					"4": "Integration with existing systems"
 				}
 			},
 			"deploy_training": {

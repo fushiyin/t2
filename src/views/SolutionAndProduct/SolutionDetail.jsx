@@ -556,7 +556,7 @@ const SolutionDetail = () => {
 									<h2
 										className="mb-4 md:mb-6 text-2xl md:text-5xl text-center md:text-left font-bold text-dark-gray leading-snug font-sans break-keep whitespace-normal break-words korean-text"
 										dangerouslySetInnerHTML={{
-											__html: solution.menu_sub[1].title,
+											__html: solution.menu_sub[4].title,
 										}}
 									/>
 									<div

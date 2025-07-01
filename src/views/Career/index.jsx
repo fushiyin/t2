@@ -60,7 +60,7 @@ export default function Careers() {
 							{t("careers.title")}
 						</motion.h1>
 						<motion.p
-							className="text-center text-white text-xl md:text-2xl mb-4 font-sans break-keep whitespace-normal break-words"
+							className="text-center text-white text-xl md:text-2xl mb-4 font-sans break-keep whitespace-normal break-words korean-text"
 							initial="hidden"
 							animate="visible"
 							variants={fadeUp}

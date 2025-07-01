@@ -149,7 +149,7 @@ const Company = () => {
 										{/* Front of card */}
 										<div className="w-full h-full absolute backface-hidden">
 											<div className="relative w-full h-full flex flex-col items-end justify-between rounded-lg shadow-lg p-8 cursor-pointer transition-all duration-300 border-t border-zinc-300 dark:border-zinc-700 bg-white text-dark">
-												<p className="text-center text-xl 2xl:text-2xl xl:text-xl lg:text-xl md:text-xl w-full font-bold uppercase text-dark-gray font-sans break-keep whitespace-normal break-words">
+												<p className="text-center text-xl 2xl:text-2xl xl:text-xl lg:text-xl md:text-xl w-full font-bold uppercase text-dark-gray font-sans break-keep whitespace-normal break-words korean-text">
 													{company.title}
 												</p>
 												<div className="w-full h-full flex items-center justify-center">
@@ -169,7 +169,7 @@ const Company = () => {
 										<div className="w-full h-full absolute backface-hidden rotate-y-180 bg-gradient-to-br from-gray-900 via-gray-800 to-black rounded-lg shadow-lg p-8">
 											<div className="w-full h-full flex flex-col justify-center space-y-6">
 												<div className="flex items-center justify-center space-x-2 w-full">
-													<p className="text-white leading-relaxed text-base break-words text-center w-full">
+													<p className="text-white leading-relaxed text-base break-words text-center w-full korean-text">
 														{company.desc}
 													</p>
 												</div>

@@ -35,14 +35,13 @@ const Challenges = () => {
 			<div
 				className={`flex-1 flex justify-center items-center text-center gap-2 ${bgColor} text-base md:text-xl p-4 md:p-6 rounded-b-3xl`}
 			>
-				<p className="leading-relaxed whitespace-pre-wrap break-words text-center">
+				<p className="leading-relaxed whitespace-pre-wrap break-words text-center korean-text">
 					{item.map((part, idx) => (
 						<span
 							key={idx}
-							className={`font-bold block md:inline ${part.className}`}
-						>
-							{part.text}
-						</span>
+							className={`font-bold block md:inline korean-text ${part.className}`}
+							dangerouslySetInnerHTML={{ __html: part.text }}
+						></span>
 					))}
 				</p>
 			</div>
@@ -54,10 +53,10 @@ const Challenges = () => {
 			<div className="w-full h-full py-4 md:px-8 mx-auto max-w-[1440px] relative">
 				{/* Title */}
 				<div className="container mb-4 md:mb-16 mt-4 w-full h-auto">
-					<h2 className="text-[20px] md:text-5xl font-bold text-dark-gray font-sans leading-snug break-keep whitespace-normal break-words korean-text ">
+					<h2 className="text-[20px] md:text-5xl font-bold text-dark-gray font-sans leading-snug break-keep whitespace-normal break-words korean-text">
 						{t("challenges.title")}
 					</h2>
-					<h2 className="text-[20px] md:text-5xl font-bold text-dark-gray font-sans leading-snug pb-4 break-keep whitespace-normal break-words ">
+					<h2 className="text-[20px] md:text-5xl font-bold text-dark-gray font-sans leading-snug pb-4 break-keep whitespace-normal break-words korean-text">
 						{t("challenges.title_2")}
 					</h2>
 					<p className="text-[16px] md:text-xl font-light text-muted-foreground leading-relaxed max-w-[900px] korean-text">
@@ -65,18 +64,18 @@ const Challenges = () => {
 					</p>
 				</div>
 
-				<div className="relative hidden xl:flex flex-col items-center gap-y-[50px] min-h-[800px] max-w-[1440px] mx-auto">
+				<div className="relative hidden xl:flex flex-col items-center gap-y-[50px] min-h-[900px] max-w-[1440px] mx-auto">
 					{/* Top row */}
 					<div className="mt-0 flex justify-between w-full px-[3%] relative">
 						<FloatingBox
 							order={1}
-							className="relative w-full lg:w-[500px] max-w-[480px]"
+							className="relative w-full lg:w-[520px] max-w-[500px]"
 						>
 							{renderBox(item1, "bg-dark-blue")}
 						</FloatingBox>
 						<FloatingBox
 							order={0}
-							className="relative w-full lg:w-[500px] top-[-60px] max-w-[480px]"
+							className="relative w-full lg:w-[520px] top-[-60px] max-w-[500px]"
 						>
 							{renderBox(item2)}
 						</FloatingBox>
@@ -86,23 +85,23 @@ const Challenges = () => {
 					<div className="flex justify-center w-full px-[5%] relative gap-x-8">
 						<FloatingBox
 							order={4}
-							className="relative w-full lg:w-[500px] top-[20px] max-w-[480px]"
+							className="relative w-full lg:w-[520px] top-[20px] max-w-[500px]"
 						>
 							{renderBox(item3)}
 						</FloatingBox>
 						<FloatingBox
 							order={3}
-							className="relative w-full lg:w-[500px] top-[-40px] ml-[60px] max-w-[480px]"
+							className="relative w-full lg:w-[520px] top-[-40px] ml-[60px] max-w-[500px]"
 						>
 							{renderBox(item4, "bg-[#748FF8]")}
 						</FloatingBox>
 					</div>
 
 					{/* Bottom center box */}
-					<div className="flex justify-center w-full mt-4">
+					<div className="flex justify-center w-full mt-4 mb-4">
 						<FloatingBox
 							order={5}
-							className="w-full lg:w-[520px] max-w-[480px]"
+							className="w-full lg:w-[520px] max-w-[500px]"
 						>
 							{renderBox(item5, "bg-dark-blue")}
 						</FloatingBox>
@@ -154,9 +153,8 @@ const Challenges = () => {
 										<span
 											key={idx}
 											className={`text-base font-bold md:text-xl korean-text ${part.className}`}
-										>
-											{part.text}
-										</span>
+											dangerouslySetInnerHTML={{ __html: part.text }}
+										></span>
 									))}
 								</div>
 							</div>
@@ -207,10 +205,9 @@ const Challenges = () => {
 									{box.data.map((part, idx) => (
 										<span
 											key={idx}
-											className={`text-base font-bold md:text-xl ${part.className}`}
-										>
-											{part.text}
-										</span>
+											className={`text-base font-bold md:text-xl korean-text ${part.className}`}
+											dangerouslySetInnerHTML={{ __html: part.text }}
+										></span>
 									))}
 								</div>
 							</div>
@@ -218,7 +215,7 @@ const Challenges = () => {
 					</div>
 
 					{/* Bottom box */}
-					<div className="w-[70%] rounded-2xl shadow-md overflow-hidden border z-10">
+					<div className="w-[50%] md:w-[70%] rounded-2xl shadow-md overflow-hidden border z-10">
 						<div className="bg-[#F1F0F6] py-2 px-1">
 							<div className="flex items-center justify-between px-2">
 								<div className="flex items-center space-x-1">
@@ -249,9 +246,8 @@ const Challenges = () => {
 										<span
 											key={idx}
 											className={`text-base font-bold md:text-xl korean-text ${part.className}`}
-										>
-											{part.text}
-										</span>
+											dangerouslySetInnerHTML={{ __html: part.text }}
+										></span>
 									))}
 								</p>
 							</div>

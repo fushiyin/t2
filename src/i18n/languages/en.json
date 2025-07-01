@@ -3,7 +3,7 @@
 		"title": "About us"
 	},
 	"competitive_edges": {
-		"description": "Your Smart Development Partner for Shared Success",
+		"description": "Your Smart Development Partner for Shared Success.",
 		"edges": {
 			"coordinator": {
 				"description": [
@@ -124,22 +124,19 @@
 	"our": "Our",
 	"vision": {
 		"title": "Vision",
-		"des_1": "Toward the core of future technology with T2.",
-		"des_2": "We aim to become a world-class global development partner leading next-generation technologies."
+		"des": "Toward the core of future technology with T2.<br>We aim to become a world-class global development partner leading next-generation technologies."
 	},
 	"mission": {
 		"title": "Mission",
-		"des_1": "We provide reliable software development and solutions to clients worldwide, offering high-quality and cost-effective services with Vietnam's top tech talent.",
-		"des_2": "Through technological innovation and flexible collaboration, we help our clients grow their businesses."
+		"des": "We provide reliable software development and solutions to clients worldwide, offering high-quality and cost-effective services with Vietnam's top tech talent. Through technological innovation and flexible collaboration, we help our clients grow their businesses."
 	},
 	"values": {
 		"title": "Values",
-		"des_1": "We grow together as one team with our clients, quickly adopting and applying the latest trends and technologies to stay ahead.",
-		"des_2": "We build trust through honest communication and responsible actions."
+		"des": "We grow together as one team with our clients, quickly adopting and applying the latest trends and technologies to stay ahead. We build trust through honest communication and responsible actions."
 	},
 	"tech_stack": {
 		"title": "Technology Stack",
-		"description": "Our comprehensive technology expertise spans across modern frameworks, languages, and platforms. We leverage cutting-edge tools to build scalable, robust, and innovative solutions",
+		"description": "Our comprehensive technology expertise spans across modern frameworks, languages, and platforms. We leverage cutting-edge tools to build scalable, robust, and innovative solutions.",
 		"frontend": {
 			"title": "Frontend Development",
 			"description": "Building modern, responsive, and interactive user interfaces",
@@ -212,31 +209,31 @@
 		},
 		"bigdata": {
 			"title": "Big Data & Analytics",
-			"description": "Modern tools for processing, analyzing, and visualizing large-scale data.",
+			"description": "Modern tools for processing, analyzing, and visualizing large-scale data",
 			"technologies": {
 				"hadoop": {
 					"name": "Hadoop",
-					"description": "Distributed system for batch processing with MapReduce."
+					"description": "Distributed system for batch processing with MapReduce"
 				},
 				"spark": {
 					"name": "Spark",
-					"description": "Fast engine for batch and real-time data processing."
+					"description": "Fast engine for batch and real-time data processing"
 				},
 				"kafka": {
 					"name": "Kafka",
-					"description": "Scalable event streaming for real-time data flows."
+					"description": "Scalable event streaming for real-time data flows"
 				},
 				"elasticsearch": {
 					"name": "Elasticsearch",
-					"description": "Search and analytics engine for large datasets."
+					"description": "Search and analytics engine for large datasets"
 				},
 				"bigQueryLogo": {
 					"name": "BigQuery",
-					"description": "Serverless data warehouse for fast SQL queries."
+					"description": "Serverless data warehouse for fast SQL queries"
 				},
 				"powerBI": {
 					"name": "Power BI",
-					"description": "Business intelligence tool for data visualization."
+					"description": "Business intelligence tool for data visualization"
 				}
 			}
 		},
@@ -366,7 +363,7 @@
 	},
 	"process": {
 		"title": "Our Working Process",
-		"description": "T2Soft delivers fast and efficient IT services through a standardized and professional process, precisely tailored to meet each client's needs",
+		"description": "T2 Soft delivers fast and efficient IT services through a standardized and professional process, precisely tailored to meet each client's needs.",
 		"navigation": {
 			"previous": "Previous",
 			"next": "Next"
@@ -374,7 +371,7 @@
 		"steps": {
 			"client_request": {
 				"title": "Client Request",
-				"description": "We gather the client's project goals and define the initial direction",
+				"description": "We gather the client's project goals and define the initial direction.",
 				"details": [
 					"Define project objectives and scope",
 					"Collect related materials and references",
@@ -384,7 +381,7 @@
 			},
 			"requirement_analysis": {
 				"title": "Requirement Analysis",
-				"description": "We analyze the client's requirements in detail to determine development feasibility and scope",
+				"description": "We analyze the client's requirements in detail to determine development feasibility and scope.",
 				"details": [
 					"Identify core features and detailed requirements",
 					"Review technical feasibility and potential risks",
@@ -394,7 +391,7 @@
 			},
 			"proposal": {
 				"title": "Proposal",
-				"description": "Based on the analysis, we provide an optimized development proposal",
+				"description": "Based on the analysis, we provide an optimized development proposal.",
 				"details": [
 					"Define development scope and phased approach",
 					"Prepare cost estimates and manpower plan",
@@ -404,7 +401,7 @@
 			},
 			"client_approval": {
 				"title": "Client Approval",
-				"description": "We finalize the proposal by incorporating the client's review and feedback",
+				"description": "We finalize the proposal by incorporating the client's review and feedback.",
 				"details": [
 					"Review proposal and collect feedback",
 					"Apply necessary revisions and improvements",
@@ -414,7 +411,7 @@
 			},
 			"contract_sign_off": {
 				"title": "Contract Signing",
-				"description": "A formal contract is signed based on the agreed terms and conditions",
+				"description": "A formal contract is signed based on the agreed terms and conditions.",
 				"details": [
 					"Draft and coordinate the contract",
 					"Specify cost, schedule, and project scope",
@@ -424,7 +421,7 @@
 			},
 			"project_kick_off": {
 				"title": "Project Kick-off",
-				"description": "After signing, the project officially begins with a dedicated development team",
+				"description": "After signing, the project officially begins with a dedicated development team.",
 				"details": [
 					"Assign dedicated resources",
 					"Conduct kick-off meeting",
@@ -516,7 +513,7 @@
 	"slogan": "Where Innovation Meets Execution",
 	"services": {
 		"hero": {
-			"title": "Transform Your Business with Innovative Solutions",
+			"title": "Transform Your Business<br>with Innovative Solutions",
 			"highlight": "Innovative",
 			"description": "Discover our comprehensive range of technology services designed to drive your business forward. From custom software to AI solutions, we've got you covered.",
 			"cta": "Get Started",
@@ -795,7 +792,7 @@
 	},
 	"solution": {
 		"video": {
-			"title": "Tailored Tech Products for Real-World Impact",
+			"title": "Tailored Tech Products<br>for Real-World Impact",
 			"sublime": "All the solutions your business needs, in one place. From planning to implementation, we are your trusted partner every step of the way."
 		},
 		"product": {
@@ -819,7 +816,7 @@
 				}
 			},
 			"development": {
-				"title": "Develop implementation plan",
+				"title": "Customized Development",
 				"description": {
 					"1": "Customize the system ",
 					"2": "Develop additional features as needed",
@@ -855,19 +852,23 @@
 			"banner": {
 				"header": "In the digital age",
 				"title": [
-					{ "text": "Ready for a", "className": "text-white text-2xl" },
-					{ "text": " Smart Office", "className": "text-[#0435F2] font-bold text-3xl" },
+					{ "text": "Looking forward to work?<br>", "className": "text-white text-2xl" },
 					{
-						"text": " , that makes you look forward to going to work?",
-						"className": "text-white font-bold text-3xl"
-					}
+						"text": "Imagine what a ",
+						"className": "text-white text-2xl"
+					},
+					{
+						"text": "Smart Office ",
+						"className": "text-white text-2xl"
+					},
+					{ "text": "can do", "className": "text-white text-2xl" }
 				],
 				"desc": "Say goodbye to the office you knew — a new workday begins. Take the first step toward transforming both workspace efficiency and company culture.",
 				"contact_us": "Contact Us"
 			},
 			"boxIntro": {
 				"1": {
-					"title": "Smarter Spaces, Smarter Time",
+					"title": "Own Your Space & Time",
 					"desc": "Optimize your workspace with smart solutions to reduce costs and boost focus."
 				},
 				"2": {
@@ -875,24 +876,26 @@
 					"desc": "Create flexible workplaces that improve company culture and boost employee satisfaction."
 				},
 				"3": {
-					"title": "Smarter Decisions, Backed by Data",
+					"title": "Insight In. Strategy Out",
 					"desc": "Real-time insights into space and workflow for better decision-making."
 				}
 			},
 			"officeIntro": {
-				"title_1": "Boring commutes?",
-				"title_2": "Not anymore. Step into a smarter workday",
+				"title_1": "Boring commutes? Not anymore.",
+				"title_2": "Step into a smarter workday",
 				"desc": "Smart Office Solution makes every moment from check-in to check-out more convenient and flexible. It enhances not only work efficiency but also organizational culture and employee satisfaction, creating a new work environment that transforms how we perceive work and office space."
 			},
 			"video": {
 				"title": [
-					{ "text": "A", "className": "text-white text-2xl" },
-					{ "text": " Smart Office ", "className": "text-[#0435F2] font-bold text-3xl" },
+					{ "text": "A better workday starts with", "className": "text-white text-2xl" },
 					{
-						"text": "you look forward to Right at your fingertips.<br>",
-						"className": "text-white text-2xl"
+						"text": " Smart Office.",
+						"className": "text-[#000000] font-bold text-3xl"
 					},
-					{ "text": "Let’s build it together.", "className": "text-white text-2xl" }
+					{
+						"text": "<br>Right in your hands. Built together with T2 Soft.",
+						"className": "text-white text-2xl"
+					}
 				]
 			},
 			"tab": {

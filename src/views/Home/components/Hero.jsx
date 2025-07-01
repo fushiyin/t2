@@ -163,6 +163,10 @@ export default function Hero() {
 						<motion.h1
 							className="px-4 text-4xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl text-white pb-4 font-sans break-keep whitespace-normal break-words"
 							variants={itemVariants}
+							style={{
+								textShadow:
+									"0 2px 8px rgba(0,0,0,0.9), 0 0px 2px rgba(0,0,0,0.8), 0 4px 16px rgba(0,0,0,0.7)",
+							}}
 						>
 							{content.title}
 						</motion.h1>

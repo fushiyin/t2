@@ -51,11 +51,11 @@ const Slide_Swiper = ({ details }) => {
 			<div className="container max-w-[1440px] mx-auto">
 				<div className="w-full md:w-[60%] mb-4 md:mb-16 mt-4 h-auto flex flex-col text-center md:text-left items-center mx-auto">
 					<div className="space-y-2">
-						<p className="max-w-[900px] text-center text-light-blue font-bold text-xl md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed 2xl:text-2xl font-sans break-keep whitespace-normal break-words">
+						<p className="max-w-[900px] text-center text-light-blue font-bold text-xl md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed 2xl:text-2xl font-sans break-keep whitespace-normal break-words korean-text">
 							{t("solution.implementation.title")}
 						</p>
 						<h2
-							className={`text-3xl font-bold tracking-tighter sm:text-5xl pb-6 ${details ? "text-transparent bg-gradient-to-r from-light-blue via-light-blue-gray to-pale-blue bg-clip-text" : "text-dark-gray"}`}
+							className={`text-3xl font-bold tracking-tighter korean-text sm:text-5xl pb-6 ${details ? "text-transparent bg-gradient-to-r from-light-blue via-light-blue-gray to-pale-blue bg-clip-text" : "text-dark-gray"}`}
 						>
 							{t("solution.implementation.description")}
 						</h2>
@@ -92,7 +92,7 @@ const Slide_Swiper = ({ details }) => {
 											<div className="absolute inset-0 bg-[#16224E9C] pointer-events-none" />
 											<div className="absolute inset-0 flex flex-col w-full h-full px-4 py-6 text-white z-10 items-start">
 												<div className="w-16 h-1 bg-light-blue mb-2"></div>
-												<div className="text-2xl font-semibold drop-shadow mb-2 w-full text-left font-sans break-keep whitespace-normal break-words capitalize">
+												<div className="text-2xl font-semibold drop-shadow mb-2 w-full text-left font-sans break-keep whitespace-normal break-words capitalize korean-text">
 													{item.title(t)}
 												</div>
 												<div className="text-base drop-shadow w-full">
@@ -100,7 +100,7 @@ const Slide_Swiper = ({ details }) => {
 														{Object.values(item.description(t)).map(
 															(desc, i) => (
 																<li
-																	className="font-sans break-keep whitespace-normal break-words leading-loose"
+																	className="font-sans break-keep whitespace-normal break-words leading-loose korean-text"
 																	key={i}
 																>
 																	{desc}
@@ -129,13 +129,13 @@ const Slide_Swiper = ({ details }) => {
 									<div className="absolute inset-0 bg-[#16224E9C] group-hover:bg-[#0730D0BD] transition-all duration-600 pointer-events-none" />
 									<div className="absolute inset-0 flex flex-col justify-end items-start w-full h-full px-4 py-6 text-white z-10 transition-all duration-600 ease-in-out group-hover:opacity-0 opacity-100 group-hover:translate-y-8 translate-y-0">
 										<div className="w-16 h-1 bg-light-blue group-hover:bg-white mb-2"></div>
-										<div className="text-2xl font-semibold drop-shadow mb-0 w-full transition-all duration-600 ease-in-out text-left font-sans break-keep whitespace-normal break-words capitalize">
+										<div className="text-2xl font-semibold drop-shadow mb-0 w-full transition-all duration-600 ease-in-out text-left font-sans break-keep whitespace-normal break-words capitalize korean-text">
 											{item.title(t)}
 										</div>
 									</div>
 									<div className="absolute inset-0 flex flex-col justify-start items-start w-full h-full px-4 py-6 text-white z-10 transition-all duration-600 ease-in-out opacity-0 group-hover:opacity-100 group-hover:translate-y-0 translate-y-8">
 										<div className="w-16 h-1 bg-light-blue group-hover:bg-white mb-2"></div>
-										<div className="text-2xl font-semibold drop-shadow mb-2 w-full transition-all duration-600 ease-in-out text-left font-sans break-keep whitespace-normal break-words">
+										<div className="text-2xl font-semibold drop-shadow mb-2 w-full transition-all duration-600 ease-in-out text-left font-sans break-keep whitespace-normal break-words korean-text">
 											{item.title(t)}
 										</div>
 										<div className="text-base drop-shadow w-full transition-all duration-600 ease-in-out opacity-0 group-hover:opacity-100 group-hover:translate-y-0 translate-y-4">
@@ -143,7 +143,7 @@ const Slide_Swiper = ({ details }) => {
 												{Object.values(item.description(t)).map(
 													(desc, i) => (
 														<li
-															className="font-sans break-keep whitespace-normal break-words leading-loose"
+															className="font-sans break-keep whitespace-normal break-words leading-loose korean-text"
 															key={i}
 														>
 															{desc}

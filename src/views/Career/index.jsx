@@ -48,11 +48,14 @@ export default function Careers() {
 					/>
 					<div className="absolute max-w-5xl mx-auto inset-0 flex flex-col items-center justify-center">
 						<motion.h1
-							className="w-full text-4xl md:text-5xl text-center text-white font-bold mb-4 font-sans break-keep whitespace-normal break-words"
+							className="w-full text-4xl md:text-5xl text-center text-white font-bold mb-4 font-sans break-keep whitespace-normal break-words leading-normal"
 							initial="hidden"
 							animate="visible"
 							variants={fadeUp}
-							style={{ textShadow: "0 2px 8px rgba(0,0,0,0.7)", lineHeight: "1.2" }}
+							style={{
+								textShadow:
+									"0 2px 8px rgba(0,0,0,0.9), 0 0px 2px rgba(0,0,0,0.8), 0 4px 16px rgba(0,0,0,0.7)",
+							}}
 						>
 							{t("careers.title")}
 						</motion.h1>

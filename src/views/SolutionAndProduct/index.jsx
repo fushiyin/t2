@@ -97,10 +97,12 @@ export default function SolutionAndProduct() {
 							loop
 							muted
 							playsInline
-							className="w-full h-full object-cover"
-							onWaiting={() => setVideoLoading(true)}
+							className={`w-full h-full object-cover transition-opacity duration-500 ${
+								videoLoading ? "opacity-0" : "opacity-100"
+							}`}
+							onLoadedData={() => setVideoLoading(false)}
 							onCanPlay={() => setVideoLoading(false)}
-							onPlaying={() => setVideoLoading(false)}
+							onError={() => setVideoLoading(false)}
 						/>
 					</motion.div>
 					{/* Overlay */}

@@ -14,6 +14,7 @@ export default function Hero() {
 	const [heroPlayCount, setHeroPlayCount] = useState(0);
 	const videoHomeRef = useRef(null);
 	const videoHeroRef = useRef(null);
+	const [videoLoading, setVideoLoading] = useState(true);
 
 	const handleVideoEnd = () => {
 		if (!isShowingHero) {
@@ -101,6 +102,11 @@ export default function Hero() {
 						"opacity-0 z-0 pointer-events-none": !isShowingHero,
 					})}
 				>
+					{videoLoading && (
+						<div className="absolute inset-0 flex items-center justify-center bg-draker-blue/50 z-10">
+							<span className="loader"></span>
+						</div>
+					)}
 					<video
 						ref={videoHeroRef}
 						autoPlay
@@ -109,6 +115,9 @@ export default function Hero() {
 						loop={false}
 						className="w-full h-full object-cover"
 						onEnded={handleVideoEnd}
+						onWaiting={() => setVideoLoading(true)}
+						onCanPlay={() => setVideoLoading(false)}
+						onPlaying={() => setVideoLoading(false)}
 					>
 						<source
 							src={video_hero}

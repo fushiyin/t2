@@ -8,7 +8,7 @@ import useResponsive from "@/hooks/useResponsive";
 import { idRouter } from "@/routes/idRouter";
 import { motion } from "framer-motion";
 import { ArrowRight, ArrowRightIcon } from "lucide-react";
-import React, { useEffect } from "react";
+import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useInView } from "react-intersection-observer";
 import Lottie from "react-lottie";
@@ -29,6 +29,9 @@ const SolutionDetail = () => {
 	const navigate = useNavigate();
 	const solution = SOLUTION_DETAILS.find((solution) => solution.id === id);
 	// const solution = SOLUTION_DETAILS.find((solution) => solution.id === parseInt(id));
+
+	const [videoLoading, setVideoLoading] = useState(true);
+	const [imageLoaded, setImageLoaded] = useState(false);
 
 	const [heroRef, heroInView] = useInView({
 		triggerOnce: true,
@@ -54,18 +57,8 @@ const SolutionDetail = () => {
 		threshold: 0.1,
 	});
 
-	const { t, i18n } = useTranslation();
+	const { t } = useTranslation();
 	const { isMobile } = useResponsive();
-
-	useEffect(() => {
-		const onLangChanged = () => {
-			window.location.reload();
-		};
-		i18n.on("languageChanged", onLangChanged);
-		return () => {
-			i18n.off("languageChanged", onLangChanged);
-		};
-	}, [i18n]);
 
 	return (
 		<div className="w-full flex flex-col items-center mt-[64px]">
@@ -76,16 +69,27 @@ const SolutionDetail = () => {
 				animate={bannerInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
 				transition={{ duration: 0.6 }}
 			>
-				<img
-					src={bg_banner}
-					className={`w-full h-[500px] md:h-[800px] ${isMobile ? "object-cover flex justify-center" : ""}`}
-				/>
+				{!imageLoaded && (
+					<div className="absolute inset-0 flex items-center justify-center bg-dark-blue/50 z-10">
+						<span className="loader"></span>
+					</div>
+				)}
+				<div className="relative w-full h-[500px] md:h-[800px]">
+					<img
+						src={bg_banner}
+						className={`w-full h-[500px] md:h-[800px] ${isMobile ? "object-cover flex justify-center" : ""}`}
+						loading="lazy"
+						onLoad={() => setImageLoaded(true)}
+						onError={() => setImageLoaded(true)}
+						style={imageLoaded ? {} : { visibility: "hidden" }}
+					/>
+				</div>
 				{/* overlay */}
 				{/* <div className="absolute inset-0 bg-dark-blue/50" /> */}
 
 				<div className="absolute max-w-[1440px] mx-auto px-2 md:px-6 inset-0 flex gap-4 flex-col items-center md:items-start justify-center">
 					<motion.p
-						className={`text-xl text-white korean-text ${isMobile ? "" : ""}`}
+						className="text-xl text-white korean-text"
 						initial="hidden"
 						animate={bannerInView ? "visible" : "hidden"}
 						variants={fadeUp}
@@ -93,8 +97,14 @@ const SolutionDetail = () => {
 							textShadow:
 								"0 2px 8px rgba(0,0,0,0.9), 0 0px 2px rgba(0,0,0,0.8), 0 4px 16px rgba(0,0,0,0.7)",
 						}}
-						dangerouslySetInnerHTML={{ __html: solution.banner }}
-					></motion.p>
+					>
+						{solution.banner.title?.map((part, idx) => (
+							<React.Fragment key={idx}>
+								<span className={part.className}>{part.text}</span>
+								{!isMobile && part.br && <br />}
+							</React.Fragment>
+						))}
+					</motion.p>
 
 					<motion.p
 						className={`text-center md:text-left leading-relaxed font-sans break-keep whitespace-normal break-words ${isMobile ? "w-full" : "w-[70%]"}`}
@@ -222,6 +232,11 @@ const SolutionDetail = () => {
 						transition={{ duration: 0.6 }}
 						className="absolute inset-0 w-full h-full bg-cover bg-center overflow-hidden"
 					>
+						{videoLoading && (
+							<div className="absolute inset-0 flex items-center justify-center bg-draker-blue/80 z-10">
+								<span className="loader"></span>
+							</div>
+						)}
 						<video
 							src={Video_SO}
 							autoPlay
@@ -229,6 +244,9 @@ const SolutionDetail = () => {
 							muted
 							playsInline
 							className="w-full h-full object-cover"
+							onWaiting={() => setVideoLoading(true)}
+							onCanPlay={() => setVideoLoading(false)}
+							onPlaying={() => setVideoLoading(false)}
 						/>
 					</motion.div>
 					{/* Overlay */}
@@ -237,11 +255,14 @@ const SolutionDetail = () => {
 					<div className="relative z-10 flex flex-col justify-center items-center h-full mx-auto text-center space-y-3">
 						<h2 className="px-4 text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight font-sans break-keep whitespace-normal break-words text-white korean-text">
 							{solution.video.title?.map((part, idx) => (
-								<span
-									key={idx}
-									className={`text-3xl md:text-5xl font-bold block md:inline font-sans break-keep whitespace-normal break-words leading-normal korean-text ${part.className}`}
-									dangerouslySetInnerHTML={{ __html: part.text }}
-								/>
+								<React.Fragment key={idx}>
+									<span
+										className={`text-3xl md:text-5xl font-bold block md:inline font-sans break-keep whitespace-normal break-words leading-normal korean-text ${part.className}`}
+									>
+										{part.text}
+									</span>
+									{!isMobile && part.br && <br />}
+								</React.Fragment>
 							))}
 						</h2>
 					</div>

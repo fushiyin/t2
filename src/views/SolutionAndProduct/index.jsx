@@ -19,10 +19,14 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { sectionClass } from "../Home";
 import CompetitiveEdges from "../Home/components/CompetitiveEdges";
 import Slide_Swiper from "./Slide_Swiper";
+import classNames from "classnames";
+import { useState } from "react";
 
 export default function SolutionAndProduct() {
 	const { t } = useTranslation();
 	const { isMobile } = useResponsive();
+	const [videoLoading, setVideoLoading] = useState(true);
+	const [loadedImages, setLoadedImages] = useState({});
 
 	const [titleRef, titleInView] = useInView({
 		triggerOnce: true,
@@ -81,6 +85,11 @@ export default function SolutionAndProduct() {
 						transition={{ duration: 0.6 }}
 						className="absolute inset-0 w-full h-full bg-cover bg-center overflow-hidden"
 					>
+						{videoLoading && (
+							<div className="absolute inset-0 flex items-center justify-center bg-draker-blue/50 z-10">
+								<span className="loader"></span>
+							</div>
+						)}
 						<video
 							src={video_solution}
 							autoPlay
@@ -88,6 +97,9 @@ export default function SolutionAndProduct() {
 							muted
 							playsInline
 							className="w-full h-full object-cover"
+							onWaiting={() => setVideoLoading(true)}
+							onCanPlay={() => setVideoLoading(false)}
+							onPlaying={() => setVideoLoading(false)}
 						/>
 					</motion.div>
 					{/* Overlay */}
@@ -157,11 +169,35 @@ export default function SolutionAndProduct() {
 										<div
 											className={`absolute ${isMobile ? "left-0 w-full" : "left-[100px] w-[85%]"} h-full md:h-[90%] flex items-center justify-center bg-white shadow-xl rounded-3xl overflow-hidden mx-auto`}
 										>
-											<img
-												src={product.image}
-												alt={product.name}
-												className="object-cover w-[95%] h-[93%] rounded-3xl"
-											/>
+											<div className="relative w-[95%] h-[93%] rounded-3xl">
+												{!loadedImages[product.id] && (
+													<div className="absolute inset-0 flex items-center justify-center bg-dark-blue/50 z-10">
+														<span className="loader"></span>
+													</div>
+												)}
+												<img
+													src={product.image}
+													alt={product.name}
+													className="object-cover w-full h-full rounded-3xl"
+													onLoad={() =>
+														setLoadedImages((prev) => ({
+															...prev,
+															[product.id]: true,
+														}))
+													}
+													onError={() =>
+														setLoadedImages((prev) => ({
+															...prev,
+															[product.id]: true,
+														}))
+													}
+													style={
+														loadedImages[product.id]
+															? {}
+															: { visibility: "hidden" }
+													}
+												/>
+											</div>
 										</div>
 									</div>
 
@@ -209,7 +245,10 @@ export default function SolutionAndProduct() {
 				className="w-full bg-white h-0 relative justify-center flex shadow-lg z-30"
 			>
 				<div
-					className="container max-w-[1440px] w-full md:w-[95%] mx-auto absolute md:rounded-3xl top-[-90px]"
+					className={classNames(
+						"container max-w-[1440px] w-full md:w-[95%] mx-auto absolute md:rounded-3xl",
+						!isMobile && "top-[-90px]",
+					)}
 					style={{
 						background: "linear-gradient(90deg, #1A3087 0%, #2D54ED 100%)",
 					}}

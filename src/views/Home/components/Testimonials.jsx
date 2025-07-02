@@ -69,7 +69,7 @@ export default function Testimonials({ contentClass }) {
 	const duplicatedTestimonials = testimonials.map((row) => [...row, ...row, ...row, ...row]);
 
 	return (
-		<div className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white w-full flex items-center justify-center h-[760px] md:h-full">
+		<div className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white w-full flex items-center justify-center h-full">
 			<div
 				className={classNames(
 					"relative w-full flex items-center justify-center max-w-[1440px] h-full",
@@ -132,7 +132,7 @@ function TestimonialCard({ testimonial }) {
 	const { t } = useTranslation();
 
 	return (
-		<Card className="bg-via-gray text-white shadow-md h-[280px] w-[400px] border border-white/[0.08] rounded-xl">
+		<Card className="bg-via-gray text-white shadow-md h-[300px] w-[400px] border border-white/[0.08] rounded-xl">
 			<CardContent className="p-6">
 				<div className="flex items-start space-x-4">
 					<Avatar className="border-2 border-white/[0.3]">

@@ -8,7 +8,7 @@ function InfinityHorizontalScroll({
 }) {
 	return (
 		<div
-			className={classNames("flex h-full w-full overflow-hidden", {
+			className={classNames("flex w-full", {
 				[style.scroll_wrapper]: !isRevert,
 				[style.scroll_wrapper_revert]: isRevert,
 				[`h-[${height}px]`]: height,

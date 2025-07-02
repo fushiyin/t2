@@ -3,6 +3,8 @@ export const FORM_CV =
 export const FORM_CV_INTERPRETER =
 	"https://docs.google.com/forms/d/1uGYjG3Fd09wYve1aT8kjB-BykUKsmcxYFrluzB6YJkU/viewform?hl=vi&hl=vi&edit_requested=true";
 
+export const API_KEY_TINY = "ozs8clx506kmpq2gzeosnuagqwkx9mmf3x8ceeyib4vkq8cu";
+
 export const OPEN_POSITIONS = [
 	{
 		id: 1,

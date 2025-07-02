@@ -23,7 +23,10 @@ export default function CTA() {
 						size="lg"
 						className="text-base px-4 py-2"
 					>
-						<Link className="flex items-center gap-2">
+						<Link
+							to="/contact"
+							className="flex items-center gap-2"
+						>
 							{t("contact.title")} <ArrowRightIcon className="h-4 w-4" />
 						</Link>
 					</Button>

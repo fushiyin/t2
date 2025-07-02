@@ -199,3 +199,10 @@
   0% { transform: rotate(0deg);}
   100% { transform: rotate(360deg);}
 }
+
+.tox {
+  z-index: 9999 !important;
+}
+.tox-promotion{
+	display: none;
+}

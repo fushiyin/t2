@@ -43,6 +43,8 @@ import { ChevronDown, ChevronUp, Edit2, Filter, Plus, Search, Trash2 } from "luc
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Textarea } from "@/components/ui/textarea";
+import TinyMCEField from "@/components/ui/TinyMCEField";
+import { API_KEY_TINY } from "@/constant/career";
 
 // Constants for select options
 const DEPARTMENTS = [
@@ -335,6 +337,7 @@ const Careers = () => {
 
 	// Handle form submission
 	const onSubmit = (data) => {
+		console.log(data);
 		if (editingCareer) {
 			// Update existing career
 			setCareers(
@@ -355,9 +358,10 @@ const Careers = () => {
 			};
 			setCareers([...careers, newCareer]);
 		}
-		setShowAddDialog(false);
-		setEditingCareer(null);
-		form.reset();
+
+		// setShowAddDialog(false);
+		// setEditingCareer(null);
+		// form.reset();
 	};
 
 	// Handle edit button click
@@ -555,7 +559,7 @@ const Careers = () => {
 									</div>
 								</TableHead>
 								<TableHead
-									className="cursor-pointer"
+									className="cursor-pointer min-w-[160px]"
 									onClick={() => handleSort("department")}
 								>
 									<div className="flex items-center gap-2">
@@ -564,7 +568,7 @@ const Careers = () => {
 									</div>
 								</TableHead>
 								<TableHead
-									className="cursor-pointer"
+									className="cursor-pointer min-w-[140px]"
 									onClick={() => handleSort("location")}
 								>
 									<div className="flex items-center gap-2">
@@ -573,7 +577,7 @@ const Careers = () => {
 									</div>
 								</TableHead>
 								<TableHead
-									className="cursor-pointer"
+									className="cursor-pointer min-w-[120px]"
 									onClick={() => handleSort("type")}
 								>
 									<div className="flex items-center gap-2">
@@ -581,7 +585,7 @@ const Careers = () => {
 										<SortIcon columnKey="type" />
 									</div>
 								</TableHead>
-								<TableHead>Status</TableHead>
+								<TableHead className="min-w-[120px]">Status</TableHead>
 								<TableHead
 									className="cursor-pointer"
 									onClick={() => handleSort("applicants")}
@@ -616,10 +620,16 @@ const Careers = () => {
 										<TableCell className="font-medium">
 											{career.title}
 										</TableCell>
-										<TableCell>{career.department}</TableCell>
-										<TableCell>{career.location}</TableCell>
-										<TableCell>{career.type}</TableCell>
-										<TableCell>
+										<TableCell className="min-w-[160px]">
+											{career.department}
+										</TableCell>
+										<TableCell className="min-w-[140px]">
+											{career.location}
+										</TableCell>
+										<TableCell className="min-w-[120px]">
+											{career.type}
+										</TableCell>
+										<TableCell className="min-w-[120px]">
 											<span
 												className={`px-2 py-1 rounded-full text-xs ${
 													career.status === "Open"
@@ -676,13 +686,27 @@ const Careers = () => {
 				{showAddDialog && (
 					<Dialog
 						open={showAddDialog}
+						modal={false}
 						onOpenChange={(open) => {
 							setShowAddDialog(open);
 							setEditingCareer(null);
 							form.reset();
 						}}
 					>
-						<DialogContent className="max-h-[90vh] overflow-hidden">
+						{/* Overlay */}
+						<motion.div
+							initial={{ opacity: 0 }}
+							animate={{ opacity: 0.5 }}
+							exit={{ opacity: 0 }}
+							transition={{ duration: 0.2 }}
+							className="fixed inset-0 bg-black z-40"
+						/>
+
+						{/* Modal content FIXED */}
+						<DialogContent
+							onInteractOutside={(e) => e.preventDefault()}
+							className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 max-h-[90vh] w-auto md:min-w-[700px] z-50"
+						>
 							<motion.div
 								initial={{ opacity: 0, y: 20 }}
 								animate={{ opacity: 1, y: 0 }}
@@ -690,10 +714,11 @@ const Careers = () => {
 								transition={{ duration: 0.2 }}
 							>
 								<DialogHeader>
-									<DialogTitle>
+									<DialogTitle className="w-full justify-center text-center">
 										{editingCareer ? "Edit Position" : "Add New Position"}
 									</DialogTitle>
 								</DialogHeader>
+
 								<div className="max-h-[calc(90vh-180px)] overflow-y-auto pr-4">
 									<Form {...form}>
 										<form
@@ -728,8 +753,8 @@ const Careers = () => {
 																onValueChange={field.onChange}
 																defaultValue={field.value}
 															>
-																<FormControl>
-																	<SelectTrigger>
+																<FormControl className="w-full">
+																	<SelectTrigger className="w-full">
 																		<SelectValue placeholder="Select department" />
 																	</SelectTrigger>
 																</FormControl>
@@ -759,8 +784,8 @@ const Careers = () => {
 																onValueChange={field.onChange}
 																defaultValue={field.value}
 															>
-																<FormControl>
-																	<SelectTrigger>
+																<FormControl className="w-full">
+																	<SelectTrigger className="w-full">
 																		<SelectValue placeholder="Select location" />
 																	</SelectTrigger>
 																</FormControl>
@@ -792,8 +817,8 @@ const Careers = () => {
 																onValueChange={field.onChange}
 																defaultValue={field.value}
 															>
-																<FormControl>
-																	<SelectTrigger>
+																<FormControl className="w-full">
+																	<SelectTrigger className="w-full">
 																		<SelectValue placeholder="Select type" />
 																	</SelectTrigger>
 																</FormControl>
@@ -823,8 +848,8 @@ const Careers = () => {
 																onValueChange={field.onChange}
 																defaultValue={field.value}
 															>
-																<FormControl>
-																	<SelectTrigger>
+																<FormControl className="w-full">
+																	<SelectTrigger className="w-full">
 																		<SelectValue placeholder="Select status" />
 																	</SelectTrigger>
 																</FormControl>
@@ -847,61 +872,28 @@ const Careers = () => {
 												/>
 											</div>
 
-											<FormField
+											<TinyMCEField
 												control={form.control}
 												name="requirements"
-												render={({ field }) => (
-													<FormItem>
-														<FormLabel>Requirements</FormLabel>
-														<FormControl>
-															<Textarea
-																placeholder="Enter job requirements"
-																className="min-h-[100px] max-h-[200px]"
-																value={field.value || ""}
-																onChange={field.onChange}
-															/>
-														</FormControl>
-														<FormMessage />
-													</FormItem>
-												)}
+												label="Requirements"
+												placeholder="Enter job requirements..."
+												apiKey={API_KEY_TINY}
 											/>
 
-											<FormField
+											<TinyMCEField
 												control={form.control}
 												name="responsibilities"
-												render={({ field }) => (
-													<FormItem>
-														<FormLabel>Responsibilities</FormLabel>
-														<FormControl>
-															<Textarea
-																placeholder="Enter job responsibilities"
-																className="min-h-[100px] max-h-[200px]"
-																value={field.value || ""}
-																onChange={field.onChange}
-															/>
-														</FormControl>
-														<FormMessage />
-													</FormItem>
-												)}
+												label="Responsibilities"
+												placeholder="Enter job responsibilities..."
+												apiKey={API_KEY_TINY}
 											/>
 
-											<FormField
+											<TinyMCEField
 												control={form.control}
 												name="benefits"
-												render={({ field }) => (
-													<FormItem>
-														<FormLabel>Benefits</FormLabel>
-														<FormControl>
-															<Textarea
-																placeholder="Enter job benefits"
-																className="min-h-[100px] max-h-[200px]"
-																value={field.value || ""}
-																onChange={field.onChange}
-															/>
-														</FormControl>
-														<FormMessage />
-													</FormItem>
-												)}
+												label="Benefits"
+												placeholder="Enter job benefits..."
+												apiKey={API_KEY_TINY}
 											/>
 
 											<DialogFooter>

@@ -1,5 +1,6 @@
 import about_img from "@/assets/img/About_us.png";
 import image from "@/assets/img/bg-about-us.png";
+import video_about from "@/assets/video/About_us.mp4";
 import AnimatedSection from "@/components/AnimatedSection";
 import CTA from "@/components/sections/ContactCTA";
 import FAQ from "@/components/sections/FAQ";
@@ -7,16 +8,17 @@ import { FAQs } from "@/constant/common";
 import useResponsive from "@/hooks/useResponsive";
 import { motion } from "framer-motion";
 import { Award, CheckCircle2, Globe, Users } from "lucide-react";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useInView } from "react-intersection-observer";
 import CompetitiveEdges from "../Home/components/CompetitiveEdges";
 import VisionJourney from "../Home/components/Vision";
-import video_about from "@/assets/video/About_us.mp4";
 
 export default function AboutPage() {
 	const { t } = useTranslation();
 	const { isMobile, isLg } = useResponsive();
 	const iconList = [CheckCircle2, Users, Globe, Award];
+	const [videoLoading, setVideoLoading] = useState(true);
 
 	// Intersection observers for different sections
 	const [titleRef, titleInView] = useInView({
@@ -66,6 +68,11 @@ export default function AboutPage() {
 						transition={{ duration: 0.6 }}
 						className="absolute inset-0 w-full h-full bg-cover bg-center overflow-hidden"
 					>
+						{videoLoading && (
+							<div className="absolute inset-0 flex items-center justify-center bg-draker-blue/50 z-10">
+								<span className="loader"></span>
+							</div>
+						)}
 						<video
 							src={video_about}
 							autoPlay
@@ -73,6 +80,9 @@ export default function AboutPage() {
 							muted
 							playsInline
 							className="w-full h-full object-cover"
+							onWaiting={() => setVideoLoading(true)}
+							onCanPlay={() => setVideoLoading(false)}
+							onPlaying={() => setVideoLoading(false)}
 						/>
 					</motion.div>
 					{/* Overlay */}

@@ -4,6 +4,7 @@ import CTA from "@/components/sections/ContactCTA";
 import { SECTIONS_KEY } from "@/constant/sideNavigation";
 import { motion } from "framer-motion";
 import { ArrowRight, BarChart3, BrainCircuit, Code, Database, Globe, Layers } from "lucide-react";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useInView } from "react-intersection-observer";
 import { useNavigate } from "react-router";
@@ -88,6 +89,7 @@ const services = [
 export default function ServicesPage() {
 	const { t } = useTranslation();
 	const navigate = useNavigate();
+	const [videoLoading, setVideoLoading] = useState(true);
 
 	const [heroRef, heroInView] = useInView({
 		triggerOnce: true,
@@ -116,6 +118,11 @@ export default function ServicesPage() {
 							transition={{ duration: 0.6 }}
 							className="absolute inset-0 w-full h-full bg-cover bg-center overflow-hidden"
 						>
+							{videoLoading && (
+								<div className="absolute inset-0 flex items-center justify-center bg-draker-blue/50 z-10">
+									<span className="loader"></span>
+								</div>
+							)}
 							<video
 								src={video_services}
 								autoPlay
@@ -123,6 +130,9 @@ export default function ServicesPage() {
 								muted
 								playsInline
 								className="w-full h-full object-cover"
+								onWaiting={() => setVideoLoading(true)}
+								onCanPlay={() => setVideoLoading(false)}
+								onPlaying={() => setVideoLoading(false)}
 							/>
 						</motion.div>
 						{/* Overlay */}

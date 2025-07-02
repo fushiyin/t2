@@ -8,7 +8,7 @@ import useResponsive from "@/hooks/useResponsive";
 import { idRouter } from "@/routes/idRouter";
 import { motion } from "framer-motion";
 import { ArrowRight, ArrowRightIcon } from "lucide-react";
-import React from "react";
+import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useInView } from "react-intersection-observer";
 import Lottie from "react-lottie";
@@ -29,6 +29,9 @@ const SolutionDetail = () => {
 	const navigate = useNavigate();
 	const solution = SOLUTION_DETAILS.find((solution) => solution.id === id);
 	// const solution = SOLUTION_DETAILS.find((solution) => solution.id === parseInt(id));
+
+	const [videoLoading, setVideoLoading] = useState(true);
+	const [imageLoaded, setImageLoaded] = useState(false);
 
 	const [heroRef, heroInView] = useInView({
 		triggerOnce: true,
@@ -66,10 +69,21 @@ const SolutionDetail = () => {
 				animate={bannerInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
 				transition={{ duration: 0.6 }}
 			>
-				<img
-					src={bg_banner}
-					className={`w-full h-[500px] md:h-[800px] ${isMobile ? "object-cover flex justify-center" : ""}`}
-				/>
+				{!imageLoaded && (
+					<div className="absolute inset-0 flex items-center justify-center bg-dark-blue/50 z-10">
+						<span className="loader"></span>
+					</div>
+				)}
+				<div className="relative w-full h-[500px] md:h-[800px]">
+					<img
+						src={bg_banner}
+						className={`w-full h-[500px] md:h-[800px] ${isMobile ? "object-cover flex justify-center" : ""}`}
+						loading="lazy"
+						onLoad={() => setImageLoaded(true)}
+						onError={() => setImageLoaded(true)}
+						style={imageLoaded ? {} : { visibility: "hidden" }}
+					/>
+				</div>
 				{/* overlay */}
 				{/* <div className="absolute inset-0 bg-dark-blue/50" /> */}
 
@@ -218,6 +232,11 @@ const SolutionDetail = () => {
 						transition={{ duration: 0.6 }}
 						className="absolute inset-0 w-full h-full bg-cover bg-center overflow-hidden"
 					>
+						{videoLoading && (
+							<div className="absolute inset-0 flex items-center justify-center bg-draker-blue/80 z-10">
+								<span className="loader"></span>
+							</div>
+						)}
 						<video
 							src={Video_SO}
 							autoPlay
@@ -225,6 +244,9 @@ const SolutionDetail = () => {
 							muted
 							playsInline
 							className="w-full h-full object-cover"
+							onWaiting={() => setVideoLoading(true)}
+							onCanPlay={() => setVideoLoading(false)}
+							onPlaying={() => setVideoLoading(false)}
 						/>
 					</motion.div>
 					{/* Overlay */}

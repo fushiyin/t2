@@ -18,6 +18,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Autoplay, EffectFade, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
+import DotLoader from "@/components/ui/DotLoader";
 
 const Services = ({ contentClass }) => {
 	const { t } = useTranslation();
@@ -26,6 +27,7 @@ const Services = ({ contentClass }) => {
 	const isInView = useInView(ref, { once: true, amount: 0.3 });
 	const [activeIndex, setActiveIndex] = useState(0);
 	const navigate = useNavigate();
+	const [loadedImages, setLoadedImages] = useState({});
 
 	const services = [
 		{
@@ -243,14 +245,38 @@ const Services = ({ contentClass }) => {
 											<div
 												className={`absolute ${isMobile ? "left-0 w-full" : "left-[100px] w-[90%]"} h-[95%] flex items-center justify-center bg-white shadow-xl rounded-lg overflow-hidden mx-auto`}
 											>
-												<motion.img
-													initial={{ scale: 0.8, opacity: 0 }}
-													animate={{ scale: 1, opacity: 1 }}
-													transition={{ duration: 0.5, delay: 0.4 }}
-													src={service.image}
-													alt={service.name}
-													className="object-cover w-[96%] h-[96%] rounded-lg"
-												/>
+												<div className="relative w-[96%] h-[96%] rounded-lg">
+													{!loadedImages[service.id] && (
+														<div className="absolute inset-0 flex items-center justify-center bg-gray-900/80 z-10">
+															<DotLoader />
+														</div>
+													)}
+													<motion.img
+														initial={{ scale: 0.8, opacity: 0 }}
+														animate={{ scale: 1, opacity: 1 }}
+														transition={{ duration: 0.5, delay: 0.4 }}
+														src={service.image}
+														alt={service.name}
+														className="object-cover w-full h-full rounded-lg"
+														onLoad={() =>
+															setLoadedImages((prev) => ({
+																...prev,
+																[service.id]: true,
+															}))
+														}
+														onError={() =>
+															setLoadedImages((prev) => ({
+																...prev,
+																[service.id]: true,
+															}))
+														}
+														style={
+															loadedImages[service.id]
+																? {}
+																: { visibility: "hidden" }
+														}
+													/>
+												</div>
 											</div>
 										</motion.div>
 

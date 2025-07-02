@@ -14,6 +14,7 @@ import { useInView } from "react-intersection-observer";
 import Lottie from "react-lottie";
 import { useNavigate, useParams } from "react-router";
 import Slide_Swiper from "./Slide_Swiper";
+import DotLoader from "@/components/ui/DotLoader";
 
 const fadeUp = {
 	hidden: { opacity: 0, y: 20 },
@@ -69,19 +70,19 @@ const SolutionDetail = () => {
 				animate={bannerInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
 				transition={{ duration: 0.6 }}
 			>
-				{!imageLoaded && (
-					<div className="absolute inset-0 flex items-center justify-center bg-dark-blue/50 z-10">
-						<span className="loader"></span>
-					</div>
-				)}
 				<div className="relative w-full h-[500px] md:h-[800px]">
+					{!imageLoaded && (
+						<div className="absolute inset-0 flex items-center justify-center bg-dark-blue/50 z-10">
+							<DotLoader />
+						</div>
+					)}
 					<img
 						src={bg_banner}
-						className={`w-full h-[500px] md:h-[800px] ${isMobile ? "object-cover flex justify-center" : ""}`}
+						className={`w-full h-[500px] md:h-[800px] object-cover transition-opacity duration-500 ${imageLoaded ? "opacity-100" : "opacity-0"}`}
 						loading="lazy"
 						onLoad={() => setImageLoaded(true)}
 						onError={() => setImageLoaded(true)}
-						style={imageLoaded ? {} : { visibility: "hidden" }}
+						alt="Banner"
 					/>
 				</div>
 				{/* overlay */}
@@ -233,8 +234,8 @@ const SolutionDetail = () => {
 						className="absolute inset-0 w-full h-full bg-cover bg-center overflow-hidden"
 					>
 						{videoLoading && (
-							<div className="absolute inset-0 flex items-center justify-center bg-draker-blue/80 z-10">
-								<span className="loader"></span>
+							<div className="absolute inset-0 flex items-center justify-center bg-dark-blue/50 z-10">
+								<DotLoader />
 							</div>
 						)}
 						<video
@@ -249,6 +250,7 @@ const SolutionDetail = () => {
 							onPlaying={() => setVideoLoading(false)}
 						/>
 					</motion.div>
+
 					{/* Overlay */}
 					{/* <div className="absolute inset-0 bg-dark-blue/40" /> */}
 					{/* Content */}

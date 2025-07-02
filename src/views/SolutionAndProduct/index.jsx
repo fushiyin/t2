@@ -21,6 +21,7 @@ import CompetitiveEdges from "../Home/components/CompetitiveEdges";
 import Slide_Swiper from "./Slide_Swiper";
 import classNames from "classnames";
 import { useState } from "react";
+import DotLoader from "@/components/ui/DotLoader";
 
 export default function SolutionAndProduct() {
 	const { t } = useTranslation();
@@ -86,8 +87,8 @@ export default function SolutionAndProduct() {
 						className="absolute inset-0 w-full h-full bg-cover bg-center overflow-hidden"
 					>
 						{videoLoading && (
-							<div className="absolute inset-0 flex items-center justify-center bg-draker-blue/50 z-10">
-								<span className="loader"></span>
+							<div className="absolute inset-0 flex items-center justify-center bg-dark-blue/50 z-10">
+								<DotLoader />
 							</div>
 						)}
 						<video
@@ -96,10 +97,12 @@ export default function SolutionAndProduct() {
 							loop
 							muted
 							playsInline
-							className="w-full h-full object-cover"
-							onWaiting={() => setVideoLoading(true)}
+							className={`w-full h-full object-cover transition-opacity duration-500 ${
+								videoLoading ? "opacity-0" : "opacity-100"
+							}`}
+							onLoadedData={() => setVideoLoading(false)}
 							onCanPlay={() => setVideoLoading(false)}
-							onPlaying={() => setVideoLoading(false)}
+							onError={() => setVideoLoading(false)}
 						/>
 					</motion.div>
 					{/* Overlay */}
@@ -172,7 +175,7 @@ export default function SolutionAndProduct() {
 											<div className="relative w-[95%] h-[93%] rounded-3xl">
 												{!loadedImages[product.id] && (
 													<div className="absolute inset-0 flex items-center justify-center bg-dark-blue/50 z-10">
-														<span className="loader"></span>
+														<DotLoader />
 													</div>
 												)}
 												<img

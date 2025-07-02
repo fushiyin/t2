@@ -13,6 +13,7 @@ import { useTranslation } from "react-i18next";
 import { useInView } from "react-intersection-observer";
 import CompetitiveEdges from "../Home/components/CompetitiveEdges";
 import VisionJourney from "../Home/components/Vision";
+import DotLoader from "@/components/ui/DotLoader";
 
 export default function AboutPage() {
 	const { t } = useTranslation();
@@ -20,73 +21,53 @@ export default function AboutPage() {
 	const iconList = [CheckCircle2, Users, Globe, Award];
 	const [videoLoading, setVideoLoading] = useState(true);
 
-	// Intersection observers for different sections
-	const [titleRef, titleInView] = useInView({
-		triggerOnce: true,
-		threshold: 0.1,
-	});
+	const [titleRef, titleInView] = useInView({ triggerOnce: true, threshold: 0.1 });
+	const [contentRef, contentInView] = useInView({ triggerOnce: true, threshold: 0.1 });
+	const [imageRef, imageInView] = useInView({ triggerOnce: true, threshold: 0.1 });
+	const [experienceRef, experienceInView] = useInView({ triggerOnce: true, threshold: 0.1 });
+	const [faqRef, faqInView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
-	const [contentRef, contentInView] = useInView({
-		triggerOnce: true,
-		threshold: 0.1,
-	});
-
-	const [imageRef, imageInView] = useInView({
-		triggerOnce: true,
-		threshold: 0.1,
-	});
-
-	const [experienceRef, experienceInView] = useInView({
-		triggerOnce: true,
-		threshold: 0.1,
-	});
-
-	const [faqRef, faqInView] = useInView({
-		triggerOnce: true,
-		threshold: 0.1,
-	});
 	return (
 		<div className="w-full flex flex-col gap-6 md:gap-10 items-center mt-[64px]">
 			<AnimatedSection className="w-full flex flex-col items-center">
 				<motion.div
-					ref={isMobile ? imageRef : titleRef}
+					ref={titleRef}
 					initial={{ opacity: 0, y: -20 }}
-					animate={
-						(isMobile ? imageInView : titleInView)
-							? { opacity: 1, y: 0 }
-							: { opacity: 0, y: -20 }
-					}
+					animate={titleInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
 					transition={{ duration: 0.6 }}
 					className="relative mb-8 flex flex-col items-center justify-center text-center h-[500px] md:h-[700px] w-full"
 				>
-					{/* Background image */}
+					{/* Background video */}
 					<motion.div
 						initial={{ opacity: 0 }}
-						animate={
-							(isMobile ? imageInView : titleInView) ? { opacity: 1 } : { opacity: 0 }
-						}
+						animate={{ opacity: 1 }}
 						transition={{ duration: 0.6 }}
 						className="absolute inset-0 w-full h-full bg-cover bg-center overflow-hidden"
 					>
 						{videoLoading && (
-							<div className="absolute inset-0 flex items-center justify-center bg-draker-blue/50 z-10">
-								<span className="loader"></span>
+							<div className="absolute inset-0 flex items-center justify-center bg-dark-blue/80 z-20">
+								<DotLoader />
 							</div>
 						)}
+
 						<video
 							src={video_about}
 							autoPlay
 							loop
 							muted
 							playsInline
-							className="w-full h-full object-cover"
-							onWaiting={() => setVideoLoading(true)}
+							className={`w-full h-full object-cover transition-opacity duration-500 ${
+								videoLoading ? "opacity-0" : "opacity-100"
+							}`}
+							onLoadedData={() => setVideoLoading(false)}
 							onCanPlay={() => setVideoLoading(false)}
-							onPlaying={() => setVideoLoading(false)}
+							onError={() => setVideoLoading(false)}
 						/>
 					</motion.div>
+
 					{/* Overlay */}
 					<div className="absolute inset-0 bg-black/30" />
+
 					{/* Content */}
 					<div className="relative z-10 flex flex-col justify-center items-center h-full max-w-3xl mx-auto text-center space-y-3">
 						<h2
@@ -106,32 +87,42 @@ export default function AboutPage() {
 						</p>
 					</div>
 				</motion.div>
-				<div className="max-w-[1440px] container px-[20px]  md:px-0 flex flex-col justify-center min-h-[50vh]">
+
+				<div className="max-w-[1440px] container px-[20px] md:px-0 flex flex-col justify-center min-h-[50vh]">
 					<div className="flex flex-col lg:flex-row">
 						{isMobile && (
 							<div className="w-[90%] border-l-4 border-dark-blue pl-4">
 								<motion.h2
 									initial={{ opacity: 0, y: 20 }}
 									animate={
-										imageInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
+										isMobile
+											? { opacity: 1, y: 0 }
+											: imageInView
+												? { opacity: 1, y: 0 }
+												: { opacity: 0, y: 20 }
 									}
 									transition={{ duration: 0.5, delay: 0.3 }}
-									className=" text-3xl md:text-4xl font-bold tracking-tighter pb-2 bg-gradient-to-r from-[var(--color-light-mint)] to-[var(--color-light-green)] bg-clip-text text-transparent font-sans break-keep whitespace-normal break-words"
+									className="text-3xl md:text-4xl font-bold tracking-tighter pb-2 bg-gradient-to-r from-[var(--color-light-mint)] to-[var(--color-light-green)] bg-clip-text text-transparent font-sans break-keep whitespace-normal break-words"
 								>
 									{t("about.description.title")}
 								</motion.h2>
 								<motion.p
 									initial={{ opacity: 0, y: 20 }}
 									animate={
-										imageInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
+										isMobile
+											? { opacity: 1, y: 0 }
+											: imageInView
+												? { opacity: 1, y: 0 }
+												: { opacity: 0, y: 20 }
 									}
 									transition={{ duration: 0.5, delay: 0.4 }}
-									className="text-left text-gray-900  text-3xl md:text-4xl font-bold font-sans break-keep whitespace-normal break-words"
+									className="text-left text-gray-900 text-3xl md:text-4xl font-bold font-sans break-keep whitespace-normal break-words"
 								>
 									{t("about.description.explain")}
 								</motion.p>
 							</div>
 						)}
+
 						<motion.div
 							ref={contentRef}
 							initial={{ opacity: 0, x: -50 }}
@@ -174,7 +165,7 @@ export default function AboutPage() {
 									contentInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
 								}
 								transition={{ duration: 0.5, delay: 0.5 }}
-								className="ml-0 md:ml-6 mt-6 md:mt-6 w-full md:w-[90%] text-muted-foreground text-sx text-left  font-sans break-keep whitespace-normal break-words"
+								className="ml-0 md:ml-6 mt-6 w-full md:w-[90%] text-muted-foreground text-sx text-left font-sans break-keep whitespace-normal break-words"
 							>
 								{t("about.content")}
 							</motion.p>
@@ -199,7 +190,7 @@ export default function AboutPage() {
 								transition={{ duration: 0.6, delay: 0.7 }}
 								className="flex w-full md:w-[90%] flex-col sm:flex-row sm:flex-wrap gap-4 sm:gap-6 mt-4 sm:mt-8"
 							>
-								{iconList?.map((Icon, i) => (
+								{iconList.map((Icon, i) => (
 									<motion.p
 										key={i}
 										initial={{ opacity: 0, y: 20 }}
@@ -217,14 +208,11 @@ export default function AboutPage() {
 								))}
 							</motion.div>
 						</motion.div>
+
 						<motion.div
-							ref={isMobile ? contentRef : imageRef}
+							ref={imageRef}
 							initial={{ opacity: 0, x: 50 }}
-							animate={
-								(isMobile ? contentInView : imageInView)
-									? { opacity: 1, x: 0 }
-									: { opacity: 0, x: 50 }
-							}
+							animate={imageInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
 							transition={{ duration: 0.6, delay: 0.3 }}
 							className={`${isLg ? "pl-8 lg:pl-12" : isMobile ? "pl-0 pt-6" : "pl-6 pb-6"} w-full lg:w-[50%] relative h-[300px] md:h-[400px] lg:h-[600px] order-1 lg:order-2`}
 						>
@@ -253,8 +241,10 @@ export default function AboutPage() {
 					</div>
 				</div>
 			</AnimatedSection>
+
 			<VisionJourney />
 			<CompetitiveEdges />
+
 			<motion.div
 				ref={faqRef}
 				initial={{ opacity: 0, y: 30 }}
@@ -294,6 +284,7 @@ export default function AboutPage() {
 					</motion.div>
 				</motion.div>
 			</motion.div>
+
 			<CTA />
 		</div>
 	);

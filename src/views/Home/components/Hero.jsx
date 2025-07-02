@@ -1,6 +1,7 @@
 import video_home from "@/assets/video/Vid_Home.mp4";
 import video_hero from "@/assets/video/video-hero.mp4";
 import { Button } from "@/components/ui/button";
+import DotLoader from "@/components/ui/DotLoader";
 import { idRouter } from "@/routes/idRouter";
 import classNames from "classnames";
 import { motion } from "framer-motion";
@@ -12,9 +13,12 @@ export default function Hero() {
 	const { t } = useTranslation();
 	const [isShowingHero, setIsShowingHero] = useState(false);
 	const [heroPlayCount, setHeroPlayCount] = useState(0);
+
 	const videoHomeRef = useRef(null);
 	const videoHeroRef = useRef(null);
-	const [videoLoading, setVideoLoading] = useState(true);
+
+	const [videoHeroLoading, setVideoHeroLoading] = useState(true);
+	const [videoHomeLoading, setVideoHomeLoading] = useState(true);
 
 	const handleVideoEnd = () => {
 		if (!isShowingHero) {
@@ -75,21 +79,15 @@ export default function Hero() {
 		},
 	};
 
-	const getContent = () => {
-		if (!isShowingHero) {
-			return {
+	const content = !isShowingHero
+		? {
 				title: t("hero_section.hero_slogan"),
 				description: t("hero_section.hero_description"),
-			};
-		} else {
-			return {
+			}
+		: {
 				title: t("hero_section.home_slogan"),
 				description: t("hero_section.home_description"),
 			};
-		}
-	};
-
-	const content = getContent();
 
 	return (
 		<>
@@ -102,9 +100,9 @@ export default function Hero() {
 						"opacity-0 z-0 pointer-events-none": !isShowingHero,
 					})}
 				>
-					{videoLoading && (
-						<div className="absolute inset-0 flex items-center justify-center bg-draker-blue/50 z-10">
-							<span className="loader"></span>
+					{videoHeroLoading && (
+						<div className="absolute inset-0 flex items-center justify-center bg-draker-blue/80 z-10">
+							<DotLoader />
 						</div>
 					)}
 					<video
@@ -115,9 +113,10 @@ export default function Hero() {
 						loop={false}
 						className="w-full h-full object-cover"
 						onEnded={handleVideoEnd}
-						onWaiting={() => setVideoLoading(true)}
-						onCanPlay={() => setVideoLoading(false)}
-						onPlaying={() => setVideoLoading(false)}
+						onWaiting={() => setVideoHeroLoading(true)}
+						onCanPlay={() => setVideoHeroLoading(false)}
+						onPlaying={() => setVideoHeroLoading(false)}
+						onError={() => setVideoHeroLoading(false)}
 					>
 						<source
 							src={video_hero}
@@ -133,6 +132,11 @@ export default function Hero() {
 						"opacity-0 z-0 pointer-events-none": isShowingHero,
 					})}
 				>
+					{videoHomeLoading && (
+						<div className="absolute inset-0 flex items-center justify-center bg-draker-blue/80 z-10">
+							<DotLoader />
+						</div>
+					)}
 					<video
 						ref={videoHomeRef}
 						autoPlay
@@ -142,10 +146,14 @@ export default function Hero() {
 						className="w-full h-full object-cover"
 						onEnded={handleVideoEnd}
 						onTimeUpdate={handleVideoHomeTimeUpdate}
+						onWaiting={() => setVideoHomeLoading(true)}
+						onCanPlay={() => setVideoHomeLoading(false)}
+						onPlaying={() => setVideoHomeLoading(false)}
+						onError={() => setVideoHomeLoading(false)}
 					>
 						<source
 							src={video_home}
-							type="video/webm"
+							type="video/mp4"
 						/>
 					</video>
 				</motion.div>
@@ -198,9 +206,6 @@ export default function Hero() {
 							<a
 								href={idRouter?.contact}
 								className="flex items-center gap-3"
-								onClick={() => {
-									console.log(idRouter?.contact);
-								}}
 							>
 								Contact Us
 								<ArrowRightIcon className="h-6 w-6 sm:h-5 sm:w-5 md:h-6 md:w-6" />

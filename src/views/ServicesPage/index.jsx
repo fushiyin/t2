@@ -1,6 +1,7 @@
 import video_services from "@/assets/video/Services.mp4";
 import AnimatedSection from "@/components/AnimatedSection";
 import CTA from "@/components/sections/ContactCTA";
+import DotLoader from "@/components/ui/DotLoader";
 import { SECTIONS_KEY } from "@/constant/sideNavigation";
 import { motion } from "framer-motion";
 import { ArrowRight, BarChart3, BrainCircuit, Code, Database, Globe, Layers } from "lucide-react";
@@ -112,15 +113,10 @@ export default function ServicesPage() {
 						className="relative mb-8 flex flex-col items-center justify-center text-center h-[500px] md:h-[700px] w-full"
 					>
 						{/* Background image */}
-						<motion.div
-							initial={{ opacity: 0 }}
-							animate={heroInView ? { opacity: 1 } : { opacity: 0 }}
-							transition={{ duration: 0.6 }}
-							className="absolute inset-0 w-full h-full bg-cover bg-center overflow-hidden"
-						>
+						<motion.div className="absolute inset-0 w-full h-full bg-cover bg-center overflow-hidden">
 							{videoLoading && (
-								<div className="absolute inset-0 flex items-center justify-center bg-draker-blue/50 z-10">
-									<span className="loader"></span>
+								<div className="absolute inset-0 flex items-center justify-center bg-dark-blue/50 z-20">
+									<DotLoader />
 								</div>
 							)}
 							<video
@@ -129,12 +125,17 @@ export default function ServicesPage() {
 								loop
 								muted
 								playsInline
-								className="w-full h-full object-cover"
-								onWaiting={() => setVideoLoading(true)}
+								className={`w-full h-full object-cover transition-opacity duration-500 ${
+									videoLoading ? "opacity-0" : "opacity-100"
+								}`}
+								onLoadedData={() => setVideoLoading(false)}
 								onCanPlay={() => setVideoLoading(false)}
 								onPlaying={() => setVideoLoading(false)}
+								onWaiting={() => setVideoLoading(true)}
+								onError={() => setVideoLoading(false)}
 							/>
 						</motion.div>
+
 						{/* Overlay */}
 						<div className="absolute inset-0 bg-dark-blue/50" />
 						{/* Content */}

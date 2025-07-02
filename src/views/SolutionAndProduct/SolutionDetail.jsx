@@ -14,6 +14,7 @@ import { useInView } from "react-intersection-observer";
 import Lottie from "react-lottie";
 import { useNavigate, useParams } from "react-router";
 import Slide_Swiper from "./Slide_Swiper";
+import DotLoader from "@/components/ui/DotLoader";
 
 const fadeUp = {
 	hidden: { opacity: 0, y: 20 },
@@ -71,7 +72,7 @@ const SolutionDetail = () => {
 			>
 				{!imageLoaded && (
 					<div className="absolute inset-0 flex items-center justify-center bg-dark-blue/50 z-10">
-						<span className="loader"></span>
+						<DotLoader />
 					</div>
 				)}
 				<div className="relative w-full h-[500px] md:h-[800px]">
@@ -233,8 +234,8 @@ const SolutionDetail = () => {
 						className="absolute inset-0 w-full h-full bg-cover bg-center overflow-hidden"
 					>
 						{videoLoading && (
-							<div className="absolute inset-0 flex items-center justify-center bg-draker-blue/80 z-10">
-								<span className="loader"></span>
+							<div className="absolute inset-0 flex items-center justify-center bg-dark-blue/50 z-10">
+								<DotLoader />
 							</div>
 						)}
 						<video

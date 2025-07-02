@@ -1,6 +1,7 @@
 import video_home from "@/assets/video/Vid_Home.mp4";
 import video_hero from "@/assets/video/video-hero.mp4";
 import { Button } from "@/components/ui/button";
+import DotLoader from "@/components/ui/DotLoader";
 import { idRouter } from "@/routes/idRouter";
 import classNames from "classnames";
 import { motion } from "framer-motion";
@@ -14,6 +15,7 @@ export default function Hero() {
 	const [heroPlayCount, setHeroPlayCount] = useState(0);
 	const videoHomeRef = useRef(null);
 	const videoHeroRef = useRef(null);
+
 	const [videoLoading, setVideoLoading] = useState(true);
 
 	const handleVideoEnd = () => {
@@ -104,7 +106,7 @@ export default function Hero() {
 				>
 					{videoLoading && (
 						<div className="absolute inset-0 flex items-center justify-center bg-draker-blue/50 z-10">
-							<span className="loader"></span>
+							<DotLoader />
 						</div>
 					)}
 					<video
@@ -133,6 +135,11 @@ export default function Hero() {
 						"opacity-0 z-0 pointer-events-none": isShowingHero,
 					})}
 				>
+					{videoLoading && (
+						<div className="absolute inset-0 flex items-center justify-center bg-draker-blue/50 z-10">
+							<DotLoader />
+						</div>
+					)}
 					<video
 						ref={videoHomeRef}
 						autoPlay
@@ -142,6 +149,9 @@ export default function Hero() {
 						className="w-full h-full object-cover"
 						onEnded={handleVideoEnd}
 						onTimeUpdate={handleVideoHomeTimeUpdate}
+						onWaiting={() => setVideoLoading(true)}
+						onCanPlay={() => setVideoLoading(false)}
+						onPlaying={() => setVideoLoading(false)}
 					>
 						<source
 							src={video_home}

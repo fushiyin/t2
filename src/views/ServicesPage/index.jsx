@@ -1,6 +1,7 @@
 import video_services from "@/assets/video/Services.mp4";
 import AnimatedSection from "@/components/AnimatedSection";
 import CTA from "@/components/sections/ContactCTA";
+import DotLoader from "@/components/ui/DotLoader";
 import { SECTIONS_KEY } from "@/constant/sideNavigation";
 import { motion } from "framer-motion";
 import { ArrowRight, BarChart3, BrainCircuit, Code, Database, Globe, Layers } from "lucide-react";
@@ -119,8 +120,8 @@ export default function ServicesPage() {
 							className="absolute inset-0 w-full h-full bg-cover bg-center overflow-hidden"
 						>
 							{videoLoading && (
-								<div className="absolute inset-0 flex items-center justify-center bg-draker-blue/50 z-10">
-									<span className="loader"></span>
+								<div className="absolute inset-0 flex items-center justify-center bg-dark-blue/50 z-10">
+									<DotLoader />
 								</div>
 							)}
 							<video

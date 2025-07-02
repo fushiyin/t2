@@ -13,6 +13,7 @@ import { useTranslation } from "react-i18next";
 import { useInView } from "react-intersection-observer";
 import CompetitiveEdges from "../Home/components/CompetitiveEdges";
 import VisionJourney from "../Home/components/Vision";
+import DotLoader from "@/components/ui/DotLoader";
 
 export default function AboutPage() {
 	const { t } = useTranslation();
@@ -69,8 +70,8 @@ export default function AboutPage() {
 						className="absolute inset-0 w-full h-full bg-cover bg-center overflow-hidden"
 					>
 						{videoLoading && (
-							<div className="absolute inset-0 flex items-center justify-center bg-draker-blue/50 z-10">
-								<span className="loader"></span>
+							<div className="absolute inset-0 flex items-center justify-center bg-dark-blue/50 z-10">
+								<DotLoader />
 							</div>
 						)}
 						<video

@@ -845,9 +845,12 @@
 				"header": "디지털 시대에서",
 				"title": [
 					{ "text": "출근이 기다려지는", "className": "text-white text-2xl" },
-					{ "text": " 스마트 오피스", "className": "font-bold text-3xl" },
-					{ "text": ",", "className": "text-white font-bold text-3xl", "br": true },
-					{ "text": " 상상해보셨나요?", "className": "text-white font-bold text-3xl" }
+					{ "text": " 스마트 오피스", "className": "text-white font-bold text-3xl" },
+					{ "text": " ,", "className": "text-white text-2xl", "br": true },
+					{
+						"text": " 상상해보셨나요?",
+						"className": "text-white font-bold text-3xl"
+					}
 				],
 				"desc": "지금까지의 오피스를 잊게 만드는, 새로운 일상이 시작됩니다. 업무 공간의 효율성과 조직 문화를 동시에 혁신하는 첫걸음을 지금 시작해보세요.",
 				"contact_us": "Contact Us"
@@ -880,7 +883,7 @@
 						"br": true
 					},
 					{
-						"text": "당신의 손안에. T2 Soft가 함께 만들겠습니다",
+						"text": "당신의 손안에. T2 Soft가 함께 만들겠습니다.",
 						"className": "text-white text-2xl"
 					}
 				]

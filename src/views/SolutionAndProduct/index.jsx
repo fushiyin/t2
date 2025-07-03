@@ -76,13 +76,7 @@ export default function SolutionAndProduct() {
 					{/* video */}
 					<motion.div
 						initial={{ opacity: 0 }}
-						animate={
-							isMobile
-								? { opacity: 1 }
-								: titleInView
-									? { opacity: 1 }
-									: { opacity: 0 }
-						}
+						animate={{ opacity: 1 }}
 						transition={{ duration: 0.6 }}
 						className="absolute inset-0 w-full h-full bg-cover bg-center overflow-hidden"
 					>
@@ -102,6 +96,8 @@ export default function SolutionAndProduct() {
 							}`}
 							onLoadedData={() => setVideoLoading(false)}
 							onCanPlay={() => setVideoLoading(false)}
+							onPlaying={() => setVideoLoading(false)}
+							onWaiting={() => setVideoLoading(true)}
 							onError={() => setVideoLoading(false)}
 						/>
 					</motion.div>

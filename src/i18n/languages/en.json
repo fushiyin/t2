@@ -890,10 +890,11 @@
 					{ "text": "A better workday starts with", "className": "text-white text-2xl" },
 					{
 						"text": " Smart Office.",
-						"className": "text-[#000000] font-bold text-3xl"
+						"className": "text-[#000000] font-bold text-3xl",
+						"br": true
 					},
 					{
-						"text": "<br>Right in your hands. Built together with T2 Soft.",
+						"text": "Right in your hands. Built together with T2 Soft.",
 						"className": "text-white text-2xl"
 					}
 				]

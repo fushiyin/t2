@@ -61,6 +61,8 @@ export default function AboutPage() {
 							}`}
 							onLoadedData={() => setVideoLoading(false)}
 							onCanPlay={() => setVideoLoading(false)}
+							onPlaying={() => setVideoLoading(false)}
+							onWaiting={() => setVideoLoading(true)}
 							onError={() => setVideoLoading(false)}
 						/>
 					</motion.div>

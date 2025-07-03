@@ -28,6 +28,9 @@ const fadeUp = {
 const SolutionDetail = () => {
 	const { id } = useParams();
 	const navigate = useNavigate();
+	const { t } = useTranslation();
+	const { isMobile } = useResponsive();
+
 	const solution = SOLUTION_DETAILS.find((solution) => solution.id === id);
 	// const solution = SOLUTION_DETAILS.find((solution) => solution.id === parseInt(id));
 
@@ -58,9 +61,6 @@ const SolutionDetail = () => {
 		threshold: 0.1,
 	});
 
-	const { t } = useTranslation();
-	const { isMobile } = useResponsive();
-
 	return (
 		<div className="w-full flex flex-col items-center mt-[64px]">
 			<motion.div
@@ -90,7 +90,7 @@ const SolutionDetail = () => {
 
 				<div className="absolute max-w-[1440px] mx-auto px-2 md:px-6 inset-0 flex gap-4 flex-col items-center md:items-start justify-center">
 					<motion.p
-						className="text-xl text-white korean-text"
+						className="text-base md:text-xl text-light-blue korean-text"
 						initial="hidden"
 						animate={bannerInView ? "visible" : "hidden"}
 						variants={fadeUp}
@@ -99,27 +99,24 @@ const SolutionDetail = () => {
 								"0 2px 8px rgba(0,0,0,0.9), 0 0px 2px rgba(0,0,0,0.8), 0 4px 16px rgba(0,0,0,0.7)",
 						}}
 					>
-						{solution.banner.title?.map((part, idx) => (
-							<React.Fragment key={idx}>
-								<span className={part.className}>{part.text}</span>
-								{!isMobile && part.br && <br />}
-							</React.Fragment>
-						))}
+						{solution.banner}
 					</motion.p>
 
 					<motion.p
-						className={`text-center md:text-left leading-relaxed font-sans break-keep whitespace-normal break-words ${isMobile ? "w-full" : "w-[70%]"}`}
+						className="text-center md:text-left leading-relaxed font-sans break-keep whitespace-normal break-words w-full"
 						initial="hidden"
 						animate={bannerInView ? "visible" : "hidden"}
 						variants={fadeUp}
 						transition={{ delay: 0.2 }}
 					>
 						{solution.title?.map((part, idx) => (
-							<span
-								key={idx}
-								className={`text-3xl md:text-5xl text-center md:text-start font-bold inline font-sans break-keep whitespace-normal korean-text break-words leading-tight ${part.className}`}
-								dangerouslySetInnerHTML={{ __html: part.text }}
-							></span>
+							<React.Fragment key={idx}>
+								<span
+									className={`text-3xl md:text-5xl text-center md:text-start font-bold inline font-sans break-keep whitespace-normal korean-text break-words leading-tight ${part.className}`}
+									dangerouslySetInnerHTML={{ __html: part.text }}
+								></span>
+								{part.br && <br />}
+							</React.Fragment>
 						))}
 					</motion.p>
 
@@ -255,7 +252,7 @@ const SolutionDetail = () => {
 					{/* <div className="absolute inset-0 bg-dark-blue/40" /> */}
 					{/* Content */}
 					<div className="relative z-10 flex flex-col justify-center items-center h-full mx-auto text-center space-y-3">
-						<h2 className="px-4 text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight font-sans break-keep whitespace-normal break-words text-white korean-text">
+						<h2 className="px-4 text-4xl md:text-5xl lg:text-6xl max-w-6xl font-bold tracking-tight font-sans break-keep whitespace-normal break-words text-white korean-text">
 							{solution.video.title?.map((part, idx) => (
 								<React.Fragment key={idx}>
 									<span

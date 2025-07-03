@@ -113,6 +113,7 @@ export default function Hero() {
 						loop={false}
 						className="w-full h-full object-cover"
 						onEnded={handleVideoEnd}
+						onLoadedData={() => setVideoHeroLoading(false)}
 						onWaiting={() => setVideoHeroLoading(true)}
 						onCanPlay={() => setVideoHeroLoading(false)}
 						onPlaying={() => setVideoHeroLoading(false)}
@@ -146,6 +147,7 @@ export default function Hero() {
 						className="w-full h-full object-cover"
 						onEnded={handleVideoEnd}
 						onTimeUpdate={handleVideoHomeTimeUpdate}
+						onLoadedData={() => setVideoHomeLoading(false)}
 						onWaiting={() => setVideoHomeLoading(true)}
 						onCanPlay={() => setVideoHomeLoading(false)}
 						onPlaying={() => setVideoHomeLoading(false)}

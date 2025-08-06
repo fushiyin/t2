@@ -101,7 +101,7 @@ export default function Hero() {
 					})}
 				>
 					{videoHeroLoading && (
-						<div className="absolute inset-0 flex items-center justify-center bg-draker-blue/80 z-10">
+						<div className="absolute inset-0 flex items-center justify-center z-10">
 							<DotLoader />
 						</div>
 					)}
@@ -134,7 +134,7 @@ export default function Hero() {
 					})}
 				>
 					{videoHomeLoading && (
-						<div className="absolute inset-0 flex items-center justify-center bg-draker-blue/80 z-10">
+						<div className="absolute inset-0 flex items-center justify-center z-10">
 							<DotLoader />
 						</div>
 					)}

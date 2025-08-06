@@ -14,12 +14,16 @@ import {
 import CallPhoneButton from "./CallPhoneButton";
 
 export default function MainLayout() {
-	const { isTouchDevice } = useResponsive();
+	const { isDesktop } = useResponsive();
+
+	// Chỉ hiển thị CustomCursor nếu là desktop (>= 1024px), kể cả có touch
+	const shouldShowCustomCursor = isDesktop;
+
 	const location = useLocation();
 
 	return (
 		<>
-			{!isTouchDevice && <CustomCursor />}
+			{shouldShowCustomCursor && <CustomCursor />}
 			<LenisProvider>
 				<OnboardingProvider>
 					<CustomLoading />

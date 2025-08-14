@@ -179,16 +179,28 @@ export default function Hero() {
 					animate="visible"
 				>
 					<div className="space-y-4">
-						<motion.h1
-							className="px-4 text-4xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl text-white pb-4 font-sans break-keep whitespace-normal break-words"
-							variants={itemVariants}
-							style={{
-								textShadow:
-									"0 2px 8px rgba(0,0,0,0.9), 0 0px 2px rgba(0,0,0,0.8), 0 4px 16px rgba(0,0,0,0.7)",
-							}}
-						>
-							{content.title}
-						</motion.h1>
+						<div className="px-4 text-4xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl text-white pb-4 font-sans break-keep whitespace-normal break-words">
+							{content.title.split(" ").map((word, i) => (
+								<motion.span
+									key={i}
+									initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
+									animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+									transition={{
+										duration: 0.6,
+										delay: i * 0.12,
+										ease: [0.25, 0.46, 0.45, 0.94],
+									}}
+									className="inline-block mr-2"
+									style={{
+										textShadow:
+											"0 2px 8px rgba(0,0,0,0.9), 0 0px 2px rgba(0,0,0,0.8), 0 4px 16px rgba(0,0,0,0.7)",
+									}}
+								>
+									{word}
+								</motion.span>
+							))}
+						</div>
+
 						<motion.p
 							className="text-xl mx-auto max-w-[1100px] px-3 text-gray-200 sm:text-lg md:text-xl lg:text-2xl font-sans break-keep whitespace-normal break-words"
 							variants={itemVariants}

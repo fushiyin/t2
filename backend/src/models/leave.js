@@ -47,6 +47,38 @@ const LeaveRequest = sequelize.define(
             allowNull: false,
             defaultValue: DataTypes.NOW,
         },
+        substitute_id: {
+            type: DataTypes.INTEGER,
+            allowNull: true,
+        },
+        leader_id: {
+            type: DataTypes.INTEGER,
+            allowNull: true,
+        },
+        leader_status: {
+            type: DataTypes.ENUM("pending", "approved", "rejected"),
+            allowNull: true,
+        },
+        leader_approved_at: {
+            type: DataTypes.DATE,
+            allowNull: true,
+        },
+        hr_leader_id: {
+            type: DataTypes.INTEGER,
+            allowNull: true,
+        },
+        hr_status: {
+            type: DataTypes.ENUM("pending", "approved", "rejected"),
+            allowNull: true,
+        },
+        hr_approved_at: {
+            type: DataTypes.DATE,
+            allowNull: true,
+        },
+        final_status: {
+            type: DataTypes.ENUM("pending", "approved", "rejected"),
+            allowNull: true,
+        },
     },
     {
         tableName: "leave_request",

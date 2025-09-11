@@ -21,6 +21,13 @@ const Calendar = React.lazy(() => import("@/views/Admin/pages/Calendar"));
 const CareersAdmin = React.lazy(() => import("@/views/Admin/pages/Careers"));
 const CareersDetail = React.lazy(() => import("@/views/Career/CareersDetail"));
 const Settings = React.lazy(() => import("@/views/Admin/pages/Settings"));
+const Attendance = React.lazy(() => import("@/views/Admin/pages/Attendance"));
+const UserManagement = React.lazy(() => import("@/views/Admin/pages/UserManagement"));
+const LeaveRequest = React.lazy(() => import("@/views/Admin/pages/LeaveRequest"));
+const DailyReport = React.lazy(() => import("@/views/Admin/pages/DailyReport"));
+const Evaluation = React.lazy(() => import("@/views/Admin/pages/Evaluation"));
+
+const CheckIn = React.lazy(() => import("@/views/Checkin"));
 
 const router = createBrowserRouter([
 	{
@@ -79,6 +86,10 @@ const router = createBrowserRouter([
 		element: <Login />,
 	},
 	{
+		path: idRouter.checkin,
+		element: <CheckIn />,
+	},
+	{
 		path: idRouter.admin,
 		element: <Admin />,
 		children: [
@@ -114,6 +125,26 @@ const router = createBrowserRouter([
 			{
 				path: idRouter.adminSettings,
 				element: <Settings />,
+			},
+			{
+				path: idRouter.adminAttendance,
+				element: <Attendance />,
+			},
+			{
+				path: idRouter.adminUsers,
+				element: <UserManagement />,
+			},
+			{
+				path: idRouter.adminLeave,
+				element: <LeaveRequest />,
+			},
+			{
+				path: idRouter.adminDailyReport,
+				element: <DailyReport />,
+			},
+			{
+				path: idRouter.adminEvaluation,
+				element: <Evaluation />,
 			},
 		],
 	},

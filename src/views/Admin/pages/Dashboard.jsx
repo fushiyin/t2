@@ -1,222 +1,164 @@
-import React from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Users, Briefcase, FileText, Building2, TrendingUp, Clock } from "lucide-react";
-import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import axios from "axios";
+import {
+	Chart as ChartJS,
+	CategoryScale,
+	LinearScale,
+	BarElement,
+	Title,
+	Tooltip,
+	Legend,
+} from "chart.js";
+import classNames from "classnames";
+import { Clock, File, LayoutDashboard, NotebookTabs } from "lucide-react";
+import GenderDistribution from "../components/GenderDistribution";
+import RankingDistribution from "../components/RankingDistribution";
+import Schedule from "../components/Schedule";
+import AttendanceStat from "../components/AttendanceStat";
+import LeaveRequest from "../components/LeaveRequest";
+import CheckInList from "../components/CheckInList";
 
-// Mock data for dashboard
-const stats = {
-	visitors: {
-		total: 1250,
-		active: 342,
-		new: 89,
-	},
-	jobs: {
-		total: 15,
-		open: 12,
-		closed: 3,
-	},
-	applications: {
-		total: 98,
-		pending: 45,
-		reviewed: 53,
-	},
-	departments: {
-		engineering: 6,
-		design: 2,
-		product: 3,
-		marketing: 2,
-		other: 2,
-	},
-	trends: {
-		visitors: "+12.5%",
-		applications: "+8.3%",
-		conversion: "+5.2%",
-	},
-	recentActivity: [
-		{
-			id: 1,
-			action: "New application received",
-			position: "Senior Frontend Developer",
-			time: "5 minutes ago",
-		},
-		{
-			id: 2,
-			action: "Job position closed",
-			position: "Backend Developer",
-			time: "1 hour ago",
-		},
-		{
-			id: 3,
-			action: "New job posted",
-			position: "UX/UI Designer",
-			time: "2 hours ago",
-		},
-	],
-};
+ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
-const StatCard = ({ title, value, icon: Icon, description, trend }) => (
-	<motion.div
-		initial={{ opacity: 0, y: 20 }}
-		animate={{ opacity: 1, y: 0 }}
-		transition={{ duration: 0.3 }}
-	>
-		<Card>
-			<CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-				<CardTitle className="text-sm font-medium">{title}</CardTitle>
-				<motion.div
-					whileHover={{ scale: 1.1 }}
-					transition={{ type: "spring", stiffness: 400, damping: 10 }}
-				>
-					<Icon className="h-4 w-4 text-muted-foreground" />
-				</motion.div>
-			</CardHeader>
-			<CardContent>
-				<motion.div
-					initial={{ scale: 0.5 }}
-					animate={{ scale: 1 }}
-					transition={{ type: "spring", stiffness: 200, damping: 10 }}
-					className="text-2xl font-bold"
-				>
-					{value}
-				</motion.div>
-				{trend && (
-					<p className="text-xs text-muted-foreground">
-						<span className="text-green-500">{trend}</span> from last month
-					</p>
-				)}
-				{description && <p className="text-xs text-muted-foreground">{description}</p>}
-			</CardContent>
-		</Card>
-	</motion.div>
-);
-
-const DepartmentCard = () => (
-	<motion.div
-		initial={{ opacity: 0, x: -20 }}
-		animate={{ opacity: 1, x: 0 }}
-		transition={{ duration: 0.4 }}
-		className="col-span-2"
-	>
-		<Card>
-			<CardHeader>
-				<CardTitle>Departments Overview</CardTitle>
-			</CardHeader>
-			<CardContent>
-				<div className="space-y-4">
-					{Object.entries(stats.departments).map(([dept, count], index) => (
-						<motion.div
-							key={dept}
-							initial={{ opacity: 0, x: -20 }}
-							animate={{ opacity: 1, x: 0 }}
-							transition={{ delay: index * 0.1 }}
-							className="flex items-center justify-between"
-						>
-							<div className="flex items-center space-x-2">
-								<Building2 className="h-4 w-4 text-muted-foreground" />
-								<span className="capitalize">{dept}</span>
-							</div>
-							<span className="font-medium">{count} positions</span>
-						</motion.div>
-					))}
-				</div>
-			</CardContent>
-		</Card>
-	</motion.div>
-);
-
-const RecentActivityCard = () => (
-	<motion.div
-		initial={{ opacity: 0, x: 20 }}
-		animate={{ opacity: 1, x: 0 }}
-		transition={{ duration: 0.4 }}
-		className="col-span-2"
-	>
-		<Card>
-			<CardHeader>
-				<CardTitle>Recent Activity</CardTitle>
-			</CardHeader>
-			<CardContent>
-				<div className="space-y-4">
-					{stats.recentActivity.map((activity, index) => (
-						<motion.div
-							key={activity.id}
-							initial={{ opacity: 0, x: 20 }}
-							animate={{ opacity: 1, x: 0 }}
-							transition={{ delay: index * 0.1 }}
-							className="flex items-center justify-between"
-						>
-							<div className="space-y-1">
-								<p className="text-sm font-medium">{activity.action}</p>
-								<p className="text-sm text-muted-foreground">{activity.position}</p>
-							</div>
-							<div className="flex items-center space-x-2">
-								<Clock className="h-4 w-4 text-muted-foreground" />
-								<span className="text-sm text-muted-foreground">
-									{activity.time}
-								</span>
-							</div>
-						</motion.div>
-					))}
-				</div>
-			</CardContent>
-		</Card>
-	</motion.div>
-);
-
-export default function Dashboard() {
+function DashBoardCard(object) {
 	return (
-		<motion.div
-			initial={{ opacity: 0 }}
-			animate={{ opacity: 1 }}
-			transition={{ duration: 0.5 }}
-			className="p-6"
+		<div
+			className={classNames(
+				"w-full max-w-4xl shadow-lg p-6 rounded-lg bg-white flex flex-col border-l-6 relative overflow-hidden",
+				object.className,
+			)}
 		>
-			<motion.div
-				initial={{ y: -20 }}
-				animate={{ y: 0 }}
-				transition={{ duration: 0.5 }}
-				className="flex justify-between items-center mb-6"
-			>
-				<div>
-					<h1 className="text-2xl font-bold">Dashboard</h1>
-					<p className="text-muted-foreground">Welcome to your recruitment dashboard</p>
-				</div>
-			</motion.div>
-
-			<div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-				<StatCard
-					title="Total Visitors"
-					value={stats.visitors.total}
-					icon={Users}
-					description={`${stats.visitors.active} active, ${stats.visitors.new} new today`}
-					trend={stats.trends.visitors}
-				/>
-				<StatCard
-					title="Open Positions"
-					value={stats.jobs.open}
-					icon={Briefcase}
-					description={`${stats.jobs.total} total positions`}
-				/>
-				<StatCard
-					title="Applications"
-					value={stats.applications.total}
-					icon={FileText}
-					description={`${stats.applications.pending} pending review`}
-					trend={stats.trends.applications}
-				/>
-				<StatCard
-					title="Conversion Rate"
-					value="4.2%"
-					icon={TrendingUp}
-					description="Applications to interviews"
-					trend={stats.trends.conversion}
-				/>
+			<div className="absolute right-2 bottom-18 opacity-20 text-blue-300">
+				<File className="w-16 h-16" />
 			</div>
 
-			<div className="grid gap-4 md:grid-cols-2 lg:grid-cols-7 mt-4">
-				<DepartmentCard />
-				<RecentActivityCard />
+			{object.icon ? (
+				<object.icon className={classNames(`w-8 h-8 text-${object.color}-500 mb-2`)} />
+			) : (
+				<Clock
+					className={classNames("w-8 h-8", object.color && `text-${object.color}-500`)}
+				/>
+			)}
+			<div className="flex w-full justify-between items-end">
+				<h2 className="text-lg">{object.title}</h2>
+				<h1 className="text-xl font-bold">{object.value}</h1>
 			</div>
-		</motion.div>
+		</div>
 	);
 }
+
+function DashboardManagement() {
+	const [user, setUser] = useState({});
+	const [stat, setStat] = useState({});
+	const [loading, setLoading] = useState(true);
+
+	useEffect(() => {
+		fetchSummary();
+		fetchStats();
+	}, []);
+
+	const fetchSummary = async () => {
+		try {
+			const response = await axios.get("/api/dashboard/summary");
+			setUser(response.data);
+			console.log(setUser);
+		} catch (err) {
+			console.error(err);
+		}
+		setLoading(false);
+	};
+
+	const fetchStats = async () => {
+		try {
+			const res = await axios.get("/api/dashboard/stats");
+			setStat(res.data);
+		} catch (err) {
+			console.error(err);
+		}
+	};
+
+	if (loading) return <div>Loading...</div>;
+
+	return (
+		<div className="w-full flex flex-col items-center gap-5 overflow-auto no-scrollbar scrollbar-hidden pb-5">
+			{/* dashboard card */}
+			<div className="w-full flex-shrink-0">
+				<h2 className="text-2xl font-bold">Welcome, Admin!</h2>
+			</div>
+			<div className="flex flex-col md:grid gap-5 w-full grid-cols-5 items-stretch">
+				<div className="flex-col w-full col-span-4 ">
+					<div className="flex flex-col gap-10 w-full md:flex-row md:flex-wrap bg-blue-100 p-5 rounded-lg self-start shadow-lg">
+						<div className="datetime min-w-[250px]">
+							<h2 className="text-xl mb-2 text-gray-700 font-semibold">
+								{new Date().toLocaleString("vi-VN", {
+									weekday: "long",
+									year: "numeric",
+									month: "numeric",
+									day: "numeric",
+								})}
+							</h2>
+						</div>
+						<DashBoardCard
+							title="Today Checkins"
+							className="flex-1 border-red-400"
+							icon={Clock}
+							color="red"
+							value={user.totalLoginToday || 0}
+						/>
+						<DashBoardCard
+							title="Checkins Late"
+							className="flex-1 border-blue-400"
+							icon={LayoutDashboard}
+							color="blue"
+							value={user.totalLateCheckin || 0}
+						/>
+						<DashBoardCard
+							title="Total Employees"
+							className="flex-1 border-green-400"
+							icon={NotebookTabs}
+							color="green"
+							value={user.totalEmployees || 0}
+						/>
+					</div>
+				</div>
+				<div className="col-span-1 self-start h-full">
+					<div className="bg-white rounded-xl shadow-lg p-6 w-full max-w-md h-full">
+						<div className="flex justify-between items-center mb-2">
+							<h2 className="text-lg font-bold text-gray-700">Announcement</h2>
+							<span className="text-blue-400 text-sm cursor-pointer">See All</span>
+						</div>
+						<div className="text-gray-600">No new announcements.</div>
+					</div>
+				</div>
+			</div>
+			<div className="flex flex-col md:grid gap-5 w-full grid-cols-5 items-start">
+				<div className="w-full col-span-4 flex items-stretch justify-start mt-5 gap-5">
+					<div className="flex flex-row gap-5 max-w-full w-full">
+						<div className="flex-1 flex-col gap-10 h-full">
+							<div>
+								<CheckInList data={user.data} />
+							</div>
+							<div className="mt-5 w-full bg-white rounded-lg p-4 h-[317px] shadow-lg flex">
+								<LeaveRequest />
+							</div>
+						</div>
+						<div className="flex-1 h-full">
+							<AttendanceStat stats={stat.weeklyCheckinStats || {}} />
+							<div className="mt-5 flex gap-5">
+								<GenderDistribution data={user.data} />
+								<RankingDistribution
+									rankingStats={stat.rankingDistribution || {}}
+								/>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div className="col-span-1 self-start h-full flex flex-col gap-5">
+					<Schedule />
+				</div>
+			</div>
+		</div>
+	);
+}
+
+export default DashboardManagement;

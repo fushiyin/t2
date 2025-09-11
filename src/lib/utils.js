@@ -30,3 +30,19 @@ export const smoothScrollTo = (targetY, duration = 500) => {
 export const scrollToTop = () => {
 	smoothScrollTo(0, 500);
 };
+
+import FingerprintJS from "@fingerprintjs/fingerprintjs";
+export function getCurrentTimeString() {
+    const now = new Date();
+    const pad = (n) => n.toString().padStart(2, "0");
+    return `${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(
+        now.getSeconds()
+    )}`;
+}
+
+export const generateDeviceId = async () => {
+    const fp = await FingerprintJS.load();
+    const result = await fp.get();
+    console.log(result);
+    return result.visitorId;
+};

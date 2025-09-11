@@ -1,11 +1,17 @@
 import {
+	BookText,
 	Calendar,
 	ChevronDown,
 	ChevronUp,
+	History,
 	Home,
 	Inbox,
 	Phone,
+	PowerOff,
 	Settings,
+	SquareActivity,
+	Sun,
+	User,
 	User2,
 	UserRoundCog,
 	UsersRound,
@@ -40,6 +46,32 @@ const items = [
 		icon: Home,
 		url: "/admin/dashboard",
 	},
+	{
+		title: "Daily Report",
+		icon: BookText,
+		url: "/admin/daily-report",
+	},
+	{
+		title: "Attendance",
+		icon: History,
+		url: "/admin/attendance",
+	},
+	{
+		title: "Leave Request",
+		icon: PowerOff,
+		url: "/admin/leave",
+	},
+	{
+		title: "User Management",
+		icon: User,
+		url: "/admin/users",
+	},
+	{
+		title: "Evaluation",
+		icon: SquareActivity,
+		url: "/admin/evaluation",
+	},
+
 	{
 		title: "Inbox",
 		icon: Inbox,

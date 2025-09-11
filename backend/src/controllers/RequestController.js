@@ -9,7 +9,7 @@ async function getLeaveRequests(req, res) {
             end_date,
             leave_type,
             user_id,
-            name, 
+            name,
             page = 1,
             pageSize = 20,
         } = req.query;
@@ -47,4 +47,48 @@ async function getLeaveRequests(req, res) {
     }
 }
 
-module.exports = { getLeaveRequests };
+async function updateLeaveRequestStatus(req, res) {
+    try {
+        const { id } = req.params;
+        const { status } = req.body;
+
+        // Require authenticated user (assumes auth middleware sets req.user)
+        const user = req.user;
+        console.log(user);
+        if (!user) {
+            return res.status(401).json({ error: "Unauthorized" });
+        }
+
+        const role = (user.role || "").toLowerCase();
+        const request = await LeaveRequest.findByPk(id);
+        if (!request) {
+            return res.status(404).json({ error: "Leave request not found" });
+        }
+
+        const validStatuses = ["pending", "approved", "rejected"];
+        if (!validStatuses.includes((status || "").toLowerCase())) {
+            return res.status(400).json({ error: "Invalid status" });
+        }
+
+        if (role === "admin") {
+            request.hr_status = status;
+            request.hr_leader_id = user.id;
+            request.hr_approved_at = new Date();
+        } else if (role === "manager" || role === "leader") {
+            request.leader_status = status;
+            request.leader_id = user.id;
+            request.leader_approved_at = new Date();
+        } else {
+            return res
+                .status(403)
+                .json({ error: "Forbidden: insufficient role" });
+        }
+
+        await request.save();
+        res.json({ success: true, data: request });
+    } catch (err) {
+        res.status(500).json({ error: "Database error", details: err.message });
+    }
+}
+
+module.exports = { getLeaveRequests, updateLeaveRequestStatus };

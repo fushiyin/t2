@@ -7,6 +7,7 @@ const userRoutes = require("./routes/user");
 const dashboardRoutes = require("./routes/dashboard");
 const attendanceRoutes = require("./routes/attendance");
 const leaveRoutes = require("./routes/leave");
+
 const { swaggerUi, swaggerSpec } = require("./swagger");
 
 const app = express();

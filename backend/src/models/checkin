@@ -1,0 +1,39 @@
+const { DataTypes } = require("sequelize");
+const { sequelize } = require("../utils/db"); // Correct import
+
+const Checkin = sequelize.define("Checkin", {
+    id: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true,
+    },
+    employee_id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+    },
+    checkin_time: {
+        type: DataTypes.DATE,
+        allowNull: true,
+    },
+    checkout_time: {
+        type: DataTypes.DATE,
+        allowNull: true,
+    },
+    date: {
+        type: DataTypes.DATEONLY,
+        allowNull: false,
+    },
+    ip_address: {
+        type: DataTypes.STRING,
+        allowNull: true,
+    },
+    status: {
+        type: DataTypes.BOOLEAN,
+        allowNull: true,
+    },
+}, {
+    tableName: "checkins",
+    timestamps: false,
+});
+
+module.exports = { Checkin };

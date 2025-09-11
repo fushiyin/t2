@@ -211,8 +211,8 @@ async function Login(req, res) {
         // Set refresh token cookie
         res.cookie("refreshToken", refreshToken, {
             httpOnly: true,
-            secure: true,
-            sameSite: "strict",
+            secure: process.env.NODE_ENV === "production",
+            sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
             maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days
         });
 
@@ -235,6 +235,7 @@ function requireAuth(req, res, next) {
             .then((user) => {
                 if (user) {
                     req.userRole = user.role;
+                    req.user = user;
                 }
                 next();
             })

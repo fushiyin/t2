@@ -49,17 +49,12 @@ async function getLeaveRequests(req, res) {
 
 async function updateLeaveRequestStatus(req, res) {
     try {
+        console.log(req);
         const { id } = req.params;
         const { status } = req.body;
 
         // Require authenticated user (assumes auth middleware sets req.user)
-        const user = req.user;
-        console.log(user);
-        if (!user) {
-            return res.status(401).json({ error: "Unauthorized" });
-        }
-
-        const role = (user.role || "").toLowerCase();
+        const { userRole, user } = req;
         const request = await LeaveRequest.findByPk(id);
         if (!request) {
             return res.status(404).json({ error: "Leave request not found" });
@@ -70,11 +65,11 @@ async function updateLeaveRequestStatus(req, res) {
             return res.status(400).json({ error: "Invalid status" });
         }
 
-        if (role === "admin") {
+        if (userRole === "admin") {
             request.hr_status = status;
             request.hr_leader_id = user.id;
             request.hr_approved_at = new Date();
-        } else if (role === "manager" || role === "leader") {
+        } else if (userRole === "manager" || userRole === "leader") {
             request.leader_status = status;
             request.leader_id = user.id;
             request.leader_approved_at = new Date();
@@ -91,4 +86,50 @@ async function updateLeaveRequestStatus(req, res) {
     }
 }
 
-module.exports = { getLeaveRequests, updateLeaveRequestStatus };
+const getLeaveRequestsById = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const request = await LeaveRequest.findByPk(id);
+        if (!request) {
+            return res.status(404).json({ error: "Leave request not found" });
+        }
+        res.json({ data: request });
+    } catch (err) {
+        res.status(500).json({ error: "Database error", details: err.message });
+    }
+};
+
+
+const addRequest = async (req, res) => {
+    try {
+        const { user_id, leave_type, start_date, end_date, reason, substitute_id } =
+            req.body;
+        if (!user_id || !leave_type || !start_date || !end_date) {
+            return res.status(400).json({ error: "Missing required fields" });
+        }
+        const newRequest = await LeaveRequest.create({
+            user_id,
+            employee_name: req.user.username,
+            leave_type,
+            start_date,
+            end_date,
+            reason,
+            status: "pending",
+            substitute_id,
+            created_at: new Date(),
+            updated_at: new Date(),
+        });
+        res.json({ success: true, data: newRequest });
+    } catch (err) {
+        res.status(500).json({ error: "Database error", details: err.message });
+    }
+};
+
+
+module.exports = {
+    getLeaveRequests,
+    updateLeaveRequestStatus,
+    getLeaveRequests,
+    addRequest,
+    getLeaveRequestsById
+};

@@ -219,6 +219,7 @@ async function Login(req, res) {
         res.json({
             success: true,
             username: user.username,
+            role: user.role,
             accessToken,
         });
     } catch (err) {

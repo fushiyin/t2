@@ -129,6 +129,9 @@ async function handleLogin(req, res) {
     }
 
     req.session.userId = user.id;
+    // Cache minimal user info in session to avoid DB lookup on each request
+    req.session.userRole = user.role;
+    req.session.username = user.username;
     // Update latest_login to now
     await user.update({ latest_login: new Date() });
 
@@ -204,6 +207,9 @@ async function Login(req, res) {
 
         // Save to session (if you still want session-based login too)
         req.session.userId = user.id;
+        // Cache minimal user info in session to avoid DB lookups later
+        req.session.userRole = user.role;
+        req.session.username = user.username;
 
         // Update latest_login
         await user.update({ latest_login: new Date() });
@@ -230,12 +236,30 @@ async function Login(req, res) {
 
 function requireAuth(req, res, next) {
     if (req.session && req.session.userId) {
+        // Use cached role/username from session when available to avoid DB lookup
+        if (req.session.userRole) {
+            req.user = {
+                id: req.session.userId,
+                username: req.session.username,
+                role: req.session.userRole,
+            };
+            req.userRole = req.session.userRole;
+            return next();
+        }
+
+        // Fallback: load minimal user from DB and populate session cache
         const { User } = require("../models/user");
         User.findOne({ where: { id: req.session.userId } })
             .then((user) => {
                 if (user) {
+                    req.user = {
+                        id: user.id,
+                        username: user.username,
+                        role: user.role,
+                    };
                     req.userRole = user.role;
-                    req.user = user;
+                    req.session.userRole = user.role;
+                    req.session.username = user.username;
                 }
                 next();
             })

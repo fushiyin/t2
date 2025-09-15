@@ -3,13 +3,13 @@ const {
     getLeaveRequests,
     updateLeaveRequestStatus,
     addRequest,
-    getLeaveRequestsById
+    getLeaveRequestsById,
 } = require("../controllers/RequestController");
 const { requireAuth } = require("../controllers/authController");
 
 const router = express.Router();
 
-router.get("/", getLeaveRequests);
+router.get("/", requireAuth, getLeaveRequests);
 router.patch("/:id/status", requireAuth, updateLeaveRequestStatus);
 router.get("/:id", requireAuth, getLeaveRequestsById);
 router.post("/", requireAuth, addRequest);

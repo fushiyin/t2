@@ -210,6 +210,8 @@ async function Login(req, res) {
         // Cache minimal user info in session to avoid DB lookups later
         req.session.userRole = user.role;
         req.session.username = user.username;
+        req.session.name = user.name;
+        req.session.deviceId = deviceId; // Add deviceId to session
 
         // Update latest_login
         await user.update({ latest_login: new Date() });
@@ -227,6 +229,14 @@ async function Login(req, res) {
             username: user.username,
             role: user.role,
             accessToken,
+            user: {
+                id: user.id,
+                username: user.username,
+                role: user.role,
+                name: user.name,
+                userId: user.id,
+            },
+            deviceId,
         });
     } catch (err) {
         console.error(err);
@@ -236,18 +246,17 @@ async function Login(req, res) {
 
 function requireAuth(req, res, next) {
     if (req.session && req.session.userId) {
-        // Use cached role/username from session when available to avoid DB lookup
         if (req.session.userRole) {
             req.user = {
                 id: req.session.userId,
                 username: req.session.username,
                 role: req.session.userRole,
+                name: req.session.name,
             };
             req.userRole = req.session.userRole;
             return next();
         }
 
-        // Fallback: load minimal user from DB and populate session cache
         const { User } = require("../models/user");
         User.findOne({ where: { id: req.session.userId } })
             .then((user) => {
@@ -256,14 +265,17 @@ function requireAuth(req, res, next) {
                         id: user.id,
                         username: user.username,
                         role: user.role,
+                        name: user.name,
                     };
                     req.userRole = user.role;
                     req.session.userRole = user.role;
                     req.session.username = user.username;
+                    req.session.name = user.name;
                 }
                 next();
             })
             .catch(() => next());
+        console.log(req.user);
         return;
     }
     return res.status(401).json({ error: "Not authenticated" });
@@ -277,13 +289,26 @@ function redirectIfAuthenticated(req, res, next) {
 }
 
 async function handleCheckout(req, res) {
-    req.session.destroy((err) => {
-        if (err) {
-            return res.status(500).json({ error: "Logout failed" });
+    try {
+        const deviceId = req.session?.deviceId;
+        if (deviceId) {
+            const { DeviceSession } = require("../models/deviceSession");
+            await DeviceSession.destroy({ where: { deviceId, userId: req.session.userId } });
         }
-        res.clearCookie("connect.sid");
-        res.json({ success: true });
-    });
+
+        // destroy express session
+        req.session.destroy((err) => {
+            // Clear cookies regardless
+            res.clearCookie("connect.sid");
+            res.clearCookie("refreshToken");
+            if (err) {
+                return res.status(500).json({ error: "Logout failed" });
+            }
+            return res.json({ success: true });
+        });
+    } catch (err) {
+        return res.status(500).json({ error: "Logout failed", details: err.message });
+    }
 }
 
 async function getCurrentStatus(req, res) {
@@ -363,6 +388,82 @@ async function handleCheckinStatusUpdate(req, res) {
     }
 }
 
+async function getMe(req, res) {
+    // requireAuth already sets req.user
+    if (!req.user) {
+        return res.status(401).json({ error: "Not authenticated" });
+    }
+    res.json({
+        user: req.user,
+        accessToken: generateAccessToken({
+            userId: req.user.id,
+            deviceId: req.session.deviceId || "default",
+        }), // generate fresh token
+    });
+}
+
+async function refreshToken(req, res) {
+    const refreshToken = req.cookies.refreshToken;
+    if (!refreshToken) {
+        return res.status(401).json({ error: "No refresh token" });
+    }
+
+    try {
+        const decoded = jwt.verify(
+            refreshToken,
+            process.env.REFRESH_TOKEN_SECRET || "refresh-secret"
+        );
+        const { DeviceSession } = require("../models/deviceSession");
+        const session = await DeviceSession.findOne({
+            where: { userId: decoded.userId, deviceId: decoded.deviceId },
+        });
+        if (!session || session.refreshToken !== refreshToken) {
+            return res.status(401).json({ error: "Invalid refresh token" });
+        }
+
+        // Fetch user details from User model
+        const { User } = require("../models/user");
+        const user = await User.findOne({ where: { id: decoded.userId } });
+        if (!user) {
+            return res.status(401).json({ error: "User not found" });
+        }
+
+        // Generate new access token
+        const newAccessToken = generateAccessToken({
+            userId: user.id,
+            deviceId: decoded.deviceId,
+        });
+
+        // Rotate refresh token: create a new refresh token and persist it
+        const newRefreshToken = generateRefreshToken({
+            userId: user.id,
+            deviceId: decoded.deviceId,
+        });
+        session.refreshToken = newRefreshToken;
+        await session.save();
+
+        // set refreshed cookie
+        res.cookie("refreshToken", newRefreshToken, {
+            httpOnly: true,
+            secure: process.env.NODE_ENV === "production",
+            sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+            maxAge: 30 * 24 * 60 * 60 * 1000,
+        });
+
+        // return new access token and user
+        res.json({
+            accessToken: newAccessToken,
+            user: {
+                id: user.id,
+                username: user.username,
+                role: user.role,
+            },
+        });
+    } catch (err) {
+        res.status(401).json({ error: "Invalid refresh token" });
+    }
+}
+
 module.exports = {
     handleCheckin,
     handleBind,
@@ -373,4 +474,6 @@ module.exports = {
     handleCheckinStatusUpdate,
     getCurrentStatus,
     Login,
+    getMe,
+    refreshToken,
 };

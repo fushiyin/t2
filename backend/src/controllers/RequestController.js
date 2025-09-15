@@ -17,7 +17,12 @@ async function getLeaveRequests(req, res) {
         const where = {};
         if (status) where.status = status;
         if (leave_type) where.leave_type = leave_type;
-        if (user_id) where.user_id = user_id;
+        console.log(req.userRole);
+        if (req.userRole === "employee") {
+            where.user_id = req.user.id;
+        } else if (user_id) {
+            where.user_id = user_id;
+        }
         if (name) where.name = { [Op.like]: `%${name}%` };
         if (start_date && end_date) {
             where.start_date = { [Op.gte]: start_date };
@@ -53,7 +58,6 @@ async function updateLeaveRequestStatus(req, res) {
         const { id } = req.params;
         const { status } = req.body;
 
-        // Require authenticated user (assumes auth middleware sets req.user)
         const { userRole, user } = req;
         const request = await LeaveRequest.findByPk(id);
         if (!request) {
@@ -99,22 +103,29 @@ const getLeaveRequestsById = async (req, res) => {
     }
 };
 
-
 const addRequest = async (req, res) => {
     try {
-        const { user_id, leave_type, start_date, end_date, reason, substitute_id } =
+        const { leave_type, start_date, end_date, reason, substitute_id } =
             req.body;
-        if (!user_id || !leave_type || !start_date || !end_date) {
+        if (!leave_type || !start_date || !end_date) {
             return res.status(400).json({ error: "Missing required fields" });
         }
+        let status = "pending";
+        if (
+            req.userRole === "admin" ||
+            req.userRole === "manager" ||
+            req.userRole === "leader"
+        ) {
+            status = "approved";
+        }
         const newRequest = await LeaveRequest.create({
-            user_id,
-            employee_name: req.user.username,
+            user_id: req.user.id,
+            employee_name: req.user.name,
             leave_type,
             start_date,
             end_date,
             reason,
-            status: "pending",
+            status,
             substitute_id,
             created_at: new Date(),
             updated_at: new Date(),
@@ -125,11 +136,10 @@ const addRequest = async (req, res) => {
     }
 };
 
-
 module.exports = {
     getLeaveRequests,
     updateLeaveRequestStatus,
     getLeaveRequests,
     addRequest,
-    getLeaveRequestsById
+    getLeaveRequestsById,
 };

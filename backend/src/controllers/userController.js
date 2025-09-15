@@ -23,7 +23,15 @@ async function getAllUsers(req, res) {
 
         const { rows, count } = await User.findAndCountAll({
             where,
-            attributes: ["id", "name", "username", "role"],
+            attributes: [
+                "id",
+                "name",
+                "username",
+                "role",
+                "email",
+                "date_of_birth",
+                "phone_number",
+            ],
             limit: pageSize,
             offset,
             order: [["name", "ASC"]],

@@ -7,6 +7,8 @@ const userRoutes = require("./routes/user");
 const dashboardRoutes = require("./routes/dashboard");
 const attendanceRoutes = require("./routes/attendance");
 const leaveRoutes = require("./routes/leave");
+const reportRoutes = require("./routes/report");
+const projectRoutes = require("./routes/project");
 
 const { swaggerUi, swaggerSpec } = require("./swagger");
 
@@ -45,7 +47,8 @@ app.use("/api/users", userRoutes);
 app.use("/api/dashboard", dashboardRoutes);
 app.use("/api/attendance", attendanceRoutes);
 app.use("/api/leave-requests", leaveRoutes);
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+app.use("/api/daily-reports", reportRoutes);
+app.use("/api/projects", projectRoutes);
 
 app.listen(port, () => {
     console.log(`🚀 Server running at http://localhost:${port}`);

@@ -57,5 +57,15 @@ const User = sequelize.define(
         timestamps: false,
     }
 );
-
+try {
+    const { DailyReport } = require("./report");
+    if (DailyReport) {
+        User.hasMany(DailyReport, {
+            foreignKey: "user_id",
+            as: "DailyReports",
+        });
+        DailyReport.belongsTo(User, { foreignKey: "user_id", as: "User" });
+    }
+} catch (e) {
+}
 module.exports = { User };

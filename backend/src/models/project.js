@@ -55,4 +55,12 @@ const Project = sequelize.define(
     }
 );
 
+try {
+    const { Report } = require("./report");
+    if (Report) {
+        Project.hasMany(Report, { foreignKey: "project_id", as: "Reports" });
+        Report.belongsTo(Project, { foreignKey: "project_id", as: "Project" });
+    }
+} catch (e) {}
+
 module.exports = { Project };

@@ -17,6 +17,14 @@ const DailyReport = sequelize.define(
             type: DataTypes.DATEONLY,
             allowNull: false,
         },
+        work_type : {
+            type: DataTypes.STRING,
+            allowNull: true,
+        },
+        project_id: {
+            type: DataTypes.INTEGER,
+            allowNull: true,
+        },
         tasks_today: {
             type: DataTypes.TEXT,
             allowNull: true,

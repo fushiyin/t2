@@ -78,7 +78,7 @@ const getDailyReports = async (req, res) => {
 
 const createNewReport = async (req, res) => {
     try {
-        const { report_date, tasks_today, plan_tomorrow, project_id } =
+        const { report_date, tasks_today, plan_tomorrow, project_id, work_type } =
             req.body;
 
         const newReport = await DailyReport.create({
@@ -87,6 +87,7 @@ const createNewReport = async (req, res) => {
             tasks_today,
             plan_tomorrow,
             project_id,
+            work_type,
         });
 
         console.log(newReport)

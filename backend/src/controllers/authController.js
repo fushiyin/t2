@@ -143,7 +143,6 @@ async function handleLogin(req, res) {
 
 async function Login(req, res) {
     try {
-        // Already logged in with session?
         if (req.session && req.session.userId) {
             return res.status(403).json({ error: "Already logged in" });
         }
@@ -167,6 +166,7 @@ async function Login(req, res) {
 
         // === Device-session binding check ===
         const existing = await DeviceSession.findOne({ where: { deviceId } });
+        console.log(existing);
 
         if (existing) {
             if (existing.userId !== user.id) {
@@ -293,7 +293,9 @@ async function handleCheckout(req, res) {
         const deviceId = req.session?.deviceId;
         if (deviceId) {
             const { DeviceSession } = require("../models/deviceSession");
-            await DeviceSession.destroy({ where: { deviceId, userId: req.session.userId } });
+            await DeviceSession.destroy({
+                where: { deviceId, userId: req.session.userId },
+            });
         }
 
         // destroy express session
@@ -307,7 +309,9 @@ async function handleCheckout(req, res) {
             return res.json({ success: true });
         });
     } catch (err) {
-        return res.status(500).json({ error: "Logout failed", details: err.message });
+        return res
+            .status(500)
+            .json({ error: "Logout failed", details: err.message });
     }
 }
 

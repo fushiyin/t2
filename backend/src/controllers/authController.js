@@ -1,172 +1,26 @@
 const { exec } = require("child_process");
 const os = require("os");
 const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
-const { DeviceSession } = require("../models/deviceSession");
-const {
-    generateAccessToken,
-    generateRefreshToken,
-} = require("../utils/tokens");
+const { generateRefreshToken } = require("../utils/tokens");
 
 const checkinLog = {};
 
-function getClientIp(req) {
-    let ip =
-        req.headers["x-forwarded-for"]?.split(",")[0]?.trim() ||
-        req.socket?.remoteAddress ||
-        req.connection?.remoteAddress ||
-        req.ip;
-
-    if (ip && ip.startsWith("::ffff:")) {
-        ip = ip.substring(7);
-    }
-
-    return ip;
-}
-
-function getMacFromIp(ip) {
-    return new Promise((resolve) => {
-        if (!ip) return resolve(null);
-
-        const platform = os.platform();
-        let cmd = "";
-
-        if (platform === "win32") {
-            cmd = `arp -a ${ip}`;
-        } else {
-            cmd = `arp -n ${ip}`;
-        }
-
-        exec(cmd, (err, stdout) => {
-            if (!err && stdout) {
-                const match = stdout.match(
-                    /(([a-f0-9]{2}[:-]){5}[a-f0-9]{2})/i
-                );
-                if (match) {
-                    return resolve(match[0]);
-                }
-            }
-            resolve(null);
-        });
-    });
-}
-
-async function handleCheckin(req, res) {
-    const ip = getClientIp(req);
-    console.log("Client IP:", ip);
-
-    const today = new Date().toISOString().slice(0, 10);
-    if (checkinLog[ip] === today) {
-        return res.status(400).json({
-            ip,
-            message: "This device has already checked in today.",
-            date: today,
-        });
-    }
-
-    const mac = await getMacFromIp(ip);
-    const recognized = !!mac;
-
-    // Lưu vào log
-    if (recognized) {
-        checkinLog[ip] = today;
-    }
-
-    res.json({
-        ip,
-        mac,
-        timestamp: new Date().toISOString(),
-        recognized,
-        employeeId: recognized ? "demo-employee-id" : null,
-    });
-}
-
-// Controller: Bind
-async function handleBind(req, res) {
-    const { employeeId, ip, mac } = req.body;
-
-    if (!employeeId || !ip || !mac) {
-        return res.status(400).json({ error: "Missing employeeId, ip or mac" });
-    }
-
-    console.log("Bind Device:", { employeeId, ip, mac });
-
-    res.json({
-        success: true,
-        message: "Device bound successfully",
-        employeeId,
-        ip,
-        mac,
-    });
-}
-
-async function handleLogin(req, res) {
-    if (req.session && req.session.userId) {
-        return res.status(403).json({ error: "Already logged in" });
-    }
-
-    const { username, password } = req.body;
+async function Login(req, res) {
+    const { username, password, deviceId } = req.body;
     const { User } = require("../models/user");
     const user = await User.findOne({ where: { username } });
     if (!user) {
         return res.status(401).json({ error: "user does not exists" });
     }
-    // Check latest_login
-    // const today = new Date().toISOString().slice(0, 10);
-    // if (user.latest_login) {
-    //     const latestLoginDate = new Date(user.latest_login)
-    //         .toISOString()
-    //         .slice(0, 10);
-    //     if (latestLoginDate === today) {
-    //         return res
-    //             .status(403)
-    //             .json({ error: "You can not login twice a day" });
-    //     }
-    // }
+
     const passwordMatch = await bcrypt.compare(password, user.password_hash);
     if (!passwordMatch) {
         return res.status(401).json({ error: "Invalid credentials" });
     }
 
-    req.session.userId = user.id;
-    // Cache minimal user info in session to avoid DB lookup on each request
-    req.session.userRole = user.role;
-    req.session.username = user.username;
-    // Update latest_login to now
-    await user.update({ latest_login: new Date() });
-
-    res.json({
-        success: true,
-        username: user.username,
-    });
-}
-
-async function Login(req, res) {
     try {
-        if (req.session && req.session.userId) {
-            return res.status(403).json({ error: "Already logged in" });
-        }
-
-        const { username, password, deviceId } = req.body;
-        const { User } = require("../models/user");
-
-        const user = await User.findOne({ where: { username } });
-        if (!user) {
-            return res.status(401).json({ error: "User does not exist" });
-        }
-
-        // Password check
-        const passwordMatch = await bcrypt.compare(
-            password,
-            user.password_hash
-        );
-        if (!passwordMatch) {
-            return res.status(401).json({ error: "Invalid credentials" });
-        }
-
-        // === Device-session binding check ===
+        const { DeviceSession } = require("../models/deviceSession");
         const existing = await DeviceSession.findOne({ where: { deviceId } });
-        console.log(existing);
 
         if (existing) {
             if (existing.userId !== user.id) {
@@ -185,9 +39,6 @@ async function Login(req, res) {
                 });
             }
         }
-        // Generate tokens
-        const accessToken = generateAccessToken({ userId: user.id, deviceId });
-
         const refreshToken = generateRefreshToken({
             userId: user.id,
             deviceId,
@@ -204,44 +55,28 @@ async function Login(req, res) {
                 refreshToken,
             });
         }
+    } catch (err) {
+        console.debug("Device binding check skipped", err.message || err);
+    }
 
-        // Save to session (if you still want session-based login too)
-        req.session.userId = user.id;
-        // Cache minimal user info in session to avoid DB lookups later
-        req.session.userRole = user.role;
-        req.session.username = user.username;
-        req.session.name = user.name;
-        req.session.deviceId = deviceId; // Add deviceId to session
+    req.session.userId = user.id;
+    req.session.userRole = user.role;
+    req.session.username = user.username;
+    req.session.name = user.name;
+    await user.update({ latest_login: new Date() });
 
-        // Update latest_login
-        await user.update({ latest_login: new Date() });
-
-        // Set refresh token cookie
-        res.cookie("refreshToken", refreshToken, {
-            httpOnly: true,
-            secure: process.env.NODE_ENV === "production",
-            sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
-            maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days
-        });
-
-        res.json({
-            success: true,
+    return res.json({
+        success: true,
+        username: user.username,
+        role: user.role,
+        user: {
+            id: user.id,
             username: user.username,
             role: user.role,
-            accessToken,
-            user: {
-                id: user.id,
-                username: user.username,
-                role: user.role,
-                name: user.name,
-                userId: user.id,
-            },
-            deviceId,
-        });
-    } catch (err) {
-        console.error(err);
-        res.status(500).json({ error: "Internal server error" });
-    }
+            name: user.name,
+            userId: user.id,
+        },
+    });
 }
 
 function requireAuth(req, res, next) {
@@ -290,19 +125,10 @@ function redirectIfAuthenticated(req, res, next) {
 
 async function handleCheckout(req, res) {
     try {
-        const deviceId = req.session?.deviceId;
-        if (deviceId) {
-            const { DeviceSession } = require("../models/deviceSession");
-            await DeviceSession.destroy({
-                where: { deviceId, userId: req.session.userId },
-            });
-        }
-
         // destroy express session
         req.session.destroy((err) => {
-            // Clear cookies regardless
+            // Clear session cookie
             res.clearCookie("connect.sid");
-            res.clearCookie("refreshToken");
             if (err) {
                 return res.status(500).json({ error: "Logout failed" });
             }
@@ -397,81 +223,17 @@ async function getMe(req, res) {
     if (!req.user) {
         return res.status(401).json({ error: "Not authenticated" });
     }
-    res.json({
-        user: req.user,
-        accessToken: generateAccessToken({
-            userId: req.user.id,
-            deviceId: req.session.deviceId || "default",
-        }), // generate fresh token
-    });
+    res.json({ user: req.user });
 }
 
 async function refreshToken(req, res) {
-    const refreshToken = req.cookies.refreshToken;
-    if (!refreshToken) {
-        return res.status(401).json({ error: "No refresh token" });
-    }
-
-    try {
-        const decoded = jwt.verify(
-            refreshToken,
-            process.env.REFRESH_TOKEN_SECRET || "refresh-secret"
-        );
-        const { DeviceSession } = require("../models/deviceSession");
-        const session = await DeviceSession.findOne({
-            where: { userId: decoded.userId, deviceId: decoded.deviceId },
-        });
-        if (!session || session.refreshToken !== refreshToken) {
-            return res.status(401).json({ error: "Invalid refresh token" });
-        }
-
-        // Fetch user details from User model
-        const { User } = require("../models/user");
-        const user = await User.findOne({ where: { id: decoded.userId } });
-        if (!user) {
-            return res.status(401).json({ error: "User not found" });
-        }
-
-        // Generate new access token
-        const newAccessToken = generateAccessToken({
-            userId: user.id,
-            deviceId: decoded.deviceId,
-        });
-
-        // Rotate refresh token: create a new refresh token and persist it
-        const newRefreshToken = generateRefreshToken({
-            userId: user.id,
-            deviceId: decoded.deviceId,
-        });
-        session.refreshToken = newRefreshToken;
-        await session.save();
-
-        // set refreshed cookie
-        res.cookie("refreshToken", newRefreshToken, {
-            httpOnly: true,
-            secure: process.env.NODE_ENV === "production",
-            sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
-            maxAge: 30 * 24 * 60 * 60 * 1000,
-        });
-
-        // return new access token and user
-        res.json({
-            accessToken: newAccessToken,
-            user: {
-                id: user.id,
-                username: user.username,
-                role: user.role,
-            },
-        });
-    } catch (err) {
-        res.status(401).json({ error: "Invalid refresh token" });
-    }
+    // Refresh token flow is disabled when using session-only auth
+    res.status(410).json({
+        error: "Refresh token not supported in session-only mode",
+    });
 }
 
 module.exports = {
-    handleCheckin,
-    handleBind,
-    handleLogin,
     handleCheckout,
     requireAuth,
     redirectIfAuthenticated,

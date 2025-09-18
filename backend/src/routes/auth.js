@@ -1,8 +1,5 @@
 const express = require("express");
 const {
-    handleCheckin,
-    handleBind,
-    handleLogin,
     requireAuth,
     handleCheckout,
     handleCheckinStatusUpdate,
@@ -12,10 +9,7 @@ const {
 
 const router = express.Router();
 
-router.post("/checkin", handleCheckin);
-router.post("/bind", handleBind);
 
-router.post("/login", handleLogin);
 router.post("/logout", requireAuth, handleCheckout);
 router.post('/sign-in', Login);
 

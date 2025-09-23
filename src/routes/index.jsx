@@ -5,6 +5,9 @@ import PageNotFound from "@/views/PageNotFound";
 import React, { Suspense } from "react";
 import { createBrowserRouter, Navigate, RouterProvider } from "react-router";
 import { idRouter } from "./idRouter";
+import PublicRoute from "@/components/PublicRoute";
+import PrivateRoute from "@/components/PrivateRoute";
+import { useSelector } from "react-redux";
 
 const Home = React.lazy(() => import("@/views/Home"));
 const About = React.lazy(() => import("@/views/About"));
@@ -26,6 +29,7 @@ const UserManagement = React.lazy(() => import("@/views/Admin/pages/UserManageme
 const LeaveRequest = React.lazy(() => import("@/views/Admin/pages/LeaveRequest"));
 const DailyReport = React.lazy(() => import("@/views/Admin/pages/DailyReport"));
 const Evaluation = React.lazy(() => import("@/views/Admin/pages/Evaluation"));
+const ProjectManagement = React.lazy(() => import("@/views/Admin/pages/Project"));
 
 const CheckIn = React.lazy(() => import("@/views/Checkin"));
 
@@ -87,17 +91,45 @@ const router = createBrowserRouter([
 	},
 	{
 		path: idRouter.checkin,
-		element: <CheckIn />,
+		element: (
+			<PrivateRoute>
+				<CheckIn />
+			</PrivateRoute>
+		),
 	},
 	{
+		path: idRouter.adminDailyReport,
+		element: (
+			<PrivateRoute>
+				<DailyReport />
+			</PrivateRoute>
+		),
+	},
+	{
+		path: idRouter.adminLeave,
+		element: (
+			<PrivateRoute>
+				<LeaveRequest />
+			</PrivateRoute>
+		),
+	},
+
+	{
 		path: idRouter.admin,
-		element: <Admin />,
+		element: (
+			<PrivateRoute>
+				{/* only allow users with role 'admin' or 'manager' to access Admin area */}
+				<RequireAdmin>
+					<Admin />
+				</RequireAdmin>
+			</PrivateRoute>
+		),
 		children: [
 			{
 				index: true,
 				element: (
 					<Navigate
-						to={idRouter.adminDashboard}
+						to={idRouter.adminAttendance}
 						replace
 					/>
 				),
@@ -146,9 +178,24 @@ const router = createBrowserRouter([
 				path: idRouter.adminEvaluation,
 				element: <Evaluation />,
 			},
+			{
+				path: idRouter.project,
+				element: <ProjectManagement />,
+			},
 		],
 	},
 ]);
+
+function RequireAdmin({ children }) {
+	const role = useSelector((s) => s?.user?.role || s?.auth?.user?.role || null);
+	if (role === "admin" || role === "manager") return children;
+	return (
+		<Navigate
+			to={idRouter.checkin}
+			replace
+		/>
+	);
+}
 
 function AppRouter() {
 	return (

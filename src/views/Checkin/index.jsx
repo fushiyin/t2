@@ -1,22 +1,34 @@
-import axios from "axios";
-import { User } from "lucide-react";
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { getCurrentTimeString } from "@/lib/utils";
 import { useIsMobile } from "@/hooks/use-mobile";
+import api from "@/lib/axiosInstance";
+import { getCurrentTimeString } from "@/lib/utils";
+import { clearUser } from "@/store/userSlice";
+import { Menu, Sunrise, Sunset } from "lucide-react";
+import { memo, useEffect, useRef, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const CheckIn = () => {
 	const navigate = useNavigate();
 	const [status, setStatus] = useState("");
-	const [role, setRole] = useState("");
-	const [time, setTime] = useState(getCurrentTimeString());
+	const dispatch = useDispatch();
+	const isMobile = useIsMobile();
+	const [menuOpen, setMenuOpen] = useState(false);
+	const menuRef = useRef(null);
+	const user = useSelector((s) => s?.user || s?.auth?.user || {});
 
-	useEffect(() => {
-		const timer = setInterval(() => {
-			setTime(getCurrentTimeString());
-		}, 1000);
-		return () => clearInterval(timer);
-	}, []);
+	function ClockDisplay() {
+		const [time, setTime] = useState(getCurrentTimeString());
+		useEffect(() => {
+			const timer = setInterval(() => setTime(getCurrentTimeString()), 1000);
+			return () => clearInterval(timer);
+		}, []);
+		return (
+			<h1 className="text-5xl md:text-7xl font-bold mb-8 text-white drop-shadow-lg">
+				{time}
+			</h1>
+		);
+	}
+	const MemoClock = memo(ClockDisplay);
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -27,70 +39,76 @@ const CheckIn = () => {
 
 	const fetchStatus = async () => {
 		try {
-			const res = await axios.get("/api/auth/checkin-status");
+			const res = await api.get("/api/auth/checkin-status");
 			setStatus(res.data.status);
-			if (res.data.role) setRole(res.data.role);
 		} catch (err) {
 			console.error("Failed to fetch status:", err);
 		}
 	};
 
-	useEffect(() => {
-		if (role === "admin") {
-			navigate("/admin/dashboard");
-		}
-	}, [role, navigate]);
-
-	const handleCheckin = async () => {
+	const updateStatus = async (newStatus) => {
 		try {
-			await axios.patch("/api/auth/checkin-status", {
-				status: "CHECKIN",
-			});
+			await api.patch("/api/auth/checkin-status", { status: newStatus });
 			await fetchStatus();
 		} catch (err) {
-			console.error(err);
+			console.error("Failed to update status:", err);
 		}
 	};
 
-	const handleCheckout = async () => {
-		try {
-			await axios.patch("/api/auth/checkin-status", {
-				status: "CHECKOUT",
-			});
-			await fetchStatus();
-		} catch (err) {
-			console.error(err);
-		}
-	};
+	const handleCheckin = async () => updateStatus("CHECKIN");
+	const handleCheckout = async () => updateStatus("CHECKOUT");
 
 	const handleLogout = async () => {
 		try {
-			await handleCheckout();
-			const res = await axios.post("/api/auth/logout");
-			if (res.data.success) {
-				navigate("/login");
-			}
+			await api.logout();
 		} catch (error) {
 			console.error("Logout failed:", error);
 		}
+		dispatch(clearUser());
+		navigate("/login", { replace: true });
 	};
+
+	useEffect(() => {
+		const handleDocClick = (e) => {
+			if (menuRef.current && !menuRef.current.contains(e.target)) {
+				setMenuOpen(false);
+			}
+		};
+		document.addEventListener("click", handleDocClick);
+		return () => document.removeEventListener("click", handleDocClick);
+	}, []);
 
 	return (
 		<>
 			<div
-				className="h-full flex items-center justify-center px-5 relative flex-col"
+				className="h-full flex items-center justify-center px-5 pt-10 pb-40 relative flex-col"
 				style={{
-					backgroundImage: useIsMobile ? "url('mobilebg.jpg')" : "url('bg.jfif')",
+					backgroundImage: isMobile ? "url('mobilebg.jpg')" : "url('bg.jpg')",
 					backgroundSize: "cover",
 					backgroundPosition: "center",
 					backgroundRepeat: "no-repeat",
 					height: "100vh",
 				}}
 			>
-				<h1 className="text-5xl md:text-7xl font-bold mb-8 text-white drop-shadow-lg">
-					{time}
-				</h1>
+				<MemoClock />
 				<div className="w-full max-w-md bg-white/30 backdrop-blur-sm border border-white/40 rounded-2xl shadow-2xl px-8 py-10 flex flex-col gap-6">
+					<div className="flex flex-col items-center gap-2 mb-auto w-full max-w-3xl">
+						<div className="h-full items-center flex">
+							{status === "CHECKIN" ? (
+								<Sunrise className="h-10 w-10 text-gray-900 drop-shadow-lg" />
+							) : (
+								<Sunset className="h-10 w-10 text-gray-900 drop-shadow-lg" />
+							)}
+						</div>
+						<div className="flex-col items-center">
+							<h2 className="text-2xl text-center md:text-4xl font-semibold italic text-gray-900 drop-shadow-lg">
+								Hello,
+							</h2>
+							<h2 className="text-2xl md:text-4xl font-semibold italic text-gray-900 drop-shadow-lg">
+								{JSON.parse(localStorage.getItem("user"))?.name || "User"}
+							</h2>
+						</div>
+					</div>
 					<div className="text-xl text-center mb-4">
 						{status === "CHECKIN"
 							? "Remember to take breaks! Stay hydrated and stay productive."
@@ -124,11 +142,66 @@ const CheckIn = () => {
 					</div>
 				</div>
 				<div
-					className="text-base font-semibold bg-white p-2 text-center cursor-pointer rounded-lg absolute top-0 right-0 m-4"
-					onClick={() => navigate("/admin/dashboard")}
+					className="absolute top-0 right-0 m-4 z-50"
+					ref={menuRef}
 				>
-					<User className="inline-block mr-1" />
-					Dashboard
+					<button
+						onClick={(e) => {
+							e.stopPropagation();
+							setMenuOpen((v) => !v);
+						}}
+						className="text-base font-semibold text-white p-2 bg-black/30 rounded-lg"
+					>
+						<Menu className="inline-block" />
+					</button>
+					<div
+						className={
+							`absolute right-0 mt-2 w-44 rounded-md overflow-hidden z-50 transition-transform duration-200 
+							ease-out transform origin-top-right ` +
+							(menuOpen
+								? "translate-x-0 opacity-100 pointer-events-auto"
+								: "translate-x-4 opacity-0 pointer-events-none")
+						}
+						style={{
+							background: "rgba(255,255,255,0.06)",
+							backdropFilter: "blur(8px)",
+							border: "1px solid rgba(255,255,255,0.12)",
+						}}
+					>
+						<button
+							className="w-full text-left px-4 py-2 hover:bg-white/10 text-white border-b border-white/20"
+							onClick={(e) => {
+								e.stopPropagation();
+								setMenuOpen(false);
+								navigate("/daily-report");
+							}}
+						>
+							Daily Report
+						</button>
+						<button
+							className="w-full text-left px-4 py-2 hover:bg-white/10 text-white border-b border-white/20"
+							onClick={(e) => {
+								e.stopPropagation();
+								setMenuOpen(false);
+								navigate("/leave");
+							}}
+						>
+							Leave Request
+						</button>
+
+						{user.role === "admin" || user.role === "manager" ? (
+							<button
+								className="w-full text-left px-4 py-2 hover:bg-white/10 text-white"
+								onClick={(e) => {
+									e.stopPropagation();
+									setMenuOpen(false);
+									navigate("/admin/attendance");
+								}}
+							>
+								Back Office
+							</button>
+						) : null}
+					</div>
 				</div>
 				<span className="text-base text-white text-center absolute bottom-5">
 					Make sure you are connected to the company Wi-Fi.

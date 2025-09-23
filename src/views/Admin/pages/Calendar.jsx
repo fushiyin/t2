@@ -387,7 +387,7 @@ export default function Calendar() {
 			initial={{ opacity: 0 }}
 			animate={{ opacity: 1 }}
 			transition={{ duration: 0.5 }}
-			className="p-6"
+			className="flex flex-col h-full"
 		>
 			<motion.div
 				initial={{ y: -20 }}
@@ -397,7 +397,6 @@ export default function Calendar() {
 			>
 				<div>
 					<h1 className="text-2xl font-bold">Calendar</h1>
-					<p className="text-muted-foreground">Manage your schedule and events</p>
 				</div>
 				<motion.div
 					whileHover={{ scale: 1.02 }}
@@ -410,7 +409,7 @@ export default function Calendar() {
 				</motion.div>
 			</motion.div>
 
-			<div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
+			<div className="flex-1 grid grid-cols-1 lg:grid-cols-4 gap-6">
 				{/* Calendar */}
 				<Card className="col-span-3">
 					<CardHeader>

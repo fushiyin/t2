@@ -43,6 +43,5 @@ export function getCurrentTimeString() {
 export const generateDeviceId = async () => {
     const fp = await FingerprintJS.load();
     const result = await fp.get();
-    console.log(result);
     return result.visitorId;
 };

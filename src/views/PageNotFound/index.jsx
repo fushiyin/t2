@@ -2,7 +2,6 @@ import { Button } from "@/components/ui/button";
 import { idRouter } from "@/routes/idRouter";
 import { motion } from "framer-motion";
 import { ArrowRightIcon } from "lucide-react";
-import CustomCursor from "../Home/components/CustomeCursor/Cursor";
 
 const containerVariants = {
 	hidden: { opacity: 0, y: 30 },
@@ -25,7 +24,6 @@ const itemVariants = {
 export default function PageNotFound() {
 	return (
 		<>
-			<CustomCursor />
 			<motion.div
 				variants={containerVariants}
 				initial="hidden"

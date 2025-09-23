@@ -80,14 +80,14 @@ function DashboardManagement() {
 	if (loading) return <div>Loading...</div>;
 
 	return (
-		<div className="w-full flex flex-col items-center gap-5 overflow-auto no-scrollbar scrollbar-hidden pb-5">
+		<div className="w-full h-full min-h-0 flex flex-col items-center gap-5 pb-5">
 			{/* dashboard card */}
 			<div className="w-full flex-shrink-0">
 				<h2 className="text-2xl font-bold">Welcome, Admin!</h2>
 			</div>
-			<div className="flex flex-col md:grid gap-5 w-full grid-cols-5 items-stretch">
-				<div className="flex-col w-full col-span-4 ">
-					<div className="flex flex-col gap-10 w-full md:flex-row md:flex-wrap bg-blue-100 p-5 rounded-lg self-start shadow-lg">
+			<div className="flex-1 w-full min-h-0 overflow-auto flex flex-col gap-5">
+				<div className="flex-col w-full">
+					<div className="flex flex-col gap-10 w-full md:flex-row md:flex-wrap bg-blue-100 p-5 rounded-lg self-start shadow-lg overflow-x-hidden">
 						<div className="datetime min-w-[250px]">
 							<h2 className="text-xl mb-2 text-gray-700 font-semibold">
 								{new Date().toLocaleString("vi-VN", {
@@ -121,30 +121,21 @@ function DashboardManagement() {
 						/>
 					</div>
 				</div>
-				<div className="col-span-1 self-start h-full">
-					<div className="bg-white rounded-xl shadow-lg p-6 w-full max-w-md h-full">
-						<div className="flex justify-between items-center mb-2">
-							<h2 className="text-lg font-bold text-gray-700">Announcement</h2>
-							<span className="text-blue-400 text-sm cursor-pointer">See All</span>
-						</div>
-						<div className="text-gray-600">No new announcements.</div>
-					</div>
-				</div>
 			</div>
-			<div className="flex flex-col md:grid gap-5 w-full grid-cols-5 items-start">
-				<div className="w-full col-span-4 flex items-stretch justify-start mt-5 gap-5">
-					<div className="flex flex-row gap-5 max-w-full w-full">
-						<div className="flex-1 flex-col gap-10 h-full">
+			<div className="w-full items-start">
+				<div className="w-full flex items-stretch justify-start mt-5 gap-5 min-h-0">
+					<div className="flex flex-col md:flex-row gap-5 max-w-full w-full min-h-0">
+						<div className="flex-1 flex-col gap-10 h-full min-h-0">
 							<div>
 								<CheckInList data={user.data} />
 							</div>
-							<div className="mt-5 w-full bg-white rounded-lg p-4 h-[317px] shadow-lg flex">
+							<div className="mt-5 w-full bg-white rounded-lg p-4 md:h-[317px] h-auto shadow-lg flex overflow-auto">
 								<LeaveRequest />
 							</div>
 						</div>
 						<div className="flex-1 h-full">
 							<AttendanceStat stats={stat.weeklyCheckinStats || {}} />
-							<div className="mt-5 flex gap-5">
+							<div className="mt-5 flex gap-5 flex-wrap">
 								<GenderDistribution data={user.data} />
 								<RankingDistribution
 									rankingStats={stat.rankingDistribution || {}}
@@ -152,9 +143,6 @@ function DashboardManagement() {
 							</div>
 						</div>
 					</div>
-				</div>
-				<div className="col-span-1 self-start h-full flex flex-col gap-5">
-					<Schedule />
 				</div>
 			</div>
 		</div>

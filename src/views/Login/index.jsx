@@ -1,6 +1,9 @@
+import api from "@/lib/axiosInstance";
 import { generateDeviceId } from "@/lib/utils";
+import { setUser } from "@/store/userSlice";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 function Login() {
@@ -9,30 +12,43 @@ function Login() {
 	const [error, setError] = useState("");
 
 	const navigate = useNavigate();
+	const dispatch = useDispatch();
 
-	const handleLogin = async (e) => {
-		e.preventDefault();
-		setError("");
-		if (!username || !password) {
-			setError("Please enter username and password!");
-			return;
-		}
-		try {
-			const res = await axios.post("/api/auth/login", {
-				username,
-				password,
-			});
-			if (res.data.success) {
-				await fetchStatus();
-				navigate("/checkin");
-			} else {
-				setError(res.data.error || "Login failed");
-			}
-		} catch (err) {
-			setError("Error login");
-			console.error("Error login:", err);
-		}
-	};
+	// useEffect(() => {
+	// 	checkDevice();
+	// }, []);
+
+	// const checkDevice = async () => {
+	// 	try {
+	// 		const deviceId = await generateDeviceId();
+	// 		const res = await api.post("/api/auth/device-check", { deviceId });
+	// 		if (res.data.exists) {
+	// 			await signUpWithDevice(deviceId);
+	// 		}
+	// 	} catch (err) {
+	// 		console.error("Device check failed:", err);
+	// 	}
+	// };
+
+	// const signUpWithDevice = async (deviceId) => {
+	// 	try {
+	// 		const res = await api.post("/api/auth/device-login", { deviceId });
+	// 		const uid = res.data?.userId ?? res.data?.id ?? res.data?.user?.id;
+	// 		const uname = res.data?.username ?? res.data?.user?.username;
+	// 		const urole = res.data?.role ?? res.data?.user?.role;
+	// 		const user = res.data?.user ?? { id: uid, username: uname, role: urole };
+	// 		if (user) {
+	// 			dispatch(setUser(user));
+	// 		}
+	// 		if (res.data.accessToken) api.setAuthToken(res.data.accessToken);
+	// 		await fetchStatus();
+	// 		navigate("/checkin");
+	// 	} catch (err) {
+	// 		alert(err.response?.data?.error || "Error login");
+	// 		console.error("Error login:", err);
+	// 		setError("Failed to sign in with device");
+	// 	}
+	// };
 
 	const signUp = async (e) => {
 		e.preventDefault();
@@ -43,38 +59,27 @@ function Login() {
 		}
 		try {
 			const deviceId = await generateDeviceId();
-			await axios.post("/api/auth/sign-in", {
-				username,
-				password,
-				deviceId,
-			});
+			const res = await api.post("/api/auth/sign-in", { username, password, deviceId });
+			const uid = res.data?.userId ?? res.data?.id ?? res.data?.user?.id;
+			const uname = res.data?.username ?? res.data?.user?.username;
+			const urole = res.data?.role ?? res.data?.user?.role;
+			const user = res.data?.user ?? { id: uid, username: uname, role: urole };
+			if (user) {
+				dispatch(setUser(user));
+			}
 			await fetchStatus();
 			navigate("/checkin");
 		} catch (err) {
-			alert(err.response.data.error || "Error login");
+			alert(err.response?.data?.error || "Error login");
 			console.error("Error login:", err);
 		}
 	};
 
 	const fetchStatus = async () => {
 		try {
-			const res = await axios.get("/api/auth/checkin-status");
-			if (res.data.status === "LEAVE") {
-				await handleCheckin();
-			}
+			await axios.get("/api/auth/checkin-status");
 		} catch (err) {
 			console.error("Failed to fetch status:", err);
-		}
-	};
-
-	const handleCheckin = async () => {
-		try {
-			await axios.patch("/api/auth/checkin-status", {
-				status: "CHECKIN",
-			});
-			await fetchStatus();
-		} catch (err) {
-			console.error(err);
 		}
 	};
 
@@ -126,10 +131,7 @@ function Login() {
 				</h1>
 				<div className="bg-opacity-20 py-10 backdrop-blur-xl p-8 rounded-2xl shadow-2xl min-w-[350px] md:min-w-xl max-w-7xl text-center border border-white border-opacity-30 relative">
 					{error && <div className="text-red-500 mb-2">{error}</div>}
-					<form
-						className="flex flex-col items-center"
-						onSubmit={handleLogin}
-					>
+					<form className="flex flex-col items-center">
 						<input
 							type="text"
 							placeholder="Email address"

@@ -16,6 +16,7 @@ export const idRouter = Object.freeze({
 	adminDailyReport: "daily-report",
 	adminAttendance: "attendance",
 	adminLeave: "leave",
+	project: "projects",
 	adminUsers: "users",
 	adminEvaluation: "evaluation",
 	adminCalendar: "calendar",

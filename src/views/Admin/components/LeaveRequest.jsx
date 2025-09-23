@@ -6,10 +6,6 @@ import { CheckCheckIcon, XIcon } from "lucide-react";
 function LeaveRequest() {
 	const [requests, setRequests] = useState([]);
 
-	useEffect(() => {
-		fetchRequests("pending");
-	}, []);
-
 	const fetchRequests = async (status) => {
 		try {
 			const res = await axios.get(`/api/leave-requests?status=${status}`);
@@ -19,6 +15,10 @@ function LeaveRequest() {
 			setRequests([]);
 		}
 	};
+
+	useEffect(() => {
+		fetchRequests("pending");
+	}, []);
 
 	const handleAction = async (id, status) => {
 		try {

@@ -1,5 +1,3 @@
-import useResponsive from "@/hooks/useResponsive";
-import CustomCursor from "@/views/Home/components/CustomeCursor/Cursor";
 import { Suspense } from "react";
 import { Outlet, useLocation } from "react-router";
 import {
@@ -14,16 +12,10 @@ import {
 import CallPhoneButton from "./CallPhoneButton";
 
 export default function MainLayout() {
-	const { isDesktop } = useResponsive();
-
-	// Chỉ hiển thị CustomCursor nếu là desktop (>= 1024px), kể cả có touch
-	const shouldShowCustomCursor = isDesktop;
-
 	const location = useLocation();
 
 	return (
 		<>
-			{shouldShowCustomCursor && <CustomCursor />}
 			<LenisProvider>
 				<OnboardingProvider>
 					<CustomLoading />

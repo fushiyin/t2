@@ -1,9 +1,9 @@
-import { useState, useEffect } from "react";
+import { Button, DatePicker, Input, Select, Table, Tag } from "antd";
 import axios from "axios";
-import { Button, DatePicker, Input, Select, Table } from "antd";
-import { Calendar } from "lucide-react";
-import * as XLSX from "xlsx";
 import { saveAs } from "file-saver";
+import { File } from "lucide-react";
+import { useEffect, useState } from "react";
+import * as XLSX from "xlsx";
 
 function Attendance() {
 	const [data, setData] = useState([]);
@@ -93,11 +93,12 @@ function Attendance() {
 			dataIndex: "status",
 			key: "status",
 			render: (data) => {
-				if (data) return "On Time";
-				return "Late";
+				console.log(data);
+				const status = typeof data === "boolean" ? (data ? "On Time" : "Late") : "Off";
+				const color = status === "On Time" ? "green" : status === "Late" ? "red" : "orange";
+				return <Tag color={color}>{status}</Tag>;
 			},
 		},
-		{ title: "IP Address", dataIndex: "ip_address", key: "ip_address" },
 	];
 
 	const handleSearchChange = (e) => {
@@ -115,12 +116,12 @@ function Attendance() {
 						name="name"
 						onChange={handleSearchChange}
 						placeholder="Search by name"
-						size="large"
+						size="medium"
 						className="mr-2"
 					/>
 					<Select
 						placeholder="Select Status"
-						size="large"
+						size="medium"
 						style={{ width: 150 }}
 						value={searchParams.status}
 						onChange={(value) =>
@@ -151,7 +152,7 @@ function Attendance() {
 									endDate: dates ? dates[1] : null,
 								}));
 							}}
-							size="large"
+							size="medium"
 						/>
 					</div>
 				</div>
@@ -159,9 +160,11 @@ function Attendance() {
 					<Button
 						onClick={downloadExcel}
 						type="primary"
-						size="large"
+						size="medium"
+						style={{ backgroundColor: "#2b772d" }}
+						icon={<File className="w-4 h-4 mr-2" />}
 					>
-						Download
+						Export
 					</Button>
 				</div>
 			</div>
@@ -183,7 +186,7 @@ function Attendance() {
 					},
 				}}
 				bordered
-				scroll={{ y: "70vh" }}
+				scroll={{ y: "70vh", x: "max-content" }}
 			/>
 		</div>
 	);

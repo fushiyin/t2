@@ -41,11 +41,11 @@ import {
 
 // Menu items.
 const items = [
-	{
-		title: "Home",
-		icon: Home,
-		url: "/admin/dashboard",
-	},
+	// {
+	// 	title: "Home",
+	// 	icon: Home,
+	// 	url: "/admin/dashboard",
+	// },
 	{
 		title: "Daily Report",
 		icon: BookText,
